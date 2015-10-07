@@ -12,5 +12,56 @@
 (defn parse-games [dom-page]
   (html/select dom-page [:.sbGame]))
 
+(defn is-regulation-period? [dom-element]
+  (and (= :b (:tag dom-element))
+       (= " Period:" (last (:content dom-element)))))
+
+(defn is-overtime-period? [dom-element]
+  (and (= :b (:tag dom-element))
+       (= "OT Period:" (:content dom-element))))
+
+(defn get-period-number
+  "Parses the period number from the given DOM element, or nil if none found.
+  Returns 4 for overtime period."
+  [dom-element]
+  (cond
+    (is-regulation-period? dom-element)
+    (read-string (first (:content dom-element)))
+
+    (is-overtime-period? dom-element)
+    4
+
+    :default
+    nil))
+
+(defn get-goal
+  "Parses the goal information from the given DOM element, or nil if none found."
+  [dom-element]
+  (when (= "goalDetails" (:class (:attrs dom-element)))
+    dom-element))
+
+(defn add-period [goals period]
+  (map #(assoc % :period period) goals))
+
+(defn parse-goals-rec
+  "Parses given DOM elements and returns a collection of goals."
+  [dom-elements current-period current-goals all-goals]
+  (if (empty? dom-elements)
+    (concat all-goals (add-period current-goals current-period))
+    (let [dom-element (first dom-elements)
+          period-number (get-period-number dom-element)
+          goal (get-goal dom-element)]
+      (cond
+        period-number
+        (parse-goals-rec (rest dom-elements) period-number [] (concat all-goals (add-period current-goals current-period)))
+
+        goal
+        (parse-goals-rec (rest dom-elements) current-period (conj current-goals goal) all-goals)
+
+        :default
+        (parse-goals-rec (rest dom-elements) current-period current-goals all-goals)))))
+
 (defn parse-goals [dom-game]
-  (html/select dom-game [:.goalDetails]))
+  (let [scoring-infos (html/select dom-game [:.scoringInfo])
+        goal-infos (:content (first scoring-infos))]
+    (parse-goals-rec goal-infos nil [] [])))
