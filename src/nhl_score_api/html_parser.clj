@@ -7,7 +7,8 @@
 (defn parse-scores [html-resource]
   (let [dom (html/html-resource html-resource)
         games (parse-games dom)]
-    (map parse-goals games)))
+    (filter seq
+      (map parse-goals games))))
 
 (defn parse-games [dom-page]
   (html/select dom-page [:.sbGame]))
