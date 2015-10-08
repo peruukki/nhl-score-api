@@ -1,6 +1,6 @@
 (ns nhl-score-api.html-parser-test
   (:require [clojure.test :refer :all]
-            [nhl-score-api.html-parser :refer :all]
+            [nhl-score-api.game-scores :refer :all]
             [nhl-score-api.resources :as resources]))
 
 (deftest game-score-html-parsing

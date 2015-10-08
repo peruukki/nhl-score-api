@@ -1,4 +1,4 @@
-(ns nhl-score-api.html-parser
+(ns nhl-score-api.game-scores
   (:require [net.cgrand.enlive-html :as html]))
 
 (declare parse-dom)
