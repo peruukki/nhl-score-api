@@ -14,6 +14,11 @@ A small, hopefully useful, project to write Clojure.
 
 `lein test`
 
+## OpenShift setup
+
+This application is running on [OpenShift](https://www.openshift.com), created using
+[clojure-cartridge](https://github.com/openshift-cartridges/clojure-cartridge).
+
 ## License
 
 [MIT](LICENSE)
