@@ -18,7 +18,7 @@
 
 (defn is-overtime-period? [dom-element]
   (and (= :b (:tag dom-element))
-       (= "OT Period:" (:content dom-element))))
+       (= "OT Period:" (first (:content dom-element)))))
 
 (defn get-period-number
   "Parses the period number from the given DOM element, or nil if none found.
@@ -34,11 +34,22 @@
     :default
     nil))
 
+(defn- parse-time [time-str]
+  (re-find #"\d\d:\d\d" time-str))
+
+(defn- parse-goal-count [goal-count-str]
+  (read-string (re-find #"\d+" goal-count-str)))
+
 (defn get-goal
   "Parses the goal information from the given DOM element, or nil if none found."
   [dom-element]
   (when (= "goalDetails" (:class (:attrs dom-element)))
-    dom-element))
+    (let [content (:content dom-element)
+          team (first (:content (first content)))
+          time (parse-time (nth content 1))
+          scorer (first (:content (nth content 2)))
+          goal-count (parse-goal-count (first (:content (last content))))]
+      {:team team :time time :scorer scorer :goal-count goal-count})))
 
 (defn add-period [goals period]
   (map #(assoc % :period period) goals))

@@ -20,4 +20,18 @@
   (testing "Parsing page with no games"
     (let [games (parse-scores html-without-games)]
       (is (= 0
-             (count games)) "Parsed game count"))))
+             (count games)) "Parsed game count")))
+
+  (testing "Parsing game with goals in regulation and overtime"
+    (let [goals (last (parse-scores html-with-games))]
+      (is (= [{:team "VAN" :time "03:57" :scorer "Bo Horvat" :goal-count 1 :period 1}
+              {:team "EDM" :time "03:08" :scorer "Benoit Pouliot" :goal-count 1 :period 3}
+              {:team "EDM" :time "17:19" :scorer "Ryan Nugent-Hopkins" :goal-count 1 :period 3}
+              {:team "VAN" :time "18:04" :scorer "Jannik Hansen" :goal-count 1 :period 3}
+              {:team "VAN" :time "00:29" :scorer "Daniel Sedin" :goal-count 1 :period 4}]
+             goals) "Parsed goals")))
+
+  (testing "Parsing game without goals"
+    (let [goals (nth (parse-scores html-with-games) 7)]
+      (is (= []
+             goals) "Parsed goals"))))
