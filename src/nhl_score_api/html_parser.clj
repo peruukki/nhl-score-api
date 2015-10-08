@@ -12,15 +12,15 @@
 (defn parse-games [dom-page]
   (html/select dom-page [:.sbGame]))
 
-(defn is-regulation-period? [dom-element]
+(defn- is-regulation-period? [dom-element]
   (and (= :b (:tag dom-element))
        (= " Period:" (last (:content dom-element)))))
 
-(defn is-overtime-period? [dom-element]
+(defn- is-overtime-period? [dom-element]
   (and (= :b (:tag dom-element))
        (= "OT Period:" (first (:content dom-element)))))
 
-(defn get-period-number
+(defn- get-period-number
   "Parses the period number from the given DOM element, or nil if none found.
   Returns 4 for overtime period."
   [dom-element]
@@ -40,7 +40,7 @@
 (defn- parse-goal-count [goal-count-str]
   (read-string (re-find #"\d+" goal-count-str)))
 
-(defn get-goal
+(defn- get-goal
   "Parses the goal information from the given DOM element, or nil if none found."
   [dom-element]
   (when (= "goalDetails" (:class (:attrs dom-element)))
@@ -51,10 +51,10 @@
           goal-count (parse-goal-count (first (:content (last content))))]
       {:team team :time time :scorer scorer :goal-count goal-count})))
 
-(defn add-period [goals period]
+(defn- add-period [goals period]
   (map #(assoc % :period period) goals))
 
-(defn parse-goals-rec
+(defn- parse-goals-rec
   "Parses given DOM elements and returns a collection of goals."
   [dom-elements current-period current-goals all-goals]
   (if (empty? dom-elements)
