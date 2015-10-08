@@ -1,5 +1,6 @@
 (ns nhl-score-api.core
-  (:require [org.httpkit.server :as server]))
+  (:require [org.httpkit.server :as server]
+            [clojure.data.json :as json]))
 
 (declare app)
 
@@ -11,5 +12,5 @@
 
 (defn app [req]
   {:status 200
-   :headers {"Content-Type" "text/html"}
-   :body "Hello!"})
+   :headers {"Content-Type" "application/json; charset=utf-8"}
+   :body (json/write-str [])})
