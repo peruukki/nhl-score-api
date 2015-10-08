@@ -1,7 +1,6 @@
 (ns nhl-score-api.html-parser-test
   (:require [clojure.test :refer :all]
-            [nhl-score-api.html-parser :refer :all]
-            [net.cgrand.enlive-html :as html])
+            [nhl-score-api.html-parser :refer :all])
   (:import (java.io File)))
 
 (def resource-path "test/nhl_score_api/resources/")
@@ -39,7 +38,7 @@
              goals) "Parsed goals")))
 
   (testing "Parsing game without goals"
-    (let [dom (html/html-resource html-with-games)
+    (let [dom (parse-dom html-with-games)
           game (nth (parse-games dom) 7)
           goals (parse-goals game)]
       (is (= []
