@@ -4,7 +4,7 @@
 (declare parse-last-game-day-url)
 (declare parse-previous-day-url)
 
-(defn parse-last-games-page-url [dom]
+(defn parse-last-games-page-path [dom]
   (or (parse-last-game-day-url dom)
       (parse-previous-day-url dom)))
 

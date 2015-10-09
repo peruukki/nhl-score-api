@@ -8,12 +8,12 @@
 
   (testing "Parsing last game page URL from page with finished games"
     (is (= "/ice/scores.htm?date=10/02/2015&season=20152016"
-           (parse-last-games-page-url (game-scores/parse-dom resources/dom-with-games)))))
+           (parse-last-games-page-path (game-scores/parse-dom resources/dom-with-games)))))
 
   (testing "Parsing last game page URL from page with games that have not yet started"
     (is (= "/ice/scores.htm?date=10/07/2015&season=20152016"
-           (parse-last-games-page-url (game-scores/parse-dom resources/dom-with-not-started-games)))))
+           (parse-last-games-page-path (game-scores/parse-dom resources/dom-with-not-started-games)))))
 
   (testing "Parsing last game page URL from page with no games"
     (is (= "/ice/scores.htm?date=10/04/2015"
-           (parse-last-games-page-url (game-scores/parse-dom resources/dom-without-games))))))
+           (parse-last-games-page-path (game-scores/parse-dom resources/dom-without-games))))))
