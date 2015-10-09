@@ -1,8 +1,7 @@
 (ns nhl-score-api.last-games-page
   (:require [net.cgrand.enlive-html :as html]))
 
-(declare parse-last-game-day-url)
-(declare parse-previous-day-url)
+(declare parse-last-game-day-url parse-previous-day-url)
 
 (defn parse-last-games-page-path [dom]
   (or (parse-last-game-day-url dom)

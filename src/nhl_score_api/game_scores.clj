@@ -1,9 +1,7 @@
 (ns nhl-score-api.game-scores
   (:require [net.cgrand.enlive-html :as html]))
 
-(declare parse-dom)
-(declare parse-games)
-(declare parse-goals)
+(declare parse-dom parse-games parse-goals)
 
 (defn parse-scores [dom]
   (filter seq
