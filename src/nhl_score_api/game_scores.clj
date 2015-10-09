@@ -5,10 +5,9 @@
 (declare parse-games)
 (declare parse-goals)
 
-(defn parse-scores [html-resource]
-  (let [games (parse-games (parse-dom html-resource))]
-    (filter seq
-      (map parse-goals games))))
+(defn parse-scores [dom]
+  (filter seq
+    (map parse-goals (parse-games dom))))
 
 (defn parse-dom [html-resource]
   (html/html-resource html-resource))
