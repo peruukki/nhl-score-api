@@ -16,13 +16,18 @@
 
 (defn- get-response [request-path]
   (case request-path
+    "/"
+    {:version version}
+
     "/api/scores/latest"
     (api/fetch-latest-scores)
 
-    {:version version}))
+    nil))
 
-(defn app [req]
-  (println "Received request" req)
-  {:status 200
-   :headers {"Content-Type" "application/json; charset=utf-8"}
-   :body (json/write-str (get-response (:uri req)) :key-fn ->camelCaseString)})
+(defn app [request]
+  (println "Received request" request)
+  (let [success-response (get-response (:uri request))
+        response (or success-response {})]
+    {:status (if success-response 200 404)
+     :headers {"Content-Type" "application/json; charset=utf-8"}
+     :body (json/write-str response :key-fn ->camelCaseString)}))
