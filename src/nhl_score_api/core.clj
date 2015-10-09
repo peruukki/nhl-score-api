@@ -1,5 +1,7 @@
 (ns nhl-score-api.core
-  (:require [org.httpkit.server :as server]
+  (:require [nhl-score-api.api :as api]
+            [camel-snake-kebab.core :refer [->camelCaseString]]
+            [org.httpkit.server :as server]
             [clojure.data.json :as json]))
 
 (declare app)
@@ -10,7 +12,15 @@
     (println "Starting server, listening on" (str ip ":" port))
     (server/run-server app {:ip ip :port port})))
 
+(defn get-response [request-path]
+  (case request-path
+    "/api/scores/latest"
+    (api/fetch-latest-scores)
+
+    {}))
+
 (defn app [req]
+  (println "Received request" req)
   {:status 200
    :headers {"Content-Type" "application/json; charset=utf-8"}
-   :body (json/write-str [])})
+   :body (json/write-str (get-response (:uri req)) :key-fn ->camelCaseString)})
