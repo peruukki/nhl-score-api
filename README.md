@@ -1,6 +1,7 @@
 # nhl-score-api
 
-A JSON API that returns the goals from the latest finished NHL games, as reported at http://www.nhl.com/ice/scores.htm.
+A JSON API that returns the scores and goals from the latest finished NHL games, as reported at
+http://www.nhl.com/ice/scores.htm.
 
 The API is available at https://nhlscoreapi-peruukki.rhcloud.com/.
 
@@ -8,7 +9,7 @@ The API is available at https://nhlscoreapi-peruukki.rhcloud.com/.
 
 ### Goals from latest finished NHL games
 
-Returns an array of the latest round’s games, each game item containing the team abbreviations and goal details.
+Returns an array of the latest round’s games, each game item containing information on team scores and goals.
 
 ```
 GET /api/scores/latest
@@ -29,6 +30,10 @@ GET /api/scores/latest
       },
       ...
     ],
+    "scores": {
+      "BOS": 4,
+      "CHI": 3
+    },
     "teams": [
       "BOS",
       "CHI"
@@ -45,6 +50,11 @@ GET /api/scores/latest
       },
       ...
     ],
+    "scores": {
+      "OTT": 1,
+      "DET": 2,
+      "overtime": true
+    },
     "teams": [
       "OTT",
       "DET"
@@ -55,11 +65,14 @@ GET /api/scores/latest
 
 ##### Glossary:
 
-- `goalCount`: the number of goals the player has scored this season
-- `period`: in which period the goal was scored; `4` means overtime
-- `scorer`: the goal scorer
-- `team`: the team that scored the goal
-- `time`: the goal scoring time, from the start of the period
+- `goals` array:
+  - `goalCount`: the number of goals the player has scored this season
+  - `period`: in which period the goal was scored; `4` means overtime
+  - `scorer`: the goal scorer
+  - `team`: the team that scored the goal
+  - `time`: the goal scoring time, from the start of the period
+- `scores` object:
+  - `overtime`: set to `true` if the game ended in overtime, absent if it didn’t
 
 ## Requirements
 
