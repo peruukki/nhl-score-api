@@ -24,10 +24,15 @@
 
     nil))
 
+(defn json-key-transformer [key]
+  (if (keyword? key)
+    (->camelCaseString key)
+    key))
+
 (defn app [request]
   (println "Received request" request)
   (let [success-response (get-response (:uri request))
         response (or success-response {})]
     {:status (if success-response 200 404)
      :headers {"Content-Type" "application/json; charset=utf-8"}
-     :body (json/write-str response :key-fn ->camelCaseString)}))
+     :body (json/write-str response :key-fn json-key-transformer)}))

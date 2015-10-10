@@ -20,6 +20,15 @@
       (assert-json-content-type response)
       (assert-body response {} "Response contains empty body"))))
 
+(deftest json-key-transforming
+  (testing "Response JSON keyword key is transformed to camel case"
+    (is (= "goalCount"
+           (json-key-transformer :goal-count)) "JSON key is in camel case"))
+
+  (testing "Response JSON string key is not transformed"
+    (is (= "goal-count"
+           (json-key-transformer "goal-count")) "Key is not transformed")))
+
 (defn- assert-status [response expected-status]
   (is (= expected-status
          (:status response))
