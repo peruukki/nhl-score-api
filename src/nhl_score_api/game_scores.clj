@@ -3,7 +3,7 @@
 
 (declare parse-dom parse-games parse-game-details)
 
-(defn parse-scores [dom]
+(defn parse-game-scores [dom]
   (filter #(seq (:goals %))
     (map parse-game-details (parse-games dom))))
 
