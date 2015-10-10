@@ -77,3 +77,8 @@
   (let [scoring-infos (html/select dom-game [:.scoringInfo])
         goal-infos (:content (first scoring-infos))]
     (parse-goals-rec goal-infos nil [] [])))
+
+(defn parse-teams [dom-game]
+  (let [team-links (html/select dom-game [:table :a])
+        team-links-with-content (remove #(nil? (:content %)) team-links)]
+    (map #(:rel (:attrs %)) team-links-with-content)))

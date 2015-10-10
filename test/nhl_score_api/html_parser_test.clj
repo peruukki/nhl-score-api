@@ -36,4 +36,11 @@
           game (nth (parse-games dom) 7)
           goals (parse-goals game)]
       (is (= []
-             goals) "Parsed goals"))))
+             goals) "Parsed goals")))
+
+  (testing "Parsing team names"
+    (let [games (parse-games (parse-dom resources/dom-with-games))
+          game-teams (map parse-teams games)]
+      (is (= [["NSH" "CBJ"] ["TBL" "FLA"] ["MTL" "OTT"] ["DET" "TOR"] ["DAL" "CHI"]
+              ["SJS" "ANA"] ["WPG" "CGY"] ["COL" "LAK"] ["EDM" "VAN"]]
+             game-teams) "Parsed team names"))))
