@@ -1,4 +1,4 @@
-(ns nhl-score-api.html-parser-test
+(ns nhl-score-api.game-scores-test
   (:require [clojure.test :refer :all]
             [nhl-score-api.game-scores :refer :all]
             [nhl-score-api.resources :as resources]))
