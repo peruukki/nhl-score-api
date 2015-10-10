@@ -11,9 +11,12 @@
              (count games)) "Parsed game count")
       (is (= [8 5 9 3 4 6 5 5]
              (map #(count (:goals %)) games)) "Parsed goal count")
-      (is (= [["NSH" "CBJ"] ["TBL" "FLA"] ["MTL" "OTT"] ["DET" "TOR"] ["DAL" "CHI"]
-              ["SJS" "ANA"] ["WPG" "CGY"] ["EDM" "VAN"]]
-             (map :teams games)) "Parsed team names")))
+      (is (= [["NSH" "CBJ"] ["TBL" "FLA"] ["MTL" "OTT"] ["DET" "TOR"]
+              ["DAL" "CHI"] ["SJS" "ANA"] ["WPG" "CGY"] ["EDM" "VAN"]]
+             (map :teams games)) "Parsed team names")
+      (is (= [{"NSH" 1 "CBJ" 7} {"TBL" 3 "FLA" 2} {"MTL" 4 "OTT" 5} {"DET" 2 "TOR" 1}
+              {"DAL" 0 "CHI" 4} {"SJS" 1 "ANA" 5} {"WPG" 3 "CGY" 2} {"EDM" 2 "VAN" 3 :overtime true}]
+             (map :scores games)) "Parsed scores")))
 
   (testing "Parsing page with games that have not yet started"
     (let [games (parse-scores resources/dom-with-not-started-games)]

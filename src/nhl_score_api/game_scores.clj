@@ -83,6 +83,26 @@
         team-links-with-content (remove #(nil? (:content %)) team-links)]
     (map #(:rel (:attrs %)) team-links-with-content)))
 
+(defn- get-team-score [team goals]
+  (count
+    (filter #(= team (:team %)) goals)))
+
+(defn- ended-in-overtime? [goals]
+  (some #(> (:period %) 3) goals))
+
+(defn- add-overtime-flag [goals scores]
+  (if (ended-in-overtime? goals)
+    (assoc scores :overtime true)
+    scores))
+
+(defn get-scores [teams goals]
+  (->> teams
+       (map #(vector % (get-team-score % goals)))
+       (into {})
+       (add-overtime-flag goals)))
+
 (defn parse-game-details [dom-game]
-  {:teams (parse-teams dom-game)
-   :goals (parse-goals dom-game)})
+  (let [goals (parse-goals dom-game)
+        teams (parse-teams dom-game)
+        scores (get-scores teams goals)]
+    {:goals goals :scores scores :teams teams}))
