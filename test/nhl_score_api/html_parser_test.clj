@@ -10,7 +10,10 @@
       (is (= 8
              (count games)) "Parsed game count")
       (is (= [8 5 9 3 4 6 5 5]
-             (map count games)) "Parsed goal count")))
+             (map #(count (:goals %)) games)) "Parsed goal count")
+      (is (= [["NSH" "CBJ"] ["TBL" "FLA"] ["MTL" "OTT"] ["DET" "TOR"] ["DAL" "CHI"]
+              ["SJS" "ANA"] ["WPG" "CGY"] ["EDM" "VAN"]]
+             (map :teams games)) "Parsed team names")))
 
   (testing "Parsing page with games that have not yet started"
     (let [games (parse-scores resources/dom-with-not-started-games)]
@@ -23,7 +26,7 @@
              (count games)) "Parsed game count")))
 
   (testing "Parsing game with goals in regulation and overtime"
-    (let [goals (last (parse-scores resources/dom-with-games))]
+    (let [goals (:goals (last (parse-scores resources/dom-with-games)))]
       (is (= [{:team "VAN" :time "03:57" :scorer "Bo Horvat" :goal-count 1 :period 1}
               {:team "EDM" :time "03:08" :scorer "Benoit Pouliot" :goal-count 1 :period 3}
               {:team "EDM" :time "17:19" :scorer "Ryan Nugent-Hopkins" :goal-count 1 :period 3}
@@ -36,11 +39,4 @@
           game (nth (parse-games dom) 7)
           goals (parse-goals game)]
       (is (= []
-             goals) "Parsed goals")))
-
-  (testing "Parsing team names"
-    (let [games (parse-games (parse-dom resources/dom-with-games))
-          game-teams (map parse-teams games)]
-      (is (= [["NSH" "CBJ"] ["TBL" "FLA"] ["MTL" "OTT"] ["DET" "TOR"] ["DAL" "CHI"]
-              ["SJS" "ANA"] ["WPG" "CGY"] ["COL" "LAK"] ["EDM" "VAN"]]
-             game-teams) "Parsed team names"))))
+             goals) "Parsed goals"))))

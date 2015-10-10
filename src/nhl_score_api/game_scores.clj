@@ -1,11 +1,11 @@
 (ns nhl-score-api.game-scores
   (:require [net.cgrand.enlive-html :as html]))
 
-(declare parse-dom parse-games parse-goals)
+(declare parse-dom parse-games parse-game-details)
 
 (defn parse-scores [dom]
-  (filter seq
-    (map parse-goals (parse-games dom))))
+  (filter #(seq (:goals %))
+    (map parse-game-details (parse-games dom))))
 
 (defn parse-dom [html-resource]
   (html/html-resource html-resource))
@@ -82,3 +82,7 @@
   (let [team-links (html/select dom-game [:table :a])
         team-links-with-content (remove #(nil? (:content %)) team-links)]
     (map #(:rel (:attrs %)) team-links-with-content)))
+
+(defn parse-game-details [dom-game]
+  {:teams (parse-teams dom-game)
+   :goals (parse-goals dom-game)})

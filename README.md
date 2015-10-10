@@ -8,7 +8,7 @@ The API is available at https://nhlscoreapi-peruukki.rhcloud.com/.
 
 ### Goals from latest finished NHL games
 
-Returns an array of the latest round’s games, each game item containing an array of the goals scored.
+Returns an array of the latest round’s games, each game item containing the team abbreviations and goal details.
 
 ```
 GET /api/scores/latest
@@ -18,26 +18,38 @@ GET /api/scores/latest
 
 ```
 [
-  [
-    {
-      "goalCount": 1,
-      "period": 1,
-      "scorer": "David Krejci",
-      "team": "BOS",
-      "time": "05:36"
-    },
-    ...
-  ],
-  [
-    {
-      "goalCount": 1,
-      "period": 1,
-      "scorer": "Kyle Turris",
-      "team": "OTT",
-      "time": "00:30"
-    },
-    ...
-  ]
+  {
+    "goals": [
+      {
+        "goalCount": 1,
+        "period": 1,
+        "scorer": "David Krejci",
+        "team": "BOS",
+        "time": "05:36"
+      },
+      ...
+    ],
+    "teams": [
+      "BOS",
+      "CHI"
+    ]
+  },
+  {
+    "goals": [
+      {
+        "goalCount": 1,
+        "period": 1,
+        "scorer": "Kyle Turris",
+        "team": "OTT",
+        "time": "00:30"
+      },
+      ...
+    ],
+    "teams": [
+      "OTT",
+      "DET"
+    ]
+  }
 ]
 ```
 
