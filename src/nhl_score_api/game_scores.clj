@@ -43,7 +43,9 @@
     nil))
 
 (defn- parse-time [time-str]
-  (re-find #"\d\d:\d\d" time-str))
+  (let [time (re-find #"(\d\d):(\d\d)" time-str)]
+    {:min (Integer/parseInt (nth time 1))
+     :sec (Integer/parseInt (nth time 2))}))
 
 (defn- parse-goal-count [goal-count-str]
   (read-string (re-find #"\d+" goal-count-str)))
@@ -58,7 +60,7 @@
           time (parse-time (nth content 1))
           scorer (first (:content (nth content 2)))
           goal-count (parse-goal-count (first (:content (last content))))]
-      {:team team :time time :scorer scorer :goal-count goal-count})
+      {:team team :min (:min time) :sec (:sec time) :scorer scorer :goal-count goal-count})
 
     "shootoutInfo"
     (let [content (:content dom-element)

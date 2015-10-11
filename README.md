@@ -26,7 +26,8 @@ GET /api/scores/latest
         "period": "1",
         "scorer": "David Krejci",
         "team": "BOS",
-        "time": "05:36"
+        "min": 5,
+        "sec": 36
       },
       ...
     ],
@@ -47,7 +48,8 @@ GET /api/scores/latest
         "period": "OT",
         "scorer": "Kyle Turris",
         "team": "OTT",
-        "time": "00:30"
+        "min": 0,
+        "sec": 30
       }
     ],
     "scores": {
@@ -87,10 +89,11 @@ GET /api/scores/latest
 - `goals` array:
   - gameplay goal:
     - `goalCount`: the number of goals the player has scored this season
+    - `min`: the goal scoring time minutes, from the start of the period
     - `period`: in which period the goal was scored (string); `"OT"` means overtime
     - `scorer`: the goal scorer
+    - `sec`: the goal scoring time seconds, from the start of the period
     - `team`: the team that scored the goal
-    - `time`: the goal scoring time, from the start of the period
   - shootout goal:
     - `period`: `"SO"`
     - `scorer`: the goal scorer

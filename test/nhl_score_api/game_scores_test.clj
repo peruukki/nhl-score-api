@@ -41,11 +41,11 @@
 
   (testing "Parsing game with goals in regulation and overtime"
     (let [goals (:goals (nth (parse-game-scores resources/dom-with-ot-and-so-game) 11))]
-      (is (= [{:team "CGY" :time "05:00" :scorer "Dougie Hamilton" :goal-count 1 :period "1"}
-              {:team "VAN" :time "02:03" :scorer "Bo Horvat" :goal-count 1 :period "2"}
-              {:team "VAN" :time "11:33" :scorer "Jared McCann" :goal-count 1 :period "2"}
-              {:team "CGY" :time "08:49" :scorer "Sean Monahan" :goal-count 1 :period "3"}
-              {:team "CGY" :time "03:03" :scorer "Johnny Gaudreau" :goal-count 1 :period "OT"}]
+      (is (= [{:team "CGY" :min 5 :sec 0 :scorer "Dougie Hamilton" :goal-count 1 :period "1"}
+              {:team "VAN" :min 2 :sec 3 :scorer "Bo Horvat" :goal-count 1 :period "2"}
+              {:team "VAN" :min 11 :sec 33 :scorer "Jared McCann" :goal-count 1 :period "2"}
+              {:team "CGY" :min 8 :sec 49 :scorer "Sean Monahan" :goal-count 1 :period "3"}
+              {:team "CGY" :min 3 :sec 3 :scorer "Johnny Gaudreau" :goal-count 1 :period "OT"}]
              goals) "Parsed goals")))
 
   (testing "Parsing game with goals in shootout"
