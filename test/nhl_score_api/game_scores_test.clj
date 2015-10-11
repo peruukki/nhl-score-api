@@ -48,20 +48,12 @@
               {:team "CGY" :time "03:03" :scorer "Johnny Gaudreau" :goal-count 1 :period "OT"}]
              goals) "Parsed goals")))
 
-  (testing "Parsing game with goals in regulation and shootout"
+  (testing "Parsing game with goals in shootout"
     (let [goals (:goals (nth (parse-game-scores resources/dom-with-ot-and-so-game) 2))]
-      (is (= [{:team "OTT" :time "00:46" :scorer "Kyle Turris" :goal-count 3 :period "2"}
-              {:team "OTT" :time "03:38" :scorer "Alex Chiasson" :goal-count 1 :period "2"}
-              {:team "OTT" :time "04:56" :scorer "Milan Michalek" :goal-count 1 :period "2"}
-              {:team "TOR" :time "07:05" :scorer "Joffrey Lupul" :goal-count 1 :period "2"}
-              {:team "TOR" :time "14:33" :scorer "Tyler Bozak" :goal-count 1 :period "2"}
-              {:team "TOR" :time "03:18" :scorer "Peter Holland" :goal-count 1 :period "3"}
-              {:team "OTT" :time "08:59" :scorer "Mark Stone" :goal-count 1 :period "3"}
-              {:team "TOR" :time "16:12" :scorer "Daniel Winnik" :goal-count 1 :period "3"}
-              {:team "TOR" :scorer "Pierre-Alexandre Parenteau" :period "SO"}
+      (is (= [{:team "TOR" :scorer "Pierre-Alexandre Parenteau" :period "SO"}
               {:team "OTT" :scorer "Bobby Ryan" :period "SO"}
               {:team "OTT" :scorer "Mike Hoffman" :period "SO"}]
-             goals) "Parsed goals")))
+             (take-last 3 goals)) "Parsed shootout goals")))
 
   (testing "Parsing game without goals"
     (let [dom (parse-dom resources/dom-with-game-missing-goals)
