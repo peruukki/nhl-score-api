@@ -23,7 +23,7 @@ GET /api/scores/latest
     "goals": [
       {
         "goalCount": 1,
-        "period": 1,
+        "period": "1",
         "scorer": "David Krejci",
         "team": "BOS",
         "time": "05:36"
@@ -41,23 +41,42 @@ GET /api/scores/latest
   },
   {
     "goals": [
+      ...
       {
         "goalCount": 1,
-        "period": 1,
+        "period": "OT",
         "scorer": "Kyle Turris",
         "team": "OTT",
         "time": "00:30"
-      },
-      ...
+      }
     ],
     "scores": {
-      "OTT": 1,
-      "DET": 2,
+      "OTT": 2,
+      "DET": 1,
       "overtime": true
     },
     "teams": [
       "OTT",
       "DET"
+    ]
+  },
+  {
+    "goals": [
+      ...
+      {
+        "period": "SO",
+        "scorer": "Phil Kessel",
+        "team": "PIT"
+      }
+    ],
+    "scores": {
+      "NYR": 3,
+      "PIT": 4,
+      "shootout": true
+    },
+    "teams": [
+      "NYR",
+      "PIT"
     ]
   }
 ]
@@ -66,13 +85,19 @@ GET /api/scores/latest
 ##### Glossary:
 
 - `goals` array:
-  - `goalCount`: the number of goals the player has scored this season
-  - `period`: in which period the goal was scored; `4` means overtime
-  - `scorer`: the goal scorer
-  - `team`: the team that scored the goal
-  - `time`: the goal scoring time, from the start of the period
+  - gameplay goal:
+    - `goalCount`: the number of goals the player has scored this season
+    - `period`: in which period the goal was scored (string); `"OT"` means overtime
+    - `scorer`: the goal scorer
+    - `team`: the team that scored the goal
+    - `time`: the goal scoring time, from the start of the period
+  - shootout goal:
+    - `period`: `"SO"`
+    - `scorer`: the goal scorer
+    - `team`: the team that scored the goal
 - `scores` object:
   - `overtime`: set to `true` if the game ended in overtime, absent if it didn’t
+  - `shootout`: set to `true` if the game ended in shootout, absent if it didn’t
 
 ## Requirements
 
