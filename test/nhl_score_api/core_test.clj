@@ -3,7 +3,18 @@
             [nhl-score-api.core :refer :all]
             [clojure.data.json :as json]))
 
+(def cache-get-key (atom nil))
+(def cache-set-key (atom nil))
+(def cache-set-value (atom nil))
+(def cache-set-ttl-seconds (atom nil))
+(def latest-scores-fetched (atom false))
+
+(def latest-scores {:teams [] :scores {} :goals []})
+
 (declare assert-status assert-json-content-type assert-body)
+(declare reset-cache-state! cache-get-fn cache-set-fn)
+(declare latest-scores-api-fn)
+
 
 (deftest api-routing
   (testing "Root path returns project version"
@@ -29,6 +40,36 @@
     (is (= "goal-count"
            (json-key-transformer "goal-count")) "Key is not transformed")))
 
+(deftest caching
+  (testing "Root path request is not cached"
+    (reset-cache-state!)
+    (get-response "/" latest-scores-api-fn cache-get-fn cache-set-fn)
+    (is (= nil
+           @cache-get-key) "Cache was not searched")
+    (is (= nil
+           @cache-set-key) "Nothing was stored in the cache"))
+
+  (testing "Latest scores request is cached for 5 minutes"
+    (reset-cache-state!)
+    (let [path "/api/scores/latest"]
+      (get-response path latest-scores-api-fn cache-get-fn cache-set-fn)
+      (is (= path
+             @cache-get-key) "Cache was searched for request path key")
+      (is (= true
+             @latest-scores-fetched) "Latest scores were fetched")
+      (is (= path
+             @cache-set-key) "Request path was stored in the cache as key")
+      (is (= latest-scores
+             @cache-set-value) "Response was stored in the cache as value")
+      (is (= 300
+             @cache-set-ttl-seconds) "Key time-to-live was set to 300 seconds")
+
+      (reset! latest-scores-fetched false)
+      (get-response path latest-scores-api-fn cache-get-fn cache-set-fn)
+      (is (= false
+             @latest-scores-fetched) "Latest scores were not fetched"))))
+
+
 (defn- assert-status [response expected-status]
   (is (= expected-status
          (:status response))
@@ -43,3 +84,23 @@
   (is (= (json/write-str expected-body)
          (:body response))
       message))
+
+(defn- reset-cache-state! []
+  (reset! cache-get-key nil)
+  (reset! cache-set-key nil)
+  (reset! cache-set-value nil)
+  (reset! cache-set-ttl-seconds nil)
+  (reset! latest-scores-fetched false))
+
+(defn- cache-get-fn [key]
+  (reset! cache-get-key key)
+  @cache-set-value)
+
+(defn- cache-set-fn [key value ttl-seconds]
+  (reset! cache-set-key key)
+  (reset! cache-set-value value)
+  (reset! cache-set-ttl-seconds ttl-seconds))
+
+(defn- latest-scores-api-fn []
+  (reset! latest-scores-fetched true)
+  latest-scores)

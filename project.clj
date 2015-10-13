@@ -5,6 +5,7 @@
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/data.json "0.2.6"]
                  [camel-snake-kebab "0.3.2"]
+                 [com.taoensso/carmine "2.12.0"]
                  [enlive "1.1.6"]
                  [http-kit "2.1.19"]]
   :main nhl-score-api.core

@@ -108,19 +108,57 @@ Returns an array of the latest round’s games, each game item containing these 
 ## Requirements
 
 - [Leiningen](http://leiningen.org/) is used for all project management.
+- [Docker](https://www.docker.com/) is used for running [Redis](https://hub.docker.com/_/redis/) locally. You can
+  also optionally disable Redis, in which case you won’t need Docker.
 
-## Running server
+## Development Redis setup
 
-`lein run`
+To start a [Redis Docker container](https://hub.docker.com/_/redis/), install [Docker](https://www.docker.com/) and run:
+
+```
+./docker-up.sh
+```
+
+Downloading the Redis image will take a while on the first run, but it will be reused after that. After the command
+finishes, you should see a container named `nhl-score-api-redis` running when checking Docker containers:
+
+```
+docker ps
+```
+
+To stop and delete the Redis container, run:
+
+```
+./docker-down.sh
+```
+
+## Running application
+
+There is a script to run the application connected to a local Redis Docker container on Mac OS X:
+
+```
+./run-local-mac.sh
+```
+
+If you don’t want to use Redis caching, you can start the application with:
+
+```
+REDIS_DISABLED=true lein run
+```
 
 ## Running tests
 
-`lein test`
+```
+lein test
+```
 
-## OpenShift setup
+## Deployment setup
 
 This application is running on [OpenShift](https://www.openshift.com), created using
 [clojure-cartridge](https://github.com/openshift-cartridges/clojure-cartridge).
+
+The latest scores are cached for 5 minutes in the OpenShift [Redis Cloud](https://redislabs.com/redis-cloud)
+cartridge.
 
 ## License
 
