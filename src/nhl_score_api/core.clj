@@ -41,5 +41,6 @@
   (let [success-response (get-response (:uri request) api/fetch-latest-scores cache/get-value cache/set-value)
         response (or success-response {})]
     {:status (if success-response 200 404)
-     :headers {"Content-Type" "application/json; charset=utf-8"}
+     :headers {"Access-Control-Allow-Origin" "*"
+               "Content-Type" "application/json; charset=utf-8"}
      :body (json/write-str response :key-fn json-key-transformer)}))

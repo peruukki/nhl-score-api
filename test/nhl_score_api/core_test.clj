@@ -11,7 +11,7 @@
 
 (def latest-scores {:teams [] :scores {} :goals []})
 
-(declare assert-status assert-json-content-type assert-body)
+(declare assert-status assert-json-content-type assert-cors-enabled assert-body)
 (declare reset-cache-state! cache-get-fn cache-set-fn)
 (declare latest-scores-api-fn)
 
@@ -23,6 +23,7 @@
       (is (not (nil? version)) "Project version number is valid")
       (assert-status response 200)
       (assert-json-content-type response)
+      (assert-cors-enabled response)
       (assert-body response {:version version} "Response contains version number")))
 
   (testing "Unknown path returns 404 Not Found"
@@ -79,6 +80,11 @@
   (is (= "application/json; charset=utf-8"
          (get (:headers response) "Content-Type"))
       "Content type is JSON"))
+
+(defn- assert-cors-enabled [response]
+  (is (= "*"
+         (get (:headers response) "Access-Control-Allow-Origin"))
+      "Access-Control-Allow-Origin allows all sites"))
 
 (defn- assert-body [response expected-body message]
   (is (= (json/write-str expected-body)
