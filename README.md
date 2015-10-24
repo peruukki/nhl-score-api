@@ -5,6 +5,11 @@ http://www.nhl.com/ice/scores.htm.
 
 The API is available at https://nhlscoreapi-peruukki.rhcloud.com/.
 
+*Note: the service is running on a free plan on [OpenShift](https://www.openshift.com), which means that it may return a
+`503 Service Unavailable` response if it is
+[idling due to inactivity](https://developers.openshift.com/en/managing-idling.html). If that happens, retry some seconds
+later, and the service will respond properly once it has woken up.*
+
 ## API
 
 ### Goals from latest finished NHL games
