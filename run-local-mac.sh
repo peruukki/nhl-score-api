@@ -2,4 +2,4 @@
 
 CMD="lein run"
 
-REDISCLOUD_HOSTNAME=`boot2docker ip` REDISCLOUD_PORT=63799 ${CMD}
+REDISCLOUD_HOSTNAME=`docker-machine ip default` REDISCLOUD_PORT=63799 ${CMD}
