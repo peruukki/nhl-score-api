@@ -20,7 +20,7 @@ Returns an array of the latest round’s games, each game item containing these 
 
 - `goals` *(array)*
 - `scores` *(object)*
-- `teams` *(array)*
+- `teams` *(object)*
 
 #### Example response:
 
@@ -42,10 +42,10 @@ Returns an array of the latest round’s games, each game item containing these 
       "BOS": 4,
       "CHI": 3
     },
-    "teams": [
-      "BOS",
-      "CHI"
-    ]
+    "teams": {
+      "away": "BOS",
+      "home": "CHI"
+    }
   },
   {
     "goals": [
@@ -64,10 +64,10 @@ Returns an array of the latest round’s games, each game item containing these 
       "DET": 1,
       "overtime": true
     },
-    "teams": [
-      "OTT",
-      "DET"
-    ]
+    "teams": {
+      "away": "OTT",
+      "home": "DET"
+    }
   },
   {
     "goals": [
@@ -83,10 +83,10 @@ Returns an array of the latest round’s games, each game item containing these 
       "PIT": 4,
       "shootout": true
     },
-    "teams": [
-      "NYR",
-      "PIT"
-    ]
+    "teams": {
+      "away": "NYR",
+      "home": "PIT"
+    }
   }
 ]
 ```
@@ -108,7 +108,7 @@ Returns an array of the latest round’s games, each game item containing these 
 - `scores` object: each team’s goal count, plus one of these possible fields:
   - `overtime`: set to `true` if the game ended in overtime, absent if it didn’t
   - `shootout`: set to `true` if the game ended in shootout, absent if it didn’t
-- `teams` array: away team first, home team second
+- `teams` object: away and home team names
 
 ## Requirements
 

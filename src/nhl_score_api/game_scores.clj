@@ -98,14 +98,16 @@
 
 (defn parse-teams [dom-game]
   (let [team-links (html/select dom-game [:table :a])
-        team-links-with-content (remove #(nil? (:content %)) team-links)]
-    (map #(:rel (:attrs %)) team-links-with-content)))
+        team-links-with-content (remove #(nil? (:content %)) team-links)
+        team-names (map #(:rel (:attrs %)) team-links-with-content)]
+    {:away (first team-names) :home (last team-names)}))
 
 (defn- parse-goal-counts [dom-game teams]
-  (let [team-scores (html/select dom-game [:table :td.total])
+  (let [team-names (vals teams)
+        team-scores (html/select dom-game [:table :td.total])
         goal-counts (map #(read-string (first (:content %))) team-scores)]
     (into {}
-      (map #(vector %1 (nth goal-counts %2)) teams (iterate inc 0)))))
+      (map #(vector %1 (nth goal-counts %2)) team-names (iterate inc 0)))))
 
 (defn- ended-in-overtime? [goals]
   (some #(= "OT" (:period %)) goals))

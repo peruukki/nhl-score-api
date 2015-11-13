@@ -11,10 +11,10 @@
              (count games)) "Parsed game count")
       (is (= [5 6 11 8 7 8 7 2 5 5 9 5 3 2]
              (map #(count (:goals %)) games)) "Parsed goal count")
-      (is (= [["TBL" "BUF"] ["MTL" "BOS"] ["OTT" "TOR"] ["PHI" "FLA"]
-              ["CBJ" "NYR"] ["NJD" "WSH"] ["DET" "CAR"] ["EDM" "NSH"]
-              ["STL" "MIN"] ["NYI" "CHI"] ["DAL" "COL"] ["CGY" "VAN"]
-              ["PIT" "ARI"] ["ANA" "SJS"]]
+      (is (= [{:away "TBL" :home "BUF"} {:away "MTL" :home "BOS"} {:away "OTT" :home "TOR"} {:away "PHI" :home "FLA"}
+              {:away "CBJ" :home "NYR"} {:away "NJD" :home "WSH"} {:away "DET" :home "CAR"} {:away "EDM" :home "NSH"}
+              {:away "STL" :home "MIN"} {:away "NYI" :home "CHI"} {:away "DAL" :home "COL"} {:away "CGY" :home "VAN"}
+              {:away "PIT" :home "ARI"} {:away "ANA" :home "SJS"}]
              (map :teams games)) "Parsed team names")
       (is (= [{"TBL" 4 "BUF" 1} {"MTL" 4 "BOS" 2} {"OTT" 5 "TOR" 4 :shootout true} {"PHI" 1 "FLA" 7}
               {"CBJ" 2 "NYR" 5} {"NJD" 3 "WSH" 5} {"DET" 4 "CAR" 3} {"EDM" 0 "NSH" 2}
