@@ -3,9 +3,24 @@
             [nhl-score-api.cache :as cache]
             [camel-snake-kebab.core :refer [->camelCaseString]]
             [org.httpkit.server :as server]
-            [clojure.data.json :as json]))
+            [clojure.data.json :as json]
+            [clojure.java.io :as io])
+  (:import (java.util Properties))
+  (:gen-class))
 
-(def version (System/getProperty "nhl-score-api.version"))
+; From http://stackoverflow.com/a/33070806
+(defn- get-version-from-pom [dep]
+  (let [path (str "META-INF/maven/" (or (namespace dep) (name dep))
+                  "/" (name dep) "/pom.properties")
+        props (io/resource path)]
+    (when props
+      (with-open [stream (io/input-stream props)]
+        (let [props (doto (Properties.) (.load stream))]
+          (.getProperty props "version"))))))
+
+(def version
+  (or (System/getProperty "nhl-score-api.version")
+      (get-version-from-pom 'nhl-score-api)))
 
 (declare app)
 
