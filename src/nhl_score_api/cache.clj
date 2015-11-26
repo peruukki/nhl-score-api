@@ -3,11 +3,9 @@
 
 (def redis-disabled? (Boolean/valueOf (System/getenv "REDIS_DISABLED")))
 
-(def host (System/getenv "REDISCLOUD_HOSTNAME"))
-(def password (System/getenv "REDISCLOUD_PASSWORD"))
-(def port (System/getenv "REDISCLOUD_PORT"))
+(def url (System/getenv "REDIS_URL"))
 
-(def server-connection {:pool {} :spec {:host host :port (when port (read-string port)) :password password}})
+(def server-connection {:pool {} :spec {:uri url}})
 (defmacro wcar* [& body] `(car/wcar server-connection ~@body))
 
 (declare ping-server)
@@ -35,12 +33,10 @@
   value)
 
 (defn- validate-configuration []
-  (when (nil? host) (throw (Exception. "REDISCLOUD_HOSTNAME env variable is not defined")))
-  (when (nil? port) (throw (Exception. "REDISCLOUD_PORT env variable is not defined")))
-  (when (not (number? (read-string port))) (throw (Exception. (str "REDISCLOUD_PORT env variable is not a number: " port)))))
+  (when (nil? url) (throw (Exception. "REDIS_URL env variable is not defined"))))
 
 (defn- ping-server []
   (validate-configuration)
-  (println "Pinging Redis at" (str host ":" port))
+  (println "Pinging Redis at" url)
   (let [response (wcar* (car/ping))]
     (println "Got response" response "from Redis")))

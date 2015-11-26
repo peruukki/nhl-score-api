@@ -9,5 +9,7 @@
                  [enlive "1.1.6"]
                  [http-kit "2.1.19"]]
   :main nhl-score-api.core
-  :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all}}
+  :plugins [[lein-heroku "0.5.3"]]
+  :uberjar-name "server.jar"
+  :heroku {:app-name "nhl-score-api"})

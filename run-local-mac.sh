@@ -2,4 +2,4 @@
 
 CMD="lein run"
 
-REDISCLOUD_HOSTNAME=`docker-machine ip default` REDISCLOUD_PORT=63799 ${CMD}
+REDIS_URL="redis://`docker-machine ip default`:63799" ${CMD}

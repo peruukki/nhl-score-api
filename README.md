@@ -3,18 +3,13 @@
 A JSON API that returns the scores and goals from the latest finished NHL games, as reported at
 http://www.nhl.com/ice/scores.htm.
 
-The API is available at https://nhlscoreapi-peruukki.rhcloud.com/.
-
-*Note: the service is running on a free plan on [OpenShift](https://www.openshift.com), which means that it may return a
-`503 Service Unavailable` response if it is
-[idling due to inactivity](https://developers.openshift.com/en/managing-idling.html). If that happens, retry some seconds
-later, and the service will respond properly once it has woken up.*
+The API is available at https://nhl-score-api.herokuapp.com/.
 
 ## API
 
 ### Goals from latest finished NHL games
 
-##### `GET` [/api/scores/latest](https://nhlscoreapi-peruukki.rhcloud.com/api/scores/latest)
+##### `GET` [/api/scores/latest](https://nhl-score-api.herokuapp.com/api/scores/latest)
 
 Returns an array of the latest round’s games, each game item containing these three fields:
 
@@ -159,11 +154,13 @@ lein test
 
 ## Deployment setup
 
-This application is running on [OpenShift](https://www.openshift.com), created using
-[clojure-cartridge](https://github.com/openshift-cartridges/clojure-cartridge).
+Deploying to [Heroku](http://heroku.com/):
 
-The latest scores are cached for 5 minutes in the OpenShift [Redis Cloud](https://redislabs.com/redis-cloud)
-cartridge.
+```
+lein heroku deploy
+```
+
+The latest scores are cached for 5 minutes in [Heroku Redis](https://elements.heroku.com/addons/heroku-redis).
 
 ## License
 
