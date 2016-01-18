@@ -1,5 +1,7 @@
 # nhl-score-api
 
+[![Build Status](https://travis-ci.org/peruukki/nhl-score-api.svg?branch=master)](https://travis-ci.org/peruukki/nhl-score-api)
+
 A JSON API that returns the scores and goals from the latest finished NHL games, as reported at
 http://www.nhl.com/ice/scores.htm.
 
