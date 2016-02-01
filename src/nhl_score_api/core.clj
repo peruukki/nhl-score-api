@@ -53,9 +53,16 @@
 
 (defn app [request]
   (println "Received request" request)
-  (let [success-response (get-response (:uri request) api/fetch-latest-scores cache/get-value cache/set-value)
-        response (or success-response {})]
-    {:status (if success-response 200 404)
-     :headers {"Access-Control-Allow-Origin" "*"
-               "Content-Type" "application/json; charset=utf-8"}
-     :body (json/write-str response :key-fn json-key-transformer)}))
+  (let [headers {"Access-Control-Allow-Origin" "*"
+                 "Content-Type" "application/json; charset=utf-8"}]
+    (try
+      (let [success-response (get-response (:uri request) api/fetch-latest-scores cache/get-value cache/set-value)
+            response (or success-response {})]
+        {:status (if success-response 200 404)
+         :headers headers
+         :body (json/write-str response :key-fn json-key-transformer)})
+      (catch Exception e
+        (println "Caught exception" e)
+        {:status 500
+         :headers headers
+         :body (json/write-str {:error "Server error"})}))))
