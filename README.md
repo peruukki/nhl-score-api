@@ -159,7 +159,7 @@ lein test
 Deploying to [Heroku](http://heroku.com/):
 
 ```
-lein heroku deploy
+lein uberjar && lein heroku deploy
 ```
 
 The latest scores are cached for 5 minutes in [Heroku Redis](https://elements.heroku.com/addons/heroku-redis).
