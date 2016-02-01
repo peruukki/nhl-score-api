@@ -51,18 +51,18 @@
     (->camelCaseString key)
     key))
 
+(defn- format-response [status body]
+  {:status status
+   :headers {"Access-Control-Allow-Origin" "*"
+             "Content-Type" "application/json; charset=utf-8"}
+   :body (json/write-str body :key-fn json-key-transformer)})
+
 (defn app [request]
   (println "Received request" request)
-  (let [headers {"Access-Control-Allow-Origin" "*"
-                 "Content-Type" "application/json; charset=utf-8"}]
-    (try
-      (let [success-response (get-response (:uri request) api/fetch-latest-scores cache/get-value cache/set-value)
-            response (or success-response {})]
-        {:status (if success-response 200 404)
-         :headers headers
-         :body (json/write-str response :key-fn json-key-transformer)})
-      (catch Exception e
-        (println "Caught exception" e)
-        {:status 500
-         :headers headers
-         :body (json/write-str {:error "Server error"})}))))
+  (try
+    (let [success-response (get-response (:uri request) api/fetch-latest-scores cache/get-value cache/set-value)
+          response (or success-response {})]
+      (format-response (if success-response 200 404) response))
+    (catch Exception e
+      (println "Caught exception" e)
+      (format-response 500 {:error "Server error"}))))
