@@ -1,7 +1,7 @@
-(ns nhl-score-api.game-scores-test
+(ns nhl-score-api.fetchers.nhl_com.game-scores-test
   (:require [clojure.test :refer :all]
-            [nhl-score-api.game-scores :refer :all]
-            [nhl-score-api.resources :as resources]))
+            [nhl-score-api.fetchers.nhl_com.game-scores :refer :all]
+            [nhl-score-api.fetchers.nhl_com.resources :as resources]))
 
 (deftest game-score-html-parsing
 

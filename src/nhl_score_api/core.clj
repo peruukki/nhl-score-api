@@ -1,5 +1,5 @@
 (ns nhl-score-api.core
-  (:require [nhl-score-api.api :as api]
+  (:require [nhl-score-api.fetchers.nhl_com.fetcher :as fetcher]
             [nhl-score-api.cache :as cache]
             [camel-snake-kebab.core :refer [->camelCaseString]]
             [org.httpkit.server :as server]
@@ -60,7 +60,7 @@
 (defn app [request]
   (println "Received request" request)
   (try
-    (let [success-response (get-response (:uri request) api/fetch-latest-scores cache/get-value cache/set-value)
+    (let [success-response (get-response (:uri request) fetcher/fetch-latest-scores cache/get-value cache/set-value)
           response (or success-response {})]
       (format-response (if success-response 200 404) response))
     (catch Exception e

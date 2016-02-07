@@ -1,8 +1,8 @@
-(ns nhl-score-api.last-games-page-test
+(ns nhl-score-api.fetchers.nhl_com.last-games-page-test
   (:require [clojure.test :refer :all]
-            [nhl-score-api.last-games-page :refer :all]
-            [nhl-score-api.game-scores :as game-scores]
-            [nhl-score-api.resources :as resources]))
+            [nhl-score-api.fetchers.nhl_com.last-games-page :refer :all]
+            [nhl-score-api.fetchers.nhl_com.game-scores :as game-scores]
+            [nhl-score-api.fetchers.nhl_com.resources :as resources]))
 
 (deftest last-game-page-url-parsing
 

@@ -1,4 +1,4 @@
-(ns nhl-score-api.last-games-page
+(ns nhl-score-api.fetchers.nhl_com.last-games-page
   (:require [net.cgrand.enlive-html :as html]))
 
 (declare parse-last-game-day-url parse-previous-day-url)

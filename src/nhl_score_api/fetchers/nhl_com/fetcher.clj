@@ -1,6 +1,6 @@
-(ns nhl-score-api.api
-  (:require [nhl-score-api.game-scores :as game-scores]
-            [nhl-score-api.last-games-page :as last-games-page])
+(ns nhl-score-api.fetchers.nhl_com.fetcher
+  (:require [nhl-score-api.fetchers.nhl_com.game-scores :as game-scores]
+            [nhl-score-api.fetchers.nhl_com.last-games-page :as last-games-page])
   (:import (java.net URL)))
 
 (def scores-base-url "http://www.nhl.com")
