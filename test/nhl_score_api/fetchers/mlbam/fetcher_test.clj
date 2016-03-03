@@ -12,10 +12,10 @@
           today (format/unparse (format/formatters :year-month-day) now)
           query-params (get-query-params)]
       (is (= yesterday
-             (:startDate query-params)))
+             (:startDate query-params)) "Start date")
       (is (= today
-             (:endDate query-params)))))
+             (:endDate query-params)) "End date")))
 
   (testing "All needed details are requested"
     (is (= "schedule.teams,schedule.scoringplays"
-           (:expand (get-query-params))))))
+           (:expand (get-query-params))) "Expanded fields")))
