@@ -1,0 +1,343 @@
+{
+  "copyright" : "Copyright 2015 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "totalItems" : 3,
+  "wait" : 10,
+  "dates" : [ {
+    "date" : "2016-03-30",
+    "totalItems" : 3,
+    "games" : [ {
+      "gamePk" : 2015021149,
+      "link" : "/api/v1/game/2015021149/feed/live",
+      "gameType" : "R",
+      "season" : "20152016",
+      "gameDate" : "2016-03-30T23:30:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1"
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 30,
+            "losses" : 27,
+            "ot" : 7,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 9,
+            "name" : "Ottawa Senators",
+            "link" : "/api/v1/teams/9",
+            "venue" : {
+              "name" : "Canadian Tire Centre",
+              "city" : "Ottawa",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -5
+              }
+            },
+            "abbreviation" : "OTT",
+            "teamName" : "Senators",
+            "locationName" : "Ottawa",
+            "firstYearOfPlay" : "1990",
+            "division" : {
+              "id" : 17,
+              "name" : "Atlantic",
+              "link" : "/api/v1/divisions/17"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 30,
+              "teamName" : "Senators",
+              "link" : "/api/v1/franchises/30"
+            },
+            "officialSiteUrl" : "http://www.ottawasenators.com",
+            "franchiseId" : 30,
+            "shortName" : "Ottawa",
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 26,
+            "losses" : 32,
+            "ot" : 4,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 52,
+            "name" : "Winnipeg Jets",
+            "link" : "/api/v1/teams/52",
+            "venue" : {
+              "name" : "MTS Centre",
+              "city" : "Winnipeg",
+              "timeZone" : {
+                "id" : "America/Winnipeg",
+                "offset" : -6
+              }
+            },
+            "abbreviation" : "WPG",
+            "teamName" : "Jets",
+            "locationName" : "Winnipeg",
+            "firstYearOfPlay" : "2011",
+            "division" : {
+              "id" : 16,
+              "name" : "Central",
+              "link" : "/api/v1/divisions/16"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 35,
+              "teamName" : "Jets",
+              "link" : "/api/v1/franchises/35"
+            },
+            "officialSiteUrl" : "http://winnipegjets.com",
+            "franchiseId" : 35,
+            "shortName" : "Winnipeg",
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ ],
+      "venue" : {
+        "name" : "MTS Centre"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2015021149/content"
+      }
+    }, {
+      "gamePk" : 2015021150,
+      "link" : "/api/v1/game/2015021150/feed/live",
+      "gameType" : "R",
+      "season" : "20152016",
+      "gameDate" : "2016-03-31T00:00:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1"
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 47,
+            "losses" : 12,
+            "ot" : 4,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 15,
+            "name" : "Washington Capitals",
+            "link" : "/api/v1/teams/15",
+            "venue" : {
+              "name" : "Verizon Center",
+              "city" : "Washington",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -5
+              }
+            },
+            "abbreviation" : "WSH",
+            "teamName" : "Capitals",
+            "locationName" : "Washington",
+            "firstYearOfPlay" : "1974",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 24,
+              "teamName" : "Capitals",
+              "link" : "/api/v1/franchises/24"
+            },
+            "officialSiteUrl" : "http://www.washingtoncapitals.com",
+            "franchiseId" : 24,
+            "shortName" : "Washington",
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 29,
+            "losses" : 22,
+            "ot" : 11,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 4,
+            "name" : "Philadelphia Flyers",
+            "link" : "/api/v1/teams/4",
+            "venue" : {
+              "name" : "Wells Fargo Center",
+              "city" : "Philadelphia",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -5
+              }
+            },
+            "abbreviation" : "PHI",
+            "teamName" : "Flyers",
+            "locationName" : "Philadelphia",
+            "firstYearOfPlay" : "1967",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 16,
+              "teamName" : "Flyers",
+              "link" : "/api/v1/franchises/16"
+            },
+            "officialSiteUrl" : "http://www.philadelphiaflyers.com",
+            "franchiseId" : 16,
+            "shortName" : "Philadelphia",
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ ],
+      "venue" : {
+        "name" : "Wells Fargo Center"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2015021150/content"
+      }
+    }, {
+      "gamePk" : 2015021151,
+      "link" : "/api/v1/game/2015021151/feed/live",
+      "gameType" : "R",
+      "season" : "20152016",
+      "gameDate" : "2016-03-31T02:00:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1"
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 26,
+            "losses" : 33,
+            "ot" : 4,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 20,
+            "name" : "Calgary Flames",
+            "link" : "/api/v1/teams/20",
+            "venue" : {
+              "name" : "Scotiabank Saddledome",
+              "city" : "Calgary",
+              "timeZone" : {
+                "id" : "America/Denver",
+                "offset" : -7
+              }
+            },
+            "abbreviation" : "CGY",
+            "teamName" : "Flames",
+            "locationName" : "Calgary",
+            "firstYearOfPlay" : "1980",
+            "division" : {
+              "id" : 15,
+              "name" : "Pacific",
+              "link" : "/api/v1/divisions/15"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 21,
+              "teamName" : "Flames",
+              "link" : "/api/v1/franchises/21"
+            },
+            "officialSiteUrl" : "http://www.calgaryflames.com",
+            "franchiseId" : 21,
+            "shortName" : "Calgary",
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 35,
+            "losses" : 19,
+            "ot" : 8,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 24,
+            "name" : "Anaheim Ducks",
+            "link" : "/api/v1/teams/24",
+            "venue" : {
+              "name" : "Honda Center",
+              "city" : "Anaheim",
+              "timeZone" : {
+                "id" : "America/Los_Angeles",
+                "offset" : -8
+              }
+            },
+            "abbreviation" : "ANA",
+            "teamName" : "Ducks",
+            "locationName" : "Anaheim",
+            "firstYearOfPlay" : "1993",
+            "division" : {
+              "id" : 15,
+              "name" : "Pacific",
+              "link" : "/api/v1/divisions/15"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 32,
+              "teamName" : "Ducks",
+              "link" : "/api/v1/franchises/32"
+            },
+            "officialSiteUrl" : "http://www.anaheimducks.com",
+            "franchiseId" : 32,
+            "shortName" : "Anaheim",
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ ],
+      "venue" : {
+        "name" : "Honda Center"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2015021151/content"
+      }
+    } ]
+  } ]
+}

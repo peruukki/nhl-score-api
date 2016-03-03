@@ -10,4 +10,9 @@
       (is (= 1
              (count latest-games)) "Latest finished games count")
       (is (= ["Final"]
-             (distinct (map #(:abstract-game-state (:status %)) latest-games))) "Game states"))))
+             (distinct (map #(:abstract-game-state (:status %)) latest-games))) "Game states")))
+
+  (testing "No finished games is handled gracefully"
+    (let [latest-games (filter-latest-finished-games resources/games-in-preview-state)]
+      (is (= 0
+             (count latest-games)) "Latest finished games count"))))
