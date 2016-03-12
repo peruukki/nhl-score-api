@@ -1,5 +1,5 @@
 (ns nhl-score-api.core
-  (:require [nhl-score-api.fetchers.nhl_com.fetcher :as fetcher]
+  (:require [nhl-score-api.fetchers.mlbam.fetcher :as fetcher]
             [nhl-score-api.cache :as cache]
             [camel-snake-kebab.core :refer [->camelCaseString]]
             [org.httpkit.server :as server]

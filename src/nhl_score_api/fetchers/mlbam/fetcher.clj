@@ -1,5 +1,7 @@
 (ns nhl-score-api.fetchers.mlbam.fetcher
-  (:require [clojure.data.json :as json]
+  (:require [nhl-score-api.fetchers.mlbam.game-scores :as game-scores]
+            [nhl-score-api.fetchers.mlbam.latest-games :as latest-games]
+            [clojure.data.json :as json]
             [clj-time.core :as time]
             [clj-time.format :as format]
             [clj-http.lite.client :as http])) ; clj-http-lite supports SNI (unlike http-kit or clj-http)
@@ -18,8 +20,9 @@
      :expand "schedule.teams,schedule.scoringplays"}))
 
 (defn- fetch-latest-games-info []
-  (json/read-str
-    (:body (http/get scores-url {:query-params (get-query-params)}))))
+  (:body (http/get scores-url {:query-params (get-query-params)})))
 
 (defn fetch-latest-scores []
-  (fetch-latest-games-info))
+  (-> (fetch-latest-games-info)
+      latest-games/filter-latest-finished-games
+      game-scores/parse-game-scores))
