@@ -1,7 +1,57 @@
 (ns nhl-score-api.fetchers.mlbam.game-scores)
 
-(defn- parse-goals [api-game]
-  (:scoring-plays api-game))
+(defn- parse-goal-team [scoring-play team-details]
+  (let [team-id (:id (:team scoring-play))
+        team (first (filter #(= team-id (:id %)) (vals team-details)))]
+    (:abbreviation team)))
+
+(defn- parse-goal-period [scoring-play]
+  (case (:period-type (:about scoring-play))
+    "REGULAR" (str (:period (:about scoring-play)))
+    "OVERTIME" "OT"
+    "SHOOTOUT" "SO"))
+
+(defn- parse-time-str [time-str]
+  (let [time (re-find #"(\d\d):(\d\d)" time-str)]
+    {:min (Integer/parseInt (nth time 1))
+     :sec (Integer/parseInt (nth time 2))}))
+
+(defn- parse-goal-time [scoring-play period]
+  (when (not= "SO" period)
+    (parse-time-str (:period-time (:about scoring-play)))))
+
+(defn- parse-goal-scorer-details [scoring-play]
+  (first (filter #(= "Scorer" (:player-type %)) (:players scoring-play))))
+
+(defn- parse-goal-scorer-name [scoring-play]
+  (:full-name (:player (parse-goal-scorer-details scoring-play))))
+
+(defn- parse-goal-scorer-goal-count [scoring-play period]
+  (when (not= "SO" period)
+    (:season-total (parse-goal-scorer-details scoring-play))))
+
+(defn- add-goal-time [goal-details time]
+  (if time
+    (assoc goal-details :min (:min time) :sec (:sec time))
+    goal-details))
+
+(defn- add-goal-count [goal-details goal-count]
+  (if goal-count
+    (assoc goal-details :goal-count goal-count)
+    goal-details))
+
+(defn- parse-goal-details [scoring-play team-details]
+  (let [team (parse-goal-team scoring-play team-details)
+        period (parse-goal-period scoring-play)
+        time (parse-goal-time scoring-play period)
+        scorer (parse-goal-scorer-name scoring-play)
+        goal-count (parse-goal-scorer-goal-count scoring-play period)]
+    (-> {:team team :period period :scorer scorer}
+        (add-goal-time time)
+        (add-goal-count goal-count))))
+
+(defn- parse-goals [api-game team-details]
+  (map #(parse-goal-details % team-details) (:scoring-plays api-game)))
 
 (defn- ended-in-overtime? [goals]
   (some #(= "OT" (:ordinal-num (:about %))) goals))
@@ -49,7 +99,7 @@
 
 (defn- parse-game-details [api-game]
   (let [team-details (parse-game-team-details api-game)]
-    {:goals (parse-goals api-game)
+    {:goals (parse-goals api-game team-details)
      :scores (parse-scores api-game team-details)
      :teams (get-team-abbreviations team-details)}))
 
