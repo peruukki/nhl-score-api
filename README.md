@@ -110,39 +110,39 @@ Returns an array of the latest round’s games, each game item containing these 
 ## Requirements
 
 - [Leiningen](http://leiningen.org/) is used for all project management.
-- [Docker](https://www.docker.com/) is used for running [Redis](https://hub.docker.com/_/redis/) locally. You can
-  also optionally disable Redis, in which case you won’t need Docker.
+- [Docker](https://www.docker.com/) is used for running the application and [Redis](https://hub.docker.com/_/redis/)
+  locally. You can also optionally run the application without Docker and Redis.
 
-## Development Redis setup
+## Running application
 
-To start a [Redis Docker container](https://hub.docker.com/_/redis/), install [Docker](https://www.docker.com/) and run:
+### Using [Docker](https://www.docker.com/)
+
+To run the application locally in [Docker](https://www.docker.com/) containers, install Docker and run:
 
 ```
 ./docker-up.sh
 ```
 
-Downloading the Redis image will take a while on the first run, but it will be reused after that. After the command
-finishes, you should see a container named `nhl-score-api-redis` running when checking Docker containers:
+Downloading the [Clojure](https://hub.docker.com/_/clojure/) and [Redis](https://hub.docker.com/_/redis/)
+images will take quite a while on the first run, but they will be reused after that.
 
-```
-docker ps
-```
-
-To stop and delete the Redis container, run:
+To delete all containers, run:
 
 ```
 ./docker-down.sh
 ```
 
-## Running application
+### Without Docker
 
-There is a script to run the application connected to a local Redis Docker container on Mac OS X:
+You can also run the application locally with `lein run`.
+
+If you have Redis running somewhere externally, you can specify it with the `REDIS_URL` environment variable:
 
 ```
-./run-local-mac.sh
+REDIS_URL=redis://localhost lein run
 ```
 
-If you don’t want to use Redis caching, you can start the application with:
+You can also run the application without Redis caching:
 
 ```
 REDIS_DISABLED=true lein run

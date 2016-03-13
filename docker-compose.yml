@@ -1,7 +1,10 @@
 version: '2'
 services:
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile-${BUILD_FLAVOR}
+    image: nhl-score-api-${BUILD_FLAVOR}
     ports:
       - "8080:8080"
     depends_on:
