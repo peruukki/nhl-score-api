@@ -3,7 +3,7 @@
 
 (def redis-disabled? (Boolean/valueOf (System/getenv "REDIS_DISABLED")))
 
-(def url (System/getenv "REDIS_URL"))
+(def url (or (System/getenv "REDIS_URL") "redis://redis"))
 
 (def server-connection {:pool {} :spec {:uri url}})
 (defmacro wcar* [& body] `(car/wcar server-connection ~@body))
@@ -32,11 +32,7 @@
            (car/expire key ttl-seconds)))
   value)
 
-(defn- validate-configuration []
-  (when (nil? url) (throw (Exception. "REDIS_URL env variable is not defined"))))
-
 (defn- ping-server []
-  (validate-configuration)
   (println "Pinging Redis at" url)
   (let [response (wcar* (car/ping))]
     (println "Got response" response "from Redis")))
