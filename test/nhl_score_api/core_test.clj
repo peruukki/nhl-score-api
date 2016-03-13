@@ -84,7 +84,10 @@
 (defn- assert-cors-enabled [response]
   (is (= "*"
          (get (:headers response) "Access-Control-Allow-Origin"))
-      "Access-Control-Allow-Origin allows all sites"))
+      "Access-Control-Allow-Origin allows all sites")
+  (is (= "Content-Type"
+         (get (:headers response) "Access-Control-Allow-Headers"))
+      "Access-Control-Allow-Headers allows Content-Type header"))
 
 (defn- assert-body [response expected-body message]
   (is (= (json/write-str expected-body)

@@ -54,6 +54,7 @@
 (defn- format-response [status body]
   {:status status
    :headers {"Access-Control-Allow-Origin" "*"
+             "Access-Control-Allow-Headers" "Content-Type"
              "Content-Type" "application/json; charset=utf-8"}
    :body (json/write-str body :key-fn json-key-transformer)})
 
