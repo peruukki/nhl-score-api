@@ -43,7 +43,7 @@
 
   (testing "Parsing game with goal in playoff overtime"
     (let [game (nth (parse-game-scores (filter-latest-finished-games resources/playoff-games-finished-in-regulation-and-overtime)) 2)]
-      (is (= {"CHI" 0 "STL" 1}
+      (is (= {"CHI" 0 "STL" 1 :overtime true}
              (:scores game)) "Parsed scores")
       (is (= [{:team "STL" :min 9 :sec 4 :scorer "David Backes" :goal-count 1 :period "4"}]
              (:goals game)) "Parsed goals"))))

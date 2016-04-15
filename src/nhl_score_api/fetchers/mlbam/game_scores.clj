@@ -59,16 +59,14 @@
 (defn- parse-goals [api-game team-details]
   (map #(parse-goal-details api-game % team-details) (:scoring-plays api-game)))
 
-(defn- ended-in-overtime? [api-game goals]
-  (and
-    (regular-season-game? api-game)
-    (some #(= "OT" (:ordinal-num (:about %))) goals)))
+(defn- ended-in-overtime? [goals]
+  (some #(= "OT" (:ordinal-num (:about %))) goals))
 
 (defn- ended-in-shootout? [goals]
   (some #(= "SO" (:ordinal-num (:about %))) goals))
 
-(defn- add-overtime-flag [api-game goals scores]
-  (if (ended-in-overtime? api-game goals)
+(defn- add-overtime-flag [goals scores]
+  (if (ended-in-overtime? goals)
     (assoc scores :overtime true)
     scores))
 
@@ -77,9 +75,9 @@
     (assoc scores :shootout true)
     scores))
 
-(defn- add-score-flags [api-game team-goal-counts goals]
+(defn- add-score-flags [team-goal-counts goals]
   (->> team-goal-counts
-       (add-overtime-flag api-game goals)
+       (add-overtime-flag goals)
        (add-shootout-flag goals)))
 
 (defn- filter-team-goals [awayOrHomeKey goals team-details]
@@ -92,7 +90,7 @@
         home-goals (filter-team-goals :home goals team-details)
         team-goal-counts {(:abbreviation (:away team-details)) (count away-goals)
                           (:abbreviation (:home team-details)) (count home-goals)}]
-    (add-score-flags api-game team-goal-counts goals)))
+    (add-score-flags team-goal-counts goals)))
 
 (defn- parse-team-details [awayOrHomeKey api-game]
   (select-keys (:team (awayOrHomeKey (:teams api-game))) [:abbreviation :id]))

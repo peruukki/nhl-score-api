@@ -94,7 +94,7 @@ Returns an array of the latest round’s games, each game item containing these 
   - gameplay goal:
     - `goalCount` *(number)*: the number of goals the player has scored this season
     - `min` *(number)*: the goal scoring time minutes, from the start of the period
-    - `period` *(string)*: in which period the goal was scored; `"OT"` means regular season 5 minute overtime
+    - `period` *(string)*: in which period the goal was scored; `"OT"` means **regular season 5 minute overtime**
     - `scorer` *(string)*: the goal scorer
     - `sec` *(number)*: the goal scoring time seconds, from the start of the period
     - `team` *(string)*: the team that scored the goal
@@ -103,12 +103,14 @@ Returns an array of the latest round’s games, each game item containing these 
     - `scorer` *(string)*: the goal scorer
     - `team` *(string)*: the team that scored the goal
 - `scores` object: each team’s goal count, plus one of these possible fields:
-  - `overtime`: set to `true` if the game ended in regular season 5 minute overtime, absent if it didn’t
+  - `overtime`: set to `true` if the game ended in overtime, absent if it didn’t
   - `shootout`: set to `true` if the game ended in shootout, absent if it didn’t
 - `teams` object: away and home team names
 
-**Note on overtimes:** Only regular season 5 minute overtimes are considered "overtime" by the API. Playoff overtime
-periods are returned as period 4, 5, and so on, since they are 20 minute periods.
+**Note on overtimes:** Only regular season 5 minute overtimes are considered "overtime" in the
+`goals` array. Playoff overtime periods are returned as period 4, 5, and so on, since they are
+20 minute periods. However, all games (including playoff games) that went into overtime are
+marked as having ended in overtime in the `scores` object.
 
 ## Requirements
 
