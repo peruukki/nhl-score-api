@@ -1,6 +1,6 @@
 {
   "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2016. All Rights Reserved.",
-  "totalItems" : 7,
+  "totalItems" : 3,
   "wait" : 10,
   "dates" : [ {
     "date" : "2016-04-13",
@@ -405,6 +405,78 @@
       },
       "content" : {
         "link" : "/api/v1/game/2015030121/content"
+      },
+      "seriesSummary" : {
+        "gamePk" : 2015030121,
+        "gameNumber" : 1,
+        "gameLabel" : "Game 1",
+        "seriesStatus" : "Lightning lead 1-0",
+        "seriesStatusShort" : "TBL leads 1-0",
+        "necessary" : true,
+        "gameCode" : 121,
+        "gameTime" : "2016-04-13T23:00:00Z",
+        "series" : {
+          "seriesNumber" : 2,
+          "seriesCode" : "B",
+          "names" : {
+            "matchupName" : "Lightning (2) vs. Red Wings (3)",
+            "matchupShortName" : "TBL v DET",
+            "teamAbbreviationA" : "TBL",
+            "teamAbbreviationB" : "DET",
+            "seriesSlug" : "lightning-vs-red-wings-series-b"
+          },
+          "currentGame" : {
+            "seriesSummary" : {
+              "gamePk" : 2015030123,
+              "gameNumber" : 3,
+              "gameLabel" : "Game 3",
+              "seriesStatus" : "Lightning lead 2-0",
+              "seriesStatusShort" : "TBL leads 2-0",
+              "necessary" : true,
+              "gameCode" : 123,
+              "gameTime" : "2016-04-17T23:00:00Z"
+            }
+          },
+          "conference" : {
+            "id" : 6,
+            "name" : "Eastern",
+            "link" : "/api/v1/conferences/6"
+          },
+          "round" : {
+            "number" : 1
+          },
+          "matchupTeams" : [ {
+            "team" : {
+              "id" : 14,
+              "name" : "Tampa Bay Lightning",
+              "link" : "/api/v1/teams/14"
+            },
+            "seed" : {
+              "type" : "2",
+              "rank" : 2,
+              "isTop" : true
+            },
+            "seriesRecord" : {
+              "wins" : 2,
+              "losses" : 0
+            }
+          }, {
+            "team" : {
+              "id" : 17,
+              "name" : "Detroit Red Wings",
+              "link" : "/api/v1/teams/17"
+            },
+            "seed" : {
+              "type" : "3",
+              "rank" : 3,
+              "isTop" : false
+            },
+            "seriesRecord" : {
+              "wins" : 0,
+              "losses" : 2
+            }
+          } ]
+        }
       }
     }, {
       "gamePk" : 2015030141,
@@ -926,6 +998,78 @@
       },
       "content" : {
         "link" : "/api/v1/game/2015030141/content"
+      },
+      "seriesSummary" : {
+        "gamePk" : 2015030141,
+        "gameNumber" : 1,
+        "gameLabel" : "Game 1",
+        "seriesStatus" : "Penguins lead 1-0",
+        "seriesStatusShort" : "PIT leads 1-0",
+        "necessary" : true,
+        "gameCode" : 141,
+        "gameTime" : "2016-04-14T00:00:00Z",
+        "series" : {
+          "seriesNumber" : 4,
+          "seriesCode" : "D",
+          "names" : {
+            "matchupName" : "Penguins (2) vs. Rangers (3)",
+            "matchupShortName" : "PIT v NYR",
+            "teamAbbreviationA" : "PIT",
+            "teamAbbreviationB" : "NYR",
+            "seriesSlug" : "penguins-vs-rangers-series-d"
+          },
+          "currentGame" : {
+            "seriesSummary" : {
+              "gamePk" : 2015030142,
+              "gameNumber" : 2,
+              "gameLabel" : "Game 2",
+              "seriesStatus" : "Penguins lead 1-0",
+              "seriesStatusShort" : "PIT leads 1-0",
+              "necessary" : true,
+              "gameCode" : 142,
+              "gameTime" : "2016-04-16T19:00:00Z"
+            }
+          },
+          "conference" : {
+            "id" : 6,
+            "name" : "Eastern",
+            "link" : "/api/v1/conferences/6"
+          },
+          "round" : {
+            "number" : 1
+          },
+          "matchupTeams" : [ {
+            "team" : {
+              "id" : 5,
+              "name" : "Pittsburgh Penguins",
+              "link" : "/api/v1/teams/5"
+            },
+            "seed" : {
+              "type" : "2",
+              "rank" : 2,
+              "isTop" : true
+            },
+            "seriesRecord" : {
+              "wins" : 1,
+              "losses" : 0
+            }
+          }, {
+            "team" : {
+              "id" : 3,
+              "name" : "New York Rangers",
+              "link" : "/api/v1/teams/3"
+            },
+            "seed" : {
+              "type" : "3",
+              "rank" : 3,
+              "isTop" : false
+            },
+            "seriesRecord" : {
+              "wins" : 0,
+              "losses" : 1
+            }
+          } ]
+        }
       }
     }, {
       "gamePk" : 2015030161,
@@ -1094,454 +1238,78 @@
       },
       "content" : {
         "link" : "/api/v1/game/2015030161/content"
-      }
-    } ]
-  }, {
-    "date" : "2016-04-14",
-    "totalItems" : 4,
-    "games" : [ {
-      "gamePk" : 2015030131,
-      "link" : "/api/v1/game/2015030131/feed/live",
-      "gameType" : "P",
-      "season" : "20152016",
-      "gameDate" : "2016-04-14T23:00:00Z",
-      "status" : {
-        "abstractGameState" : "Preview",
-        "codedGameState" : "1",
-        "detailedState" : "Scheduled",
-        "statusCode" : "1"
       },
-      "teams" : {
-        "away" : {
-          "leagueRecord" : {
-            "wins" : 41,
-            "losses" : 27,
-            "ot" : 14,
-            "type" : "league"
+      "seriesSummary" : {
+        "gamePk" : 2015030161,
+        "gameNumber" : 1,
+        "gameLabel" : "Game 1",
+        "seriesStatus" : "Blues lead 1-0",
+        "seriesStatusShort" : "STL leads 1-0",
+        "necessary" : true,
+        "gameCode" : 161,
+        "gameTime" : "2016-04-14T01:30:00Z",
+        "series" : {
+          "seriesNumber" : 6,
+          "seriesCode" : "F",
+          "names" : {
+            "matchupName" : "Blues (2) vs. Blackhawks (3)",
+            "matchupShortName" : "STL v CHI",
+            "teamAbbreviationA" : "STL",
+            "teamAbbreviationB" : "CHI",
+            "seriesSlug" : "blues-vs-blackhawks-series-f"
           },
-          "score" : 0,
-          "team" : {
-            "id" : 4,
-            "name" : "Philadelphia Flyers",
-            "link" : "/api/v1/teams/4",
-            "venue" : {
-              "name" : "Wells Fargo Center",
-              "city" : "Philadelphia",
-              "timeZone" : {
-                "id" : "America/New_York",
-                "offset" : -5
-              }
-            },
-            "abbreviation" : "PHI",
-            "teamName" : "Flyers",
-            "locationName" : "Philadelphia",
-            "firstYearOfPlay" : "1967",
-            "division" : {
-              "id" : 18,
-              "name" : "Metropolitan",
-              "link" : "/api/v1/divisions/18"
-            },
-            "conference" : {
-              "id" : 6,
-              "name" : "Eastern",
-              "link" : "/api/v1/conferences/6"
-            },
-            "franchise" : {
-              "franchiseId" : 16,
-              "teamName" : "Flyers",
-              "link" : "/api/v1/franchises/16"
-            },
-            "officialSiteUrl" : "http://www.philadelphiaflyers.com",
-            "franchiseId" : 16,
-            "shortName" : "Philadelphia",
-            "active" : true
-          }
-        },
-        "home" : {
-          "leagueRecord" : {
-            "wins" : 56,
-            "losses" : 18,
-            "ot" : 8,
-            "type" : "league"
+          "currentGame" : {
+            "seriesSummary" : {
+              "gamePk" : 2015030163,
+              "gameNumber" : 3,
+              "gameLabel" : "Game 3",
+              "seriesStatus" : "Series tied 1-1",
+              "seriesStatusShort" : "Tied 1-1",
+              "necessary" : true,
+              "gameCode" : 163,
+              "gameTime" : "2016-04-17T19:00:00Z"
+            }
           },
-          "score" : 0,
-          "team" : {
-            "id" : 15,
-            "name" : "Washington Capitals",
-            "link" : "/api/v1/teams/15",
-            "venue" : {
-              "name" : "Verizon Center",
-              "city" : "Washington",
-              "timeZone" : {
-                "id" : "America/New_York",
-                "offset" : -5
-              }
-            },
-            "abbreviation" : "WSH",
-            "teamName" : "Capitals",
-            "locationName" : "Washington",
-            "firstYearOfPlay" : "1974",
-            "division" : {
-              "id" : 18,
-              "name" : "Metropolitan",
-              "link" : "/api/v1/divisions/18"
-            },
-            "conference" : {
-              "id" : 6,
-              "name" : "Eastern",
-              "link" : "/api/v1/conferences/6"
-            },
-            "franchise" : {
-              "franchiseId" : 24,
-              "teamName" : "Capitals",
-              "link" : "/api/v1/franchises/24"
-            },
-            "officialSiteUrl" : "http://www.washingtoncapitals.com",
-            "franchiseId" : 24,
-            "shortName" : "Washington",
-            "active" : true
-          }
-        }
-      },
-      "scoringPlays" : [ ],
-      "venue" : {
-        "name" : "Verizon Center"
-      },
-      "content" : {
-        "link" : "/api/v1/game/2015030131/content"
-      }
-    }, {
-      "gamePk" : 2015030111,
-      "link" : "/api/v1/game/2015030111/feed/live",
-      "gameType" : "P",
-      "season" : "20152016",
-      "gameDate" : "2016-04-15T00:00:00Z",
-      "status" : {
-        "abstractGameState" : "Preview",
-        "codedGameState" : "1",
-        "detailedState" : "Scheduled",
-        "statusCode" : "1"
-      },
-      "teams" : {
-        "away" : {
-          "leagueRecord" : {
-            "wins" : 45,
-            "losses" : 27,
-            "ot" : 10,
-            "type" : "league"
+          "conference" : {
+            "id" : 5,
+            "name" : "Western",
+            "link" : "/api/v1/conferences/5"
           },
-          "score" : 0,
-          "team" : {
-            "id" : 2,
-            "name" : "New York Islanders",
-            "link" : "/api/v1/teams/2",
-            "venue" : {
-              "name" : "Barclays Center",
-              "city" : "Brooklyn",
-              "timeZone" : {
-                "id" : "America/New_York",
-                "offset" : -5
-              }
-            },
-            "abbreviation" : "NYI",
-            "teamName" : "Islanders",
-            "locationName" : "New York",
-            "firstYearOfPlay" : "1972",
-            "division" : {
-              "id" : 18,
-              "name" : "Metropolitan",
-              "link" : "/api/v1/divisions/18"
-            },
-            "conference" : {
-              "id" : 6,
-              "name" : "Eastern",
-              "link" : "/api/v1/conferences/6"
-            },
-            "franchise" : {
-              "franchiseId" : 22,
-              "teamName" : "Islanders",
-              "link" : "/api/v1/franchises/22"
-            },
-            "officialSiteUrl" : "http://www.newyorkislanders.com",
-            "franchiseId" : 22,
-            "shortName" : "NY Islanders",
-            "active" : true
-          }
-        },
-        "home" : {
-          "leagueRecord" : {
-            "wins" : 47,
-            "losses" : 26,
-            "ot" : 9,
-            "type" : "league"
+          "round" : {
+            "number" : 1
           },
-          "score" : 0,
-          "team" : {
-            "id" : 13,
-            "name" : "Florida Panthers",
-            "link" : "/api/v1/teams/13",
-            "venue" : {
-              "name" : "BB&T Center",
-              "city" : "Sunrise",
-              "timeZone" : {
-                "id" : "America/New_York",
-                "offset" : -5
-              }
+          "matchupTeams" : [ {
+            "team" : {
+              "id" : 19,
+              "name" : "St. Louis Blues",
+              "link" : "/api/v1/teams/19"
             },
-            "abbreviation" : "FLA",
-            "teamName" : "Panthers",
-            "locationName" : "Florida",
-            "firstYearOfPlay" : "1993",
-            "division" : {
-              "id" : 17,
-              "name" : "Atlantic",
-              "link" : "/api/v1/divisions/17"
+            "seed" : {
+              "type" : "2",
+              "rank" : 2,
+              "isTop" : true
             },
-            "conference" : {
-              "id" : 6,
-              "name" : "Eastern",
-              "link" : "/api/v1/conferences/6"
-            },
-            "franchise" : {
-              "franchiseId" : 33,
-              "teamName" : "Panthers",
-              "link" : "/api/v1/franchises/33"
-            },
-            "officialSiteUrl" : "http://www.floridapanthers.com",
-            "franchiseId" : 33,
-            "shortName" : "Florida",
-            "active" : true
-          }
-        }
-      },
-      "scoringPlays" : [ ],
-      "venue" : {
-        "name" : "BB&T Center"
-      },
-      "content" : {
-        "link" : "/api/v1/game/2015030111/content"
-      }
-    }, {
-      "gamePk" : 2015030151,
-      "link" : "/api/v1/game/2015030151/feed/live",
-      "gameType" : "P",
-      "season" : "20152016",
-      "gameDate" : "2016-04-15T01:30:00Z",
-      "status" : {
-        "abstractGameState" : "Preview",
-        "codedGameState" : "1",
-        "detailedState" : "Scheduled",
-        "statusCode" : "1"
-      },
-      "teams" : {
-        "away" : {
-          "leagueRecord" : {
-            "wins" : 38,
-            "losses" : 33,
-            "ot" : 11,
-            "type" : "league"
-          },
-          "score" : 0,
-          "team" : {
-            "id" : 30,
-            "name" : "Minnesota Wild",
-            "link" : "/api/v1/teams/30",
-            "venue" : {
-              "name" : "Xcel Energy Center",
-              "city" : "St. Paul",
-              "timeZone" : {
-                "id" : "America/Chicago",
-                "offset" : -6
-              }
-            },
-            "abbreviation" : "MIN",
-            "teamName" : "Wild",
-            "locationName" : "Minnesota",
-            "firstYearOfPlay" : "1997",
-            "division" : {
+            "seriesRecord" : {
+              "wins" : 1,
+              "losses" : 1
+            }
+          }, {
+            "team" : {
               "id" : 16,
-              "name" : "Central",
-              "link" : "/api/v1/divisions/16"
+              "name" : "Chicago Blackhawks",
+              "link" : "/api/v1/teams/16"
             },
-            "conference" : {
-              "id" : 5,
-              "name" : "Western",
-              "link" : "/api/v1/conferences/5"
+            "seed" : {
+              "type" : "3",
+              "rank" : 3,
+              "isTop" : false
             },
-            "franchise" : {
-              "franchiseId" : 37,
-              "teamName" : "Wild",
-              "link" : "/api/v1/franchises/37"
-            },
-            "officialSiteUrl" : "http://www.wild.com",
-            "franchiseId" : 37,
-            "shortName" : "Minnesota",
-            "active" : true
-          }
-        },
-        "home" : {
-          "leagueRecord" : {
-            "wins" : 50,
-            "losses" : 23,
-            "ot" : 9,
-            "type" : "league"
-          },
-          "score" : 0,
-          "team" : {
-            "id" : 25,
-            "name" : "Dallas Stars",
-            "link" : "/api/v1/teams/25",
-            "venue" : {
-              "name" : "American Airlines Center",
-              "city" : "Dallas",
-              "timeZone" : {
-                "id" : "America/Chicago",
-                "offset" : -6
-              }
-            },
-            "abbreviation" : "DAL",
-            "teamName" : "Stars",
-            "locationName" : "Dallas",
-            "firstYearOfPlay" : "1967",
-            "division" : {
-              "id" : 16,
-              "name" : "Central",
-              "link" : "/api/v1/divisions/16"
-            },
-            "conference" : {
-              "id" : 5,
-              "name" : "Western",
-              "link" : "/api/v1/conferences/5"
-            },
-            "franchise" : {
-              "franchiseId" : 15,
-              "teamName" : "Stars",
-              "link" : "/api/v1/franchises/15"
-            },
-            "officialSiteUrl" : "http://www.dallasstars.com",
-            "franchiseId" : 15,
-            "shortName" : "Dallas",
-            "active" : true
-          }
+            "seriesRecord" : {
+              "wins" : 1,
+              "losses" : 1
+            }
+          } ]
         }
-      },
-      "scoringPlays" : [ ],
-      "venue" : {
-        "name" : "American Airlines Center"
-      },
-      "content" : {
-        "link" : "/api/v1/game/2015030151/content"
-      }
-    }, {
-      "gamePk" : 2015030181,
-      "link" : "/api/v1/game/2015030181/feed/live",
-      "gameType" : "P",
-      "season" : "20152016",
-      "gameDate" : "2016-04-15T02:30:00Z",
-      "status" : {
-        "abstractGameState" : "Preview",
-        "codedGameState" : "1",
-        "detailedState" : "Scheduled",
-        "statusCode" : "1"
-      },
-      "teams" : {
-        "away" : {
-          "leagueRecord" : {
-            "wins" : 46,
-            "losses" : 30,
-            "ot" : 6,
-            "type" : "league"
-          },
-          "score" : 0,
-          "team" : {
-            "id" : 28,
-            "name" : "San Jose Sharks",
-            "link" : "/api/v1/teams/28",
-            "venue" : {
-              "name" : "SAP Center at San Jose",
-              "city" : "San Jose",
-              "timeZone" : {
-                "id" : "America/Los_Angeles",
-                "offset" : -8
-              }
-            },
-            "abbreviation" : "SJS",
-            "teamName" : "Sharks",
-            "locationName" : "San Jose",
-            "firstYearOfPlay" : "1990",
-            "division" : {
-              "id" : 15,
-              "name" : "Pacific",
-              "link" : "/api/v1/divisions/15"
-            },
-            "conference" : {
-              "id" : 5,
-              "name" : "Western",
-              "link" : "/api/v1/conferences/5"
-            },
-            "franchise" : {
-              "franchiseId" : 29,
-              "teamName" : "Sharks",
-              "link" : "/api/v1/franchises/29"
-            },
-            "officialSiteUrl" : "http://www.sjsharks.com",
-            "franchiseId" : 29,
-            "shortName" : "San Jose",
-            "active" : true
-          }
-        },
-        "home" : {
-          "leagueRecord" : {
-            "wins" : 48,
-            "losses" : 28,
-            "ot" : 6,
-            "type" : "league"
-          },
-          "score" : 0,
-          "team" : {
-            "id" : 26,
-            "name" : "Los Angeles Kings",
-            "link" : "/api/v1/teams/26",
-            "venue" : {
-              "name" : "STAPLES Center",
-              "city" : "Los Angeles",
-              "timeZone" : {
-                "id" : "America/Los_Angeles",
-                "offset" : -8
-              }
-            },
-            "abbreviation" : "LAK",
-            "teamName" : "Kings",
-            "locationName" : "Los Angeles",
-            "firstYearOfPlay" : "1967",
-            "division" : {
-              "id" : 15,
-              "name" : "Pacific",
-              "link" : "/api/v1/divisions/15"
-            },
-            "conference" : {
-              "id" : 5,
-              "name" : "Western",
-              "link" : "/api/v1/conferences/5"
-            },
-            "franchise" : {
-              "franchiseId" : 14,
-              "teamName" : "Kings",
-              "link" : "/api/v1/franchises/14"
-            },
-            "officialSiteUrl" : "http://www.lakings.com",
-            "franchiseId" : 14,
-            "shortName" : "Los Angeles",
-            "active" : true
-          }
-        }
-      },
-      "scoringPlays" : [ ],
-      "venue" : {
-        "name" : "STAPLES Center"
-      },
-      "content" : {
-        "link" : "/api/v1/game/2015030181/content"
       }
     } ]
   } ]

@@ -19,7 +19,9 @@
       (is (= [{"CAR" 3 "NJD" 1} {"CGY" 1 "BOS" 2} {"PIT" 2 "WSH" 3} {"STL" 4 "OTT" 3 :shootout true}
               {"EDM" 2 "BUF" 1 :overtime true} {"FLA" 3 "WPG" 2} {"COL" 3 "MIN" 6} {"DAL" 3 "NSH" 5}
               {"NYI" 3 "VAN" 2}]
-             (map :scores games)) "Parsed scores")))
+             (map :scores games)) "Parsed scores")
+      (is (= [false]
+             (distinct (map #(contains? % :playoff-series) games))))))
 
   (testing "Parsing game with goals in regulation and overtime"
     (let [game (nth (parse-game-scores (filter-latest-finished-games resources/games-finished-in-regulation-overtime-and-shootout)) 4)
@@ -46,4 +48,10 @@
       (is (= {"CHI" 0 "STL" 1 :overtime true}
              (:scores game)) "Parsed scores")
       (is (= [{:team "STL" :min 9 :sec 4 :scorer "David Backes" :goal-count 1 :period "4"}]
-             (:goals game)) "Parsed goals"))))
+             (:goals game)) "Parsed goals")))
+
+  (testing "Parsing playoff series information from playoff games"
+    (let [games (parse-game-scores (filter-latest-finished-games resources/playoff-games-finished-with-2nd-games))
+          playoff-series (map #(:playoff-series %) games)]
+      (is (= [{:wins {"DET" 0 "TBL" 1}} {:wins {"NYI" 1 "FLA" 0}} {:wins {"CHI" 0 "STL" 1}} {:wins {"NSH" 0 "ANA" 0}}]
+             playoff-series) "Parsed playoff series information"))))

@@ -103,11 +103,55 @@
   {:away (:abbreviation (:away team-details))
    :home (:abbreviation (:home team-details))})
 
+(defn- parse-current-playoff-series-wins [api-game teams]
+  (let [away-team (:away teams)
+        home-team (:home teams)
+        series-summary-description (:series-status-short (:series-summary api-game))
+        series-tied-match (re-find #"Tied (\d)-\d" series-summary-description)]
+    (if series-tied-match
+      (let [win-count (read-string (nth series-tied-match 1))]
+        {away-team win-count
+         home-team win-count})
+      (let [team-leads-match (re-find #"(\w+) leads (\d)-(\d)" series-summary-description)
+            leading-team (nth team-leads-match 1)
+            leading-team-win-count (read-string (nth team-leads-match 2))
+            trailing-team-win-count (read-string (nth team-leads-match 3))]
+        {away-team (if (= away-team leading-team) leading-team-win-count trailing-team-win-count)
+         home-team (if (= home-team leading-team) leading-team-win-count trailing-team-win-count)}))))
+
+(defn- get-winning-team [game-details]
+  (let [away-team (:away (:teams game-details))
+        home-team (:home (:teams game-details))
+        away-goals (get (:scores game-details) away-team)
+        home-goals (get (:scores game-details) home-team)]
+    (if (> away-goals home-goals) away-team home-team)))
+
+(defn- reduce-current-game-from-playoff-series-wins [current-wins game-details]
+  (let [away-team (:away (:teams game-details))
+        home-team (:home (:teams game-details))
+        away-wins (get current-wins away-team)
+        home-wins (get current-wins home-team)
+        winning-team (get-winning-team game-details)]
+    {away-team (if (= winning-team away-team) (- away-wins 1) away-wins)
+     home-team (if (= winning-team home-team) (- home-wins 1) home-wins)}))
+
+(defn- parse-playoff-series-information [api-game game-details]
+  (let [teams (:teams game-details)
+        current-wins (parse-current-playoff-series-wins api-game teams)
+        wins-before-game (reduce-current-game-from-playoff-series-wins current-wins game-details)]
+    {:wins wins-before-game}))
+
+(defn- add-playoff-series-information [api-game game-details]
+  (if (regular-season-game? api-game)
+    game-details
+    (assoc game-details :playoff-series (parse-playoff-series-information api-game game-details))))
+
 (defn- parse-game-details [api-game]
-  (let [team-details (parse-game-team-details api-game)]
-    {:goals (parse-goals api-game team-details)
-     :scores (parse-scores api-game team-details)
-     :teams (get-team-abbreviations team-details)}))
+  (let [team-details (parse-game-team-details api-game)
+        game-details {:goals  (parse-goals api-game team-details)
+                      :scores (parse-scores api-game team-details)
+                      :teams  (get-team-abbreviations team-details)}]
+    (add-playoff-series-information api-game game-details)))
 
 (defn parse-game-scores [api-games]
   (map parse-game-details api-games))

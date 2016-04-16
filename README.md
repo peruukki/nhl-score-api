@@ -18,6 +18,7 @@ Returns an array of the latest round’s games, each game item containing these 
 - `goals` *(array)*
 - `scores` *(object)*
 - `teams` *(object)*
+- `playoffSeries` *(object)*, only included if the game is a playoff game
 
 #### Example response:
 
@@ -42,6 +43,12 @@ Returns an array of the latest round’s games, each game item containing these 
     "teams": {
       "away": "BOS",
       "home": "CHI"
+    },
+    "playoffSeries": {
+      "wins": {
+        "BOS": 0,
+        "CHI": 0
+      }
     }
   },
   {
@@ -64,6 +71,12 @@ Returns an array of the latest round’s games, each game item containing these 
     "teams": {
       "away": "OTT",
       "home": "DET"
+    },
+    "playoffSeries": {
+      "wins": {
+        "OTT": 0,
+        "DET": 1
+      }
     }
   },
   {
@@ -83,6 +96,12 @@ Returns an array of the latest round’s games, each game item containing these 
     "teams": {
       "away": "NYR",
       "home": "PIT"
+    },
+    "playoffSeries": {
+      "wins": {
+        "NYR": 1,
+        "PIT": 1
+      }
     }
   }
 ]
@@ -106,6 +125,8 @@ Returns an array of the latest round’s games, each game item containing these 
   - `overtime`: set to `true` if the game ended in overtime, absent if it didn’t
   - `shootout`: set to `true` if the game ended in shootout, absent if it didn’t
 - `teams` object: away and home team names
+- `playoffSeries` object: playoff series related information, only present during playoffs
+  - `wins` object: each team’s win count in the series before the game
 
 **Note on overtimes:** Only regular season 5 minute overtimes are considered "overtime" in the
 `goals` array. Playoff overtime periods are returned as period 4, 5, and so on, since they are

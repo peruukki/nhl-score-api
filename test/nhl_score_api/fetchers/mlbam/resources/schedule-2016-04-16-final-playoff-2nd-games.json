@@ -1,0 +1,2666 @@
+{
+  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2016. All Rights Reserved.",
+  "totalItems" : 8,
+  "wait" : 10,
+  "dates" : [ {
+    "date" : "2016-04-15",
+    "totalItems" : 4,
+    "games" : [ {
+      "gamePk" : 2015030122,
+      "link" : "/api/v1/game/2015030122/feed/live",
+      "gameType" : "P",
+      "season" : "20152016",
+      "gameDate" : "2016-04-15T23:00:00Z",
+      "status" : {
+        "abstractGameState" : "Final",
+        "codedGameState" : "7",
+        "detailedState" : "Final",
+        "statusCode" : "7"
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 0,
+            "losses" : 2,
+            "type" : "league"
+          },
+          "score" : 2,
+          "team" : {
+            "id" : 17,
+            "name" : "Detroit Red Wings",
+            "link" : "/api/v1/teams/17",
+            "venue" : {
+              "name" : "Joe Louis Arena",
+              "city" : "Detroit",
+              "timeZone" : {
+                "id" : "America/Detroit",
+                "offset" : -5
+              }
+            },
+            "abbreviation" : "DET",
+            "teamName" : "Red Wings",
+            "locationName" : "Detroit",
+            "firstYearOfPlay" : "1926",
+            "division" : {
+              "id" : 17,
+              "name" : "Atlantic",
+              "link" : "/api/v1/divisions/17"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 12,
+              "teamName" : "Red Wings",
+              "link" : "/api/v1/franchises/12"
+            },
+            "officialSiteUrl" : "http://www.detroitredwings.com",
+            "franchiseId" : 12,
+            "shortName" : "Detroit",
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 2,
+            "losses" : 0,
+            "type" : "league"
+          },
+          "score" : 5,
+          "team" : {
+            "id" : 14,
+            "name" : "Tampa Bay Lightning",
+            "link" : "/api/v1/teams/14",
+            "venue" : {
+              "name" : "Amalie Arena",
+              "city" : "Tampa",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -5
+              }
+            },
+            "abbreviation" : "TBL",
+            "teamName" : "Lightning",
+            "locationName" : "Tampa Bay",
+            "firstYearOfPlay" : "1991",
+            "division" : {
+              "id" : 17,
+              "name" : "Atlantic",
+              "link" : "/api/v1/divisions/17"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 31,
+              "teamName" : "Lightning",
+              "link" : "/api/v1/franchises/31"
+            },
+            "officialSiteUrl" : "http://www.tampabaylightning.com",
+            "franchiseId" : 31,
+            "shortName" : "Tampa Bay",
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ {
+        "players" : [ {
+          "player" : {
+            "id" : 8476453,
+            "fullName" : "Nikita Kucherov",
+            "link" : "/api/v1/people/8476453"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 3
+        }, {
+          "player" : {
+            "id" : 8475167,
+            "fullName" : "Victor Hedman",
+            "link" : "/api/v1/people/8475167"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8474870,
+            "fullName" : "Tyler Johnson",
+            "link" : "/api/v1/people/8474870"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 3
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "TBL211",
+          "eventTypeId" : "GOAL",
+          "description" : "Nikita Kucherov (3) Slap Shot, assists: Victor Hedman (1), Tyler Johnson (3)",
+          "secondaryType" : "Slap Shot",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "PPG",
+            "name" : "Power Play"
+          }
+        },
+        "about" : {
+          "eventIdx" : 89,
+          "eventId" : 211,
+          "period" : 1,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "1st",
+          "periodTime" : "15:17",
+          "dateTime" : "2016-04-15T23:40:03Z",
+          "goals" : {
+            "away" : 0,
+            "home" : 1
+          }
+        },
+        "coordinates" : {
+          "x" : 55.0,
+          "y" : -12.0
+        },
+        "team" : {
+          "id" : 14,
+          "name" : "Tampa Bay Lightning",
+          "link" : "/api/v1/teams/14"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8477946,
+            "fullName" : "Dylan Larkin",
+            "link" : "/api/v1/people/8477946"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8470318,
+            "fullName" : "Jonathan Ericsson",
+            "link" : "/api/v1/people/8470318"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8468509,
+            "fullName" : "Niklas Kronwall",
+            "link" : "/api/v1/people/8468509"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "TBL245",
+          "eventTypeId" : "GOAL",
+          "description" : "Dylan Larkin (1) Wrist Shot, assists: Jonathan Ericsson (1), Niklas Kronwall (1)",
+          "secondaryType" : "Wrist Shot",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 145,
+          "eventId" : 245,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "03:30",
+          "dateTime" : "2016-04-16T00:13:15Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 1
+          }
+        },
+        "coordinates" : {
+          "x" : 72.0,
+          "y" : 10.0
+        },
+        "team" : {
+          "id" : 17,
+          "name" : "Detroit Red Wings",
+          "link" : "/api/v1/teams/17"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8470619,
+            "fullName" : "Brian Boyle",
+            "link" : "/api/v1/people/8470619"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8477494,
+            "fullName" : "Jonathan Drouin",
+            "link" : "/api/v1/people/8477494"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8470601,
+            "fullName" : "Braydon Coburn",
+            "link" : "/api/v1/people/8470601"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "TBL407",
+          "eventTypeId" : "GOAL",
+          "description" : "Brian Boyle (1) Wrist Shot, assists: Jonathan Drouin (1), Braydon Coburn (2)",
+          "secondaryType" : "Wrist Shot",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 166,
+          "eventId" : 407,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "06:46",
+          "dateTime" : "2016-04-16T00:21:12Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 2
+          }
+        },
+        "coordinates" : {
+          "x" : -64.0,
+          "y" : 0.0
+        },
+        "team" : {
+          "id" : 14,
+          "name" : "Tampa Bay Lightning",
+          "link" : "/api/v1/teams/14"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8467389,
+            "fullName" : "Brad Richards",
+            "link" : "/api/v1/people/8467389"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8471242,
+            "fullName" : "Mike Green",
+            "link" : "/api/v1/people/8471242"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475193,
+            "fullName" : "Tomas Tatar",
+            "link" : "/api/v1/people/8475193"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "TBL609",
+          "eventTypeId" : "GOAL",
+          "description" : "Brad Richards (1) Wrist Shot, assists: Mike Green (1), Tomas Tatar (2)",
+          "secondaryType" : "Wrist Shot",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "PPG",
+            "name" : "Power Play"
+          }
+        },
+        "about" : {
+          "eventIdx" : 258,
+          "eventId" : 609,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "04:27",
+          "dateTime" : "2016-04-16T01:17:00Z",
+          "goals" : {
+            "away" : 2,
+            "home" : 2
+          }
+        },
+        "coordinates" : {
+          "x" : -40.0,
+          "y" : -11.0
+        },
+        "team" : {
+          "id" : 17,
+          "name" : "Detroit Red Wings",
+          "link" : "/api/v1/teams/17"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8474870,
+            "fullName" : "Tyler Johnson",
+            "link" : "/api/v1/people/8474870"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8473986,
+            "fullName" : "Alex Killorn",
+            "link" : "/api/v1/people/8473986"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "TBL614",
+          "eventTypeId" : "GOAL",
+          "description" : "Tyler Johnson (1) Wrist Shot, assists: Alex Killorn (2)",
+          "secondaryType" : "Wrist Shot",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 268,
+          "eventId" : 614,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "06:32",
+          "dateTime" : "2016-04-16T01:22:27Z",
+          "goals" : {
+            "away" : 2,
+            "home" : 3
+          }
+        },
+        "coordinates" : {
+          "x" : 75.0,
+          "y" : -1.0
+        },
+        "team" : {
+          "id" : 14,
+          "name" : "Tampa Bay Lightning",
+          "link" : "/api/v1/teams/14"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8474870,
+            "fullName" : "Tyler Johnson",
+            "link" : "/api/v1/people/8474870"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8476453,
+            "fullName" : "Nikita Kucherov",
+            "link" : "/api/v1/people/8476453"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8474520,
+            "fullName" : "Jason Garrison",
+            "link" : "/api/v1/people/8474520"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "TBL639",
+          "eventTypeId" : "GOAL",
+          "description" : "Tyler Johnson (2) Slap Shot, assists: Nikita Kucherov (2), Jason Garrison (1)",
+          "secondaryType" : "Slap Shot",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 312,
+          "eventId" : 639,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "14:48",
+          "dateTime" : "2016-04-16T01:40:00Z",
+          "goals" : {
+            "away" : 2,
+            "home" : 4
+          }
+        },
+        "coordinates" : {
+          "x" : 64.0,
+          "y" : 2.0
+        },
+        "team" : {
+          "id" : 14,
+          "name" : "Tampa Bay Lightning",
+          "link" : "/api/v1/teams/14"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8473986,
+            "fullName" : "Alex Killorn",
+            "link" : "/api/v1/people/8473986"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8470640,
+            "fullName" : "Matthew Carle",
+            "link" : "/api/v1/people/8470640"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8474870,
+            "fullName" : "Tyler Johnson",
+            "link" : "/api/v1/people/8474870"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 4
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "TBL647",
+          "eventTypeId" : "GOAL",
+          "description" : "Alex Killorn (2) Wrist Shot, assists: Matthew Carle (1), Tyler Johnson (4)",
+          "secondaryType" : "Wrist Shot",
+          "isEmptyNet" : true,
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 325,
+          "eventId" : 647,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "17:16",
+          "dateTime" : "2016-04-16T01:45:41Z",
+          "goals" : {
+            "away" : 2,
+            "home" : 5
+          }
+        },
+        "coordinates" : {
+          "x" : -38.0,
+          "y" : 36.0
+        },
+        "team" : {
+          "id" : 14,
+          "name" : "Tampa Bay Lightning",
+          "link" : "/api/v1/teams/14"
+        }
+      } ],
+      "venue" : {
+        "name" : "Amalie Arena"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2015030122/content"
+      },
+      "seriesSummary" : {
+        "gamePk" : 2015030122,
+        "gameNumber" : 2,
+        "gameLabel" : "Game 2",
+        "seriesStatus" : "Lightning lead 2-0",
+        "seriesStatusShort" : "TBL leads 2-0",
+        "necessary" : true,
+        "gameCode" : 122,
+        "gameTime" : "2016-04-15T23:00:00Z",
+        "series" : {
+          "seriesNumber" : 2,
+          "seriesCode" : "B",
+          "names" : {
+            "matchupName" : "Lightning (2) vs. Red Wings (3)",
+            "matchupShortName" : "TBL v DET",
+            "teamAbbreviationA" : "TBL",
+            "teamAbbreviationB" : "DET",
+            "seriesSlug" : "lightning-vs-red-wings-series-b"
+          },
+          "currentGame" : {
+            "seriesSummary" : {
+              "gamePk" : 2015030123,
+              "gameNumber" : 3,
+              "gameLabel" : "Game 3",
+              "seriesStatus" : "Lightning lead 2-0",
+              "seriesStatusShort" : "TBL leads 2-0",
+              "necessary" : true,
+              "gameCode" : 123,
+              "gameTime" : "2016-04-17T23:00:00Z"
+            }
+          },
+          "conference" : {
+            "id" : 6,
+            "name" : "Eastern",
+            "link" : "/api/v1/conferences/6"
+          },
+          "round" : {
+            "number" : 1
+          },
+          "matchupTeams" : [ {
+            "team" : {
+              "id" : 14,
+              "name" : "Tampa Bay Lightning",
+              "link" : "/api/v1/teams/14"
+            },
+            "seed" : {
+              "type" : "2",
+              "rank" : 2,
+              "isTop" : true
+            },
+            "seriesRecord" : {
+              "wins" : 2,
+              "losses" : 0
+            }
+          }, {
+            "team" : {
+              "id" : 17,
+              "name" : "Detroit Red Wings",
+              "link" : "/api/v1/teams/17"
+            },
+            "seed" : {
+              "type" : "3",
+              "rank" : 3,
+              "isTop" : false
+            },
+            "seriesRecord" : {
+              "wins" : 0,
+              "losses" : 2
+            }
+          } ]
+        }
+      }
+    }, {
+      "gamePk" : 2015030112,
+      "link" : "/api/v1/game/2015030112/feed/live",
+      "gameType" : "P",
+      "season" : "20152016",
+      "gameDate" : "2016-04-15T23:30:00Z",
+      "status" : {
+        "abstractGameState" : "Final",
+        "codedGameState" : "7",
+        "detailedState" : "Final",
+        "statusCode" : "7"
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 1,
+            "losses" : 1,
+            "type" : "league"
+          },
+          "score" : 1,
+          "team" : {
+            "id" : 2,
+            "name" : "New York Islanders",
+            "link" : "/api/v1/teams/2",
+            "venue" : {
+              "name" : "Barclays Center",
+              "city" : "Brooklyn",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -5
+              }
+            },
+            "abbreviation" : "NYI",
+            "teamName" : "Islanders",
+            "locationName" : "New York",
+            "firstYearOfPlay" : "1972",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 22,
+              "teamName" : "Islanders",
+              "link" : "/api/v1/franchises/22"
+            },
+            "officialSiteUrl" : "http://www.newyorkislanders.com",
+            "franchiseId" : 22,
+            "shortName" : "NY Islanders",
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 1,
+            "losses" : 1,
+            "type" : "league"
+          },
+          "score" : 3,
+          "team" : {
+            "id" : 13,
+            "name" : "Florida Panthers",
+            "link" : "/api/v1/teams/13",
+            "venue" : {
+              "name" : "BB&T Center",
+              "city" : "Sunrise",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -5
+              }
+            },
+            "abbreviation" : "FLA",
+            "teamName" : "Panthers",
+            "locationName" : "Florida",
+            "firstYearOfPlay" : "1993",
+            "division" : {
+              "id" : 17,
+              "name" : "Atlantic",
+              "link" : "/api/v1/divisions/17"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 33,
+              "teamName" : "Panthers",
+              "link" : "/api/v1/franchises/33"
+            },
+            "officialSiteUrl" : "http://www.floridapanthers.com",
+            "franchiseId" : 33,
+            "shortName" : "Florida",
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ {
+        "players" : [ {
+          "player" : {
+            "id" : 8475191,
+            "fullName" : "Reilly Smith",
+            "link" : "/api/v1/people/8475191"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 3
+        }, {
+          "player" : {
+            "id" : 8475760,
+            "fullName" : "Nick Bjugstad",
+            "link" : "/api/v1/people/8475760"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8476456,
+            "fullName" : "Jonathan Huberdeau",
+            "link" : "/api/v1/people/8476456"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "FLA68",
+          "eventTypeId" : "GOAL",
+          "description" : "Reilly Smith (3) Wrist Shot, assists: Nick Bjugstad (2), Jonathan Huberdeau (1)",
+          "secondaryType" : "Wrist Shot",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 35,
+          "eventId" : 68,
+          "period" : 1,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "1st",
+          "periodTime" : "04:32",
+          "dateTime" : "2016-04-15T23:48:23Z",
+          "goals" : {
+            "away" : 0,
+            "home" : 1
+          }
+        },
+        "coordinates" : {
+          "x" : 74.0,
+          "y" : -11.0
+        },
+        "team" : {
+          "id" : 13,
+          "name" : "Florida Panthers",
+          "link" : "/api/v1/teams/13"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8475760,
+            "fullName" : "Nick Bjugstad",
+            "link" : "/api/v1/people/8475760"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475191,
+            "fullName" : "Reilly Smith",
+            "link" : "/api/v1/people/8475191"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8475179,
+            "fullName" : "Dmitry Kulikov",
+            "link" : "/api/v1/people/8475179"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "FLA285",
+          "eventTypeId" : "GOAL",
+          "description" : "Nick Bjugstad (1) Snap Shot, assists: Reilly Smith (2), Dmitry Kulikov (2)",
+          "secondaryType" : "Snap Shot",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 157,
+          "eventId" : 285,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "06:17",
+          "dateTime" : "2016-04-16T00:44:13Z",
+          "goals" : {
+            "away" : 0,
+            "home" : 2
+          }
+        },
+        "coordinates" : {
+          "x" : -68.0,
+          "y" : 3.0
+        },
+        "team" : {
+          "id" : 13,
+          "name" : "Florida Panthers",
+          "link" : "/api/v1/teams/13"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8475166,
+            "fullName" : "John Tavares",
+            "link" : "/api/v1/people/8475166"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8475181,
+            "fullName" : "Nick Leddy",
+            "link" : "/api/v1/people/8475181"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8473449,
+            "fullName" : "Kyle Okposo",
+            "link" : "/api/v1/people/8473449"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "FLA728",
+          "eventTypeId" : "GOAL",
+          "description" : "John Tavares (2) Wrist Shot, assists: Nick Leddy (2), Kyle Okposo (2)",
+          "secondaryType" : "Wrist Shot",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 328,
+          "eventId" : 728,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "16:27",
+          "dateTime" : "2016-04-16T02:09:04Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 2
+          }
+        },
+        "coordinates" : {
+          "x" : -75.0,
+          "y" : -4.0
+        },
+        "team" : {
+          "id" : 2,
+          "name" : "New York Islanders",
+          "link" : "/api/v1/teams/2"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8475179,
+            "fullName" : "Dmitry Kulikov",
+            "link" : "/api/v1/people/8475179"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8477493,
+            "fullName" : "Aleksander Barkov",
+            "link" : "/api/v1/people/8477493"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "FLA739",
+          "eventTypeId" : "GOAL",
+          "description" : "Dmitry Kulikov (1) Snap Shot, assists: Aleksander Barkov (1)",
+          "secondaryType" : "Snap Shot",
+          "isEmptyNet" : true,
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 343,
+          "eventId" : 739,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "19:50",
+          "dateTime" : "2016-04-16T02:17:08Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 3
+          }
+        },
+        "coordinates" : {
+          "x" : -57.0,
+          "y" : 32.0
+        },
+        "team" : {
+          "id" : 13,
+          "name" : "Florida Panthers",
+          "link" : "/api/v1/teams/13"
+        }
+      } ],
+      "venue" : {
+        "name" : "BB&T Center"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2015030112/content"
+      },
+      "seriesSummary" : {
+        "gamePk" : 2015030112,
+        "gameNumber" : 2,
+        "gameLabel" : "Game 2",
+        "seriesStatus" : "Series tied 1-1",
+        "seriesStatusShort" : "Tied 1-1",
+        "necessary" : true,
+        "gameCode" : 112,
+        "gameTime" : "2016-04-15T23:30:00Z",
+        "series" : {
+          "seriesNumber" : 1,
+          "seriesCode" : "A",
+          "names" : {
+            "matchupName" : "Panthers (1) vs. Islanders (WC1)",
+            "matchupShortName" : "FLA v NYI",
+            "teamAbbreviationA" : "FLA",
+            "teamAbbreviationB" : "NYI",
+            "seriesSlug" : "panthers-vs-islanders-series-a"
+          },
+          "currentGame" : {
+            "seriesSummary" : {
+              "gamePk" : 2015030113,
+              "gameNumber" : 3,
+              "gameLabel" : "Game 3",
+              "seriesStatus" : "Series tied 1-1",
+              "seriesStatusShort" : "Tied 1-1",
+              "necessary" : true,
+              "gameCode" : 113,
+              "gameTime" : "2016-04-18T00:00:00Z"
+            }
+          },
+          "conference" : {
+            "id" : 6,
+            "name" : "Eastern",
+            "link" : "/api/v1/conferences/6"
+          },
+          "round" : {
+            "number" : 1
+          },
+          "matchupTeams" : [ {
+            "team" : {
+              "id" : 13,
+              "name" : "Florida Panthers",
+              "link" : "/api/v1/teams/13"
+            },
+            "seed" : {
+              "type" : "1",
+              "rank" : 1,
+              "isTop" : true
+            },
+            "seriesRecord" : {
+              "wins" : 1,
+              "losses" : 1
+            }
+          }, {
+            "team" : {
+              "id" : 2,
+              "name" : "New York Islanders",
+              "link" : "/api/v1/teams/2"
+            },
+            "seed" : {
+              "type" : "WC1",
+              "rank" : 4,
+              "isTop" : false
+            },
+            "seriesRecord" : {
+              "wins" : 1,
+              "losses" : 1
+            }
+          } ]
+        }
+      }
+    }, {
+      "gamePk" : 2015030162,
+      "link" : "/api/v1/game/2015030162/feed/live",
+      "gameType" : "P",
+      "season" : "20152016",
+      "gameDate" : "2016-04-16T00:00:00Z",
+      "status" : {
+        "abstractGameState" : "Final",
+        "codedGameState" : "7",
+        "detailedState" : "Final",
+        "statusCode" : "7"
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 1,
+            "losses" : 1,
+            "type" : "league"
+          },
+          "score" : 3,
+          "team" : {
+            "id" : 16,
+            "name" : "Chicago Blackhawks",
+            "link" : "/api/v1/teams/16",
+            "venue" : {
+              "name" : "United Center",
+              "city" : "Chicago",
+              "timeZone" : {
+                "id" : "America/Chicago",
+                "offset" : -6
+              }
+            },
+            "abbreviation" : "CHI",
+            "teamName" : "Blackhawks",
+            "locationName" : "Chicago",
+            "firstYearOfPlay" : "1926",
+            "division" : {
+              "id" : 16,
+              "name" : "Central",
+              "link" : "/api/v1/divisions/16"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 11,
+              "teamName" : "Blackhawks",
+              "link" : "/api/v1/franchises/11"
+            },
+            "officialSiteUrl" : "http://www.chicagoblackhawks.com",
+            "franchiseId" : 11,
+            "shortName" : "Chicago",
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 1,
+            "losses" : 1,
+            "type" : "league"
+          },
+          "score" : 2,
+          "team" : {
+            "id" : 19,
+            "name" : "St. Louis Blues",
+            "link" : "/api/v1/teams/19",
+            "venue" : {
+              "name" : "Scottrade Center",
+              "city" : "St. Louis",
+              "timeZone" : {
+                "id" : "America/Chicago",
+                "offset" : -6
+              }
+            },
+            "abbreviation" : "STL",
+            "teamName" : "Blues",
+            "locationName" : "St. Louis",
+            "firstYearOfPlay" : "1967",
+            "division" : {
+              "id" : 16,
+              "name" : "Central",
+              "link" : "/api/v1/divisions/16"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 18,
+              "teamName" : "Blues",
+              "link" : "/api/v1/franchises/18"
+            },
+            "officialSiteUrl" : "http://www.stlouisblues.com",
+            "franchiseId" : 18,
+            "shortName" : "St Louis",
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ {
+        "players" : [ {
+          "player" : {
+            "id" : 8475765,
+            "fullName" : "Vladimir Tarasenko",
+            "link" : "/api/v1/people/8475765"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475768,
+            "fullName" : "Jaden Schwartz",
+            "link" : "/api/v1/people/8475768"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8474627,
+            "fullName" : "Jori Lehtera",
+            "link" : "/api/v1/people/8474627"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "STL396",
+          "eventTypeId" : "GOAL",
+          "description" : "Vladimir Tarasenko (1) Wrist Shot, assists: Jaden Schwartz (1), Jori Lehtera (1)",
+          "secondaryType" : "Wrist Shot",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 185,
+          "eventId" : 396,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "15:20",
+          "dateTime" : "2016-04-16T01:29:27Z",
+          "goals" : {
+            "away" : 0,
+            "home" : 1
+          }
+        },
+        "coordinates" : {
+          "x" : -76.0,
+          "y" : -6.0
+        },
+        "team" : {
+          "id" : 19,
+          "name" : "St. Louis Blues",
+          "link" : "/api/v1/teams/19"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8470281,
+            "fullName" : "Duncan Keith",
+            "link" : "/api/v1/people/8470281"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8474141,
+            "fullName" : "Patrick Kane",
+            "link" : "/api/v1/people/8474141"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8473604,
+            "fullName" : "Jonathan Toews",
+            "link" : "/api/v1/people/8473604"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "STL564",
+          "eventTypeId" : "GOAL",
+          "description" : "Duncan Keith (1) Slap Shot, assists: Patrick Kane (1), Jonathan Toews (1)",
+          "secondaryType" : "Slap Shot",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 212,
+          "eventId" : 564,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "19:55",
+          "dateTime" : "2016-04-16T01:39:28Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 1
+          }
+        },
+        "coordinates" : {
+          "x" : 42.0,
+          "y" : -20.0
+        },
+        "team" : {
+          "id" : 16,
+          "name" : "Chicago Blackhawks",
+          "link" : "/api/v1/teams/16"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8476381,
+            "fullName" : "Andrew Shaw",
+            "link" : "/api/v1/people/8476381"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8470607,
+            "fullName" : "Brent Seabrook",
+            "link" : "/api/v1/people/8470607"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8474141,
+            "fullName" : "Patrick Kane",
+            "link" : "/api/v1/people/8474141"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "STL772",
+          "eventTypeId" : "GOAL",
+          "description" : "Andrew Shaw (1) Tip-In, assists: Brent Seabrook (1), Patrick Kane (2)",
+          "secondaryType" : "Tip-In",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "PPG",
+            "name" : "Power Play"
+          }
+        },
+        "about" : {
+          "eventIdx" : 314,
+          "eventId" : 772,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "15:41",
+          "dateTime" : "2016-04-16T02:36:33Z",
+          "goals" : {
+            "away" : 2,
+            "home" : 1
+          }
+        },
+        "coordinates" : {
+          "x" : -78.0,
+          "y" : 2.0
+        },
+        "team" : {
+          "id" : 16,
+          "name" : "Chicago Blackhawks",
+          "link" : "/api/v1/teams/16"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8478550,
+            "fullName" : "Artemi Panarin",
+            "link" : "/api/v1/people/8478550"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8470281,
+            "fullName" : "Duncan Keith",
+            "link" : "/api/v1/people/8470281"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "STL780",
+          "eventTypeId" : "GOAL",
+          "description" : "Artemi Panarin (1) Tip-In, assists: Duncan Keith (1)",
+          "secondaryType" : "Tip-In",
+          "isEmptyNet" : true,
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 332,
+          "eventId" : 780,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "18:34",
+          "dateTime" : "2016-04-16T02:47:22Z",
+          "goals" : {
+            "away" : 3,
+            "home" : 1
+          }
+        },
+        "coordinates" : {
+          "x" : 38.0,
+          "y" : -37.0
+        },
+        "team" : {
+          "id" : 16,
+          "name" : "Chicago Blackhawks",
+          "link" : "/api/v1/teams/16"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8474031,
+            "fullName" : "Kevin Shattenkirk",
+            "link" : "/api/v1/people/8474031"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8470655,
+            "fullName" : "David Backes",
+            "link" : "/api/v1/people/8470655"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "STL787",
+          "eventTypeId" : "GOAL",
+          "description" : "Kevin Shattenkirk (1) Slap Shot, assists: David Backes (1)",
+          "secondaryType" : "Slap Shot",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 343,
+          "eventId" : 787,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "19:58",
+          "dateTime" : "2016-04-16T02:53:11Z",
+          "goals" : {
+            "away" : 3,
+            "home" : 2
+          }
+        },
+        "coordinates" : {
+          "x" : 55.0,
+          "y" : -17.0
+        },
+        "team" : {
+          "id" : 19,
+          "name" : "St. Louis Blues",
+          "link" : "/api/v1/teams/19"
+        }
+      } ],
+      "venue" : {
+        "name" : "Scottrade Center"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2015030162/content"
+      },
+      "seriesSummary" : {
+        "gamePk" : 2015030162,
+        "gameNumber" : 2,
+        "gameLabel" : "Game 2",
+        "seriesStatus" : "Series tied 1-1",
+        "seriesStatusShort" : "Tied 1-1",
+        "necessary" : true,
+        "gameCode" : 162,
+        "gameTime" : "2016-04-16T00:00:00Z",
+        "series" : {
+          "seriesNumber" : 6,
+          "seriesCode" : "F",
+          "names" : {
+            "matchupName" : "Blues (2) vs. Blackhawks (3)",
+            "matchupShortName" : "STL v CHI",
+            "teamAbbreviationA" : "STL",
+            "teamAbbreviationB" : "CHI",
+            "seriesSlug" : "blues-vs-blackhawks-series-f"
+          },
+          "currentGame" : {
+            "seriesSummary" : {
+              "gamePk" : 2015030163,
+              "gameNumber" : 3,
+              "gameLabel" : "Game 3",
+              "seriesStatus" : "Series tied 1-1",
+              "seriesStatusShort" : "Tied 1-1",
+              "necessary" : true,
+              "gameCode" : 163,
+              "gameTime" : "2016-04-17T19:00:00Z"
+            }
+          },
+          "conference" : {
+            "id" : 5,
+            "name" : "Western",
+            "link" : "/api/v1/conferences/5"
+          },
+          "round" : {
+            "number" : 1
+          },
+          "matchupTeams" : [ {
+            "team" : {
+              "id" : 19,
+              "name" : "St. Louis Blues",
+              "link" : "/api/v1/teams/19"
+            },
+            "seed" : {
+              "type" : "2",
+              "rank" : 2,
+              "isTop" : true
+            },
+            "seriesRecord" : {
+              "wins" : 1,
+              "losses" : 1
+            }
+          }, {
+            "team" : {
+              "id" : 16,
+              "name" : "Chicago Blackhawks",
+              "link" : "/api/v1/teams/16"
+            },
+            "seed" : {
+              "type" : "3",
+              "rank" : 3,
+              "isTop" : false
+            },
+            "seriesRecord" : {
+              "wins" : 1,
+              "losses" : 1
+            }
+          } ]
+        }
+      }
+    }, {
+      "gamePk" : 2015030171,
+      "link" : "/api/v1/game/2015030171/feed/live",
+      "gameType" : "P",
+      "season" : "20152016",
+      "gameDate" : "2016-04-16T02:30:00Z",
+      "status" : {
+        "abstractGameState" : "Final",
+        "codedGameState" : "7",
+        "detailedState" : "Final",
+        "statusCode" : "7"
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 1,
+            "losses" : 0,
+            "type" : "league"
+          },
+          "score" : 3,
+          "team" : {
+            "id" : 18,
+            "name" : "Nashville Predators",
+            "link" : "/api/v1/teams/18",
+            "venue" : {
+              "name" : "Bridgestone Arena",
+              "city" : "Nashville",
+              "timeZone" : {
+                "id" : "America/Chicago",
+                "offset" : -6
+              }
+            },
+            "abbreviation" : "NSH",
+            "teamName" : "Predators",
+            "locationName" : "Nashville",
+            "firstYearOfPlay" : "1997",
+            "division" : {
+              "id" : 16,
+              "name" : "Central",
+              "link" : "/api/v1/divisions/16"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 34,
+              "teamName" : "Predators",
+              "link" : "/api/v1/franchises/34"
+            },
+            "officialSiteUrl" : "http://www.nashvillepredators.com",
+            "franchiseId" : 34,
+            "shortName" : "Nashville",
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 0,
+            "losses" : 1,
+            "type" : "league"
+          },
+          "score" : 2,
+          "team" : {
+            "id" : 24,
+            "name" : "Anaheim Ducks",
+            "link" : "/api/v1/teams/24",
+            "venue" : {
+              "name" : "Honda Center",
+              "city" : "Anaheim",
+              "timeZone" : {
+                "id" : "America/Los_Angeles",
+                "offset" : -8
+              }
+            },
+            "abbreviation" : "ANA",
+            "teamName" : "Ducks",
+            "locationName" : "Anaheim",
+            "firstYearOfPlay" : "1993",
+            "division" : {
+              "id" : 15,
+              "name" : "Pacific",
+              "link" : "/api/v1/divisions/15"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 32,
+              "teamName" : "Ducks",
+              "link" : "/api/v1/franchises/32"
+            },
+            "officialSiteUrl" : "http://www.anaheimducks.com",
+            "franchiseId" : 32,
+            "shortName" : "Anaheim",
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ {
+        "players" : [ {
+          "player" : {
+            "id" : 8471707,
+            "fullName" : "James Neal",
+            "link" : "/api/v1/people/8471707"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475793,
+            "fullName" : "Ryan Johansen",
+            "link" : "/api/v1/people/8475793"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "ANA53",
+          "eventTypeId" : "GOAL",
+          "description" : "James Neal (1) Slap Shot, assists: Ryan Johansen (1)",
+          "secondaryType" : "Slap Shot",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 5,
+          "eventId" : 53,
+          "period" : 1,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "1st",
+          "periodTime" : "00:35",
+          "dateTime" : "2016-04-16T02:46:43Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 0
+          }
+        },
+        "coordinates" : {
+          "x" : -73.0,
+          "y" : -1.0
+        },
+        "team" : {
+          "id" : 18,
+          "name" : "Nashville Predators",
+          "link" : "/api/v1/teams/18"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8470612,
+            "fullName" : "Ryan Getzlaf",
+            "link" : "/api/v1/people/8470612"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475764,
+            "fullName" : "Cam Fowler",
+            "link" : "/api/v1/people/8475764"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8470621,
+            "fullName" : "Corey Perry",
+            "link" : "/api/v1/people/8470621"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "ANA225",
+          "eventTypeId" : "GOAL",
+          "description" : "Ryan Getzlaf (1) Wrist Shot, assists: Cam Fowler (1), Corey Perry (1)",
+          "secondaryType" : "Wrist Shot",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "PPG",
+            "name" : "Power Play"
+          }
+        },
+        "about" : {
+          "eventIdx" : 118,
+          "eventId" : 225,
+          "period" : 1,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "1st",
+          "periodTime" : "17:39",
+          "dateTime" : "2016-04-16T03:24:25Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 1
+          }
+        },
+        "coordinates" : {
+          "x" : 82.0,
+          "y" : -7.0
+        },
+        "team" : {
+          "id" : 24,
+          "name" : "Anaheim Ducks",
+          "link" : "/api/v1/teams/24"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8470616,
+            "fullName" : "Ryan Kesler",
+            "link" : "/api/v1/people/8470616"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8471699,
+            "fullName" : "Andrew Cogliano",
+            "link" : "/api/v1/people/8471699"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476854,
+            "fullName" : "Hampus Lindholm",
+            "link" : "/api/v1/people/8476854"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "ANA243",
+          "eventTypeId" : "GOAL",
+          "description" : "Ryan Kesler (1) Wrist Shot, assists: Andrew Cogliano (1), Hampus Lindholm (1)",
+          "secondaryType" : "Wrist Shot",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 146,
+          "eventId" : 243,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "00:48",
+          "dateTime" : "2016-04-16T03:50:09Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 2
+          }
+        },
+        "coordinates" : {
+          "x" : -55.0,
+          "y" : -9.0
+        },
+        "team" : {
+          "id" : 24,
+          "name" : "Anaheim Ducks",
+          "link" : "/api/v1/teams/24"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8474569,
+            "fullName" : "Colin Wilson",
+            "link" : "/api/v1/people/8474569"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475176,
+            "fullName" : "Ryan Ellis",
+            "link" : "/api/v1/people/8475176"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8474600,
+            "fullName" : "Roman Josi",
+            "link" : "/api/v1/people/8474600"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "ANA424",
+          "eventTypeId" : "GOAL",
+          "description" : "Colin Wilson (1) Tip-In, assists: Ryan Ellis (1), Roman Josi (1)",
+          "secondaryType" : "Tip-In",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 190,
+          "eventId" : 424,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "07:55",
+          "dateTime" : "2016-04-16T04:02:31Z",
+          "goals" : {
+            "away" : 2,
+            "home" : 2
+          }
+        },
+        "coordinates" : {
+          "x" : 78.0,
+          "y" : -5.0
+        },
+        "team" : {
+          "id" : 18,
+          "name" : "Nashville Predators",
+          "link" : "/api/v1/teams/18"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8476887,
+            "fullName" : "Filip Forsberg",
+            "link" : "/api/v1/people/8476887"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "ANA705",
+          "eventTypeId" : "GOAL",
+          "description" : "Filip Forsberg (1) Wrist Shot, assists: none",
+          "secondaryType" : "Wrist Shot",
+          "isEmptyNet" : false,
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 313,
+          "eventId" : 705,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "10:25",
+          "dateTime" : "2016-04-16T05:04:04Z",
+          "goals" : {
+            "away" : 3,
+            "home" : 2
+          }
+        },
+        "coordinates" : {
+          "x" : -62.0,
+          "y" : -12.0
+        },
+        "team" : {
+          "id" : 18,
+          "name" : "Nashville Predators",
+          "link" : "/api/v1/teams/18"
+        }
+      } ],
+      "venue" : {
+        "name" : "Honda Center"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2015030171/content"
+      },
+      "seriesSummary" : {
+        "gamePk" : 2015030171,
+        "gameNumber" : 1,
+        "gameLabel" : "Game 1",
+        "seriesStatus" : "Predators lead 1-0",
+        "seriesStatusShort" : "NSH leads 1-0",
+        "necessary" : true,
+        "gameCode" : 171,
+        "gameTime" : "2016-04-16T02:30:00Z",
+        "series" : {
+          "seriesNumber" : 7,
+          "seriesCode" : "G",
+          "names" : {
+            "matchupName" : "Ducks (1) vs. Predators (WC1)",
+            "matchupShortName" : "ANA v NSH",
+            "teamAbbreviationA" : "ANA",
+            "teamAbbreviationB" : "NSH",
+            "seriesSlug" : "ducks-vs-predators-series-g"
+          },
+          "currentGame" : {
+            "seriesSummary" : {
+              "gamePk" : 2015030172,
+              "gameNumber" : 2,
+              "gameLabel" : "Game 2",
+              "seriesStatus" : "Predators lead 1-0",
+              "seriesStatusShort" : "NSH leads 1-0",
+              "necessary" : true,
+              "gameCode" : 172,
+              "gameTime" : "2016-04-18T02:30:00Z"
+            }
+          },
+          "conference" : {
+            "id" : 5,
+            "name" : "Western",
+            "link" : "/api/v1/conferences/5"
+          },
+          "round" : {
+            "number" : 1
+          },
+          "matchupTeams" : [ {
+            "team" : {
+              "id" : 24,
+              "name" : "Anaheim Ducks",
+              "link" : "/api/v1/teams/24"
+            },
+            "seed" : {
+              "type" : "1",
+              "rank" : 1,
+              "isTop" : true
+            },
+            "seriesRecord" : {
+              "wins" : 0,
+              "losses" : 1
+            }
+          }, {
+            "team" : {
+              "id" : 18,
+              "name" : "Nashville Predators",
+              "link" : "/api/v1/teams/18"
+            },
+            "seed" : {
+              "type" : "WC1",
+              "rank" : 4,
+              "isTop" : false
+            },
+            "seriesRecord" : {
+              "wins" : 1,
+              "losses" : 0
+            }
+          } ]
+        }
+      }
+    } ]
+  }, {
+    "date" : "2016-04-16",
+    "totalItems" : 4,
+    "games" : [ {
+      "gamePk" : 2015030142,
+      "link" : "/api/v1/game/2015030142/feed/live",
+      "gameType" : "P",
+      "season" : "20152016",
+      "gameDate" : "2016-04-16T19:00:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "2",
+        "detailedState" : "Pre-Game",
+        "statusCode" : "2"
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 0,
+            "losses" : 1,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 3,
+            "name" : "New York Rangers",
+            "link" : "/api/v1/teams/3",
+            "venue" : {
+              "name" : "Madison Square Garden",
+              "city" : "New York",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -5
+              }
+            },
+            "abbreviation" : "NYR",
+            "teamName" : "Rangers",
+            "locationName" : "New York",
+            "firstYearOfPlay" : "1926",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 10,
+              "teamName" : "Rangers",
+              "link" : "/api/v1/franchises/10"
+            },
+            "officialSiteUrl" : "http://www.newyorkrangers.com",
+            "franchiseId" : 10,
+            "shortName" : "NY Rangers",
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 1,
+            "losses" : 0,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 5,
+            "name" : "Pittsburgh Penguins",
+            "link" : "/api/v1/teams/5",
+            "venue" : {
+              "name" : "CONSOL Energy Center",
+              "city" : "Pittsburgh",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -5
+              }
+            },
+            "abbreviation" : "PIT",
+            "teamName" : "Penguins",
+            "locationName" : "Pittsburgh",
+            "firstYearOfPlay" : "1967",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 17,
+              "teamName" : "Penguins",
+              "link" : "/api/v1/franchises/17"
+            },
+            "officialSiteUrl" : "http://www.pittsburghpenguins.com",
+            "franchiseId" : 17,
+            "shortName" : "Pittsburgh",
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ ],
+      "venue" : {
+        "name" : "CONSOL Energy Center"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2015030142/content"
+      },
+      "seriesSummary" : {
+        "gamePk" : 2015030142,
+        "gameNumber" : 2,
+        "gameLabel" : "Game 2",
+        "seriesStatus" : "Penguins lead 1-0",
+        "seriesStatusShort" : "PIT leads 1-0",
+        "necessary" : true,
+        "gameCode" : 142,
+        "gameTime" : "2016-04-16T19:00:00Z",
+        "series" : {
+          "seriesNumber" : 4,
+          "seriesCode" : "D",
+          "names" : {
+            "matchupName" : "Penguins (2) vs. Rangers (3)",
+            "matchupShortName" : "PIT v NYR",
+            "teamAbbreviationA" : "PIT",
+            "teamAbbreviationB" : "NYR",
+            "seriesSlug" : "penguins-vs-rangers-series-d"
+          },
+          "currentGame" : {
+            "seriesSummary" : {
+              "gamePk" : 2015030142,
+              "gameNumber" : 2,
+              "gameLabel" : "Game 2",
+              "seriesStatus" : "Penguins lead 1-0",
+              "seriesStatusShort" : "PIT leads 1-0",
+              "necessary" : true,
+              "gameCode" : 142,
+              "gameTime" : "2016-04-16T19:00:00Z"
+            }
+          },
+          "conference" : {
+            "id" : 6,
+            "name" : "Eastern",
+            "link" : "/api/v1/conferences/6"
+          },
+          "round" : {
+            "number" : 1
+          },
+          "matchupTeams" : [ {
+            "team" : {
+              "id" : 5,
+              "name" : "Pittsburgh Penguins",
+              "link" : "/api/v1/teams/5"
+            },
+            "seed" : {
+              "type" : "2",
+              "rank" : 2,
+              "isTop" : true
+            },
+            "seriesRecord" : {
+              "wins" : 1,
+              "losses" : 0
+            }
+          }, {
+            "team" : {
+              "id" : 3,
+              "name" : "New York Rangers",
+              "link" : "/api/v1/teams/3"
+            },
+            "seed" : {
+              "type" : "3",
+              "rank" : 3,
+              "isTop" : false
+            },
+            "seriesRecord" : {
+              "wins" : 0,
+              "losses" : 1
+            }
+          } ]
+        }
+      }
+    }, {
+      "gamePk" : 2015030132,
+      "link" : "/api/v1/game/2015030132/feed/live",
+      "gameType" : "P",
+      "season" : "20152016",
+      "gameDate" : "2016-04-16T23:00:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1"
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 0,
+            "losses" : 1,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 4,
+            "name" : "Philadelphia Flyers",
+            "link" : "/api/v1/teams/4",
+            "venue" : {
+              "name" : "Wells Fargo Center",
+              "city" : "Philadelphia",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -5
+              }
+            },
+            "abbreviation" : "PHI",
+            "teamName" : "Flyers",
+            "locationName" : "Philadelphia",
+            "firstYearOfPlay" : "1967",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 16,
+              "teamName" : "Flyers",
+              "link" : "/api/v1/franchises/16"
+            },
+            "officialSiteUrl" : "http://www.philadelphiaflyers.com",
+            "franchiseId" : 16,
+            "shortName" : "Philadelphia",
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 1,
+            "losses" : 0,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 15,
+            "name" : "Washington Capitals",
+            "link" : "/api/v1/teams/15",
+            "venue" : {
+              "name" : "Verizon Center",
+              "city" : "Washington",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -5
+              }
+            },
+            "abbreviation" : "WSH",
+            "teamName" : "Capitals",
+            "locationName" : "Washington",
+            "firstYearOfPlay" : "1974",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 24,
+              "teamName" : "Capitals",
+              "link" : "/api/v1/franchises/24"
+            },
+            "officialSiteUrl" : "http://www.washingtoncapitals.com",
+            "franchiseId" : 24,
+            "shortName" : "Washington",
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ ],
+      "venue" : {
+        "name" : "Verizon Center"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2015030132/content"
+      },
+      "seriesSummary" : {
+        "gamePk" : 2015030132,
+        "gameNumber" : 2,
+        "gameLabel" : "Game 2",
+        "seriesStatus" : "Capitals lead 1-0",
+        "seriesStatusShort" : "WSH leads 1-0",
+        "necessary" : true,
+        "gameCode" : 132,
+        "gameTime" : "2016-04-16T23:00:00Z",
+        "series" : {
+          "seriesNumber" : 3,
+          "seriesCode" : "C",
+          "names" : {
+            "matchupName" : "Capitals (1) vs. Flyers (WC2)",
+            "matchupShortName" : "WSH v PHI",
+            "teamAbbreviationA" : "WSH",
+            "teamAbbreviationB" : "PHI",
+            "seriesSlug" : "capitals-vs-flyers-series-c"
+          },
+          "currentGame" : {
+            "seriesSummary" : {
+              "gamePk" : 2015030132,
+              "gameNumber" : 2,
+              "gameLabel" : "Game 2",
+              "seriesStatus" : "Capitals lead 1-0",
+              "seriesStatusShort" : "WSH leads 1-0",
+              "necessary" : true,
+              "gameCode" : 132,
+              "gameTime" : "2016-04-16T23:00:00Z"
+            }
+          },
+          "conference" : {
+            "id" : 6,
+            "name" : "Eastern",
+            "link" : "/api/v1/conferences/6"
+          },
+          "round" : {
+            "number" : 1
+          },
+          "matchupTeams" : [ {
+            "team" : {
+              "id" : 15,
+              "name" : "Washington Capitals",
+              "link" : "/api/v1/teams/15"
+            },
+            "seed" : {
+              "type" : "1",
+              "rank" : 1,
+              "isTop" : true
+            },
+            "seriesRecord" : {
+              "wins" : 1,
+              "losses" : 0
+            }
+          }, {
+            "team" : {
+              "id" : 4,
+              "name" : "Philadelphia Flyers",
+              "link" : "/api/v1/teams/4"
+            },
+            "seed" : {
+              "type" : "WC2",
+              "rank" : 4,
+              "isTop" : false
+            },
+            "seriesRecord" : {
+              "wins" : 0,
+              "losses" : 1
+            }
+          } ]
+        }
+      }
+    }, {
+      "gamePk" : 2015030152,
+      "link" : "/api/v1/game/2015030152/feed/live",
+      "gameType" : "P",
+      "season" : "20152016",
+      "gameDate" : "2016-04-17T00:00:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1"
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 0,
+            "losses" : 1,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 30,
+            "name" : "Minnesota Wild",
+            "link" : "/api/v1/teams/30",
+            "venue" : {
+              "name" : "Xcel Energy Center",
+              "city" : "St. Paul",
+              "timeZone" : {
+                "id" : "America/Chicago",
+                "offset" : -6
+              }
+            },
+            "abbreviation" : "MIN",
+            "teamName" : "Wild",
+            "locationName" : "Minnesota",
+            "firstYearOfPlay" : "1997",
+            "division" : {
+              "id" : 16,
+              "name" : "Central",
+              "link" : "/api/v1/divisions/16"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 37,
+              "teamName" : "Wild",
+              "link" : "/api/v1/franchises/37"
+            },
+            "officialSiteUrl" : "http://www.wild.com",
+            "franchiseId" : 37,
+            "shortName" : "Minnesota",
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 1,
+            "losses" : 0,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 25,
+            "name" : "Dallas Stars",
+            "link" : "/api/v1/teams/25",
+            "venue" : {
+              "name" : "American Airlines Center",
+              "city" : "Dallas",
+              "timeZone" : {
+                "id" : "America/Chicago",
+                "offset" : -6
+              }
+            },
+            "abbreviation" : "DAL",
+            "teamName" : "Stars",
+            "locationName" : "Dallas",
+            "firstYearOfPlay" : "1967",
+            "division" : {
+              "id" : 16,
+              "name" : "Central",
+              "link" : "/api/v1/divisions/16"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 15,
+              "teamName" : "Stars",
+              "link" : "/api/v1/franchises/15"
+            },
+            "officialSiteUrl" : "http://www.dallasstars.com",
+            "franchiseId" : 15,
+            "shortName" : "Dallas",
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ ],
+      "venue" : {
+        "name" : "American Airlines Center"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2015030152/content"
+      },
+      "seriesSummary" : {
+        "gamePk" : 2015030152,
+        "gameNumber" : 2,
+        "gameLabel" : "Game 2",
+        "seriesStatus" : "Stars lead 1-0",
+        "seriesStatusShort" : "DAL leads 1-0",
+        "necessary" : true,
+        "gameCode" : 152,
+        "gameTime" : "2016-04-17T00:00:00Z",
+        "series" : {
+          "seriesNumber" : 5,
+          "seriesCode" : "E",
+          "names" : {
+            "matchupName" : "Stars (1) vs. Wild (WC2)",
+            "matchupShortName" : "DAL v MIN",
+            "teamAbbreviationA" : "DAL",
+            "teamAbbreviationB" : "MIN",
+            "seriesSlug" : "stars-vs-wild-series-e"
+          },
+          "currentGame" : {
+            "seriesSummary" : {
+              "gamePk" : 2015030152,
+              "gameNumber" : 2,
+              "gameLabel" : "Game 2",
+              "seriesStatus" : "Stars lead 1-0",
+              "seriesStatusShort" : "DAL leads 1-0",
+              "necessary" : true,
+              "gameCode" : 152,
+              "gameTime" : "2016-04-17T00:00:00Z"
+            }
+          },
+          "conference" : {
+            "id" : 5,
+            "name" : "Western",
+            "link" : "/api/v1/conferences/5"
+          },
+          "round" : {
+            "number" : 1
+          },
+          "matchupTeams" : [ {
+            "team" : {
+              "id" : 25,
+              "name" : "Dallas Stars",
+              "link" : "/api/v1/teams/25"
+            },
+            "seed" : {
+              "type" : "1",
+              "rank" : 1,
+              "isTop" : true
+            },
+            "seriesRecord" : {
+              "wins" : 1,
+              "losses" : 0
+            }
+          }, {
+            "team" : {
+              "id" : 30,
+              "name" : "Minnesota Wild",
+              "link" : "/api/v1/teams/30"
+            },
+            "seed" : {
+              "type" : "WC2",
+              "rank" : 4,
+              "isTop" : false
+            },
+            "seriesRecord" : {
+              "wins" : 0,
+              "losses" : 1
+            }
+          } ]
+        }
+      }
+    }, {
+      "gamePk" : 2015030182,
+      "link" : "/api/v1/game/2015030182/feed/live",
+      "gameType" : "P",
+      "season" : "20152016",
+      "gameDate" : "2016-04-17T02:30:00Z",
+      "status" : {
+        "abstractGameState" : "Preview",
+        "codedGameState" : "1",
+        "detailedState" : "Scheduled",
+        "statusCode" : "1"
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 1,
+            "losses" : 0,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 28,
+            "name" : "San Jose Sharks",
+            "link" : "/api/v1/teams/28",
+            "venue" : {
+              "name" : "SAP Center at San Jose",
+              "city" : "San Jose",
+              "timeZone" : {
+                "id" : "America/Los_Angeles",
+                "offset" : -8
+              }
+            },
+            "abbreviation" : "SJS",
+            "teamName" : "Sharks",
+            "locationName" : "San Jose",
+            "firstYearOfPlay" : "1990",
+            "division" : {
+              "id" : 15,
+              "name" : "Pacific",
+              "link" : "/api/v1/divisions/15"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 29,
+              "teamName" : "Sharks",
+              "link" : "/api/v1/franchises/29"
+            },
+            "officialSiteUrl" : "http://www.sjsharks.com",
+            "franchiseId" : 29,
+            "shortName" : "San Jose",
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 0,
+            "losses" : 1,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 26,
+            "name" : "Los Angeles Kings",
+            "link" : "/api/v1/teams/26",
+            "venue" : {
+              "name" : "STAPLES Center",
+              "city" : "Los Angeles",
+              "timeZone" : {
+                "id" : "America/Los_Angeles",
+                "offset" : -8
+              }
+            },
+            "abbreviation" : "LAK",
+            "teamName" : "Kings",
+            "locationName" : "Los Angeles",
+            "firstYearOfPlay" : "1967",
+            "division" : {
+              "id" : 15,
+              "name" : "Pacific",
+              "link" : "/api/v1/divisions/15"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 14,
+              "teamName" : "Kings",
+              "link" : "/api/v1/franchises/14"
+            },
+            "officialSiteUrl" : "http://www.lakings.com",
+            "franchiseId" : 14,
+            "shortName" : "Los Angeles",
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ ],
+      "venue" : {
+        "name" : "STAPLES Center"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2015030182/content"
+      },
+      "seriesSummary" : {
+        "gamePk" : 2015030182,
+        "gameNumber" : 2,
+        "gameLabel" : "Game 2",
+        "seriesStatus" : "Sharks lead 1-0",
+        "seriesStatusShort" : "SJS leads 1-0",
+        "necessary" : true,
+        "gameCode" : 182,
+        "gameTime" : "2016-04-17T02:30:00Z",
+        "series" : {
+          "seriesNumber" : 8,
+          "seriesCode" : "H",
+          "names" : {
+            "matchupName" : "Kings (2) vs. Sharks (3)",
+            "matchupShortName" : "LAK v SJS",
+            "teamAbbreviationA" : "LAK",
+            "teamAbbreviationB" : "SJS",
+            "seriesSlug" : "kings-vs-sharks-series-h"
+          },
+          "currentGame" : {
+            "seriesSummary" : {
+              "gamePk" : 2015030182,
+              "gameNumber" : 2,
+              "gameLabel" : "Game 2",
+              "seriesStatus" : "Sharks lead 1-0",
+              "seriesStatusShort" : "SJS leads 1-0",
+              "necessary" : true,
+              "gameCode" : 182,
+              "gameTime" : "2016-04-17T02:30:00Z"
+            }
+          },
+          "conference" : {
+            "id" : 5,
+            "name" : "Western",
+            "link" : "/api/v1/conferences/5"
+          },
+          "round" : {
+            "number" : 1
+          },
+          "matchupTeams" : [ {
+            "team" : {
+              "id" : 26,
+              "name" : "Los Angeles Kings",
+              "link" : "/api/v1/teams/26"
+            },
+            "seed" : {
+              "type" : "2",
+              "rank" : 2,
+              "isTop" : true
+            },
+            "seriesRecord" : {
+              "wins" : 0,
+              "losses" : 1
+            }
+          }, {
+            "team" : {
+              "id" : 28,
+              "name" : "San Jose Sharks",
+              "link" : "/api/v1/teams/28"
+            },
+            "seed" : {
+              "type" : "3",
+              "rank" : 3,
+              "isTop" : false
+            },
+            "seriesRecord" : {
+              "wins" : 1,
+              "losses" : 0
+            }
+          } ]
+        }
+      }
+    } ]
+  } ]
+}
