@@ -26,15 +26,16 @@ Returns an array of the latest round’s games, each game item containing these 
 [
   {
     "goals": [
+      ...
       {
         "goalCount": 1,
         "period": "1",
         "scorer": "David Krejci",
         "team": "BOS",
         "min": 5,
-        "sec": 36
-      },
-      ...
+        "sec": 36,
+        "emptyNet": true
+      }
     ],
     "scores": {
       "BOS": 4,
@@ -112,6 +113,7 @@ Returns an array of the latest round’s games, each game item containing these 
 - `goals` array: list of goal details, in the order the goals were scored
   - gameplay goal:
     - `goalCount` *(number)*: the number of goals the player has scored this season
+    - `emptyNet` *(boolean)*: set to `true` if the goal was scored in an empty net, absent if it wasn’t
     - `min` *(number)*: the goal scoring time minutes, from the start of the period
     - `period` *(string)*: in which period the goal was scored; `"OT"` means **regular season 5 minute overtime**
     - `scorer` *(string)*: the goal scorer

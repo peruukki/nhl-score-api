@@ -36,6 +36,9 @@
   (when (not= "SO" period)
     (:season-total (parse-goal-scorer-details scoring-play))))
 
+(defn- scored-in-empty-net? [scoring-play]
+  (:is-empty-net (:result scoring-play)))
+
 (defn- add-goal-time [goal-details time]
   (if time
     (assoc goal-details :min (:min time) :sec (:sec time))
@@ -46,15 +49,22 @@
     (assoc goal-details :goal-count goal-count)
     goal-details))
 
+(defn- add-empty-net-flag [goal-details empty-net?]
+  (if empty-net?
+    (assoc goal-details :empty-net true)
+    goal-details))
+
 (defn- parse-goal-details [api-game scoring-play team-details]
   (let [team (parse-goal-team scoring-play team-details)
         period (parse-goal-period api-game scoring-play)
         time (parse-goal-time scoring-play period)
         scorer (parse-goal-scorer-name scoring-play)
-        goal-count (parse-goal-scorer-goal-count scoring-play period)]
+        goal-count (parse-goal-scorer-goal-count scoring-play period)
+        empty-net? (scored-in-empty-net? scoring-play)]
     (-> {:team team :period period :scorer scorer}
         (add-goal-time time)
-        (add-goal-count goal-count))))
+        (add-goal-count goal-count)
+        (add-empty-net-flag empty-net?))))
 
 (defn- parse-goals [api-game team-details]
   (map #(parse-goal-details api-game % team-details) (:scoring-plays api-game)))

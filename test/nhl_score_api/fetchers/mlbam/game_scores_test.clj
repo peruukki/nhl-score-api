@@ -50,6 +50,16 @@
       (is (= [{:team "STL" :min 9 :sec 4 :scorer "David Backes" :goal-count 1 :period "4"}]
              (:goals game)) "Parsed goals")))
 
+  (testing "Parsing empty net goal information"
+    (let [game (nth (parse-game-scores (filter-latest-finished-games resources/playoff-games-finished-in-regulation-and-overtime)) 1)
+          goals (:goals game)]
+      (is (= [false]
+             (distinct (map #(contains? % :empty-net) (drop-last goals))))
+          "All goals but the last one have no :empty-net field")
+      (is (= true
+             (:empty-net (last goals)))
+          "Last goal has :empty-net field set to true")))
+
   (testing "Parsing playoff series information from playoff games"
     (let [games (parse-game-scores (filter-latest-finished-games resources/playoff-games-finished-with-2nd-games))
           playoff-series (map #(:playoff-series %) games)]
