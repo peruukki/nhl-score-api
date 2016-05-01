@@ -33,7 +33,7 @@
 
   (testing "Parsing game with goals in regulation and shootout"
     (let [game (nth (parse-game-scores (filter-latest-finished-games resources/games-finished-in-regulation-overtime-and-shootout)) 3)
-          goals (:goals game)]
+          goals (map #(dissoc % :strength) (:goals game))]  ; 'strength' field has its own test
       (is (= [{:team "STL" :min 3 :sec 36 :scorer "Dmitrij Jaskin" :goal-count 4 :period "1"}
               {:team "STL" :min 12 :sec 53 :scorer "Jaden Schwartz" :goal-count 5 :period "1"}
               {:team "STL" :min 10 :sec 38 :scorer "Vladimir Tarasenko" :goal-count 30 :period "2"}
@@ -59,6 +59,16 @@
       (is (= true
              (:empty-net (last goals)))
           "Last goal has :empty-net field set to true")))
+
+  (testing "Parsing goal strength (even / power play / short handed) information"
+    (let [game (nth (parse-game-scores (filter-latest-finished-games resources/playoff-games-finished-in-regulation-and-overtime)) 1)
+          goals (:goals game)]
+      (is (= [nil nil "PPG" "SHG" "PPG" nil nil]
+             (map #(:strength %) goals))
+          "Parsed goal strengths")
+      (is (= [false false true true true false false]
+             (map #(contains? % :strength) goals))
+          "Even strength goals don't contain :strength field")))
 
   (testing "Parsing playoff series information from playoff games"
     (let [games (parse-game-scores (filter-latest-finished-games resources/playoff-games-finished-with-2nd-games))

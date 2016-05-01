@@ -39,6 +39,9 @@
 (defn- scored-in-empty-net? [scoring-play]
   (:is-empty-net (:result scoring-play)))
 
+(defn- parse-goal-strength [scoring-play]
+  (:code (:strength (:result scoring-play))))
+
 (defn- add-goal-time [goal-details time]
   (if time
     (assoc goal-details :min (:min time) :sec (:sec time))
@@ -54,17 +57,24 @@
     (assoc goal-details :empty-net true)
     goal-details))
 
+(defn- add-goal-strength [goal-details strength]
+  (if (contains? #{"PPG" "SHG"} strength)
+    (assoc goal-details :strength strength)
+    goal-details))
+
 (defn- parse-goal-details [api-game scoring-play team-details]
   (let [team (parse-goal-team scoring-play team-details)
         period (parse-goal-period api-game scoring-play)
         time (parse-goal-time scoring-play period)
         scorer (parse-goal-scorer-name scoring-play)
         goal-count (parse-goal-scorer-goal-count scoring-play period)
-        empty-net? (scored-in-empty-net? scoring-play)]
+        empty-net? (scored-in-empty-net? scoring-play)
+        strength (parse-goal-strength scoring-play)]
     (-> {:team team :period period :scorer scorer}
         (add-goal-time time)
         (add-goal-count goal-count)
-        (add-empty-net-flag empty-net?))))
+        (add-empty-net-flag empty-net?)
+        (add-goal-strength strength))))
 
 (defn- parse-goals [api-game team-details]
   (map #(parse-goal-details api-game % team-details) (:scoring-plays api-game)))

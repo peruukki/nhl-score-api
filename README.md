@@ -34,6 +34,7 @@ Returns an array of the latest round’s games, each game item containing these 
         "team": "BOS",
         "min": 5,
         "sec": 36,
+        "strength": "PPG",
         "emptyNet": true
       }
     ],
@@ -118,6 +119,8 @@ Returns an array of the latest round’s games, each game item containing these 
     - `period` *(string)*: in which period the goal was scored; `"OT"` means **regular season 5 minute overtime**
     - `scorer` *(string)*: the goal scorer
     - `sec` *(number)*: the goal scoring time seconds, from the start of the period
+    - `strength` *(string)*: can be set to `"PPG"` (power play goal) or `"SHG"` (short handed goal); absent
+      if the goal was scored on even strength
     - `team` *(string)*: the team that scored the goal
   - shootout goal:
     - `period` *(string)*: `"SO"`
