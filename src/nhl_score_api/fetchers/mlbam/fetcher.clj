@@ -1,6 +1,7 @@
 (ns nhl-score-api.fetchers.mlbam.fetcher
   (:require [nhl-score-api.fetchers.mlbam.game-scores :as game-scores]
             [nhl-score-api.fetchers.mlbam.latest-games :as latest-games]
+            [clojure.data.json :as json]
             [clj-time.core :as time]
             [clj-time.format :as format]
             [clj-http.lite.client :as http])) ; clj-http-lite supports SNI (unlike http-kit or clj-http)
@@ -11,9 +12,9 @@
   (format/unparse (format/formatters :year-month-day) date))
 
 (defn get-query-params []
-  (let [date (time/date-time 2016 06 13)
-        start-date (format-date (time/minus date (time/days 1)))
-        end-date (format-date date)]
+  (let [now (time/now)
+        start-date (format-date (time/minus now (time/days 1)))
+        end-date (format-date now)]
     {:startDate start-date
      :endDate end-date
      :expand "schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series"}))
