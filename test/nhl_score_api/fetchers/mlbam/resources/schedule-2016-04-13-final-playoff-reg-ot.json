@@ -139,7 +139,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Nikita Kucherov (1) Slap Shot, assists: Tyler Johnson (1), Alex Killorn (1)",
           "secondaryType" : "Slap Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -199,7 +199,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Mike Green (1) Slap Shot, assists: Danny DeKeyser (1), Tomas Tatar (1)",
           "secondaryType" : "Slap Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -251,7 +251,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Justin Abdelkader (1) Tip-In, assists: Kyle Quincey (1)",
           "secondaryType" : "Tip-In",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -311,7 +311,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Nikita Kucherov (2) Wrist Shot, assists: Braydon Coburn (1), Nikita Nesterov (1)",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -371,7 +371,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Alex Killorn (1) Tip-In, assists: Tyler Johnson (2), Nikita Kucherov (1)",
           "secondaryType" : "Tip-In",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -612,7 +612,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Patric Hornqvist (1) Wrist Shot, assists: Conor Sheary (1), Kris Letang (1)",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -664,7 +664,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Sidney Crosby (1) Wrist Shot, assists: Patric Hornqvist (1)",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -724,7 +724,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Derek Stepan (1) Wrist Shot, assists: Rick Nash (1), Derick Brassard (1)",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "PPG",
             "name" : "Power Play"
@@ -784,7 +784,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Tom Kuhnhackl (1) Wrist Shot, assists: Nick Bonino (1), Kris Letang (2)",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "SHG",
             "name" : "Short Handed"
@@ -844,7 +844,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Patric Hornqvist (2) Backhand, assists: Phil Kessel (1), Sidney Crosby (1)",
           "secondaryType" : "Backhand",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "PPG",
             "name" : "Power Play"
@@ -904,7 +904,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Derek Stepan (2) Wrist Shot, assists: Dan Boyle (1), Mats Zuccarello (1)",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -964,7 +964,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Patric Hornqvist (3) Wrist Shot, assists: Sidney Crosby (2), Trevor Daley (1)",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : true,
+          "emptyNet" : true,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -1204,7 +1204,7 @@
           "eventCode" : "STL644",
           "eventTypeId" : "GOAL",
           "description" : "David Backes (1) , assists: Jay Bouwmeester (1), Alex Pietrangelo (1)",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"

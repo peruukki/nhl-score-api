@@ -37,7 +37,7 @@
     (:season-total (parse-goal-scorer-details scoring-play))))
 
 (defn- scored-in-empty-net? [scoring-play]
-  (:is-empty-net (:result scoring-play)))
+  (:empty-net (:result scoring-play)))
 
 (defn- parse-goal-strength [scoring-play]
   (:code (:strength (:result scoring-play))))

@@ -139,7 +139,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Nikita Kucherov (3) Slap Shot, assists: Victor Hedman (1), Tyler Johnson (3)",
           "secondaryType" : "Slap Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "PPG",
             "name" : "Power Play"
@@ -199,7 +199,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Dylan Larkin (1) Wrist Shot, assists: Jonathan Ericsson (1), Niklas Kronwall (1)",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -259,7 +259,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Brian Boyle (1) Wrist Shot, assists: Jonathan Drouin (1), Braydon Coburn (2)",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -319,7 +319,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Brad Richards (1) Wrist Shot, assists: Mike Green (1), Tomas Tatar (2)",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "PPG",
             "name" : "Power Play"
@@ -371,7 +371,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Tyler Johnson (1) Wrist Shot, assists: Alex Killorn (2)",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -431,7 +431,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Tyler Johnson (2) Slap Shot, assists: Nikita Kucherov (2), Jason Garrison (1)",
           "secondaryType" : "Slap Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -491,7 +491,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Alex Killorn (2) Wrist Shot, assists: Matthew Carle (1), Tyler Johnson (4)",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : true,
+          "emptyNet" : true,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -732,7 +732,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Reilly Smith (3) Wrist Shot, assists: Nick Bjugstad (2), Jonathan Huberdeau (1)",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -792,7 +792,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Nick Bjugstad (1) Snap Shot, assists: Reilly Smith (2), Dmitry Kulikov (2)",
           "secondaryType" : "Snap Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -852,7 +852,7 @@
           "eventTypeId" : "GOAL",
           "description" : "John Tavares (2) Wrist Shot, assists: Nick Leddy (2), Kyle Okposo (2)",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -904,7 +904,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Dmitry Kulikov (1) Snap Shot, assists: Aleksander Barkov (1)",
           "secondaryType" : "Snap Shot",
-          "isEmptyNet" : true,
+          "emptyNet" : true,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -1145,7 +1145,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Vladimir Tarasenko (1) Wrist Shot, assists: Jaden Schwartz (1), Jori Lehtera (1)",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -1205,7 +1205,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Duncan Keith (1) Slap Shot, assists: Patrick Kane (1), Jonathan Toews (1)",
           "secondaryType" : "Slap Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -1265,7 +1265,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Andrew Shaw (1) Tip-In, assists: Brent Seabrook (1), Patrick Kane (2)",
           "secondaryType" : "Tip-In",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "PPG",
             "name" : "Power Play"
@@ -1317,7 +1317,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Artemi Panarin (1) Tip-In, assists: Duncan Keith (1)",
           "secondaryType" : "Tip-In",
-          "isEmptyNet" : true,
+          "emptyNet" : true,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -1369,7 +1369,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Kevin Shattenkirk (1) Slap Shot, assists: David Backes (1)",
           "secondaryType" : "Slap Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -1602,7 +1602,7 @@
           "eventTypeId" : "GOAL",
           "description" : "James Neal (1) Slap Shot, assists: Ryan Johansen (1)",
           "secondaryType" : "Slap Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -1662,7 +1662,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Ryan Getzlaf (1) Wrist Shot, assists: Cam Fowler (1), Corey Perry (1)",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "PPG",
             "name" : "Power Play"
@@ -1722,7 +1722,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Ryan Kesler (1) Wrist Shot, assists: Andrew Cogliano (1), Hampus Lindholm (1)",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -1782,7 +1782,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Colin Wilson (1) Tip-In, assists: Ryan Ellis (1), Roman Josi (1)",
           "secondaryType" : "Tip-In",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
@@ -1826,7 +1826,7 @@
           "eventTypeId" : "GOAL",
           "description" : "Filip Forsberg (1) Wrist Shot, assists: none",
           "secondaryType" : "Wrist Shot",
-          "isEmptyNet" : false,
+          "emptyNet" : false,
           "strength" : {
             "code" : "EVEN",
             "name" : "Even"
