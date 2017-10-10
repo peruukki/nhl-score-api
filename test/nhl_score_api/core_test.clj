@@ -11,7 +11,7 @@
 
 (def latest-scores {:teams [] :scores {} :goals []})
 
-(declare assert-status assert-json-content-type assert-cors-enabled assert-body)
+(declare assert-status assert-json-content-type assert-cors-enabled assert-browser-caching-disabled assert-body)
 (declare reset-cache-state! cache-get-fn cache-set-fn)
 (declare latest-scores-api-fn)
 
@@ -70,6 +70,10 @@
       (is (= false
              @latest-scores-fetched) "Latest scores were not fetched"))))
 
+(deftest browser-caching
+  (testing "Browser caching is disabled by response headers")
+    (let [response (app {:uri "/"})]
+      (assert-browser-caching-disabled response)))
 
 (defn- assert-status [response expected-status]
   (is (= expected-status
@@ -88,6 +92,11 @@
   (is (= "Content-Type"
          (get (:headers response) "Access-Control-Allow-Headers"))
       "Access-Control-Allow-Headers allows Content-Type header"))
+
+(defn- assert-browser-caching-disabled [response]
+  (is (= "0"
+         (get (:headers response) "Expires"))
+      "Expires header disables browser caching"))
 
 (defn- assert-body [response expected-body message]
   (is (= (json/write-str expected-body)
