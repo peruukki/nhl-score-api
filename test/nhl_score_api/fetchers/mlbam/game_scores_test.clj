@@ -7,7 +7,9 @@
 (deftest game-score-json-parsing
 
   (testing "Parsing scores with games finished in overtime and in shootout"
-    (let [games (parse-game-scores (filter-latest-finished-games resources/games-finished-in-regulation-overtime-and-shootout))]
+    (let [games (:games
+                  (parse-game-scores
+                    (filter-latest-finished-games resources/games-finished-in-regulation-overtime-and-shootout)))]
       (is (= 9
              (count games)) "Parsed game count")
       (is (= [4 3 5 7 3 5 9 8 5]
@@ -24,7 +26,11 @@
              (distinct (map #(contains? % :playoff-series) games))))))
 
   (testing "Parsing game with goals in regulation and overtime"
-    (let [game (nth (parse-game-scores (filter-latest-finished-games resources/games-finished-in-regulation-overtime-and-shootout)) 4)
+    (let [game (nth
+                 (:games
+                   (parse-game-scores
+                     (filter-latest-finished-games resources/games-finished-in-regulation-overtime-and-shootout)))
+                 4)
           goals (:goals game)]
       (is (= [{:team "EDM" :min 0 :sec 22 :scorer "Connor McDavid" :goal-count 11 :period "1"}
               {:team "BUF" :min 9 :sec 6 :scorer "Cal O'Reilly" :goal-count 1 :period "3"}
@@ -32,7 +38,11 @@
              goals) "Parsed goals")))
 
   (testing "Parsing game with goals in regulation and shootout"
-    (let [game (nth (parse-game-scores (filter-latest-finished-games resources/games-finished-in-regulation-overtime-and-shootout)) 3)
+    (let [game (nth
+                 (:games
+                   (parse-game-scores
+                     (filter-latest-finished-games resources/games-finished-in-regulation-overtime-and-shootout)))
+                 3)
           goals (map #(dissoc % :strength) (:goals game))]  ; 'strength' field has its own test
       (is (= [{:team "STL" :min 3 :sec 36 :scorer "Dmitrij Jaskin" :goal-count 4 :period "1"}
               {:team "STL" :min 12 :sec 53 :scorer "Jaden Schwartz" :goal-count 5 :period "1"}
@@ -44,14 +54,22 @@
              goals) "Parsed goals")))
 
   (testing "Parsing game with goal in playoff overtime"
-    (let [game (nth (parse-game-scores (filter-latest-finished-games resources/playoff-games-finished-in-regulation-and-overtime)) 2)]
+    (let [game (nth
+                 (:games
+                   (parse-game-scores
+                     (filter-latest-finished-games resources/playoff-games-finished-in-regulation-and-overtime)))
+                 2)]
       (is (= {"CHI" 0 "STL" 1 :overtime true}
              (:scores game)) "Parsed scores")
       (is (= [{:team "STL" :min 9 :sec 4 :scorer "David Backes" :goal-count 1 :period "4"}]
              (:goals game)) "Parsed goals")))
 
   (testing "Parsing empty net goal information"
-    (let [game (nth (parse-game-scores (filter-latest-finished-games resources/playoff-games-finished-in-regulation-and-overtime)) 1)
+    (let [game (nth
+                 (:games
+                   (parse-game-scores
+                     (filter-latest-finished-games resources/playoff-games-finished-in-regulation-and-overtime)))
+                 1)
           goals (:goals game)]
       (is (= [false]
              (distinct (map #(contains? % :empty-net) (drop-last goals))))
@@ -61,7 +79,11 @@
           "Last goal has :empty-net field set to true")))
 
   (testing "Parsing goal strength (even / power play / short handed) information"
-    (let [game (nth (parse-game-scores (filter-latest-finished-games resources/playoff-games-finished-in-regulation-and-overtime)) 1)
+    (let [game (nth
+                 (:games
+                   (parse-game-scores
+                     (filter-latest-finished-games resources/playoff-games-finished-in-regulation-and-overtime)))
+                 1)
           goals (:goals game)]
       (is (= [nil nil "PPG" "SHG" "PPG" nil nil]
              (map #(:strength %) goals))
@@ -71,7 +93,9 @@
           "Even strength goals don't contain :strength field")))
 
   (testing "Parsing playoff series information from playoff games"
-    (let [games (parse-game-scores (filter-latest-finished-games resources/playoff-games-finished-with-2nd-games))
+    (let [games (:games
+                  (parse-game-scores
+                    (filter-latest-finished-games resources/playoff-games-finished-with-2nd-games)))
           playoff-series (map #(:playoff-series %) games)]
       (is (= [{:wins {"DET" 0 "TBL" 1}} {:wins {"NYI" 1 "FLA" 0}} {:wins {"CHI" 0 "STL" 1}} {:wins {"NSH" 0 "ANA" 0}}]
              playoff-series) "Parsed playoff series information"))))

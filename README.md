@@ -13,7 +13,7 @@ The API is available at https://nhl-score-api.herokuapp.com/.
 
 ##### `GET` [/api/scores/latest](https://nhl-score-api.herokuapp.com/api/scores/latest)
 
-Returns an array of the latest round’s games, each game item containing these three fields:
+Returns an object with the date and the scores from the latest round’s games, each game item containing these three fields:
 
 - `goals` *(array)*
 - `scores` *(object)*
@@ -22,91 +22,94 @@ Returns an array of the latest round’s games, each game item containing these 
 
 #### Example response:
 
-```
-[
-  {
-    "goals": [
-      ...
-      {
-        "goalCount": 1,
-        "period": "1",
-        "scorer": "David Krejci",
-        "team": "BOS",
-        "min": 5,
-        "sec": 36,
-        "strength": "PPG",
-        "emptyNet": true
+```json
+{
+  "date": "2017-10-16",
+  "games": [
+    {
+      "goals": [
+        ...
+        {
+          "goalCount": 1,
+          "period": "1",
+          "scorer": "David Krejci",
+          "team": "BOS",
+          "min": 5,
+          "sec": 36,
+          "strength": "PPG",
+          "emptyNet": true
+        }
+      ],
+      "scores": {
+        "BOS": 4,
+        "CHI": 3
+      },
+      "teams": {
+        "away": "BOS",
+        "home": "CHI"
+      },
+      "playoffSeries": {
+        "wins": {
+          "BOS": 0,
+          "CHI": 0
+        }
       }
-    ],
-    "scores": {
-      "BOS": 4,
-      "CHI": 3
     },
-    "teams": {
-      "away": "BOS",
-      "home": "CHI"
+    {
+      "goals": [
+        ...
+        {
+          "goalCount": 1,
+          "period": "OT",
+          "scorer": "Kyle Turris",
+          "team": "OTT",
+          "min": 0,
+          "sec": 30
+        }
+      ],
+      "scores": {
+        "OTT": 2,
+        "DET": 1,
+        "overtime": true
+      },
+      "teams": {
+        "away": "OTT",
+        "home": "DET"
+      },
+      "playoffSeries": {
+        "wins": {
+          "OTT": 0,
+          "DET": 1
+        }
+      }
     },
-    "playoffSeries": {
-      "wins": {
-        "BOS": 0,
-        "CHI": 0
+    {
+      "goals": [
+        ...
+        {
+          "period": "SO",
+          "scorer": "Phil Kessel",
+          "team": "PIT"
+        }
+      ],
+      "scores": {
+        "NYR": 3,
+        "PIT": 4,
+        "shootout": true
+      },
+      "teams": {
+        "away": "NYR",
+        "home": "PIT"
+      },
+      "playoffSeries": {
+        "wins": {
+          "NYR": 1,
+          "PIT": 1
+        }
       }
     }
-  },
-  {
-    "goals": [
-      ...
-      {
-        "goalCount": 1,
-        "period": "OT",
-        "scorer": "Kyle Turris",
-        "team": "OTT",
-        "min": 0,
-        "sec": 30
-      }
-    ],
-    "scores": {
-      "OTT": 2,
-      "DET": 1,
-      "overtime": true
-    },
-    "teams": {
-      "away": "OTT",
-      "home": "DET"
-    },
-    "playoffSeries": {
-      "wins": {
-        "OTT": 0,
-        "DET": 1
-      }
-    }
-  },
-  {
-    "goals": [
-      ...
-      {
-        "period": "SO",
-        "scorer": "Phil Kessel",
-        "team": "PIT"
-      }
-    ],
-    "scores": {
-      "NYR": 3,
-      "PIT": 4,
-      "shootout": true
-    },
-    "teams": {
-      "away": "NYR",
-      "home": "PIT"
-    },
-    "playoffSeries": {
-      "wins": {
-        "NYR": 1,
-        "PIT": 1
-      }
-    }
-  }
-]
+  ]
+}
 ```
 
 #### Fields explained:

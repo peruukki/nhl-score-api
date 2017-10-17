@@ -8,10 +8,14 @@
 (defn- get-final-games [games]
   (filter #(= "Final" (get-game-state %)) games))
 
+(defn- get-date-and-final-games [date-and-games]
+  {:date (:date date-and-games)
+   :games (get-final-games (:games date-and-games))})
+
 (defn filter-latest-finished-games [api-response]
   (->> (json/read-str api-response :key-fn ->kebab-case-keyword)
        :dates
-       (map #(:games %))
-       (map #(get-final-games %))
-       (filter seq)
+       (map #(select-keys % [:date :games]))
+       (map get-date-and-final-games)
+       (filter #(seq (:games %)))
        last))

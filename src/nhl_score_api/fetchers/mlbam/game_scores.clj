@@ -173,5 +173,6 @@
                       :teams  (get-team-abbreviations team-details)}]
     (add-playoff-series-information api-game game-details)))
 
-(defn parse-game-scores [api-games]
-  (map parse-game-details api-games))
+(defn parse-game-scores [date-and-api-games]
+  {:date (:date date-and-api-games)
+   :games (map parse-game-details (:games date-and-api-games))})
