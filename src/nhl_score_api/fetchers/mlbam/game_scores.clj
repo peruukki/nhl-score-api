@@ -1,4 +1,5 @@
-(ns nhl-score-api.fetchers.mlbam.game-scores)
+(ns nhl-score-api.fetchers.mlbam.game-scores
+  (:require [clojure.string :as str]))
 
 (defn- regular-season-game? [api-game]
   (= "R" (:game-type api-game)))
@@ -126,6 +127,9 @@
   {:away (:abbreviation (:away team-details))
    :home (:abbreviation (:home team-details))})
 
+(defn- parse-game-state [api-game]
+  (str/upper-case (:abstract-game-state (:status api-game))))
+
 (defn- parse-current-records [team-details]
   (let [away-details (:away team-details)
         home-details (:home team-details)]
@@ -200,7 +204,8 @@
   (let [team-details (parse-game-team-details api-game)
         scores (parse-scores api-game team-details)
         teams (get-team-abbreviations team-details)
-        game-details {:goals (parse-goals api-game team-details)
+        game-details {:state (parse-game-state api-game)
+                      :goals (parse-goals api-game team-details)
                       :scores scores
                       :teams teams
                       :records (parse-records team-details teams scores)}]

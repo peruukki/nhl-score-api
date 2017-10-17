@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/peruukki/nhl-score-api.svg?branch=master)](https://travis-ci.org/peruukki/nhl-score-api)
 
-A JSON API that returns the scores and goals from the latest finished NHL games, based on information from the
+A JSON API that returns the scores and goals from the latest finished or on-going NHL games, based on information from the
 [Major League Baseball Advanced Media stats API](https://statsapi.web.nhl.com/api/v1/schedule?expand=schedule.teams,schedule.scoringplays).
 
 The API is available at https://nhl-score-api.herokuapp.com/, and it serves as the backend for [nhl-recap](https://github.com/peruukki/nhl-recap).
@@ -17,8 +17,9 @@ Returns an object with the date and the scores from the latest round’s games.
 
 The `date` object contains the date in a raw format and a prettier, displayable format.
 
-The `games` array contains details of the games, each game item containing these three fields:
+The `games` array contains details of the games, each game item containing these fields:
 
+- `state` *(string)*
 - `goals` *(array)*
 - `scores` *(object)*
 - `teams` *(object)*
@@ -35,6 +36,7 @@ The `games` array contains details of the games, each game item containing these
   },
   "games": [
     {
+      "state": "FINAL",
       "goals": [
         ...
         {
@@ -76,6 +78,7 @@ The `games` array contains details of the games, each game item containing these
       }
     },
     {
+      "state": "LIVE",
       "goals": [
         ...
         {
@@ -116,6 +119,7 @@ The `games` array contains details of the games, each game item containing these
       }
     },
     {
+      "state": "FINAL",
       "goals": [
         ...
         {
@@ -163,6 +167,7 @@ The `games` array contains details of the games, each game item containing these
 
 #### Game fields explained:
 
+- `state` *(string)*: `FINAL` if the game has ended, `LIVE` if it is still in progress
 - `goals` array: list of goal details, in the order the goals were scored
   - gameplay goal:
     - `goalCount` *(number)*: the number of goals the player has scored this season

@@ -13,17 +13,19 @@
 (defn- get-game-state [game]
   (:abstract-game-state (:status game)))
 
-(defn- get-final-games [games]
-  (filter #(= "Final" (get-game-state %)) games))
+(defn- get-started-games [games]
+  (filter #(or (= "Final" (get-game-state %))
+               (= "Live" (get-game-state %)))
+               games))
 
-(defn- get-date-and-final-games [date-and-games]
+(defn- get-date-and-started-games [date-and-games]
   {:date (get-date (:date date-and-games))
-   :games (get-final-games (:games date-and-games))})
+   :games (get-started-games (:games date-and-games))})
 
-(defn filter-latest-finished-games [api-response]
+(defn filter-latest-started-games [api-response]
   (->> (json/read-str api-response :key-fn ->kebab-case-keyword)
        :dates
        (map #(select-keys % [:date :games]))
-       (map get-date-and-final-games)
+       (map get-date-and-started-games)
        (filter #(seq (:games %)))
        last))

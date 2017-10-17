@@ -5,23 +5,23 @@
 
 (deftest latest-games-filtering
 
-  (testing "Only latest finished games are selected"
+  (testing "Only latest started games are selected"
     (let [latest-games (:games
-                         (filter-latest-finished-games resources/games-in-live-preview-and-final-states))]
-      (is (= 1
-             (count latest-games)) "Latest finished games count")
-      (is (= ["Final"]
+                         (filter-latest-started-games resources/games-in-live-preview-and-final-states))]
+      (is (= 3
+             (count latest-games)) "Latest started games count")
+      (is (= ["Live" "Final"]
              (distinct (map #(:abstract-game-state (:status %)) latest-games))) "Game states")))
 
-  (testing "No finished games is handled gracefully"
+  (testing "No started games is handled gracefully"
     (let [latest-games (:games
-                         (filter-latest-finished-games resources/games-in-preview-state))]
+                         (filter-latest-started-games resources/games-in-preview-state))]
       (is (= 0
-             (count latest-games)) "Latest finished games count")))
+             (count latest-games)) "Latest started games count")))
 
-  (testing "Date of latest finished games is included"
+  (testing "Date of latest started games is included"
     (let [date (:date
-                 (filter-latest-finished-games resources/games-in-live-preview-and-final-states))]
+                 (filter-latest-started-games resources/games-in-live-preview-and-final-states))]
       (is (= "2016-02-28"
              (:raw date)))
       (is (= "Sun Feb 28"
