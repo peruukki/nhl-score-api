@@ -23,4 +23,6 @@
     (let [date (:date
                  (filter-latest-finished-games resources/games-in-live-preview-and-final-states))]
       (is (= "2016-02-28"
-             date)))))
+             (:raw date)))
+      (is (= "Sun Feb 28"
+             (:pretty date))))))

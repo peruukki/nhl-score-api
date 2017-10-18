@@ -13,7 +13,11 @@ The API is available at https://nhl-score-api.herokuapp.com/.
 
 ##### `GET` [/api/scores/latest](https://nhl-score-api.herokuapp.com/api/scores/latest)
 
-Returns an object with the date and the scores from the latest round’s games, each game item containing these three fields:
+Returns an object with the date and the scores from the latest round’s games.
+
+The `date` object contains the date in a raw format and a prettier, displayable format.
+
+The `games` array contains details of the games, each game item containing these three fields:
 
 - `goals` *(array)*
 - `scores` *(object)*
@@ -24,7 +28,10 @@ Returns an object with the date and the scores from the latest round’s games, 
 
 ```json
 {
-  "date": "2017-10-16",
+  "date": {
+    "raw": "2017-10-16",
+    "pretty": "Mon Oct 16"
+  },
   "games": [
     {
       "goals": [
@@ -112,7 +119,12 @@ Returns an object with the date and the scores from the latest round’s games, 
 }
 ```
 
-#### Fields explained:
+#### Date fields explained:
+
+- `raw` *(string)*: the raw date in "yyyy-MM-dd" format, usable for any kind of processing
+- `pretty` *(string)*: a prettified format, can be shown as-is in the client
+
+#### Game fields explained:
 
 - `goals` array: list of goal details, in the order the goals were scored
   - gameplay goal:
