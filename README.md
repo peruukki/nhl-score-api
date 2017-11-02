@@ -22,6 +22,7 @@ The `games` array contains details of the games, each game item containing these
 - `goals` *(array)*
 - `scores` *(object)*
 - `teams` *(object)*
+- `records` *(object)*
 - `playoffSeries` *(object)*, only included if the game is a playoff game
 
 #### Example response:
@@ -55,6 +56,18 @@ The `games` array contains details of the games, each game item containing these
         "away": "BOS",
         "home": "CHI"
       },
+      "records": {
+        "BOS": {
+          "wins": 44,
+          "losses": 31,
+          "ot": 7
+        },
+        "CHI": {
+          "wins": 50,
+          "losses": 23,
+          "ot": 9
+        }
+      },
       "playoffSeries": {
         "wins": {
           "BOS": 0,
@@ -83,6 +96,18 @@ The `games` array contains details of the games, each game item containing these
         "away": "OTT",
         "home": "DET"
       },
+      "records": {
+        "OTT": {
+          "wins": 44,
+          "losses": 28,
+          "ot": 10
+        },
+        "DET": {
+          "wins": 33,
+          "losses": 36,
+          "ot": 13
+        }
+      },
       "playoffSeries": {
         "wins": {
           "OTT": 0,
@@ -107,6 +132,18 @@ The `games` array contains details of the games, each game item containing these
       "teams": {
         "away": "NYR",
         "home": "PIT"
+      },
+      "records": {
+        "NYR": {
+          "wins": 48,
+          "losses": 28,
+          "ot": 6
+        },
+        "PIT": {
+          "wins": 50,
+          "losses": 21,
+          "ot": 11
+        }
       },
       "playoffSeries": {
         "wins": {
@@ -145,8 +182,12 @@ The `games` array contains details of the games, each game item containing these
   - `overtime`: set to `true` if the game ended in overtime, absent if it didn’t
   - `shootout`: set to `true` if the game ended in shootout, absent if it didn’t
 - `teams` object: away and home team names
+- `records` object: each teams’s record for this regular season *before the game*, with the fields:
+  - `wins` *(number)*: win count (earning 2 pts)
+  - `losses` *(number)*: regulation loss count (0 pts)
+  - `ot` *(number)*: loss count for games that went to overtime (1 pt)
 - `playoffSeries` object: playoff series related information, only present during playoffs
-  - `wins` object: each team’s win count in the series before the game
+  - `wins` object: each team’s win count in the series *before the game*
 
 **Note on overtimes:** Only regular season 5 minute overtimes are considered "overtime" in the
 `goals` array. Playoff overtime periods are returned as period 4, 5, and so on, since they are

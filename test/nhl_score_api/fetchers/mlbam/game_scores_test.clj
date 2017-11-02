@@ -92,6 +92,24 @@
              (map #(contains? % :strength) goals))
           "Even strength goals don't contain :strength field")))
 
+  (testing "Parsing teams' regular season records"
+    (let [games (:games
+                  (parse-game-scores
+                    (filter-latest-finished-games resources/games-finished-in-regulation-overtime-and-shootout)))
+          records (map #(:records %) games)]
+      (is (= 9
+             (count records)) "Parsed regular season records count")
+      (is (= [{"CAR" {:wins 28 :losses 26 :ot 10} "NJD" {:wins 30 :losses 26 :ot 7}}
+              {"CGY" {:wins 26 :losses 32 :ot 4} "BOS" {:wins 34 :losses 23 :ot 6}}
+              {"PIT" {:wins 32 :losses 21 :ot 8} "WSH" {:wins 45 :losses 12 :ot 4}}
+              {"STL" {:wins 36 :losses 20 :ot 9} "OTT" {:wins 30 :losses 27 :ot 6}}
+              {"EDM" {:wins 23 :losses 34 :ot 7} "BUF" {:wins 25 :losses 31 :ot 7}}
+              {"FLA" {:wins 35 :losses 19 :ot 8} "WPG" {:wins 26 :losses 31 :ot 4}}
+              {"COL" {:wins 32 :losses 28 :ot 4} "MIN" {:wins 28 :losses 25 :ot 10}}
+              {"DAL" {:wins 38 :losses 19 :ot 7} "NSH" {:wins 31 :losses 21 :ot 11}}
+              {"NYI" {:wins 33 :losses 20 :ot 7} "VAN" {:wins 24 :losses 25 :ot 12}}]
+             records) "Parsed regular season records")))
+
   (testing "Parsing playoff series information from playoff games"
     (let [games (:games
                   (parse-game-scores

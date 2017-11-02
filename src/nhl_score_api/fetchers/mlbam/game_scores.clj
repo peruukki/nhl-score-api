@@ -113,7 +113,10 @@
     (add-score-flags team-goal-counts goals)))
 
 (defn- parse-team-details [awayOrHomeKey api-game]
-  (select-keys (:team (awayOrHomeKey (:teams api-game))) [:abbreviation :id]))
+  (let [team-info (awayOrHomeKey (:teams api-game))
+        record (select-keys (:league-record team-info) [:wins :losses :ot])
+        details (select-keys (:team team-info) [:abbreviation :id])]
+    (assoc details :league-record record)))
 
 (defn- parse-game-team-details [api-game]
   {:away (parse-team-details :away api-game)
@@ -123,7 +126,34 @@
   {:away (:abbreviation (:away team-details))
    :home (:abbreviation (:home team-details))})
 
-(defn- parse-current-playoff-series-wins [api-game teams]
+(defn- parse-current-records [team-details]
+  (let [away-details (:away team-details)
+        home-details (:home team-details)]
+    {(:abbreviation away-details) (:league-record away-details)
+     (:abbreviation home-details) (:league-record home-details)}))
+
+(defn- reduce-current-game-from-records [records teams scores]
+  (let [away-team (:away teams)
+        home-team (:home teams)
+        away-goals (get scores away-team)
+        home-goals (get scores home-team)
+        winning-team (if (> away-goals home-goals) away-team home-team)
+        losing-team (if (= winning-team home-team) away-team home-team)
+        winning-team-current-record (get records winning-team)
+        losing-team-current-record (get records losing-team)
+        records-have-ot (contains? losing-team-current-record :ot)
+        ot-loss (and
+                  records-have-ot
+                  (or (contains? scores :overtime) (contains? scores :shootout)))
+        loss-key (if ot-loss :ot :losses)]
+    {winning-team (assoc winning-team-current-record :wins (- (:wins winning-team-current-record) 1))
+     losing-team (assoc losing-team-current-record loss-key (- (loss-key losing-team-current-record) 1))}))
+
+(defn- parse-records [team-details teams scores]
+  (let [current-records (parse-current-records team-details)]
+    (reduce-current-game-from-records current-records teams scores)))
+
+  (defn- parse-current-playoff-series-wins [api-game teams]
   (let [away-team (:away teams)
         home-team (:home teams)
         series-summary-description (:series-status-short (:series-summary api-game))
@@ -168,9 +198,12 @@
 
 (defn- parse-game-details [api-game]
   (let [team-details (parse-game-team-details api-game)
-        game-details {:goals  (parse-goals api-game team-details)
-                      :scores (parse-scores api-game team-details)
-                      :teams  (get-team-abbreviations team-details)}]
+        scores (parse-scores api-game team-details)
+        teams (get-team-abbreviations team-details)
+        game-details {:goals (parse-goals api-game team-details)
+                      :scores scores
+                      :teams teams
+                      :records (parse-records team-details teams scores)}]
     (add-playoff-series-information api-game game-details)))
 
 (defn parse-game-scores [date-and-api-games]
