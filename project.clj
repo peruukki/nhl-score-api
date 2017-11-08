@@ -1,4 +1,4 @@
-(defproject nhl-score-api "0.13.0"
+(defproject nhl-score-api "0.14.0"
   :description "A JSON API that returns the scores and goals from the latest finished NHL games."
   :license {:name "MIT"
             :url "https://opensource.org/licenses/MIT"}
