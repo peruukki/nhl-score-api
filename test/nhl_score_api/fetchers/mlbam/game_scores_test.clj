@@ -35,11 +35,11 @@
              (count (filter #(= (:state %) "FINAL") games))) "Parsed finished game count")
       (is (= 2
              (count (filter #(= (:state %) "LIVE") games))) "Parsed on-going game count")
-      (is (= [2 5 5]
+      (is (= [5 2 5]
              (map #(count (:goals %)) games)) "Parsed goal count")
-      (is (= [{:away "FLA" :home "MIN"} {:away "STL" :home "CAR"} {:away "WSH" :home "CHI"}]
+      (is (= [{:away "WSH" :home "CHI"} {:away "FLA" :home "MIN"} {:away "STL" :home "CAR"}]
              (map :teams games)) "Parsed team names")
-      (is (= [{"FLA" 1 "MIN" 1} {"STL" 3 "CAR" 2} {"WSH" 2 "CHI" 3}]
+      (is (= [{"WSH" 2 "CHI" 3} {"FLA" 1 "MIN" 1} {"STL" 3 "CAR" 2} ]
              (map :scores games)) "Parsed scores")
       (is (= [false]
              (distinct (map #(contains? % :playoff-series) games))))))

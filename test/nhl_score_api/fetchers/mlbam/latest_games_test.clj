@@ -10,8 +10,14 @@
                          (filter-latest-started-games resources/games-in-live-preview-and-final-states))]
       (is (= 3
              (count latest-games)) "Latest started games count")
-      (is (= ["Live" "Final"]
-             (distinct (map #(:abstract-game-state (:status %)) latest-games))) "Game states")))
+      (is (= ["Final" "Live"]
+             (distinct (map #(:abstract-game-state (:status %)) latest-games))) "Distinct game states")))
+
+  (testing "Finished games are returned before on-going ones"
+    (let [latest-games (:games
+                         (filter-latest-started-games resources/games-in-live-preview-and-final-states))]
+      (is (= ["Final" "Live" "Live"]
+             (map #(:abstract-game-state (:status %)) latest-games))) "Game states"))
 
   (testing "No started games is handled gracefully"
     (let [latest-games (:games

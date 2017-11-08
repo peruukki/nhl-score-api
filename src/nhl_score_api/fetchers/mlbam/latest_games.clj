@@ -22,10 +22,14 @@
   {:date (get-date (:date date-and-games))
    :games (get-started-games (:games date-and-games))})
 
+(defn- sort-games-by-state [games]
+  (assoc games :games (sort-by get-game-state (:games games))))
+
 (defn filter-latest-started-games [api-response]
   (->> (json/read-str api-response :key-fn ->kebab-case-keyword)
        :dates
        (map #(select-keys % [:date :games]))
        (map get-date-and-started-games)
        (filter #(seq (:games %)))
-       last))
+       last
+       sort-games-by-state))
