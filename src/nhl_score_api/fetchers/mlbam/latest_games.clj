@@ -21,22 +21,16 @@
   (last
     (filter has-finished-games? dates-and-games)))
 
-(defn- get-started-games [games]
-  (filter #(or (= "Final" (get-game-state %))
-               (= "Live" (get-game-state %)))
-          games))
-
-(defn- get-date-and-started-games [date-and-games]
-  {:date (get-date (:date date-and-games))
-   :games (get-started-games (:games date-and-games))})
+(defn- format-date [date-and-games]
+  (assoc date-and-games :date (get-date (:date date-and-games))))
 
 (defn- sort-games-by-state [games]
   (assoc games :games (sort-by get-game-state (:games games))))
 
-(defn filter-latest-started-games [api-response]
+(defn filter-latest-games [api-response]
   (->> (json/read-str api-response :key-fn ->kebab-case-keyword)
        :dates
        (map #(select-keys % [:date :games]))
        get-latest-date-and-games-with-finished-games
-       get-date-and-started-games
+       format-date
        sort-games-by-state))

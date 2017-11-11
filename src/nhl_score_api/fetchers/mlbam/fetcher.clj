@@ -24,5 +24,5 @@
 
 (defn fetch-latest-scores []
   (-> (fetch-latest-games-info)
-      latest-games/filter-latest-started-games
+      latest-games/filter-latest-games
       game-scores/parse-game-scores))

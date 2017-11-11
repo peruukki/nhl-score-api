@@ -119,19 +119,11 @@ The `games` array contains details of the games, each game item containing these
       }
     },
     {
-      "state": "FINAL",
-      "goals": [
-        ...
-        {
-          "period": "SO",
-          "scorer": "Phil Kessel",
-          "team": "PIT"
-        }
-      ],
+      "state": "PREVIEW",
+      "goals": [],
       "scores": {
-        "NYR": 3,
-        "PIT": 4,
-        "shootout": true
+        "NYR": 0,
+        "PIT": 0
       },
       "teams": {
         "away": "NYR",
@@ -167,7 +159,10 @@ The `games` array contains details of the games, each game item containing these
 
 #### Game fields explained:
 
-- `state` *(string)*: `FINAL` if the game has ended, `LIVE` if it is still in progress
+- `state` *(string)*:
+  - `FINAL` if the game has ended
+  - `LIVE` if the game is still in progress
+  - `PREVIEW` if the game has not started yet
 - `goals` array: list of goal details, in the order the goals were scored
   - gameplay goal:
     - `goalCount` *(number)*: the number of goals the player has scored this season

@@ -1,7 +1,7 @@
 (ns nhl-score-api.fetchers.mlbam.game-scores-test
   (:require [clojure.test :refer :all]
             [nhl-score-api.fetchers.mlbam.game-scores :refer :all]
-            [nhl-score-api.fetchers.mlbam.latest-games :refer [filter-latest-started-games]]
+            [nhl-score-api.fetchers.mlbam.latest-games :refer [filter-latest-games]]
             [nhl-score-api.fetchers.mlbam.resources :as resources]))
 
 (deftest game-score-json-parsing
@@ -9,7 +9,7 @@
   (testing "Parsing scores with games finished in overtime and in shootout"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-started-games resources/games-finished-in-regulation-overtime-and-shootout)))]
+                    (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)))]
       (is (= 9
              (count games)) "Parsed game count")
       (is (= [4 3 5 7 3 5 9 8 5]
@@ -25,21 +25,25 @@
       (is (= [false]
              (distinct (map #(contains? % :playoff-series) games))))))
 
-  (testing "Parsing scores with games finished and still on-going"
+  (testing "Parsing scores with games finished, on-going and not yet started"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-started-games resources/games-in-live-preview-and-final-states)))]
-      (is (= 3
+                    (filter-latest-games resources/games-in-live-preview-and-final-states)))]
+      (is (= 7
              (count games)) "Parsed game count")
       (is (= 1
              (count (filter #(= (:state %) "FINAL") games))) "Parsed finished game count")
       (is (= 2
              (count (filter #(= (:state %) "LIVE") games))) "Parsed on-going game count")
-      (is (= [5 2 5]
+      (is (= 4
+             (count (filter #(= (:state %) "PREVIEW") games))) "Parsed not started game count")
+      (is (= [5 2 5 0 0 0 0]
              (map #(count (:goals %)) games)) "Parsed goal count")
-      (is (= [{:away "WSH" :home "CHI"} {:away "FLA" :home "MIN"} {:away "STL" :home "CAR"}]
+      (is (= [{:away "WSH" :home "CHI"} {:away "FLA" :home "MIN"} {:away "STL" :home "CAR"}
+              {:away "TBL" :home "BOS"} {:away "SJS" :home "VAN"} {:away "LAK" :home "ANA"} {:away "NYI" :home "EDM"}]
              (map :teams games)) "Parsed team names")
-      (is (= [{"WSH" 2 "CHI" 3} {"FLA" 1 "MIN" 1} {"STL" 3 "CAR" 2} ]
+      (is (= [{"WSH" 2 "CHI" 3} {"FLA" 1 "MIN" 1} {"STL" 3 "CAR" 2}
+              {"TBL" 0 "BOS" 0} {"SJS" 0 "VAN" 0} {"LAK" 0 "ANA" 0} {"NYI" 0 "EDM" 0}]
              (map :scores games)) "Parsed scores")
       (is (= [false]
              (distinct (map #(contains? % :playoff-series) games))))))
@@ -48,7 +52,7 @@
     (let [game (nth
                  (:games
                    (parse-game-scores
-                     (filter-latest-started-games resources/games-finished-in-regulation-overtime-and-shootout)))
+                     (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)))
                  4)
           goals (:goals game)]
       (is (= [{:team "EDM" :min 0 :sec 22 :scorer "Connor McDavid" :goal-count 11 :period "1"}
@@ -60,7 +64,7 @@
     (let [game (nth
                  (:games
                    (parse-game-scores
-                     (filter-latest-started-games resources/games-finished-in-regulation-overtime-and-shootout)))
+                     (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)))
                  3)
           goals (map #(dissoc % :strength) (:goals game))]  ; 'strength' field has its own test
       (is (= [{:team "STL" :min 3 :sec 36 :scorer "Dmitrij Jaskin" :goal-count 4 :period "1"}
@@ -76,7 +80,7 @@
     (let [game (nth
                  (:games
                    (parse-game-scores
-                     (filter-latest-started-games resources/playoff-games-finished-in-regulation-and-overtime)))
+                     (filter-latest-games resources/playoff-games-finished-in-regulation-and-overtime)))
                  2)]
       (is (= {"CHI" 0 "STL" 1 :overtime true}
              (:scores game)) "Parsed scores")
@@ -87,7 +91,7 @@
     (let [game (nth
                  (:games
                    (parse-game-scores
-                     (filter-latest-started-games resources/playoff-games-finished-in-regulation-and-overtime)))
+                     (filter-latest-games resources/playoff-games-finished-in-regulation-and-overtime)))
                  1)
           goals (:goals game)]
       (is (= [false]
@@ -101,7 +105,7 @@
     (let [game (nth
                  (:games
                    (parse-game-scores
-                     (filter-latest-started-games resources/playoff-games-finished-in-regulation-and-overtime)))
+                     (filter-latest-games resources/playoff-games-finished-in-regulation-and-overtime)))
                  1)
           goals (:goals game)]
       (is (= [nil nil "PPG" "SHG" "PPG" nil nil]
@@ -114,7 +118,7 @@
   (testing "Parsing teams' regular season records"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-started-games resources/games-finished-in-regulation-overtime-and-shootout)))
+                    (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)))
           records (map #(:records %) games)]
       (is (= 9
              (count records)) "Parsed regular season records count")
@@ -132,7 +136,7 @@
   (testing "Parsing playoff series information from playoff games"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-started-games resources/playoff-games-finished-with-2nd-games)))
+                    (filter-latest-games resources/playoff-games-finished-with-2nd-games)))
           playoff-series (map #(:playoff-series %) games)]
       (is (= [{:wins {"DET" 0 "TBL" 1}} {:wins {"NYI" 1 "FLA" 0}} {:wins {"CHI" 0 "STL" 1}} {:wins {"NSH" 0 "ANA" 0}}]
              playoff-series) "Parsed playoff series information"))))
