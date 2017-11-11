@@ -1,0 +1,4870 @@
+{
+  "copyright": "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2017. All Rights Reserved.",
+  "dates": [
+    {
+      "date": "2017-11-09",
+      "events": [],
+      "games": [
+        {
+          "content": {
+            "link": "/api/v1/game/2017020235/content"
+          },
+          "gameDate": "2017-11-10T00:00:00Z",
+          "gamePk": 2017020235,
+          "gameType": "R",
+          "link": "/api/v1/game/2017020235/feed/live",
+          "scoringPlays": [
+            {
+              "about": {
+                "dateTime": "2017-11-10T00:14:57Z",
+                "eventId": 21,
+                "eventIdx": 27,
+                "goals": {
+                  "away": 0,
+                  "home": 1
+                },
+                "ordinalNum": "1st",
+                "period": 1,
+                "periodTime": "05:33",
+                "periodTimeRemaining": "14:27",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 80.0,
+                "y": -3.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Brian Boyle",
+                    "id": 8470619,
+                    "link": "/api/v1/people/8470619"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 1
+                },
+                {
+                  "player": {
+                    "fullName": "Brian Gibbons",
+                    "id": 8476207,
+                    "link": "/api/v1/people/8476207"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 3
+                },
+                {
+                  "player": {
+                    "fullName": "John Moore",
+                    "id": 8475186,
+                    "link": "/api/v1/people/8475186"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 5
+                },
+                {
+                  "player": {
+                    "fullName": "Cam Talbot",
+                    "id": 8475660,
+                    "link": "/api/v1/people/8475660"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Brian Boyle (1) Wrist Shot, assists: Brian Gibbons (3), John Moore (5)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "NJD21",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 1,
+                "link": "/api/v1/teams/1",
+                "name": "New Jersey Devils"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T01:15:02Z",
+                "eventId": 243,
+                "eventIdx": 158,
+                "goals": {
+                  "away": 1,
+                  "home": 1
+                },
+                "ordinalNum": "2nd",
+                "period": 2,
+                "periodTime": "06:50",
+                "periodTimeRemaining": "13:10",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 77.0,
+                "y": 2.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Anton Slepyshev",
+                    "id": 8477415,
+                    "link": "/api/v1/people/8477415"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 1
+                },
+                {
+                  "player": {
+                    "fullName": "Milan Lucic",
+                    "id": 8473473,
+                    "link": "/api/v1/people/8473473"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 6
+                },
+                {
+                  "player": {
+                    "fullName": "Ryan Nugent-Hopkins",
+                    "id": 8476454,
+                    "link": "/api/v1/people/8476454"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 4
+                },
+                {
+                  "player": {
+                    "fullName": "Cory Schneider",
+                    "id": 8471239,
+                    "link": "/api/v1/people/8471239"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Anton Slepyshev (1) Wrist Shot, assists: Milan Lucic (6), Ryan Nugent-Hopkins (4)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "NJD243",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 22,
+                "link": "/api/v1/teams/22",
+                "name": "Edmonton Oilers"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T01:37:41Z",
+                "eventId": 428,
+                "eventIdx": 232,
+                "goals": {
+                  "away": 1,
+                  "home": 2
+                },
+                "ordinalNum": "2nd",
+                "period": 2,
+                "periodTime": "18:25",
+                "periodTimeRemaining": "01:35",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": -80.0,
+                "y": -1.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Drew Stafford",
+                    "id": 8471226,
+                    "link": "/api/v1/people/8471226"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 5
+                },
+                {
+                  "player": {
+                    "fullName": "Adam Henrique",
+                    "id": 8474641,
+                    "link": "/api/v1/people/8474641"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 6
+                },
+                {
+                  "player": {
+                    "fullName": "Mirco Mueller",
+                    "id": 8477509,
+                    "link": "/api/v1/people/8477509"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 2
+                },
+                {
+                  "player": {
+                    "fullName": "Cam Talbot",
+                    "id": 8475660,
+                    "link": "/api/v1/people/8475660"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Drew Stafford (5) Wrist Shot, assists: Adam Henrique (6), Mirco Mueller (2)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "NJD428",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 1,
+                "link": "/api/v1/teams/1",
+                "name": "New Jersey Devils"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T02:05:13Z",
+                "eventId": 448,
+                "eventIdx": 269,
+                "goals": {
+                  "away": 2,
+                  "home": 2
+                },
+                "ordinalNum": "3rd",
+                "period": 3,
+                "periodTime": "03:21",
+                "periodTimeRemaining": "16:39",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": -58.0,
+                "y": -15.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Milan Lucic",
+                    "id": 8473473,
+                    "link": "/api/v1/people/8473473"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 3
+                },
+                {
+                  "player": {
+                    "fullName": "Ryan Nugent-Hopkins",
+                    "id": 8476454,
+                    "link": "/api/v1/people/8476454"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 5
+                },
+                {
+                  "player": {
+                    "fullName": "Zack Kassian",
+                    "id": 8475178,
+                    "link": "/api/v1/people/8475178"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 2
+                },
+                {
+                  "player": {
+                    "fullName": "Cory Schneider",
+                    "id": 8471239,
+                    "link": "/api/v1/people/8471239"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Milan Lucic (3) Wrist Shot, assists: Ryan Nugent-Hopkins (5), Zack Kassian (2)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "NJD448",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 22,
+                "link": "/api/v1/teams/22",
+                "name": "Edmonton Oilers"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T02:46:41Z",
+                "eventId": 808,
+                "eventIdx": 383,
+                "goals": {
+                  "away": 3,
+                  "home": 2
+                },
+                "ordinalNum": "OT",
+                "period": 4,
+                "periodTime": "04:43",
+                "periodTimeRemaining": "00:17",
+                "periodType": "OVERTIME"
+              },
+              "coordinates": {
+                "x": 78.0,
+                "y": 5.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Leon Draisaitl",
+                    "id": 8477934,
+                    "link": "/api/v1/people/8477934"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 5
+                },
+                {
+                  "player": {
+                    "fullName": "Connor McDavid",
+                    "id": 8478402,
+                    "link": "/api/v1/people/8478402"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 12
+                },
+                {
+                  "player": {
+                    "fullName": "Kris Russell",
+                    "id": 8471729,
+                    "link": "/api/v1/people/8471729"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 4
+                },
+                {
+                  "player": {
+                    "fullName": "Cory Schneider",
+                    "id": 8471239,
+                    "link": "/api/v1/people/8471239"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Leon Draisaitl (5) Wrist Shot, assists: Connor McDavid (12), Kris Russell (4)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "NJD808",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": true,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 22,
+                "link": "/api/v1/teams/22",
+                "name": "Edmonton Oilers"
+              }
+            }
+          ],
+          "season": "20172018",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "7",
+            "detailedState": "Final",
+            "startTimeTBD": false,
+            "statusCode": "7"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "losses": 8,
+                "ot": 1,
+                "type": "league",
+                "wins": 6
+              },
+              "score": 3,
+              "team": {
+                "abbreviation": "EDM",
+                "active": true,
+                "conference": {
+                  "id": 5,
+                  "link": "/api/v1/conferences/5",
+                  "name": "Western"
+                },
+                "division": {
+                  "id": 15,
+                  "link": "/api/v1/divisions/15",
+                  "name": "Pacific"
+                },
+                "firstYearOfPlay": "1979",
+                "franchise": {
+                  "franchiseId": 25,
+                  "link": "/api/v1/franchises/25",
+                  "teamName": "Oilers"
+                },
+                "franchiseId": 25,
+                "id": 22,
+                "link": "/api/v1/teams/22",
+                "locationName": "Edmonton",
+                "name": "Edmonton Oilers",
+                "officialSiteUrl": "http://www.edmontonoilers.com",
+                "shortName": "Edmonton",
+                "teamName": "Oilers",
+                "venue": {
+                  "city": "Edmonton",
+                  "link": "/api/v1/venues/null",
+                  "name": "Rogers Place",
+                  "timeZone": {
+                    "id": "America/Edmonton",
+                    "offset": -7,
+                    "tz": "MST"
+                  }
+                }
+              }
+            },
+            "home": {
+              "leagueRecord": {
+                "losses": 4,
+                "ot": 2,
+                "type": "league",
+                "wins": 9
+              },
+              "score": 2,
+              "team": {
+                "abbreviation": "NJD",
+                "active": true,
+                "conference": {
+                  "id": 6,
+                  "link": "/api/v1/conferences/6",
+                  "name": "Eastern"
+                },
+                "division": {
+                  "id": 18,
+                  "link": "/api/v1/divisions/18",
+                  "name": "Metropolitan"
+                },
+                "firstYearOfPlay": "1982",
+                "franchise": {
+                  "franchiseId": 23,
+                  "link": "/api/v1/franchises/23",
+                  "teamName": "Devils"
+                },
+                "franchiseId": 23,
+                "id": 1,
+                "link": "/api/v1/teams/1",
+                "locationName": "New Jersey",
+                "name": "New Jersey Devils",
+                "officialSiteUrl": "http://www.truesince82.com",
+                "shortName": "New Jersey",
+                "teamName": "Devils",
+                "venue": {
+                  "city": "Newark",
+                  "link": "/api/v1/venues/null",
+                  "name": "Prudential Center",
+                  "timeZone": {
+                    "id": "America/New_York",
+                    "offset": -5,
+                    "tz": "EST"
+                  }
+                }
+              }
+            }
+          },
+          "venue": {
+            "link": "/api/v1/venues/null",
+            "name": "Prudential Center"
+          }
+        },
+        {
+          "content": {
+            "link": "/api/v1/game/2017020236/content"
+          },
+          "gameDate": "2017-11-10T00:00:00Z",
+          "gamePk": 2017020236,
+          "gameType": "R",
+          "link": "/api/v1/game/2017020236/feed/live",
+          "scoringPlays": [
+            {
+              "about": {
+                "dateTime": "2017-11-10T00:19:08Z",
+                "eventId": 70,
+                "eventIdx": 42,
+                "goals": {
+                  "away": 0,
+                  "home": 1
+                },
+                "ordinalNum": "1st",
+                "period": 1,
+                "periodTime": "04:58",
+                "periodTimeRemaining": "15:02",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": -49.0,
+                "y": -15.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Claude Giroux",
+                    "id": 8473512,
+                    "link": "/api/v1/people/8473512"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 9
+                },
+                {
+                  "player": {
+                    "fullName": "Jakub Voracek",
+                    "id": 8474161,
+                    "link": "/api/v1/people/8474161"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 16
+                },
+                {
+                  "player": {
+                    "fullName": "Corey Crawford",
+                    "id": 8470645,
+                    "link": "/api/v1/people/8470645"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Claude Giroux (9) Slap Shot, assists: Jakub Voracek (16)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "PHI70",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Slap Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 4,
+                "link": "/api/v1/teams/4",
+                "name": "Philadelphia Flyers"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T00:34:57Z",
+                "eventId": 96,
+                "eventIdx": 89,
+                "goals": {
+                  "away": 0,
+                  "home": 2
+                },
+                "ordinalNum": "1st",
+                "period": 1,
+                "periodTime": "12:08",
+                "periodTimeRemaining": "07:52",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": -53.0,
+                "y": 21.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Jakub Voracek",
+                    "id": 8474161,
+                    "link": "/api/v1/people/8474161"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 4
+                },
+                {
+                  "player": {
+                    "fullName": "Shayne Gostisbehere",
+                    "id": 8476906,
+                    "link": "/api/v1/people/8476906"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 14
+                },
+                {
+                  "player": {
+                    "fullName": "Claude Giroux",
+                    "id": 8473512,
+                    "link": "/api/v1/people/8473512"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 10
+                },
+                {
+                  "player": {
+                    "fullName": "Corey Crawford",
+                    "id": 8470645,
+                    "link": "/api/v1/people/8470645"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Jakub Voracek (4) Slap Shot, assists: Shayne Gostisbehere (14), Claude Giroux (10)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "PHI96",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": true,
+                "secondaryType": "Slap Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 4,
+                "link": "/api/v1/teams/4",
+                "name": "Philadelphia Flyers"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T01:15:32Z",
+                "eventId": 293,
+                "eventIdx": 175,
+                "goals": {
+                  "away": 0,
+                  "home": 3
+                },
+                "ordinalNum": "2nd",
+                "period": 2,
+                "periodTime": "03:51",
+                "periodTimeRemaining": "16:09",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 78.0,
+                "y": 0.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Sean Couturier",
+                    "id": 8476461,
+                    "link": "/api/v1/people/8476461"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 10
+                },
+                {
+                  "player": {
+                    "fullName": "Claude Giroux",
+                    "id": 8473512,
+                    "link": "/api/v1/people/8473512"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 11
+                },
+                {
+                  "player": {
+                    "fullName": "Jakub Voracek",
+                    "id": 8474161,
+                    "link": "/api/v1/people/8474161"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 17
+                },
+                {
+                  "player": {
+                    "fullName": "Corey Crawford",
+                    "id": 8470645,
+                    "link": "/api/v1/people/8470645"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Sean Couturier (10) Wrist Shot, assists: Claude Giroux (11), Jakub Voracek (17)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "PHI293",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 4,
+                "link": "/api/v1/teams/4",
+                "name": "Philadelphia Flyers"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T01:38:27Z",
+                "eventId": 474,
+                "eventIdx": 230,
+                "goals": {
+                  "away": 1,
+                  "home": 3
+                },
+                "ordinalNum": "2nd",
+                "period": 2,
+                "periodTime": "16:13",
+                "periodTimeRemaining": "03:47",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": -50.0,
+                "y": -32.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Connor Murphy",
+                    "id": 8476473,
+                    "link": "/api/v1/people/8476473"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 1
+                },
+                {
+                  "player": {
+                    "fullName": "Lance Bouma",
+                    "id": 8474642,
+                    "link": "/api/v1/people/8474642"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 3
+                },
+                {
+                  "player": {
+                    "fullName": "Jan Rutta",
+                    "id": 8480172,
+                    "link": "/api/v1/people/8480172"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 4
+                },
+                {
+                  "player": {
+                    "fullName": "Brian Elliott",
+                    "id": 8470880,
+                    "link": "/api/v1/people/8470880"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Connor Murphy (1) Wrist Shot, assists: Lance Bouma (3), Jan Rutta (4)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "PHI474",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 16,
+                "link": "/api/v1/teams/16",
+                "name": "Chicago Blackhawks"
+              }
+            }
+          ],
+          "season": "20172018",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "7",
+            "detailedState": "Final",
+            "startTimeTBD": false,
+            "statusCode": "7"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "losses": 7,
+                "ot": 2,
+                "type": "league",
+                "wins": 7
+              },
+              "score": 1,
+              "team": {
+                "abbreviation": "CHI",
+                "active": true,
+                "conference": {
+                  "id": 5,
+                  "link": "/api/v1/conferences/5",
+                  "name": "Western"
+                },
+                "division": {
+                  "id": 16,
+                  "link": "/api/v1/divisions/16",
+                  "name": "Central"
+                },
+                "firstYearOfPlay": "1926",
+                "franchise": {
+                  "franchiseId": 11,
+                  "link": "/api/v1/franchises/11",
+                  "teamName": "Blackhawks"
+                },
+                "franchiseId": 11,
+                "id": 16,
+                "link": "/api/v1/teams/16",
+                "locationName": "Chicago",
+                "name": "Chicago Blackhawks",
+                "officialSiteUrl": "http://www.chicagoblackhawks.com",
+                "shortName": "Chicago",
+                "teamName": "Blackhawks",
+                "venue": {
+                  "city": "Chicago",
+                  "link": "/api/v1/venues/null",
+                  "name": "United Center",
+                  "timeZone": {
+                    "id": "America/Chicago",
+                    "offset": -6,
+                    "tz": "CST"
+                  }
+                }
+              }
+            },
+            "home": {
+              "leagueRecord": {
+                "losses": 6,
+                "ot": 2,
+                "type": "league",
+                "wins": 8
+              },
+              "score": 3,
+              "team": {
+                "abbreviation": "PHI",
+                "active": true,
+                "conference": {
+                  "id": 6,
+                  "link": "/api/v1/conferences/6",
+                  "name": "Eastern"
+                },
+                "division": {
+                  "id": 18,
+                  "link": "/api/v1/divisions/18",
+                  "name": "Metropolitan"
+                },
+                "firstYearOfPlay": "1967",
+                "franchise": {
+                  "franchiseId": 16,
+                  "link": "/api/v1/franchises/16",
+                  "teamName": "Flyers"
+                },
+                "franchiseId": 16,
+                "id": 4,
+                "link": "/api/v1/teams/4",
+                "locationName": "Philadelphia",
+                "name": "Philadelphia Flyers",
+                "officialSiteUrl": "http://www.philadelphiaflyers.com",
+                "shortName": "Philadelphia",
+                "teamName": "Flyers",
+                "venue": {
+                  "city": "Philadelphia",
+                  "link": "/api/v1/venues/null",
+                  "name": "Wells Fargo Center",
+                  "timeZone": {
+                    "id": "America/New_York",
+                    "offset": -5,
+                    "tz": "EST"
+                  }
+                }
+              }
+            }
+          },
+          "venue": {
+            "link": "/api/v1/venues/null",
+            "name": "Wells Fargo Center"
+          }
+        },
+        {
+          "content": {
+            "link": "/api/v1/game/2017020237/content"
+          },
+          "gameDate": "2017-11-10T00:30:00Z",
+          "gamePk": 2017020237,
+          "gameType": "R",
+          "link": "/api/v1/game/2017020237/feed/live",
+          "scoringPlays": [
+            {
+              "about": {
+                "dateTime": "2017-11-10T02:39:39Z",
+                "eventId": 579,
+                "eventIdx": 270,
+                "goals": {
+                  "away": 1,
+                  "home": 0
+                },
+                "ordinalNum": "3rd",
+                "period": 3,
+                "periodTime": "02:46",
+                "periodTimeRemaining": "17:14",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 77.0,
+                "y": -3.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Jason Zucker",
+                    "id": 8475722,
+                    "link": "/api/v1/people/8475722"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 6
+                },
+                {
+                  "player": {
+                    "fullName": "Mikael Granlund",
+                    "id": 8475798,
+                    "link": "/api/v1/people/8475798"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 4
+                },
+                {
+                  "player": {
+                    "fullName": "Charlie Lindgren",
+                    "id": 8479292,
+                    "link": "/api/v1/people/8479292"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Jason Zucker (6) Backhand, assists: Mikael Granlund (4)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "MTL579",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": true,
+                "secondaryType": "Backhand",
+                "strength": {
+                  "code": "SHG",
+                  "name": "Short Handed"
+                }
+              },
+              "team": {
+                "id": 30,
+                "link": "/api/v1/teams/30",
+                "name": "Minnesota Wild"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T02:57:03Z",
+                "eventId": 712,
+                "eventIdx": 326,
+                "goals": {
+                  "away": 2,
+                  "home": 0
+                },
+                "ordinalNum": "3rd",
+                "period": 3,
+                "periodTime": "11:23",
+                "periodTimeRemaining": "08:37",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 81.0,
+                "y": 0.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Jason Zucker",
+                    "id": 8475722,
+                    "link": "/api/v1/people/8475722"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 7
+                },
+                {
+                  "player": {
+                    "fullName": "Nino Niederreiter",
+                    "id": 8475799,
+                    "link": "/api/v1/people/8475799"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 2
+                },
+                {
+                  "player": {
+                    "fullName": "Eric Staal",
+                    "id": 8470595,
+                    "link": "/api/v1/people/8470595"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 7
+                },
+                {
+                  "player": {
+                    "fullName": "Charlie Lindgren",
+                    "id": 8479292,
+                    "link": "/api/v1/people/8479292"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Jason Zucker (7) Tip-In, assists: Nino Niederreiter (2), Eric Staal (7)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "MTL712",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Tip-In",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 30,
+                "link": "/api/v1/teams/30",
+                "name": "Minnesota Wild"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T03:18:28Z",
+                "eventId": 741,
+                "eventIdx": 383,
+                "goals": {
+                  "away": 3,
+                  "home": 0
+                },
+                "ordinalNum": "3rd",
+                "period": 3,
+                "periodTime": "19:25",
+                "periodTimeRemaining": "00:35",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 17.0,
+                "y": 39.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Jason Zucker",
+                    "id": 8475722,
+                    "link": "/api/v1/people/8475722"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 8
+                },
+                {
+                  "player": {
+                    "fullName": "Daniel Winnik",
+                    "id": 8471476,
+                    "link": "/api/v1/people/8471476"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 3
+                },
+                {
+                  "player": {
+                    "fullName": "Ryan Suter",
+                    "id": 8470600,
+                    "link": "/api/v1/people/8470600"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 8
+                }
+              ],
+              "result": {
+                "description": "Jason Zucker (8) Wrist Shot, assists: Daniel Winnik (3), Ryan Suter (8)",
+                "emptyNet": true,
+                "event": "Goal",
+                "eventCode": "MTL741",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 30,
+                "link": "/api/v1/teams/30",
+                "name": "Minnesota Wild"
+              }
+            }
+          ],
+          "season": "20172018",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "7",
+            "detailedState": "Final",
+            "startTimeTBD": false,
+            "statusCode": "7"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "losses": 7,
+                "ot": 2,
+                "type": "league",
+                "wins": 6
+              },
+              "score": 3,
+              "team": {
+                "abbreviation": "MIN",
+                "active": true,
+                "conference": {
+                  "id": 5,
+                  "link": "/api/v1/conferences/5",
+                  "name": "Western"
+                },
+                "division": {
+                  "id": 16,
+                  "link": "/api/v1/divisions/16",
+                  "name": "Central"
+                },
+                "firstYearOfPlay": "2000",
+                "franchise": {
+                  "franchiseId": 37,
+                  "link": "/api/v1/franchises/37",
+                  "teamName": "Wild"
+                },
+                "franchiseId": 37,
+                "id": 30,
+                "link": "/api/v1/teams/30",
+                "locationName": "Minnesota",
+                "name": "Minnesota Wild",
+                "officialSiteUrl": "http://www.wild.com",
+                "shortName": "Minnesota",
+                "teamName": "Wild",
+                "venue": {
+                  "city": "St. Paul",
+                  "link": "/api/v1/venues/null",
+                  "name": "Xcel Energy Center",
+                  "timeZone": {
+                    "id": "America/Chicago",
+                    "offset": -6,
+                    "tz": "CST"
+                  }
+                }
+              }
+            },
+            "home": {
+              "leagueRecord": {
+                "losses": 9,
+                "ot": 1,
+                "type": "league",
+                "wins": 7
+              },
+              "score": 0,
+              "team": {
+                "abbreviation": "MTL",
+                "active": true,
+                "conference": {
+                  "id": 6,
+                  "link": "/api/v1/conferences/6",
+                  "name": "Eastern"
+                },
+                "division": {
+                  "id": 17,
+                  "link": "/api/v1/divisions/17",
+                  "name": "Atlantic"
+                },
+                "firstYearOfPlay": "1917",
+                "franchise": {
+                  "franchiseId": 1,
+                  "link": "/api/v1/franchises/1",
+                  "teamName": "Canadiens"
+                },
+                "franchiseId": 1,
+                "id": 8,
+                "link": "/api/v1/teams/8",
+                "locationName": "Montréal",
+                "name": "Montréal Canadiens",
+                "officialSiteUrl": "http://www.canadiens.com",
+                "shortName": "Montréal",
+                "teamName": "Canadiens",
+                "venue": {
+                  "city": "Montreal",
+                  "link": "/api/v1/venues/null",
+                  "name": "Centre Bell",
+                  "timeZone": {
+                    "id": "America/Montreal",
+                    "offset": -5,
+                    "tz": "EST"
+                  }
+                }
+              }
+            }
+          },
+          "venue": {
+            "link": "/api/v1/venues/null",
+            "name": "Centre Bell"
+          }
+        },
+        {
+          "content": {
+            "link": "/api/v1/game/2017020238/content"
+          },
+          "gameDate": "2017-11-10T01:00:00Z",
+          "gamePk": 2017020238,
+          "gameType": "R",
+          "link": "/api/v1/game/2017020238/feed/live",
+          "scoringPlays": [
+            {
+              "about": {
+                "dateTime": "2017-11-10T02:07:36Z",
+                "eventId": 367,
+                "eventIdx": 120,
+                "goals": {
+                  "away": 0,
+                  "home": 1
+                },
+                "ordinalNum": "2nd",
+                "period": 2,
+                "periodTime": "05:14",
+                "periodTimeRemaining": "14:46",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": -79.0,
+                "y": -2.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Joel Edmundson",
+                    "id": 8476441,
+                    "link": "/api/v1/people/8476441"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 5
+                },
+                {
+                  "player": {
+                    "fullName": "Chris Thorburn",
+                    "id": 8469501,
+                    "link": "/api/v1/people/8469501"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 1
+                },
+                {
+                  "player": {
+                    "fullName": "Brayden Schenn",
+                    "id": 8475170,
+                    "link": "/api/v1/people/8475170"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 15
+                },
+                {
+                  "player": {
+                    "fullName": "Antti Raanta",
+                    "id": 8477293,
+                    "link": "/api/v1/people/8477293"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Joel Edmundson (5) Tip-In, assists: Chris Thorburn (1), Brayden Schenn (15)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "STL367",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Tip-In",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 19,
+                "link": "/api/v1/teams/19",
+                "name": "St. Louis Blues"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T02:18:17Z",
+                "eventId": 390,
+                "eventIdx": 156,
+                "goals": {
+                  "away": 1,
+                  "home": 1
+                },
+                "ordinalNum": "2nd",
+                "period": 2,
+                "periodTime": "09:38",
+                "periodTimeRemaining": "10:22",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 73.0,
+                "y": -11.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Brendan Perlini",
+                    "id": 8477943,
+                    "link": "/api/v1/people/8477943"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 3
+                },
+                {
+                  "player": {
+                    "fullName": "Anthony Duclair",
+                    "id": 8477407,
+                    "link": "/api/v1/people/8477407"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 3
+                },
+                {
+                  "player": {
+                    "fullName": "Kevin Connauton",
+                    "id": 8475246,
+                    "link": "/api/v1/people/8475246"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 2
+                },
+                {
+                  "player": {
+                    "fullName": "Carter Hutton",
+                    "id": 8475622,
+                    "link": "/api/v1/people/8475622"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Brendan Perlini (3) Snap Shot, assists: Anthony Duclair (3), Kevin Connauton (2)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "STL390",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Snap Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 53,
+                "link": "/api/v1/teams/53",
+                "name": "Arizona Coyotes"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T02:37:09Z",
+                "eventId": 522,
+                "eventIdx": 208,
+                "goals": {
+                  "away": 2,
+                  "home": 1
+                },
+                "ordinalNum": "2nd",
+                "period": 2,
+                "periodTime": "18:41",
+                "periodTimeRemaining": "01:19",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 76.0,
+                "y": 5.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Brendan Perlini",
+                    "id": 8477943,
+                    "link": "/api/v1/people/8477943"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 4
+                },
+                {
+                  "player": {
+                    "fullName": "Christian Dvorak",
+                    "id": 8477989,
+                    "link": "/api/v1/people/8477989"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 8
+                },
+                {
+                  "player": {
+                    "fullName": "Oliver Ekman-Larsson",
+                    "id": 8475171,
+                    "link": "/api/v1/people/8475171"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 9
+                },
+                {
+                  "player": {
+                    "fullName": "Carter Hutton",
+                    "id": 8475622,
+                    "link": "/api/v1/people/8475622"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Brendan Perlini (4) Wrist Shot, assists: Christian Dvorak (8), Oliver Ekman-Larsson (9)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "STL522",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "PPG",
+                  "name": "Power Play"
+                }
+              },
+              "team": {
+                "id": 53,
+                "link": "/api/v1/teams/53",
+                "name": "Arizona Coyotes"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T03:04:39Z",
+                "eventId": 534,
+                "eventIdx": 240,
+                "goals": {
+                  "away": 2,
+                  "home": 2
+                },
+                "ordinalNum": "3rd",
+                "period": 3,
+                "periodTime": "05:01",
+                "periodTimeRemaining": "14:59",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 54.0,
+                "y": 10.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Alex Pietrangelo",
+                    "id": 8474565,
+                    "link": "/api/v1/people/8474565"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 7
+                },
+                {
+                  "player": {
+                    "fullName": "Vladimir Tarasenko",
+                    "id": 8475765,
+                    "link": "/api/v1/people/8475765"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 12
+                },
+                {
+                  "player": {
+                    "fullName": "Dmitrij Jaskin",
+                    "id": 8476436,
+                    "link": "/api/v1/people/8476436"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 4
+                },
+                {
+                  "player": {
+                    "fullName": "Antti Raanta",
+                    "id": 8477293,
+                    "link": "/api/v1/people/8477293"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Alex Pietrangelo (7) Wrist Shot, assists: Vladimir Tarasenko (12), Dmitrij Jaskin (4)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "STL534",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 19,
+                "link": "/api/v1/teams/19",
+                "name": "St. Louis Blues"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T03:47:04Z",
+                "eventId": 802,
+                "eventIdx": 352,
+                "goals": {
+                  "away": 2,
+                  "home": 2
+                },
+                "ordinalNum": "SO",
+                "period": 5,
+                "periodTime": "00:00",
+                "periodTimeRemaining": "05:00",
+                "periodType": "SHOOTOUT"
+              },
+              "coordinates": {
+                "x": 69.0,
+                "y": 3.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Brayden Schenn",
+                    "id": 8475170,
+                    "link": "/api/v1/people/8475170"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 0
+                },
+                {
+                  "player": {
+                    "fullName": "Antti Raanta",
+                    "id": 8477293,
+                    "link": "/api/v1/people/8477293"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Brayden Schenn - Wrist Shot",
+                "event": "Goal",
+                "eventCode": "STL802",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 19,
+                "link": "/api/v1/teams/19",
+                "name": "St. Louis Blues"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T03:49:50Z",
+                "eventId": 806,
+                "eventIdx": 356,
+                "goals": {
+                  "away": 2,
+                  "home": 2
+                },
+                "ordinalNum": "SO",
+                "period": 5,
+                "periodTime": "00:00",
+                "periodTimeRemaining": "05:00",
+                "periodType": "SHOOTOUT"
+              },
+              "coordinates": {
+                "x": 73.0,
+                "y": -4.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Alexander Steen",
+                    "id": 8470257,
+                    "link": "/api/v1/people/8470257"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 0
+                },
+                {
+                  "player": {
+                    "fullName": "Antti Raanta",
+                    "id": 8477293,
+                    "link": "/api/v1/people/8477293"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Alexander Steen - Wrist Shot",
+                "event": "Goal",
+                "eventCode": "STL806",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 19,
+                "link": "/api/v1/teams/19",
+                "name": "St. Louis Blues"
+              }
+            }
+          ],
+          "season": "20172018",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "7",
+            "detailedState": "Final",
+            "startTimeTBD": false,
+            "statusCode": "7"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "losses": 13,
+                "ot": 3,
+                "type": "league",
+                "wins": 2
+              },
+              "score": 2,
+              "team": {
+                "abbreviation": "ARI",
+                "active": true,
+                "conference": {
+                  "id": 5,
+                  "link": "/api/v1/conferences/5",
+                  "name": "Western"
+                },
+                "division": {
+                  "id": 15,
+                  "link": "/api/v1/divisions/15",
+                  "name": "Pacific"
+                },
+                "firstYearOfPlay": "2014",
+                "franchise": {
+                  "franchiseId": 28,
+                  "link": "/api/v1/franchises/28",
+                  "teamName": "Coyotes"
+                },
+                "franchiseId": 28,
+                "id": 53,
+                "link": "/api/v1/teams/53",
+                "locationName": "Arizona",
+                "name": "Arizona Coyotes",
+                "officialSiteUrl": "http://www.arizonacoyotes.com",
+                "shortName": "Arizona",
+                "teamName": "Coyotes",
+                "venue": {
+                  "city": "Glendale",
+                  "link": "/api/v1/venues/null",
+                  "name": "Gila River Arena",
+                  "timeZone": {
+                    "id": "America/Phoenix",
+                    "offset": -7,
+                    "tz": "MST"
+                  }
+                }
+              }
+            },
+            "home": {
+              "leagueRecord": {
+                "losses": 3,
+                "ot": 1,
+                "type": "league",
+                "wins": 13
+              },
+              "score": 3,
+              "team": {
+                "abbreviation": "STL",
+                "active": true,
+                "conference": {
+                  "id": 5,
+                  "link": "/api/v1/conferences/5",
+                  "name": "Western"
+                },
+                "division": {
+                  "id": 16,
+                  "link": "/api/v1/divisions/16",
+                  "name": "Central"
+                },
+                "firstYearOfPlay": "1967",
+                "franchise": {
+                  "franchiseId": 18,
+                  "link": "/api/v1/franchises/18",
+                  "teamName": "Blues"
+                },
+                "franchiseId": 18,
+                "id": 19,
+                "link": "/api/v1/teams/19",
+                "locationName": "St. Louis",
+                "name": "St. Louis Blues",
+                "officialSiteUrl": "http://www.stlouisblues.com",
+                "shortName": "St Louis",
+                "teamName": "Blues",
+                "venue": {
+                  "city": "St. Louis",
+                  "link": "/api/v1/venues/null",
+                  "name": "Scottrade Center",
+                  "timeZone": {
+                    "id": "America/Chicago",
+                    "offset": -6,
+                    "tz": "CST"
+                  }
+                }
+              }
+            }
+          },
+          "venue": {
+            "link": "/api/v1/venues/null",
+            "name": "Scottrade Center"
+          }
+        },
+        {
+          "content": {
+            "link": "/api/v1/game/2017020239/content"
+          },
+          "gameDate": "2017-11-10T02:00:00Z",
+          "gamePk": 2017020239,
+          "gameType": "R",
+          "link": "/api/v1/game/2017020239/feed/live",
+          "scoringPlays": [
+            {
+              "about": {
+                "dateTime": "2017-11-10T02:30:49Z",
+                "eventId": 34,
+                "eventIdx": 44,
+                "goals": {
+                  "away": 0,
+                  "home": 1
+                },
+                "ordinalNum": "1st",
+                "period": 1,
+                "periodTime": "09:15",
+                "periodTimeRemaining": "10:45",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": -82.0,
+                "y": 2.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Mark Jankowski",
+                    "id": 8476873,
+                    "link": "/api/v1/people/8476873"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 1
+                },
+                {
+                  "player": {
+                    "fullName": "Jaromir Jagr",
+                    "id": 8448208,
+                    "link": "/api/v1/people/8448208"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 3
+                },
+                {
+                  "player": {
+                    "fullName": "Sam Bennett",
+                    "id": 8477935,
+                    "link": "/api/v1/people/8477935"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 1
+                },
+                {
+                  "player": {
+                    "fullName": "Petr Mrazek",
+                    "id": 8475852,
+                    "link": "/api/v1/people/8475852"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Mark Jankowski (1) Deflected, assists: Jaromir Jagr (3), Sam Bennett (1)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "CGY34",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Deflected",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 20,
+                "link": "/api/v1/teams/20",
+                "name": "Calgary Flames"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T02:41:36Z",
+                "eventId": 202,
+                "eventIdx": 82,
+                "goals": {
+                  "away": 0,
+                  "home": 2
+                },
+                "ordinalNum": "1st",
+                "period": 1,
+                "periodTime": "13:56",
+                "periodTimeRemaining": "06:04",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": -61.0,
+                "y": 1.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Johnny Gaudreau",
+                    "id": 8476346,
+                    "link": "/api/v1/people/8476346"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 5
+                },
+                {
+                  "player": {
+                    "fullName": "Sean Monahan",
+                    "id": 8477497,
+                    "link": "/api/v1/people/8477497"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 7
+                },
+                {
+                  "player": {
+                    "fullName": "Petr Mrazek",
+                    "id": 8475852,
+                    "link": "/api/v1/people/8475852"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Johnny Gaudreau (5) Wrist Shot, assists: Sean Monahan (7)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "CGY202",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 20,
+                "link": "/api/v1/teams/20",
+                "name": "Calgary Flames"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T03:21:01Z",
+                "eventId": 250,
+                "eventIdx": 157,
+                "goals": {
+                  "away": 0,
+                  "home": 3
+                },
+                "ordinalNum": "2nd",
+                "period": 2,
+                "periodTime": "06:02",
+                "periodTimeRemaining": "13:58",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 78.0,
+                "y": 1.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Micheal Ferland",
+                    "id": 8475907,
+                    "link": "/api/v1/people/8475907"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 6
+                },
+                {
+                  "player": {
+                    "fullName": "Mikael Backlund",
+                    "id": 8474150,
+                    "link": "/api/v1/people/8474150"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 5
+                },
+                {
+                  "player": {
+                    "fullName": "Petr Mrazek",
+                    "id": 8475852,
+                    "link": "/api/v1/people/8475852"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Micheal Ferland (6) Wrist Shot, assists: Mikael Backlund (5)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "CGY250",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 20,
+                "link": "/api/v1/teams/20",
+                "name": "Calgary Flames"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T03:27:02Z",
+                "eventId": 459,
+                "eventIdx": 173,
+                "goals": {
+                  "away": 1,
+                  "home": 3
+                },
+                "ordinalNum": "2nd",
+                "period": 2,
+                "periodTime": "08:43",
+                "periodTimeRemaining": "11:17",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": -82.0,
+                "y": -7.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Martin Frk",
+                    "id": 8476924,
+                    "link": "/api/v1/people/8476924"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 6
+                },
+                {
+                  "player": {
+                    "fullName": "Anthony Mantha",
+                    "id": 8477511,
+                    "link": "/api/v1/people/8477511"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 7
+                },
+                {
+                  "player": {
+                    "fullName": "Dylan Larkin",
+                    "id": 8477946,
+                    "link": "/api/v1/people/8477946"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 13
+                },
+                {
+                  "player": {
+                    "fullName": "Mike Smith",
+                    "id": 8469608,
+                    "link": "/api/v1/people/8469608"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Martin Frk (6) Wrist Shot, assists: Anthony Mantha (7), Dylan Larkin (13)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "CGY459",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "PPG",
+                  "name": "Power Play"
+                }
+              },
+              "team": {
+                "id": 17,
+                "link": "/api/v1/teams/17",
+                "name": "Detroit Red Wings"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T03:33:48Z",
+                "eventId": 467,
+                "eventIdx": 188,
+                "goals": {
+                  "away": 1,
+                  "home": 4
+                },
+                "ordinalNum": "2nd",
+                "period": 2,
+                "periodTime": "12:23",
+                "periodTimeRemaining": "07:37",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 82.0,
+                "y": 4.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Matthew Tkachuk",
+                    "id": 8479314,
+                    "link": "/api/v1/people/8479314"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 4
+                },
+                {
+                  "player": {
+                    "fullName": "Brett Kulak",
+                    "id": 8476967,
+                    "link": "/api/v1/people/8476967"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 2
+                },
+                {
+                  "player": {
+                    "fullName": "Mikael Backlund",
+                    "id": 8474150,
+                    "link": "/api/v1/people/8474150"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 6
+                },
+                {
+                  "player": {
+                    "fullName": "Petr Mrazek",
+                    "id": 8475852,
+                    "link": "/api/v1/people/8475852"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Matthew Tkachuk (4) Tip-In, assists: Brett Kulak (2), Mikael Backlund (6)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "CGY467",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": true,
+                "secondaryType": "Tip-In",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 20,
+                "link": "/api/v1/teams/20",
+                "name": "Calgary Flames"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T03:44:29Z",
+                "eventId": 484,
+                "eventIdx": 212,
+                "goals": {
+                  "away": 2,
+                  "home": 4
+                },
+                "ordinalNum": "2nd",
+                "period": 2,
+                "periodTime": "15:49",
+                "periodTimeRemaining": "04:11",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": -79.0,
+                "y": -10.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Frans Nielsen",
+                    "id": 8470144,
+                    "link": "/api/v1/people/8470144"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 6
+                },
+                {
+                  "player": {
+                    "fullName": "Anthony Mantha",
+                    "id": 8477511,
+                    "link": "/api/v1/people/8477511"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 8
+                },
+                {
+                  "player": {
+                    "fullName": "Mike Green",
+                    "id": 8471242,
+                    "link": "/api/v1/people/8471242"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 13
+                },
+                {
+                  "player": {
+                    "fullName": "Mike Smith",
+                    "id": 8469608,
+                    "link": "/api/v1/people/8469608"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Frans Nielsen (6) Wrist Shot, assists: Anthony Mantha (8), Mike Green (13)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "CGY484",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 17,
+                "link": "/api/v1/teams/17",
+                "name": "Detroit Red Wings"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T03:46:23Z",
+                "eventId": 485,
+                "eventIdx": 215,
+                "goals": {
+                  "away": 2,
+                  "home": 5
+                },
+                "ordinalNum": "2nd",
+                "period": 2,
+                "periodTime": "17:01",
+                "periodTimeRemaining": "02:59",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 78.0,
+                "y": 7.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Jaromir Jagr",
+                    "id": 8448208,
+                    "link": "/api/v1/people/8448208"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 1
+                },
+                {
+                  "player": {
+                    "fullName": "Johnny Gaudreau",
+                    "id": 8476346,
+                    "link": "/api/v1/people/8476346"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 16
+                },
+                {
+                  "player": {
+                    "fullName": "Brett Kulak",
+                    "id": 8476967,
+                    "link": "/api/v1/people/8476967"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 3
+                },
+                {
+                  "player": {
+                    "fullName": "Petr Mrazek",
+                    "id": 8475852,
+                    "link": "/api/v1/people/8475852"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Jaromir Jagr (1) Wrist Shot, assists: Johnny Gaudreau (16), Brett Kulak (3)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "CGY485",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 20,
+                "link": "/api/v1/teams/20",
+                "name": "Calgary Flames"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T03:53:14Z",
+                "eventId": 501,
+                "eventIdx": 234,
+                "goals": {
+                  "away": 3,
+                  "home": 5
+                },
+                "ordinalNum": "2nd",
+                "period": 2,
+                "periodTime": "19:56",
+                "periodTimeRemaining": "00:04",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": -66.0,
+                "y": 8.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Anthony Mantha",
+                    "id": 8477511,
+                    "link": "/api/v1/people/8477511"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 8
+                },
+                {
+                  "player": {
+                    "fullName": "Jonathan Ericsson",
+                    "id": 8470318,
+                    "link": "/api/v1/people/8470318"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 3
+                },
+                {
+                  "player": {
+                    "fullName": "Frans Nielsen",
+                    "id": 8470144,
+                    "link": "/api/v1/people/8470144"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 2
+                },
+                {
+                  "player": {
+                    "fullName": "Mike Smith",
+                    "id": 8469608,
+                    "link": "/api/v1/people/8469608"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Anthony Mantha (8) Wrist Shot, assists: Jonathan Ericsson (3), Frans Nielsen (2)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "CGY501",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 17,
+                "link": "/api/v1/teams/17",
+                "name": "Detroit Red Wings"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T04:43:09Z",
+                "eventId": 562,
+                "eventIdx": 330,
+                "goals": {
+                  "away": 3,
+                  "home": 6
+                },
+                "ordinalNum": "3rd",
+                "period": 3,
+                "periodTime": "17:37",
+                "periodTimeRemaining": "02:23",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 0.0,
+                "y": -3.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Johnny Gaudreau",
+                    "id": 8476346,
+                    "link": "/api/v1/people/8476346"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 6
+                },
+                {
+                  "player": {
+                    "fullName": "Sean Monahan",
+                    "id": 8477497,
+                    "link": "/api/v1/people/8477497"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 8
+                }
+              ],
+              "result": {
+                "description": "Johnny Gaudreau (6) Wrist Shot, assists: Sean Monahan (8)",
+                "emptyNet": true,
+                "event": "Goal",
+                "eventCode": "CGY562",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 20,
+                "link": "/api/v1/teams/20",
+                "name": "Calgary Flames"
+              }
+            }
+          ],
+          "season": "20172018",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "7",
+            "detailedState": "Final",
+            "startTimeTBD": false,
+            "statusCode": "7"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "losses": 8,
+                "ot": 1,
+                "type": "league",
+                "wins": 8
+              },
+              "score": 3,
+              "team": {
+                "abbreviation": "DET",
+                "active": true,
+                "conference": {
+                  "id": 6,
+                  "link": "/api/v1/conferences/6",
+                  "name": "Eastern"
+                },
+                "division": {
+                  "id": 17,
+                  "link": "/api/v1/divisions/17",
+                  "name": "Atlantic"
+                },
+                "firstYearOfPlay": "1932",
+                "franchise": {
+                  "franchiseId": 12,
+                  "link": "/api/v1/franchises/12",
+                  "teamName": "Red Wings"
+                },
+                "franchiseId": 12,
+                "id": 17,
+                "link": "/api/v1/teams/17",
+                "locationName": "Detroit",
+                "name": "Detroit Red Wings",
+                "officialSiteUrl": "http://www.detroitredwings.com",
+                "shortName": "Detroit",
+                "teamName": "Red Wings",
+                "venue": {
+                  "city": "Detroit",
+                  "link": "/api/v1/venues/null",
+                  "name": "Little Caesars Arena",
+                  "timeZone": {
+                    "id": "America/Detroit",
+                    "offset": -5,
+                    "tz": "EST"
+                  }
+                }
+              }
+            },
+            "home": {
+              "leagueRecord": {
+                "losses": 7,
+                "ot": 0,
+                "type": "league",
+                "wins": 9
+              },
+              "score": 6,
+              "team": {
+                "abbreviation": "CGY",
+                "active": true,
+                "conference": {
+                  "id": 5,
+                  "link": "/api/v1/conferences/5",
+                  "name": "Western"
+                },
+                "division": {
+                  "id": 15,
+                  "link": "/api/v1/divisions/15",
+                  "name": "Pacific"
+                },
+                "firstYearOfPlay": "1980",
+                "franchise": {
+                  "franchiseId": 21,
+                  "link": "/api/v1/franchises/21",
+                  "teamName": "Flames"
+                },
+                "franchiseId": 21,
+                "id": 20,
+                "link": "/api/v1/teams/20",
+                "locationName": "Calgary",
+                "name": "Calgary Flames",
+                "officialSiteUrl": "http://www.calgaryflames.com",
+                "shortName": "Calgary",
+                "teamName": "Flames",
+                "venue": {
+                  "city": "Calgary",
+                  "link": "/api/v1/venues/null",
+                  "name": "Scotiabank Saddledome",
+                  "timeZone": {
+                    "id": "America/Denver",
+                    "offset": -7,
+                    "tz": "MST"
+                  }
+                }
+              }
+            }
+          },
+          "venue": {
+            "link": "/api/v1/venues/null",
+            "name": "Scotiabank Saddledome"
+          }
+        },
+        {
+          "content": {
+            "link": "/api/v1/game/2017020240/content"
+          },
+          "gameDate": "2017-11-10T03:00:00Z",
+          "gamePk": 2017020240,
+          "gameType": "R",
+          "link": "/api/v1/game/2017020240/feed/live",
+          "scoringPlays": [
+            {
+              "about": {
+                "dateTime": "2017-11-10T03:31:31Z",
+                "eventId": 90,
+                "eventIdx": 58,
+                "goals": {
+                  "away": 1,
+                  "home": 0
+                },
+                "ordinalNum": "1st",
+                "period": 1,
+                "periodTime": "12:12",
+                "periodTimeRemaining": "07:48",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": -83.0,
+                "y": -8.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Sven Baertschi",
+                    "id": 8476466,
+                    "link": "/api/v1/people/8476466"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 5
+                },
+                {
+                  "player": {
+                    "fullName": "Ryan Miller",
+                    "id": 8468011,
+                    "link": "/api/v1/people/8468011"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Sven Baertschi (5) Slap Shot, assists: none",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "ANA90",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Slap Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 23,
+                "link": "/api/v1/teams/23",
+                "name": "Vancouver Canucks"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T03:44:51Z",
+                "eventId": 219,
+                "eventIdx": 94,
+                "goals": {
+                  "away": 1,
+                  "home": 1
+                },
+                "ordinalNum": "1st",
+                "period": 1,
+                "periodTime": "17:11",
+                "periodTimeRemaining": "02:49",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 89.0,
+                "y": 12.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Hampus Lindholm",
+                    "id": 8476854,
+                    "link": "/api/v1/people/8476854"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 3
+                },
+                {
+                  "player": {
+                    "fullName": "Rickard Rakell",
+                    "id": 8476483,
+                    "link": "/api/v1/people/8476483"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 6
+                },
+                {
+                  "player": {
+                    "fullName": "Sami Vatanen",
+                    "id": 8475222,
+                    "link": "/api/v1/people/8475222"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 1
+                },
+                {
+                  "player": {
+                    "fullName": "Jacob Markstrom",
+                    "id": 8474593,
+                    "link": "/api/v1/people/8474593"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Hampus Lindholm (3) Wrist Shot, assists: Rickard Rakell (6), Sami Vatanen (1)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "ANA219",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "PPG",
+                  "name": "Power Play"
+                }
+              },
+              "team": {
+                "id": 24,
+                "link": "/api/v1/teams/24",
+                "name": "Anaheim Ducks"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T04:40:11Z",
+                "eventId": 441,
+                "eventIdx": 192,
+                "goals": {
+                  "away": 1,
+                  "home": 2
+                },
+                "ordinalNum": "2nd",
+                "period": 2,
+                "periodTime": "16:58",
+                "periodTimeRemaining": "03:02",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": -54.0,
+                "y": 2.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Brandon Montour",
+                    "id": 8477986,
+                    "link": "/api/v1/people/8477986"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 5
+                },
+                {
+                  "player": {
+                    "fullName": "Corey Perry",
+                    "id": 8470621,
+                    "link": "/api/v1/people/8470621"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 6
+                },
+                {
+                  "player": {
+                    "fullName": "Rickard Rakell",
+                    "id": 8476483,
+                    "link": "/api/v1/people/8476483"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 7
+                },
+                {
+                  "player": {
+                    "fullName": "Jacob Markstrom",
+                    "id": 8474593,
+                    "link": "/api/v1/people/8474593"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Brandon Montour (5) Snap Shot, assists: Corey Perry (6), Rickard Rakell (7)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "ANA441",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": true,
+                "secondaryType": "Snap Shot",
+                "strength": {
+                  "code": "PPG",
+                  "name": "Power Play"
+                }
+              },
+              "team": {
+                "id": 24,
+                "link": "/api/v1/teams/24",
+                "name": "Anaheim Ducks"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T05:04:27Z",
+                "eventId": 451,
+                "eventIdx": 208,
+                "goals": {
+                  "away": 1,
+                  "home": 3
+                },
+                "ordinalNum": "3rd",
+                "period": 3,
+                "periodTime": "00:30",
+                "periodTimeRemaining": "19:30",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 78.0,
+                "y": -6.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Jakob Silfverberg",
+                    "id": 8475164,
+                    "link": "/api/v1/people/8475164"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 3
+                },
+                {
+                  "player": {
+                    "fullName": "Rickard Rakell",
+                    "id": 8476483,
+                    "link": "/api/v1/people/8476483"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 8
+                },
+                {
+                  "player": {
+                    "fullName": "Corey Perry",
+                    "id": 8470621,
+                    "link": "/api/v1/people/8470621"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 7
+                },
+                {
+                  "player": {
+                    "fullName": "Jacob Markstrom",
+                    "id": 8474593,
+                    "link": "/api/v1/people/8474593"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Jakob Silfverberg (3) Snap Shot, assists: Rickard Rakell (8), Corey Perry (7)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "ANA451",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Snap Shot",
+                "strength": {
+                  "code": "PPG",
+                  "name": "Power Play"
+                }
+              },
+              "team": {
+                "id": 24,
+                "link": "/api/v1/teams/24",
+                "name": "Anaheim Ducks"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T05:06:13Z",
+                "eventId": 456,
+                "eventIdx": 214,
+                "goals": {
+                  "away": 1,
+                  "home": 4
+                },
+                "ordinalNum": "3rd",
+                "period": 3,
+                "periodTime": "01:05",
+                "periodTimeRemaining": "18:55",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 79.0,
+                "y": 1.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Jakob Silfverberg",
+                    "id": 8475164,
+                    "link": "/api/v1/people/8475164"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 4
+                },
+                {
+                  "player": {
+                    "fullName": "Andrew Cogliano",
+                    "id": 8471699,
+                    "link": "/api/v1/people/8471699"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 7
+                },
+                {
+                  "player": {
+                    "fullName": "Josh Manson",
+                    "id": 8476312,
+                    "link": "/api/v1/people/8476312"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 7
+                },
+                {
+                  "player": {
+                    "fullName": "Jacob Markstrom",
+                    "id": 8474593,
+                    "link": "/api/v1/people/8474593"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Jakob Silfverberg (4) Wrist Shot, assists: Andrew Cogliano (7), Josh Manson (7)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "ANA456",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 24,
+                "link": "/api/v1/teams/24",
+                "name": "Anaheim Ducks"
+              }
+            }
+          ],
+          "season": "20172018",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "7",
+            "detailedState": "Final",
+            "startTimeTBD": false,
+            "statusCode": "7"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "losses": 6,
+                "ot": 2,
+                "type": "league",
+                "wins": 8
+              },
+              "score": 1,
+              "team": {
+                "abbreviation": "VAN",
+                "active": true,
+                "conference": {
+                  "id": 5,
+                  "link": "/api/v1/conferences/5",
+                  "name": "Western"
+                },
+                "division": {
+                  "id": 15,
+                  "link": "/api/v1/divisions/15",
+                  "name": "Pacific"
+                },
+                "firstYearOfPlay": "1970",
+                "franchise": {
+                  "franchiseId": 20,
+                  "link": "/api/v1/franchises/20",
+                  "teamName": "Canucks"
+                },
+                "franchiseId": 20,
+                "id": 23,
+                "link": "/api/v1/teams/23",
+                "locationName": "Vancouver",
+                "name": "Vancouver Canucks",
+                "officialSiteUrl": "http://www.canucks.com",
+                "shortName": "Vancouver",
+                "teamName": "Canucks",
+                "venue": {
+                  "city": "Vancouver",
+                  "link": "/api/v1/venues/null",
+                  "name": "Rogers Arena",
+                  "timeZone": {
+                    "id": "America/Vancouver",
+                    "offset": -8,
+                    "tz": "PST"
+                  }
+                }
+              }
+            },
+            "home": {
+              "leagueRecord": {
+                "losses": 6,
+                "ot": 3,
+                "type": "league",
+                "wins": 7
+              },
+              "score": 4,
+              "team": {
+                "abbreviation": "ANA",
+                "active": true,
+                "conference": {
+                  "id": 5,
+                  "link": "/api/v1/conferences/5",
+                  "name": "Western"
+                },
+                "division": {
+                  "id": 15,
+                  "link": "/api/v1/divisions/15",
+                  "name": "Pacific"
+                },
+                "firstYearOfPlay": "1993",
+                "franchise": {
+                  "franchiseId": 32,
+                  "link": "/api/v1/franchises/32",
+                  "teamName": "Ducks"
+                },
+                "franchiseId": 32,
+                "id": 24,
+                "link": "/api/v1/teams/24",
+                "locationName": "Anaheim",
+                "name": "Anaheim Ducks",
+                "officialSiteUrl": "http://www.anaheimducks.com",
+                "shortName": "Anaheim",
+                "teamName": "Ducks",
+                "venue": {
+                  "city": "Anaheim",
+                  "link": "/api/v1/venues/null",
+                  "name": "Honda Center",
+                  "timeZone": {
+                    "id": "America/Los_Angeles",
+                    "offset": -8,
+                    "tz": "PST"
+                  }
+                }
+              }
+            }
+          },
+          "venue": {
+            "link": "/api/v1/venues/null",
+            "name": "Honda Center"
+          }
+        },
+        {
+          "content": {
+            "link": "/api/v1/game/2017020241/content"
+          },
+          "gameDate": "2017-11-10T03:30:00Z",
+          "gamePk": 2017020241,
+          "gameType": "R",
+          "link": "/api/v1/game/2017020241/feed/live",
+          "scoringPlays": [
+            {
+              "about": {
+                "dateTime": "2017-11-10T03:57:24Z",
+                "eventId": 79,
+                "eventIdx": 49,
+                "goals": {
+                  "away": 1,
+                  "home": 0
+                },
+                "ordinalNum": "1st",
+                "period": 1,
+                "periodTime": "09:27",
+                "periodTimeRemaining": "10:33",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 75.0,
+                "y": -7.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Nikita Kucherov",
+                    "id": 8476453,
+                    "link": "/api/v1/people/8476453"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 16
+                },
+                {
+                  "player": {
+                    "fullName": "Steven Stamkos",
+                    "id": 8474564,
+                    "link": "/api/v1/people/8474564"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 22
+                },
+                {
+                  "player": {
+                    "fullName": "Slater Koekkoek",
+                    "id": 8476886,
+                    "link": "/api/v1/people/8476886"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 1
+                },
+                {
+                  "player": {
+                    "fullName": "Jonathan Quick",
+                    "id": 8471734,
+                    "link": "/api/v1/people/8471734"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Nikita Kucherov (16) Backhand, assists: Steven Stamkos (22), Slater Koekkoek (1)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "LAK79",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Backhand",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 14,
+                "link": "/api/v1/teams/14",
+                "name": "Tampa Bay Lightning"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T03:58:42Z",
+                "eventId": 80,
+                "eventIdx": 52,
+                "goals": {
+                  "away": 2,
+                  "home": 0
+                },
+                "ordinalNum": "1st",
+                "period": 1,
+                "periodTime": "10:01",
+                "periodTimeRemaining": "09:59",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 80.0,
+                "y": -1.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Alex Killorn",
+                    "id": 8473986,
+                    "link": "/api/v1/people/8473986"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 2
+                },
+                {
+                  "player": {
+                    "fullName": "Dan Girardi",
+                    "id": 8471958,
+                    "link": "/api/v1/people/8471958"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 3
+                },
+                {
+                  "player": {
+                    "fullName": "Tyler Johnson",
+                    "id": 8474870,
+                    "link": "/api/v1/people/8474870"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 4
+                },
+                {
+                  "player": {
+                    "fullName": "Jonathan Quick",
+                    "id": 8471734,
+                    "link": "/api/v1/people/8471734"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Alex Killorn (2) Tip-In, assists: Dan Girardi (3), Tyler Johnson (4)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "LAK80",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Tip-In",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 14,
+                "link": "/api/v1/teams/14",
+                "name": "Tampa Bay Lightning"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T04:02:23Z",
+                "eventId": 82,
+                "eventIdx": 56,
+                "goals": {
+                  "away": 3,
+                  "home": 0
+                },
+                "ordinalNum": "1st",
+                "period": 1,
+                "periodTime": "10:35",
+                "periodTimeRemaining": "09:25",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 60.0,
+                "y": -10.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Victor Hedman",
+                    "id": 8475167,
+                    "link": "/api/v1/people/8475167"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 2
+                },
+                {
+                  "player": {
+                    "fullName": "Yanni Gourde",
+                    "id": 8476826,
+                    "link": "/api/v1/people/8476826"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 8
+                },
+                {
+                  "player": {
+                    "fullName": "Ondrej Palat",
+                    "id": 8476292,
+                    "link": "/api/v1/people/8476292"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 6
+                },
+                {
+                  "player": {
+                    "fullName": "Jonathan Quick",
+                    "id": 8471734,
+                    "link": "/api/v1/people/8471734"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Victor Hedman (2) Snap Shot, assists: Yanni Gourde (8), Ondrej Palat (6)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "LAK82",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": true,
+                "secondaryType": "Snap Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 14,
+                "link": "/api/v1/teams/14",
+                "name": "Tampa Bay Lightning"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T04:08:18Z",
+                "eventId": 86,
+                "eventIdx": 65,
+                "goals": {
+                  "away": 4,
+                  "home": 0
+                },
+                "ordinalNum": "1st",
+                "period": 1,
+                "periodTime": "11:29",
+                "periodTimeRemaining": "08:31",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 72.0,
+                "y": 14.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Steven Stamkos",
+                    "id": 8474564,
+                    "link": "/api/v1/people/8474564"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 8
+                },
+                {
+                  "player": {
+                    "fullName": "Alex Killorn",
+                    "id": 8473986,
+                    "link": "/api/v1/people/8473986"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 11
+                },
+                {
+                  "player": {
+                    "fullName": "Nikita Kucherov",
+                    "id": 8476453,
+                    "link": "/api/v1/people/8476453"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 12
+                },
+                {
+                  "player": {
+                    "fullName": "Jonathan Quick",
+                    "id": 8471734,
+                    "link": "/api/v1/people/8471734"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Steven Stamkos (8) Slap Shot, assists: Alex Killorn (11), Nikita Kucherov (12)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "LAK86",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Slap Shot",
+                "strength": {
+                  "code": "PPG",
+                  "name": "Power Play"
+                }
+              },
+              "team": {
+                "id": 14,
+                "link": "/api/v1/teams/14",
+                "name": "Tampa Bay Lightning"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T05:12:07Z",
+                "eventId": 465,
+                "eventIdx": 195,
+                "goals": {
+                  "away": 4,
+                  "home": 1
+                },
+                "ordinalNum": "2nd",
+                "period": 2,
+                "periodTime": "17:31",
+                "periodTimeRemaining": "02:29",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 76.0,
+                "y": 5.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Tyler Toffoli",
+                    "id": 8475726,
+                    "link": "/api/v1/people/8475726"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 8
+                },
+                {
+                  "player": {
+                    "fullName": "Anze Kopitar",
+                    "id": 8471685,
+                    "link": "/api/v1/people/8471685"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 12
+                },
+                {
+                  "player": {
+                    "fullName": "Jake Muzzin",
+                    "id": 8474162,
+                    "link": "/api/v1/people/8474162"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 10
+                },
+                {
+                  "player": {
+                    "fullName": "Peter Budaj",
+                    "id": 8469514,
+                    "link": "/api/v1/people/8469514"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Tyler Toffoli (8) Wrist Shot, assists: Anze Kopitar (12), Jake Muzzin (10)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "LAK465",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 26,
+                "link": "/api/v1/teams/26",
+                "name": "Los Angeles Kings"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T05:53:44Z",
+                "eventId": 701,
+                "eventIdx": 254,
+                "goals": {
+                  "away": 4,
+                  "home": 2
+                },
+                "ordinalNum": "3rd",
+                "period": 3,
+                "periodTime": "08:39",
+                "periodTimeRemaining": "11:21",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": -64.0,
+                "y": -1.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Oscar Fantenberg",
+                    "id": 8480147,
+                    "link": "/api/v1/people/8480147"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 1
+                },
+                {
+                  "player": {
+                    "fullName": "Dustin Brown",
+                    "id": 8470606,
+                    "link": "/api/v1/people/8470606"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 9
+                },
+                {
+                  "player": {
+                    "fullName": "Brooks Laich",
+                    "id": 8469639,
+                    "link": "/api/v1/people/8469639"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 1
+                },
+                {
+                  "player": {
+                    "fullName": "Peter Budaj",
+                    "id": 8469514,
+                    "link": "/api/v1/people/8469514"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Oscar Fantenberg (1) Snap Shot, assists: Dustin Brown (9), Brooks Laich (1)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "LAK701",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Snap Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 26,
+                "link": "/api/v1/teams/26",
+                "name": "Los Angeles Kings"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-10T06:02:14Z",
+                "eventId": 711,
+                "eventIdx": 272,
+                "goals": {
+                  "away": 5,
+                  "home": 2
+                },
+                "ordinalNum": "3rd",
+                "period": 3,
+                "periodTime": "12:59",
+                "periodTimeRemaining": "07:01",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 58.0,
+                "y": 1.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Vladislav Namestnikov",
+                    "id": 8476480,
+                    "link": "/api/v1/people/8476480"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 8
+                },
+                {
+                  "player": {
+                    "fullName": "Victor Hedman",
+                    "id": 8475167,
+                    "link": "/api/v1/people/8475167"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 11
+                },
+                {
+                  "player": {
+                    "fullName": "Nikita Kucherov",
+                    "id": 8476453,
+                    "link": "/api/v1/people/8476453"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 13
+                },
+                {
+                  "player": {
+                    "fullName": "Jonathan Quick",
+                    "id": 8471734,
+                    "link": "/api/v1/people/8471734"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Vladislav Namestnikov (8) Snap Shot, assists: Victor Hedman (11), Nikita Kucherov (13)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "LAK711",
+                "eventTypeId": "GOAL",
+                "gameWinningGoal": false,
+                "secondaryType": "Snap Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 14,
+                "link": "/api/v1/teams/14",
+                "name": "Tampa Bay Lightning"
+              }
+            }
+          ],
+          "season": "20172018",
+          "status": {
+            "abstractGameState": "Final",
+            "codedGameState": "7",
+            "detailedState": "Final",
+            "startTimeTBD": false,
+            "statusCode": "7"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "losses": 2,
+                "ot": 2,
+                "type": "league",
+                "wins": 13
+              },
+              "score": 5,
+              "team": {
+                "abbreviation": "TBL",
+                "active": true,
+                "conference": {
+                  "id": 6,
+                  "link": "/api/v1/conferences/6",
+                  "name": "Eastern"
+                },
+                "division": {
+                  "id": 17,
+                  "link": "/api/v1/divisions/17",
+                  "name": "Atlantic"
+                },
+                "firstYearOfPlay": "1992",
+                "franchise": {
+                  "franchiseId": 31,
+                  "link": "/api/v1/franchises/31",
+                  "teamName": "Lightning"
+                },
+                "franchiseId": 31,
+                "id": 14,
+                "link": "/api/v1/teams/14",
+                "locationName": "Tampa Bay",
+                "name": "Tampa Bay Lightning",
+                "officialSiteUrl": "http://www.tampabaylightning.com",
+                "shortName": "Tampa Bay",
+                "teamName": "Lightning",
+                "venue": {
+                  "city": "Tampa",
+                  "link": "/api/v1/venues/null",
+                  "name": "Amalie Arena",
+                  "timeZone": {
+                    "id": "America/New_York",
+                    "offset": -5,
+                    "tz": "EST"
+                  }
+                }
+              }
+            },
+            "home": {
+              "leagueRecord": {
+                "losses": 3,
+                "ot": 2,
+                "type": "league",
+                "wins": 11
+              },
+              "score": 2,
+              "team": {
+                "abbreviation": "LAK",
+                "active": true,
+                "conference": {
+                  "id": 5,
+                  "link": "/api/v1/conferences/5",
+                  "name": "Western"
+                },
+                "division": {
+                  "id": 15,
+                  "link": "/api/v1/divisions/15",
+                  "name": "Pacific"
+                },
+                "firstYearOfPlay": "1967",
+                "franchise": {
+                  "franchiseId": 14,
+                  "link": "/api/v1/franchises/14",
+                  "teamName": "Kings"
+                },
+                "franchiseId": 14,
+                "id": 26,
+                "link": "/api/v1/teams/26",
+                "locationName": "Los Angeles",
+                "name": "Los Angeles Kings",
+                "officialSiteUrl": "http://www.lakings.com",
+                "shortName": "Los Angeles",
+                "teamName": "Kings",
+                "venue": {
+                  "city": "Los Angeles",
+                  "link": "/api/v1/venues/null",
+                  "name": "STAPLES Center",
+                  "timeZone": {
+                    "id": "America/Los_Angeles",
+                    "offset": -8,
+                    "tz": "PST"
+                  }
+                }
+              }
+            }
+          },
+          "venue": {
+            "link": "/api/v1/venues/null",
+            "name": "STAPLES Center"
+          }
+        }
+      ],
+      "matches": [],
+      "totalEvents": 0,
+      "totalGames": 7,
+      "totalItems": 7,
+      "totalMatches": 0
+    },
+    {
+      "date": "2017-11-10",
+      "events": [],
+      "games": [
+        {
+          "content": {
+            "link": "/api/v1/game/2017020247/content"
+          },
+          "gameDate": "2017-11-10T19:00:00Z",
+          "gamePk": 2017020247,
+          "gameType": "R",
+          "link": "/api/v1/game/2017020247/feed/live",
+          "scoringPlays": [
+            {
+              "about": {
+                "dateTime": "2017-11-11T03:31:31Z",
+                "eventId": 82,
+                "eventIdx": 53,
+                "goals": {
+                  "away": 0,
+                  "home": 1
+                },
+                "ordinalNum": "1st",
+                "period": 1,
+                "periodTime": "08:16",
+                "periodTimeRemaining": "11:44",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": -64.0,
+                "y": -3.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Nail Yakupov",
+                    "id": 8476855,
+                    "link": "/api/v1/people/8476855"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 5
+                },
+                {
+                  "player": {
+                    "fullName": "Alexander Kerfoot",
+                    "id": 8477021,
+                    "link": "/api/v1/people/8477021"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 5
+                },
+                {
+                  "player": {
+                    "fullName": "Colin Wilson",
+                    "id": 8474569,
+                    "link": "/api/v1/people/8474569"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 3
+                },
+                {
+                  "player": {
+                    "fullName": "Craig Anderson",
+                    "id": 8467950,
+                    "link": "/api/v1/people/8467950"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Nail Yakupov (5) Snap Shot, assists: Alexander Kerfoot (5), Colin Wilson (3)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "COL82",
+                "eventTypeId": "GOAL",
+                "secondaryType": "Snap Shot",
+                "strength": {
+                  "code": "PPG",
+                  "name": "Power Play"
+                }
+              },
+              "team": {
+                "id": 21,
+                "link": "/api/v1/teams/21",
+                "name": "Colorado Avalanche"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-11T03:33:06Z",
+                "eventId": 85,
+                "eventIdx": 57,
+                "goals": {
+                  "away": 1,
+                  "home": 1
+                },
+                "ordinalNum": "1st",
+                "period": 1,
+                "periodTime": "08:36",
+                "periodTimeRemaining": "11:24",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 44.0,
+                "y": 29.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Fredrik Claesson",
+                    "id": 8476368,
+                    "link": "/api/v1/people/8476368"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 1
+                },
+                {
+                  "player": {
+                    "fullName": "Mike Hoffman",
+                    "id": 8474884,
+                    "link": "/api/v1/people/8474884"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 10
+                },
+                {
+                  "player": {
+                    "fullName": "Erik Karlsson",
+                    "id": 8474578,
+                    "link": "/api/v1/people/8474578"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 13
+                },
+                {
+                  "player": {
+                    "fullName": "Semyon Varlamov",
+                    "id": 8473575,
+                    "link": "/api/v1/people/8473575"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Fredrik Claesson (1) Slap Shot, assists: Mike Hoffman (10), Erik Karlsson (13)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "COL85",
+                "eventTypeId": "GOAL",
+                "secondaryType": "Slap Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 9,
+                "link": "/api/v1/teams/9",
+                "name": "Ottawa Senators"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-11T03:45:19Z",
+                "eventId": 251,
+                "eventIdx": 87,
+                "goals": {
+                  "away": 2,
+                  "home": 1
+                },
+                "ordinalNum": "1st",
+                "period": 1,
+                "periodTime": "15:10",
+                "periodTimeRemaining": "04:50",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 80.0,
+                "y": 0.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Mark Stone",
+                    "id": 8475913,
+                    "link": "/api/v1/people/8475913"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 10
+                },
+                {
+                  "player": {
+                    "fullName": "Johnny Oduya",
+                    "id": 8469665,
+                    "link": "/api/v1/people/8469665"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 1
+                },
+                {
+                  "player": {
+                    "fullName": "Chris Wideman",
+                    "id": 8475227,
+                    "link": "/api/v1/people/8475227"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 4
+                },
+                {
+                  "player": {
+                    "fullName": "Semyon Varlamov",
+                    "id": 8473575,
+                    "link": "/api/v1/people/8473575"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Mark Stone (10) Tip-In, assists: Johnny Oduya (1), Chris Wideman (4)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "COL251",
+                "eventTypeId": "GOAL",
+                "secondaryType": "Tip-In",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 9,
+                "link": "/api/v1/teams/9",
+                "name": "Ottawa Senators"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-11T04:30:01Z",
+                "eventId": 291,
+                "eventIdx": 163,
+                "goals": {
+                  "away": 2,
+                  "home": 2
+                },
+                "ordinalNum": "2nd",
+                "period": 2,
+                "periodTime": "09:41",
+                "periodTimeRemaining": "10:19",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": 65.0,
+                "y": 0.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Alexander Kerfoot",
+                    "id": 8477021,
+                    "link": "/api/v1/people/8477021"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 6
+                },
+                {
+                  "player": {
+                    "fullName": "Blake Comeau",
+                    "id": 8471260,
+                    "link": "/api/v1/people/8471260"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 4
+                },
+                {
+                  "player": {
+                    "fullName": "Samuel Girard",
+                    "id": 8479398,
+                    "link": "/api/v1/people/8479398"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 3
+                },
+                {
+                  "player": {
+                    "fullName": "Craig Anderson",
+                    "id": 8467950,
+                    "link": "/api/v1/people/8467950"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Alexander Kerfoot (6) Tip-In, assists: Blake Comeau (4), Samuel Girard (3)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "COL291",
+                "eventTypeId": "GOAL",
+                "secondaryType": "Tip-In",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 21,
+                "link": "/api/v1/teams/21",
+                "name": "Colorado Avalanche"
+              }
+            },
+            {
+              "about": {
+                "dateTime": "2017-11-11T04:40:56Z",
+                "eventId": 508,
+                "eventIdx": 188,
+                "goals": {
+                  "away": 3,
+                  "home": 2
+                },
+                "ordinalNum": "2nd",
+                "period": 2,
+                "periodTime": "13:21",
+                "periodTimeRemaining": "06:39",
+                "periodType": "REGULAR"
+              },
+              "coordinates": {
+                "x": -80.0,
+                "y": 5.0
+              },
+              "players": [
+                {
+                  "player": {
+                    "fullName": "Christopher DiDomenico",
+                    "id": 8474018,
+                    "link": "/api/v1/people/8474018"
+                  },
+                  "playerType": "Scorer",
+                  "seasonTotal": 3
+                },
+                {
+                  "player": {
+                    "fullName": "Dion Phaneuf",
+                    "id": 8470602,
+                    "link": "/api/v1/people/8470602"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 6
+                },
+                {
+                  "player": {
+                    "fullName": "Tom Pyatt",
+                    "id": 8471768,
+                    "link": "/api/v1/people/8471768"
+                  },
+                  "playerType": "Assist",
+                  "seasonTotal": 6
+                },
+                {
+                  "player": {
+                    "fullName": "Semyon Varlamov",
+                    "id": 8473575,
+                    "link": "/api/v1/people/8473575"
+                  },
+                  "playerType": "Goalie"
+                }
+              ],
+              "result": {
+                "description": "Christopher DiDomenico (3) Wrist Shot, assists: Dion Phaneuf (6), Tom Pyatt (6)",
+                "emptyNet": false,
+                "event": "Goal",
+                "eventCode": "COL508",
+                "eventTypeId": "GOAL",
+                "secondaryType": "Wrist Shot",
+                "strength": {
+                  "code": "EVEN",
+                  "name": "Even"
+                }
+              },
+              "team": {
+                "id": 9,
+                "link": "/api/v1/teams/9",
+                "name": "Ottawa Senators"
+              }
+            }
+          ],
+          "season": "20172018",
+          "status": {
+            "abstractGameState": "Live",
+            "codedGameState": "3",
+            "detailedState": "In Progress",
+            "startTimeTBD": false,
+            "statusCode": "3"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "losses": 3,
+                "ot": 5,
+                "type": "league",
+                "wins": 6
+              },
+              "score": 3,
+              "team": {
+                "abbreviation": "OTT",
+                "active": true,
+                "conference": {
+                  "id": 6,
+                  "link": "/api/v1/conferences/6",
+                  "name": "Eastern"
+                },
+                "division": {
+                  "id": 17,
+                  "link": "/api/v1/divisions/17",
+                  "name": "Atlantic"
+                },
+                "firstYearOfPlay": "1992",
+                "franchise": {
+                  "franchiseId": 30,
+                  "link": "/api/v1/franchises/30",
+                  "teamName": "Senators"
+                },
+                "franchiseId": 30,
+                "id": 9,
+                "link": "/api/v1/teams/9",
+                "locationName": "Ottawa",
+                "name": "Ottawa Senators",
+                "officialSiteUrl": "http://www.ottawasenators.com",
+                "shortName": "Ottawa",
+                "teamName": "Senators",
+                "venue": {
+                  "city": "Ottawa",
+                  "link": "/api/v1/venues/null",
+                  "name": "Canadian Tire Centre",
+                  "timeZone": {
+                    "id": "America/New_York",
+                    "offset": -5,
+                    "tz": "EST"
+                  }
+                }
+              }
+            },
+            "home": {
+              "leagueRecord": {
+                "losses": 6,
+                "ot": 0,
+                "type": "league",
+                "wins": 8
+              },
+              "score": 2,
+              "team": {
+                "abbreviation": "COL",
+                "active": true,
+                "conference": {
+                  "id": 5,
+                  "link": "/api/v1/conferences/5",
+                  "name": "Western"
+                },
+                "division": {
+                  "id": 16,
+                  "link": "/api/v1/divisions/16",
+                  "name": "Central"
+                },
+                "firstYearOfPlay": "1995",
+                "franchise": {
+                  "franchiseId": 27,
+                  "link": "/api/v1/franchises/27",
+                  "teamName": "Avalanche"
+                },
+                "franchiseId": 27,
+                "id": 21,
+                "link": "/api/v1/teams/21",
+                "locationName": "Colorado",
+                "name": "Colorado Avalanche",
+                "officialSiteUrl": "http://www.coloradoavalanche.com",
+                "shortName": "Colorado",
+                "teamName": "Avalanche",
+                "venue": {
+                  "city": "Denver",
+                  "link": "/api/v1/venues/null",
+                  "name": "Pepsi Center",
+                  "timeZone": {
+                    "id": "America/Denver",
+                    "offset": -7,
+                    "tz": "MST"
+                  }
+                }
+              }
+            }
+          },
+          "venue": {
+            "link": "/api/v1/venues/null",
+            "name": "Ericsson Globe"
+          }
+        },
+        {
+          "content": {
+            "link": "/api/v1/game/2017020242/content"
+          },
+          "gameDate": "2017-11-11T00:00:00Z",
+          "gamePk": 2017020242,
+          "gameType": "R",
+          "link": "/api/v1/game/2017020242/feed/live",
+          "scoringPlays": [],
+          "season": "20172018",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "1",
+            "detailedState": "Scheduled",
+            "startTimeTBD": false,
+            "statusCode": "1"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "losses": 8,
+                "ot": 2,
+                "type": "league",
+                "wins": 4
+              },
+              "score": 0,
+              "team": {
+                "abbreviation": "FLA",
+                "active": true,
+                "conference": {
+                  "id": 6,
+                  "link": "/api/v1/conferences/6",
+                  "name": "Eastern"
+                },
+                "division": {
+                  "id": 17,
+                  "link": "/api/v1/divisions/17",
+                  "name": "Atlantic"
+                },
+                "firstYearOfPlay": "1993",
+                "franchise": {
+                  "franchiseId": 33,
+                  "link": "/api/v1/franchises/33",
+                  "teamName": "Panthers"
+                },
+                "franchiseId": 33,
+                "id": 13,
+                "link": "/api/v1/teams/13",
+                "locationName": "Florida",
+                "name": "Florida Panthers",
+                "officialSiteUrl": "http://www.floridapanthers.com",
+                "shortName": "Florida",
+                "teamName": "Panthers",
+                "venue": {
+                  "city": "Sunrise",
+                  "link": "/api/v1/venues/null",
+                  "name": "BB&T Center",
+                  "timeZone": {
+                    "id": "America/New_York",
+                    "offset": -5,
+                    "tz": "EST"
+                  }
+                }
+              }
+            },
+            "home": {
+              "leagueRecord": {
+                "losses": 8,
+                "ot": 2,
+                "type": "league",
+                "wins": 5
+              },
+              "score": 0,
+              "team": {
+                "abbreviation": "BUF",
+                "active": true,
+                "conference": {
+                  "id": 6,
+                  "link": "/api/v1/conferences/6",
+                  "name": "Eastern"
+                },
+                "division": {
+                  "id": 17,
+                  "link": "/api/v1/divisions/17",
+                  "name": "Atlantic"
+                },
+                "firstYearOfPlay": "1970",
+                "franchise": {
+                  "franchiseId": 19,
+                  "link": "/api/v1/franchises/19",
+                  "teamName": "Sabres"
+                },
+                "franchiseId": 19,
+                "id": 7,
+                "link": "/api/v1/teams/7",
+                "locationName": "Buffalo",
+                "name": "Buffalo Sabres",
+                "officialSiteUrl": "http://www.sabres.com",
+                "shortName": "Buffalo",
+                "teamName": "Sabres",
+                "venue": {
+                  "city": "Buffalo",
+                  "link": "/api/v1/venues/null",
+                  "name": "KeyBank Center",
+                  "timeZone": {
+                    "id": "America/New_York",
+                    "offset": -5,
+                    "tz": "EST"
+                  }
+                }
+              }
+            }
+          },
+          "venue": {
+            "link": "/api/v1/venues/null",
+            "name": "KeyBank Center"
+          }
+        },
+        {
+          "content": {
+            "link": "/api/v1/game/2017020243/content"
+          },
+          "gameDate": "2017-11-11T00:00:00Z",
+          "gamePk": 2017020243,
+          "gameType": "R",
+          "link": "/api/v1/game/2017020243/feed/live",
+          "scoringPlays": [],
+          "season": "20172018",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "1",
+            "detailedState": "Scheduled",
+            "startTimeTBD": false,
+            "statusCode": "1"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "losses": 5,
+                "ot": 3,
+                "type": "league",
+                "wins": 6
+              },
+              "score": 0,
+              "team": {
+                "abbreviation": "BOS",
+                "active": true,
+                "conference": {
+                  "id": 6,
+                  "link": "/api/v1/conferences/6",
+                  "name": "Eastern"
+                },
+                "division": {
+                  "id": 17,
+                  "link": "/api/v1/divisions/17",
+                  "name": "Atlantic"
+                },
+                "firstYearOfPlay": "1924",
+                "franchise": {
+                  "franchiseId": 6,
+                  "link": "/api/v1/franchises/6",
+                  "teamName": "Bruins"
+                },
+                "franchiseId": 6,
+                "id": 6,
+                "link": "/api/v1/teams/6",
+                "locationName": "Boston",
+                "name": "Boston Bruins",
+                "officialSiteUrl": "http://www.bostonbruins.com",
+                "shortName": "Boston",
+                "teamName": "Bruins",
+                "venue": {
+                  "city": "Boston",
+                  "link": "/api/v1/venues/null",
+                  "name": "TD Garden",
+                  "timeZone": {
+                    "id": "America/New_York",
+                    "offset": -5,
+                    "tz": "EST"
+                  }
+                }
+              }
+            },
+            "home": {
+              "leagueRecord": {
+                "losses": 7,
+                "ot": 0,
+                "type": "league",
+                "wins": 10
+              },
+              "score": 0,
+              "team": {
+                "abbreviation": "TOR",
+                "active": true,
+                "conference": {
+                  "id": 6,
+                  "link": "/api/v1/conferences/6",
+                  "name": "Eastern"
+                },
+                "division": {
+                  "id": 17,
+                  "link": "/api/v1/divisions/17",
+                  "name": "Atlantic"
+                },
+                "firstYearOfPlay": "1926",
+                "franchise": {
+                  "franchiseId": 5,
+                  "link": "/api/v1/franchises/5",
+                  "teamName": "Maple Leafs"
+                },
+                "franchiseId": 5,
+                "id": 10,
+                "link": "/api/v1/teams/10",
+                "locationName": "Toronto",
+                "name": "Toronto Maple Leafs",
+                "officialSiteUrl": "http://www.mapleleafs.com",
+                "shortName": "Toronto",
+                "teamName": "Maple Leafs",
+                "venue": {
+                  "city": "Toronto",
+                  "link": "/api/v1/venues/null",
+                  "name": "Air Canada Centre",
+                  "timeZone": {
+                    "id": "America/Toronto",
+                    "offset": -5,
+                    "tz": "EST"
+                  }
+                }
+              }
+            }
+          },
+          "venue": {
+            "link": "/api/v1/venues/null",
+            "name": "Air Canada Centre"
+          }
+        },
+        {
+          "content": {
+            "link": "/api/v1/game/2017020244/content"
+          },
+          "gameDate": "2017-11-11T00:00:00Z",
+          "gamePk": 2017020244,
+          "gameType": "R",
+          "link": "/api/v1/game/2017020244/feed/live",
+          "scoringPlays": [],
+          "season": "20172018",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "1",
+            "detailedState": "Scheduled",
+            "startTimeTBD": false,
+            "statusCode": "1"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "losses": 6,
+                "ot": 2,
+                "type": "league",
+                "wins": 9
+              },
+              "score": 0,
+              "team": {
+                "abbreviation": "PIT",
+                "active": true,
+                "conference": {
+                  "id": 6,
+                  "link": "/api/v1/conferences/6",
+                  "name": "Eastern"
+                },
+                "division": {
+                  "id": 18,
+                  "link": "/api/v1/divisions/18",
+                  "name": "Metropolitan"
+                },
+                "firstYearOfPlay": "1967",
+                "franchise": {
+                  "franchiseId": 17,
+                  "link": "/api/v1/franchises/17",
+                  "teamName": "Penguins"
+                },
+                "franchiseId": 17,
+                "id": 5,
+                "link": "/api/v1/teams/5",
+                "locationName": "Pittsburgh",
+                "name": "Pittsburgh Penguins",
+                "officialSiteUrl": "http://www.pittsburghpenguins.com",
+                "shortName": "Pittsburgh",
+                "teamName": "Penguins",
+                "venue": {
+                  "city": "Pittsburgh",
+                  "link": "/api/v1/venues/null",
+                  "name": "PPG Paints Arena",
+                  "timeZone": {
+                    "id": "America/New_York",
+                    "offset": -5,
+                    "tz": "EST"
+                  }
+                }
+              }
+            },
+            "home": {
+              "leagueRecord": {
+                "losses": 7,
+                "ot": 1,
+                "type": "league",
+                "wins": 8
+              },
+              "score": 0,
+              "team": {
+                "abbreviation": "WSH",
+                "active": true,
+                "conference": {
+                  "id": 6,
+                  "link": "/api/v1/conferences/6",
+                  "name": "Eastern"
+                },
+                "division": {
+                  "id": 18,
+                  "link": "/api/v1/divisions/18",
+                  "name": "Metropolitan"
+                },
+                "firstYearOfPlay": "1974",
+                "franchise": {
+                  "franchiseId": 24,
+                  "link": "/api/v1/franchises/24",
+                  "teamName": "Capitals"
+                },
+                "franchiseId": 24,
+                "id": 15,
+                "link": "/api/v1/teams/15",
+                "locationName": "Washington",
+                "name": "Washington Capitals",
+                "officialSiteUrl": "http://www.washingtoncapitals.com",
+                "shortName": "Washington",
+                "teamName": "Capitals",
+                "venue": {
+                  "city": "Washington",
+                  "link": "/api/v1/venues/null",
+                  "name": "Capital One Arena",
+                  "timeZone": {
+                    "id": "America/New_York",
+                    "offset": -5,
+                    "tz": "EST"
+                  }
+                }
+              }
+            }
+          },
+          "venue": {
+            "link": "/api/v1/venues/null",
+            "name": "Capital One Arena"
+          }
+        },
+        {
+          "content": {
+            "link": "/api/v1/game/2017020245/content"
+          },
+          "gameDate": "2017-11-11T00:00:00Z",
+          "gamePk": 2017020245,
+          "gameType": "R",
+          "link": "/api/v1/game/2017020245/feed/live",
+          "scoringPlays": [],
+          "season": "20172018",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "1",
+            "detailedState": "Scheduled",
+            "startTimeTBD": false,
+            "statusCode": "1"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "losses": 5,
+                "ot": 3,
+                "type": "league",
+                "wins": 5
+              },
+              "score": 0,
+              "team": {
+                "abbreviation": "CAR",
+                "active": true,
+                "conference": {
+                  "id": 6,
+                  "link": "/api/v1/conferences/6",
+                  "name": "Eastern"
+                },
+                "division": {
+                  "id": 18,
+                  "link": "/api/v1/divisions/18",
+                  "name": "Metropolitan"
+                },
+                "firstYearOfPlay": "1997",
+                "franchise": {
+                  "franchiseId": 26,
+                  "link": "/api/v1/franchises/26",
+                  "teamName": "Hurricanes"
+                },
+                "franchiseId": 26,
+                "id": 12,
+                "link": "/api/v1/teams/12",
+                "locationName": "Carolina",
+                "name": "Carolina Hurricanes",
+                "officialSiteUrl": "http://www.carolinahurricanes.com",
+                "shortName": "Carolina",
+                "teamName": "Hurricanes",
+                "venue": {
+                  "city": "Raleigh",
+                  "link": "/api/v1/venues/null",
+                  "name": "PNC Arena",
+                  "timeZone": {
+                    "id": "America/New_York",
+                    "offset": -5,
+                    "tz": "EST"
+                  }
+                }
+              }
+            },
+            "home": {
+              "leagueRecord": {
+                "losses": 6,
+                "ot": 1,
+                "type": "league",
+                "wins": 9
+              },
+              "score": 0,
+              "team": {
+                "abbreviation": "CBJ",
+                "active": true,
+                "conference": {
+                  "id": 6,
+                  "link": "/api/v1/conferences/6",
+                  "name": "Eastern"
+                },
+                "division": {
+                  "id": 18,
+                  "link": "/api/v1/divisions/18",
+                  "name": "Metropolitan"
+                },
+                "firstYearOfPlay": "2000",
+                "franchise": {
+                  "franchiseId": 36,
+                  "link": "/api/v1/franchises/36",
+                  "teamName": "Blue Jackets"
+                },
+                "franchiseId": 36,
+                "id": 29,
+                "link": "/api/v1/teams/29",
+                "locationName": "Columbus",
+                "name": "Columbus Blue Jackets",
+                "officialSiteUrl": "http://www.bluejackets.com",
+                "shortName": "Columbus",
+                "teamName": "Blue Jackets",
+                "venue": {
+                  "city": "Columbus",
+                  "link": "/api/v1/venues/null",
+                  "name": "Nationwide Arena",
+                  "timeZone": {
+                    "id": "America/New_York",
+                    "offset": -5,
+                    "tz": "EST"
+                  }
+                }
+              }
+            }
+          },
+          "venue": {
+            "link": "/api/v1/venues/null",
+            "name": "Nationwide Arena"
+          }
+        },
+        {
+          "content": {
+            "link": "/api/v1/game/2017020246/content"
+          },
+          "gameDate": "2017-11-11T01:30:00Z",
+          "gamePk": 2017020246,
+          "gameType": "R",
+          "link": "/api/v1/game/2017020246/feed/live",
+          "scoringPlays": [],
+          "season": "20172018",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "1",
+            "detailedState": "Scheduled",
+            "startTimeTBD": false,
+            "statusCode": "1"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "losses": 5,
+                "ot": 2,
+                "type": "league",
+                "wins": 8
+              },
+              "score": 0,
+              "team": {
+                "abbreviation": "NYI",
+                "active": true,
+                "conference": {
+                  "id": 6,
+                  "link": "/api/v1/conferences/6",
+                  "name": "Eastern"
+                },
+                "division": {
+                  "id": 18,
+                  "link": "/api/v1/divisions/18",
+                  "name": "Metropolitan"
+                },
+                "firstYearOfPlay": "1972",
+                "franchise": {
+                  "franchiseId": 22,
+                  "link": "/api/v1/franchises/22",
+                  "teamName": "Islanders"
+                },
+                "franchiseId": 22,
+                "id": 2,
+                "link": "/api/v1/teams/2",
+                "locationName": "New York",
+                "name": "New York Islanders",
+                "officialSiteUrl": "http://www.newyorkislanders.com",
+                "shortName": "NY Islanders",
+                "teamName": "Islanders",
+                "venue": {
+                  "city": "Brooklyn",
+                  "link": "/api/v1/venues/null",
+                  "name": "Barclays Center",
+                  "timeZone": {
+                    "id": "America/New_York",
+                    "offset": -5,
+                    "tz": "EST"
+                  }
+                }
+              }
+            },
+            "home": {
+              "leagueRecord": {
+                "losses": 7,
+                "ot": 0,
+                "type": "league",
+                "wins": 8
+              },
+              "score": 0,
+              "team": {
+                "abbreviation": "DAL",
+                "active": true,
+                "conference": {
+                  "id": 5,
+                  "link": "/api/v1/conferences/5",
+                  "name": "Western"
+                },
+                "division": {
+                  "id": 16,
+                  "link": "/api/v1/divisions/16",
+                  "name": "Central"
+                },
+                "firstYearOfPlay": "1993",
+                "franchise": {
+                  "franchiseId": 15,
+                  "link": "/api/v1/franchises/15",
+                  "teamName": "Stars"
+                },
+                "franchiseId": 15,
+                "id": 25,
+                "link": "/api/v1/teams/25",
+                "locationName": "Dallas",
+                "name": "Dallas Stars",
+                "officialSiteUrl": "http://www.dallasstars.com",
+                "shortName": "Dallas",
+                "teamName": "Stars",
+                "venue": {
+                  "city": "Dallas",
+                  "link": "/api/v1/venues/null",
+                  "name": "American Airlines Center",
+                  "timeZone": {
+                    "id": "America/Chicago",
+                    "offset": -6,
+                    "tz": "CST"
+                  }
+                }
+              }
+            }
+          },
+          "venue": {
+            "link": "/api/v1/venues/null",
+            "name": "American Airlines Center"
+          }
+        },
+        {
+          "content": {
+            "link": "/api/v1/game/2017020248/content"
+          },
+          "gameDate": "2017-11-11T03:30:00Z",
+          "gamePk": 2017020248,
+          "gameType": "R",
+          "link": "/api/v1/game/2017020248/feed/live",
+          "scoringPlays": [],
+          "season": "20172018",
+          "status": {
+            "abstractGameState": "Preview",
+            "codedGameState": "1",
+            "detailedState": "Scheduled",
+            "startTimeTBD": false,
+            "statusCode": "1"
+          },
+          "teams": {
+            "away": {
+              "leagueRecord": {
+                "losses": 3,
+                "ot": 3,
+                "type": "league",
+                "wins": 8
+              },
+              "score": 0,
+              "team": {
+                "abbreviation": "WPG",
+                "active": true,
+                "conference": {
+                  "id": 5,
+                  "link": "/api/v1/conferences/5",
+                  "name": "Western"
+                },
+                "division": {
+                  "id": 16,
+                  "link": "/api/v1/divisions/16",
+                  "name": "Central"
+                },
+                "firstYearOfPlay": "2011",
+                "franchise": {
+                  "franchiseId": 35,
+                  "link": "/api/v1/franchises/35",
+                  "teamName": "Jets"
+                },
+                "franchiseId": 35,
+                "id": 52,
+                "link": "/api/v1/teams/52",
+                "locationName": "Winnipeg",
+                "name": "Winnipeg Jets",
+                "officialSiteUrl": "http://winnipegjets.com",
+                "shortName": "Winnipeg",
+                "teamName": "Jets",
+                "venue": {
+                  "city": "Winnipeg",
+                  "link": "/api/v1/venues/null",
+                  "name": "Bell MTS Place",
+                  "timeZone": {
+                    "id": "America/Winnipeg",
+                    "offset": -6,
+                    "tz": "CST"
+                  }
+                }
+              }
+            },
+            "home": {
+              "leagueRecord": {
+                "losses": 5,
+                "ot": 1,
+                "type": "league",
+                "wins": 9
+              },
+              "score": 0,
+              "team": {
+                "abbreviation": "VGK",
+                "active": true,
+                "conference": {
+                  "id": 5,
+                  "link": "/api/v1/conferences/5",
+                  "name": "Western"
+                },
+                "division": {
+                  "id": 15,
+                  "link": "/api/v1/divisions/15",
+                  "name": "Pacific"
+                },
+                "firstYearOfPlay": "2017",
+                "franchise": {
+                  "franchiseId": 38,
+                  "link": "/api/v1/franchises/38",
+                  "teamName": "Golden Knights"
+                },
+                "franchiseId": 38,
+                "id": 54,
+                "link": "/api/v1/teams/54",
+                "locationName": "Vegas",
+                "name": "Vegas Golden Knights",
+                "officialSiteUrl": "http://www.vegasgoldenknights.com",
+                "shortName": "Vegas",
+                "teamName": "Golden Knights",
+                "venue": {
+                  "city": "Las Vegas",
+                  "link": "/api/v1/venues/null",
+                  "name": "T-Mobile Arena",
+                  "timeZone": {
+                    "id": "America/Los_Angeles",
+                    "offset": -8,
+                    "tz": "PST"
+                  }
+                }
+              }
+            }
+          },
+          "venue": {
+            "link": "/api/v1/venues/null",
+            "name": "T-Mobile Arena"
+          }
+        }
+      ],
+      "matches": [],
+      "totalEvents": 0,
+      "totalGames": 7,
+      "totalItems": 7,
+      "totalMatches": 0
+    }
+  ],
+  "totalEvents": 0,
+  "totalGames": 7,
+  "totalItems": 7,
+  "totalMatches": 0,
+  "wait": 10
+}
