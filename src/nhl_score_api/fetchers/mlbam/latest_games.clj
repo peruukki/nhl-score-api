@@ -16,7 +16,7 @@
 (defn- get-started-games [games]
   (filter #(or (= "Final" (get-game-state %))
                (= "Live" (get-game-state %)))
-               games))
+          games))
 
 (defn- get-date-and-started-games [date-and-games]
   {:date (get-date (:date date-and-games))
