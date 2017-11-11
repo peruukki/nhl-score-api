@@ -17,7 +17,7 @@
     (let [latest-games (:games
                          (filter-latest-started-games resources/games-in-live-preview-and-final-states))]
       (is (= ["Final" "Live" "Live"]
-             (map #(:abstract-game-state (:status %)) latest-games))) "Game states"))
+             (map #(:abstract-game-state (:status %)) latest-games)) "Game states")))
 
   (testing "No started games is handled gracefully"
     (let [latest-games (:games
