@@ -203,12 +203,12 @@
         wins-before-game (reduce-current-game-from-playoff-series-wins current-wins game-details)]
     {:wins wins-before-game}))
 
-(defn- add-team-records [api-game game-details team-details teams scores]
+(defn- add-team-records [game-details api-game team-details teams scores]
   (if (all-star-game? api-game)
     game-details
     (assoc game-details :records (parse-records team-details teams scores))))
 
-(defn- add-playoff-series-information [api-game game-details]
+(defn- add-playoff-series-information [game-details api-game]
   (if (non-playoff-game? api-game)
     game-details
     (assoc game-details :playoff-series (parse-playoff-series-information api-game game-details))))
@@ -216,13 +216,13 @@
 (defn- parse-game-details [api-game]
   (let [team-details (parse-game-team-details api-game)
         scores (parse-scores api-game team-details)
-        teams (get-team-abbreviations team-details)
-        common-game-details {:state (parse-game-state api-game)
-                             :goals (parse-goals api-game team-details)
-                             :scores scores
-                             :teams teams}
-        game-details (add-team-records api-game common-game-details team-details teams scores)]
-    (add-playoff-series-information api-game game-details)))
+        teams (get-team-abbreviations team-details)]
+    (-> {:state (parse-game-state api-game)
+         :goals (parse-goals api-game team-details)
+         :scores scores
+         :teams teams}
+        (add-team-records api-game team-details teams scores)
+        (add-playoff-series-information api-game))))
 
 (defn parse-game-scores [date-and-api-games]
   {:date (:date date-and-api-games)
