@@ -23,7 +23,7 @@ The `games` array contains details of the games, each game item containing these
 - `goals` *(array)*
 - `scores` *(object)*
 - `teams` *(object)*
-- `records` *(object)*
+- `records` *(object)*, not included in all star games
 - `playoffSeries` *(object)*, only included if the game is a playoff game
 
 #### Example response:
