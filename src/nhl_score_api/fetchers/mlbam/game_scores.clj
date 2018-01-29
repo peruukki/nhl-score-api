@@ -4,6 +4,14 @@
 (defn- regular-season-game? [api-game]
   (= "R" (:game-type api-game)))
 
+(defn- all-star-game? [api-game]
+  (= "A" (:game-type api-game)))
+
+(defn- non-playoff-game? [api-game]
+  (or
+    (regular-season-game? api-game)
+    (all-star-game? api-game)))
+
 (defn- parse-goal-team [scoring-play team-details]
   (let [team-id (:id (:team scoring-play))
         team (first (filter #(= team-id (:id %)) (vals team-details)))]
@@ -11,7 +19,7 @@
 
 (defn- parse-goal-period [api-game scoring-play]
   (let [period-number (str (:period (:about scoring-play)))]
-    (if (regular-season-game? api-game)
+    (if (non-playoff-game? api-game)
       (case (:period-type (:about scoring-play))
         "REGULAR" period-number
         "OVERTIME" "OT"
@@ -157,7 +165,7 @@
   (let [current-records (parse-current-records team-details)]
     (reduce-current-game-from-records current-records teams scores)))
 
-  (defn- parse-current-playoff-series-wins [api-game teams]
+(defn- parse-current-playoff-series-wins [api-game teams]
   (let [away-team (:away teams)
         home-team (:home teams)
         series-summary-description (:series-status-short (:series-summary api-game))
@@ -195,8 +203,13 @@
         wins-before-game (reduce-current-game-from-playoff-series-wins current-wins game-details)]
     {:wins wins-before-game}))
 
+(defn- add-team-records [api-game game-details team-details teams scores]
+  (if (all-star-game? api-game)
+    game-details
+    (assoc game-details :records (parse-records team-details teams scores))))
+
 (defn- add-playoff-series-information [api-game game-details]
-  (if (regular-season-game? api-game)
+  (if (non-playoff-game? api-game)
     game-details
     (assoc game-details :playoff-series (parse-playoff-series-information api-game game-details))))
 
@@ -204,11 +217,11 @@
   (let [team-details (parse-game-team-details api-game)
         scores (parse-scores api-game team-details)
         teams (get-team-abbreviations team-details)
-        game-details {:state (parse-game-state api-game)
-                      :goals (parse-goals api-game team-details)
-                      :scores scores
-                      :teams teams
-                      :records (parse-records team-details teams scores)}]
+        common-game-details {:state (parse-game-state api-game)
+                             :goals (parse-goals api-game team-details)
+                             :scores scores
+                             :teams teams}
+        game-details (add-team-records api-game common-game-details team-details teams scores)]
     (add-playoff-series-information api-game game-details)))
 
 (defn parse-game-scores [date-and-api-games]
