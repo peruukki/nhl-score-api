@@ -14,4 +14,6 @@
   :profiles {:uberjar {:aot :all}}
   :plugins [[lein-heroku "0.5.3"]]
   :uberjar-name "server.jar"
-  :heroku {:app-name "nhl-score-api"})
+  :heroku {:app-name "nhl-score-api"
+           :include-files ["target" "newrelic"]
+           :process-types { "web" "java -javaagent:newrelic/newrelic.jar -jar target/server.jar" }})
