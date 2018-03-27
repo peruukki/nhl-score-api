@@ -4,7 +4,8 @@
             [camel-snake-kebab.core :refer [->camelCaseString]]
             [org.httpkit.server :as server]
             [clojure.data.json :as json]
-            [clojure.java.io :as io])
+            [clojure.java.io :as io]
+            [new-reliquary.ring :refer [wrap-newrelic-transaction]])
   (:import (java.util Properties))
   (:gen-class))
 
@@ -59,7 +60,7 @@
              "Content-Type" "application/json; charset=utf-8"}
    :body (json/write-str body :key-fn json-key-transformer)})
 
-(defn app [request]
+(defn request-handler [request]
   (println "Received request" request)
   (try
     (let [success-response (get-response (:uri request) fetcher/fetch-latest-scores cache/get-value cache/set-value)
@@ -68,3 +69,6 @@
     (catch Exception e
       (println "Caught exception" e)
       (format-response 500 {:error "Server error"}))))
+
+; Send New Relic transaction for each request
+(def app (wrap-newrelic-transaction request-handler))

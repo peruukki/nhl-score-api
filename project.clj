@@ -9,7 +9,8 @@
                  [camel-snake-kebab "0.3.2"]
                  [com.taoensso/carmine "2.12.0"]
                  [enlive "1.1.6"]
-                 [http-kit "2.1.19"]]
+                 [http-kit "2.1.19"]
+                 [yleisradio/new-reliquary "1.0.1"]]
   :main nhl-score-api.core
   :profiles {:uberjar {:aot :all}}
   :plugins [[lein-heroku "0.5.3"]]
