@@ -174,12 +174,15 @@
       (let [win-count (read-string (nth series-tied-match 1))]
         {away-team win-count
          home-team win-count})
-      (let [team-leads-match (re-find #"(\w+) (?:leads|wins) (\d)-(\d)" series-summary-description)
-            leading-team (nth team-leads-match 1)
-            leading-team-win-count (read-string (nth team-leads-match 2))
-            trailing-team-win-count (read-string (nth team-leads-match 3))]
-        {away-team (if (= away-team leading-team) leading-team-win-count trailing-team-win-count)
-         home-team (if (= home-team leading-team) leading-team-win-count trailing-team-win-count)}))))
+      (let [team-leads-match (re-find #"(\w+) (?:leads|wins) (\d)-(\d)" series-summary-description)]
+        (if team-leads-match
+          (let [leading-team (nth team-leads-match 1)
+                leading-team-win-count (read-string (nth team-leads-match 2))
+                trailing-team-win-count (read-string (nth team-leads-match 3))]
+            {away-team (if (= away-team leading-team) leading-team-win-count trailing-team-win-count)
+             home-team (if (= home-team leading-team) leading-team-win-count trailing-team-win-count)})
+          {away-team 0
+           home-team 0})))))
 
 (defn- get-winning-team [game-details]
   (let [away-team (:away (:teams game-details))
