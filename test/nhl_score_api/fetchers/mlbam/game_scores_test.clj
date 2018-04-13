@@ -133,10 +133,33 @@
               {"NYI" {:wins 33 :losses 20 :ot 7} "VAN" {:wins 24 :losses 25 :ot 12}}]
              records) "Parsed regular season records")))
 
+  (testing "Parsing teams' playoff records"
+    (let [games (:games
+                  (parse-game-scores
+                    (filter-latest-games resources/playoff-games-live-finished-with-1st-games)))
+          records (map #(:records %) games)]
+      (is (= 5
+             (count records)) "Parsed regular season records count")
+      (is (= [{"NJD" {:wins 0 :losses 0} "TBL" {:wins 0 :losses 0}}
+              {"TOR" {:wins 0 :losses 0} "BOS" {:wins 0 :losses 0}}
+              {"CBJ" {:wins 0 :losses 0} "WSH" {:wins 0 :losses 0}}
+              {"COL" {:wins 0 :losses 0} "NSH" {:wins 0 :losses 0}}
+              {"SJS" {:wins 0 :losses 0} "ANA" {:wins 0 :losses 0}}]
+             records) "Parsed regular season records")))
+
   (testing "Parsing playoff series information from playoff games"
     (let [games (:games
                   (parse-game-scores
                     (filter-latest-games resources/playoff-games-finished-with-2nd-games)))
           playoff-series (map #(:playoff-series %) games)]
       (is (= [{:wins {"DET" 0 "TBL" 1}} {:wins {"NYI" 1 "FLA" 0}} {:wins {"CHI" 0 "STL" 1}} {:wins {"NSH" 0 "ANA" 0}}]
+             playoff-series) "Parsed playoff series information")))
+
+  (testing "Parsing playoff series information from first playoff games"
+    (let [games (:games
+                  (parse-game-scores
+                    (filter-latest-games resources/playoff-games-live-finished-with-1st-games)))
+          playoff-series (map #(:playoff-series %) games)]
+      (is (= [{:wins {"NJD" 0 "TBL" 0}} {:wins {"TOR" 0 "BOS" 0}} {:wins {"CBJ" 0 "WSH" 0}}
+              {:wins {"COL" 0 "NSH" 0}} {:wins {"SJS" 0 "ANA" 0}}]
              playoff-series) "Parsed playoff series information"))))

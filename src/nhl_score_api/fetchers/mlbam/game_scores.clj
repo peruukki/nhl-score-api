@@ -1,5 +1,6 @@
 (ns nhl-score-api.fetchers.mlbam.game-scores
-  (:require [clojure.string :as str]))
+  (:require [nhl-score-api.fetchers.mlbam.latest-games :refer [finished-game?]]
+            [clojure.string :as str]))
 
 (defn- regular-season-game? [api-game]
   (= "R" (:game-type api-game)))
@@ -161,9 +162,11 @@
     {winning-team (assoc winning-team-current-record :wins (- (:wins winning-team-current-record) 1))
      losing-team (assoc losing-team-current-record loss-key (- (loss-key losing-team-current-record) 1))}))
 
-(defn- parse-records [team-details teams scores]
+(defn- parse-records [api-game team-details teams scores]
   (let [current-records (parse-current-records team-details)]
-    (reduce-current-game-from-records current-records teams scores)))
+    (if (finished-game? api-game)
+      (reduce-current-game-from-records current-records teams scores)
+      current-records)))
 
 (defn- parse-current-playoff-series-wins [api-game teams]
   (let [away-team (:away teams)
@@ -203,13 +206,15 @@
 (defn- parse-playoff-series-information [api-game game-details]
   (let [teams (:teams game-details)
         current-wins (parse-current-playoff-series-wins api-game teams)
-        wins-before-game (reduce-current-game-from-playoff-series-wins current-wins game-details)]
+        wins-before-game (if (finished-game? api-game)
+                           (reduce-current-game-from-playoff-series-wins current-wins game-details)
+                           current-wins)]
     {:wins wins-before-game}))
 
 (defn- add-team-records [game-details api-game team-details teams scores]
   (if (all-star-game? api-game)
     game-details
-    (assoc game-details :records (parse-records team-details teams scores))))
+    (assoc game-details :records (parse-records api-game team-details teams scores))))
 
 (defn- add-playoff-series-information [game-details api-game]
   (if (non-playoff-game? api-game)

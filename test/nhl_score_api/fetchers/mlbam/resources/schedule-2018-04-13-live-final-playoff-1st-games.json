@@ -1,0 +1,2929 @@
+{
+  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2018. All Rights Reserved.",
+  "totalItems" : 5,
+  "totalEvents" : 0,
+  "totalGames" : 5,
+  "totalMatches" : 0,
+  "wait" : 10,
+  "dates" : [ {
+    "date" : "2018-04-12",
+    "totalItems" : 5,
+    "totalEvents" : 0,
+    "totalGames" : 5,
+    "totalMatches" : 0,
+    "games" : [ {
+      "gamePk" : 2017030111,
+      "link" : "/api/v1/game/2017030111/feed/live",
+      "gameType" : "P",
+      "season" : "20172018",
+      "gameDate" : "2018-04-12T23:00:00Z",
+      "status" : {
+        "abstractGameState" : "Final",
+        "codedGameState" : "7",
+        "detailedState" : "Final",
+        "statusCode" : "7",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 0,
+            "losses" : 1,
+            "type" : "league"
+          },
+          "score" : 2,
+          "team" : {
+            "id" : 1,
+            "name" : "New Jersey Devils",
+            "link" : "/api/v1/teams/1",
+            "venue" : {
+              "name" : "Prudential Center",
+              "link" : "/api/v1/venues/null",
+              "city" : "Newark",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "NJD",
+            "teamName" : "Devils",
+            "locationName" : "New Jersey",
+            "firstYearOfPlay" : "1982",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 23,
+              "teamName" : "Devils",
+              "link" : "/api/v1/franchises/23"
+            },
+            "shortName" : "New Jersey",
+            "officialSiteUrl" : "http://www.truesince82.com",
+            "franchiseId" : 23,
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 1,
+            "losses" : 0,
+            "type" : "league"
+          },
+          "score" : 5,
+          "team" : {
+            "id" : 14,
+            "name" : "Tampa Bay Lightning",
+            "link" : "/api/v1/teams/14",
+            "venue" : {
+              "name" : "Amalie Arena",
+              "link" : "/api/v1/venues/null",
+              "city" : "Tampa",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "TBL",
+            "teamName" : "Lightning",
+            "locationName" : "Tampa Bay",
+            "firstYearOfPlay" : "1992",
+            "division" : {
+              "id" : 17,
+              "name" : "Atlantic",
+              "link" : "/api/v1/divisions/17"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 31,
+              "teamName" : "Lightning",
+              "link" : "/api/v1/franchises/31"
+            },
+            "shortName" : "Tampa Bay",
+            "officialSiteUrl" : "http://www.tampabaylightning.com",
+            "franchiseId" : 31,
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ {
+        "players" : [ {
+          "player" : {
+            "id" : 8476292,
+            "fullName" : "Ondrej Palat",
+            "link" : "/api/v1/people/8476292"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8474870,
+            "fullName" : "Tyler Johnson",
+            "link" : "/api/v1/people/8474870"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8474151,
+            "fullName" : "Ryan McDonagh",
+            "link" : "/api/v1/people/8474151"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476234,
+            "fullName" : "Keith Kinkaid",
+            "link" : "/api/v1/people/8476234"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "TBL208",
+          "eventTypeId" : "GOAL",
+          "description" : "Ondrej Palat (1) Backhand, assists: Tyler Johnson (1), Ryan McDonagh (1)",
+          "secondaryType" : "Backhand",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 101,
+          "eventId" : 208,
+          "period" : 1,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "1st",
+          "periodTime" : "15:00",
+          "periodTimeRemaining" : "05:00",
+          "dateTime" : "2018-04-12T23:42:28Z",
+          "goals" : {
+            "away" : 0,
+            "home" : 1
+          }
+        },
+        "coordinates" : {
+          "x" : 69.0,
+          "y" : -1.0
+        },
+        "team" : {
+          "id" : 14,
+          "name" : "Tampa Bay Lightning",
+          "link" : "/api/v1/teams/14"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8474870,
+            "fullName" : "Tyler Johnson",
+            "link" : "/api/v1/people/8474870"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476292,
+            "fullName" : "Ondrej Palat",
+            "link" : "/api/v1/people/8476292"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8478010,
+            "fullName" : "Brayden Point",
+            "link" : "/api/v1/people/8478010"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476234,
+            "fullName" : "Keith Kinkaid",
+            "link" : "/api/v1/people/8476234"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "TBL226",
+          "eventTypeId" : "GOAL",
+          "description" : "Tyler Johnson (1) Wrist Shot, assists: Ondrej Palat (1), Brayden Point (1)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 133,
+          "eventId" : 226,
+          "period" : 1,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "1st",
+          "periodTime" : "19:31",
+          "periodTimeRemaining" : "00:29",
+          "dateTime" : "2018-04-12T23:51:44Z",
+          "goals" : {
+            "away" : 0,
+            "home" : 2
+          }
+        },
+        "coordinates" : {
+          "x" : 75.0,
+          "y" : -4.0
+        },
+        "team" : {
+          "id" : 14,
+          "name" : "Tampa Bay Lightning",
+          "link" : "/api/v1/teams/14"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8476826,
+            "fullName" : "Yanni Gourde",
+            "link" : "/api/v1/people/8476826"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476292,
+            "fullName" : "Ondrej Palat",
+            "link" : "/api/v1/people/8476292"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8479410,
+            "fullName" : "Mikhail Sergachev",
+            "link" : "/api/v1/people/8479410"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476234,
+            "fullName" : "Keith Kinkaid",
+            "link" : "/api/v1/people/8476234"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "TBL242",
+          "eventTypeId" : "GOAL",
+          "description" : "Yanni Gourde (1) Wrist Shot, assists: Ondrej Palat (2), Mikhail Sergachev (1)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "PPG",
+            "name" : "Power Play"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : true
+        },
+        "about" : {
+          "eventIdx" : 151,
+          "eventId" : 242,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "01:54",
+          "periodTimeRemaining" : "18:06",
+          "dateTime" : "2018-04-13T00:16:03Z",
+          "goals" : {
+            "away" : 0,
+            "home" : 3
+          }
+        },
+        "coordinates" : {
+          "x" : -80.0,
+          "y" : 18.0
+        },
+        "team" : {
+          "id" : 14,
+          "name" : "Tampa Bay Lightning",
+          "link" : "/api/v1/teams/14"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8475791,
+            "fullName" : "Taylor Hall",
+            "link" : "/api/v1/people/8475791"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476883,
+            "fullName" : "Andrei Vasilevskiy",
+            "link" : "/api/v1/people/8476883"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "TBL433",
+          "eventTypeId" : "GOAL",
+          "description" : "Taylor Hall (1) Wrist Shot, assists: none",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 218,
+          "eventId" : 433,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "13:55",
+          "periodTimeRemaining" : "06:05",
+          "dateTime" : "2018-04-13T00:38:07Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 3
+          }
+        },
+        "coordinates" : {
+          "x" : 62.0,
+          "y" : 1.0
+        },
+        "team" : {
+          "id" : 1,
+          "name" : "New Jersey Devils",
+          "link" : "/api/v1/teams/1"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8471233,
+            "fullName" : "Travis Zajac",
+            "link" : "/api/v1/people/8471233"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475791,
+            "fullName" : "Taylor Hall",
+            "link" : "/api/v1/people/8475791"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8477355,
+            "fullName" : "Will Butcher",
+            "link" : "/api/v1/people/8477355"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476883,
+            "fullName" : "Andrei Vasilevskiy",
+            "link" : "/api/v1/people/8476883"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "TBL636",
+          "eventTypeId" : "GOAL",
+          "description" : "Travis Zajac (1) Tip-In, assists: Taylor Hall (1), Will Butcher (1)",
+          "secondaryType" : "Tip-In",
+          "strength" : {
+            "code" : "PPG",
+            "name" : "Power Play"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 303,
+          "eventId" : 636,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "09:35",
+          "periodTimeRemaining" : "10:25",
+          "dateTime" : "2018-04-13T01:27:03Z",
+          "goals" : {
+            "away" : 2,
+            "home" : 3
+          }
+        },
+        "coordinates" : {
+          "x" : -70.0,
+          "y" : -1.0
+        },
+        "team" : {
+          "id" : 1,
+          "name" : "New Jersey Devils",
+          "link" : "/api/v1/teams/1"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8473986,
+            "fullName" : "Alex Killorn",
+            "link" : "/api/v1/people/8473986"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476826,
+            "fullName" : "Yanni Gourde",
+            "link" : "/api/v1/people/8476826"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476234,
+            "fullName" : "Keith Kinkaid",
+            "link" : "/api/v1/people/8476234"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "TBL644",
+          "eventTypeId" : "GOAL",
+          "description" : "Alex Killorn (1) Wrist Shot, assists: Yanni Gourde (1)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 318,
+          "eventId" : 644,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "12:14",
+          "periodTimeRemaining" : "07:46",
+          "dateTime" : "2018-04-13T01:34:20Z",
+          "goals" : {
+            "away" : 2,
+            "home" : 4
+          }
+        },
+        "coordinates" : {
+          "x" : 51.0,
+          "y" : 1.0
+        },
+        "team" : {
+          "id" : 14,
+          "name" : "Tampa Bay Lightning",
+          "link" : "/api/v1/teams/14"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8476453,
+            "fullName" : "Nikita Kucherov",
+            "link" : "/api/v1/people/8476453"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "TBL665",
+          "eventTypeId" : "GOAL",
+          "description" : "Nikita Kucherov (1) Wrist Shot, assists: none",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : true,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 361,
+          "eventId" : 665,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "18:48",
+          "periodTimeRemaining" : "01:12",
+          "dateTime" : "2018-04-13T01:48:50Z",
+          "goals" : {
+            "away" : 2,
+            "home" : 5
+          }
+        },
+        "coordinates" : {
+          "x" : 53.0,
+          "y" : -4.0
+        },
+        "team" : {
+          "id" : 14,
+          "name" : "Tampa Bay Lightning",
+          "link" : "/api/v1/teams/14"
+        }
+      } ],
+      "venue" : {
+        "name" : "Amalie Arena",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2017030111/content"
+      },
+      "seriesSummary" : {
+        "gamePk" : 2017030111,
+        "gameNumber" : 1,
+        "gameLabel" : "Game 1",
+        "necessary" : true,
+        "gameCode" : 111,
+        "gameTime" : "2018-04-12T23:00:00Z",
+        "seriesStatus" : "Lightning lead 1-0",
+        "seriesStatusShort" : "TBL leads 1-0",
+        "series" : {
+          "seriesNumber" : 1,
+          "seriesCode" : "A",
+          "names" : {
+            "matchupName" : "Lightning (1) vs. Devils (WC2)",
+            "matchupShortName" : "TBL v NJD",
+            "teamAbbreviationA" : "TBL",
+            "teamAbbreviationB" : "NJD",
+            "seriesSlug" : "lightning-vs-devils-series-a"
+          },
+          "currentGame" : {
+            "seriesSummary" : {
+              "gamePk" : 2017030111,
+              "gameNumber" : 1,
+              "gameLabel" : "Game 1",
+              "necessary" : true,
+              "gameCode" : 111,
+              "gameTime" : "2018-04-12T23:00:00Z",
+              "seriesStatus" : "Lightning lead 1-0",
+              "seriesStatusShort" : "TBL leads 1-0"
+            }
+          },
+          "conference" : {
+            "id" : 6,
+            "name" : "Eastern",
+            "link" : "/api/v1/conferences/6"
+          },
+          "round" : {
+            "number" : 1
+          },
+          "matchupTeams" : [ {
+            "team" : {
+              "id" : 14,
+              "name" : "Tampa Bay Lightning",
+              "link" : "/api/v1/teams/14"
+            },
+            "seed" : {
+              "type" : "1",
+              "rank" : 1,
+              "isTop" : true
+            },
+            "seriesRecord" : {
+              "wins" : 1,
+              "losses" : 0
+            }
+          }, {
+            "team" : {
+              "id" : 1,
+              "name" : "New Jersey Devils",
+              "link" : "/api/v1/teams/1"
+            },
+            "seed" : {
+              "type" : "WC2",
+              "rank" : 4,
+              "isTop" : false
+            },
+            "seriesRecord" : {
+              "wins" : 0,
+              "losses" : 1
+            }
+          } ]
+        }
+      }
+    }, {
+      "gamePk" : 2017030121,
+      "link" : "/api/v1/game/2017030121/feed/live",
+      "gameType" : "P",
+      "season" : "20172018",
+      "gameDate" : "2018-04-12T23:00:00Z",
+      "status" : {
+        "abstractGameState" : "Final",
+        "codedGameState" : "7",
+        "detailedState" : "Final",
+        "statusCode" : "7",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 0,
+            "losses" : 1,
+            "type" : "league"
+          },
+          "score" : 1,
+          "team" : {
+            "id" : 10,
+            "name" : "Toronto Maple Leafs",
+            "link" : "/api/v1/teams/10",
+            "venue" : {
+              "name" : "Air Canada Centre",
+              "link" : "/api/v1/venues/null",
+              "city" : "Toronto",
+              "timeZone" : {
+                "id" : "America/Toronto",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "TOR",
+            "teamName" : "Maple Leafs",
+            "locationName" : "Toronto",
+            "firstYearOfPlay" : "1926",
+            "division" : {
+              "id" : 17,
+              "name" : "Atlantic",
+              "link" : "/api/v1/divisions/17"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 5,
+              "teamName" : "Maple Leafs",
+              "link" : "/api/v1/franchises/5"
+            },
+            "shortName" : "Toronto",
+            "officialSiteUrl" : "http://www.mapleleafs.com",
+            "franchiseId" : 5,
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 1,
+            "losses" : 0,
+            "type" : "league"
+          },
+          "score" : 5,
+          "team" : {
+            "id" : 6,
+            "name" : "Boston Bruins",
+            "link" : "/api/v1/teams/6",
+            "venue" : {
+              "name" : "TD Garden",
+              "link" : "/api/v1/venues/null",
+              "city" : "Boston",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "BOS",
+            "teamName" : "Bruins",
+            "locationName" : "Boston",
+            "firstYearOfPlay" : "1924",
+            "division" : {
+              "id" : 17,
+              "name" : "Atlantic",
+              "link" : "/api/v1/divisions/17"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 6,
+              "teamName" : "Bruins",
+              "link" : "/api/v1/franchises/6"
+            },
+            "shortName" : "Boston",
+            "officialSiteUrl" : "http://www.bostonbruins.com",
+            "franchiseId" : 6,
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ {
+        "players" : [ {
+          "player" : {
+            "id" : 8473419,
+            "fullName" : "Brad Marchand",
+            "link" : "/api/v1/people/8473419"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476792,
+            "fullName" : "Torey Krug",
+            "link" : "/api/v1/people/8476792"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8477956,
+            "fullName" : "David Pastrnak",
+            "link" : "/api/v1/people/8477956"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475883,
+            "fullName" : "Frederik Andersen",
+            "link" : "/api/v1/people/8475883"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "BOS66",
+          "eventTypeId" : "GOAL",
+          "description" : "Brad Marchand (1) Backhand, assists: Torey Krug (1), David Pastrnak (1)",
+          "secondaryType" : "Backhand",
+          "strength" : {
+            "code" : "PPG",
+            "name" : "Power Play"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 36,
+          "eventId" : 66,
+          "period" : 1,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "1st",
+          "periodTime" : "05:28",
+          "periodTimeRemaining" : "14:32",
+          "dateTime" : "2018-04-12T23:18:24Z",
+          "goals" : {
+            "away" : 0,
+            "home" : 1
+          }
+        },
+        "coordinates" : {
+          "x" : 74.0,
+          "y" : 3.0
+        },
+        "team" : {
+          "id" : 6,
+          "name" : "Boston Bruins",
+          "link" : "/api/v1/teams/6"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8475786,
+            "fullName" : "Zach Hyman",
+            "link" : "/api/v1/people/8475786"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8477015,
+            "fullName" : "Connor Brown",
+            "link" : "/api/v1/people/8477015"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476853,
+            "fullName" : "Morgan Rielly",
+            "link" : "/api/v1/people/8476853"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8471695,
+            "fullName" : "Tuukka Rask",
+            "link" : "/api/v1/people/8471695"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "BOS97",
+          "eventTypeId" : "GOAL",
+          "description" : "Zach Hyman (1) Backhand, assists: Connor Brown (1), Morgan Rielly (1)",
+          "secondaryType" : "Backhand",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 98,
+          "eventId" : 97,
+          "period" : 1,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "1st",
+          "periodTime" : "16:52",
+          "periodTimeRemaining" : "03:08",
+          "dateTime" : "2018-04-12T23:41:24Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 1
+          }
+        },
+        "coordinates" : {
+          "x" : -77.0,
+          "y" : -1.0
+        },
+        "team" : {
+          "id" : 10,
+          "name" : "Toronto Maple Leafs",
+          "link" : "/api/v1/teams/10"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8470655,
+            "fullName" : "David Backes",
+            "link" : "/api/v1/people/8470655"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8471276,
+            "fullName" : "David Krejci",
+            "link" : "/api/v1/people/8471276"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8479325,
+            "fullName" : "Charlie McAvoy",
+            "link" : "/api/v1/people/8479325"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475883,
+            "fullName" : "Frederik Andersen",
+            "link" : "/api/v1/people/8475883"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "BOS614",
+          "eventTypeId" : "GOAL",
+          "description" : "David Backes (1) Wrist Shot, assists: David Krejci (1), Charlie McAvoy (1)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "PPG",
+            "name" : "Power Play"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : true
+        },
+        "about" : {
+          "eventIdx" : 221,
+          "eventId" : 614,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "15:43",
+          "periodTimeRemaining" : "04:17",
+          "dateTime" : "2018-04-13T00:36:30Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 2
+          }
+        },
+        "coordinates" : {
+          "x" : -79.0,
+          "y" : 3.0
+        },
+        "team" : {
+          "id" : 6,
+          "name" : "Boston Bruins",
+          "link" : "/api/v1/teams/6"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8477956,
+            "fullName" : "David Pastrnak",
+            "link" : "/api/v1/people/8477956"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8473419,
+            "fullName" : "Brad Marchand",
+            "link" : "/api/v1/people/8473419"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8470638,
+            "fullName" : "Patrice Bergeron",
+            "link" : "/api/v1/people/8470638"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475883,
+            "fullName" : "Frederik Andersen",
+            "link" : "/api/v1/people/8475883"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "BOS630",
+          "eventTypeId" : "GOAL",
+          "description" : "David Pastrnak (1) Wrist Shot, assists: Brad Marchand (1), Patrice Bergeron (1)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 246,
+          "eventId" : 630,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "19:22",
+          "periodTimeRemaining" : "00:38",
+          "dateTime" : "2018-04-13T00:45:40Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 3
+          }
+        },
+        "coordinates" : {
+          "x" : -56.0,
+          "y" : 3.0
+        },
+        "team" : {
+          "id" : 6,
+          "name" : "Boston Bruins",
+          "link" : "/api/v1/teams/6"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8476374,
+            "fullName" : "Sean Kuraly",
+            "link" : "/api/v1/people/8476374"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8477956,
+            "fullName" : "David Pastrnak",
+            "link" : "/api/v1/people/8477956"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8465009,
+            "fullName" : "Zdeno Chara",
+            "link" : "/api/v1/people/8465009"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475883,
+            "fullName" : "Frederik Andersen",
+            "link" : "/api/v1/people/8475883"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "BOS663",
+          "eventTypeId" : "GOAL",
+          "description" : "Sean Kuraly (1) Tip-In, assists: David Pastrnak (2), Zdeno Chara (1)",
+          "secondaryType" : "Tip-In",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 299,
+          "eventId" : 663,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "07:41",
+          "periodTimeRemaining" : "12:19",
+          "dateTime" : "2018-04-13T01:17:35Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 4
+          }
+        },
+        "coordinates" : {
+          "x" : 80.0,
+          "y" : -1.0
+        },
+        "team" : {
+          "id" : 6,
+          "name" : "Boston Bruins",
+          "link" : "/api/v1/teams/6"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8471276,
+            "fullName" : "David Krejci",
+            "link" : "/api/v1/people/8471276"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8478498,
+            "fullName" : "Jake DeBrusk",
+            "link" : "/api/v1/people/8478498"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476792,
+            "fullName" : "Torey Krug",
+            "link" : "/api/v1/people/8476792"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8475883,
+            "fullName" : "Frederik Andersen",
+            "link" : "/api/v1/people/8475883"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "BOS673",
+          "eventTypeId" : "GOAL",
+          "description" : "David Krejci (1) Wrist Shot, assists: Jake DeBrusk (1), Torey Krug (2)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "PPG",
+            "name" : "Power Play"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 320,
+          "eventId" : 673,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "11:29",
+          "periodTimeRemaining" : "08:31",
+          "dateTime" : "2018-04-13T01:27:19Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 5
+          }
+        },
+        "coordinates" : {
+          "x" : 91.0,
+          "y" : 20.0
+        },
+        "team" : {
+          "id" : 6,
+          "name" : "Boston Bruins",
+          "link" : "/api/v1/teams/6"
+        }
+      } ],
+      "venue" : {
+        "name" : "TD Garden",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2017030121/content"
+      },
+      "seriesSummary" : {
+        "gamePk" : 2017030121,
+        "gameNumber" : 1,
+        "gameLabel" : "Game 1",
+        "necessary" : true,
+        "gameCode" : 121,
+        "gameTime" : "2018-04-12T23:00:00Z",
+        "seriesStatus" : "Bruins lead 1-0",
+        "seriesStatusShort" : "BOS leads 1-0",
+        "series" : {
+          "seriesNumber" : 2,
+          "seriesCode" : "B",
+          "names" : {
+            "matchupName" : "Bruins (2) vs. Maple Leafs (3)",
+            "matchupShortName" : "BOS v TOR",
+            "teamAbbreviationA" : "BOS",
+            "teamAbbreviationB" : "TOR",
+            "seriesSlug" : "bruins-vs-maple-leafs-series-b"
+          },
+          "currentGame" : {
+            "seriesSummary" : {
+              "gamePk" : 2017030121,
+              "gameNumber" : 1,
+              "gameLabel" : "Game 1",
+              "necessary" : true,
+              "gameCode" : 121,
+              "gameTime" : "2018-04-12T23:00:00Z",
+              "seriesStatus" : "Bruins lead 1-0",
+              "seriesStatusShort" : "BOS leads 1-0"
+            }
+          },
+          "conference" : {
+            "id" : 6,
+            "name" : "Eastern",
+            "link" : "/api/v1/conferences/6"
+          },
+          "round" : {
+            "number" : 1
+          },
+          "matchupTeams" : [ {
+            "team" : {
+              "id" : 6,
+              "name" : "Boston Bruins",
+              "link" : "/api/v1/teams/6"
+            },
+            "seed" : {
+              "type" : "2",
+              "rank" : 2,
+              "isTop" : true
+            },
+            "seriesRecord" : {
+              "wins" : 1,
+              "losses" : 0
+            }
+          }, {
+            "team" : {
+              "id" : 10,
+              "name" : "Toronto Maple Leafs",
+              "link" : "/api/v1/teams/10"
+            },
+            "seed" : {
+              "type" : "3",
+              "rank" : 3,
+              "isTop" : false
+            },
+            "seriesRecord" : {
+              "wins" : 0,
+              "losses" : 1
+            }
+          } ]
+        }
+      }
+    }, {
+      "gamePk" : 2017030131,
+      "link" : "/api/v1/game/2017030131/feed/live",
+      "gameType" : "P",
+      "season" : "20172018",
+      "gameDate" : "2018-04-12T23:30:00Z",
+      "status" : {
+        "abstractGameState" : "Final",
+        "codedGameState" : "7",
+        "detailedState" : "Final",
+        "statusCode" : "7",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 1,
+            "losses" : 0,
+            "type" : "league"
+          },
+          "score" : 4,
+          "team" : {
+            "id" : 29,
+            "name" : "Columbus Blue Jackets",
+            "link" : "/api/v1/teams/29",
+            "venue" : {
+              "name" : "Nationwide Arena",
+              "link" : "/api/v1/venues/null",
+              "city" : "Columbus",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "CBJ",
+            "teamName" : "Blue Jackets",
+            "locationName" : "Columbus",
+            "firstYearOfPlay" : "2000",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 36,
+              "teamName" : "Blue Jackets",
+              "link" : "/api/v1/franchises/36"
+            },
+            "shortName" : "Columbus",
+            "officialSiteUrl" : "http://www.bluejackets.com",
+            "franchiseId" : 36,
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 0,
+            "losses" : 1,
+            "type" : "league"
+          },
+          "score" : 3,
+          "team" : {
+            "id" : 15,
+            "name" : "Washington Capitals",
+            "link" : "/api/v1/teams/15",
+            "venue" : {
+              "name" : "Capital One Arena",
+              "link" : "/api/v1/venues/null",
+              "city" : "Washington",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -4,
+                "tz" : "EDT"
+              }
+            },
+            "abbreviation" : "WSH",
+            "teamName" : "Capitals",
+            "locationName" : "Washington",
+            "firstYearOfPlay" : "1974",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 24,
+              "teamName" : "Capitals",
+              "link" : "/api/v1/franchises/24"
+            },
+            "shortName" : "Washington",
+            "officialSiteUrl" : "http://www.washingtoncapitals.com",
+            "franchiseId" : 24,
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ {
+        "players" : [ {
+          "player" : {
+            "id" : 8475744,
+            "fullName" : "Evgeny Kuznetsov",
+            "link" : "/api/v1/people/8475744"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8473563,
+            "fullName" : "Nicklas Backstrom",
+            "link" : "/api/v1/people/8473563"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8474590,
+            "fullName" : "John Carlson",
+            "link" : "/api/v1/people/8474590"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475683,
+            "fullName" : "Sergei Bobrovsky",
+            "link" : "/api/v1/people/8475683"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "WSH43",
+          "eventTypeId" : "GOAL",
+          "description" : "Evgeny Kuznetsov (1) Wrist Shot, assists: Nicklas Backstrom (1), John Carlson (1)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "PPG",
+            "name" : "Power Play"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 73,
+          "eventId" : 43,
+          "period" : 1,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "1st",
+          "periodTime" : "17:52",
+          "periodTimeRemaining" : "02:08",
+          "dateTime" : "2018-04-13T00:10:31Z",
+          "goals" : {
+            "away" : 0,
+            "home" : 1
+          }
+        },
+        "coordinates" : {
+          "x" : -54.0,
+          "y" : -21.0
+        },
+        "team" : {
+          "id" : 15,
+          "name" : "Washington Capitals",
+          "link" : "/api/v1/teams/15"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8475744,
+            "fullName" : "Evgeny Kuznetsov",
+            "link" : "/api/v1/people/8475744"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8473563,
+            "fullName" : "Nicklas Backstrom",
+            "link" : "/api/v1/people/8473563"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8474590,
+            "fullName" : "John Carlson",
+            "link" : "/api/v1/people/8474590"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8475683,
+            "fullName" : "Sergei Bobrovsky",
+            "link" : "/api/v1/people/8475683"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "WSH45",
+          "eventTypeId" : "GOAL",
+          "description" : "Evgeny Kuznetsov (2) Wrist Shot, assists: Nicklas Backstrom (2), John Carlson (2)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "PPG",
+            "name" : "Power Play"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 78,
+          "eventId" : 45,
+          "period" : 1,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "1st",
+          "periodTime" : "18:21",
+          "periodTimeRemaining" : "01:39",
+          "dateTime" : "2018-04-13T00:13:57Z",
+          "goals" : {
+            "away" : 0,
+            "home" : 2
+          }
+        },
+        "coordinates" : {
+          "x" : -68.0,
+          "y" : -21.0
+        },
+        "team" : {
+          "id" : 15,
+          "name" : "Washington Capitals",
+          "link" : "/api/v1/teams/15"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8477505,
+            "fullName" : "Alexander Wennberg",
+            "link" : "/api/v1/people/8477505"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476432,
+            "fullName" : "Boone Jenner",
+            "link" : "/api/v1/people/8476432"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8470598,
+            "fullName" : "Thomas Vanek",
+            "link" : "/api/v1/people/8470598"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475831,
+            "fullName" : "Philipp Grubauer",
+            "link" : "/api/v1/people/8475831"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "WSH226",
+          "eventTypeId" : "GOAL",
+          "description" : "Alexander Wennberg (1) Tip-In, assists: Boone Jenner (1), Thomas Vanek (1)",
+          "secondaryType" : "Tip-In",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 115,
+          "eventId" : 226,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "04:48",
+          "periodTimeRemaining" : "15:12",
+          "dateTime" : "2018-04-13T00:42:33Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 2
+          }
+        },
+        "coordinates" : {
+          "x" : -84.0,
+          "y" : -7.0
+        },
+        "team" : {
+          "id" : 29,
+          "name" : "Columbus Blue Jackets",
+          "link" : "/api/v1/teams/29"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8470598,
+            "fullName" : "Thomas Vanek",
+            "link" : "/api/v1/people/8470598"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8479400,
+            "fullName" : "Pierre-Luc Dubois",
+            "link" : "/api/v1/people/8479400"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8478550,
+            "fullName" : "Artemi Panarin",
+            "link" : "/api/v1/people/8478550"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475831,
+            "fullName" : "Philipp Grubauer",
+            "link" : "/api/v1/people/8475831"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "WSH442",
+          "eventTypeId" : "GOAL",
+          "description" : "Thomas Vanek (1) Wrist Shot, assists: Pierre-Luc Dubois (1), Artemi Panarin (1)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "PPG",
+            "name" : "Power Play"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 214,
+          "eventId" : 442,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "01:31",
+          "periodTimeRemaining" : "18:29",
+          "dateTime" : "2018-04-13T01:32:47Z",
+          "goals" : {
+            "away" : 2,
+            "home" : 2
+          }
+        },
+        "coordinates" : {
+          "x" : 79.0,
+          "y" : -2.0
+        },
+        "team" : {
+          "id" : 29,
+          "name" : "Columbus Blue Jackets",
+          "link" : "/api/v1/teams/29"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8475758,
+            "fullName" : "Devante Smith-Pelly",
+            "link" : "/api/v1/people/8475758"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8477944,
+            "fullName" : "Jakub Vrana",
+            "link" : "/api/v1/people/8477944"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8474590,
+            "fullName" : "John Carlson",
+            "link" : "/api/v1/people/8474590"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 3
+        }, {
+          "player" : {
+            "id" : 8475683,
+            "fullName" : "Sergei Bobrovsky",
+            "link" : "/api/v1/people/8475683"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "WSH605",
+          "eventTypeId" : "GOAL",
+          "description" : "Devante Smith-Pelly (1) Wrist Shot, assists: Jakub Vrana (1), John Carlson (3)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 237,
+          "eventId" : 605,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "05:12",
+          "periodTimeRemaining" : "14:48",
+          "dateTime" : "2018-04-13T01:42:14Z",
+          "goals" : {
+            "away" : 2,
+            "home" : 3
+          }
+        },
+        "coordinates" : {
+          "x" : -80.0,
+          "y" : -12.0
+        },
+        "team" : {
+          "id" : 15,
+          "name" : "Washington Capitals",
+          "link" : "/api/v1/teams/15"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8477495,
+            "fullName" : "Seth Jones",
+            "link" : "/api/v1/people/8477495"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8478550,
+            "fullName" : "Artemi Panarin",
+            "link" : "/api/v1/people/8478550"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8474715,
+            "fullName" : "Cam Atkinson",
+            "link" : "/api/v1/people/8474715"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475831,
+            "fullName" : "Philipp Grubauer",
+            "link" : "/api/v1/people/8475831"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "WSH636",
+          "eventTypeId" : "GOAL",
+          "description" : "Seth Jones (1) Wrist Shot, assists: Artemi Panarin (2), Cam Atkinson (1)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "PPG",
+            "name" : "Power Play"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 295,
+          "eventId" : 636,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "15:34",
+          "periodTimeRemaining" : "04:26",
+          "dateTime" : "2018-04-13T02:05:33Z",
+          "goals" : {
+            "away" : 3,
+            "home" : 3
+          }
+        },
+        "coordinates" : {
+          "x" : 75.0,
+          "y" : -15.0
+        },
+        "team" : {
+          "id" : 29,
+          "name" : "Columbus Blue Jackets",
+          "link" : "/api/v1/teams/29"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8478550,
+            "fullName" : "Artemi Panarin",
+            "link" : "/api/v1/people/8478550"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8474013,
+            "fullName" : "Ian Cole",
+            "link" : "/api/v1/people/8474013"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8479400,
+            "fullName" : "Pierre-Luc Dubois",
+            "link" : "/api/v1/people/8479400"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8475831,
+            "fullName" : "Philipp Grubauer",
+            "link" : "/api/v1/people/8475831"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "WSH811",
+          "eventTypeId" : "GOAL",
+          "description" : "Artemi Panarin (1) Wrist Shot, assists: Ian Cole (1), Pierre-Luc Dubois (2)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : true
+        },
+        "about" : {
+          "eventIdx" : 341,
+          "eventId" : 811,
+          "period" : 4,
+          "periodType" : "OVERTIME",
+          "ordinalNum" : "OT",
+          "periodTime" : "06:02",
+          "periodTimeRemaining" : "13:58",
+          "dateTime" : "2018-04-13T02:36:06Z",
+          "goals" : {
+            "away" : 4,
+            "home" : 3
+          }
+        },
+        "coordinates" : {
+          "x" : -82.0,
+          "y" : -13.0
+        },
+        "team" : {
+          "id" : 29,
+          "name" : "Columbus Blue Jackets",
+          "link" : "/api/v1/teams/29"
+        }
+      } ],
+      "venue" : {
+        "name" : "Capital One Arena",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2017030131/content"
+      },
+      "seriesSummary" : {
+        "gamePk" : 2017030131,
+        "gameNumber" : 1,
+        "gameLabel" : "Game 1",
+        "necessary" : true,
+        "gameCode" : 131,
+        "gameTime" : "2018-04-12T23:30:00Z",
+        "seriesStatus" : "Blue Jackets lead 1-0",
+        "seriesStatusShort" : "CBJ leads 1-0",
+        "series" : {
+          "seriesNumber" : 3,
+          "seriesCode" : "C",
+          "names" : {
+            "matchupName" : "Capitals (1) vs. Blue Jackets (WC1)",
+            "matchupShortName" : "WSH v CBJ",
+            "teamAbbreviationA" : "WSH",
+            "teamAbbreviationB" : "CBJ",
+            "seriesSlug" : "capitals-vs-blue-jackets-series-c"
+          },
+          "currentGame" : {
+            "seriesSummary" : {
+              "gamePk" : 2017030131,
+              "gameNumber" : 1,
+              "gameLabel" : "Game 1",
+              "necessary" : true,
+              "gameCode" : 131,
+              "gameTime" : "2018-04-12T23:30:00Z",
+              "seriesStatus" : "Blue Jackets lead 1-0",
+              "seriesStatusShort" : "CBJ leads 1-0"
+            }
+          },
+          "conference" : {
+            "id" : 6,
+            "name" : "Eastern",
+            "link" : "/api/v1/conferences/6"
+          },
+          "round" : {
+            "number" : 1
+          },
+          "matchupTeams" : [ {
+            "team" : {
+              "id" : 15,
+              "name" : "Washington Capitals",
+              "link" : "/api/v1/teams/15"
+            },
+            "seed" : {
+              "type" : "1",
+              "rank" : 1,
+              "isTop" : true
+            },
+            "seriesRecord" : {
+              "wins" : 0,
+              "losses" : 1
+            }
+          }, {
+            "team" : {
+              "id" : 29,
+              "name" : "Columbus Blue Jackets",
+              "link" : "/api/v1/teams/29"
+            },
+            "seed" : {
+              "type" : "WC1",
+              "rank" : 4,
+              "isTop" : false
+            },
+            "seriesRecord" : {
+              "wins" : 1,
+              "losses" : 0
+            }
+          } ]
+        }
+      }
+    }, {
+      "gamePk" : 2017030151,
+      "link" : "/api/v1/game/2017030151/feed/live",
+      "gameType" : "P",
+      "season" : "20172018",
+      "gameDate" : "2018-04-13T01:30:00Z",
+      "status" : {
+        "abstractGameState" : "Final",
+        "codedGameState" : "7",
+        "detailedState" : "Final",
+        "statusCode" : "7",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 0,
+            "losses" : 1,
+            "type" : "league"
+          },
+          "score" : 2,
+          "team" : {
+            "id" : 21,
+            "name" : "Colorado Avalanche",
+            "link" : "/api/v1/teams/21",
+            "venue" : {
+              "name" : "Pepsi Center",
+              "link" : "/api/v1/venues/null",
+              "city" : "Denver",
+              "timeZone" : {
+                "id" : "America/Denver",
+                "offset" : -6,
+                "tz" : "MDT"
+              }
+            },
+            "abbreviation" : "COL",
+            "teamName" : "Avalanche",
+            "locationName" : "Colorado",
+            "firstYearOfPlay" : "1995",
+            "division" : {
+              "id" : 16,
+              "name" : "Central",
+              "link" : "/api/v1/divisions/16"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 27,
+              "teamName" : "Avalanche",
+              "link" : "/api/v1/franchises/27"
+            },
+            "shortName" : "Colorado",
+            "officialSiteUrl" : "http://www.coloradoavalanche.com",
+            "franchiseId" : 27,
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 1,
+            "losses" : 0,
+            "type" : "league"
+          },
+          "score" : 5,
+          "team" : {
+            "id" : 18,
+            "name" : "Nashville Predators",
+            "link" : "/api/v1/teams/18",
+            "venue" : {
+              "name" : "Bridgestone Arena",
+              "link" : "/api/v1/venues/null",
+              "city" : "Nashville",
+              "timeZone" : {
+                "id" : "America/Chicago",
+                "offset" : -5,
+                "tz" : "CDT"
+              }
+            },
+            "abbreviation" : "NSH",
+            "teamName" : "Predators",
+            "locationName" : "Nashville",
+            "firstYearOfPlay" : "1998",
+            "division" : {
+              "id" : 16,
+              "name" : "Central",
+              "link" : "/api/v1/divisions/16"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 34,
+              "teamName" : "Predators",
+              "link" : "/api/v1/franchises/34"
+            },
+            "shortName" : "Nashville",
+            "officialSiteUrl" : "http://www.nashvillepredators.com",
+            "franchiseId" : 34,
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ {
+        "players" : [ {
+          "player" : {
+            "id" : 8477507,
+            "fullName" : "Nikita Zadorov",
+            "link" : "/api/v1/people/8477507"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8478420,
+            "fullName" : "Mikko Rantanen",
+            "link" : "/api/v1/people/8478420"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8477492,
+            "fullName" : "Nathan MacKinnon",
+            "link" : "/api/v1/people/8477492"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8471469,
+            "fullName" : "Pekka Rinne",
+            "link" : "/api/v1/people/8471469"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "NSH20",
+          "eventTypeId" : "GOAL",
+          "description" : "Nikita Zadorov (1) Wrist Shot, assists: Mikko Rantanen (1), Nathan MacKinnon (1)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 27,
+          "eventId" : 20,
+          "period" : 1,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "1st",
+          "periodTime" : "06:36",
+          "periodTimeRemaining" : "13:24",
+          "dateTime" : "2018-04-13T01:53:55Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 0
+          }
+        },
+        "coordinates" : {
+          "x" : -55.0,
+          "y" : 28.0
+        },
+        "team" : {
+          "id" : 21,
+          "name" : "Colorado Avalanche",
+          "link" : "/api/v1/teams/21"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8475766,
+            "fullName" : "Austin Watson",
+            "link" : "/api/v1/people/8475766"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476925,
+            "fullName" : "Colton Sissons",
+            "link" : "/api/v1/people/8476925"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475793,
+            "fullName" : "Ryan Johansen",
+            "link" : "/api/v1/people/8475793"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8473541,
+            "fullName" : "Jonathan Bernier",
+            "link" : "/api/v1/people/8473541"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "NSH275",
+          "eventTypeId" : "GOAL",
+          "description" : "Austin Watson (1) Wrist Shot, assists: Colton Sissons (1), Ryan Johansen (1)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 111,
+          "eventId" : 275,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "03:16",
+          "periodTimeRemaining" : "16:44",
+          "dateTime" : "2018-04-13T02:41:13Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 1
+          }
+        },
+        "coordinates" : {
+          "x" : -71.0,
+          "y" : 31.0
+        },
+        "team" : {
+          "id" : 18,
+          "name" : "Nashville Predators",
+          "link" : "/api/v1/teams/18"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8471260,
+            "fullName" : "Blake Comeau",
+            "link" : "/api/v1/people/8471260"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8471262,
+            "fullName" : "Carl Soderberg",
+            "link" : "/api/v1/people/8471262"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476442,
+            "fullName" : "Matt Nieto",
+            "link" : "/api/v1/people/8476442"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8471469,
+            "fullName" : "Pekka Rinne",
+            "link" : "/api/v1/people/8471469"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "NSH276",
+          "eventTypeId" : "GOAL",
+          "description" : "Blake Comeau (1) Tip-In, assists: Carl Soderberg (1), Matt Nieto (1)",
+          "secondaryType" : "Tip-In",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 117,
+          "eventId" : 276,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "04:51",
+          "periodTimeRemaining" : "15:09",
+          "dateTime" : "2018-04-13T02:43:47Z",
+          "goals" : {
+            "away" : 2,
+            "home" : 1
+          }
+        },
+        "coordinates" : {
+          "x" : 71.0,
+          "y" : 2.0
+        },
+        "team" : {
+          "id" : 21,
+          "name" : "Colorado Avalanche",
+          "link" : "/api/v1/teams/21"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8475225,
+            "fullName" : "Craig Smith",
+            "link" : "/api/v1/people/8475225"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475793,
+            "fullName" : "Ryan Johansen",
+            "link" : "/api/v1/people/8475793"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8473541,
+            "fullName" : "Jonathan Bernier",
+            "link" : "/api/v1/people/8473541"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "NSH290",
+          "eventTypeId" : "GOAL",
+          "description" : "Craig Smith (1) Wrist Shot, assists: Ryan Johansen (2)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "PPG",
+            "name" : "Power Play"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 140,
+          "eventId" : 290,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "08:50",
+          "periodTimeRemaining" : "11:10",
+          "dateTime" : "2018-04-13T02:53:33Z",
+          "goals" : {
+            "away" : 2,
+            "home" : 2
+          }
+        },
+        "coordinates" : {
+          "x" : -76.0,
+          "y" : -10.0
+        },
+        "team" : {
+          "id" : 18,
+          "name" : "Nashville Predators",
+          "link" : "/api/v1/teams/18"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8476887,
+            "fullName" : "Filip Forsberg",
+            "link" : "/api/v1/people/8476887"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8474600,
+            "fullName" : "Roman Josi",
+            "link" : "/api/v1/people/8474600"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8478042,
+            "fullName" : "Viktor Arvidsson",
+            "link" : "/api/v1/people/8478042"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8473541,
+            "fullName" : "Jonathan Bernier",
+            "link" : "/api/v1/people/8473541"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "NSH444",
+          "eventTypeId" : "GOAL",
+          "description" : "Filip Forsberg (1) Tip-In, assists: Roman Josi (1), Viktor Arvidsson (1)",
+          "secondaryType" : "Tip-In",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : true
+        },
+        "about" : {
+          "eventIdx" : 238,
+          "eventId" : 444,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "06:08",
+          "periodTimeRemaining" : "13:52",
+          "dateTime" : "2018-04-13T03:41:08Z",
+          "goals" : {
+            "away" : 2,
+            "home" : 3
+          }
+        },
+        "coordinates" : {
+          "x" : 80.0,
+          "y" : -5.0
+        },
+        "team" : {
+          "id" : 18,
+          "name" : "Nashville Predators",
+          "link" : "/api/v1/teams/18"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8476887,
+            "fullName" : "Filip Forsberg",
+            "link" : "/api/v1/people/8476887"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8473541,
+            "fullName" : "Jonathan Bernier",
+            "link" : "/api/v1/people/8473541"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "NSH613",
+          "eventTypeId" : "GOAL",
+          "description" : "Filip Forsberg (2) Wrist Shot, assists: none",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 273,
+          "eventId" : 613,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "12:10",
+          "periodTimeRemaining" : "07:50",
+          "dateTime" : "2018-04-13T03:55:21Z",
+          "goals" : {
+            "away" : 2,
+            "home" : 4
+          }
+        },
+        "coordinates" : {
+          "x" : 76.0,
+          "y" : 8.0
+        },
+        "team" : {
+          "id" : 18,
+          "name" : "Nashville Predators",
+          "link" : "/api/v1/teams/18"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8476925,
+            "fullName" : "Colton Sissons",
+            "link" : "/api/v1/people/8476925"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8475766,
+            "fullName" : "Austin Watson",
+            "link" : "/api/v1/people/8475766"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "NSH625",
+          "eventTypeId" : "GOAL",
+          "description" : "Colton Sissons (1) Backhand, assists: Austin Watson (1)",
+          "secondaryType" : "Backhand",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : true,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 296,
+          "eventId" : 625,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "18:03",
+          "periodTimeRemaining" : "01:57",
+          "dateTime" : "2018-04-13T04:05:09Z",
+          "goals" : {
+            "away" : 2,
+            "home" : 5
+          }
+        },
+        "coordinates" : {
+          "x" : 83.0,
+          "y" : -6.0
+        },
+        "team" : {
+          "id" : 18,
+          "name" : "Nashville Predators",
+          "link" : "/api/v1/teams/18"
+        }
+      } ],
+      "venue" : {
+        "name" : "Bridgestone Arena",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2017030151/content"
+      },
+      "seriesSummary" : {
+        "gamePk" : 2017030151,
+        "gameNumber" : 1,
+        "gameLabel" : "Game 1",
+        "necessary" : true,
+        "gameCode" : 151,
+        "gameTime" : "2018-04-13T01:30:00Z",
+        "seriesStatus" : "Predators lead 1-0",
+        "seriesStatusShort" : "NSH leads 1-0",
+        "series" : {
+          "seriesNumber" : 5,
+          "seriesCode" : "E",
+          "names" : {
+            "matchupName" : "Predators (1) vs. Avalanche (WC2)",
+            "matchupShortName" : "NSH v COL",
+            "teamAbbreviationA" : "NSH",
+            "teamAbbreviationB" : "COL",
+            "seriesSlug" : "predators-vs-avalanche-series-e"
+          },
+          "currentGame" : {
+            "seriesSummary" : {
+              "gamePk" : 2017030151,
+              "gameNumber" : 1,
+              "gameLabel" : "Game 1",
+              "necessary" : true,
+              "gameCode" : 151,
+              "gameTime" : "2018-04-13T01:30:00Z",
+              "seriesStatus" : "Predators lead 1-0",
+              "seriesStatusShort" : "NSH leads 1-0"
+            }
+          },
+          "conference" : {
+            "id" : 5,
+            "name" : "Western",
+            "link" : "/api/v1/conferences/5"
+          },
+          "round" : {
+            "number" : 1
+          },
+          "matchupTeams" : [ {
+            "team" : {
+              "id" : 18,
+              "name" : "Nashville Predators",
+              "link" : "/api/v1/teams/18"
+            },
+            "seed" : {
+              "type" : "1",
+              "rank" : 1,
+              "isTop" : true
+            },
+            "seriesRecord" : {
+              "wins" : 1,
+              "losses" : 0
+            }
+          }, {
+            "team" : {
+              "id" : 21,
+              "name" : "Colorado Avalanche",
+              "link" : "/api/v1/teams/21"
+            },
+            "seed" : {
+              "type" : "WC2",
+              "rank" : 4,
+              "isTop" : false
+            },
+            "seriesRecord" : {
+              "wins" : 0,
+              "losses" : 1
+            }
+          } ]
+        }
+      }
+    }, {
+      "gamePk" : 2017030181,
+      "link" : "/api/v1/game/2017030181/feed/live",
+      "gameType" : "P",
+      "season" : "20172018",
+      "gameDate" : "2018-04-13T02:30:00Z",
+      "status" : {
+        "abstractGameState": "Live",
+        "codedGameState": "3",
+        "detailedState": "In Progress",
+        "statusCode" : "3",
+        "startTimeTBD" : false
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 0,
+            "losses" : 0,
+            "type" : "league"
+          },
+          "score" : 3,
+          "team" : {
+            "id" : 28,
+            "name" : "San Jose Sharks",
+            "link" : "/api/v1/teams/28",
+            "venue" : {
+              "name" : "SAP Center at San Jose",
+              "link" : "/api/v1/venues/null",
+              "city" : "San Jose",
+              "timeZone" : {
+                "id" : "America/Los_Angeles",
+                "offset" : -7,
+                "tz" : "PDT"
+              }
+            },
+            "abbreviation" : "SJS",
+            "teamName" : "Sharks",
+            "locationName" : "San Jose",
+            "firstYearOfPlay" : "1991",
+            "division" : {
+              "id" : 15,
+              "name" : "Pacific",
+              "link" : "/api/v1/divisions/15"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 29,
+              "teamName" : "Sharks",
+              "link" : "/api/v1/franchises/29"
+            },
+            "shortName" : "San Jose",
+            "officialSiteUrl" : "http://www.sjsharks.com",
+            "franchiseId" : 29,
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 0,
+            "losses" : 0,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 24,
+            "name" : "Anaheim Ducks",
+            "link" : "/api/v1/teams/24",
+            "venue" : {
+              "name" : "Honda Center",
+              "link" : "/api/v1/venues/null",
+              "city" : "Anaheim",
+              "timeZone" : {
+                "id" : "America/Los_Angeles",
+                "offset" : -7,
+                "tz" : "PDT"
+              }
+            },
+            "abbreviation" : "ANA",
+            "teamName" : "Ducks",
+            "locationName" : "Anaheim",
+            "firstYearOfPlay" : "1993",
+            "division" : {
+              "id" : 15,
+              "name" : "Pacific",
+              "link" : "/api/v1/divisions/15"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 32,
+              "teamName" : "Ducks",
+              "link" : "/api/v1/franchises/32"
+            },
+            "shortName" : "Anaheim",
+            "officialSiteUrl" : "http://www.anaheimducks.com",
+            "franchiseId" : 32,
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ {
+        "players" : [ {
+          "player" : {
+            "id" : 8475169,
+            "fullName" : "Evander Kane",
+            "link" : "/api/v1/people/8475169"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8470794,
+            "fullName" : "Joe Pavelski",
+            "link" : "/api/v1/people/8470794"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476881,
+            "fullName" : "Tomas Hertl",
+            "link" : "/api/v1/people/8476881"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476434,
+            "fullName" : "John Gibson",
+            "link" : "/api/v1/people/8476434"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "ANA297",
+          "eventTypeId" : "GOAL",
+          "description" : "Evander Kane (1) Wrist Shot, assists: Joe Pavelski (1), Tomas Hertl (1)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "PPG",
+            "name" : "Power Play"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : true
+        },
+        "about" : {
+          "eventIdx" : 162,
+          "eventId" : 297,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "07:07",
+          "periodTimeRemaining" : "12:53",
+          "dateTime" : "2018-04-13T03:48:14Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 0
+          }
+        },
+        "coordinates" : {
+          "x" : 70.0,
+          "y" : 1.0
+        },
+        "team" : {
+          "id" : 28,
+          "name" : "San Jose Sharks",
+          "link" : "/api/v1/teams/28"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8475169,
+            "fullName" : "Evander Kane",
+            "link" : "/api/v1/people/8475169"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8470794,
+            "fullName" : "Joe Pavelski",
+            "link" : "/api/v1/people/8470794"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8475455,
+            "fullName" : "Brenden Dillon",
+            "link" : "/api/v1/people/8475455"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476434,
+            "fullName" : "John Gibson",
+            "link" : "/api/v1/people/8476434"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "ANA428",
+          "eventTypeId" : "GOAL",
+          "description" : "Evander Kane (2) Backhand, assists: Joe Pavelski (2), Brenden Dillon (1)",
+          "secondaryType" : "Backhand",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 204,
+          "eventId" : 428,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "13:51",
+          "periodTimeRemaining" : "06:09",
+          "dateTime" : "2018-04-13T03:59:18Z",
+          "goals" : {
+            "away" : 2,
+            "home" : 0
+          }
+        },
+        "coordinates" : {
+          "x" : 81.0,
+          "y" : -3.0
+        },
+        "team" : {
+          "id" : 28,
+          "name" : "San Jose Sharks",
+          "link" : "/api/v1/teams/28"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8470613,
+            "fullName" : "Brent Burns",
+            "link" : "/api/v1/people/8470613"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8478414,
+            "fullName" : "Timo Meier",
+            "link" : "/api/v1/people/8478414"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 1
+        }, {
+          "player" : {
+            "id" : 8476434,
+            "fullName" : "John Gibson",
+            "link" : "/api/v1/people/8476434"
+          },
+          "playerType" : "Goalie"
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "ANA433",
+          "eventTypeId" : "GOAL",
+          "description" : "Brent Burns (1) Snap Shot, assists: Timo Meier (1)",
+          "secondaryType" : "Snap Shot",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          },
+          "emptyNet" : false,
+          "gameWinningGoal" : false
+        },
+        "about" : {
+          "eventIdx" : 210,
+          "eventId" : 433,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "15:15",
+          "periodTimeRemaining" : "04:45",
+          "dateTime" : "2018-04-13T04:01:58Z",
+          "goals" : {
+            "away" : 3,
+            "home" : 0
+          }
+        },
+        "coordinates" : {
+          "x" : 43.0,
+          "y" : -11.0
+        },
+        "team" : {
+          "id" : 28,
+          "name" : "San Jose Sharks",
+          "link" : "/api/v1/teams/28"
+        }
+      } ],
+      "venue" : {
+        "name" : "Honda Center",
+        "link" : "/api/v1/venues/null"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2017030181/content"
+      },
+      "seriesSummary" : {
+        "gamePk" : 2017030181,
+        "gameNumber" : 1,
+        "gameLabel" : "Game 1",
+        "necessary" : true,
+        "gameCode" : 181,
+        "gameTime" : "2018-04-13T02:30:00Z",
+        "seriesStatus" : "",
+        "seriesStatusShort" : "",
+        "series" : {
+          "seriesNumber" : 8,
+          "seriesCode" : "H",
+          "names" : {
+            "matchupName" : "Ducks (2) vs. Sharks (3)",
+            "matchupShortName" : "ANA v SJS",
+            "teamAbbreviationA" : "ANA",
+            "teamAbbreviationB" : "SJS",
+            "seriesSlug" : "ducks-vs-sharks-series-h"
+          },
+          "currentGame" : {
+            "seriesSummary" : {
+              "gamePk" : 2017030181,
+              "gameNumber" : 1,
+              "gameLabel" : "Game 1",
+              "necessary" : true,
+              "gameCode" : 181,
+              "gameTime" : "2018-04-13T02:30:00Z",
+              "seriesStatus" : "",
+              "seriesStatusShort" : ""
+            }
+          },
+          "conference" : {
+            "id" : 5,
+            "name" : "Western",
+            "link" : "/api/v1/conferences/5"
+          },
+          "round" : {
+            "number" : 1
+          },
+          "matchupTeams" : [ {
+            "team" : {
+              "id" : 24,
+              "name" : "Anaheim Ducks",
+              "link" : "/api/v1/teams/24"
+            },
+            "seed" : {
+              "type" : "2",
+              "rank" : 2,
+              "isTop" : true
+            },
+            "seriesRecord" : {
+              "wins" : 0,
+              "losses" : 1
+            }
+          }, {
+            "team" : {
+              "id" : 28,
+              "name" : "San Jose Sharks",
+              "link" : "/api/v1/teams/28"
+            },
+            "seed" : {
+              "type" : "3",
+              "rank" : 3,
+              "isTop" : false
+            },
+            "seriesRecord" : {
+              "wins" : 1,
+              "losses" : 0
+            }
+          } ]
+        }
+      }
+    } ],
+    "events" : [ ],
+    "matches" : [ ]
+  } ]
+}
