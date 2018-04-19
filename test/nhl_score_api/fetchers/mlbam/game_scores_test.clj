@@ -32,11 +32,11 @@
       (is (= 7
              (count games)) "Parsed game count")
       (is (= 1
-             (count (filter #(= (:state %) "FINAL") games))) "Parsed finished game count")
+             (count (filter #(= (:state (:status %)) "FINAL") games))) "Parsed finished game count")
       (is (= 2
-             (count (filter #(= (:state %) "LIVE") games))) "Parsed on-going game count")
+             (count (filter #(= (:state (:status %)) "LIVE") games))) "Parsed on-going game count")
       (is (= 4
-             (count (filter #(= (:state %) "PREVIEW") games))) "Parsed not started game count")
+             (count (filter #(= (:state (:status %)) "PREVIEW") games))) "Parsed not started game count")
       (is (= [5 2 5 0 0 0 0]
              (map #(count (:goals %)) games)) "Parsed goal count")
       (is (= [{:away "WSH" :home "CHI"} {:away "FLA" :home "MIN"} {:away "STL" :home "CAR"}

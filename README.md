@@ -19,7 +19,7 @@ The `date` object contains the date in a raw format and a prettier, displayable 
 
 The `games` array contains details of the games, each game item containing these fields:
 
-- `state` *(string)*
+- `state` *(object)*
 - `goals` *(array)*
 - `scores` *(object)*
 - `teams` *(object)*
@@ -36,7 +36,9 @@ The `games` array contains details of the games, each game item containing these
   },
   "games": [
     {
-      "state": "FINAL",
+      "state": {
+        "status": "FINAL"
+      },
       "goals": [
         ...
         {
@@ -78,7 +80,9 @@ The `games` array contains details of the games, each game item containing these
       }
     },
     {
-      "state": "LIVE",
+      "state": {
+        "status": "LIVE"
+      },
       "goals": [
         ...
         {
@@ -119,7 +123,9 @@ The `games` array contains details of the games, each game item containing these
       }
     },
     {
-      "state": "PREVIEW",
+      "state": {
+        "status": "PREVIEW"
+      },
       "goals": [],
       "scores": {
         "NYR": 0,
@@ -159,10 +165,11 @@ The `games` array contains details of the games, each game item containing these
 
 #### Game fields explained:
 
-- `state` *(string)*:
-  - `FINAL` if the game has ended
-  - `LIVE` if the game is still in progress
-  - `PREVIEW` if the game has not started yet
+- `state` object: current game state, with the fields:
+  - `status` *(string)*:
+    - `"FINAL"` if the game has ended
+    - `"LIVE"` if the game is still in progress
+    - `"PREVIEW"` if the game has not started yet
 - `goals` array: list of goal details, in the order the goals were scored
   - gameplay goal:
     - `goalCount` *(number)*: the number of goals the player has scored this season

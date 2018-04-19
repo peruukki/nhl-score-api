@@ -229,7 +229,7 @@
   (let [team-details (parse-game-team-details api-game)
         scores (parse-scores api-game team-details)
         teams (get-team-abbreviations team-details)]
-    (-> {:state (parse-game-state api-game)
+    (-> {:status {:state (parse-game-state api-game)}
          :goals (parse-goals api-game team-details)
          :scores scores
          :teams teams}
