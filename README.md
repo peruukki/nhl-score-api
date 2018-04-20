@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/peruukki/nhl-score-api.svg?branch=master)](https://travis-ci.org/peruukki/nhl-score-api)
 
 A JSON API that returns the scores and goals from the latest finished or on-going NHL games, based on information from the
-[Major League Baseball Advanced Media stats API](https://statsapi.web.nhl.com/api/v1/schedule?expand=schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series).
+[Major League Baseball Advanced Media stats API](https://statsapi.web.nhl.com/api/v1/schedule?expand=schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series,schedule.linescore).
 
 The API is available at https://nhl-score-api.herokuapp.com/, and it serves as the backend for [nhl-recap](https://github.com/peruukki/nhl-recap).
 
@@ -81,7 +81,12 @@ The `games` array contains details of the games, each game item containing these
     },
     {
       "state": {
-        "status": "LIVE"
+        "status": "LIVE",
+        "progress": {
+          "currentPeriod": 3,
+          "currentPeriodOrdinal": "3rd",
+          "currentPeriodTimeRemaining": "08:58"
+        },
       },
       "goals": [
         ...
@@ -170,6 +175,10 @@ The `games` array contains details of the games, each game item containing these
     - `"FINAL"` if the game has ended
     - `"LIVE"` if the game is still in progress
     - `"PREVIEW"` if the game has not started yet
+  - `progress` object: game progress, only present if `status` is `"LIVE"`, with the fields:
+    - `currentPeriod` *(number)*: current period as a number
+    - `currentPeriodOrdinal` *(string)*: current period as a display string (e.g. `"2nd"`)
+    - `currentPeriodTimeRemaining` *(string*): time remaining in current period
 - `goals` array: list of goal details, in the order the goals were scored
   - gameplay goal:
     - `goalCount` *(number)*: the number of goals the player has scored this season

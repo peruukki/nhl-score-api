@@ -17,5 +17,5 @@
              (:endDate query-params)) "End date")))
 
   (testing "All needed details are requested"
-    (is (= "schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series"
+    (is (= "schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series,schedule.linescore"
            (:expand (get-query-params))) "Expanded fields")))

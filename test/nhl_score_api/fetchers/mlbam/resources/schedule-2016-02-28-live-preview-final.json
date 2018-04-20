@@ -4159,6 +4159,111 @@
           }
         }
       },
+      "linescore": {
+        "currentPeriod": 3,
+        "currentPeriodOrdinal": "3rd",
+        "currentPeriodTimeRemaining": "08:58",
+        "periods": [
+          {
+            "periodType": "REGULAR",
+            "startTime": "2018-04-19T02:40:11Z",
+            "endTime": "2018-04-19T03:12:01Z",
+            "num": 1,
+            "ordinalNum": "1st",
+            "home": {
+              "goals": 1,
+              "shotsOnGoal": 9,
+              "rinkSide": "left"
+            },
+            "away": {
+              "goals": 0,
+              "shotsOnGoal": 10,
+              "rinkSide": "right"
+            }
+          },
+          {
+            "periodType": "REGULAR",
+            "startTime": "2018-04-19T03:30:15Z",
+            "endTime": "2018-04-19T04:07:02Z",
+            "num": 2,
+            "ordinalNum": "2nd",
+            "home": {
+              "goals": 0,
+              "shotsOnGoal": 6,
+              "rinkSide": "right"
+            },
+            "away": {
+              "goals": 0,
+              "shotsOnGoal": 14,
+              "rinkSide": "left"
+            }
+          },
+          {
+            "periodType": "REGULAR",
+            "startTime": "2018-04-19T04:25:01Z",
+            "num": 3,
+            "ordinalNum": "3rd",
+            "home": {
+              "goals": 1,
+              "shotsOnGoal": 6,
+              "rinkSide": "left"
+            },
+            "away": {
+              "goals": 1,
+              "shotsOnGoal": 4,
+              "rinkSide": "right"
+            }
+          }
+        ],
+        "shootoutInfo": {
+          "away": {
+            "scores": 0,
+            "attempts": 0
+          },
+          "home": {
+            "scores": 0,
+            "attempts": 0
+          }
+        },
+        "teams": {
+          "home": {
+            "team": {
+              "id": 28,
+              "name": "San Jose Sharks",
+              "link": "/api/v1/teams/28"
+            },
+            "goals": 2,
+            "shotsOnGoal": 21,
+            "goaliePulled": false,
+            "numSkaters": 5,
+            "powerPlay": false
+          },
+          "away": {
+            "team": {
+              "id": 24,
+              "name": "Anaheim Ducks",
+              "link": "/api/v1/teams/24"
+            },
+            "goals": 1,
+            "shotsOnGoal": 28,
+            "goaliePulled": false,
+            "numSkaters": 5,
+            "powerPlay": false
+          }
+        },
+        "powerPlayStrength": "Even",
+        "hasShootout": false,
+        "intermissionInfo": {
+          "intermissionTimeRemaining": 0,
+          "intermissionTimeElapsed": 0,
+          "inIntermission": false
+        },
+        "powerPlayInfo": {
+          "situationTimeRemaining": 538,
+          "situationTimeElapsed": 267,
+          "inSituation": false
+        }
+      },
       "scoringPlays" : [ {
         "players" : [ {
           "player" : {
@@ -4386,6 +4491,111 @@
             "shortName" : "Carolina",
             "active" : true
           }
+        }
+      },
+      "linescore": {
+        "currentPeriod": 3,
+        "currentPeriodOrdinal": "3rd",
+        "currentPeriodTimeRemaining": "END",
+        "periods": [
+          {
+            "periodType": "REGULAR",
+            "startTime": "2018-04-19T02:10:06Z",
+            "endTime": "2018-04-19T02:48:48Z",
+            "num": 1,
+            "ordinalNum": "1st",
+            "home": {
+              "goals": 0,
+              "shotsOnGoal": 8,
+              "rinkSide": "right"
+            },
+            "away": {
+              "goals": 1,
+              "shotsOnGoal": 15,
+              "rinkSide": "left"
+            }
+          },
+          {
+            "periodType": "REGULAR",
+            "startTime": "2018-04-19T03:05:36Z",
+            "endTime": "2018-04-19T03:48:34Z",
+            "num": 2,
+            "ordinalNum": "2nd",
+            "home": {
+              "goals": 0,
+              "shotsOnGoal": 14,
+              "rinkSide": "left"
+            },
+            "away": {
+              "goals": 2,
+              "shotsOnGoal": 11,
+              "rinkSide": "right"
+            }
+          },
+          {
+            "periodType": "REGULAR",
+            "startTime": "2018-04-19T04:08:46Z",
+            "num": 3,
+            "ordinalNum": "3rd",
+            "home": {
+              "goals": 2,
+              "shotsOnGoal": 11,
+              "rinkSide": "right"
+            },
+            "away": {
+              "goals": 0,
+              "shotsOnGoal": 8,
+              "rinkSide": "left"
+            }
+          }
+        ],
+        "shootoutInfo": {
+          "away": {
+            "scores": 0,
+            "attempts": 0
+          },
+          "home": {
+            "scores": 0,
+            "attempts": 0
+          }
+        },
+        "teams": {
+          "home": {
+            "team": {
+              "id": 21,
+              "name": "Colorado Avalanche",
+              "link": "/api/v1/teams/21"
+            },
+            "goals": 2,
+            "shotsOnGoal": 33,
+            "goaliePulled": false,
+            "numSkaters": 5,
+            "powerPlay": false
+          },
+          "away": {
+            "team": {
+              "id": 18,
+              "name": "Nashville Predators",
+              "link": "/api/v1/teams/18"
+            },
+            "goals": 3,
+            "shotsOnGoal": 34,
+            "goaliePulled": false,
+            "numSkaters": 5,
+            "powerPlay": false
+          }
+        },
+        "powerPlayStrength": "Even",
+        "hasShootout": false,
+        "intermissionInfo": {
+          "intermissionTimeRemaining": 0,
+          "intermissionTimeElapsed": 0,
+          "inIntermission": false
+        },
+        "powerPlayInfo": {
+          "situationTimeRemaining": 0,
+          "situationTimeElapsed": 788,
+          "inSituation": false
         }
       },
       "scoringPlays" : [ {

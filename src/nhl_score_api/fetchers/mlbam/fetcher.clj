@@ -17,7 +17,7 @@
         end-date (format-date now)]
     {:startDate start-date
      :endDate end-date
-     :expand "schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series"}))
+     :expand "schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series,schedule.linescore"}))
 
 (defn- fetch-latest-games-info []
   (:body (http/get scores-url {:query-params (get-query-params)})))

@@ -139,6 +139,10 @@
 (defn- parse-game-state [api-game]
   (str/upper-case (:abstract-game-state (:status api-game))))
 
+(defn- parse-linescore [api-game]
+  (select-keys (:linescore api-game)
+               [:current-period :current-period-ordinal :current-period-time-remaining]))
+
 (defn- parse-current-records [team-details]
   (let [away-details (:away team-details)
         home-details (:home team-details)]
@@ -215,6 +219,13 @@
                            current-wins)]
     {:wins wins-before-game}))
 
+(defn- parse-game-status [api-game]
+  (let [state (parse-game-state api-game)
+        linescore (parse-linescore api-game)]
+    (if (= state "LIVE")
+      {:state state :progress linescore}
+      {:state state})))
+
 (defn- add-team-records [game-details api-game team-details teams scores]
   (if (all-star-game? api-game)
     game-details
@@ -229,7 +240,7 @@
   (let [team-details (parse-game-team-details api-game)
         scores (parse-scores api-game team-details)
         teams (get-team-abbreviations team-details)]
-    (-> {:status {:state (parse-game-state api-game)}
+    (-> {:status (parse-game-status api-game)
          :goals (parse-goals api-game team-details)
          :scores scores
          :teams teams}

@@ -115,6 +115,20 @@
              (map #(contains? % :strength) goals))
           "Even strength goals don't contain :strength field")))
 
+  (testing "Parsing games' statuses"
+    (let [games (:games
+                  (parse-game-scores
+                    (filter-latest-games resources/games-in-live-preview-and-final-states)))
+          statuses (map #(:status %) games)]
+      (is (= [{:state "FINAL"}
+              {:state "LIVE" :progress {:current-period 3, :current-period-ordinal "3rd", :current-period-time-remaining "08:58"}}
+              {:state "LIVE" :progress {:current-period 3, :current-period-ordinal "3rd", :current-period-time-remaining "END"}}
+              {:state "PREVIEW"}
+              {:state "PREVIEW"}
+              {:state "PREVIEW"}
+              {:state "PREVIEW"}]
+             statuses) "Parsed game statuses")))
+
   (testing "Parsing teams' regular season records"
     (let [games (:games
                   (parse-game-scores
