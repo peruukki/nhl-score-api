@@ -36,8 +36,8 @@ The `games` array contains details of the games, each game item containing these
   },
   "games": [
     {
-      "state": {
-        "status": "FINAL"
+      "status": {
+        "state": "FINAL"
       },
       "goals": [
         ...
@@ -80,8 +80,8 @@ The `games` array contains details of the games, each game item containing these
       }
     },
     {
-      "state": {
-        "status": "LIVE",
+      "status": {
+        "state": "LIVE",
         "progress": {
           "currentPeriod": 3,
           "currentPeriodOrdinal": "3rd",
@@ -128,8 +128,8 @@ The `games` array contains details of the games, each game item containing these
       }
     },
     {
-      "state": {
-        "status": "PREVIEW"
+      "status": {
+        "state": "PREVIEW"
       },
       "goals": [],
       "scores": {
@@ -170,12 +170,12 @@ The `games` array contains details of the games, each game item containing these
 
 #### Game fields explained:
 
-- `state` object: current game state, with the fields:
-  - `status` *(string)*:
+- `status` object: current game status, with the fields:
+  - `state` *(string)*:
     - `"FINAL"` if the game has ended
     - `"LIVE"` if the game is still in progress
     - `"PREVIEW"` if the game has not started yet
-  - `progress` object: game progress, only present if `status` is `"LIVE"`, with the fields:
+  - `progress` object: game progress, only present if `state` is `"LIVE"`, with the fields:
     - `currentPeriod` *(number)*: current period as a number
     - `currentPeriodOrdinal` *(string)*: current period as a display string (e.g. `"2nd"`)
     - `currentPeriodTimeRemaining` *(string*): time remaining in current period
