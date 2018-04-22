@@ -265,7 +265,7 @@ Deploying to [Heroku](http://heroku.com/):
 ./deploy.sh
 ```
 
-The latest scores are cached for 5 minutes in [Heroku Redis](https://elements.heroku.com/addons/heroku-redis).
+The latest scores are cached for one minute in [Heroku Redis](https://elements.heroku.com/addons/heroku-redis).
 
 ## License
 

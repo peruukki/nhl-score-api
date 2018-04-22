@@ -50,7 +50,7 @@
     (is (= nil
            @cache-set-key) "Nothing was stored in the cache"))
 
-  (testing "Latest scores request is cached for 5 minutes"
+  (testing "Latest scores request is cached for 1 minute"
     (reset-cache-state!)
     (let [path "/api/scores/latest"]
       (get-response path latest-scores-api-fn cache-get-fn cache-set-fn)
@@ -62,8 +62,8 @@
              @cache-set-key) "Request path was stored in the cache as key")
       (is (= latest-scores
              @cache-set-value) "Response was stored in the cache as value")
-      (is (= 300
-             @cache-set-ttl-seconds) "Key time-to-live was set to 300 seconds")
+      (is (= 60
+             @cache-set-ttl-seconds) "Key time-to-live was set to 60 seconds")
 
       (reset! latest-scores-fetched false)
       (get-response path latest-scores-api-fn cache-get-fn cache-set-fn)

@@ -43,7 +43,7 @@
     {:version version}
 
     "/api/scores/latest"
-    (get-cached-response request-path latest-scores-api-fn cache-get-fn cache-set-fn 300)
+    (get-cached-response request-path latest-scores-api-fn cache-get-fn cache-set-fn 60)
 
     nil))
 
