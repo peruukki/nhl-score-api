@@ -19,14 +19,14 @@
       (is (= ["Final" "Live" "Live" "Preview" "Preview" "Preview" "Preview"]
              (map #(:abstract-game-state (:status %)) latest-games)) "Game states")))
 
-  (testing "If latest games have started but none finished, previous night's games are returned"
+  (testing "Latest day's games are returned as long as some have started"
     (let [latest-date-and-games (filter-latest-games resources/latest-games-in-live-and-preview-states)
           latest-games (:games latest-date-and-games)]
-      (is (= "2017-11-09"
+      (is (= "2017-11-10"
              (:raw (:date latest-date-and-games))) "Latest started games date")
       (is (= 7
              (count latest-games)) "Latest started games count")
-      (is (= ["Final"]
+      (is (= ["Live" "Preview"]
              (distinct (map #(:abstract-game-state (:status %)) latest-games))) "Distinct game states")))
 
   (testing "No started games is handled gracefully"

@@ -13,15 +13,15 @@
 (defn- get-game-state [game]
   (:abstract-game-state (:status game)))
 
-(declare finished-game?)
+(declare started-game?)
 
-(defn- has-finished-games? [date-and-games]
+(defn- has-started-games? [date-and-games]
   (let [games (:games date-and-games)]
-    (some finished-game? games)))
+    (some started-game? games)))
 
 (defn- get-latest-date-and-games-with-finished-games [dates-and-games]
   (last
-    (filter has-finished-games? dates-and-games)))
+    (filter has-started-games? dates-and-games)))
 
 (defn- format-date [date-and-games]
   (assoc date-and-games :date (get-date (:date date-and-games))))
@@ -31,6 +31,13 @@
 
 (defn finished-game? [game]
   (= "Final" (get-game-state game)))
+
+(defn live-game? [game]
+  (= "Live" (get-game-state game)))
+
+(defn started-game? [game]
+  (or (finished-game? game)
+      (live-game? game)))
 
 (defn filter-latest-games [api-response]
   (->> (json/read-str api-response :key-fn ->kebab-case-keyword)
