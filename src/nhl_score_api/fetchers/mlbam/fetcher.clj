@@ -8,6 +8,8 @@
 
 (def scores-url "https://statsapi.web.nhl.com/api/v1/schedule")
 
+(def mocked-latest-games-info-file (System/getenv "MOCK_MLBAM_API"))
+
 (defn- format-date [date]
   (format/unparse (format/formatters :year-month-day) date))
 
@@ -23,6 +25,11 @@
   (:body (http/get scores-url {:query-params (get-query-params)})))
 
 (defn fetch-latest-scores []
-  (-> (fetch-latest-games-info)
-      latest-games/filter-latest-games
-      game-scores/parse-game-scores))
+  (let [latest-games-info
+        (if mocked-latest-games-info-file
+          (do (println "Using mocked MLBAM API response from" mocked-latest-games-info-file)
+              (slurp mocked-latest-games-info-file))
+          (fetch-latest-games-info))]
+    (-> latest-games-info
+        latest-games/filter-latest-games
+        game-scores/parse-game-scores)))
