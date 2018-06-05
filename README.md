@@ -86,7 +86,7 @@ The `games` array contains details of the games, each game item containing these
           "currentPeriod": 3,
           "currentPeriodOrdinal": "3rd",
           "currentPeriodTimeRemaining": "08:58"
-        },
+        }
       },
       "goals": [
         ...
