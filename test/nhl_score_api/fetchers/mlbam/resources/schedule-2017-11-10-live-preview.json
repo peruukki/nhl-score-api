@@ -3665,6 +3665,92 @@
           "gamePk": 2017020247,
           "gameType": "R",
           "link": "/api/v1/game/2017020247/feed/live",
+          "linescore" : {
+            "currentPeriod" : 2,
+            "currentPeriodOrdinal" : "2nd",
+            "currentPeriodTimeRemaining" : "05:11",
+            "periods" : [ {
+              "periodType" : "REGULAR",
+              "startTime" : "2017-11-11T03:16:12Z",
+              "endTime" : "2017-11-11T03:55:11Z",
+              "num" : 1,
+              "ordinalNum" : "1st",
+              "home" : {
+                "goals" : 1,
+                "shotsOnGoal" : 11,
+                "rinkSide" : "right"
+              },
+              "away" : {
+                "goals" : 2,
+                "shotsOnGoal" : 9,
+                "rinkSide" : "left"
+              }
+            }, {
+              "periodType" : "REGULAR",
+              "startTime" : "2017-11-11T04:14:28Z",
+              "endTime" : "2017-11-11T04:54:05Z",
+              "num" : 2,
+              "ordinalNum" : "2nd",
+              "home" : {
+                "goals" : 1,
+                "shotsOnGoal" : 3,
+                "rinkSide" : "left"
+              },
+              "away" : {
+                "goals" : 1,
+                "shotsOnGoal" : 12,
+                "rinkSide" : "right"
+              }
+            } ],
+            "shootoutInfo" : {
+              "away" : {
+                "scores" : 0,
+                "attempts" : 0
+              },
+              "home" : {
+                "scores" : 0,
+                "attempts" : 0
+              }
+            },
+            "teams" : {
+              "home" : {
+                "team" : {
+                  "id" : 21,
+                  "name" : "Colorado Avalanche",
+                  "link" : "/api/v1/teams/21"
+                },
+                "goals" : 3,
+                "shotsOnGoal" : 19,
+                "goaliePulled" : false,
+                "numSkaters" : 3,
+                "powerPlay" : false
+              },
+              "away" : {
+                "team" : {
+                  "id" : 9,
+                  "name" : "Ottawa Senators",
+                  "link" : "/api/v1/teams/9"
+                },
+                "goals" : 4,
+                "shotsOnGoal" : 32,
+                "goaliePulled" : false,
+                "numSkaters" : 3,
+                "powerPlay" : false
+              }
+            },
+            "powerPlayStrength" : "Even",
+            "hasShootout" : false,
+            "intermissionInfo" : {
+              "intermissionTimeRemaining" : 0,
+              "intermissionTimeElapsed" : 0,
+              "inIntermission" : false
+            },
+            "powerPlayInfo" : {
+              "situationTimeRemaining" : 0,
+              "situationTimeElapsed" : 0,
+              "inSituation" : false
+            }
+          },
           "scoringPlays": [
             {
               "about": {
