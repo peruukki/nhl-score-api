@@ -21,7 +21,7 @@ The `date` object contains the date in a raw format and a prettier, displayable 
 
 The `games` array contains details of the games, each game item containing these fields:
 
-- `state` *(object)*
+- `status` *(object)*
 - `goals` *(array)*
 - `scores` *(object)*
 - `teams` *(object)*
