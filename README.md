@@ -28,6 +28,8 @@ The `games` array contains details of the games, each game item containing these
 - `records` *(object)*, not included in all star games
 - `playoffSeries` *(object)*, only included if the game is a playoff game
 
+The fields are described in more detail [later in this README](#date-fields-explained).
+
 #### Example response:
 
 ```json
