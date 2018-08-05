@@ -121,8 +121,14 @@
                     (filter-latest-games resources/games-in-live-preview-and-final-states)))
           statuses (map #(:status %) games)]
       (is (= [{:state "FINAL"}
-              {:state "LIVE" :progress {:current-period 3, :current-period-ordinal "3rd", :current-period-time-remaining "08:58"}}
-              {:state "LIVE" :progress {:current-period 3, :current-period-ordinal "3rd", :current-period-time-remaining "END"}}
+              {:state "LIVE"
+               :progress {:current-period 3,
+                          :current-period-ordinal "3rd",
+                          :current-period-time-remaining {:pretty "08:58" :min 8 :sec 58}}}
+              {:state "LIVE"
+               :progress {:current-period 3,
+                          :current-period-ordinal "3rd",
+                          :current-period-time-remaining {:pretty "END" :min 0 :sec 0}}}
               {:state "PREVIEW"}
               {:state "PREVIEW"}
               {:state "PREVIEW"}

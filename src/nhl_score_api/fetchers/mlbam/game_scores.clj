@@ -27,10 +27,12 @@
         "SHOOTOUT" "SO")
       period-number)))
 
-(defn- parse-time-str [time-str]
-  (let [time (re-find #"(\d\d):(\d\d)" time-str)]
-    {:min (Integer/parseInt (nth time 1))
-     :sec (Integer/parseInt (nth time 2))}))
+(defn- parse-time-str
+  ([time-str] (parse-time-str time-str nil))
+  ([time-str default-value]
+   (let [time (re-find #"(\d\d):(\d\d)" time-str)]
+     {:min (if time (Integer/parseInt (nth time 1)) default-value)
+      :sec (if time (Integer/parseInt (nth time 2)) default-value)})))
 
 (defn- parse-goal-time [scoring-play period]
   (when (not= "SO" period)
@@ -140,8 +142,12 @@
   (str/upper-case (:abstract-game-state (:status api-game))))
 
 (defn- parse-linescore [api-game]
-  (select-keys (:linescore api-game)
-               [:current-period :current-period-ordinal :current-period-time-remaining]))
+  (let [linescore (select-keys (:linescore api-game)
+                               [:current-period :current-period-ordinal :current-period-time-remaining])
+        current-period-time-remaining-pretty (:current-period-time-remaining linescore)
+        remaining-time (parse-time-str current-period-time-remaining-pretty 0)
+        current-period-time-remaining (assoc remaining-time :pretty current-period-time-remaining-pretty)]
+    (assoc linescore :current-period-time-remaining current-period-time-remaining)))
 
 (defn- parse-current-records [team-details]
   (let [away-details (:away team-details)
@@ -220,10 +226,9 @@
     {:wins wins-before-game}))
 
 (defn- parse-game-status [api-game]
-  (let [state (parse-game-state api-game)
-        linescore (parse-linescore api-game)]
+  (let [state (parse-game-state api-game)]
     (if (= state "LIVE")
-      {:state state :progress linescore}
+      {:state state :progress (parse-linescore api-game)}
       {:state state})))
 
 (defn- add-team-records [game-details api-game team-details teams scores]

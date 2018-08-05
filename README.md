@@ -182,8 +182,10 @@ The fields are described in more detail [later in this README](#date-fields-expl
   - `progress` object: game progress, only present if `state` is `"LIVE"`, with the fields:
     - `currentPeriod` *(number)*: current period as a number
     - `currentPeriodOrdinal` *(string)*: current period as a display string (e.g. `"2nd"`)
-    - `currentPeriodTimeRemaining` *(string*): time remaining in current period in `mm:ss` format;
-      `"END"` if the current period has ended
+    - `currentPeriodTimeRemaining` *(object*): time remaining in current period:
+      - `pretty` (*string*): time remaining in prettified `mm:ss` format; `"END"` if the current period has ended
+      - `min` *(number)*: minutes remaining; `0` if the current period has ended
+      - `sec` *(number)*: seconds remaining; `0` if the current period has ended
 - `goals` array: list of goal details, in the order the goals were scored
   - gameplay goal:
     - `goalCount` *(number)*: the number of goals the player has scored this season
