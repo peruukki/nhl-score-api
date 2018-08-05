@@ -89,7 +89,11 @@ The fields are described in more detail [later in this README](#date-fields-expl
         "progress": {
           "currentPeriod": 3,
           "currentPeriodOrdinal": "3rd",
-          "currentPeriodTimeRemaining": "08:58"
+          "currentPeriodTimeRemaining": {
+            "pretty": "08:58",
+            "min": 8,
+            "sec": 58
+          }
         }
       },
       "goals": [
