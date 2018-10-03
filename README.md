@@ -7,8 +7,6 @@ A JSON API that returns the scores and goals from the latest finished or on-goin
 
 The API is available at https://nhl-score-api.herokuapp.com/, and it serves as the backend for [nhl-recap](https://github.com/peruukki/nhl-recap).
 
-**NOTE: The API returns the last game of season 2017–18 until the start of next season.**
-
 ## API
 
 ### Goals from latest finished NHL games
