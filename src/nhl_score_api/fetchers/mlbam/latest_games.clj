@@ -19,6 +19,13 @@
   (let [games (:games date-and-games)]
     (some started-game? games)))
 
+(defn- pr-game? [game]
+  (= "PR" (:game-type game)))
+
+(defn- remove-pr-games [date-and-games]
+  (let [accepted-games (remove pr-game? (:games date-and-games))]
+    (assoc date-and-games :games accepted-games)))
+
 (defn- get-latest-date-and-games-with-finished-games [dates-and-games]
   (last
     (filter has-started-games? dates-and-games)))
@@ -43,6 +50,7 @@
   (->> (json/read-str api-response :key-fn ->kebab-case-keyword)
        :dates
        (map #(select-keys % [:date :games]))
+       (map remove-pr-games)
        get-latest-date-and-games-with-finished-games
        format-date
        sort-games-by-state))
