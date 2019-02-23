@@ -1,7 +1,5 @@
 (ns nhl-score-api.fetchers.nhlstats.latest-games
-  (:require [clojure.data.json :as json]
-            [camel-snake-kebab.core :refer [->kebab-case-keyword]]
-            [clj-time.format :as format]))
+  (:require [clj-time.format :as format]))
 
 (defn- prettify-date [date]
   (format/unparse (format/formatter "E MMM d") (format/parse date)))
@@ -47,7 +45,7 @@
       (live-game? game)))
 
 (defn filter-latest-games [api-response]
-  (->> (json/read-str api-response :key-fn ->kebab-case-keyword)
+  (->> api-response
        :dates
        (map #(select-keys % [:date :games]))
        (map remove-pr-games)
