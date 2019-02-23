@@ -3,7 +3,8 @@
 [![Build Status](https://travis-ci.org/peruukki/nhl-score-api.svg?branch=master)](https://travis-ci.org/peruukki/nhl-score-api)
 
 A JSON API that returns the scores and goals from the latest finished or on-going NHL games, based on information from the
-[Major League Baseball Advanced Media stats (MLBAM) API](https://statsapi.web.nhl.com/api/v1/schedule?expand=schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series,schedule.linescore).
+[NHL Stats API](https://statsapi.web.nhl.com/api/v1/schedule?expand=schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series,schedule.linescore).
+The NHL Stats API is undocumented, but [unofficial documentation](https://gitlab.com/dword4/nhlapi) exists.
 
 The API is available at https://nhl-score-api.herokuapp.com/, and it serves as the backend for [nhl-recap](https://github.com/peruukki/nhl-recap).
 
@@ -266,7 +267,7 @@ You can also run the application without Redis caching:
 REDIS_DISABLED=true lein run
 ```
 
-To return latest scores from mock MLBAM API data, you can specify a mock data source file:
+To return latest scores from mock NHL Stats API data, you can specify a mock data source file:
 
 ```
 REDIS_DISABLED=true MOCK_MLBAM_API=test/nhl_score_api/fetchers/mlbam/resources/schedule-2018-04-13-live-final-playoff-1st-games.json lein run
