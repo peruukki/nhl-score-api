@@ -127,7 +127,7 @@
 (defn- parse-team-details [awayOrHomeKey api-game]
   (let [team-info (awayOrHomeKey (:teams api-game))
         record (select-keys (:league-record team-info) [:wins :losses :ot])
-        details (select-keys (:team team-info) [:abbreviation :id])]
+        details (select-keys (:team team-info) [:abbreviation :id :division])]
     (assoc details :league-record record)))
 
 (defn- parse-game-team-details [api-game]
@@ -177,6 +177,21 @@
     (if (finished-game? api-game)
       (reduce-current-game-from-records current-records teams scores)
       current-records)))
+
+(defn- parse-streak-from-standings [standings division-id team-id]
+  (let [division-standings (first (filter #(= (:id (:division %)) division-id) standings))
+        team-record (first (filter #(= (:id (:team %)) team-id) (:team-records division-standings)))
+        streak (:streak team-record)]
+    {:type (:streak-type streak)
+     :count (:streak-number streak)}))
+
+(defn- parse-streaks [team-details standings]
+  (let [away-details (:away team-details)
+        home-details (:home team-details)]
+    {(:abbreviation away-details)
+     (parse-streak-from-standings standings (:id (:division away-details)) (:id away-details))
+     (:abbreviation home-details)
+     (parse-streak-from-standings standings (:id (:division home-details)) (:id home-details))}))
 
 (defn- parse-current-playoff-series-wins [api-game teams]
   (let [away-team (:away teams)
@@ -239,12 +254,17 @@
     game-details
     (assoc game-details :records (parse-records api-game team-details teams scores))))
 
+(defn- add-team-streaks [game-details api-game team-details standings]
+  (if (all-star-game? api-game)
+    game-details
+    (assoc game-details :streaks (parse-streaks team-details standings))))
+
 (defn- add-playoff-series-information [game-details api-game]
   (if (non-playoff-game? api-game)
     game-details
     (assoc game-details :playoff-series (parse-playoff-series-information api-game game-details))))
 
-(defn- parse-game-details [api-game]
+(defn- parse-game-details [standings api-game]
   (let [team-details (parse-game-team-details api-game)
         scores (parse-scores api-game team-details)
         teams (get-team-abbreviations team-details)]
@@ -254,8 +274,9 @@
          :scores scores
          :teams teams}
         (add-team-records api-game team-details teams scores)
+        (add-team-streaks api-game team-details standings)
         (add-playoff-series-information api-game))))
 
-(defn parse-game-scores [date-and-api-games]
+(defn parse-game-scores [date-and-api-games standings]
   {:date (:date date-and-api-games)
-   :games (map parse-game-details (:games date-and-api-games))})
+   :games (map (partial parse-game-details standings) (:games date-and-api-games))})

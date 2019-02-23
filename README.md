@@ -2,8 +2,9 @@
 
 [![Build Status](https://travis-ci.org/peruukki/nhl-score-api.svg?branch=master)](https://travis-ci.org/peruukki/nhl-score-api)
 
-A JSON API that returns the scores and goals from the latest finished or on-going NHL games, based on information from the
-[NHL Stats API](https://statsapi.web.nhl.com/api/v1/schedule?expand=schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series,schedule.linescore).
+A JSON API that returns the scores and goals from the latest finished or on-going NHL games, based on the
+[schedule](https://statsapi.web.nhl.com/api/v1/schedule?expand=schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series,schedule.linescore)
+and [standings](https://statsapi.web.nhl.com/api/v1/standings) information from the NHL Stats API.
 The NHL Stats API is undocumented, but [unofficial documentation](https://gitlab.com/dword4/nhlapi) exists.
 
 The API is available at https://nhl-score-api.herokuapp.com/, and it serves as the backend for [nhl-recap](https://github.com/peruukki/nhl-recap).
@@ -26,6 +27,7 @@ The `games` array contains details of the games, each game item containing these
 - `scores` *(object)*
 - `teams` *(object)*
 - `records` *(object)*, not included in all star games
+- `streaks` *(object)*, not included in all star games
 - `playoffSeries` *(object)*, only included if the game is a playoff game
 
 The fields are described in more detail [later in this README](#date-fields-explained).
@@ -75,6 +77,16 @@ The fields are described in more detail [later in this README](#date-fields-expl
           "wins": 50,
           "losses": 23,
           "ot": 9
+        }
+      },
+      "streaks": {
+        "BOS": {
+          "count": 2,
+          "type": "wins"
+        },
+        "CHI": {
+          "count": 1,
+          "type": "ot"
         }
       },
       "playoffSeries": {
@@ -130,6 +142,16 @@ The fields are described in more detail [later in this README](#date-fields-expl
           "ot": 13
         }
       },
+      "streaks": {
+        "OTT": {
+          "count": 1,
+          "type": "losses"
+        },
+        "DET": {
+          "count": 1,
+          "type": "wins"
+        }
+      },
       "playoffSeries": {
         "wins": {
           "OTT": 0,
@@ -161,6 +183,16 @@ The fields are described in more detail [later in this README](#date-fields-expl
           "wins": 50,
           "losses": 21,
           "ot": 11
+        }
+      },
+      "streaks": {
+        "NYR": {
+          "count": 1,
+          "type": "wins"
+        },
+        "PIT": {
+          "count": 1,
+          "type": "losses"
         }
       },
       "playoffSeries": {
@@ -218,6 +250,9 @@ The fields are described in more detail [later in this README](#date-fields-expl
   - `wins` *(number)*: win count (earning 2 pts)
   - `losses` *(number)*: regulation loss count (0 pts)
   - `ot` *(number)*: loss count for games that went to overtime (1 pt)
+- `streaks` object: each teams’s current form streak *before the game*, with the fields:
+  - `type` *(string)*: `"wins"` (wins in regulation, OT or SO), `"losses"` (losses in regulation) or `"ot"` (losses in OT or SO)
+  - `count` *(number)*: streak’s length in consecutive games
 - `playoffSeries` object: playoff series related information, only present during playoffs
   - `wins` object: each team’s win count in the series *before the game*
 

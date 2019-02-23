@@ -1,0 +1,921 @@
+{
+  "copyright" : "NHL and the NHL Shield are registered trademarks of the National Hockey League. NHL and NHL team marks are the property of the NHL and its teams. © NHL 2019. All Rights Reserved.",
+  "records" : [ {
+    "standingsType" : "regularSeason",
+    "league" : {
+      "id" : 133,
+      "name" : "National Hockey League",
+      "link" : "/api/v1/league/133"
+    },
+    "division" : {
+      "id" : 18,
+      "name" : "Metropolitan",
+      "nameShort" : "Metro",
+      "link" : "/api/v1/divisions/18",
+      "abbreviation" : "M"
+    },
+    "conference" : {
+      "id" : 6,
+      "name" : "Eastern",
+      "link" : "/api/v1/conferences/6"
+    },
+    "teamRecords" : [ {
+      "team" : {
+        "id" : 2,
+        "name" : "New York Islanders",
+        "link" : "/api/v1/teams/2"
+      },
+      "leagueRecord" : {
+        "wins" : 35,
+        "losses" : 18,
+        "ot" : 7,
+        "type" : "league"
+      },
+      "goalsAgainst" : 146,
+      "goalsScored" : 174,
+      "points" : 77,
+      "divisionRank" : "1",
+      "conferenceRank" : "3",
+      "leagueRank" : "6",
+      "wildCardRank" : "0",
+      "row" : 32,
+      "gamesPlayed" : 60,
+      "streak" : {
+        "streakType" : "ot",
+        "streakNumber" : 1,
+        "streakCode" : "OT1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 15,
+        "name" : "Washington Capitals",
+        "link" : "/api/v1/teams/15"
+      },
+      "leagueRecord" : {
+        "wins" : 34,
+        "losses" : 20,
+        "ot" : 7,
+        "type" : "league"
+      },
+      "goalsAgainst" : 193,
+      "goalsScored" : 205,
+      "points" : 75,
+      "divisionRank" : "2",
+      "conferenceRank" : "5",
+      "leagueRank" : "9",
+      "wildCardRank" : "0",
+      "row" : 31,
+      "gamesPlayed" : 61,
+      "streak" : {
+        "streakType" : "wins",
+        "streakNumber" : 2,
+        "streakCode" : "W2"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 29,
+        "name" : "Columbus Blue Jackets",
+        "link" : "/api/v1/teams/29"
+      },
+      "leagueRecord" : {
+        "wins" : 34,
+        "losses" : 23,
+        "ot" : 3,
+        "type" : "league"
+      },
+      "goalsAgainst" : 180,
+      "goalsScored" : 191,
+      "points" : 71,
+      "divisionRank" : "3",
+      "conferenceRank" : "7",
+      "leagueRank" : "11",
+      "wildCardRank" : "0",
+      "row" : 34,
+      "gamesPlayed" : 60,
+      "streak" : {
+        "streakType" : "wins",
+        "streakNumber" : 1,
+        "streakCode" : "W1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 5,
+        "name" : "Pittsburgh Penguins",
+        "link" : "/api/v1/teams/5"
+      },
+      "leagueRecord" : {
+        "wins" : 32,
+        "losses" : 22,
+        "ot" : 7,
+        "type" : "league"
+      },
+      "goalsAgainst" : 191,
+      "goalsScored" : 210,
+      "points" : 71,
+      "divisionRank" : "4",
+      "conferenceRank" : "8",
+      "leagueRank" : "12",
+      "wildCardRank" : "2",
+      "row" : 31,
+      "gamesPlayed" : 61,
+      "streak" : {
+        "streakType" : "losses",
+        "streakNumber" : 1,
+        "streakCode" : "L1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 12,
+        "name" : "Carolina Hurricanes",
+        "link" : "/api/v1/teams/12"
+      },
+      "leagueRecord" : {
+        "wins" : 32,
+        "losses" : 23,
+        "ot" : 6,
+        "type" : "league"
+      },
+      "goalsAgainst" : 170,
+      "goalsScored" : 178,
+      "points" : 70,
+      "divisionRank" : "5",
+      "conferenceRank" : "9",
+      "leagueRank" : "13",
+      "wildCardRank" : "3",
+      "row" : 31,
+      "gamesPlayed" : 61,
+      "streak" : {
+        "streakType" : "wins",
+        "streakNumber" : 1,
+        "streakCode" : "W1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 4,
+        "name" : "Philadelphia Flyers",
+        "link" : "/api/v1/teams/4"
+      },
+      "leagueRecord" : {
+        "wins" : 28,
+        "losses" : 26,
+        "ot" : 7,
+        "type" : "league"
+      },
+      "goalsAgainst" : 206,
+      "goalsScored" : 179,
+      "points" : 63,
+      "divisionRank" : "6",
+      "conferenceRank" : "11",
+      "leagueRank" : "20",
+      "wildCardRank" : "5",
+      "row" : 26,
+      "gamesPlayed" : 61,
+      "streak" : {
+        "streakType" : "losses",
+        "streakNumber" : 2,
+        "streakCode" : "L2"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 3,
+        "name" : "New York Rangers",
+        "link" : "/api/v1/teams/3"
+      },
+      "leagueRecord" : {
+        "wins" : 26,
+        "losses" : 26,
+        "ot" : 8,
+        "type" : "league"
+      },
+      "goalsAgainst" : 199,
+      "goalsScored" : 173,
+      "points" : 60,
+      "divisionRank" : "7",
+      "conferenceRank" : "13",
+      "leagueRank" : "24",
+      "wildCardRank" : "7",
+      "row" : 20,
+      "gamesPlayed" : 60,
+      "streak" : {
+        "streakType" : "losses",
+        "streakNumber" : 1,
+        "streakCode" : "L1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 1,
+        "name" : "New Jersey Devils",
+        "link" : "/api/v1/teams/1"
+      },
+      "leagueRecord" : {
+        "wins" : 24,
+        "losses" : 29,
+        "ot" : 8,
+        "type" : "league"
+      },
+      "goalsAgainst" : 208,
+      "goalsScored" : 180,
+      "points" : 56,
+      "divisionRank" : "8",
+      "conferenceRank" : "14",
+      "leagueRank" : "28",
+      "wildCardRank" : "8",
+      "row" : 23,
+      "gamesPlayed" : 61,
+      "streak" : {
+        "streakType" : "wins",
+        "streakNumber" : 1,
+        "streakCode" : "W1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    } ]
+  }, {
+    "standingsType" : "regularSeason",
+    "league" : {
+      "id" : 133,
+      "name" : "National Hockey League",
+      "link" : "/api/v1/league/133"
+    },
+    "division" : {
+      "id" : 17,
+      "name" : "Atlantic",
+      "nameShort" : "ATL",
+      "link" : "/api/v1/divisions/17",
+      "abbreviation" : "A"
+    },
+    "conference" : {
+      "id" : 6,
+      "name" : "Eastern",
+      "link" : "/api/v1/conferences/6"
+    },
+    "teamRecords" : [ {
+      "team" : {
+        "id" : 14,
+        "name" : "Tampa Bay Lightning",
+        "link" : "/api/v1/teams/14"
+      },
+      "leagueRecord" : {
+        "wins" : 47,
+        "losses" : 11,
+        "ot" : 4,
+        "type" : "league"
+      },
+      "goalsAgainst" : 163,
+      "goalsScored" : 244,
+      "points" : 98,
+      "divisionRank" : "1",
+      "conferenceRank" : "1",
+      "leagueRank" : "1",
+      "wildCardRank" : "0",
+      "row" : 42,
+      "gamesPlayed" : 62,
+      "streak" : {
+        "streakType" : "wins",
+        "streakNumber" : 8,
+        "streakCode" : "W8"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 6,
+        "name" : "Boston Bruins",
+        "link" : "/api/v1/teams/6"
+      },
+      "leagueRecord" : {
+        "wins" : 36,
+        "losses" : 17,
+        "ot" : 8,
+        "type" : "league"
+      },
+      "goalsAgainst" : 157,
+      "goalsScored" : 184,
+      "points" : 80,
+      "divisionRank" : "2",
+      "conferenceRank" : "2",
+      "leagueRank" : "4",
+      "wildCardRank" : "0",
+      "row" : 34,
+      "gamesPlayed" : 61,
+      "streak" : {
+        "streakType" : "wins",
+        "streakNumber" : 7,
+        "streakCode" : "W7"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 10,
+        "name" : "Toronto Maple Leafs",
+        "link" : "/api/v1/teams/10"
+      },
+      "leagueRecord" : {
+        "wins" : 36,
+        "losses" : 20,
+        "ot" : 4,
+        "type" : "league"
+      },
+      "goalsAgainst" : 170,
+      "goalsScored" : 210,
+      "points" : 76,
+      "divisionRank" : "3",
+      "conferenceRank" : "4",
+      "leagueRank" : "8",
+      "wildCardRank" : "0",
+      "row" : 36,
+      "gamesPlayed" : 60,
+      "streak" : {
+        "streakType" : "losses",
+        "streakNumber" : 1,
+        "streakCode" : "L1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 8,
+        "name" : "Montréal Canadiens",
+        "link" : "/api/v1/teams/8"
+      },
+      "leagueRecord" : {
+        "wins" : 33,
+        "losses" : 21,
+        "ot" : 7,
+        "type" : "league"
+      },
+      "goalsAgainst" : 177,
+      "goalsScored" : 184,
+      "points" : 73,
+      "divisionRank" : "4",
+      "conferenceRank" : "6",
+      "leagueRank" : "10",
+      "wildCardRank" : "1",
+      "row" : 31,
+      "gamesPlayed" : 61,
+      "streak" : {
+        "streakType" : "wins",
+        "streakNumber" : 2,
+        "streakCode" : "W2"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 7,
+        "name" : "Buffalo Sabres",
+        "link" : "/api/v1/teams/7"
+      },
+      "leagueRecord" : {
+        "wins" : 28,
+        "losses" : 24,
+        "ot" : 8,
+        "type" : "league"
+      },
+      "goalsAgainst" : 187,
+      "goalsScored" : 171,
+      "points" : 64,
+      "divisionRank" : "5",
+      "conferenceRank" : "10",
+      "leagueRank" : "17",
+      "wildCardRank" : "4",
+      "row" : 24,
+      "gamesPlayed" : 60,
+      "streak" : {
+        "streakType" : "ot",
+        "streakNumber" : 1,
+        "streakCode" : "OT1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 13,
+        "name" : "Florida Panthers",
+        "link" : "/api/v1/teams/13"
+      },
+      "leagueRecord" : {
+        "wins" : 26,
+        "losses" : 25,
+        "ot" : 8,
+        "type" : "league"
+      },
+      "goalsAgainst" : 203,
+      "goalsScored" : 184,
+      "points" : 60,
+      "divisionRank" : "6",
+      "conferenceRank" : "12",
+      "leagueRank" : "23",
+      "wildCardRank" : "6",
+      "row" : 23,
+      "gamesPlayed" : 59,
+      "streak" : {
+        "streakType" : "losses",
+        "streakNumber" : 1,
+        "streakCode" : "L1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 17,
+        "name" : "Detroit Red Wings",
+        "link" : "/api/v1/teams/17"
+      },
+      "leagueRecord" : {
+        "wins" : 23,
+        "losses" : 30,
+        "ot" : 9,
+        "type" : "league"
+      },
+      "goalsAgainst" : 207,
+      "goalsScored" : 174,
+      "points" : 55,
+      "divisionRank" : "7",
+      "conferenceRank" : "15",
+      "leagueRank" : "29",
+      "wildCardRank" : "9",
+      "row" : 21,
+      "gamesPlayed" : 62,
+      "streak" : {
+        "streakType" : "losses",
+        "streakNumber" : 1,
+        "streakCode" : "L1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 9,
+        "name" : "Ottawa Senators",
+        "link" : "/api/v1/teams/9"
+      },
+      "leagueRecord" : {
+        "wins" : 22,
+        "losses" : 34,
+        "ot" : 5,
+        "type" : "league"
+      },
+      "goalsAgainst" : 226,
+      "goalsScored" : 186,
+      "points" : 49,
+      "divisionRank" : "8",
+      "conferenceRank" : "16",
+      "leagueRank" : "31",
+      "wildCardRank" : "10",
+      "row" : 22,
+      "gamesPlayed" : 61,
+      "streak" : {
+        "streakType" : "losses",
+        "streakNumber" : 3,
+        "streakCode" : "L3"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    } ]
+  }, {
+    "standingsType" : "regularSeason",
+    "league" : {
+      "id" : 133,
+      "name" : "National Hockey League",
+      "link" : "/api/v1/league/133"
+    },
+    "division" : {
+      "id" : 16,
+      "name" : "Central",
+      "nameShort" : "CEN",
+      "link" : "/api/v1/divisions/16",
+      "abbreviation" : "C"
+    },
+    "conference" : {
+      "id" : 5,
+      "name" : "Western",
+      "link" : "/api/v1/conferences/5"
+    },
+    "teamRecords" : [ {
+      "team" : {
+        "id" : 52,
+        "name" : "Winnipeg Jets",
+        "link" : "/api/v1/teams/52"
+      },
+      "leagueRecord" : {
+        "wins" : 37,
+        "losses" : 20,
+        "ot" : 4,
+        "type" : "league"
+      },
+      "goalsAgainst" : 181,
+      "goalsScored" : 209,
+      "points" : 78,
+      "divisionRank" : "1",
+      "conferenceRank" : "3",
+      "leagueRank" : "5",
+      "wildCardRank" : "0",
+      "row" : 35,
+      "gamesPlayed" : 61,
+      "streak" : {
+        "streakType" : "wins",
+        "streakNumber" : 1,
+        "streakCode" : "W1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 18,
+        "name" : "Nashville Predators",
+        "link" : "/api/v1/teams/18"
+      },
+      "leagueRecord" : {
+        "wins" : 36,
+        "losses" : 22,
+        "ot" : 5,
+        "type" : "league"
+      },
+      "goalsAgainst" : 164,
+      "goalsScored" : 193,
+      "points" : 77,
+      "divisionRank" : "2",
+      "conferenceRank" : "4",
+      "leagueRank" : "7",
+      "wildCardRank" : "0",
+      "row" : 35,
+      "gamesPlayed" : 63,
+      "streak" : {
+        "streakType" : "wins",
+        "streakNumber" : 2,
+        "streakCode" : "W2"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 19,
+        "name" : "St. Louis Blues",
+        "link" : "/api/v1/teams/19"
+      },
+      "leagueRecord" : {
+        "wins" : 32,
+        "losses" : 23,
+        "ot" : 5,
+        "type" : "league"
+      },
+      "goalsAgainst" : 169,
+      "goalsScored" : 179,
+      "points" : 69,
+      "divisionRank" : "3",
+      "conferenceRank" : "5",
+      "leagueRank" : "14",
+      "wildCardRank" : "0",
+      "row" : 32,
+      "gamesPlayed" : 60,
+      "streak" : {
+        "streakType" : "losses",
+        "streakNumber" : 1,
+        "streakCode" : "L1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 25,
+        "name" : "Dallas Stars",
+        "link" : "/api/v1/teams/25"
+      },
+      "leagueRecord" : {
+        "wins" : 30,
+        "losses" : 25,
+        "ot" : 5,
+        "type" : "league"
+      },
+      "goalsAgainst" : 156,
+      "goalsScored" : 153,
+      "points" : 65,
+      "divisionRank" : "4",
+      "conferenceRank" : "7",
+      "leagueRank" : "16",
+      "wildCardRank" : "1",
+      "row" : 30,
+      "gamesPlayed" : 60,
+      "streak" : {
+        "streakType" : "wins",
+        "streakNumber" : 1,
+        "streakCode" : "W1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 30,
+        "name" : "Minnesota Wild",
+        "link" : "/api/v1/teams/30"
+      },
+      "leagueRecord" : {
+        "wins" : 29,
+        "losses" : 27,
+        "ot" : 6,
+        "type" : "league"
+      },
+      "goalsAgainst" : 183,
+      "goalsScored" : 171,
+      "points" : 64,
+      "divisionRank" : "5",
+      "conferenceRank" : "8",
+      "leagueRank" : "18",
+      "wildCardRank" : "2",
+      "row" : 28,
+      "gamesPlayed" : 62,
+      "streak" : {
+        "streakType" : "wins",
+        "streakNumber" : 2,
+        "streakCode" : "W2"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 21,
+        "name" : "Colorado Avalanche",
+        "link" : "/api/v1/teams/21"
+      },
+      "leagueRecord" : {
+        "wins" : 26,
+        "losses" : 24,
+        "ot" : 11,
+        "type" : "league"
+      },
+      "goalsAgainst" : 196,
+      "goalsScored" : 201,
+      "points" : 63,
+      "divisionRank" : "6",
+      "conferenceRank" : "9",
+      "leagueRank" : "19",
+      "wildCardRank" : "3",
+      "row" : 26,
+      "gamesPlayed" : 61,
+      "streak" : {
+        "streakType" : "wins",
+        "streakNumber" : 3,
+        "streakCode" : "W3"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 16,
+        "name" : "Chicago Blackhawks",
+        "link" : "/api/v1/teams/16"
+      },
+      "leagueRecord" : {
+        "wins" : 26,
+        "losses" : 27,
+        "ot" : 9,
+        "type" : "league"
+      },
+      "goalsAgainst" : 232,
+      "goalsScored" : 208,
+      "points" : 61,
+      "divisionRank" : "7",
+      "conferenceRank" : "11",
+      "leagueRank" : "22",
+      "wildCardRank" : "5",
+      "row" : 25,
+      "gamesPlayed" : 62,
+      "streak" : {
+        "streakType" : "losses",
+        "streakNumber" : 1,
+        "streakCode" : "L1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    } ]
+  }, {
+    "standingsType" : "regularSeason",
+    "league" : {
+      "id" : 133,
+      "name" : "National Hockey League",
+      "link" : "/api/v1/league/133"
+    },
+    "division" : {
+      "id" : 15,
+      "name" : "Pacific",
+      "nameShort" : "PAC",
+      "link" : "/api/v1/divisions/15",
+      "abbreviation" : "P"
+    },
+    "conference" : {
+      "id" : 5,
+      "name" : "Western",
+      "link" : "/api/v1/conferences/5"
+    },
+    "teamRecords" : [ {
+      "team" : {
+        "id" : 20,
+        "name" : "Calgary Flames",
+        "link" : "/api/v1/teams/20"
+      },
+      "leagueRecord" : {
+        "wins" : 38,
+        "losses" : 16,
+        "ot" : 7,
+        "type" : "league"
+      },
+      "goalsAgainst" : 179,
+      "goalsScored" : 223,
+      "points" : 83,
+      "divisionRank" : "1",
+      "conferenceRank" : "1",
+      "leagueRank" : "2",
+      "wildCardRank" : "0",
+      "row" : 38,
+      "gamesPlayed" : 61,
+      "streak" : {
+        "streakType" : "wins",
+        "streakNumber" : 4,
+        "streakCode" : "W4"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 28,
+        "name" : "San Jose Sharks",
+        "link" : "/api/v1/teams/28"
+      },
+      "leagueRecord" : {
+        "wins" : 36,
+        "losses" : 17,
+        "ot" : 8,
+        "type" : "league"
+      },
+      "goalsAgainst" : 190,
+      "goalsScored" : 223,
+      "points" : 80,
+      "divisionRank" : "2",
+      "conferenceRank" : "2",
+      "leagueRank" : "3",
+      "wildCardRank" : "0",
+      "row" : 36,
+      "gamesPlayed" : 61,
+      "streak" : {
+        "streakType" : "wins",
+        "streakNumber" : 1,
+        "streakCode" : "W1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 54,
+        "name" : "Vegas Golden Knights",
+        "link" : "/api/v1/teams/54"
+      },
+      "leagueRecord" : {
+        "wins" : 32,
+        "losses" : 26,
+        "ot" : 5,
+        "type" : "league"
+      },
+      "goalsAgainst" : 181,
+      "goalsScored" : 185,
+      "points" : 69,
+      "divisionRank" : "3",
+      "conferenceRank" : "6",
+      "leagueRank" : "15",
+      "wildCardRank" : "0",
+      "row" : 30,
+      "gamesPlayed" : 63,
+      "streak" : {
+        "streakType" : "losses",
+        "streakNumber" : 1,
+        "streakCode" : "L1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 53,
+        "name" : "Arizona Coyotes",
+        "link" : "/api/v1/teams/53"
+      },
+      "leagueRecord" : {
+        "wins" : 28,
+        "losses" : 28,
+        "ot" : 5,
+        "type" : "league"
+      },
+      "goalsAgainst" : 176,
+      "goalsScored" : 160,
+      "points" : 61,
+      "divisionRank" : "4",
+      "conferenceRank" : "10",
+      "leagueRank" : "21",
+      "wildCardRank" : "4",
+      "row" : 25,
+      "gamesPlayed" : 61,
+      "streak" : {
+        "streakType" : "wins",
+        "streakNumber" : 2,
+        "streakCode" : "W2"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 23,
+        "name" : "Vancouver Canucks",
+        "link" : "/api/v1/teams/23"
+      },
+      "leagueRecord" : {
+        "wins" : 26,
+        "losses" : 27,
+        "ot" : 8,
+        "type" : "league"
+      },
+      "goalsAgainst" : 191,
+      "goalsScored" : 172,
+      "points" : 60,
+      "divisionRank" : "5",
+      "conferenceRank" : "12",
+      "leagueRank" : "25",
+      "wildCardRank" : "6",
+      "row" : 23,
+      "gamesPlayed" : 61,
+      "streak" : {
+        "streakType" : "ot",
+        "streakNumber" : 1,
+        "streakCode" : "OT1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 24,
+        "name" : "Anaheim Ducks",
+        "link" : "/api/v1/teams/24"
+      },
+      "leagueRecord" : {
+        "wins" : 24,
+        "losses" : 28,
+        "ot" : 9,
+        "type" : "league"
+      },
+      "goalsAgainst" : 189,
+      "goalsScored" : 138,
+      "points" : 57,
+      "divisionRank" : "6",
+      "conferenceRank" : "13",
+      "leagueRank" : "26",
+      "wildCardRank" : "7",
+      "row" : 21,
+      "gamesPlayed" : 61,
+      "streak" : {
+        "streakType" : "losses",
+        "streakNumber" : 1,
+        "streakCode" : "L1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 22,
+        "name" : "Edmonton Oilers",
+        "link" : "/api/v1/teams/22"
+      },
+      "leagueRecord" : {
+        "wins" : 25,
+        "losses" : 29,
+        "ot" : 6,
+        "type" : "league"
+      },
+      "goalsAgainst" : 201,
+      "goalsScored" : 169,
+      "points" : 56,
+      "divisionRank" : "7",
+      "conferenceRank" : "14",
+      "leagueRank" : "27",
+      "wildCardRank" : "8",
+      "row" : 22,
+      "gamesPlayed" : 60,
+      "streak" : {
+        "streakType" : "wins",
+        "streakNumber" : 1,
+        "streakCode" : "W1"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    }, {
+      "team" : {
+        "id" : 26,
+        "name" : "Los Angeles Kings",
+        "link" : "/api/v1/teams/26"
+      },
+      "leagueRecord" : {
+        "wins" : 23,
+        "losses" : 31,
+        "ot" : 6,
+        "type" : "league"
+      },
+      "goalsAgainst" : 184,
+      "goalsScored" : 144,
+      "points" : 52,
+      "divisionRank" : "8",
+      "conferenceRank" : "15",
+      "leagueRank" : "30",
+      "wildCardRank" : "9",
+      "row" : 21,
+      "gamesPlayed" : 60,
+      "streak" : {
+        "streakType" : "losses",
+        "streakNumber" : 3,
+        "streakCode" : "L3"
+      },
+      "lastUpdated" : "2019-02-23T01:49:11Z"
+    } ]
+  } ]
+}

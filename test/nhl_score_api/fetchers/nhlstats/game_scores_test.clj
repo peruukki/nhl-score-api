@@ -9,7 +9,8 @@
   (testing "Parsing scores with games finished in overtime and in shootout"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)))]
+                    (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
+                    (:records resources/standings)))]
       (is (= 9
              (count games)) "Parsed game count")
       (is (= [4 3 5 7 3 5 9 8 5]
@@ -28,7 +29,8 @@
   (testing "Parsing scores with games finished, on-going and not yet started"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/games-in-live-preview-and-final-states)))]
+                    (filter-latest-games resources/games-in-live-preview-and-final-states)
+                    (:records resources/standings)))]
       (is (= 7
              (count games)) "Parsed game count")
       (is (= 1
@@ -52,7 +54,8 @@
     (let [game (nth
                  (:games
                    (parse-game-scores
-                     (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)))
+                     (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
+                     (:records resources/standings)))
                  4)
           goals (:goals game)]
       (is (= [{:team "EDM" :min 0 :sec 22 :scorer "Connor McDavid" :goal-count 11 :period "1"}
@@ -64,7 +67,8 @@
     (let [game (nth
                  (:games
                    (parse-game-scores
-                     (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)))
+                     (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
+                     (:records resources/standings)))
                  3)
           goals (map #(dissoc % :strength) (:goals game))]  ; 'strength' field has its own test
       (is (= [{:team "STL" :min 3 :sec 36 :scorer "Dmitrij Jaskin" :goal-count 4 :period "1"}
@@ -80,7 +84,8 @@
     (let [game (nth
                  (:games
                    (parse-game-scores
-                     (filter-latest-games resources/playoff-games-finished-in-regulation-and-overtime)))
+                     (filter-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
+                     (:records resources/standings)))
                  2)]
       (is (= {"CHI" 0 "STL" 1 :overtime true}
              (:scores game)) "Parsed scores")
@@ -91,7 +96,8 @@
     (let [game (nth
                  (:games
                    (parse-game-scores
-                     (filter-latest-games resources/playoff-games-finished-in-regulation-and-overtime)))
+                     (filter-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
+                     (:records resources/standings)))
                  1)
           goals (:goals game)]
       (is (= [false]
@@ -105,7 +111,8 @@
     (let [game (nth
                  (:games
                    (parse-game-scores
-                     (filter-latest-games resources/playoff-games-finished-in-regulation-and-overtime)))
+                     (filter-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
+                     (:records resources/standings)))
                  1)
           goals (:goals game)]
       (is (= [nil nil "PPG" "SHG" "PPG" nil nil]
@@ -118,7 +125,8 @@
   (testing "Parsing games' statuses"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/games-in-live-preview-and-final-states)))
+                    (filter-latest-games resources/games-in-live-preview-and-final-states)
+                    (:records resources/standings)))
           statuses (map #(:status %) games)]
       (is (= [{:state "FINAL"}
               {:state "LIVE"
@@ -138,7 +146,8 @@
   (testing "Parsing games' start times"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/games-in-live-preview-and-final-states)))
+                    (filter-latest-games resources/games-in-live-preview-and-final-states)
+                    (:records resources/standings)))
           start-times (map #(:start-time %) games)]
       (is (= ["2016-02-28T17:30:00Z"
               "2016-02-28T20:00:00Z"
@@ -152,7 +161,8 @@
   (testing "Parsing teams' regular season records"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)))
+                    (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
+                    (:records resources/standings)))
           records (map #(:records %) games)]
       (is (= 9
              (count records)) "Parsed regular season records count")
@@ -167,10 +177,30 @@
               {"NYI" {:wins 33 :losses 20 :ot 7} "VAN" {:wins 24 :losses 25 :ot 12}}]
              records) "Parsed regular season records")))
 
+  (testing "Parsing teams' current streaks"
+    (let [games (:games
+                  (parse-game-scores
+                    (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
+                    (:records resources/standings)))
+          streaks (map #(:streaks %) games)]
+      (is (= 9
+             (count streaks)) "Parsed streaks count")
+      (is (= [{"CAR" {:type "wins" :count 1} "NJD" {:type "wins" :count 1}}
+              {"CGY" {:type "wins" :count 4} "BOS" {:type "wins" :count 7}}
+              {"PIT" {:type "losses" :count 1} "WSH" {:type "wins" :count 2}}
+              {"STL" {:type "losses" :count 1} "OTT" {:type "losses" :count 3}}
+              {"EDM" {:type "wins" :count 1} "BUF" {:type "ot" :count 1}}
+              {"FLA" {:type "losses" :count 1} "WPG" {:type "wins" :count 1}}
+              {"COL" {:type "wins" :count 3} "MIN" {:type "wins" :count 2}}
+              {"DAL" {:type "wins" :count 1} "NSH" {:type "wins" :count 2}}
+              {"NYI" {:type "ot" :count 1} "VAN" {:type "ot" :count 1}}]
+             streaks) "Parsed streaks")))
+
   (testing "Parsing teams' playoff records"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/playoff-games-live-finished-with-1st-games)))
+                    (filter-latest-games resources/playoff-games-live-finished-with-1st-games)
+                    (:records resources/standings)))
           records (map #(:records %) games)]
       (is (= 5
              (count records)) "Parsed regular season records count")
@@ -184,7 +214,8 @@
   (testing "Parsing playoff series information from playoff games"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/playoff-games-finished-with-2nd-games)))
+                    (filter-latest-games resources/playoff-games-finished-with-2nd-games)
+                    (:records resources/standings)))
           playoff-series (map #(:playoff-series %) games)]
       (is (= [{:wins {"DET" 0 "TBL" 1}} {:wins {"NYI" 1 "FLA" 0}} {:wins {"CHI" 0 "STL" 1}} {:wins {"NSH" 0 "ANA" 0}}]
              playoff-series) "Parsed playoff series information")))
@@ -192,7 +223,8 @@
   (testing "Parsing playoff series information from first playoff games"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/playoff-games-live-finished-with-1st-games)))
+                    (filter-latest-games resources/playoff-games-live-finished-with-1st-games)
+                    (:records resources/standings)))
           playoff-series (map #(:playoff-series %) games)]
       (is (= [{:wins {"NJD" 0 "TBL" 0}} {:wins {"TOR" 0 "BOS" 0}} {:wins {"CBJ" 0 "WSH" 0}}
               {:wins {"COL" 0 "NSH" 0}} {:wins {"SJS" 0 "ANA" 0}}]

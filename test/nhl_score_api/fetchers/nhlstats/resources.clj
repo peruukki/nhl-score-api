@@ -13,3 +13,5 @@
 (def playoff-games-finished-in-regulation-and-overtime (read-resource "schedule-2016-04-13-final-playoff-reg-ot.json"))
 (def playoff-games-finished-with-2nd-games (read-resource "schedule-2016-04-16-final-playoff-2nd-games.json"))
 (def playoff-games-live-finished-with-1st-games (read-resource "schedule-2018-04-13-live-final-playoff-1st-games.json"))
+
+(def standings (read-resource "standings-2019-02-22.json"))
