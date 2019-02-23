@@ -1,5 +1,5 @@
-(ns nhl-score-api.fetchers.mlbam.game-scores
-  (:require [nhl-score-api.fetchers.mlbam.latest-games :refer [finished-game?]]
+(ns nhl-score-api.fetchers.nhlstats.game-scores
+  (:require [nhl-score-api.fetchers.nhlstats.latest-games :refer [finished-game?]]
             [clojure.string :as str]))
 
 (defn- regular-season-game? [api-game]

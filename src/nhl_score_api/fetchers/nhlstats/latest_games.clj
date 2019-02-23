@@ -1,4 +1,4 @@
-(ns nhl-score-api.fetchers.mlbam.latest-games
+(ns nhl-score-api.fetchers.nhlstats.latest-games
   (:require [clojure.data.json :as json]
             [camel-snake-kebab.core :refer [->kebab-case-keyword]]
             [clj-time.format :as format]))

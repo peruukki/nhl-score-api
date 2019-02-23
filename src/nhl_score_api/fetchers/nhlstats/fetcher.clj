@@ -1,6 +1,6 @@
-(ns nhl-score-api.fetchers.mlbam.fetcher
-  (:require [nhl-score-api.fetchers.mlbam.game-scores :as game-scores]
-            [nhl-score-api.fetchers.mlbam.latest-games :as latest-games]
+(ns nhl-score-api.fetchers.nhlstats.fetcher
+  (:require [nhl-score-api.fetchers.nhlstats.game-scores :as game-scores]
+            [nhl-score-api.fetchers.nhlstats.latest-games :as latest-games]
             [clojure.data.json :as json]
             [clj-time.core :as time]
             [clj-time.format :as format]
@@ -8,7 +8,7 @@
 
 (def scores-url "https://statsapi.web.nhl.com/api/v1/schedule")
 
-(def mocked-latest-games-info-file (System/getenv "MOCK_MLBAM_API"))
+(def mocked-latest-games-info-file (System/getenv "MOCK_NHL_STATS_API"))
 
 (defn- format-date [date]
   (format/unparse (format/formatters :year-month-day) date))
@@ -27,7 +27,7 @@
 (defn fetch-latest-scores []
   (let [latest-games-info
         (if mocked-latest-games-info-file
-          (do (println "Using mocked MLBAM API response from" mocked-latest-games-info-file)
+          (do (println "Using mocked NHL Stats API response from" mocked-latest-games-info-file)
               (slurp mocked-latest-games-info-file))
           (fetch-latest-games-info))]
     (-> latest-games-info

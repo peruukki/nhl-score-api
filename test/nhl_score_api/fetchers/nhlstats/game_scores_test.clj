@@ -1,8 +1,8 @@
-(ns nhl-score-api.fetchers.mlbam.game-scores-test
+(ns nhl-score-api.fetchers.nhlstats.game-scores-test
   (:require [clojure.test :refer :all]
-            [nhl-score-api.fetchers.mlbam.game-scores :refer :all]
-            [nhl-score-api.fetchers.mlbam.latest-games :refer [filter-latest-games]]
-            [nhl-score-api.fetchers.mlbam.resources :as resources]))
+            [nhl-score-api.fetchers.nhlstats.game-scores :refer :all]
+            [nhl-score-api.fetchers.nhlstats.latest-games :refer [filter-latest-games]]
+            [nhl-score-api.fetchers.nhlstats.resources :as resources]))
 
 (deftest game-score-json-parsing
 

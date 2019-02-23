@@ -270,7 +270,7 @@ REDIS_DISABLED=true lein run
 To return latest scores from mock NHL Stats API data, you can specify a mock data source file:
 
 ```
-REDIS_DISABLED=true MOCK_MLBAM_API=test/nhl_score_api/fetchers/mlbam/resources/schedule-2018-04-13-live-final-playoff-1st-games.json lein run
+REDIS_DISABLED=true MOCK_NHL_STATS_API=test/nhl_score_api/fetchers/nhlstats/resources/schedule-2018-04-13-live-final-playoff-1st-games.json lein run
 ```
 
 ## Running tests

@@ -1,8 +1,8 @@
-(ns nhl-score-api.fetchers.mlbam.fetcher-test
+(ns nhl-score-api.fetchers.nhlstats.fetcher-test
   (:require [clojure.test :refer :all]
             [clj-time.core :as time]
             [clj-time.format :as format]
-            [nhl-score-api.fetchers.mlbam.fetcher :refer :all]))
+            [nhl-score-api.fetchers.nhlstats.fetcher :refer :all]))
 
 (deftest fetching-latest-scores
 
