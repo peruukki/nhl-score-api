@@ -231,6 +231,9 @@
       {:state state :progress (parse-linescore api-game)}
       {:state state})))
 
+(defn- parse-game-start-time [api-game]
+  (:game-date api-game))
+
 (defn- add-team-records [game-details api-game team-details teams scores]
   (if (all-star-game? api-game)
     game-details
@@ -246,6 +249,7 @@
         scores (parse-scores api-game team-details)
         teams (get-team-abbreviations team-details)]
     (-> {:status (parse-game-status api-game)
+         :start-time (parse-game-start-time api-game)
          :goals (parse-goals api-game team-details)
          :scores scores
          :teams teams}

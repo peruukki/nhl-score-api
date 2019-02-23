@@ -135,6 +135,20 @@
               {:state "PREVIEW"}]
              statuses) "Parsed game statuses")))
 
+  (testing "Parsing games' start times"
+    (let [games (:games
+                  (parse-game-scores
+                    (filter-latest-games resources/games-in-live-preview-and-final-states)))
+          start-times (map #(:start-time %) games)]
+      (is (= ["2016-02-28T17:30:00Z"
+              "2016-02-28T20:00:00Z"
+              "2016-02-28T20:00:00Z"
+              "2016-02-28T23:30:00Z"
+              "2016-02-29T00:00:00Z"
+              "2016-02-29T02:00:00Z"
+              "2016-02-29T02:30:00Z"]
+             start-times) "Parsed game start times")))
+
   (testing "Parsing teams' regular season records"
     (let [games (:games
                   (parse-game-scores

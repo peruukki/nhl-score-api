@@ -20,6 +20,7 @@ The `date` object contains the date in a raw format and a prettier, displayable 
 The `games` array contains details of the games, each game item containing these fields:
 
 - `status` *(object)*
+- `startTime` *(string)*
 - `goals` *(array)*
 - `scores` *(object)*
 - `teams` *(object)*
@@ -41,6 +42,7 @@ The fields are described in more detail [later in this README](#date-fields-expl
       "status": {
         "state": "FINAL"
       },
+      "startTime": "2016-02-29T00:00:00Z",
       "goals": [
         ...
         {
@@ -94,6 +96,7 @@ The fields are described in more detail [later in this README](#date-fields-expl
           }
         }
       },
+      "startTime": "2016-02-29T02:30:00Z",
       "goals": [
         ...
         {
@@ -137,6 +140,7 @@ The fields are described in more detail [later in this README](#date-fields-expl
       "status": {
         "state": "PREVIEW"
       },
+      "startTime": "2016-02-29T02:30:00Z",
       "goals": [],
       "scores": {
         "NYR": 0,
@@ -171,7 +175,7 @@ The fields are described in more detail [later in this README](#date-fields-expl
 
 #### Date fields explained:
 
-- `raw` *(string)*: the raw date in "yyyy-MM-dd" format, usable for any kind of processing
+- `raw` *(string)*: the raw date in "YYYY-MM-DD" format, usable for any kind of processing
 - `pretty` *(string)*: a prettified format, can be shown as-is in the client
 
 #### Game fields explained:
@@ -188,6 +192,8 @@ The fields are described in more detail [later in this README](#date-fields-expl
       - `pretty` (*string*): time remaining in prettified `mm:ss` format; `"END"` if the current period has ended
       - `min` *(number)*: minutes remaining; `0` if the current period has ended
       - `sec` *(number)*: seconds remaining; `0` if the current period has ended
+- `startTime` string: the game start time in standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
+  "YYYY-MM-DDThh:mm:ssZ"
 - `goals` array: list of goal details, in the order the goals were scored
   - gameplay goal:
     - `goalCount` *(number)*: the number of goals the player has scored this season
