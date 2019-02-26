@@ -185,15 +185,15 @@
           streaks (map #(:streaks %) games)]
       (is (= 9
              (count streaks)) "Parsed streaks count")
-      (is (= [{"CAR" {:type "wins" :count 1} "NJD" {:type "wins" :count 1}}
-              {"CGY" {:type "wins" :count 4} "BOS" {:type "wins" :count 7}}
-              {"PIT" {:type "losses" :count 1} "WSH" {:type "wins" :count 2}}
-              {"STL" {:type "losses" :count 1} "OTT" {:type "losses" :count 3}}
-              {"EDM" {:type "wins" :count 1} "BUF" {:type "ot" :count 1}}
-              {"FLA" {:type "losses" :count 1} "WPG" {:type "wins" :count 1}}
-              {"COL" {:type "wins" :count 3} "MIN" {:type "wins" :count 2}}
-              {"DAL" {:type "wins" :count 1} "NSH" {:type "wins" :count 2}}
-              {"NYI" {:type "ot" :count 1} "VAN" {:type "ot" :count 1}}]
+      (is (= [{"CAR" {:type "WINS" :count 1} "NJD" {:type "WINS" :count 1}}
+              {"CGY" {:type "WINS" :count 4} "BOS" {:type "WINS" :count 7}}
+              {"PIT" {:type "LOSSES" :count 1} "WSH" {:type "WINS" :count 2}}
+              {"STL" {:type "LOSSES" :count 1} "OTT" {:type "LOSSES" :count 3}}
+              {"EDM" {:type "WINS" :count 1} "BUF" {:type "OT" :count 1}}
+              {"FLA" {:type "LOSSES" :count 1} "WPG" {:type "WINS" :count 1}}
+              {"COL" {:type "WINS" :count 3} "MIN" {:type "WINS" :count 2}}
+              {"DAL" {:type "WINS" :count 1} "NSH" {:type "WINS" :count 2}}
+              {"NYI" {:type "OT" :count 1} "VAN" {:type "OT" :count 1}}]
              streaks) "Parsed streaks")))
 
   (testing "Parsing teams' playoff records"

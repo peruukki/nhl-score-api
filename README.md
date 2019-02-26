@@ -82,11 +82,11 @@ The fields are described in more detail [later in this README](#date-fields-expl
       "streaks": {
         "BOS": {
           "count": 2,
-          "type": "wins"
+          "type": "WINS"
         },
         "CHI": {
           "count": 1,
-          "type": "ot"
+          "type": "OT"
         }
       },
       "playoffSeries": {
@@ -145,11 +145,11 @@ The fields are described in more detail [later in this README](#date-fields-expl
       "streaks": {
         "OTT": {
           "count": 1,
-          "type": "losses"
+          "type": "LOSSES"
         },
         "DET": {
           "count": 1,
-          "type": "wins"
+          "type": "WINS"
         }
       },
       "playoffSeries": {
@@ -188,11 +188,11 @@ The fields are described in more detail [later in this README](#date-fields-expl
       "streaks": {
         "NYR": {
           "count": 1,
-          "type": "wins"
+          "type": "WINS"
         },
         "PIT": {
           "count": 1,
-          "type": "losses"
+          "type": "LOSSES"
         }
       },
       "playoffSeries": {
@@ -251,7 +251,7 @@ The fields are described in more detail [later in this README](#date-fields-expl
   - `losses` *(number)*: regulation loss count (0 pts)
   - `ot` *(number)*: loss count for games that went to overtime (1 pt)
 - `streaks` object: each teams’s current form streak *before the game*, with the fields:
-  - `type` *(string)*: `"wins"` (wins in regulation, OT or SO), `"losses"` (losses in regulation) or `"ot"` (losses in OT or SO)
+  - `type` *(string)*: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
   - `count` *(number)*: streak’s length in consecutive games
 - `playoffSeries` object: playoff series related information, only present during playoffs
   - `wins` object: each team’s win count in the series *before the game*

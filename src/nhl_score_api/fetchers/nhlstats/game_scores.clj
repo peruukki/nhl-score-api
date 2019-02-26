@@ -182,7 +182,7 @@
   (let [division-standings (first (filter #(= (:id (:division %)) division-id) standings))
         team-record (first (filter #(= (:id (:team %)) team-id) (:team-records division-standings)))
         streak (:streak team-record)]
-    {:type (:streak-type streak)
+    {:type (str/upper-case (:streak-type streak))
      :count (:streak-number streak)}))
 
 (defn- parse-streaks [team-details standings]
