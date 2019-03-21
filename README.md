@@ -13,7 +13,7 @@ The API is available at https://nhl-score-api.herokuapp.com/, and it serves as t
 
 ### Goals from latest finished NHL games
 
-##### `GET` [/api/scores/latest](https://nhl-score-api.herokuapp.com/api/scores/latest)
+#### `GET` [/api/scores/latest](https://nhl-score-api.herokuapp.com/api/scores/latest)
 
 Returns an object with the date and the scores from the latest round’s games.
 
@@ -28,11 +28,12 @@ The `games` array contains details of the games, each game item containing these
 - `teams` *(object)*
 - `records` *(object)*, not included in all star games
 - `streaks` *(object)*, not included in all star games
+- `standings` *(object)*, not included in all star or playoff games
 - `playoffSeries` *(object)*, only included if the game is a playoff game
 
 The fields are described in more detail [later in this README](#date-fields-explained).
 
-#### Example response:
+##### Example regular season scores response:
 
 ```json
 {
@@ -89,10 +90,12 @@ The fields are described in more detail [later in this README](#date-fields-expl
           "type": "OT"
         }
       },
-      "playoffSeries": {
-        "wins": {
-          "BOS": 0,
-          "CHI": 0
+      "standings": {
+        "BOS": {
+          "pointsFromPlayoffSpot": "+17"
+        },
+        "CHI": {
+          "pointsFromPlayoffSpot": "-4"
         }
       }
     },
@@ -152,13 +155,28 @@ The fields are described in more detail [later in this README](#date-fields-expl
           "type": "WINS"
         }
       },
-      "playoffSeries": {
-        "wins": {
-          "OTT": 0,
-          "DET": 1
+      "standings": {
+        "OTT": {
+          "pointsFromPlayoffSpot": "+2"
+        },
+        "DET": {
+          "pointsFromPlayoffSpot": "0"
         }
       }
     },
+  ]
+}
+```
+
+##### Example playoff scores response:
+
+```json
+{
+  "date": {
+    "raw": "2017-10-16",
+    "pretty": "Mon Oct 16"
+  },
+  "games": [
     {
       "status": {
         "state": "PREVIEW"
@@ -206,12 +224,12 @@ The fields are described in more detail [later in this README](#date-fields-expl
 }
 ```
 
-#### Date fields explained:
+##### Date fields explained:
 
 - `raw` *(string)*: the raw date in "YYYY-MM-DD" format, usable for any kind of processing
 - `pretty` *(string)*: a prettified format, can be shown as-is in the client
 
-#### Game fields explained:
+##### Game fields explained:
 
 - `status` object: current game status, with the fields:
   - `state` *(string)*:
@@ -253,6 +271,10 @@ The fields are described in more detail [later in this README](#date-fields-expl
 - `streaks` object: each teams’s current form streak *before the game*, with the fields:
   - `type` *(string)*: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
   - `count` *(number)*: streak’s length in consecutive games
+- `standings` object: each teams’s standings related information *before the game*, with the field:
+  - `pointsFromPlayoffSpot` *(string)*: point difference to the team in the last playoff spot in the conference
+    (2nd wildcard position); positive values (`"+5"`) mean that the team has so many more points, negative values
+    that they have less
 - `playoffSeries` object: playoff series related information, only present during playoffs
   - `wins` object: each team’s win count in the series *before the game*
 

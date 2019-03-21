@@ -196,6 +196,25 @@
               {"NYI" {:type "OT" :count 1} "VAN" {:type "OT" :count 1}}]
              streaks) "Parsed streaks")))
 
+  (testing "Parsing teams' standings"
+    (let [games (:games
+                  (parse-game-scores
+                    (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
+                    (:records resources/standings)))
+          standings (map #(:standings %) games)]
+      (is (= 9
+             (count standings)) "Parsed standings count")
+      (is (= [{"CAR" {:points-from-playoff-spot "-1"} "NJD" {:points-from-playoff-spot "-15"}}
+              {"CGY" {:points-from-playoff-spot "+19"} "BOS" {:points-from-playoff-spot "+9"}}
+              {"PIT" {:points-from-playoff-spot "0"} "WSH" {:points-from-playoff-spot "+4"}}
+              {"STL" {:points-from-playoff-spot "+5"} "OTT" {:points-from-playoff-spot "-22"}}
+              {"EDM" {:points-from-playoff-spot "-8"} "BUF" {:points-from-playoff-spot "-7"}}
+              {"FLA" {:points-from-playoff-spot "-11"} "WPG" {:points-from-playoff-spot "+14"}}
+              {"COL" {:points-from-playoff-spot "-1"} "MIN" {:points-from-playoff-spot "0"}}
+              {"DAL" {:points-from-playoff-spot "+1"} "NSH" {:points-from-playoff-spot "+13"}}
+              {"NYI" {:points-from-playoff-spot "+6"} "VAN" {:points-from-playoff-spot "-4"}}]
+             standings) "Parsed standings")))
+
   (testing "Parsing teams' playoff records"
     (let [games (:games
                   (parse-game-scores
