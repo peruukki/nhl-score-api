@@ -272,9 +272,13 @@ The fields are described in more detail [later in this README](#date-fields-expl
   - `type` *(string)*: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
   - `count` *(number)*: streak’s length in consecutive games
 - `standings` object: each teams’s standings related information *before the game*, with the field:
-  - `pointsFromPlayoffSpot` *(string)*: point difference to the team in the last playoff spot in the conference
-    (2nd wildcard position); positive values (`"+5"`) mean that the team has so many more points, negative values
-    that they have less
+  - `pointsFromPlayoffSpot` *(string)*: point difference to the last playoff spot in the conference:
+    - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
+      i.e. by how many points the team is safe
+    - for teams currently outside the playoffs, this is the point difference to the team in the last playoff spot (2nd wildcard
+      position); i.e. by how many points (at minimum) the team needs to catch up
+    - Note: this value only indicates point differences and doesn't consider which team is ranked higher if they have the same
+      amount of points
 - `playoffSeries` object: playoff series related information, only present during playoffs
   - `wins` object: each team’s win count in the series *before the game*
 

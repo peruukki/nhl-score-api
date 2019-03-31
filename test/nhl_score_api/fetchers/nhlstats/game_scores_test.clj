@@ -205,14 +205,14 @@
       (is (= 9
              (count standings)) "Parsed standings count")
       (is (= [{"CAR" {:points-from-playoff-spot "-1"} "NJD" {:points-from-playoff-spot "-15"}}
-              {"CGY" {:points-from-playoff-spot "+19"} "BOS" {:points-from-playoff-spot "+9"}}
-              {"PIT" {:points-from-playoff-spot "0"} "WSH" {:points-from-playoff-spot "+4"}}
-              {"STL" {:points-from-playoff-spot "+5"} "OTT" {:points-from-playoff-spot "-22"}}
+              {"CGY" {:points-from-playoff-spot "+20"} "BOS" {:points-from-playoff-spot "+10"}}
+              {"PIT" {:points-from-playoff-spot "+1"} "WSH" {:points-from-playoff-spot "+5"}}
+              {"STL" {:points-from-playoff-spot "+6"} "OTT" {:points-from-playoff-spot "-22"}}
               {"EDM" {:points-from-playoff-spot "-8"} "BUF" {:points-from-playoff-spot "-7"}}
-              {"FLA" {:points-from-playoff-spot "-11"} "WPG" {:points-from-playoff-spot "+14"}}
-              {"COL" {:points-from-playoff-spot "-1"} "MIN" {:points-from-playoff-spot "0"}}
-              {"DAL" {:points-from-playoff-spot "+1"} "NSH" {:points-from-playoff-spot "+13"}}
-              {"NYI" {:points-from-playoff-spot "+6"} "VAN" {:points-from-playoff-spot "-4"}}]
+              {"FLA" {:points-from-playoff-spot "-11"} "WPG" {:points-from-playoff-spot "+15"}}
+              {"COL" {:points-from-playoff-spot "-1"} "MIN" {:points-from-playoff-spot "+1"}}
+              {"DAL" {:points-from-playoff-spot "+2"} "NSH" {:points-from-playoff-spot "+14"}}
+              {"NYI" {:points-from-playoff-spot "+7"} "VAN" {:points-from-playoff-spot "-4"}}]
              standings) "Parsed standings")))
 
   (testing "Parsing teams' playoff records"
