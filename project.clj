@@ -14,7 +14,7 @@
   :main nhl-score-api.core
   :profiles {:kaocha {:dependencies [[lambdaisland/kaocha "0.0-413"]]}
              :uberjar {:aot :all}}
-  :aliases {"kaocha" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner"]}
+  :aliases {"kaocha" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner" "--reporter" "kaocha.report/documentation"]}
   :plugins [[lein-heroku "0.5.3"]]
   :uberjar-name "server.jar"
   :heroku {:app-name "nhl-score-api"
