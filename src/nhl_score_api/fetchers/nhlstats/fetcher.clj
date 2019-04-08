@@ -35,8 +35,10 @@
 (defn- fetch-latest-games-info []
   (api-response-to-json (:body (http/get scores-url {:query-params (get-schedule-query-params)}))))
 
-(defn- fetch-standings-info [latest-games-date-str]
-  (api-response-to-json (:body (http/get standings-url {:query-params (get-standings-query-params latest-games-date-str)}))))
+(defn fetch-standings-info [latest-games-date-str]
+  (if (nil? latest-games-date-str)
+    {:records nil}
+    (api-response-to-json (:body (http/get standings-url {:query-params (get-standings-query-params latest-games-date-str)})))))
 
 (defn fetch-latest-scores []
   (let [latest-games-info
