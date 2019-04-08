@@ -339,7 +339,7 @@ REDIS_DISABLED=true MOCK_NHL_STATS_API=test/nhl_score_api/fetchers/nhlstats/reso
 Run tests with the [Kaocha test runner](https://github.com/lambdaisland/kaocha) for improved test failure reporting:
 
 ```
-lein kaocha
+lein kaocha [--watch]
 ```
 
 Or with the regular test runner:
