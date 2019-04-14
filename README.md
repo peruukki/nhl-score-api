@@ -27,9 +27,9 @@ The `games` array contains details of the games, each game item containing these
 - `scores` *(object)*
 - `teams` *(object)*
 - `records` *(object)*, not included in all star games
-- `streaks` *(object)*, not included in all star games
-- `standings` *(object)*, not included in all star or playoff games
-- `playoffSeries` *(object)*, only included if the game is a playoff game
+- `streaks` *(object)*, only included in regular season games
+- `standings` *(object)*, only included in regular season games
+- `playoffSeries` *(object)*, only included in playoff games
 
 The fields are described in more detail [later in this README](#date-fields-explained).
 

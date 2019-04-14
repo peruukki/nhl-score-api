@@ -283,12 +283,12 @@
     (assoc game-details :records (parse-records api-game team-details teams scores))))
 
 (defn- add-team-streaks [game-details api-game team-details standings]
-  (if (all-star-game? api-game)
+  (if (not (regular-season-game? api-game))
     game-details
     (assoc game-details :streaks (parse-streaks team-details standings))))
 
 (defn- add-team-standings [game-details api-game team-details standings last-playoff-teams first-teams-out-of-the-playoffs]
-  (if (or (all-star-game? api-game) (nil? last-playoff-teams))
+  (if (or (not (regular-season-game? api-game)) (nil? last-playoff-teams))
     game-details
     (assoc game-details :standings (parse-standings team-details standings last-playoff-teams first-teams-out-of-the-playoffs))))
 
