@@ -203,16 +203,6 @@ The fields are described in more detail [later in this README](#date-fields-expl
           "ot": 11
         }
       },
-      "streaks": {
-        "NYR": {
-          "count": 1,
-          "type": "WINS"
-        },
-        "PIT": {
-          "count": 1,
-          "type": "LOSSES"
-        }
-      },
       "playoffSeries": {
         "wins": {
           "NYR": 1,
