@@ -58,9 +58,16 @@
                      (:records resources/standings)))
                  4)
           goals (:goals game)]
-      (is (= [{:team "EDM" :min 0 :sec 22 :scorer "Connor McDavid" :goal-count 11 :period "1"}
-              {:team "BUF" :min 9 :sec 6 :scorer "Cal O'Reilly" :goal-count 1 :period "3"}
-              {:team "EDM" :min 3 :sec 48 :scorer "Connor McDavid" :goal-count 12 :period "OT"}]
+      (is (= [{:team "EDM" :min 0 :sec 22 :period "1"
+               :scorer {:player "Connor McDavid" :season-total 11}
+               :assists [{:player "Jordan Eberle" :season-total 19}]}
+              {:team "BUF" :min 9 :sec 6 :period "3"
+               :scorer {:player "Cal O'Reilly" :season-total 1}
+               :assists [{:player "Sam Reinhart" :season-total 11}
+                         {:player "Mark Pysyk" :season-total 5}]}
+              {:team "EDM" :min 3 :sec 48 :period "OT"
+               :scorer {:player "Connor McDavid" :season-total 12}
+               :assists []}]
              goals) "Parsed goals")))
 
   (testing "Parsing game with goals in regulation and shootout"
@@ -71,13 +78,31 @@
                      (:records resources/standings)))
                  3)
           goals (map #(dissoc % :strength) (:goals game))]  ; 'strength' field has its own test
-      (is (= [{:team "STL" :min 3 :sec 36 :scorer "Dmitrij Jaskin" :goal-count 4 :period "1"}
-              {:team "STL" :min 12 :sec 53 :scorer "Jaden Schwartz" :goal-count 5 :period "1"}
-              {:team "STL" :min 10 :sec 38 :scorer "Vladimir Tarasenko" :goal-count 30 :period "2"}
-              {:team "OTT" :min 12 :sec 32 :scorer "Ryan Dzingel" :goal-count 2 :period "2"}
-              {:team "OTT" :min 17 :sec 19 :scorer "Jean-Gabriel Pageau" :goal-count 15 :period "3"}
-              {:team "OTT" :min 19 :sec 59 :scorer "Jean-Gabriel Pageau" :goal-count 16 :period "3"}
-              {:team "STL" :scorer "Patrik Berglund" :period "SO"}]
+      (is (= [{:team "STL" :min 3 :sec 36 :period "1"
+               :scorer {:player "Dmitrij Jaskin" :season-total 4}
+               :assists [{:player "Jaden Schwartz" :season-total 7}
+                         {:player "Alex Pietrangelo" :season-total 22}]}
+              {:team "STL" :min 12 :sec 53 :period "1"
+               :scorer {:player "Jaden Schwartz" :season-total 5}
+               :assists [{:player "David Backes" :season-total 19}
+                         {:player "Kevin Shattenkirk" :season-total 22}]}
+              {:team "STL" :min 10 :sec 38 :period "2"
+               :scorer {:player "Vladimir Tarasenko" :season-total 30}
+               :assists [{:player "Kevin Shattenkirk" :season-total 23}
+                         {:player "Jaden Schwartz" :season-total 8}]}
+              {:team "OTT" :min 12 :sec 32 :period "2"
+               :scorer {:player "Ryan Dzingel" :season-total 2}
+               :assists [{:player "Dion Phaneuf" :season-total 27}
+                         {:player "Mika Zibanejad" :season-total 26}]}
+              {:team "OTT" :min 17 :sec 19 :period "3"
+               :scorer {:player "Jean-Gabriel Pageau" :season-total 15}
+               :assists [{:player "Mark Stone" :season-total 30}
+                         {:player "Erik Karlsson" :season-total 57}]}
+              {:team "OTT" :min 19 :sec 59 :period "3"
+               :scorer {:player "Jean-Gabriel Pageau" :season-total 16}
+               :assists [{:player "Bobby Ryan" :season-total 27}
+                         {:player "Zack Smith" :season-total 7}]}
+              {:team "STL" :period "SO" :scorer {:player "Patrik Berglund"}}]
              goals) "Parsed goals")))
 
   (testing "Parsing game with goal in playoff overtime"
@@ -89,7 +114,10 @@
                  2)]
       (is (= {"CHI" 0 "STL" 1 :overtime true}
              (:scores game)) "Parsed scores")
-      (is (= [{:team "STL" :min 9 :sec 4 :scorer "David Backes" :goal-count 1 :period "4"}]
+      (is (= [{:team "STL" :min 9 :sec 4 :period "4"
+               :scorer {:player "David Backes" :season-total 1}
+               :assists [{:player "Jay Bouwmeester" :season-total 1}
+                         {:player "Alex Pietrangelo" :season-total 1}]}]
              (:goals game)) "Parsed goals")))
 
   (testing "Parsing empty net goal information"

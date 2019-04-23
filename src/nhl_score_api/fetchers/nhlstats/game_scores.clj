@@ -42,12 +42,15 @@
 (defn- parse-goal-scorer-details [scoring-play]
   (first (filter #(= "Scorer" (:player-type %)) (:players scoring-play))))
 
-(defn- parse-goal-scorer-name [scoring-play]
-  (:full-name (:player (parse-goal-scorer-details scoring-play))))
+(defn- parse-goal-assists-details [scoring-play]
+  (filter #(= "Assist" (:player-type %)) (:players scoring-play)))
 
-(defn- parse-goal-scorer-goal-count [scoring-play period]
+(defn- parse-player-name [player-details]
+  (:full-name (:player player-details)))
+
+(defn- parse-season-total [player-details period]
   (when (not= "SO" period)
-    (:season-total (parse-goal-scorer-details scoring-play))))
+    (:season-total player-details)))
 
 (defn- scored-in-empty-net? [scoring-play]
   (:empty-net (:result scoring-play)))
@@ -60,9 +63,28 @@
     (assoc goal-details :min (:min time) :sec (:sec time))
     goal-details))
 
-(defn- add-goal-count [goal-details goal-count]
-  (if goal-count
-    (assoc goal-details :goal-count goal-count)
+(defn- add-season-total [player-details season-total]
+  (if season-total
+    (assoc player-details :season-total season-total)
+    player-details))
+
+(defn- parse-goal-scorer [scoring-play period]
+  (let [scorer-details (parse-goal-scorer-details scoring-play)
+        player (parse-player-name scorer-details)
+        season-total (parse-season-total scorer-details period)]
+    (add-season-total {:player player} season-total)))
+
+(defn- parse-goal-assist [assist-details]
+  {:player (parse-player-name assist-details)
+   :season-total (:season-total assist-details)})
+
+(defn- parse-goal-assists [scoring-play]
+  (let [assists-details (parse-goal-assists-details scoring-play)]
+    (map parse-goal-assist assists-details)))
+
+(defn- add-goal-assists [goal-details assists period]
+  (if (not= "SO" period)
+    (assoc goal-details :assists assists)
     goal-details))
 
 (defn- add-empty-net-flag [goal-details empty-net?]
@@ -79,13 +101,13 @@
   (let [team (parse-goal-team scoring-play team-details)
         period (parse-goal-period api-game scoring-play)
         time (parse-goal-time scoring-play period)
-        scorer (parse-goal-scorer-name scoring-play)
-        goal-count (parse-goal-scorer-goal-count scoring-play period)
+        scorer (parse-goal-scorer scoring-play period)
+        assists (parse-goal-assists scoring-play)
         empty-net? (scored-in-empty-net? scoring-play)
         strength (parse-goal-strength scoring-play)]
     (-> {:team team :period period :scorer scorer}
+        (add-goal-assists assists period)
         (add-goal-time time)
-        (add-goal-count goal-count)
         (add-empty-net-flag empty-net?)
         (add-goal-strength strength))))
 

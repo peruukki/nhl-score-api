@@ -50,9 +50,21 @@ The fields are described in more detail [later in this README](#date-fields-expl
       "goals": [
         ...
         {
-          "goalCount": 1,
           "period": "1",
-          "scorer": "David Krejci",
+          "scorer": {
+            "player": "David Krejci",
+            "seasonTotal": 1
+          },
+          "assists": [
+            {
+              "player": "Torey Krug",
+              "seasonTotal": 3
+            },
+            {
+              "player": "Zdeno Chara",
+              "seasonTotal": 2
+            }
+          ],
           "team": "BOS",
           "min": 5,
           "sec": 36,
@@ -116,9 +128,17 @@ The fields are described in more detail [later in this README](#date-fields-expl
       "goals": [
         ...
         {
-          "goalCount": 1,
           "period": "OT",
-          "scorer": "Kyle Turris",
+          "scorer": {
+            "player": "Kyle Turris",
+            "seasonTotal": 1
+          },
+          "assists": [
+            {
+              "player": "Mika Zibanejad",
+              "seasonTotal": 3
+            }
+          ],
           "team": "OTT",
           "min": 0,
           "sec": 30
@@ -237,18 +257,23 @@ The fields are described in more detail [later in this README](#date-fields-expl
   "YYYY-MM-DDThh:mm:ssZ"
 - `goals` array: list of goal details, in the order the goals were scored
   - gameplay goal:
-    - `goalCount` *(number)*: the number of goals the player has scored this season
+    - `assists` *(array)* of objects with the fields (an empty array for unassisted goals):
+      - `player`: the name of the player credited with the assist
+      - `seasonTotal` *(number)*: the number of assists the player has had this season
     - `emptyNet` *(boolean)*: set to `true` if the goal was scored in an empty net, absent if it wasn’t
     - `min` *(number)*: the goal scoring time minutes, from the start of the period
     - `period` *(string)*: in which period the goal was scored; `"OT"` means **regular season 5 minute overtime**
-    - `scorer` *(string)*: the goal scorer
+    - `scorer` *(object)*:
+      - `player`: the name of the goal scorer
+      - `seasonTotal` *(number)*: the number of goals the player has scored this season
     - `sec` *(number)*: the goal scoring time seconds, from the start of the period
     - `strength` *(string)*: can be set to `"PPG"` (power play goal) or `"SHG"` (short handed goal); absent
       if the goal was scored on even strength
     - `team` *(string)*: the team that scored the goal
   - shootout goal:
     - `period` *(string)*: `"SO"`
-    - `scorer` *(string)*: the goal scorer
+    - `scorer` *(object)*:
+      - `player`: the name of the goal scorer
     - `team` *(string)*: the team that scored the goal
 - `scores` object: each team’s goal count, plus one of these possible fields:
   - `overtime`: set to `true` if the game ended in overtime, absent if it didn’t
