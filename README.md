@@ -379,5 +379,5 @@ The latest scores are cached for one minute in [Heroku Redis](https://elements.h
 
 ## Acknowledgements
 
-This project is a grateful recipient of the
-[Futurice Open Source sponsorship program](http://futurice.com/blog/sponsoring-free-time-open-source-activities?utm_source=github&utm_medium=spice).
+This project has been a grateful recipient of the
+[Futurice Open Source sponsorship program](https://www.futurice.com/blog/sponsoring-free-time-open-source-activities/?utm_source=github&utm_medium=spice).
