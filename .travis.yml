@@ -1,2 +1,4 @@
 language: clojure
 script: lein kaocha
+jdk:
+  - openjdk8
