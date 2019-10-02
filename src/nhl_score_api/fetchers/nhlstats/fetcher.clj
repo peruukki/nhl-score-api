@@ -17,9 +17,9 @@
   (format/unparse (format/formatters :year-month-day) date))
 
 (defn get-schedule-query-params []
-  (let [date (time/date-time 2019 6 12)
-        start-date (format-date (time/minus date (time/days 1)))
-        end-date (format-date date)]
+  (let [now (time/now)
+        start-date (format-date (time/minus now (time/days 1)))
+        end-date (format-date now)]
     {:startDate start-date
      :endDate end-date
      :expand "schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series,schedule.linescore"}))
