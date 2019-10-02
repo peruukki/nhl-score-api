@@ -304,6 +304,7 @@ marked as having ended in overtime in the `scores` object.
 
 ## Requirements
 
+- Java version 8
 - [Leiningen](http://leiningen.org/) is used for all project management.
 - [Docker](https://www.docker.com/) is used for running the application and [Redis](https://hub.docker.com/_/redis/)
   locally. You can also optionally run the application without Docker and Redis.
