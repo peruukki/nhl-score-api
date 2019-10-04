@@ -220,7 +220,7 @@
               {"EDM" {:type "WINS" :count 1} "BUF" {:type "OT" :count 1}}
               {"FLA" {:type "LOSSES" :count 1} "WPG" {:type "WINS" :count 1}}
               {"COL" {:type "WINS" :count 3} "MIN" {:type "WINS" :count 2}}
-              {"DAL" {:type "WINS" :count 1} "NSH" {:type "WINS" :count 2}}
+              {"DAL" {:type "WINS" :count 1} "NSH" nil}
               {"NYI" {:type "OT" :count 1} "VAN" {:type "OT" :count 1}}]
              streaks) "Parsed streaks")))
 

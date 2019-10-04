@@ -208,8 +208,10 @@
 (defn- parse-streak-from-standings [standings division-id team-id]
   (let [team-record (parse-team-record-from-standings standings division-id team-id)
         streak (:streak team-record)]
-    {:type (str/upper-case (:streak-type streak))
-     :count (:streak-number streak)}))
+    (if (nil? streak)
+      nil
+      {:type (str/upper-case (:streak-type streak))
+       :count (:streak-number streak)})))
 
 (defn- parse-streaks [team-details standings]
   (let [away-details (:away team-details)

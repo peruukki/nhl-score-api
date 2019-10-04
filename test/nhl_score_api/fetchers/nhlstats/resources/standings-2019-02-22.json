@@ -539,11 +539,6 @@
       "wildCardRank" : "0",
       "row" : 35,
       "gamesPlayed" : 63,
-      "streak" : {
-        "streakType" : "wins",
-        "streakNumber" : 2,
-        "streakCode" : "W2"
-      },
       "lastUpdated" : "2019-02-23T01:49:11Z"
     }, {
       "team" : {
