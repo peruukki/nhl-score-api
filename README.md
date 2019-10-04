@@ -77,8 +77,14 @@ The fields are described in more detail [later in this README](#date-fields-expl
         "CHI": 3
       },
       "teams": {
-        "away": "BOS",
-        "home": "CHI"
+        "away": {
+          "abbreviation": "BOS",
+          "id": 6
+        },
+        "home": {
+          "abbreviation": "CHI",
+          "id": 16
+        }
       },
       "records": {
         "BOS": {
@@ -150,8 +156,14 @@ The fields are described in more detail [later in this README](#date-fields-expl
         "overtime": true
       },
       "teams": {
-        "away": "OTT",
-        "home": "DET"
+        "away": {
+          "abbreviation": "OTT",
+          "id": 9
+        },
+        "home": {
+          "abbreviation": "DET",
+          "id": 17
+        }
       },
       "records": {
         "OTT": {
@@ -208,8 +220,14 @@ The fields are described in more detail [later in this README](#date-fields-expl
         "PIT": 0
       },
       "teams": {
-        "away": "NYR",
-        "home": "PIT"
+        "away": {
+          "abbreviation": "NYR",
+          "id": 3
+        },
+        "home": {
+          "abbreviation": "PIT",
+          "id": 5
+        }
       },
       "records": {
         "NYR": {
@@ -278,7 +296,13 @@ The fields are described in more detail [later in this README](#date-fields-expl
 - `scores` object: each team’s goal count, plus one of these possible fields:
   - `overtime`: set to `true` if the game ended in overtime, absent if it didn’t
   - `shootout`: set to `true` if the game ended in shootout, absent if it didn’t
-- `teams` object: away and home team names
+- `teams` object:
+  - `away` *(object)*: away team info:
+    - `abbreviation`: team name abbreviation
+    - `id`: team ID in NHL APIs (can be used to fetch other resources from NHL APIs)
+  - `home` *(object)*: home team info:
+    - `abbreviation`: team name abbreviation
+    - `id`: team ID in NHL APIs (can be used to fetch other resources from NHL APIs)
 - `records` object: each teams’s record for this regular season *before the game*, with the fields:
   - `wins` *(number)*: win count (earning 2 pts)
   - `losses` *(number)*: regulation loss count (0 pts)

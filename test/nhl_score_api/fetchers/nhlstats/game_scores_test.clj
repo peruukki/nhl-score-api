@@ -15,10 +15,16 @@
              (count games)) "Parsed game count")
       (is (= [4 3 5 7 3 5 9 8 5]
              (map #(count (:goals %)) games)) "Parsed goal count")
-      (is (= [{:away "CAR" :home "NJD"} {:away "CGY" :home "BOS"} {:away "PIT" :home "WSH"} {:away "STL" :home "OTT"}
-              {:away "EDM" :home "BUF"} {:away "FLA" :home "WPG"} {:away "COL" :home "MIN"} {:away "DAL" :home "NSH"}
-              {:away "NYI" :home "VAN"}]
-             (map :teams games)) "Parsed team names")
+      (is (= [{:away {:abbreviation "CAR" :id 12} :home {:abbreviation "NJD" :id 1}}
+              {:away {:abbreviation "CGY" :id 20} :home {:abbreviation "BOS" :id 6}}
+              {:away {:abbreviation "PIT" :id 5} :home {:abbreviation "WSH" :id 15}}
+              {:away {:abbreviation "STL" :id 19} :home {:abbreviation "OTT" :id 9}}
+              {:away {:abbreviation "EDM" :id 22} :home {:abbreviation "BUF" :id 7}}
+              {:away {:abbreviation "FLA" :id 13} :home {:abbreviation "WPG" :id 52}}
+              {:away {:abbreviation "COL" :id 21} :home {:abbreviation "MIN" :id 30}}
+              {:away {:abbreviation "DAL" :id 25} :home {:abbreviation "NSH" :id 18}}
+              {:away {:abbreviation "NYI" :id 2} :home {:abbreviation "VAN" :id 23}}]
+             (map :teams games)) "Parsed teams")
       (is (= [{"CAR" 3 "NJD" 1} {"CGY" 1 "BOS" 2} {"PIT" 2 "WSH" 3} {"STL" 4 "OTT" 3 :shootout true}
               {"EDM" 2 "BUF" 1 :overtime true} {"FLA" 3 "WPG" 2} {"COL" 3 "MIN" 6} {"DAL" 3 "NSH" 5}
               {"NYI" 3 "VAN" 2}]
@@ -41,9 +47,14 @@
              (count (filter #(= (:state (:status %)) "PREVIEW") games))) "Parsed not started game count")
       (is (= [5 2 5 0 0 0 0]
              (map #(count (:goals %)) games)) "Parsed goal count")
-      (is (= [{:away "WSH" :home "CHI"} {:away "FLA" :home "MIN"} {:away "STL" :home "CAR"}
-              {:away "TBL" :home "BOS"} {:away "SJS" :home "VAN"} {:away "LAK" :home "ANA"} {:away "NYI" :home "EDM"}]
-             (map :teams games)) "Parsed team names")
+      (is (= [{:away {:abbreviation "WSH" :id 15} :home {:abbreviation "CHI" :id 16}}
+              {:away {:abbreviation "FLA" :id 13} :home {:abbreviation "MIN" :id 30}}
+              {:away {:abbreviation "STL" :id 19} :home {:abbreviation "CAR" :id 12}}
+              {:away {:abbreviation "TBL" :id 14} :home {:abbreviation "BOS" :id 6}}
+              {:away {:abbreviation "SJS" :id 28} :home {:abbreviation "VAN" :id 23}}
+              {:away {:abbreviation "LAK" :id 26} :home {:abbreviation "ANA" :id 24}}
+              {:away {:abbreviation "NYI" :id 2} :home {:abbreviation "EDM" :id 22}}]
+             (map :teams games)) "Parsed teams")
       (is (= [{"WSH" 2 "CHI" 3} {"FLA" 1 "MIN" 1} {"STL" 3 "CAR" 2}
               {"TBL" 0 "BOS" 0} {"SJS" 0 "VAN" 0} {"LAK" 0 "ANA" 0} {"NYI" 0 "EDM" 0}]
              (map :scores games)) "Parsed scores")
