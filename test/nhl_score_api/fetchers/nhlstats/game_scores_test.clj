@@ -197,14 +197,14 @@
               "2016-02-29T02:30:00Z"]
              start-times) "Parsed game start times")))
 
-  (testing "Parsing teams' regular season records"
+  (testing "Parsing teams' pre-game regular season records"
     (let [games (:games
                   (parse-game-scores
                     (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
                     (:records resources/standings)))
-          records (map #(:records %) games)]
+          records (map #(:records (:pre-game-stats %)) games)]
       (is (= 9
-             (count records)) "Parsed regular season records count")
+             (count records)) "Parsed pre-game regular season records count")
       (is (= [{"CAR" {:wins 28 :losses 26 :ot 10} "NJD" {:wins 30 :losses 26 :ot 7}}
               {"CGY" {:wins 26 :losses 32 :ot 4} "BOS" {:wins 34 :losses 23 :ot 6}}
               {"PIT" {:wins 32 :losses 21 :ot 8} "WSH" {:wins 45 :losses 12 :ot 4}}
@@ -214,7 +214,26 @@
               {"COL" {:wins 32 :losses 28 :ot 4} "MIN" {:wins 28 :losses 25 :ot 10}}
               {"DAL" {:wins 38 :losses 19 :ot 7} "NSH" {:wins 31 :losses 21 :ot 11}}
               {"NYI" {:wins 33 :losses 20 :ot 7} "VAN" {:wins 24 :losses 25 :ot 12}}]
-             records) "Parsed regular season records")))
+             records) "Parsed pre-game regular season records")))
+
+  (testing "Parsing teams' current regular season records"
+    (let [games (:games
+                  (parse-game-scores
+                    (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
+                    (:records resources/standings)))
+          records (map #(:records (:current-stats %)) games)]
+      (is (= 9
+             (count records)) "Parsed current regular season records count")
+      (is (= [{"CAR" {:wins 29 :losses 26 :ot 10} "NJD" {:wins 30 :losses 27 :ot 7}}
+              {"CGY" {:wins 26 :losses 33 :ot 4} "BOS" {:wins 35 :losses 23 :ot 6}}
+              {"PIT" {:wins 32 :losses 22 :ot 8} "WSH" {:wins 46 :losses 12 :ot 4}}
+              {"STL" {:wins 37 :losses 20 :ot 9} "OTT" {:wins 30 :losses 27 :ot 7}}
+              {"EDM" {:wins 24 :losses 34 :ot 7} "BUF" {:wins 25 :losses 31 :ot 8}}
+              {"FLA" {:wins 36 :losses 19 :ot 8} "WPG" {:wins 26 :losses 32 :ot 4}}
+              {"COL" {:wins 32 :losses 29 :ot 4} "MIN" {:wins 29 :losses 25 :ot 10}}
+              {"DAL" {:wins 38 :losses 20 :ot 7} "NSH" {:wins 32 :losses 21 :ot 11}}
+              {"NYI" {:wins 34 :losses 20 :ot 7} "VAN" {:wins 24 :losses 26 :ot 12}}]
+             records) "Parsed current regular season records")))
 
   (testing "Parsing teams' current streaks"
     (let [games (:games
@@ -254,20 +273,35 @@
               {"NYI" {:points-from-playoff-spot "+7"} "VAN" {:points-from-playoff-spot "-4"}}]
              standings) "Parsed standings")))
 
-  (testing "Parsing teams' playoff records"
+  (testing "Parsing teams' pre-game playoff records"
     (let [games (:games
                   (parse-game-scores
                     (filter-latest-games resources/playoff-games-live-finished-with-1st-games)
                     (:records resources/standings)))
-          records (map #(:records %) games)]
+          records (map #(:records (:pre-game-stats %)) games)]
       (is (= 5
-             (count records)) "Parsed playoff records count")
+             (count records)) "Parsed pre-game playoff records count")
       (is (= [{"NJD" {:wins 0 :losses 0} "TBL" {:wins 0 :losses 0}}
               {"TOR" {:wins 0 :losses 0} "BOS" {:wins 0 :losses 0}}
               {"CBJ" {:wins 0 :losses 0} "WSH" {:wins 0 :losses 0}}
               {"COL" {:wins 0 :losses 0} "NSH" {:wins 0 :losses 0}}
               {"SJS" {:wins 0 :losses 0} "ANA" {:wins 0 :losses 0}}]
-             records) "Parsed playoff records")))
+             records) "Parsed pre-game playoff records")))
+
+  (testing "Parsing teams' current playoff records"
+    (let [games (:games
+                  (parse-game-scores
+                    (filter-latest-games resources/playoff-games-live-finished-with-1st-games)
+                    (:records resources/standings)))
+          records (map #(:records (:current-stats %)) games)]
+      (is (= 5
+             (count records)) "Parsed current playoff records count")
+      (is (= [{"NJD" {:wins 0 :losses 1} "TBL" {:wins 1 :losses 0}}
+              {"TOR" {:wins 0 :losses 1} "BOS" {:wins 1 :losses 0}}
+              {"CBJ" {:wins 1 :losses 0} "WSH" {:wins 0 :losses 1}}
+              {"COL" {:wins 0 :losses 1} "NSH" {:wins 1 :losses 0}}
+              {"SJS" {:wins 0 :losses 0} "ANA" {:wins 0 :losses 0}}]
+             records) "Parsed current playoff records")))
 
   (testing "Parsing playoff series information from playoff games"
     (let [games (:games

@@ -3,6 +3,9 @@
             [nhl-score-api.utils :refer [fmap]]
             [clojure.string :as str]))
 
+(def pre-game-stats-key :pre-game-stats)
+(def current-stats-key :current-stats)
+
 (defn- regular-season-game? [api-game]
   (= "R" (:game-type api-game)))
 
@@ -197,9 +200,13 @@
 
 (defn- parse-records [api-game team-details teams scores]
   (let [current-records (parse-current-records team-details)]
-    (if (finished-game? api-game)
-      (reduce-current-game-from-records current-records teams scores)
-      current-records)))
+    {current-stats-key
+     current-records
+     pre-game-stats-key
+     (if (finished-game? api-game)
+       (reduce-current-game-from-records current-records teams scores)
+       current-records)}
+    ))
 
 (defn- parse-team-record-from-standings [standings division-id team-id]
   (let [division-standings (first (filter #(= (:id (:division %)) division-id) standings))]
@@ -304,7 +311,10 @@
 (defn- add-team-records [game-details api-game team-details teams scores]
   (if (all-star-game? api-game)
     game-details
-    (assoc game-details :records (parse-records api-game team-details teams scores))))
+    (let [records (parse-records api-game team-details teams scores)]
+      (assoc game-details
+        pre-game-stats-key (assoc (pre-game-stats-key game-details) :records (pre-game-stats-key records))
+        current-stats-key (assoc (current-stats-key game-details) :records (current-stats-key records))))))
 
 (defn- add-team-streaks [game-details api-game team-details standings]
   (if (not (regular-season-game? api-game))
@@ -329,7 +339,9 @@
          :start-time (parse-game-start-time api-game)
          :goals (parse-goals api-game team-details)
          :scores scores
-         :teams teams}
+         :teams teams
+         pre-game-stats-key {}
+         current-stats-key {}}
         (add-team-records api-game team-details teams scores)
         (add-team-streaks api-game team-details standings)
         (add-team-standings api-game team-details standings last-playoff-teams first-teams-out-of-the-playoffs)
