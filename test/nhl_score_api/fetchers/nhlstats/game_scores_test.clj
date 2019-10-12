@@ -303,21 +303,40 @@
               {"SJS" {:wins 0 :losses 0} "ANA" {:wins 0 :losses 0}}]
              records) "Parsed current playoff records")))
 
-  (testing "Parsing playoff series information from playoff games"
+  (testing "Parsing pre-game playoff series information from playoff games"
     (let [games (:games
                   (parse-game-scores
                     (filter-latest-games resources/playoff-games-finished-with-2nd-games)
                     (:records resources/standings)))
-          playoff-series (map #(:playoff-series %) games)]
+          playoff-series (map #(:playoff-series (:pre-game-stats %)) games)]
       (is (= [{:wins {"DET" 0 "TBL" 1}} {:wins {"NYI" 1 "FLA" 0}} {:wins {"CHI" 0 "STL" 1}} {:wins {"NSH" 0 "ANA" 0}}]
-             playoff-series) "Parsed playoff series information")))
+             playoff-series) "Parsed pre-game playoff series information")))
 
-  (testing "Parsing playoff series information from first playoff games"
+  (testing "Parsing current playoff series information from playoff games"
+    (let [games (:games
+                  (parse-game-scores
+                    (filter-latest-games resources/playoff-games-finished-with-2nd-games)
+                    (:records resources/standings)))
+          playoff-series (map #(:playoff-series (:current-stats %)) games)]
+      (is (= [{:wins {"DET" 0 "TBL" 2}} {:wins {"NYI" 1 "FLA" 1}} {:wins {"CHI" 1 "STL" 1}} {:wins {"NSH" 1 "ANA" 0}}]
+             playoff-series) "Parsed current playoff series information")))
+
+  (testing "Parsing pre-game playoff series information from first playoff games"
     (let [games (:games
                   (parse-game-scores
                     (filter-latest-games resources/playoff-games-live-finished-with-1st-games)
                     (:records resources/standings)))
-          playoff-series (map #(:playoff-series %) games)]
+          playoff-series (map #(:playoff-series (:pre-game-stats %)) games)]
       (is (= [{:wins {"NJD" 0 "TBL" 0}} {:wins {"TOR" 0 "BOS" 0}} {:wins {"CBJ" 0 "WSH" 0}}
               {:wins {"COL" 0 "NSH" 0}} {:wins {"SJS" 0 "ANA" 0}}]
-             playoff-series) "Parsed playoff series information"))))
+             playoff-series) "Parsed pre-game playoff series information")))
+
+  (testing "Parsing current playoff series information from first playoff games"
+    (let [games (:games
+                  (parse-game-scores
+                    (filter-latest-games resources/playoff-games-live-finished-with-1st-games)
+                    (:records resources/standings)))
+          playoff-series (map #(:playoff-series (:current-stats %)) games)]
+      (is (= [{:wins {"NJD" 0 "TBL" 1}} {:wins {"TOR" 0 "BOS" 1}} {:wins {"CBJ" 1 "WSH" 0}}
+              {:wins {"COL" 0 "NSH" 1}} {:wins {"SJS" 0 "ANA" 0}}]
+             playoff-series) "Parsed current playoff series information"))))

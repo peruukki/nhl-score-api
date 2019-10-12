@@ -297,7 +297,8 @@
         wins-before-game (if (finished-game? api-game)
                            (reduce-current-game-from-playoff-series-wins current-wins game-details)
                            current-wins)]
-    {:wins wins-before-game}))
+    {current-stats-key {:wins current-wins}
+     pre-game-stats-key {:wins wins-before-game}}))
 
 (defn- parse-game-status [api-game]
   (let [state (parse-game-state api-game)]
@@ -334,7 +335,10 @@
 (defn- add-playoff-series-information [game-details api-game]
   (if (non-playoff-game? api-game)
     game-details
-    (assoc game-details :playoff-series (parse-playoff-series-information api-game game-details))))
+    (let [playoff-series-information (parse-playoff-series-information api-game game-details)]
+      (assoc game-details
+        pre-game-stats-key (assoc (pre-game-stats-key game-details) :playoff-series (pre-game-stats-key playoff-series-information))
+        current-stats-key (assoc (current-stats-key game-details) :playoff-series (current-stats-key playoff-series-information))))))
 
 (defn- parse-game-details [standings last-playoff-teams first-teams-out-of-the-playoffs api-game]
   (let [team-details (parse-game-team-details api-game)
