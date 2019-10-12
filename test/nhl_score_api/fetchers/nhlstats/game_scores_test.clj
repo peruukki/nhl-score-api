@@ -240,7 +240,7 @@
                   (parse-game-scores
                     (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
                     (:records resources/standings)))
-          streaks (map #(:streaks %) games)]
+          streaks (map #(:streaks (:current-stats %)) games)]
       (is (= 9
              (count streaks)) "Parsed streaks count")
       (is (= [{"CAR" {:type "WINS" :count 1} "NJD" {:type "WINS" :count 1}}

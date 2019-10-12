@@ -319,7 +319,9 @@
 (defn- add-team-streaks [game-details api-game team-details standings]
   (if (not (regular-season-game? api-game))
     game-details
-    (assoc game-details :streaks (parse-streaks team-details standings))))
+    (assoc game-details
+      current-stats-key (assoc (current-stats-key game-details)
+                          :streaks (parse-streaks team-details standings)))))
 
 (defn- add-team-standings [game-details api-game team-details standings last-playoff-teams first-teams-out-of-the-playoffs]
   (if (or (not (regular-season-game? api-game)) (nil? last-playoff-teams))
