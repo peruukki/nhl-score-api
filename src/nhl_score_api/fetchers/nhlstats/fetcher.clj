@@ -24,11 +24,6 @@
      :endDate end-date
      :expand "schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series,schedule.linescore"}))
 
-(defn get-standings-query-params [latest-games-date-str]
-  (let [latest-games-date (format/parse latest-games-date-str)
-        standings-date (format-date (time/minus latest-games-date (time/days 1)))]
-    {:date standings-date}))
-
 (defn api-response-to-json [api-response]
   (json/read-str api-response :key-fn ->kebab-case-keyword))
 
@@ -38,7 +33,7 @@
 (defn fetch-standings-info [latest-games-date-str]
   (if (nil? latest-games-date-str)
     {:records nil}
-    (api-response-to-json (:body (http/get standings-url {:query-params (get-standings-query-params latest-games-date-str)})))))
+    (api-response-to-json (:body (http/get standings-url)))))
 
 (defn fetch-latest-scores []
   (let [latest-games-info

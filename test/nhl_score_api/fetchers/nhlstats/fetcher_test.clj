@@ -20,10 +20,6 @@
     (is (= "schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series,schedule.linescore"
            (:expand (get-schedule-query-params))) "Expanded fields"))
 
-  (testing "Standings from the date before the latest selected games are requested"
-    (is (= "2019-02-28"
-           (:date (get-standings-query-params "2019-03-01"))) "Standings date"))
-
-  (testing "Team records are not fetched if there are no latest games"
+  (testing "Standings are not fetched if there are no latest games"
     (is (= {:records nil}
            (fetch-standings-info nil)) "No team records")))
