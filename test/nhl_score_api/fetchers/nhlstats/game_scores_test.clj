@@ -259,7 +259,7 @@
                   (parse-game-scores
                     (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
                     (:records resources/standings)))
-          standings (map #(:standings %) games)]
+          standings (map #(:standings (:current-stats %)) games)]
       (is (= 9
              (count standings)) "Parsed standings count")
       (is (= [{"CAR" {:points-from-playoff-spot "-1"} "NJD" {:points-from-playoff-spot "-15"}}
