@@ -261,13 +261,13 @@
                     (:records resources/standings)))
           records (map #(:records %) games)]
       (is (= 5
-             (count records)) "Parsed regular season records count")
+             (count records)) "Parsed playoff records count")
       (is (= [{"NJD" {:wins 0 :losses 0} "TBL" {:wins 0 :losses 0}}
               {"TOR" {:wins 0 :losses 0} "BOS" {:wins 0 :losses 0}}
               {"CBJ" {:wins 0 :losses 0} "WSH" {:wins 0 :losses 0}}
               {"COL" {:wins 0 :losses 0} "NSH" {:wins 0 :losses 0}}
               {"SJS" {:wins 0 :losses 0} "ANA" {:wins 0 :losses 0}}]
-             records) "Parsed regular season records")))
+             records) "Parsed playoff records")))
 
   (testing "Parsing playoff series information from playoff games"
     (let [games (:games
