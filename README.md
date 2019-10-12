@@ -26,10 +26,8 @@ The `games` array contains details of the games, each game item containing these
 - `goals` *(array)*
 - `scores` *(object)*
 - `teams` *(object)*
-- `records` *(object)*, not included in all star games
-- `streaks` *(object)*, only included in regular season games
-- `standings` *(object)*, only included in regular season games
-- `playoffSeries` *(object)*, only included in playoff games
+- `preGameStats` *(object)*
+- `currentStats` *(object)*
 
 The fields are described in more detail [later in this README](#date-fields-explained).
 
@@ -50,7 +48,7 @@ The fields are described in more detail [later in this README](#date-fields-expl
       "goals": [
         ...
         {
-          "period": "1",
+          "period": "OT",
           "scorer": {
             "player": "David Krejci",
             "seasonTotal": 1
@@ -66,15 +64,15 @@ The fields are described in more detail [later in this README](#date-fields-expl
             }
           ],
           "team": "BOS",
-          "min": 5,
+          "min": 2,
           "sec": 36,
-          "strength": "PPG",
-          "emptyNet": true
+          "strength": "PPG"
         }
       ],
       "scores": {
         "BOS": 4,
-        "CHI": 3
+        "CHI": 3,
+        "overtime": true
       },
       "teams": {
         "away": {
@@ -86,34 +84,50 @@ The fields are described in more detail [later in this README](#date-fields-expl
           "id": 16
         }
       },
-      "records": {
-        "BOS": {
-          "wins": 44,
-          "losses": 31,
-          "ot": 7
-        },
-        "CHI": {
-          "wins": 50,
-          "losses": 23,
-          "ot": 9
+      "preGameStats": {
+        "records": {
+          "BOS": {
+            "wins": 43,
+            "losses": 31,
+            "ot": 7
+          },
+          "CHI": {
+            "wins": 50,
+            "losses": 22,
+            "ot": 9
+          }
         }
       },
-      "streaks": {
-        "BOS": {
-          "count": 2,
-          "type": "WINS"
+      "currentStats": {
+        "records": {
+          "BOS": {
+            "wins": 44,
+            "losses": 31,
+            "ot": 7
+          },
+          "CHI": {
+            "wins": 50,
+            "losses": 22,
+            "ot": 10
+          }
         },
-        "CHI": {
-          "count": 1,
-          "type": "OT"
-        }
-      },
-      "standings": {
-        "BOS": {
-          "pointsFromPlayoffSpot": "+17"
+        "streaks": {
+          "BOS": {
+            "count": 2,
+            "type": "WINS"
+          },
+          "CHI": {
+            "count": 1,
+            "type": "OT"
+          }
         },
-        "CHI": {
-          "pointsFromPlayoffSpot": "-4"
+        "standings": {
+          "BOS": {
+            "pointsFromPlayoffSpot": "+17"
+          },
+          "CHI": {
+            "pointsFromPlayoffSpot": "-4"
+          }
         }
       }
     },
@@ -124,8 +138,8 @@ The fields are described in more detail [later in this README](#date-fields-expl
           "currentPeriod": 3,
           "currentPeriodOrdinal": "3rd",
           "currentPeriodTimeRemaining": {
-            "pretty": "08:58",
-            "min": 8,
+            "pretty": "01:58",
+            "min": 1,
             "sec": 58
           }
         }
@@ -146,14 +160,14 @@ The fields are described in more detail [later in this README](#date-fields-expl
             }
           ],
           "team": "OTT",
-          "min": 0,
-          "sec": 30
+          "min": 17,
+          "sec": 30,
+          "emptyNet": true
         }
       ],
       "scores": {
-        "OTT": 2,
-        "DET": 1,
-        "overtime": true
+        "OTT": 3,
+        "DET": 1
       },
       "teams": {
         "away": {
@@ -165,37 +179,53 @@ The fields are described in more detail [later in this README](#date-fields-expl
           "id": 17
         }
       },
-      "records": {
-        "OTT": {
-          "wins": 44,
-          "losses": 28,
-          "ot": 10
-        },
-        "DET": {
-          "wins": 33,
-          "losses": 36,
-          "ot": 13
+      "preGameStats": {
+        "records": {
+          "OTT": {
+            "wins": 43,
+            "losses": 28,
+            "ot": 10
+          },
+          "DET": {
+            "wins": 33,
+            "losses": 36,
+            "ot": 12
+          }
         }
       },
-      "streaks": {
-        "OTT": {
-          "count": 1,
-          "type": "LOSSES"
+      "currentStats": {
+        "records": {
+          "OTT": {
+            "wins": 43,
+            "losses": 28,
+            "ot": 10
+          },
+          "DET": {
+            "wins": 33,
+            "losses": 36,
+            "ot": 12
+          }
         },
-        "DET": {
-          "count": 1,
-          "type": "WINS"
-        }
-      },
-      "standings": {
-        "OTT": {
-          "pointsFromPlayoffSpot": "+2"
+        "streaks": {
+          "OTT": {
+            "count": 1,
+            "type": "WINS"
+          },
+          "DET": {
+            "count": 1,
+            "type": "LOSSES"
+          }
         },
-        "DET": {
-          "pointsFromPlayoffSpot": "0"
+        "standings": {
+          "OTT": {
+            "pointsFromPlayoffSpot": "+2"
+          },
+          "DET": {
+            "pointsFromPlayoffSpot": "0"
+          }
         }
       }
-    },
+    }
   ]
 }
 ```
@@ -229,22 +259,44 @@ The fields are described in more detail [later in this README](#date-fields-expl
           "id": 5
         }
       },
-      "records": {
-        "NYR": {
-          "wins": 48,
-          "losses": 28,
-          "ot": 6
+      "preGameStats": {
+        "records": {
+          "NYR": {
+            "wins": 48,
+            "losses": 28,
+            "ot": 6
+          },
+          "PIT": {
+            "wins": 50,
+            "losses": 21,
+            "ot": 11
+          }
         },
-        "PIT": {
-          "wins": 50,
-          "losses": 21,
-          "ot": 11
+        "playoffSeries": {
+          "wins": {
+            "NYR": 1,
+            "PIT": 1
+          }
         }
       },
-      "playoffSeries": {
-        "wins": {
-          "NYR": 1,
-          "PIT": 1
+      "currentStats": {
+        "records": {
+          "NYR": {
+            "wins": 48,
+            "losses": 28,
+            "ot": 6
+          },
+          "PIT": {
+            "wins": 50,
+            "losses": 21,
+            "ot": 11
+          }
+        },
+        "playoffSeries": {
+          "wins": {
+            "NYR": 1,
+            "PIT": 1
+          }
         }
       }
     }
@@ -303,23 +355,31 @@ The fields are described in more detail [later in this README](#date-fields-expl
   - `home` *(object)*: home team info:
     - `abbreviation`: team name abbreviation
     - `id`: team ID in NHL APIs (can be used to fetch other resources from NHL APIs)
-- `records` object: each teams’s record for this regular season *before the game*, with the fields:
-  - `wins` *(number)*: win count (earning 2 pts)
-  - `losses` *(number)*: regulation loss count (0 pts)
-  - `ot` *(number)*: loss count for games that went to overtime (1 pt)
-- `streaks` object: each teams’s current form streak *before the game*, with the fields:
-  - `type` *(string)*: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
-  - `count` *(number)*: streak’s length in consecutive games
-- `standings` object: each teams’s standings related information *before the game*, with the field:
-  - `pointsFromPlayoffSpot` *(string)*: point difference to the last playoff spot in the conference:
-    - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
-      i.e. by how many points the team is safe
-    - for teams currently outside the playoffs, this is the point difference to the team in the last playoff spot (2nd wildcard
-      position); i.e. by how many points (at minimum) the team needs to catch up
-    - Note: this value only indicates point differences and doesn't consider which team is ranked higher if they have the same
-      amount of points
-- `playoffSeries` object: playoff series related information, only present during playoffs
-  - `wins` object: each team’s win count in the series *before the game*
+- `preGameStats` object: each teams’s season statistics *before the game*, with the fields:
+  - `records` object: each teams’s record for this regular/playoff season, with the fields:
+    - `wins` *(number)*: win count (earning 2 pts)
+    - `losses` *(number)*: regulation loss count (0 pts)
+    - `ot` *(number)*: loss count for games that went to overtime (1 pt)
+  - `playoffSeries` object: current playoff series related information, only present during playoffs
+    - `wins` object: each team’s win count in the series
+- `currentStats` object: each teams’s *current* (ie. after the game if it has finished and NHL have updated their stats) season statistics, with the fields:
+  - `records` object: each teams’s record for this regular/playoff season, with the fields:
+    - `wins` *(number)*: win count (earning 2 pts)
+    - `losses` *(number)*: regulation loss count (0 pts)
+    - `ot` *(number)*: loss count for games that went to overtime (1 pt)
+  - `streaks` object: each teams’s current form streak, with the fields:
+    - `type` *(string)*: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
+    - `count` *(number)*: streak’s length in consecutive games
+  - `standings` object: each teams’s standings related information, with the field:
+    - `pointsFromPlayoffSpot` *(string)*: point difference to the last playoff spot in the conference:
+      - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
+        i.e. by how many points the team is safe
+      - for teams currently outside the playoffs, this is the point difference to the team in the last playoff spot (2nd wildcard
+        position); i.e. by how many points (at minimum) the team needs to catch up
+      - Note: this value only indicates point differences and doesn’t consider which team is ranked higher if they have the same
+        number of points
+  - `playoffSeries` object: current playoff series related information, only present during playoffs
+    - `wins` object: each team’s win count in the series
 
 **Note on overtimes:** Only regular season 5 minute overtimes are considered "overtime" in the
 `goals` array. Playoff overtime periods are returned as period 4, 5, and so on, since they are
