@@ -6,6 +6,9 @@
 (def pre-game-stats-key :pre-game-stats)
 (def current-stats-key :current-stats)
 
+(defn- add-stats-field [game-details stats-key field value]
+  (assoc game-details stats-key (assoc (stats-key game-details) field value)))
+
 (defn- regular-season-game? [api-game]
   (= "R" (:game-type api-game)))
 
@@ -313,32 +316,28 @@
   (if (all-star-game? api-game)
     game-details
     (let [records (parse-records api-game team-details teams scores)]
-      (assoc game-details
-        pre-game-stats-key (assoc (pre-game-stats-key game-details) :records (pre-game-stats-key records))
-        current-stats-key (assoc (current-stats-key game-details) :records (current-stats-key records))))))
+      (-> game-details
+          (add-stats-field pre-game-stats-key :records (pre-game-stats-key records))
+          (add-stats-field current-stats-key :records (current-stats-key records))))))
 
 (defn- add-team-streaks [game-details api-game team-details standings]
   (if (not (regular-season-game? api-game))
     game-details
-    (assoc game-details
-      current-stats-key (assoc (current-stats-key game-details)
-                          :streaks (parse-streaks team-details standings)))))
+    (add-stats-field game-details current-stats-key :streaks (parse-streaks team-details standings))))
 
 (defn- add-team-standings [game-details api-game team-details standings last-playoff-teams first-teams-out-of-the-playoffs]
   (if (or (not (regular-season-game? api-game)) (nil? last-playoff-teams))
     game-details
-    (assoc game-details
-      current-stats-key (assoc (current-stats-key game-details)
-                          :standings
-                          (parse-standings team-details standings last-playoff-teams first-teams-out-of-the-playoffs)))))
+    (add-stats-field game-details current-stats-key :standings
+                     (parse-standings team-details standings last-playoff-teams first-teams-out-of-the-playoffs))))
 
 (defn- add-playoff-series-information [game-details api-game]
   (if (non-playoff-game? api-game)
     game-details
     (let [playoff-series-information (parse-playoff-series-information api-game game-details)]
-      (assoc game-details
-        pre-game-stats-key (assoc (pre-game-stats-key game-details) :playoff-series (pre-game-stats-key playoff-series-information))
-        current-stats-key (assoc (current-stats-key game-details) :playoff-series (current-stats-key playoff-series-information))))))
+      (-> game-details
+          (add-stats-field pre-game-stats-key :playoff-series (pre-game-stats-key playoff-series-information))
+          (add-stats-field current-stats-key :playoff-series (current-stats-key playoff-series-information))))))
 
 (defn- parse-game-details [standings last-playoff-teams first-teams-out-of-the-playoffs api-game]
   (let [team-details (parse-game-team-details api-game)
