@@ -244,7 +244,9 @@
         division-id (:id (:division team-details))
         team-id (:id team-details)
         team-record (parse-team-record-from-standings standings division-id team-id)]
-    {:points-from-playoff-spot
+    {:league-rank
+     (:league-rank team-record)
+     :points-from-playoff-spot
      (get-point-difference-to-playoff-spot conference-id team-record last-playoff-teams first-teams-out-of-the-playoffs) }))
 
 (defn- parse-standings [team-details standings last-playoff-teams first-teams-out-of-the-playoffs]

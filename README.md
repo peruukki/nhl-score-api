@@ -123,9 +123,11 @@ The fields are described in more detail [later in this README](#date-fields-expl
         },
         "standings": {
           "BOS": {
+            "leagueRank": "8",
             "pointsFromPlayoffSpot": "+17"
           },
           "CHI": {
+            "leagueRank": "25",
             "pointsFromPlayoffSpot": "-4"
           }
         }
@@ -218,9 +220,11 @@ The fields are described in more detail [later in this README](#date-fields-expl
         },
         "standings": {
           "OTT": {
+            "leagueRank": "29",
             "pointsFromPlayoffSpot": "+2"
           },
           "DET": {
+            "leagueRank": "23",
             "pointsFromPlayoffSpot": "0"
           }
         }
@@ -367,10 +371,11 @@ The fields are described in more detail [later in this README](#date-fields-expl
     - `wins` *(number)*: win count (earning 2 pts)
     - `losses` *(number)*: regulation loss count (0 pts)
     - `ot` *(number)*: loss count for games that went to overtime (1 pt)
-  - `streaks` object: each teams’s current form streak, with the fields:
+  - `streaks` object: each teams’s current (regular season) form streak, with the fields:
     - `type` *(string)*: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
     - `count` *(number)*: streak’s length in consecutive games
   - `standings` object: each teams’s standings related information, with the field:
+    - `leagueRank` *(string)*: the team's regular season ranking in the league; this comes as a *string* value from the NHL Stats API
     - `pointsFromPlayoffSpot` *(string)*: point difference to the last playoff spot in the conference:
       - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
         i.e. by how many points the team is safe

@@ -262,15 +262,15 @@
           standings (map #(:standings (:current-stats %)) games)]
       (is (= 9
              (count standings)) "Parsed standings count")
-      (is (= [{"CAR" {:points-from-playoff-spot "-1"} "NJD" {:points-from-playoff-spot "-15"}}
-              {"CGY" {:points-from-playoff-spot "+20"} "BOS" {:points-from-playoff-spot "+10"}}
-              {"PIT" {:points-from-playoff-spot "+1"} "WSH" {:points-from-playoff-spot "+5"}}
-              {"STL" {:points-from-playoff-spot "+6"} "OTT" {:points-from-playoff-spot "-22"}}
-              {"EDM" {:points-from-playoff-spot "-8"} "BUF" {:points-from-playoff-spot "-7"}}
-              {"FLA" {:points-from-playoff-spot "-11"} "WPG" {:points-from-playoff-spot "+15"}}
-              {"COL" {:points-from-playoff-spot "-1"} "MIN" {:points-from-playoff-spot "+1"}}
-              {"DAL" {:points-from-playoff-spot "+2"} "NSH" {:points-from-playoff-spot "+14"}}
-              {"NYI" {:points-from-playoff-spot "+7"} "VAN" {:points-from-playoff-spot "-4"}}]
+      (is (= [{"CAR" {:league-rank "13" :points-from-playoff-spot "-1"} "NJD" {:league-rank "28" :points-from-playoff-spot "-15"}}
+              {"CGY" {:league-rank "2" :points-from-playoff-spot "+20"} "BOS" {:league-rank "4" :points-from-playoff-spot "+10"}}
+              {"PIT" {:league-rank "12" :points-from-playoff-spot "+1"} "WSH" {:league-rank "9" :points-from-playoff-spot "+5"}}
+              {"STL" {:league-rank "14" :points-from-playoff-spot "+6"} "OTT" {:league-rank "31" :points-from-playoff-spot "-22"}}
+              {"EDM" {:league-rank "27" :points-from-playoff-spot "-8"} "BUF" {:league-rank "17" :points-from-playoff-spot "-7"}}
+              {"FLA" {:league-rank "23" :points-from-playoff-spot "-11"} "WPG" {:league-rank "5" :points-from-playoff-spot "+15"}}
+              {"COL" {:league-rank "19" :points-from-playoff-spot "-1"} "MIN" {:league-rank "18" :points-from-playoff-spot "+1"}}
+              {"DAL" {:league-rank "16" :points-from-playoff-spot "+2"} "NSH" {:league-rank "7" :points-from-playoff-spot "+14"}}
+              {"NYI" {:league-rank "6" :points-from-playoff-spot "+7"} "VAN" {:league-rank "25" :points-from-playoff-spot "-4"}}]
              standings) "Parsed standings")))
 
   (testing "Parsing teams' pre-game playoff records"
