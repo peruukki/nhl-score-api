@@ -2,7 +2,8 @@
   (:require [clojure.test :refer :all]
             [nhl-score-api.fetchers.nhlstats.game-scores :refer :all]
             [nhl-score-api.fetchers.nhlstats.latest-games :refer [filter-latest-games]]
-            [nhl-score-api.fetchers.nhlstats.resources :as resources]))
+            [nhl-score-api.fetchers.nhlstats.resources :as resources]
+            [nhl-score-api.utils :refer [fmap]]))
 
 (deftest game-score-json-parsing
 
@@ -254,24 +255,49 @@
               {"NYI" {:type "OT" :count 1} "VAN" {:type "OT" :count 1}}]
              streaks) "Parsed streaks")))
 
-  (testing "Parsing teams' standings"
+  (testing "Parsing teams' league ranks"
     (let [games (:games
                   (parse-game-scores
                     (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
                     (:records resources/standings)))
-          standings (map #(:standings (:current-stats %)) games)]
+          standings (map #(:standings (:current-stats %)) games)
+          league-ranks (map
+                         #(fmap (fn [team-stats] (select-keys team-stats [:league-rank])) %)
+                         standings)]
       (is (= 9
-             (count standings)) "Parsed standings count")
-      (is (= [{"CAR" {:league-rank "13" :points-from-playoff-spot "-1"} "NJD" {:league-rank "28" :points-from-playoff-spot "-15"}}
-              {"CGY" {:league-rank "2" :points-from-playoff-spot "+20"} "BOS" {:league-rank "4" :points-from-playoff-spot "+10"}}
-              {"PIT" {:league-rank "12" :points-from-playoff-spot "+1"} "WSH" {:league-rank "9" :points-from-playoff-spot "+5"}}
-              {"STL" {:league-rank "14" :points-from-playoff-spot "+6"} "OTT" {:league-rank "31" :points-from-playoff-spot "-22"}}
-              {"EDM" {:league-rank "27" :points-from-playoff-spot "-8"} "BUF" {:league-rank "17" :points-from-playoff-spot "-7"}}
-              {"FLA" {:league-rank "23" :points-from-playoff-spot "-11"} "WPG" {:league-rank "5" :points-from-playoff-spot "+15"}}
-              {"COL" {:league-rank "19" :points-from-playoff-spot "-1"} "MIN" {:league-rank "18" :points-from-playoff-spot "+1"}}
-              {"DAL" {:league-rank "16" :points-from-playoff-spot "+2"} "NSH" {:league-rank "7" :points-from-playoff-spot "+14"}}
-              {"NYI" {:league-rank "6" :points-from-playoff-spot "+7"} "VAN" {:league-rank "25" :points-from-playoff-spot "-4"}}]
-             standings) "Parsed standings")))
+             (count league-ranks)) "Parsed league ranks count")
+      (is (= [{"CAR" {:league-rank "13"} "NJD" {:league-rank "28"}}
+              {"CGY" {:league-rank "2"} "BOS" {:league-rank "4"}}
+              {"PIT" {:league-rank "12"} "WSH" {:league-rank "9"}}
+              {"STL" {:league-rank "14"} "OTT" {:league-rank "31"}}
+              {"EDM" {:league-rank "27"} "BUF" {:league-rank "17"}}
+              {"FLA" {:league-rank "23"} "WPG" {:league-rank "5"}}
+              {"COL" {:league-rank "19"} "MIN" {:league-rank "18"}}
+              {"DAL" {:league-rank "16"} "NSH" {:league-rank "7"}}
+              {"NYI" {:league-rank "6"} "VAN" {:league-rank "25"}}]
+             league-ranks) "Parsed league ranks")))
+
+  (testing "Parsing teams' points from playoff spot"
+    (let [games (:games
+                  (parse-game-scores
+                    (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
+                    (:records resources/standings)))
+          standings (map #(:standings (:current-stats %)) games)
+          points-from-playoff-spot (map
+                                     #(fmap (fn [team-stats] (select-keys team-stats [:points-from-playoff-spot])) %)
+                                     standings)]
+      (is (= 9
+             (count points-from-playoff-spot)) "Parsed points from playoff spot count")
+      (is (= [{"CAR" {:points-from-playoff-spot "-1"} "NJD" {:points-from-playoff-spot "-15"}}
+              {"CGY" {:points-from-playoff-spot "+20"} "BOS" {:points-from-playoff-spot "+10"}}
+              {"PIT" {:points-from-playoff-spot "+1"} "WSH" {:points-from-playoff-spot "+5"}}
+              {"STL" {:points-from-playoff-spot "+6"} "OTT" {:points-from-playoff-spot "-22"}}
+              {"EDM" {:points-from-playoff-spot "-8"} "BUF" {:points-from-playoff-spot "-7"}}
+              {"FLA" {:points-from-playoff-spot "-11"} "WPG" {:points-from-playoff-spot "+15"}}
+              {"COL" {:points-from-playoff-spot "-1"} "MIN" {:points-from-playoff-spot "+1"}}
+              {"DAL" {:points-from-playoff-spot "+2"} "NSH" {:points-from-playoff-spot "+14"}}
+              {"NYI" {:points-from-playoff-spot "+7"} "VAN" {:points-from-playoff-spot "-4"}}]
+             points-from-playoff-spot) "Parsed points from playoff spot")))
 
   (testing "Parsing teams' pre-game playoff records"
     (let [games (:games
