@@ -5,7 +5,7 @@
             [nhl-score-api.fetchers.nhlstats.resources :as resources]
             [nhl-score-api.utils :refer [fmap]]))
 
-(deftest game-score-json-parsing
+(deftest game-scores-parsing-scores
 
   (testing "Parsing scores with games finished in overtime and in shootout"
     (let [games (:games
@@ -60,7 +60,9 @@
               {"TBL" 0 "BOS" 0} {"SJS" 0 "VAN" 0} {"LAK" 0 "ANA" 0} {"NYI" 0 "EDM" 0}]
              (map :scores games)) "Parsed scores")
       (is (= [false]
-             (distinct (map #(contains? % :playoff-series) games))))))
+             (distinct (map #(contains? % :playoff-series) games)))))))
+
+(deftest game-scores-parsing-games
 
   (testing "Parsing game with goals in regulation and overtime"
     (let [game (nth
@@ -160,7 +162,9 @@
           "Parsed goal strengths")
       (is (= [false false true true true false false]
              (map #(contains? % :strength) goals))
-          "Even strength goals don't contain :strength field")))
+          "Even strength goals don't contain :strength field"))))
+
+(deftest game-scores-parsing-game-statuses
 
   (testing "Parsing games' statuses"
     (let [games (:games
@@ -181,7 +185,9 @@
               {:state "PREVIEW"}
               {:state "PREVIEW"}
               {:state "PREVIEW"}]
-             statuses) "Parsed game statuses")))
+             statuses) "Parsed game statuses"))))
+
+(deftest game-scores-parsing-game-start-times
 
   (testing "Parsing games' start times"
     (let [games (:games
@@ -196,7 +202,9 @@
               "2016-02-29T00:00:00Z"
               "2016-02-29T02:00:00Z"
               "2016-02-29T02:30:00Z"]
-             start-times) "Parsed game start times")))
+             start-times) "Parsed game start times"))))
+
+(deftest game-scores-parsing-team-records
 
   (testing "Parsing teams' pre-game regular season records"
     (let [games (:games
@@ -234,7 +242,9 @@
               {"COL" {:wins 32 :losses 29 :ot 4} "MIN" {:wins 29 :losses 25 :ot 10}}
               {"DAL" {:wins 38 :losses 20 :ot 7} "NSH" {:wins 32 :losses 21 :ot 11}}
               {"NYI" {:wins 34 :losses 20 :ot 7} "VAN" {:wins 24 :losses 26 :ot 12}}]
-             records) "Parsed current regular season records")))
+             records) "Parsed current regular season records"))))
+
+(deftest game-scores-parsing-team-streaks
 
   (testing "Parsing teams' current streaks"
     (let [games (:games
@@ -253,7 +263,9 @@
               {"COL" {:type "WINS" :count 3} "MIN" {:type "WINS" :count 2}}
               {"DAL" {:type "WINS" :count 1} "NSH" nil}
               {"NYI" {:type "OT" :count 1} "VAN" {:type "OT" :count 1}}]
-             streaks) "Parsed streaks")))
+             streaks) "Parsed streaks"))))
+
+(deftest game-scores-parsing-team-league-ranks
 
   (testing "Parsing teams' league ranks"
     (let [games (:games
@@ -275,7 +287,9 @@
               {"COL" {:league-rank "19"} "MIN" {:league-rank "18"}}
               {"DAL" {:league-rank "16"} "NSH" {:league-rank "7"}}
               {"NYI" {:league-rank "6"} "VAN" {:league-rank "25"}}]
-             league-ranks) "Parsed league ranks")))
+             league-ranks) "Parsed league ranks"))))
+
+(deftest game-scores-parsing-team-points-from-playoff-spot
 
   (testing "Parsing teams' points from playoff spot"
     (let [games (:games
@@ -322,7 +336,9 @@
               {"COL" {:points-from-playoff-spot "+8"} "MIN" {:points-from-playoff-spot "-4"}}
               {"DAL" {:points-from-playoff-spot "+9"} "NSH" {:points-from-playoff-spot "+1"}}
               {"NYI" {:points-from-playoff-spot "+3"} "VAN" {:points-from-playoff-spot "+5"}}]
-             points-from-playoff-spot) "Parsed points from playoff spot")))
+             points-from-playoff-spot) "Parsed points from playoff spot"))))
+
+(deftest game-scores-parsing-team-playoff-records
 
   (testing "Parsing teams' pre-game playoff records"
     (let [games (:games
@@ -352,7 +368,9 @@
               {"CBJ" {:wins 1 :losses 0} "WSH" {:wins 0 :losses 1}}
               {"COL" {:wins 0 :losses 1} "NSH" {:wins 1 :losses 0}}
               {"SJS" {:wins 0 :losses 0} "ANA" {:wins 0 :losses 0}}]
-             records) "Parsed current playoff records")))
+             records) "Parsed current playoff records"))))
+
+(deftest game-scores-parsing-playoff-series
 
   (testing "Parsing pre-game playoff series information from playoff games"
     (let [games (:games

@@ -447,6 +447,12 @@ Run tests with the [Kaocha test runner](https://github.com/lambdaisland/kaocha) 
 lein kaocha [--watch]
 ```
 
+Run single tests or test groups with [Kaocha's `--focus` argument](https://cljdoc.org/d/lambdaisland/kaocha/0.0-590/doc/focusing-on-specific-tests), e.g.:
+
+```
+lein kaocha --focus nhl-score-api.fetchers.nhlstats.game-scores-test/game-scores-parsing-scores
+```
+
 Or with the regular test runner:
 
 ```
