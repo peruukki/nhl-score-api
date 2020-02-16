@@ -404,7 +404,7 @@ marked as having ended in overtime in the `scores` object.
 
 To run the application locally in [Docker](https://www.docker.com/) containers, install Docker and run:
 
-```
+```sh
 ./docker-up.sh
 ```
 
@@ -413,7 +413,7 @@ images will take quite a while on the first run, but they will be reused after t
 
 To delete all containers, run:
 
-```
+```sh
 ./docker-down.sh
 ```
 
@@ -423,19 +423,19 @@ You can also run the application locally with `lein run`.
 
 If you have Redis running somewhere externally, you can specify it with the `REDIS_URL` environment variable:
 
-```
+```sh
 REDIS_URL=redis://localhost lein run
 ```
 
 You can also run the application without Redis caching:
 
-```
+```sh
 REDIS_DISABLED=true lein run
 ```
 
 To return latest scores from mock NHL Stats API data, you can specify a mock data source file:
 
-```
+```sh
 REDIS_DISABLED=true MOCK_NHL_STATS_API=test/nhl_score_api/fetchers/nhlstats/resources/schedule-2018-04-13-live-final-playoff-1st-games.json lein run
 ```
 
@@ -443,19 +443,19 @@ REDIS_DISABLED=true MOCK_NHL_STATS_API=test/nhl_score_api/fetchers/nhlstats/reso
 
 Run tests with the [Kaocha test runner](https://github.com/lambdaisland/kaocha) for improved test failure reporting:
 
-```
+```sh
 lein kaocha [--watch]
 ```
 
 Run single tests or test groups with [Kaocha's `--focus` argument](https://cljdoc.org/d/lambdaisland/kaocha/0.0-590/doc/focusing-on-specific-tests), e.g.:
 
-```
+```sh
 lein kaocha --focus nhl-score-api.fetchers.nhlstats.game-scores-test/game-scores-parsing-scores
 ```
 
 Or with the regular test runner:
 
-```
+```sh
 lein test
 ```
 
@@ -463,7 +463,7 @@ lein test
 
 Deploying to [Heroku](http://heroku.com/):
 
-```
+```sh
 ./deploy.sh
 ```
 
