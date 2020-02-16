@@ -231,15 +231,60 @@
      (:abbreviation home-details)
      (parse-streak-from-standings standings (:id (:division home-details)) (:id home-details))}))
 
-(defn- get-point-difference-to-playoff-spot [conference-id team-record last-playoff-teams first-teams-out-of-the-playoffs]
-  (let [wild-card-rank-ordinal (read-string (:wild-card-rank team-record))
-        comparison-team-record (if (> wild-card-rank-ordinal 2)
-                                 (get last-playoff-teams conference-id)
-                                 (get first-teams-out-of-the-playoffs conference-id))
-        difference (- (:points team-record) (:points comparison-team-record))]
+(defn- assoc-team-records-with-division-id [division-records]
+  (let [team-records (:team-records division-records)
+        division-id (:id (:division division-records))]
+    (map #(assoc % :division-id division-id) team-records)))
+
+(defn- parse-wild-card-teams [conference-id standings]
+  (let [records-matching-conference-id (filter #(= (:id (:conference %)) conference-id) standings)
+        team-records (flatten (map assoc-team-records-with-division-id records-matching-conference-id))
+        wild-card-teams (filter #(not= (:wild-card-rank %) "0") team-records)]
+    (sort-by #(read-string (:wild-card-rank %)) wild-card-teams)))
+
+(defn- get-last-team-record-in-direct-playoff-spot [division-id standings]
+  (let [records-matching-division-id (:team-records (first (filter #(= (:id (:division %)) division-id) standings)))
+        last-team-in-direct-playoff-spot (first (filter #(= (:division-rank %) "3") records-matching-division-id))]
+    last-team-in-direct-playoff-spot))
+
+(defn- get-comparison-team-points-for-team-out-of-playoff-spot [division-id
+                                                                standings
+                                                                wild-card-teams
+                                                                no-wild-card-playoff-teams-in-division]
+  (let [points-for-last-wild-card-team-in-playoffs (:points (second wild-card-teams))
+        points-for-last-direct-playoff-team-in-division (:points (get-last-team-record-in-direct-playoff-spot division-id standings))]
+    (if (and
+          no-wild-card-playoff-teams-in-division
+          (< points-for-last-direct-playoff-team-in-division points-for-last-wild-card-team-in-playoffs))
+      points-for-last-direct-playoff-team-in-division
+      points-for-last-wild-card-team-in-playoffs)))
+
+(defn- get-comparison-team-points-for-team-in-playoff-spot [division-id
+                                                            wild-card-teams
+                                                            no-wild-card-playoff-teams-in-division]
+  (let [points-for-first-team-out-of-playoffs (:points (nth wild-card-teams 2))
+        points-for-first-team-out-of-playoffs-in-division (:points (first (filter #(= (:division-id %) division-id) wild-card-teams)))]
+    (if no-wild-card-playoff-teams-in-division
+      points-for-first-team-out-of-playoffs-in-division
+      points-for-first-team-out-of-playoffs)))
+
+(defn- get-point-difference-to-playoff-spot [conference-id division-id team-record standings]
+  (let [is-team-out-of-playoffs (> (read-string (:wild-card-rank team-record)) 2)
+        wild-card-teams (parse-wild-card-teams conference-id standings)
+        no-wild-card-playoff-teams-in-division (not (some #(= (:division-id %) division-id) (take 2 wild-card-teams)))
+        comparison-team-points
+        (if is-team-out-of-playoffs
+          (get-comparison-team-points-for-team-out-of-playoff-spot division-id
+                                                                   standings
+                                                                   wild-card-teams
+                                                                   no-wild-card-playoff-teams-in-division)
+          (get-comparison-team-points-for-team-in-playoff-spot division-id
+                                                               wild-card-teams
+                                                               no-wild-card-playoff-teams-in-division))
+        difference (- (:points team-record) comparison-team-points)]
     (str (if (> difference 0) "+" "") difference)))
 
-(defn- derive-standings [standings team-details last-playoff-teams first-teams-out-of-the-playoffs]
+(defn- derive-standings [standings team-details]
   (let [conference-id (:id (:conference team-details))
         division-id (:id (:division team-details))
         team-id (:id team-details)
@@ -247,15 +292,15 @@
     {:league-rank
      (:league-rank team-record)
      :points-from-playoff-spot
-     (get-point-difference-to-playoff-spot conference-id team-record last-playoff-teams first-teams-out-of-the-playoffs) }))
+     (get-point-difference-to-playoff-spot conference-id division-id team-record standings)}))
 
-(defn- parse-standings [team-details standings last-playoff-teams first-teams-out-of-the-playoffs]
+(defn- parse-standings [team-details standings]
   (let [away-details (:away team-details)
         home-details (:home team-details)]
     {(:abbreviation away-details)
-     (derive-standings standings away-details last-playoff-teams first-teams-out-of-the-playoffs)
+     (derive-standings standings away-details)
      (:abbreviation home-details)
-     (derive-standings standings home-details last-playoff-teams first-teams-out-of-the-playoffs)}))
+     (derive-standings standings home-details)}))
 
 (defn- parse-current-playoff-series-wins [api-game teams]
   (let [away-team (:abbreviation (:away teams))
@@ -327,11 +372,11 @@
     game-details
     (add-stats-field game-details current-stats-key :streaks (parse-streaks team-details standings))))
 
-(defn- add-team-standings [game-details api-game team-details standings last-playoff-teams first-teams-out-of-the-playoffs]
-  (if (or (not (regular-season-game? api-game)) (nil? last-playoff-teams))
+(defn- add-team-standings [game-details api-game team-details standings]
+  (if (not (regular-season-game? api-game))
     game-details
     (add-stats-field game-details current-stats-key :standings
-                     (parse-standings team-details standings last-playoff-teams first-teams-out-of-the-playoffs))))
+                     (parse-standings team-details standings))))
 
 (defn- add-playoff-series-information [game-details api-game]
   (if (non-playoff-game? api-game)
@@ -341,7 +386,7 @@
           (add-stats-field pre-game-stats-key :playoff-series (pre-game-stats-key playoff-series-information))
           (add-stats-field current-stats-key :playoff-series (current-stats-key playoff-series-information))))))
 
-(defn- parse-game-details [standings last-playoff-teams first-teams-out-of-the-playoffs api-game]
+(defn- parse-game-details [standings api-game]
   (let [team-details (parse-game-team-details api-game)
         scores (parse-scores api-game team-details)
         teams (get-teams team-details)]
@@ -354,22 +399,10 @@
          current-stats-key {}}
         (add-team-records api-game team-details teams scores)
         (add-team-streaks api-game team-details standings)
-        (add-team-standings api-game team-details standings last-playoff-teams first-teams-out-of-the-playoffs)
+        (add-team-standings api-game team-details standings)
         (add-playoff-series-information api-game))))
 
-(defn- parse-wild-card-teams-by-conference-id [standings wild-card-rank]
-  (let [records-by-conference-id
-        (group-by #(:id (:conference %)) standings)
-        team-records-by-conference-id
-        (fmap (fn [records] (flatten (map #(:team-records %) records))) records-by-conference-id)
-        wild-card-teams
-        (fmap (fn [team-records] (first (filter #(= (:wild-card-rank %) wild-card-rank) team-records)))
-              team-records-by-conference-id)]
-    (if (some nil? (vals wild-card-teams)) nil wild-card-teams)))
-
 (defn parse-game-scores [date-and-api-games standings]
-  (let [last-playoff-teams (parse-wild-card-teams-by-conference-id standings "2")
-        first-teams-out-of-the-playoffs (parse-wild-card-teams-by-conference-id standings "3")]
-    {:date (:date date-and-api-games)
-     :games (map (partial parse-game-details standings last-playoff-teams first-teams-out-of-the-playoffs)
-                 (:games date-and-api-games))}))
+  {:date (:date date-and-api-games)
+   :games (map (partial parse-game-details standings)
+               (:games date-and-api-games))})

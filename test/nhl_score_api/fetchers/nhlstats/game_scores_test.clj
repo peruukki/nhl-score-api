@@ -281,22 +281,47 @@
     (let [games (:games
                   (parse-game-scores
                     (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
-                    (:records resources/standings)))
+                    (:records resources/standings-playoff-spots-per-division-5-3-4-4)))
           standings (map #(:standings (:current-stats %)) games)
           points-from-playoff-spot (map
                                      #(fmap (fn [team-stats] (select-keys team-stats [:points-from-playoff-spot])) %)
                                      standings)]
       (is (= 9
              (count points-from-playoff-spot)) "Parsed points from playoff spot count")
-      (is (= [{"CAR" {:points-from-playoff-spot "-1"} "NJD" {:points-from-playoff-spot "-15"}}
-              {"CGY" {:points-from-playoff-spot "+20"} "BOS" {:points-from-playoff-spot "+10"}}
-              {"PIT" {:points-from-playoff-spot "+1"} "WSH" {:points-from-playoff-spot "+5"}}
-              {"STL" {:points-from-playoff-spot "+6"} "OTT" {:points-from-playoff-spot "-22"}}
-              {"EDM" {:points-from-playoff-spot "-8"} "BUF" {:points-from-playoff-spot "-7"}}
-              {"FLA" {:points-from-playoff-spot "-11"} "WPG" {:points-from-playoff-spot "+15"}}
-              {"COL" {:points-from-playoff-spot "-1"} "MIN" {:points-from-playoff-spot "+1"}}
-              {"DAL" {:points-from-playoff-spot "+2"} "NSH" {:points-from-playoff-spot "+14"}}
-              {"NYI" {:points-from-playoff-spot "+7"} "VAN" {:points-from-playoff-spot "-4"}}]
+      ; The test standings are:
+      ;
+      ; Eastern conference                       Western conference
+      ;
+      ; Metropolitan                             Central
+      ; 1 WSH 79 pts                             1 STL 74 pts
+      ; 2 PIT 76 pts                             2 DAL 73 pts
+      ; 3 NYI 72 pts                             3 COL 72 pts
+      ; 4 CBJ 71 pts, 1st wild card              4 NSH 65 pts, 2nd wild card
+      ; 5 PHI 71 pts, 2nd wild card              ------------
+      ; ------------                             5 WPG 63 pts
+      ; 6 CAR 69 pts, 1st out of the playoffs    6 MIN 61 pts
+      ; 7 NYR 64 pts                             7 CHI 60 pts
+      ; 8 NJD 52 pts
+      ;
+      ; Atlantic                                 Pacific
+      ; 1 BOS 84 pts                             1 VAN 69 pts
+      ; 2 TBL 83 pts                             2 EDM 68 pts
+      ; 3 TOR 70 pts                             3 VGK 68 pts
+      ; ------------                             4 CGY 66 pts, 1st wild card
+      ; 4 FLA 66 pts                             ------------
+      ; 5 MTL 62 pts                             5 ARI 64 pts, 1st out of the playoffs
+      ; 6 BUF 60 pts                             6 SJS 56 pts
+      ; 7 OTT 49 pts                             7 ANA 53 pts
+      ; 8 DET 32 pts                             8 LAK 47 pts
+      (is (= [{"CAR" {:points-from-playoff-spot "-2"} "NJD" {:points-from-playoff-spot "-19"}}
+              {"CGY" {:points-from-playoff-spot "+2"} "BOS" {:points-from-playoff-spot "+18"}}
+              {"PIT" {:points-from-playoff-spot "+7"} "WSH" {:points-from-playoff-spot "+10"}}
+              {"STL" {:points-from-playoff-spot "+10"} "OTT" {:points-from-playoff-spot "-21"}}
+              {"EDM" {:points-from-playoff-spot "+4"} "BUF" {:points-from-playoff-spot "-10"}}
+              {"FLA" {:points-from-playoff-spot "-4"} "WPG" {:points-from-playoff-spot "-2"}}
+              {"COL" {:points-from-playoff-spot "+8"} "MIN" {:points-from-playoff-spot "-4"}}
+              {"DAL" {:points-from-playoff-spot "+9"} "NSH" {:points-from-playoff-spot "+1"}}
+              {"NYI" {:points-from-playoff-spot "+3"} "VAN" {:points-from-playoff-spot "+5"}}]
              points-from-playoff-spot) "Parsed points from playoff spot")))
 
   (testing "Parsing teams' pre-game playoff records"

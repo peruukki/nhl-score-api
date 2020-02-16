@@ -15,3 +15,4 @@
 (def playoff-games-live-finished-with-1st-games (read-resource "schedule-2018-04-13-live-final-playoff-1st-games.json"))
 
 (def standings (read-resource "standings-2019-02-22.json"))
+(def standings-playoff-spots-per-division-5-3-4-4 (read-resource "standings-2020-02-16-modified.json"))
