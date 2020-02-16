@@ -12,7 +12,7 @@
                  [http-kit "2.1.19"]
                  [yleisradio/new-reliquary "1.0.1"]]
   :main nhl-score-api.core
-  :profiles {:kaocha {:dependencies [[lambdaisland/kaocha "0.0-413"]]}
+  :profiles {:kaocha {:dependencies [[lambdaisland/kaocha "0.0-590"]]}
              :uberjar {:aot :all}}
   :aliases {"kaocha" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner" "--reporter" "kaocha.report/documentation"]}
   :plugins [[lein-heroku "0.5.3"]]
