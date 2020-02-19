@@ -3,7 +3,7 @@
             [nhl-score-api.fetchers.nhlstats.latest-games :refer :all]
             [nhl-score-api.fetchers.nhlstats.resources :as resources]))
 
-(deftest latest-games-filtering
+(deftest filter-latest-games-test
 
   (testing "All games from latest day that has finished games are returned"
     (let [latest-games (:games

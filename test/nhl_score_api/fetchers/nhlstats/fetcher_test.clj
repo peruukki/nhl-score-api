@@ -4,7 +4,7 @@
             [clj-time.format :as format]
             [nhl-score-api.fetchers.nhlstats.fetcher :refer :all]))
 
-(deftest fetching-latest-scores
+(deftest get-schedule-query-params-test
 
   (testing "The last two days' scores are requested"
     (let [now (time/now)
@@ -18,7 +18,9 @@
 
   (testing "All needed schedule details are requested"
     (is (= "schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series,schedule.linescore"
-           (:expand (get-schedule-query-params))) "Expanded fields"))
+           (:expand (get-schedule-query-params))) "Expanded fields")))
+
+(deftest fetch-standings-info-test
 
   (testing "Standings are not fetched if there are no latest games"
     (is (= {:records nil}
