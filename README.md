@@ -299,6 +299,7 @@ The fields are described in more detail [later in this README](#date-fields-expl
           }
         },
         "playoffSeries": {
+          "round": 0,
           "wins": {
             "NYR": 1,
             "PIT": 1
@@ -367,6 +368,7 @@ The fields are described in more detail [later in this README](#date-fields-expl
     - `losses` *(number)*: regulation loss count (0 pts)
     - `ot` *(number)*: loss count for games that went to overtime (1 pt)
   - `playoffSeries` object: current playoff series related information, only present during playoffs
+    - `round` *(number)*: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series, actual playoffs start from `1`
     - `wins` object: each team’s win count in the series
 - `currentStats` object: each teams’s *current* (ie. after the game if it has finished and NHL have updated their stats) season statistics, with the fields:
   - `records` object: each teams’s record for this regular/playoff season, with the fields:
@@ -386,6 +388,7 @@ The fields are described in more detail [later in this README](#date-fields-expl
       - Note: this value only indicates point differences and doesn’t consider which team is ranked higher if they have the same
         number of points
   - `playoffSeries` object: current playoff series related information, only present during playoffs
+    - `round` *(number)*: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series, actual playoffs start from `1`
     - `wins` object: each team’s win count in the series
 
 **Note on overtimes:** Only regular season 5 minute overtimes are considered "overtime" in the

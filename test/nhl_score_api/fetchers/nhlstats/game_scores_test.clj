@@ -410,4 +410,18 @@
           playoff-series (map #(:playoff-series (:current-stats %)) games)
           wins (map :wins playoff-series)]
       (is (= [{"NJD" 0 "TBL" 1} {"TOR" 0 "BOS" 1} {"CBJ" 1 "WSH" 0} {"COL" 0 "NSH" 1} {"SJS" 0 "ANA" 0}]
-             wins) "Parsed current playoff series wins"))))
+             wins) "Parsed current playoff series wins")))
+
+  (testing "Parsing playoff rounds from playoff games"
+    (let [games (:games
+                  (parse-game-scores
+                    (filter-latest-games resources/playoff-games-live-finished-with-1st-games)
+                    (:records resources/standings)))
+          pre-game-stats-playoff-series (map #(:playoff-series (:pre-game-stats %)) games)
+          current-stats-playoff-series (map #(:playoff-series (:current-stats %)) games)
+          pre-game-stats-rounds (map :round pre-game-stats-playoff-series)
+          current-stats-rounds (map :round current-stats-playoff-series)]
+      (is (= [1 1 1 1 1]
+             pre-game-stats-rounds) "Parsed pre-game stats playoff rounds")
+      (is (= [1 1 1 1 1]
+             current-stats-rounds) "Parsed current stats playoff rounds"))))

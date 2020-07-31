@@ -325,6 +325,9 @@
       {away-team 0
        home-team 0})))
 
+(defn- parse-playoff-round [api-game]
+  (get-in api-game [:series-summary :series :round :number]))
+
 (defn- get-winning-team [game-details]
   (let [away-team (:abbreviation (:away (:teams game-details)))
         home-team (:abbreviation (:home (:teams game-details)))
@@ -346,9 +349,10 @@
         current-wins (parse-current-playoff-series-wins api-game teams)
         wins-before-game (if (finished-game? api-game)
                            (reduce-current-game-from-playoff-series-wins current-wins game-details)
-                           current-wins)]
-    {current-stats-key {:wins current-wins}
-     pre-game-stats-key {:wins wins-before-game}}))
+                           current-wins)
+        round (parse-playoff-round api-game)]
+    {current-stats-key {:round round :wins current-wins}
+     pre-game-stats-key {:round round :wins wins-before-game}}))
 
 (defn- parse-game-status [api-game]
   (let [state (parse-game-state api-game)]
