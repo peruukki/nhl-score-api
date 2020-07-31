@@ -289,7 +289,8 @@
               {"NYI" {:league-rank "6"} "VAN" {:league-rank "25"}}]
              league-ranks) "Parsed league ranks"))))
 
-(deftest game-scores-parsing-team-points-from-playoff-spot
+; TODO: Enable this again when "normal" playoff spot logic is resumed
+(deftest ^:skip game-scores-parsing-team-points-from-playoff-spot
 
   (testing "Parsing teams' points from playoff spot"
     (let [games (:games

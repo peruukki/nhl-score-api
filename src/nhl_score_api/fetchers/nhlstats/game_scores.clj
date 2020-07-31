@@ -268,6 +268,7 @@
       points-for-first-team-out-of-playoffs-in-division
       points-for-first-team-out-of-playoffs)))
 
+; TODO: Use this again when "normal" playoff spot logic is resumed
 (defn- get-point-difference-to-playoff-spot [conference-id division-id team-record standings]
   (let [is-team-out-of-playoffs (> (read-string (:wild-card-rank team-record)) 2)
         wild-card-teams (parse-wild-card-teams conference-id standings)
@@ -285,14 +286,11 @@
     (str (if (> difference 0) "+" "") difference)))
 
 (defn- derive-standings [standings team-details]
-  (let [conference-id (:id (:conference team-details))
-        division-id (:id (:division team-details))
+  (let [division-id (:id (:division team-details))
         team-id (:id team-details)
         team-record (parse-team-record-from-standings standings division-id team-id)]
     {:league-rank
-     (:league-rank team-record)
-     :points-from-playoff-spot
-     (get-point-difference-to-playoff-spot conference-id division-id team-record standings)}))
+     (:league-rank team-record)}))
 
 (defn- parse-standings [team-details standings]
   (let [away-details (:away team-details)
