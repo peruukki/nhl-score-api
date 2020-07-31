@@ -9,8 +9,6 @@ The NHL Stats API is undocumented, but [unofficial documentation](https://gitlab
 
 The API is available at https://nhl-score-api.herokuapp.com/, and it serves as the backend for [nhl-recap](https://github.com/peruukki/nhl-recap).
 
-**NOTE: The API returns the games from the last played round of season 2019–20 for now.**
-
 ## API
 
 ### Goals from latest finished NHL games
