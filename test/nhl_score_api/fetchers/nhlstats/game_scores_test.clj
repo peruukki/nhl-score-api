@@ -254,15 +254,15 @@
           streaks (map #(:streaks (:current-stats %)) games)]
       (is (= 9
              (count streaks)) "Parsed streaks count")
-      (is (= [{"CAR" {:type "WINS" :count 1} "NJD" {:type "WINS" :count 1}}
-              {"CGY" {:type "WINS" :count 4} "BOS" {:type "WINS" :count 7}}
-              {"PIT" {:type "LOSSES" :count 1} "WSH" {:type "WINS" :count 2}}
-              {"STL" {:type "LOSSES" :count 1} "OTT" {:type "LOSSES" :count 3}}
-              {"EDM" {:type "WINS" :count 1} "BUF" {:type "OT" :count 1}}
-              {"FLA" {:type "LOSSES" :count 1} "WPG" {:type "WINS" :count 1}}
-              {"COL" {:type "WINS" :count 3} "MIN" {:type "WINS" :count 2}}
-              {"DAL" {:type "WINS" :count 1} "NSH" nil}
-              {"NYI" {:type "OT" :count 1} "VAN" {:type "OT" :count 1}}]
+      (is (= [{"CAR" {:type "WINS" :count 3} "NJD" {:type "LOSSES" :count 1}}
+              {"CGY" {:type "LOSSES" :count 1} "BOS" {:type "WINS" :count 1}}
+              {"PIT" {:type "WINS" :count 1} "WSH" {:type "OT" :count 1}}
+              {"STL" {:type "WINS" :count 1} "OTT" {:type "LOSSES" :count 2}}
+              {"EDM" {:type "LOSSES" :count 1} "BUF" {:type "WINS" :count 1}}
+              {"FLA" {:type "WINS" :count 2} "WPG" {:type "WINS" :count 4}}
+              {"COL" {:type "WINS" :count 1} "MIN" {:type "WINS" :count 1}}
+              {"DAL" {:type "LOSSES" :count 3} "NSH" {:type "WINS" :count 3}}
+              {"NYI" {:type "OT" :count 2} "VAN" {:type "WINS" :count 1}}]
              streaks) "Parsed streaks"))))
 
 (deftest game-scores-parsing-team-league-ranks
@@ -280,15 +280,15 @@
       (is (= (repeat 9 nil) pre-game-stats-standings) "Parsed pre-game stats standings")
       (is (= 9
              (count league-ranks)) "Parsed current stats league ranks count")
-      (is (= [{"CAR" {:league-rank "13"} "NJD" {:league-rank "28"}}
-              {"CGY" {:league-rank "2"} "BOS" {:league-rank "4"}}
-              {"PIT" {:league-rank "12"} "WSH" {:league-rank "9"}}
-              {"STL" {:league-rank "14"} "OTT" {:league-rank "31"}}
-              {"EDM" {:league-rank "27"} "BUF" {:league-rank "17"}}
-              {"FLA" {:league-rank "23"} "WPG" {:league-rank "5"}}
-              {"COL" {:league-rank "19"} "MIN" {:league-rank "18"}}
-              {"DAL" {:league-rank "16"} "NSH" {:league-rank "7"}}
-              {"NYI" {:league-rank "6"} "VAN" {:league-rank "25"}}]
+      (is (= [{"CAR" {:league-rank "9"} "NJD" {:league-rank "26"}}
+              {"CGY" {:league-rank "19"} "BOS" {:league-rank "1"}}
+              {"PIT" {:league-rank "7"} "WSH" {:league-rank "5"}}
+              {"STL" {:league-rank "2"} "OTT" {:league-rank "30"}}
+              {"EDM" {:league-rank "12"} "BUF" {:league-rank "25"}}
+              {"FLA" {:league-rank "15"} "WPG" {:league-rank "20"}}
+              {"COL" {:league-rank "3"} "MIN" {:league-rank "21"}}
+              {"DAL" {:league-rank "10"} "NSH" {:league-rank "16"}}
+              {"NYI" {:league-rank "11"} "VAN" {:league-rank "17"}}]
              league-ranks) "Parsed current stats league ranks")))
 
   (testing "Parsing teams' league ranks for playoff games"
@@ -304,9 +304,9 @@
       (is (= pre-game-stats-standings current-stats-standings) "Parsed standings, pre-game vs. current stats")
       (is (= 3
              (count league-ranks)) "Parsed current stats league ranks count")
-      (is (= [{"DET" {:league-rank "29"} "TBL" {:league-rank "1"}}
-              {"NYR" {:league-rank "24"} "PIT" {:league-rank "12"}}
-              {"CHI" {:league-rank "22"} "STL" {:league-rank "14"}}]
+      (is (= [{"DET" {:league-rank "31"} "TBL" {:league-rank "4"}}
+              {"NYR" {:league-rank "18"} "PIT" {:league-rank "7"}}
+              {"CHI" {:league-rank "23"} "STL" {:league-rank "2"}}]
              league-ranks) "Parsed current stats league ranks"))))
 
 ; TODO: Enable this again when "normal" playoff spot logic is resumed
