@@ -291,7 +291,7 @@
         team-id (:id team-details)
         team-record (parse-team-record-from-standings standings division-id team-id)]
     {:league-rank
-     (:league-rank team-record)}))
+     (:pp-league-rank team-record)}))
 
 (defn- parse-standings [team-details standings]
   (let [away-details (:away team-details)
