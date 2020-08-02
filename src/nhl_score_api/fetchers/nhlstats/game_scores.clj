@@ -184,7 +184,7 @@
     {(:abbreviation away-details) (:league-record away-details)
      (:abbreviation home-details) (:league-record home-details)}))
 
-(defn- reduce-current-game-from-records [records teams scores]
+(defn- reduce-current-game-from-records [records api-game teams scores]
   (let [away-team (:abbreviation (:away teams))
         home-team (:abbreviation (:home teams))
         away-goals (get scores away-team)
@@ -193,9 +193,8 @@
         losing-team (if (= winning-team home-team) away-team home-team)
         winning-team-current-record (get records winning-team)
         losing-team-current-record (get records losing-team)
-        records-have-ot (contains? losing-team-current-record :ot)
         ot-loss (and
-                  records-have-ot
+                  (non-playoff-game? api-game)
                   (or (contains? scores :overtime) (contains? scores :shootout)))
         loss-key (if ot-loss :ot :losses)]
     {winning-team (assoc winning-team-current-record :wins (- (:wins winning-team-current-record) 1))
@@ -207,7 +206,7 @@
      current-records
      pre-game-stats-key
      (if (finished-game? api-game)
-       (reduce-current-game-from-records current-records teams scores)
+       (reduce-current-game-from-records current-records api-game teams scores)
        current-records)}
     ))
 
