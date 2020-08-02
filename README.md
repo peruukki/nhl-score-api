@@ -364,8 +364,7 @@ The fields are described in more detail [later in this README](#date-fields-expl
   - `playoffSeries` object: current playoff series related information, only present during playoffs
     - `round` *(number)*: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series, actual playoffs start from `1`
     - `wins` object: each team’s win count in the series
-  - `standings` object: each teams’s standings related information, with the field (*NOTE: included in `preGameStats` only for playoff games,
-    where its values are not affected by the game’s result. There is no easy way to get the information before the game for regular season games.*):
+  - `standings` object: each teams’s standings related information, with the field:
     - `leagueRank` *(string)*: the team's regular season ranking in the league; this comes as a *string* value from the NHL Stats API
 - `currentStats` object: each teams’s *current* (ie. after the game if it has finished and NHL have updated their stats) season statistics, with the fields:
   - `records` object: each teams’s record for this regular/playoff season, with the fields:

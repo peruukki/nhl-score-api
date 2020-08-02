@@ -379,11 +379,9 @@
   (if (all-star-game? api-game)
     game-details
     (let [parsed-standings (parse-standings team-details standings)]
-      (if (non-playoff-game? api-game)
-        (add-stats-field game-details current-stats-key :standings parsed-standings)
-        (-> game-details
-          (add-stats-field pre-game-stats-key :standings parsed-standings)
-          (add-stats-field current-stats-key :standings parsed-standings))))))
+      (-> game-details
+        (add-stats-field pre-game-stats-key :standings parsed-standings)
+        (add-stats-field current-stats-key :standings parsed-standings)))))
 
 (defn- add-playoff-series-information [game-details api-game]
   (if (non-playoff-game? api-game)

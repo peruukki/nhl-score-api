@@ -277,7 +277,7 @@
           league-ranks (map
                          #(fmap (fn [team-stats] (select-keys team-stats [:league-rank])) %)
                          current-stats-standings)]
-      (is (= (repeat 9 nil) pre-game-stats-standings) "Parsed pre-game stats standings")
+      (is (= pre-game-stats-standings current-stats-standings) "Parsed standings, pre-game vs. current stats")
       (is (= 9
              (count league-ranks)) "Parsed current stats league ranks count")
       (is (= [{"CAR" {:league-rank "9"} "NJD" {:league-rank "26"}}
