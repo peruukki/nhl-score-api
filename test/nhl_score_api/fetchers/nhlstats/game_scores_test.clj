@@ -267,17 +267,19 @@
 
 (deftest game-scores-parsing-team-league-ranks
 
-  (testing "Parsing teams' league ranks"
+  (testing "Parsing teams' league ranks for regular season games"
     (let [games (:games
                   (parse-game-scores
                     (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
                     (:records resources/standings)))
-          standings (map #(:standings (:current-stats %)) games)
+          pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
+          current-stats-standings (map #(:standings (:current-stats %)) games)
           league-ranks (map
                          #(fmap (fn [team-stats] (select-keys team-stats [:league-rank])) %)
-                         standings)]
+                         current-stats-standings)]
+      (is (= (repeat 9 nil) pre-game-stats-standings) "Parsed pre-game stats standings")
       (is (= 9
-             (count league-ranks)) "Parsed league ranks count")
+             (count league-ranks)) "Parsed current stats league ranks count")
       (is (= [{"CAR" {:league-rank "13"} "NJD" {:league-rank "28"}}
               {"CGY" {:league-rank "2"} "BOS" {:league-rank "4"}}
               {"PIT" {:league-rank "12"} "WSH" {:league-rank "9"}}
@@ -287,7 +289,25 @@
               {"COL" {:league-rank "19"} "MIN" {:league-rank "18"}}
               {"DAL" {:league-rank "16"} "NSH" {:league-rank "7"}}
               {"NYI" {:league-rank "6"} "VAN" {:league-rank "25"}}]
-             league-ranks) "Parsed league ranks"))))
+             league-ranks) "Parsed current stats league ranks")))
+
+  (testing "Parsing teams' league ranks for playoff games"
+    (let [games (:games
+                  (parse-game-scores
+                    (filter-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
+                    (:records resources/standings)))
+          pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
+          current-stats-standings (map #(:standings (:current-stats %)) games)
+          league-ranks (map
+                         #(fmap (fn [team-stats] (select-keys team-stats [:league-rank])) %)
+                         current-stats-standings)]
+      (is (= pre-game-stats-standings current-stats-standings) "Parsed standings, pre-game vs. current stats")
+      (is (= 3
+             (count league-ranks)) "Parsed current stats league ranks count")
+      (is (= [{"DET" {:league-rank "29"} "TBL" {:league-rank "1"}}
+              {"NYR" {:league-rank "24"} "PIT" {:league-rank "12"}}
+              {"CHI" {:league-rank "22"} "STL" {:league-rank "14"}}]
+             league-ranks) "Parsed current stats league ranks"))))
 
 ; TODO: Enable this again when "normal" playoff spot logic is resumed
 (deftest ^:skip game-scores-parsing-team-points-from-playoff-spot
