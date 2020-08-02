@@ -123,9 +123,11 @@ The fields are described in more detail [later in this README](#date-fields-expl
         },
         "standings": {
           "BOS": {
+            "conferenceRank": "4",
             "leagueRank": "8"
           },
           "CHI": {
+            "conferenceRank": "11",
             "leagueRank": "25"
           }
         }
@@ -218,9 +220,11 @@ The fields are described in more detail [later in this README](#date-fields-expl
         },
         "standings": {
           "OTT": {
+            "conferenceRank": "15",
             "leagueRank": "29"
           },
           "DET": {
+            "conferenceRank": "12",
             "leagueRank": "23"
           }
         }
@@ -365,6 +369,7 @@ The fields are described in more detail [later in this README](#date-fields-expl
     - `round` *(number)*: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series, actual playoffs start from `1`
     - `wins` object: each team’s win count in the series
   - `standings` object: each teams’s standings related information, with the field:
+    - `conferenceRank` *(string)*: the team's regular season ranking in their conference; this comes as a *string* value from the NHL Stats API
     - `leagueRank` *(string)*: the team's regular season ranking in the league; this comes as a *string* value from the NHL Stats API
 - `currentStats` object: each teams’s *current* (ie. after the game if it has finished and NHL have updated their stats) season statistics, with the fields:
   - `records` object: each teams’s record for this regular/playoff season, with the fields:
@@ -375,6 +380,7 @@ The fields are described in more detail [later in this README](#date-fields-expl
     - `type` *(string)*: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
     - `count` *(number)*: streak’s length in consecutive games
   - `standings` object: each teams’s standings related information, with the field:
+    - `conferenceRank` *(string)*: the team's regular season ranking in their conference; this comes as a *string* value from the NHL Stats API
     - `leagueRank` *(string)*: the team's regular season ranking in the league; this comes as a *string* value from the NHL Stats API
     - `pointsFromPlayoffSpot` *(string)*: point difference to the last playoff spot in the conference:
       (**NOTE: This field is currently removed due to exceptional playoff spot logic in season 2019–20**)
