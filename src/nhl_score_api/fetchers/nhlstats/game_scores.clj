@@ -193,7 +193,9 @@
         losing-team (if (= winning-team home-team) away-team home-team)
         winning-team-current-record (get records winning-team)
         losing-team-current-record (get records losing-team)
+        records-have-ot (contains? losing-team-current-record :ot)
         ot-loss (and
+                  records-have-ot
                   (non-playoff-game? api-game)
                   (or (contains? scores :overtime) (contains? scores :shootout)))
         loss-key (if ot-loss :ot :losses)]
