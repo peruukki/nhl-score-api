@@ -376,7 +376,7 @@
     (add-stats-field game-details current-stats-key :streaks (parse-streaks team-details standings))))
 
 (defn- add-team-standings [game-details api-game team-details standings]
-  (if (not (regular-season-game? api-game))
+  (if (all-star-game? api-game)
     game-details
     (add-stats-field game-details current-stats-key :standings
                      (parse-standings team-details standings))))
