@@ -141,16 +141,12 @@
        (add-overtime-flag goals)
        (add-shootout-flag goals)))
 
-(defn- filter-team-goals [awayOrHomeKey goals team-details]
-  (let [team-id (:id (awayOrHomeKey team-details))]
-    (filter #(= team-id (:id (:team %))) goals)))
-
 (defn- parse-scores [api-game team-details]
   (let [goals (:scoring-plays api-game)
-        away-goals (filter-team-goals :away goals team-details)
-        home-goals (filter-team-goals :home goals team-details)
-        team-goal-counts {(:abbreviation (:away team-details)) (count away-goals)
-                          (:abbreviation (:home team-details)) (count home-goals)}]
+        away-goals (get-in api-game [:teams :away :score])
+        home-goals (get-in api-game [:teams :home :score])
+        team-goal-counts {(:abbreviation (:away team-details)) away-goals
+                          (:abbreviation (:home team-details)) home-goals}]
     (add-score-flags team-goal-counts goals)))
 
 (defn- parse-team-details [awayOrHomeKey api-game]
