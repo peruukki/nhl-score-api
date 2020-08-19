@@ -461,3 +461,47 @@
              pre-game-stats-rounds) "Parsed pre-game stats playoff rounds")
       (is (= [1 1 1 1 1]
              current-stats-rounds) "Parsed current stats playoff rounds"))))
+
+(deftest game-scores-validation
+
+  (testing "Validating valid game with goals"
+    (let [game (first (:games
+                        (parse-game-scores
+                          (filter-latest-games resources/games-in-live-preview-and-final-states)
+                          (:records resources/standings))))]
+      (is (= (contains? game :errors) false) "No validation errors")))
+
+  (testing "Validating valid game without goals"
+    (let [game (nth (:games
+                        (parse-game-scores
+                          (filter-latest-games resources/games-in-live-preview-and-final-states)
+                          (:records resources/standings)))
+                    3)]
+      (is (= (contains? game :errors) false) "No validation errors")))
+
+  (testing "Validating game missing all goals"
+    (let [game (first (:games
+                        (parse-game-scores
+                          (filter-latest-games resources/games-with-validation-errors)
+                          (:records resources/standings))))]
+      (is (= (contains? game :errors) true) "Contains validation errors")
+      (is (= [{:error :MISSING-ALL-GOALS}]
+             (:errors game)) "Errors contain 'missing all goals' error")))
+
+  (testing "Validating game missing one goal"
+    (let [game (second (:games
+                        (parse-game-scores
+                          (filter-latest-games resources/games-with-validation-errors)
+                          (:records resources/standings))))]
+      (is (= (contains? game :errors) true) "Contains validation errors")
+      (is (= [{:error :SCORE-AND-GOAL-COUNT-MISMATCH :details {:goal-count 4 :score-count 5}}]
+             (:errors game)) "Errors contain expected 'score and goal count mismatch' error")))
+
+  (testing "Validating game having one goal too many"
+    (let [game (last (:games
+                        (parse-game-scores
+                          (filter-latest-games resources/games-with-validation-errors)
+                          (:records resources/standings))))]
+      (is (= (contains? game :errors) true) "Contains validation errors")
+      (is (= [{:error :SCORE-AND-GOAL-COUNT-MISMATCH :details {:goal-count 5 :score-count 3}}]
+             (:errors game)) "Errors contain expected 'score and goal count mismatch' error"))))

@@ -1,0 +1,874 @@
+{
+  "copyright" : "Copyright 2015 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "totalItems" : 3,
+  "wait" : 10,
+  "dates" : [ {
+    "date" : "2016-02-27",
+    "totalItems" : 3,
+    "games" : [ {
+      "gamePk" : 2015020921,
+      "link" : "/api/v1/game/2015020921/feed/live",
+      "gameType" : "R",
+      "season" : "20152016",
+      "gameDate" : "2016-02-27T18:00:00Z",
+      "status" : {
+        "abstractGameState" : "Final",
+        "codedGameState" : "7",
+        "detailedState" : "Final",
+        "statusCode" : "7"
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 27,
+            "losses" : 29,
+            "ot" : 6,
+            "type" : "league"
+          },
+          "score" : 2,
+          "team" : {
+            "id" : 53,
+            "name" : "Arizona Coyotes",
+            "link" : "/api/v1/teams/53",
+            "venue" : {
+              "name" : "Gila River Arena",
+              "city" : "Glendale",
+              "timeZone" : {
+                "id" : "America/Phoenix",
+                "offset" : -7
+              }
+            },
+            "abbreviation" : "ARI",
+            "teamName" : "Coyotes",
+            "locationName" : "Arizona",
+            "firstYearOfPlay" : "1979",
+            "division" : {
+              "id" : 15,
+              "name" : "Pacific",
+              "link" : "/api/v1/divisions/15"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 28,
+              "teamName" : "Coyotes",
+              "link" : "/api/v1/franchises/28"
+            },
+            "officialSiteUrl" : "http://www.arizonacoyotes.com",
+            "franchiseId" : 28,
+            "shortName" : "Arizona",
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 28,
+            "losses" : 22,
+            "ot" : 11,
+            "type" : "league"
+          },
+          "score" : 4,
+          "team" : {
+            "id" : 4,
+            "name" : "Philadelphia Flyers",
+            "link" : "/api/v1/teams/4",
+            "venue" : {
+              "name" : "Wells Fargo Center",
+              "city" : "Philadelphia",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -5
+              }
+            },
+            "abbreviation" : "PHI",
+            "teamName" : "Flyers",
+            "locationName" : "Philadelphia",
+            "firstYearOfPlay" : "1967",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 16,
+              "teamName" : "Flyers",
+              "link" : "/api/v1/franchises/16"
+            },
+            "officialSiteUrl" : "http://www.philadelphiaflyers.com",
+            "franchiseId" : 16,
+            "shortName" : "Philadelphia",
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [],
+      "venue" : {
+        "name" : "Wells Fargo Center"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2015020921/content"
+      }
+    }, {
+      "gamePk" : 2015020924,
+      "link" : "/api/v1/game/2015020924/feed/live",
+      "gameType" : "R",
+      "season" : "20152016",
+      "gameDate" : "2016-02-27T20:00:00Z",
+      "status" : {
+        "abstractGameState" : "Final",
+        "codedGameState" : "7",
+        "detailedState" : "Final",
+        "statusCode" : "7"
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 35,
+            "losses" : 20,
+            "ot" : 9,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 19,
+            "name" : "St. Louis Blues",
+            "link" : "/api/v1/teams/19",
+            "venue" : {
+              "name" : "Scottrade Center",
+              "city" : "St. Louis",
+              "timeZone" : {
+                "id" : "America/Chicago",
+                "offset" : -6
+              }
+            },
+            "abbreviation" : "STL",
+            "teamName" : "Blues",
+            "locationName" : "St. Louis",
+            "firstYearOfPlay" : "1967",
+            "division" : {
+              "id" : 16,
+              "name" : "Central",
+              "link" : "/api/v1/divisions/16"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 18,
+              "teamName" : "Blues",
+              "link" : "/api/v1/franchises/18"
+            },
+            "officialSiteUrl" : "http://www.stlouisblues.com",
+            "franchiseId" : 18,
+            "shortName" : "St Louis",
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 31,
+            "losses" : 21,
+            "ot" : 11,
+            "type" : "league"
+          },
+          "score" : 5,
+          "team" : {
+            "id" : 18,
+            "name" : "Nashville Predators",
+            "link" : "/api/v1/teams/18",
+            "venue" : {
+              "name" : "Bridgestone Arena",
+              "city" : "Nashville",
+              "timeZone" : {
+                "id" : "America/Chicago",
+                "offset" : -6
+              }
+            },
+            "abbreviation" : "NSH",
+            "teamName" : "Predators",
+            "locationName" : "Nashville",
+            "firstYearOfPlay" : "1997",
+            "division" : {
+              "id" : 16,
+              "name" : "Central",
+              "link" : "/api/v1/divisions/16"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 34,
+              "teamName" : "Predators",
+              "link" : "/api/v1/franchises/34"
+            },
+            "officialSiteUrl" : "http://www.nashvillepredators.com",
+            "franchiseId" : 34,
+            "shortName" : "Nashville",
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ {
+        "players" : [ {
+          "player" : {
+            "id" : 8475225,
+            "fullName" : "Craig Smith",
+            "link" : "/api/v1/people/8475225"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 14
+        }, {
+          "player" : {
+            "id" : 8467371,
+            "fullName" : "Mike Ribeiro",
+            "link" : "/api/v1/people/8467371"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 34
+        }, {
+          "player" : {
+            "id" : 8476887,
+            "fullName" : "Filip Forsberg",
+            "link" : "/api/v1/people/8476887"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 20
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "NSH30",
+          "eventTypeId" : "GOAL",
+          "description" : "Craig Smith (14) Wrist Shot, assists: Mike Ribeiro (34), Filip Forsberg (20)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 50,
+          "eventId" : 30,
+          "period" : 1,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "1st",
+          "periodTime" : "05:39",
+          "dateTime" : "2016-02-27T20:22:42Z",
+          "goals" : {
+            "away" : 0,
+            "home" : 1
+          }
+        },
+        "coordinates" : {
+          "x" : 78.0,
+          "y" : 3.0
+        },
+        "team" : {
+          "id" : 18,
+          "name" : "Nashville Predators",
+          "link" : "/api/v1/teams/18"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8476887,
+            "fullName" : "Filip Forsberg",
+            "link" : "/api/v1/people/8476887"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 24
+        }, {
+          "player" : {
+            "id" : 8475774,
+            "fullName" : "Petter Granberg",
+            "link" : "/api/v1/people/8475774"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 2
+        }, {
+          "player" : {
+            "id" : 8475225,
+            "fullName" : "Craig Smith",
+            "link" : "/api/v1/people/8475225"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 10
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "NSH231",
+          "eventTypeId" : "GOAL",
+          "description" : "Filip Forsberg (24) Wrist Shot, assists: Petter Granberg (2), Craig Smith (10)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 146,
+          "eventId" : 231,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "00:54",
+          "dateTime" : "2016-02-27T21:11:45Z",
+          "goals" : {
+            "away" : 0,
+            "home" : 2
+          }
+        },
+        "coordinates" : {
+          "x" : -73.0,
+          "y" : -18.0
+        },
+        "team" : {
+          "id" : 18,
+          "name" : "Nashville Predators",
+          "link" : "/api/v1/teams/18"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8476887,
+            "fullName" : "Filip Forsberg",
+            "link" : "/api/v1/people/8476887"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 25
+        }, {
+          "player" : {
+            "id" : 8475225,
+            "fullName" : "Craig Smith",
+            "link" : "/api/v1/people/8475225"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 11
+        }, {
+          "player" : {
+            "id" : 8467371,
+            "fullName" : "Mike Ribeiro",
+            "link" : "/api/v1/people/8467371"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 35
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "NSH243",
+          "eventTypeId" : "GOAL",
+          "description" : "Filip Forsberg (25) Wrist Shot, assists: Craig Smith (11), Mike Ribeiro (35)",
+          "secondaryType" : "Wrist Shot",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 161,
+          "eventId" : 243,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "05:39",
+          "dateTime" : "2016-02-27T21:17:24Z",
+          "goals" : {
+            "away" : 0,
+            "home" : 3
+          }
+        },
+        "coordinates" : {
+          "x" : -60.0,
+          "y" : -24.0
+        },
+        "team" : {
+          "id" : 18,
+          "name" : "Nashville Predators",
+          "link" : "/api/v1/teams/18"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8476887,
+            "fullName" : "Filip Forsberg",
+            "link" : "/api/v1/people/8476887"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 26
+        }, {
+          "player" : {
+            "id" : 8467371,
+            "fullName" : "Mike Ribeiro",
+            "link" : "/api/v1/people/8467371"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 36
+        }, {
+          "player" : {
+            "id" : 8474600,
+            "fullName" : "Roman Josi",
+            "link" : "/api/v1/people/8474600"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 34
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "NSH463",
+          "eventTypeId" : "GOAL",
+          "description" : "Filip Forsberg (26) Snap Shot, assists: Mike Ribeiro (36), Roman Josi (34)",
+          "secondaryType" : "Snap Shot",
+          "strength" : {
+            "code" : "PPG",
+            "name" : "Power Play"
+          }
+        },
+        "about" : {
+          "eventIdx" : 201,
+          "eventId" : 463,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "14:49",
+          "dateTime" : "2016-02-27T21:39:42Z",
+          "goals" : {
+            "away" : 0,
+            "home" : 4
+          }
+        },
+        "coordinates" : {
+          "x" : -75.0,
+          "y" : -20.0
+        },
+        "team" : {
+          "id" : 18,
+          "name" : "Nashville Predators",
+          "link" : "/api/v1/teams/18"
+        }
+      } ],
+      "venue" : {
+        "name" : "Bridgestone Arena"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2015020924/content"
+      }
+    }, {
+      "gamePk" : 2015020922,
+      "link" : "/api/v1/game/2015020922/feed/live",
+      "gameType" : "R",
+      "season" : "20152016",
+      "gameDate" : "2016-02-27T20:00:00Z",
+      "status" : {
+        "abstractGameState" : "Final",
+        "codedGameState" : "7",
+        "detailedState" : "Final",
+        "statusCode" : "7"
+      },
+      "teams" : {
+        "away" : {
+          "leagueRecord" : {
+            "wins" : 26,
+            "losses" : 31,
+            "ot" : 4,
+            "type" : "league"
+          },
+          "score" : 0,
+          "team" : {
+            "id" : 52,
+            "name" : "Winnipeg Jets",
+            "link" : "/api/v1/teams/52",
+            "venue" : {
+              "name" : "MTS Centre",
+              "city" : "Winnipeg",
+              "timeZone" : {
+                "id" : "America/Winnipeg",
+                "offset" : -6
+              }
+            },
+            "abbreviation" : "WPG",
+            "teamName" : "Jets",
+            "locationName" : "Winnipeg",
+            "firstYearOfPlay" : "2011",
+            "division" : {
+              "id" : 16,
+              "name" : "Central",
+              "link" : "/api/v1/divisions/16"
+            },
+            "conference" : {
+              "id" : 5,
+              "name" : "Western",
+              "link" : "/api/v1/conferences/5"
+            },
+            "franchise" : {
+              "franchiseId" : 35,
+              "teamName" : "Jets",
+              "link" : "/api/v1/franchises/35"
+            },
+            "officialSiteUrl" : "http://winnipegjets.com",
+            "franchiseId" : 35,
+            "shortName" : "Winnipeg",
+            "active" : true
+          }
+        },
+        "home" : {
+          "leagueRecord" : {
+            "wins" : 31,
+            "losses" : 21,
+            "ot" : 8,
+            "type" : "league"
+          },
+          "score" : 3,
+          "team" : {
+            "id" : 5,
+            "name" : "Pittsburgh Penguins",
+            "link" : "/api/v1/teams/5",
+            "venue" : {
+              "name" : "CONSOL Energy Center",
+              "city" : "Pittsburgh",
+              "timeZone" : {
+                "id" : "America/New_York",
+                "offset" : -5
+              }
+            },
+            "abbreviation" : "PIT",
+            "teamName" : "Penguins",
+            "locationName" : "Pittsburgh",
+            "firstYearOfPlay" : "1967",
+            "division" : {
+              "id" : 18,
+              "name" : "Metropolitan",
+              "link" : "/api/v1/divisions/18"
+            },
+            "conference" : {
+              "id" : 6,
+              "name" : "Eastern",
+              "link" : "/api/v1/conferences/6"
+            },
+            "franchise" : {
+              "franchiseId" : 17,
+              "teamName" : "Penguins",
+              "link" : "/api/v1/franchises/17"
+            },
+            "officialSiteUrl" : "http://www.pittsburghpenguins.com",
+            "franchiseId" : 17,
+            "shortName" : "Pittsburgh",
+            "active" : true
+          }
+        }
+      },
+      "scoringPlays" : [ {
+        "players" : [ {
+          "player" : {
+            "id" : 8471724,
+            "fullName" : "Kris Letang",
+            "link" : "/api/v1/people/8471724"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 10
+        }, {
+          "player" : {
+            "id" : 8471887,
+            "fullName" : "Patric Hornqvist",
+            "link" : "/api/v1/people/8471887"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 22
+        }, {
+          "player" : {
+            "id" : 8470543,
+            "fullName" : "Chris Kunitz",
+            "link" : "/api/v1/people/8470543"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 18
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "PIT97",
+          "eventTypeId" : "GOAL",
+          "description" : "Kris Letang (10) Snap Shot, assists: Patric Hornqvist (22), Chris Kunitz (18)",
+          "secondaryType" : "Snap Shot",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 90,
+          "eventId" : 97,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "00:28",
+          "dateTime" : "2016-02-27T21:06:17Z",
+          "goals" : {
+            "away" : 0,
+            "home" : 1
+          }
+        },
+        "coordinates" : {
+          "x" : -59.0,
+          "y" : 17.0
+        },
+        "team" : {
+          "id" : 5,
+          "name" : "Pittsburgh Penguins",
+          "link" : "/api/v1/teams/5"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8474176,
+            "fullName" : "Carl Hagelin",
+            "link" : "/api/v1/people/8474176"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 6
+        }, {
+          "player" : {
+            "id" : 8474013,
+            "fullName" : "Ian Cole",
+            "link" : "/api/v1/people/8474013"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 5
+        }, {
+          "player" : {
+            "id" : 8476884,
+            "fullName" : "Derrick Pouliot",
+            "link" : "/api/v1/people/8476884"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 5
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "PIT100",
+          "eventTypeId" : "GOAL",
+          "description" : "Carl Hagelin (6) Tip-In, assists: Ian Cole (5), Derrick Pouliot (5)",
+          "secondaryType" : "Tip-In",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 94,
+          "eventId" : 100,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "00:51",
+          "dateTime" : "2016-02-27T21:07:19Z",
+          "goals" : {
+            "away" : 0,
+            "home" : 2
+          }
+        },
+        "coordinates" : {
+          "x" : -74.0,
+          "y" : 1.0
+        },
+        "team" : {
+          "id" : 5,
+          "name" : "Pittsburgh Penguins",
+          "link" : "/api/v1/teams/5"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8471218,
+            "fullName" : "Blake Wheeler",
+            "link" : "/api/v1/people/8471218"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 18
+        }, {
+          "player" : {
+            "id" : 8470834,
+            "fullName" : "Dustin Byfuglien",
+            "link" : "/api/v1/people/8470834"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 24
+        }, {
+          "player" : {
+            "id" : 8477940,
+            "fullName" : "Nikolaj Ehlers",
+            "link" : "/api/v1/people/8477940"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 17
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "PIT371",
+          "eventTypeId" : "GOAL",
+          "description" : "Blake Wheeler (18) Tip-In, assists: Dustin Byfuglien (24), Nikolaj Ehlers (17)",
+          "secondaryType" : "Tip-In",
+          "strength" : {
+            "code" : "PPG",
+            "name" : "Power Play"
+          }
+        },
+        "about" : {
+          "eventIdx" : 132,
+          "eventId" : 371,
+          "period" : 2,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "2nd",
+          "periodTime" : "11:12",
+          "dateTime" : "2016-02-27T21:23:49Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 2
+          }
+        },
+        "coordinates" : {
+          "x" : 79.0,
+          "y" : -3.0
+        },
+        "team" : {
+          "id" : 52,
+          "name" : "Winnipeg Jets",
+          "link" : "/api/v1/teams/52"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8476293,
+            "fullName" : "Scott Wilson",
+            "link" : "/api/v1/people/8476293"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 4
+        }, {
+          "player" : {
+            "id" : 8476884,
+            "fullName" : "Derrick Pouliot",
+            "link" : "/api/v1/people/8476884"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 6
+        }, {
+          "player" : {
+            "id" : 8474009,
+            "fullName" : "Nick Bonino",
+            "link" : "/api/v1/people/8474009"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 8
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "PIT567",
+          "eventTypeId" : "GOAL",
+          "description" : "Scott Wilson (4) Tip-In, assists: Derrick Pouliot (6), Nick Bonino (8)",
+          "secondaryType" : "Tip-In",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 216,
+          "eventId" : 567,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "05:19",
+          "dateTime" : "2016-02-27T22:11:01Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 3
+          }
+        },
+        "coordinates" : {
+          "x" : 69.0,
+          "y" : 2.0
+        },
+        "team" : {
+          "id" : 5,
+          "name" : "Pittsburgh Penguins",
+          "link" : "/api/v1/teams/5"
+        }
+      }, {
+        "players" : [ {
+          "player" : {
+            "id" : 8474176,
+            "fullName" : "Carl Hagelin",
+            "link" : "/api/v1/people/8474176"
+          },
+          "playerType" : "Scorer",
+          "seasonTotal" : 7
+        }, {
+          "player" : {
+            "id" : 8473548,
+            "fullName" : "Phil Kessel",
+            "link" : "/api/v1/people/8473548"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 20
+        }, {
+          "player" : {
+            "id" : 8474013,
+            "fullName" : "Ian Cole",
+            "link" : "/api/v1/people/8474013"
+          },
+          "playerType" : "Assist",
+          "seasonTotal" : 6
+        } ],
+        "result" : {
+          "event" : "Goal",
+          "eventCode" : "PIT584",
+          "eventTypeId" : "GOAL",
+          "description" : "Carl Hagelin (7) Snap Shot, assists: Phil Kessel (20), Ian Cole (6)",
+          "secondaryType" : "Snap Shot",
+          "strength" : {
+            "code" : "EVEN",
+            "name" : "Even"
+          }
+        },
+        "about" : {
+          "eventIdx" : 240,
+          "eventId" : 584,
+          "period" : 3,
+          "periodType" : "REGULAR",
+          "ordinalNum" : "3rd",
+          "periodTime" : "10:02",
+          "dateTime" : "2016-02-27T22:19:30Z",
+          "goals" : {
+            "away" : 1,
+            "home" : 4
+          }
+        },
+        "coordinates" : {
+          "x" : 78.0,
+          "y" : -9.0
+        },
+        "team" : {
+          "id" : 5,
+          "name" : "Pittsburgh Penguins",
+          "link" : "/api/v1/teams/5"
+        }
+      } ],
+      "venue" : {
+        "name" : "CONSOL Energy Center"
+      },
+      "content" : {
+        "link" : "/api/v1/game/2015020922/content"
+      }
+    } ]
+  } ]
+}

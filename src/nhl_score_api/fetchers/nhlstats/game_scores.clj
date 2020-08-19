@@ -387,6 +387,29 @@
           (add-stats-field pre-game-stats-key :playoff-series (pre-game-stats-key playoff-series-information))
           (add-stats-field current-stats-key :playoff-series (current-stats-key playoff-series-information))))))
 
+(defn- validate-score-and-goal-counts [game-details]
+  (let [away-team (get-in game-details [:teams :away :abbreviation])
+        home-team (get-in game-details [:teams :home :abbreviation])
+        away-score (get-in game-details [:scores away-team])
+        home-score (get-in game-details [:scores home-team])
+        score-count (+ away-score home-score)
+        goal-count (count (:goals game-details))]
+    (cond
+      (and (= goal-count 0) (> score-count 0))
+      {:error :MISSING-ALL-GOALS}
+
+      (not= score-count goal-count)
+      {:error :SCORE-AND-GOAL-COUNT-MISMATCH :details {:score-count score-count :goal-count goal-count}}
+
+      :else
+      nil)))
+
+(defn- add-validation-errors [game-details]
+  (let [errors (keep identity [(validate-score-and-goal-counts game-details)])]
+    (if (empty? errors)
+      game-details
+      (assoc game-details :errors errors))))
+
 (defn- parse-game-details [standings api-game]
   (let [team-details (parse-game-team-details api-game)
         scores (parse-scores api-game team-details)
@@ -401,7 +424,8 @@
         (add-team-records api-game team-details teams scores)
         (add-team-streaks api-game team-details standings)
         (add-team-standings api-game team-details standings)
-        (add-playoff-series-information api-game))))
+        (add-playoff-series-information api-game)
+        (add-validation-errors))))
 
 (defn parse-game-scores [date-and-api-games standings]
   {:date (:date date-and-api-games)

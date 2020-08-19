@@ -28,6 +28,7 @@ The `games` array contains details of the games, each game item containing these
 - `teams` *(object)*
 - `preGameStats` *(object)*
 - `currentStats` *(object)*
+- `errors` *(array)* (only present if data validity errors were detected)
 
 The fields are described in more detail [later in this README](#date-fields-explained).
 
@@ -393,6 +394,12 @@ The fields are described in more detail [later in this README](#date-fields-expl
   - `playoffSeries` object: current playoff series related information, only present during playoffs
     - `round` *(number)*: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series, actual playoffs start from `1`
     - `wins` object: each team’s win count in the series
+- `errors` array: list of data validation errors, only present if any were detected. Sometimes the NHL Stats API temporarily contains
+  invalid or missing data. Currently we check if the goal data from the NHL Stats API (read from its `scoringPlays` field) contains the
+  same number of goals than the score data (read from its `teams` field). If it doesn't, two different errors can be reported:
+  - `{ "error": "MISSING-ALL-GOALS" }`: all goal data is missing; this has happened occasionally
+  - `{ "error": "SCORE-AND-GOAL-COUNT-MISMATCH", "details": { "goalCount": 3, "scoreCount": 4 } }`: goal data exists but doesn't contain
+    the same number of goals than the teams' scores; haven't noticed this happen but good to check anyway
 
 **Note on overtimes:** Only regular season 5 minute overtimes are considered "overtime" in the
 `goals` array. Playoff overtime periods are returned as period 4, 5, and so on, since they are
