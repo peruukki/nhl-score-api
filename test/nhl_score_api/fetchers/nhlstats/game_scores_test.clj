@@ -482,7 +482,7 @@
   (testing "Validating game missing all goals"
     (let [game (first (:games
                         (parse-game-scores
-                          (filter-latest-games resources/games-with-validation-errors)
+                          (filter-latest-games resources/games-for-validation-testing)
                           (:records resources/standings))))]
       (is (= (contains? game :errors) true) "Contains validation errors")
       (is (= [{:error :MISSING-ALL-GOALS}]
@@ -491,7 +491,7 @@
   (testing "Validating game missing one goal"
     (let [game (second (:games
                         (parse-game-scores
-                          (filter-latest-games resources/games-with-validation-errors)
+                          (filter-latest-games resources/games-for-validation-testing)
                           (:records resources/standings))))]
       (is (= (contains? game :errors) true) "Contains validation errors")
       (is (= [{:error :SCORE-AND-GOAL-COUNT-MISMATCH :details {:goal-count 4 :score-count 5}}]
@@ -500,7 +500,7 @@
   (testing "Validating game having one goal too many"
     (let [game (last (:games
                         (parse-game-scores
-                          (filter-latest-games resources/games-with-validation-errors)
+                          (filter-latest-games resources/games-for-validation-testing)
                           (:records resources/standings))))]
       (is (= (contains? game :errors) true) "Contains validation errors")
       (is (= [{:error :SCORE-AND-GOAL-COUNT-MISMATCH :details {:goal-count 5 :score-count 3}}]
