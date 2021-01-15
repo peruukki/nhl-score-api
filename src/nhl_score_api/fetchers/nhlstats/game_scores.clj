@@ -126,6 +126,10 @@
 (defn- ended-in-shootout? [goals]
   (some #(= "SO" (:ordinal-num (:about %))) goals))
 
+(defn- game-finished? [game-details]
+  (let [game-state (get-in game-details [:status :state])]
+    (= "FINAL" game-state)))
+
 (defn- add-overtime-flag [goals scores]
   (if (ended-in-overtime? goals)
     (assoc scores :overtime true)
@@ -387,13 +391,20 @@
           (add-stats-field pre-game-stats-key :playoff-series (pre-game-stats-key playoff-series-information))
           (add-stats-field current-stats-key :playoff-series (current-stats-key playoff-series-information))))))
 
+(defn- get-score-affecting-goal-count [game-details]
+  (let [goals (:goals game-details)
+        non-so-goal-count (count (filter #(not= "SO" (:period %)) goals))
+        so-goal-count (count (filter #(= "SO" (:period %)) goals))
+        affecting-so-goal-count (if (and (> so-goal-count 0) (game-finished? game-details)) 1 0)]
+    (+ non-so-goal-count affecting-so-goal-count)))
+
 (defn- validate-score-and-goal-counts [game-details]
   (let [away-team (get-in game-details [:teams :away :abbreviation])
         home-team (get-in game-details [:teams :home :abbreviation])
         away-score (get-in game-details [:scores away-team])
         home-score (get-in game-details [:scores home-team])
         score-count (+ away-score home-score)
-        goal-count (count (:goals game-details))]
+        goal-count (get-score-affecting-goal-count game-details)]
     (cond
       (and (= goal-count 0) (> score-count 0))
       {:error :MISSING-ALL-GOALS}

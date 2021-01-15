@@ -479,6 +479,22 @@
                     3)]
       (is (= (contains? game :errors) false) "No validation errors")))
 
+  (testing "Validating valid non-finished game with multiple shootout goals"
+    (let [game (nth (:games
+                      (parse-game-scores
+                        (filter-latest-games resources/games-for-validation-testing)
+                        (:records resources/standings)))
+                    4)]
+      (is (= (contains? game :errors) false) "No validation errors")))
+
+  (testing "Validating valid finished game with multiple shootout goals"
+    (let [game (nth (:games
+                      (parse-game-scores
+                        (filter-latest-games resources/games-for-validation-testing)
+                        (:records resources/standings)))
+                    3)]
+      (is (= (contains? game :errors) false) "No validation errors")))
+
   (testing "Validating game missing all goals"
     (let [game (first (:games
                         (parse-game-scores
@@ -498,10 +514,11 @@
              (:errors game)) "Errors contain expected 'score and goal count mismatch' error")))
 
   (testing "Validating game having one goal too many"
-    (let [game (last (:games
+    (let [game (nth (:games
                         (parse-game-scores
                           (filter-latest-games resources/games-for-validation-testing)
-                          (:records resources/standings))))]
+                          (:records resources/standings)))
+                    2)]
       (is (= (contains? game :errors) true) "Contains validation errors")
       (is (= [{:error :SCORE-AND-GOAL-COUNT-MISMATCH :details {:goal-count 5 :score-count 3}}]
              (:errors game)) "Errors contain expected 'score and goal count mismatch' error"))))
