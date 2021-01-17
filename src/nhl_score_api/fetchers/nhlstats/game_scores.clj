@@ -290,7 +290,7 @@
   (let [division-id (:id (:division team-details))
         team-id (:id team-details)
         team-record (parse-team-record-from-standings standings division-id team-id)]
-    {:conference-rank (:pp-conference-rank team-record)
+    {:division-rank (:pp-division-rank team-record)
      :league-rank (:pp-league-rank team-record)}))
 
 (defn- parse-standings [team-details standings]

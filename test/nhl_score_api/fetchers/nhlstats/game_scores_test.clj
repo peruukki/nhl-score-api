@@ -267,7 +267,7 @@
 
 (deftest game-scores-parsing-team-ranks
 
-  (testing "Parsing teams' conference and league ranks for regular season games"
+  (testing "Parsing teams' division and league ranks for regular season games"
     (let [games (:games
                   (parse-game-scores
                     (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
@@ -275,23 +275,23 @@
           pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
           current-stats-standings (map #(:standings (:current-stats %)) games)
           ranks (map
-                  #(fmap (fn [team-stats] (select-keys team-stats [:conference-rank :league-rank])) %)
+                  #(fmap (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
                   current-stats-standings)]
       (is (= pre-game-stats-standings current-stats-standings) "Parsed standings, pre-game vs. current stats")
       (is (= 9
-             (count ranks)) "Parsed current stats conference and league ranks count")
-      (is (= [{"CAR" {:conference-rank "6" :league-rank "9"} "NJD" {:conference-rank "14" :league-rank "26"}}
-              {"CGY" {:conference-rank "8" :league-rank "19"} "BOS" {:conference-rank "1" :league-rank "1"}}
-              {"PIT" {:conference-rank "5" :league-rank "7"} "WSH" {:conference-rank "3" :league-rank "5"}}
-              {"STL" {:conference-rank "1" :league-rank "2"} "OTT" {:conference-rank "15" :league-rank "30"}}
-              {"EDM" {:conference-rank "5" :league-rank "12"} "BUF" {:conference-rank "13" :league-rank "25"}}
-              {"FLA" {:conference-rank "10" :league-rank "15"} "WPG" {:conference-rank "9" :league-rank "20"}}
-              {"COL" {:conference-rank "2" :league-rank "3"} "MIN" {:conference-rank "10" :league-rank "21"}}
-              {"DAL" {:conference-rank "4" :league-rank "10"} "NSH" {:conference-rank "6" :league-rank "16"}}
-              {"NYI" {:conference-rank "7" :league-rank "11"} "VAN" {:conference-rank "7" :league-rank "17"}}]
-             ranks) "Parsed current stats conference and league ranks")))
+             (count ranks)) "Parsed current stats division and league ranks count")
+      (is (= [{"CAR" {:division-rank "4" :league-rank "9"} "NJD" {:division-rank "8" :league-rank "26"}}
+              {"CGY" {:division-rank "4" :league-rank "19"} "BOS" {:division-rank "1" :league-rank "1"}}
+              {"PIT" {:division-rank "3" :league-rank "7"} "WSH" {:division-rank "1" :league-rank "5"}}
+              {"STL" {:division-rank "1" :league-rank "2"} "OTT" {:division-rank "7" :league-rank "30"}}
+              {"EDM" {:division-rank "2" :league-rank "12"} "BUF" {:division-rank "6" :league-rank "25"}}
+              {"FLA" {:division-rank "4" :league-rank "15"} "WPG" {:division-rank "5" :league-rank "20"}}
+              {"COL" {:division-rank "2" :league-rank "3"} "MIN" {:division-rank "6" :league-rank "21"}}
+              {"DAL" {:division-rank "3" :league-rank "10"} "NSH" {:division-rank "4" :league-rank "16"}}
+              {"NYI" {:division-rank "5" :league-rank "11"} "VAN" {:division-rank "3" :league-rank "17"}}]
+             ranks) "Parsed current stats division and league ranks")))
 
-  (testing "Parsing teams' conference and league ranks for playoff games"
+  (testing "Parsing teams' division and league ranks for playoff games"
     (let [games (:games
                   (parse-game-scores
                     (filter-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
@@ -299,15 +299,15 @@
           pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
           current-stats-standings (map #(:standings (:current-stats %)) games)
           ranks (map
-                  #(fmap (fn [team-stats] (select-keys team-stats [:conference-rank :league-rank])) %)
+                  #(fmap (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
                   current-stats-standings)]
       (is (= pre-game-stats-standings current-stats-standings) "Parsed standings, pre-game vs. current stats")
       (is (= 3
-             (count ranks)) "Parsed current stats conference and league ranks count")
-      (is (= [{"DET" {:conference-rank "16" :league-rank "31"} "TBL" {:conference-rank "2" :league-rank "4"}}
-              {"NYR" {:conference-rank "11" :league-rank "18"} "PIT" {:conference-rank "5" :league-rank "7"}}
-              {"CHI" {:conference-rank "12" :league-rank "23"} "STL" {:conference-rank "1" :league-rank "2"}}]
-             ranks) "Parsed current stats conference and league ranks"))))
+             (count ranks)) "Parsed current stats division and league ranks count")
+      (is (= [{"DET" {:division-rank "8" :league-rank "31"} "TBL" {:division-rank "2" :league-rank "4"}}
+              {"NYR" {:division-rank "7" :league-rank "18"} "PIT" {:division-rank "3" :league-rank "7"}}
+              {"CHI" {:division-rank "7" :league-rank "23"} "STL" {:division-rank "1" :league-rank "2"}}]
+             ranks) "Parsed current stats division and league ranks"))))
 
 ; TODO: Enable this again when "normal" playoff spot logic is resumed
 (deftest ^:skip game-scores-parsing-team-points-from-playoff-spot
