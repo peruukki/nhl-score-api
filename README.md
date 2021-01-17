@@ -361,26 +361,26 @@ The fields are described in more detail [later in this README](#date-fields-expl
   - `home` *(object)*: home team info:
     - `abbreviation`: team name abbreviation
     - `id`: team ID in NHL APIs (can be used to fetch other resources from NHL APIs)
-- `preGameStats` object: each teams’s season statistics *before the game*, with the fields:
-  - `records` object: each teams’s record for this regular/playoff season, with the fields:
+- `preGameStats` object: each teams’ season statistics *before the game*, with the fields:
+  - `records` object: each teams’ record for this regular/playoff season, with the fields:
     - `wins` *(number)*: win count (earning 2 pts)
     - `losses` *(number)*: regulation loss count (0 pts)
     - `ot` *(number)*: loss count for games that went to overtime (1 pt)
   - `playoffSeries` object: current playoff series related information, only present during playoffs
     - `round` *(number)*: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series, actual playoffs start from `1`
     - `wins` object: each team’s win count in the series
-  - `standings` object: each teams’s standings related information, with the field:
+  - `standings` object: each teams’ standings related information, with the field:
     - `divisionRank` *(string)*: the team's regular season ranking in their division; this comes as a *string* value from the NHL Stats API
     - `leagueRank` *(string)*: the team's regular season ranking in the league; this comes as a *string* value from the NHL Stats API
-- `currentStats` object: each teams’s *current* (ie. after the game if it has finished and NHL have updated their stats) season statistics, with the fields:
-  - `records` object: each teams’s record for this regular/playoff season, with the fields:
+- `currentStats` object: each teams’ *current* (ie. after the game if it has finished and NHL have updated their stats) season statistics, with the fields:
+  - `records` object: each teams’ record for this regular/playoff season, with the fields:
     - `wins` *(number)*: win count (earning 2 pts)
     - `losses` *(number)*: regulation loss count (0 pts)
     - `ot` *(number)*: loss count for games that went to overtime (1 pt)
-  - `streaks` object: each teams’s current (regular season) form streak, with the fields:
+  - `streaks` object: each teams’ current (regular season) form streak, with the fields:
     - `type` *(string)*: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
     - `count` *(number)*: streak’s length in consecutive games
-  - `standings` object: each teams’s standings related information, with the field:
+  - `standings` object: each teams’ standings related information, with the field:
     - `divisionRank` *(string)*: the team's regular season ranking in their division; this comes as a *string* value from the NHL Stats API
     - `leagueRank` *(string)*: the team's regular season ranking in the league; this comes as a *string* value from the NHL Stats API
     - `pointsFromPlayoffSpot` *(string)*: point difference to the last playoff spot in the conference:
