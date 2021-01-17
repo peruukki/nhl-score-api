@@ -369,7 +369,8 @@ The fields are described in more detail [later in this README](#date-fields-expl
   - `playoffSeries` object: current playoff series related information, only present during playoffs
     - `round` *(number)*: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series, actual playoffs start from `1`
     - `wins` object: each team’s win count in the series
-  - `standings` object: each teams’ standings related information, with the field:
+  - `standings` object: each teams’ standings related information (only present during playoffs because the NHL Stats API doesn’t provide separate
+    pre-game stats), with the fields:
     - `divisionRank` *(string)*: the team's regular season ranking in their division; this comes as a *string* value from the NHL Stats API
     - `leagueRank` *(string)*: the team's regular season ranking in the league; this comes as a *string* value from the NHL Stats API
 - `currentStats` object: each teams’ *current* (ie. after the game if it has finished and NHL have updated their stats) season statistics, with the fields:
@@ -380,7 +381,7 @@ The fields are described in more detail [later in this README](#date-fields-expl
   - `streaks` object: each teams’ current (regular season) form streak, with the fields:
     - `type` *(string)*: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
     - `count` *(number)*: streak’s length in consecutive games
-  - `standings` object: each teams’ standings related information, with the field:
+  - `standings` object: each teams’ standings related information, with the fields:
     - `divisionRank` *(string)*: the team's regular season ranking in their division; this comes as a *string* value from the NHL Stats API
     - `leagueRank` *(string)*: the team's regular season ranking in the league; this comes as a *string* value from the NHL Stats API
     - `pointsFromPlayoffSpot` *(string)*: point difference to the last playoff spot in the conference:

@@ -20,6 +20,9 @@
     (regular-season-game? api-game)
     (all-star-game? api-game)))
 
+(defn- playoff-game? [api-game]
+  (not (non-playoff-game? api-game)))
+
 (defn- parse-goal-team [scoring-play team-details]
   (let [team-id (:id (:team scoring-play))
         team (first (filter #(= team-id (:id %)) (vals team-details)))]
@@ -379,9 +382,9 @@
   (if (all-star-game? api-game)
     game-details
     (let [parsed-standings (parse-standings team-details standings)]
-      (-> game-details
-        (add-stats-field pre-game-stats-key :standings parsed-standings)
-        (add-stats-field current-stats-key :standings parsed-standings)))))
+      (cond-> game-details
+              (playoff-game? api-game) (add-stats-field pre-game-stats-key :standings parsed-standings)
+              true (add-stats-field current-stats-key :standings parsed-standings)))))
 
 (defn- add-playoff-series-information [game-details api-game]
   (if (non-playoff-game? api-game)

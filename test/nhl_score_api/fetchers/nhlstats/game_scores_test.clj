@@ -277,9 +277,7 @@
           ranks (map
                   #(fmap (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
                   current-stats-standings)]
-      (is (= pre-game-stats-standings current-stats-standings) "Parsed standings, pre-game vs. current stats")
-      (is (= 9
-             (count ranks)) "Parsed current stats division and league ranks count")
+      (is (= (repeat 9 nil) pre-game-stats-standings) "Pre-game standings should not exist")
       (is (= [{"CAR" {:division-rank "4" :league-rank "9"} "NJD" {:division-rank "8" :league-rank "26"}}
               {"CGY" {:division-rank "4" :league-rank "19"} "BOS" {:division-rank "1" :league-rank "1"}}
               {"PIT" {:division-rank "3" :league-rank "7"} "WSH" {:division-rank "1" :league-rank "5"}}
@@ -302,8 +300,6 @@
                   #(fmap (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
                   current-stats-standings)]
       (is (= pre-game-stats-standings current-stats-standings) "Parsed standings, pre-game vs. current stats")
-      (is (= 3
-             (count ranks)) "Parsed current stats division and league ranks count")
       (is (= [{"DET" {:division-rank "8" :league-rank "31"} "TBL" {:division-rank "2" :league-rank "4"}}
               {"NYR" {:division-rank "7" :league-rank "18"} "PIT" {:division-rank "3" :league-rank "7"}}
               {"CHI" {:division-rank "7" :league-rank "23"} "STL" {:division-rank "1" :league-rank "2"}}]
