@@ -159,7 +159,7 @@
 (defn- parse-team-details [awayOrHomeKey api-game]
   (let [team-info (awayOrHomeKey (:teams api-game))
         record (select-keys (:league-record team-info) [:wins :losses :ot])
-        details (select-keys (:team team-info) [:abbreviation :id :conference :division])]
+        details (select-keys (:team team-info) [:abbreviation :conference :division :id :location-name :short-name :team-name])]
     (assoc details :league-record record)))
 
 (defn- parse-game-team-details [api-game]
@@ -167,8 +167,8 @@
    :home (parse-team-details :home api-game)})
 
 (defn- get-teams [team-details]
-  {:away (select-keys (:away team-details) [:abbreviation :id])
-   :home (select-keys (:home team-details) [:abbreviation :id])})
+  {:away (select-keys (:away team-details) [:abbreviation :id :location-name :short-name :team-name])
+   :home (select-keys (:home team-details) [:abbreviation :id :location-name :short-name :team-name])})
 
 (defn- parse-game-state [api-game]
   (str/upper-case (:abstract-game-state (:status api-game))))

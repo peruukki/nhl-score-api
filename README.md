@@ -78,11 +78,17 @@ The fields are described in more detail [later in this README](#date-fields-expl
       "teams": {
         "away": {
           "abbreviation": "BOS",
-          "id": 6
+          "id": 6,
+          "locationName": "Boston",
+          "shortName": "Boston",
+          "teamName": "Bruins"
         },
         "home": {
           "abbreviation": "CHI",
-          "id": 16
+          "id": 16,
+          "locationName": "Chicago",
+          "shortName": "Chicago",
+          "teamName": "Blackhawks"
         }
       },
       "preGameStats": {
@@ -175,11 +181,17 @@ The fields are described in more detail [later in this README](#date-fields-expl
       "teams": {
         "away": {
           "abbreviation": "OTT",
-          "id": 9
+          "id": 9,
+          "locationName": "Ottawa",
+          "shortName": "Ottawa",
+          "teamName": "Senators"
         },
         "home": {
           "abbreviation": "DET",
-          "id": 17
+          "id": 17,
+          "locationName": "Detroit",
+          "shortName": "Detroit",
+          "teamName": "Red Wings"
         }
       },
       "preGameStats": {
@@ -257,11 +269,17 @@ The fields are described in more detail [later in this README](#date-fields-expl
       "teams": {
         "away": {
           "abbreviation": "NYR",
-          "id": 3
+          "id": 3,
+          "locationName": "New York",
+          "shortName": "NY Rangers",
+          "teamName": "Rangers"
         },
         "home": {
           "abbreviation": "PIT",
-          "id": 5
+          "id": 5,
+          "locationName": "Pittsburgh",
+          "shortName": "Pittsburgh",
+          "teamName": "Penguins"
         }
       },
       "preGameStats": {
@@ -358,9 +376,15 @@ The fields are described in more detail [later in this README](#date-fields-expl
   - `away` *(object)*: away team info:
     - `abbreviation`: team name abbreviation
     - `id`: team ID in NHL APIs (can be used to fetch other resources from NHL APIs)
+    - `locationName`: team location name, e.g. `"New York"`
+    - `shortName`: team short name, e.g. `"NY Rangers"`
+    - `teamName`: team name, e.g. `"Rangers"`
   - `home` *(object)*: home team info:
     - `abbreviation`: team name abbreviation
     - `id`: team ID in NHL APIs (can be used to fetch other resources from NHL APIs)
+    - `locationName`: team location name, e.g. `"St. Louis"`
+    - `shortName`: team short name, e.g. `"St Louis"` (note: "St" without a period)
+    - `teamName`: team name, e.g. `"Blues"`
 - `preGameStats` object: each teams’ season statistics *before the game*, with the fields:
   - `records` object: each teams’ record for this regular/playoff season, with the fields:
     - `wins` *(number)*: win count (earning 2 pts)

@@ -16,15 +16,24 @@
              (count games)) "Parsed game count")
       (is (= [4 3 5 7 3 5 9 8 5]
              (map #(count (:goals %)) games)) "Parsed goal count")
-      (is (= [{:away {:abbreviation "CAR" :id 12} :home {:abbreviation "NJD" :id 1}}
-              {:away {:abbreviation "CGY" :id 20} :home {:abbreviation "BOS" :id 6}}
-              {:away {:abbreviation "PIT" :id 5} :home {:abbreviation "WSH" :id 15}}
-              {:away {:abbreviation "STL" :id 19} :home {:abbreviation "OTT" :id 9}}
-              {:away {:abbreviation "EDM" :id 22} :home {:abbreviation "BUF" :id 7}}
-              {:away {:abbreviation "FLA" :id 13} :home {:abbreviation "WPG" :id 52}}
-              {:away {:abbreviation "COL" :id 21} :home {:abbreviation "MIN" :id 30}}
-              {:away {:abbreviation "DAL" :id 25} :home {:abbreviation "NSH" :id 18}}
-              {:away {:abbreviation "NYI" :id 2} :home {:abbreviation "VAN" :id 23}}]
+      (is (= [{:away {:abbreviation "CAR" :id 12 :location-name "Carolina" :short-name "Carolina" :team-name "Hurricanes"}
+               :home {:abbreviation "NJD" :id 1 :location-name "New Jersey" :short-name "New Jersey" :team-name "Devils"}}
+              {:away {:abbreviation "CGY" :id 20 :location-name "Calgary" :short-name "Calgary" :team-name "Flames"}
+               :home {:abbreviation "BOS" :id 6 :location-name "Boston" :short-name "Boston" :team-name "Bruins"}}
+              {:away {:abbreviation "PIT" :id 5 :location-name "Pittsburgh" :short-name "Pittsburgh" :team-name "Penguins"}
+               :home {:abbreviation "WSH" :id 15 :location-name "Washington" :short-name "Washington" :team-name "Capitals"}}
+              {:away {:abbreviation "STL" :id 19 :location-name "St. Louis" :short-name "St Louis" :team-name "Blues"}
+               :home {:abbreviation "OTT" :id 9 :location-name "Ottawa" :short-name "Ottawa" :team-name "Senators"}}
+              {:away {:abbreviation "EDM" :id 22 :location-name "Edmonton" :short-name "Edmonton" :team-name "Oilers"}
+               :home {:abbreviation "BUF" :id 7 :location-name "Buffalo" :short-name "Buffalo" :team-name "Sabres"}}
+              {:away {:abbreviation "FLA" :id 13 :location-name "Florida" :short-name "Florida" :team-name "Panthers"}
+               :home {:abbreviation "WPG" :id 52 :location-name "Winnipeg" :short-name "Winnipeg" :team-name "Jets"}}
+              {:away {:abbreviation "COL" :id 21 :location-name "Colorado" :short-name "Colorado" :team-name "Avalanche"}
+               :home {:abbreviation "MIN" :id 30 :location-name "Minnesota" :short-name "Minnesota" :team-name "Wild"}}
+              {:away {:abbreviation "DAL" :id 25 :location-name "Dallas" :short-name "Dallas" :team-name "Stars"}
+               :home {:abbreviation "NSH" :id 18 :location-name "Nashville" :short-name "Nashville" :team-name "Predators"}}
+              {:away {:abbreviation "NYI" :id 2 :location-name "New York" :short-name "NY Islanders" :team-name "Islanders"}
+               :home {:abbreviation "VAN" :id 23 :location-name "Vancouver" :short-name "Vancouver" :team-name "Canucks"}}]
              (map :teams games)) "Parsed teams")
       (is (= [{"CAR" 3 "NJD" 1} {"CGY" 1 "BOS" 2} {"PIT" 2 "WSH" 3} {"STL" 4 "OTT" 3 :shootout true}
               {"EDM" 2 "BUF" 1 :overtime true} {"FLA" 3 "WPG" 2} {"COL" 3 "MIN" 6} {"DAL" 3 "NSH" 5}
@@ -48,13 +57,20 @@
              (count (filter #(= (:state (:status %)) "PREVIEW") games))) "Parsed not started game count")
       (is (= [5 2 5 0 0 0 0]
              (map #(count (:goals %)) games)) "Parsed goal count")
-      (is (= [{:away {:abbreviation "WSH" :id 15} :home {:abbreviation "CHI" :id 16}}
-              {:away {:abbreviation "FLA" :id 13} :home {:abbreviation "MIN" :id 30}}
-              {:away {:abbreviation "STL" :id 19} :home {:abbreviation "CAR" :id 12}}
-              {:away {:abbreviation "TBL" :id 14} :home {:abbreviation "BOS" :id 6}}
-              {:away {:abbreviation "SJS" :id 28} :home {:abbreviation "VAN" :id 23}}
-              {:away {:abbreviation "LAK" :id 26} :home {:abbreviation "ANA" :id 24}}
-              {:away {:abbreviation "NYI" :id 2} :home {:abbreviation "EDM" :id 22}}]
+      (is (= [{:away {:abbreviation "WSH" :id 15 :location-name "Washington" :short-name "Washington" :team-name "Capitals"}
+               :home {:abbreviation "CHI" :id 16 :location-name "Chicago" :short-name "Chicago" :team-name "Blackhawks"}}
+              {:away {:abbreviation "FLA" :id 13 :location-name "Florida" :short-name "Florida" :team-name "Panthers"}
+               :home {:abbreviation "MIN" :id 30 :location-name "Minnesota" :short-name "Minnesota" :team-name "Wild"}}
+              {:away {:abbreviation "STL" :id 19 :location-name "St. Louis" :short-name "St Louis" :team-name "Blues"}
+               :home {:abbreviation "CAR" :id 12 :location-name "Carolina" :short-name "Carolina" :team-name "Hurricanes"}}
+              {:away {:abbreviation "TBL" :id 14 :location-name "Tampa Bay" :short-name "Tampa Bay" :team-name "Lightning"}
+               :home {:abbreviation "BOS" :id 6 :location-name "Boston" :short-name "Boston" :team-name "Bruins"}}
+              {:away {:abbreviation "SJS" :id 28 :location-name "San Jose" :short-name "San Jose" :team-name "Sharks"}
+               :home {:abbreviation "VAN" :id 23 :location-name "Vancouver" :short-name "Vancouver" :team-name "Canucks"}}
+              {:away {:abbreviation "LAK" :id 26 :location-name "Los Angeles" :short-name "Los Angeles" :team-name "Kings"}
+               :home {:abbreviation "ANA" :id 24 :location-name "Anaheim" :short-name "Anaheim" :team-name "Ducks"}}
+              {:away {:abbreviation "NYI" :id 2 :location-name "New York" :short-name "NY Islanders" :team-name "Islanders"}
+               :home {:abbreviation "EDM" :id 22 :location-name "Edmonton" :short-name "Edmonton" :team-name "Oilers"}}]
              (map :teams games)) "Parsed teams")
       (is (= [{"WSH" 2 "CHI" 3} {"FLA" 1 "MIN" 1} {"STL" 3 "CAR" 2}
               {"TBL" 0 "BOS" 0} {"SJS" 0 "VAN" 0} {"LAK" 0 "ANA" 0} {"NYI" 0 "EDM" 0}]
