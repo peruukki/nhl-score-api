@@ -53,8 +53,10 @@
              (count (filter #(= (:state (:status %)) "FINAL") games))) "Parsed finished game count")
       (is (= 2
              (count (filter #(= (:state (:status %)) "LIVE") games))) "Parsed on-going game count")
-      (is (= 4
+      (is (= 3
              (count (filter #(= (:state (:status %)) "PREVIEW") games))) "Parsed not started game count")
+      (is (= 1
+             (count (filter #(= (:state (:status %)) "POSTPONED") games))) "Parsed postponed game count")
       (is (= [5 2 5 0 0 0 0]
              (map #(count (:goals %)) games)) "Parsed goal count")
       (is (= [{:away {:abbreviation "WSH" :id 15 :location-name "Washington" :short-name "Washington" :team-name "Capitals"}
@@ -200,7 +202,7 @@
               {:state "PREVIEW"}
               {:state "PREVIEW"}
               {:state "PREVIEW"}
-              {:state "PREVIEW"}]
+              {:state "POSTPONED"}]
              statuses) "Parsed game statuses"))))
 
 (deftest game-scores-parsing-game-start-times

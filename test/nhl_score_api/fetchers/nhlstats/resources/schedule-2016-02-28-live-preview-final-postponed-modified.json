@@ -5233,9 +5233,9 @@
       "gameDate" : "2016-02-29T02:30:00Z",
       "status" : {
         "abstractGameState" : "Preview",
-        "codedGameState" : "1",
-        "detailedState" : "Scheduled",
-        "statusCode" : "1"
+        "codedGameState" : "9",
+        "detailedState" : "Postponed",
+        "statusCode" : "9"
       },
       "teams" : {
         "away" : {

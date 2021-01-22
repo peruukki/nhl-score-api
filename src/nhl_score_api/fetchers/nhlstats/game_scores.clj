@@ -171,7 +171,10 @@
    :home (select-keys (:home team-details) [:abbreviation :id :location-name :short-name :team-name])})
 
 (defn- parse-game-state [api-game]
-  (str/upper-case (:abstract-game-state (:status api-game))))
+  (let [status (:status api-game)
+        abstract-state (str/upper-case (:abstract-game-state status))
+        detailed-state (str/upper-case (:detailed-state status))]
+    (if (= "POSTPONED" detailed-state) detailed-state abstract-state)))
 
 (defn- parse-linescore [api-game]
   (let [linescore (select-keys (:linescore api-game)

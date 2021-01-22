@@ -340,6 +340,7 @@ The fields are described in more detail [later in this README](#date-fields-expl
     - `"FINAL"` if the game has ended
     - `"LIVE"` if the game is still in progress
     - `"PREVIEW"` if the game has not started yet
+    - `"POSTPONED"` if the game has been postponed
   - `progress` object: game progress, only present if `state` is `"LIVE"`, with the fields:
     - `currentPeriod` *(number)*: current period as a number
     - `currentPeriodOrdinal` *(string)*: current period as a display string (e.g. `"2nd"`)

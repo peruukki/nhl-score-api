@@ -6,7 +6,7 @@
 (defn- read-resource [filename]
   (api-response-to-json (slurp (str resource-path filename))))
 
-(def games-in-live-preview-and-final-states (read-resource "schedule-2016-02-28-live-preview-final.json"))
+(def games-in-live-preview-and-final-states (read-resource "schedule-2016-02-28-live-preview-final-postponed-modified.json"))
 (def games-in-preview-state (read-resource "schedule-2016-03-30-preview.json"))
 (def games-finished-in-regulation-overtime-and-shootout (read-resource "schedule-2016-03-01-final-reg-ot-so.json"))
 (def games-for-validation-testing (read-resource "schedule-2016-02-28-modified-for-validation.json"))
