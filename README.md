@@ -396,8 +396,8 @@ The fields are described in more detail [later in this README](#date-fields-expl
     - `wins` object: each team’s win count in the series
   - `standings` object: each teams’ standings related information (only present during playoffs because the NHL Stats API doesn’t provide separate
     pre-game stats), with the fields:
-    - `divisionRank` *(string)*: the team's regular season ranking in their division; this comes as a *string* value from the NHL Stats API
-    - `leagueRank` *(string)*: the team's regular season ranking in the league; this comes as a *string* value from the NHL Stats API
+    - `divisionRank` *(string)*: the team's regular season ranking in their division (based on point percentage); this comes as a *string* value from the NHL Stats API
+    - `leagueRank` *(string)*: the team's regular season ranking in the league (based on point percentage); this comes as a *string* value from the NHL Stats API
 - `currentStats` object: each teams’ *current* (ie. after the game if it has finished and NHL have updated their stats) season statistics, with the fields:
   - `records` object: each teams’ record for this regular/playoff season, with the fields:
     - `wins` *(number)*: win count (earning 2 pts)
@@ -407,8 +407,8 @@ The fields are described in more detail [later in this README](#date-fields-expl
     - `type` *(string)*: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
     - `count` *(number)*: streak’s length in consecutive games
   - `standings` object: each teams’ standings related information, with the fields:
-    - `divisionRank` *(string)*: the team's regular season ranking in their division; this comes as a *string* value from the NHL Stats API
-    - `leagueRank` *(string)*: the team's regular season ranking in the league; this comes as a *string* value from the NHL Stats API
+    - `divisionRank` *(string)*: the team's regular season ranking in their division (based on point percentage); this comes as a *string* value from the NHL Stats API
+    - `leagueRank` *(string)*: the team's regular season ranking in the league (based on point percentage); this comes as a *string* value from the NHL Stats API
     - `pointsFromPlayoffSpot` *(string)*: point difference to the last playoff spot in the conference:
       (**NOTE: This field is currently removed due to exceptional playoff spot logic in season 2019–20**)
       - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
