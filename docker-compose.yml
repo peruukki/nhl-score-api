@@ -10,4 +10,4 @@ services:
     depends_on:
       - redis
   redis:
-    image: redis
+    image: redis:6.0.12
