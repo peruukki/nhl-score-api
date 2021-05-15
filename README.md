@@ -391,10 +391,10 @@ The fields are described in more detail [later in this README](#date-fields-expl
     - `wins` *(number)*: win count (earning 2 pts)
     - `losses` *(number)*: regulation loss count (0 pts)
     - `ot` *(number)*: loss count for games that went to overtime (1 pt)
-  - `playoffSeries` object: current playoff series related information, only present during playoffs
+  - `playoffSeries` object: current playoff series related information (only present in playoff games), with the fields:
     - `round` *(number)*: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series, actual playoffs start from `1`
     - `wins` object: each team’s win count in the series
-  - `standings` object: each teams’ standings related information (only present during playoffs because the NHL Stats API doesn’t provide separate
+  - `standings` object: each teams’ standings related information (only present in playoff games because the NHL Stats API doesn’t provide separate
     pre-game stats), with the fields:
     - `divisionRank` *(string)*: the team's regular season ranking in their division (based on point percentage); this comes as a *string* value from the NHL Stats API
     - `leagueRank` *(string)*: the team's regular season ranking in the league (based on point percentage); this comes as a *string* value from the NHL Stats API
@@ -403,7 +403,7 @@ The fields are described in more detail [later in this README](#date-fields-expl
     - `wins` *(number)*: win count (earning 2 pts)
     - `losses` *(number)*: regulation loss count (0 pts)
     - `ot` *(number)*: loss count for games that went to overtime (1 pt)
-  - `streaks` object: each teams’ current (regular season) form streak, with the fields:
+  - `streaks` object: each teams’ current form streak (only present in regular season games), with the fields:
     - `type` *(string)*: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
     - `count` *(number)*: streak’s length in consecutive games
   - `standings` object: each teams’ standings related information, with the fields:
@@ -417,7 +417,7 @@ The fields are described in more detail [later in this README](#date-fields-expl
         position); i.e. by how many points (at minimum) the team needs to catch up
       - Note: this value only indicates point differences and doesn’t consider which team is ranked higher if they have the same
         number of points
-  - `playoffSeries` object: current playoff series related information, only present during playoffs
+  - `playoffSeries` object: current playoff series related information (only present in playoff games), with the fields:
     - `round` *(number)*: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series, actual playoffs start from `1`
     - `wins` object: each team’s win count in the series
 - `errors` array: list of data validation errors, only present if any were detected. Sometimes the NHL Stats API temporarily contains
