@@ -308,27 +308,15 @@
      (derive-standings standings home-details)}))
 
 (defn- parse-current-playoff-series-wins [api-game teams]
-  (let [away-team (:abbreviation (:away teams))
-        home-team (:abbreviation (:home teams))
-        series-summary-description (:series-status-short (:series-summary api-game))
-        series-tied-match (re-find #"Tied (\d)-\d" series-summary-description)
-        team-leads-match (re-find #"(\w+) (?:leads|wins) (\d)-(\d)" series-summary-description)]
-    (cond
-      series-tied-match
-      (let [win-count (read-string (nth series-tied-match 1))]
-        {away-team win-count
-         home-team win-count})
-
-      team-leads-match
-      (let [leading-team (nth team-leads-match 1)
-            leading-team-win-count (read-string (nth team-leads-match 2))
-            trailing-team-win-count (read-string (nth team-leads-match 3))]
-        {away-team (if (= away-team leading-team) leading-team-win-count trailing-team-win-count)
-         home-team (if (= home-team leading-team) leading-team-win-count trailing-team-win-count)})
-
-      :else
-      {away-team 0
-       home-team 0})))
+  (let [away-team (:away teams)
+        home-team (:home teams)
+        matchup-teams (get-in api-game [:series-summary :series :matchup-teams])
+        matchup-team-away (first (filter #(= (:id (:team %)) (:id away-team)) matchup-teams))
+        matchup-team-home (first (filter #(= (:id (:team %)) (:id home-team)) matchup-teams))
+        away-team-wins (get-in matchup-team-away [:series-record :wins])
+        home-team-wins (get-in matchup-team-home [:series-record :wins])]
+    {(:abbreviation away-team) away-team-wins
+     (:abbreviation home-team) home-team-wins}))
 
 (defn- parse-playoff-round [api-game]
   (get-in api-game [:series-summary :series :round :number]))
@@ -352,7 +340,9 @@
 (defn- parse-playoff-series-information [api-game game-details]
   (let [teams (:teams game-details)
         current-wins (parse-current-playoff-series-wins api-game teams)
-        wins-before-game (if (finished-game? api-game)
+        win-count (apply + (vals current-wins))
+        game-number (get-in api-game [:series-summary :game-number])
+        wins-before-game (if (>= win-count game-number)
                            (reduce-current-game-from-playoff-series-wins current-wins game-details)
                            current-wins)
         round (parse-playoff-round api-game)]

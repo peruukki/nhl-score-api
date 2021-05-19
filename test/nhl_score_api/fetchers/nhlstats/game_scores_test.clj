@@ -459,7 +459,7 @@
                     (:records resources/standings)))
           playoff-series (map #(:playoff-series (:current-stats %)) games)
           wins (map :wins playoff-series)]
-      (is (= [{"NJD" 0 "TBL" 1} {"TOR" 0 "BOS" 1} {"CBJ" 1 "WSH" 0} {"COL" 0 "NSH" 1} {"SJS" 0 "ANA" 0}]
+      (is (= [{"NJD" 0 "TBL" 1} {"TOR" 0 "BOS" 1} {"CBJ" 1 "WSH" 0} {"COL" 0 "NSH" 1} {"SJS" 1 "ANA" 0}]
              wins) "Parsed current playoff series wins")))
 
   (testing "Parsing playoff rounds from playoff games"
