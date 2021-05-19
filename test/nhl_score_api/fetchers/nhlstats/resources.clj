@@ -13,7 +13,7 @@
 (def latest-games-in-live-and-preview-states (read-resource "schedule-2017-11-10-live-preview.json"))
 (def playoff-games-finished-in-regulation-and-overtime (read-resource "schedule-2016-04-13-final-playoff-reg-ot.json"))
 (def playoff-games-finished-with-2nd-games (read-resource "schedule-2016-04-16-final-playoff-2nd-games.json"))
-(def playoff-games-live-finished-with-1st-games (read-resource "schedule-2018-04-13-live-final-playoff-1st-games.json"))
+(def playoff-games-live-finished-with-1st-games (read-resource "schedule-2018-04-13-live-final-playoff-1st-games-modified.json"))
 (def playoff-games-with-ot-losses-in-records (read-resource "schedule-2020-08-02-playoff-games-with-ot-losses-in-records.json"))
 
 (def standings (read-resource "standings-2020-08-02.json"))
