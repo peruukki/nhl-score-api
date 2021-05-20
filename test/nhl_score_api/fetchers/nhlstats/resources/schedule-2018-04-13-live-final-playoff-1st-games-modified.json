@@ -1885,7 +1885,7 @@
             },
             "seriesRecord" : {
               "wins" : 0,
-              "losses" : 1
+              "losses" : 0
             }
           }, {
             "team" : {
@@ -1899,7 +1899,7 @@
               "isTop" : false
             },
             "seriesRecord" : {
-              "wins" : 1,
+              "wins" : 0,
               "losses" : 0
             }
           } ]
@@ -1912,17 +1912,17 @@
       "season" : "20172018",
       "gameDate" : "2018-04-13T01:30:00Z",
       "status" : {
-        "abstractGameState" : "Final",
-        "codedGameState" : "7",
-        "detailedState" : "Final",
-        "statusCode" : "7",
+        "abstractGameState": "Live",
+        "codedGameState": "3",
+        "detailedState": "In Progress",
+        "statusCode" : "3",
         "startTimeTBD" : false
       },
       "teams" : {
         "away" : {
           "leagueRecord" : {
             "wins" : 0,
-            "losses" : 1,
+            "losses" : 0,
             "type" : "league"
           },
           "score" : 2,
@@ -1967,7 +1967,7 @@
         },
         "home" : {
           "leagueRecord" : {
-            "wins" : 1,
+            "wins" : 0,
             "losses" : 0,
             "type" : "league"
           },
@@ -2011,6 +2011,11 @@
             "active" : true
           }
         }
+      },
+      "linescore": {
+        "currentPeriod": 3,
+        "currentPeriodOrdinal": "3rd",
+        "currentPeriodTimeRemaining": "08:58"
       },
       "scoringPlays" : [ {
         "players" : [ {
@@ -2515,7 +2520,7 @@
               "isTop" : true
             },
             "seriesRecord" : {
-              "wins" : 1,
+              "wins" : 0,
               "losses" : 0
             }
           }, {
@@ -2531,7 +2536,7 @@
             },
             "seriesRecord" : {
               "wins" : 0,
-              "losses" : 1
+              "losses" : 0
             }
           } ]
         }

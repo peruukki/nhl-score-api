@@ -416,7 +416,7 @@
       (is (= [{"NJD" {:wins 0 :losses 1} "TBL" {:wins 1 :losses 0}}
               {"TOR" {:wins 0 :losses 1} "BOS" {:wins 1 :losses 0}}
               {"CBJ" {:wins 1 :losses 0} "WSH" {:wins 0 :losses 1}}
-              {"COL" {:wins 0 :losses 1} "NSH" {:wins 1 :losses 0}}
+              {"COL" {:wins 0 :losses 0} "NSH" {:wins 0 :losses 0}}
               {"SJS" {:wins 0 :losses 0} "ANA" {:wins 0 :losses 0}}]
              records) "Parsed current playoff records"))))
 
@@ -449,7 +449,11 @@
                     (:records resources/standings)))
           playoff-series (map #(:playoff-series (:pre-game-stats %)) games)
           wins (map :wins playoff-series)]
-      (is (= [{"NJD" 0 "TBL" 0} {"TOR" 0 "BOS" 0} {"CBJ" 0 "WSH" 0} {"COL" 0 "NSH" 0} {"SJS" 0 "ANA" 0}]
+      (is (= [{"NJD" 0 "TBL" 0}                             ; finished & up to date
+              {"TOR" 0 "BOS" 0}                             ; finished & up to date
+              {"CBJ" 0 "WSH" 0}                             ; finished & current game missing from seriesRecord
+              {"COL" 0 "NSH" 0}                             ; in-progress & up to date
+              {"SJS" 0 "ANA" 0}]                            ; in-progress & current game included in seriesRecord
              wins) "Parsed pre-game playoff series wins")))
 
   (testing "Parsing current playoff series wins from first playoff games"
@@ -459,7 +463,11 @@
                     (:records resources/standings)))
           playoff-series (map #(:playoff-series (:current-stats %)) games)
           wins (map :wins playoff-series)]
-      (is (= [{"NJD" 0 "TBL" 1} {"TOR" 0 "BOS" 1} {"CBJ" 1 "WSH" 0} {"COL" 0 "NSH" 1} {"SJS" 1 "ANA" 0}]
+      (is (= [{"NJD" 0 "TBL" 1}                             ; finished & up to date
+              {"TOR" 0 "BOS" 1}                             ; finished & up to date
+              {"CBJ" 1 "WSH" 0}                             ; finished & current game missing from seriesRecord
+              {"COL" 0 "NSH" 0}                             ; in-progress & up to date
+              {"SJS" 0 "ANA" 0}]                            ; in-progress & current game included in seriesRecord
              wins) "Parsed current playoff series wins")))
 
   (testing "Parsing playoff rounds from playoff games"

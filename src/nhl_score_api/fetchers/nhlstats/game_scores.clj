@@ -1,5 +1,5 @@
 (ns nhl-score-api.fetchers.nhlstats.game-scores
-  (:require [nhl-score-api.fetchers.nhlstats.latest-games :refer [finished-game?]]
+  (:require [nhl-score-api.fetchers.nhlstats.latest-games :refer [finished-game? live-game?]]
             [nhl-score-api.utils :refer [fmap]]
             [clojure.string :as str]))
 
@@ -328,21 +328,35 @@
         home-goals (get (:scores game-details) home-team)]
     (if (> away-goals home-goals) away-team home-team)))
 
-(defn- reduce-current-game-from-playoff-series-wins [current-wins game-details]
+(defn- add-or-reduce-current-game-to-or-from-playoff-series-wins [current-wins game-details change-fn]
   (let [away-team (:abbreviation (:away (:teams game-details)))
         home-team (:abbreviation (:home (:teams game-details)))
         away-wins (get current-wins away-team)
         home-wins (get current-wins home-team)
         winning-team (get-winning-team game-details)]
-    {away-team (if (= winning-team away-team) (- away-wins 1) away-wins)
-     home-team (if (= winning-team home-team) (- home-wins 1) home-wins)}))
+    {away-team (if (= winning-team away-team) (change-fn away-wins 1) away-wins)
+     home-team (if (= winning-team home-team) (change-fn home-wins 1) home-wins)}))
+
+(defn- add-current-game-to-playoff-series-wins [current-wins game-details]
+  (add-or-reduce-current-game-to-or-from-playoff-series-wins current-wins game-details +))
+
+(defn- reduce-current-game-from-playoff-series-wins [current-wins game-details]
+  (add-or-reduce-current-game-to-or-from-playoff-series-wins current-wins game-details -))
 
 (defn- parse-playoff-series-information [api-game game-details]
   (let [teams (:teams game-details)
-        current-wins (parse-current-playoff-series-wins api-game teams)
-        win-count (apply + (vals current-wins))
+        parsed-current-wins (parse-current-playoff-series-wins api-game teams)
+        win-count (apply + (vals parsed-current-wins))
         game-number (get-in api-game [:series-summary :game-number])
-        wins-before-game (if (>= win-count game-number)
+        current-wins (cond (and (< win-count game-number) (finished-game? api-game))
+                           (add-current-game-to-playoff-series-wins parsed-current-wins game-details)
+
+                           (and (= win-count game-number) (live-game? api-game))
+                           (reduce-current-game-from-playoff-series-wins parsed-current-wins game-details)
+
+                           :else
+                           parsed-current-wins)
+        wins-before-game (if (finished-game? api-game)
                            (reduce-current-game-from-playoff-series-wins current-wins game-details)
                            current-wins)
         round (parse-playoff-round api-game)]
