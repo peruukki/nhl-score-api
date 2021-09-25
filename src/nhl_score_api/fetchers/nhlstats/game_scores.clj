@@ -371,34 +371,40 @@
 (defn- parse-game-start-time [api-game]
   (:game-date api-game))
 
-(defn- add-team-records [game-details api-game team-details teams scores]
+(defn- add-team-records [game-details api-game team-details teams scores include-pre-game-stats?]
   (if (all-star-game? api-game)
     game-details
-    (let [records (parse-records api-game team-details teams scores)]
-      (-> game-details
-          (add-stats-field pre-game-stats-key :records (pre-game-stats-key records))
-          (add-stats-field current-stats-key :records (current-stats-key records))))))
+    (let [records (parse-records api-game team-details teams scores)
+          with-pre-game-stats (if include-pre-game-stats?
+                                (add-stats-field game-details pre-game-stats-key :records (pre-game-stats-key records))
+                                game-details)]
+      (add-stats-field with-pre-game-stats current-stats-key :records (current-stats-key records)))))
 
 (defn- add-team-streaks [game-details api-game team-details standings]
   (if (not (regular-season-game? api-game))
     game-details
     (add-stats-field game-details current-stats-key :streaks (parse-streaks team-details standings))))
 
-(defn- add-team-standings [game-details api-game team-details standings]
+(defn- add-team-standings [game-details api-game team-details standings include-pre-game-stats?]
   (if (all-star-game? api-game)
     game-details
     (let [parsed-standings (parse-standings team-details standings)]
       (cond-> game-details
-              (playoff-game? api-game) (add-stats-field pre-game-stats-key :standings parsed-standings)
-              true (add-stats-field current-stats-key :standings parsed-standings)))))
+              (and include-pre-game-stats? (playoff-game? api-game))
+              (add-stats-field pre-game-stats-key :standings parsed-standings)
+              true
+              (add-stats-field current-stats-key :standings parsed-standings)))))
 
-(defn- add-playoff-series-information [game-details api-game]
+(defn- add-playoff-series-information [game-details api-game include-pre-game-stats?]
   (if (non-playoff-game? api-game)
     game-details
-    (let [playoff-series-information (parse-playoff-series-information api-game game-details)]
-      (-> game-details
-          (add-stats-field pre-game-stats-key :playoff-series (pre-game-stats-key playoff-series-information))
-          (add-stats-field current-stats-key :playoff-series (current-stats-key playoff-series-information))))))
+    (let [playoff-series-information
+          (parse-playoff-series-information api-game game-details)
+          with-pre-game-stats
+          (if include-pre-game-stats?
+            (add-stats-field game-details pre-game-stats-key :playoff-series (pre-game-stats-key playoff-series-information))
+            game-details)]
+      (add-stats-field with-pre-game-stats current-stats-key :playoff-series (current-stats-key playoff-series-information)))))
 
 (defn- get-score-affecting-goal-count [game-details]
   (let [goals (:goals game-details)
@@ -430,7 +436,10 @@
       game-details
       (assoc game-details :errors errors))))
 
-(defn- parse-game-details [standings api-game]
+(defn- reject-empty-vals [game-details]
+  (into {} (filter (comp not empty? val) game-details)))
+
+(defn- parse-game-details [standings include-pre-game-stats? api-game]
   (let [team-details (parse-game-team-details api-game)
         scores (parse-scores api-game team-details)
         teams (get-teams team-details)]
@@ -441,13 +450,17 @@
          :teams teams
          pre-game-stats-key {}
          current-stats-key {}}
-        (add-team-records api-game team-details teams scores)
+        (add-team-records api-game team-details teams scores include-pre-game-stats?)
         (add-team-streaks api-game team-details standings)
-        (add-team-standings api-game team-details standings)
-        (add-playoff-series-information api-game)
-        (add-validation-errors))))
+        (add-team-standings api-game team-details standings include-pre-game-stats?)
+        (add-playoff-series-information api-game include-pre-game-stats?)
+        (add-validation-errors)
+        (reject-empty-vals))))
 
-(defn parse-game-scores [date-and-api-games standings]
-  {:date (:date date-and-api-games)
-   :games (map (partial parse-game-details standings)
-               (:games date-and-api-games))})
+(defn parse-game-scores
+  ([date-and-api-games standings]
+   (parse-game-scores date-and-api-games standings true))
+  ([date-and-api-games standings include-pre-game-stats?]
+   {:date (:date date-and-api-games)
+    :games (map (partial parse-game-details standings include-pre-game-stats?)
+                (:games date-and-api-games))}))

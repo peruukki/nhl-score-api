@@ -1,7 +1,8 @@
 (ns nhl-score-api.core
   (:require [nhl-score-api.fetchers.nhlstats.fetcher :as fetcher]
             [nhl-score-api.cache :as cache]
-            [camel-snake-kebab.core :refer [->camelCaseString]]
+            [nhl-score-api.utils :refer [fmap-keys]]
+            [camel-snake-kebab.core :refer [->camelCaseString ->kebab-case-keyword]]
             [org.httpkit.server :as server]
             [ring.middleware.params :refer [wrap-params]]
             [clojure.data.json :as json]
@@ -38,13 +39,27 @@
   (or (cache-get-fn request-path)
       (cache-set-fn request-path (response-fn) ttl-seconds)))
 
-(defn get-response [request-path latest-scores-api-fn cache-get-fn cache-set-fn]
+(defn get-response
+  [request-path request-params fetch-latest-scores-api-fn fetch-scores-in-date-range-api-fn cache-get-fn cache-set-fn]
   (case request-path
     "/"
     {:version version}
 
     "/api/scores/latest"
-    (get-cached-response request-path latest-scores-api-fn cache-get-fn cache-set-fn 60)
+    (get-cached-response
+      request-path
+      fetch-latest-scores-api-fn
+      cache-get-fn
+      cache-set-fn
+      60)
+
+    "/api/scores"
+    (get-cached-response
+      request-path
+      #(fetch-scores-in-date-range-api-fn (:start-date request-params) (:end-date request-params))
+      cache-get-fn
+      cache-set-fn
+      60)
 
     nil))
 
@@ -64,8 +79,17 @@
 (defn request-handler [request]
   (println "Received request" request)
   (try
-    (let [success-response (get-response (:uri request) fetcher/fetch-latest-scores cache/get-value cache/set-value)
-          response (or success-response {})]
+    (let [request-params (fmap-keys ->kebab-case-keyword (:params request))
+          success-response
+          (get-response
+            (:uri request)
+            request-params
+            fetcher/fetch-latest-scores
+            fetcher/fetch-scores-in-date-range
+            cache/get-value
+            cache/set-value)
+          response
+          (or success-response {})]
       (format-response (if success-response 200 404) response))
     (catch Exception e
       (println "Caught exception" e)

@@ -8,12 +8,15 @@
 (def cache-set-value (atom nil))
 (def cache-set-ttl-seconds (atom nil))
 (def latest-scores-fetched (atom false))
+(def scores-in-date-range-fetched (atom false))
 
 (def latest-scores {:teams [] :scores {} :goals []})
+(def scores-in-date-range [{:teams [] :scores {} :goals []}])
 
 (declare assert-status assert-json-content-type assert-cors-enabled assert-browser-caching-disabled assert-body)
 (declare reset-cache-state! cache-get-fn cache-set-fn)
 (declare latest-scores-api-fn)
+(declare scores-in-date-range-api-fn)
 
 
 (deftest api-routing
@@ -44,7 +47,7 @@
 (deftest caching
   (testing "Root path request is not cached"
     (reset-cache-state!)
-    (get-response "/" latest-scores-api-fn cache-get-fn cache-set-fn)
+    (get-response "/" {} latest-scores-api-fn scores-in-date-range-api-fn cache-get-fn cache-set-fn)
     (is (= nil
            @cache-get-key) "Cache was not searched")
     (is (= nil
@@ -53,7 +56,7 @@
   (testing "Latest scores request is cached for 1 minute"
     (reset-cache-state!)
     (let [path "/api/scores/latest"]
-      (get-response path latest-scores-api-fn cache-get-fn cache-set-fn)
+      (get-response path {} latest-scores-api-fn scores-in-date-range-api-fn cache-get-fn cache-set-fn)
       (is (= path
              @cache-get-key) "Cache was searched for request path key")
       (is (= true
@@ -66,9 +69,30 @@
              @cache-set-ttl-seconds) "Key time-to-live was set to 60 seconds")
 
       (reset! latest-scores-fetched false)
-      (get-response path latest-scores-api-fn cache-get-fn cache-set-fn)
+      (get-response path {} latest-scores-api-fn scores-in-date-range-api-fn cache-get-fn cache-set-fn)
       (is (= false
-             @latest-scores-fetched) "Latest scores were not fetched"))))
+             @latest-scores-fetched) "Latest scores were not fetched")))
+
+  (testing "Scores in date range request is cached for 1 minute"
+    (reset-cache-state!)
+    (let [path "/api/scores"
+          params {:start-date "2021-09-25" :end-date "2021-09-26"}]
+      (get-response path params latest-scores-api-fn scores-in-date-range-api-fn cache-get-fn cache-set-fn)
+      (is (= path
+             @cache-get-key) "Cache was searched for request path key")
+      (is (= true
+             @scores-in-date-range-fetched) "Scores were fetched")
+      (is (= path
+             @cache-set-key) "Request path was stored in the cache as key")
+      (is (= scores-in-date-range
+             @cache-set-value) "Response was stored in the cache as value")
+      (is (= 60
+             @cache-set-ttl-seconds) "Key time-to-live was set to 60 seconds")
+
+      (reset! scores-in-date-range-fetched false)
+      (get-response path params latest-scores-api-fn scores-in-date-range-api-fn cache-get-fn cache-set-fn)
+      (is (= false
+             @scores-in-date-range-fetched) "Scores were not fetched"))))
 
 (deftest browser-caching
   (testing "Browser caching is disabled by response headers")
@@ -108,7 +132,8 @@
   (reset! cache-set-key nil)
   (reset! cache-set-value nil)
   (reset! cache-set-ttl-seconds nil)
-  (reset! latest-scores-fetched false))
+  (reset! latest-scores-fetched false)
+  (reset! scores-in-date-range-fetched false))
 
 (defn- cache-get-fn [key]
   (reset! cache-get-key key)
@@ -122,3 +147,7 @@
 (defn- latest-scores-api-fn []
   (reset! latest-scores-fetched true)
   latest-scores)
+
+(defn- scores-in-date-range-api-fn [start-date end-date]
+  (reset! scores-in-date-range-fetched true)
+  scores-in-date-range)

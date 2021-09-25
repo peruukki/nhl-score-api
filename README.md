@@ -13,7 +13,7 @@ The API is available at https://nhl-score-api.herokuapp.com/, and it serves as t
 
 ## API
 
-### Goals from latest finished NHL games
+### Scores from latest finished NHL games
 
 #### `GET` [/api/scores/latest](https://nhl-score-api.herokuapp.com/api/scores/latest)
 
@@ -32,9 +32,33 @@ The `games` array contains details of the games, each game item containing these
 - `currentStats` *(object)*
 - `errors` *(array)* (only present if data validity errors were detected)
 
-The fields are described in more detail [later in this README](#date-fields-explained).
+The fields are described in more detail in [Response fields](#response-fields).
 
-##### Example regular season scores response:
+### Scores / game previews from given date range
+
+#### `GET` [/api/scores?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD](https://nhl-score-api.herokuapp.com/api/scores?startDate=2021-09-25&endDate=2021-09-26)
+
+Returns an array of objects with the date and the scores from given date range’s games.
+Both `startDate` and `endDate` are inclusive, and `endDate` is optional.
+
+The `date` object contains the date in a raw format and a prettier, displayable format.
+
+The `games` array contains details of the games, each game item containing these fields:
+
+- `status` *(object)*
+- `startTime` *(string)*
+- `goals` *(array)*
+- `scores` *(object)*
+- `teams` *(object)*
+- `preGameStats` *(object)*
+- `currentStats` *(object)*
+- `errors` *(array)* (only present if data validity errors were detected)
+
+The fields are described in more detail in [Response fields](#response-fields).
+
+### Response examples
+
+#### Example of a single regular season date in the API response:
 
 ```json
 {
@@ -249,7 +273,7 @@ The fields are described in more detail [later in this README](#date-fields-expl
 }
 ```
 
-##### Example playoff scores response:
+#### Example of a single playoff date in the API response:
 
 ```json
 {
@@ -330,12 +354,14 @@ The fields are described in more detail [later in this README](#date-fields-expl
 }
 ```
 
-##### Date fields explained:
+### Response fields
+
+#### Date fields explained:
 
 - `raw` *(string)*: the raw date in "YYYY-MM-DD" format, usable for any kind of processing
 - `pretty` *(string)*: a prettified format, can be shown as-is in the client
 
-##### Game fields explained:
+#### Game fields explained:
 
 - `status` object: current game status, with the fields:
   - `state` *(string)*:
@@ -388,7 +414,8 @@ The fields are described in more detail [later in this README](#date-fields-expl
     - `locationName`: team location name, e.g. `"St. Louis"`
     - `shortName`: team short name, e.g. `"St Louis"` (note: "St" without a period)
     - `teamName`: team name, e.g. `"Blues"`
-- `preGameStats` object: each teams’ season statistics *before the game*, with the fields:
+- `preGameStats` object: each teams’ season statistics *before the game*, with the fields
+  (**only included in the latest games response because historical standings data is not available**):
   - `records` object: each teams’ record for this regular/playoff season, with the fields:
     - `wins` *(number)*: win count (earning 2 pts)
     - `losses` *(number)*: regulation loss count (0 pts)
@@ -405,14 +432,14 @@ The fields are described in more detail [later in this README](#date-fields-expl
     - `wins` *(number)*: win count (earning 2 pts)
     - `losses` *(number)*: regulation loss count (0 pts)
     - `ot` *(number)*: loss count for games that went to overtime (1 pt)
-  - `streaks` object: each teams’ current form streak (only present in regular season games), with the fields:
+  - `streaks` object (**or `null` if querying coming season’s games**): each teams’ current form streak (only present in regular season games), with the fields:
     - `type` *(string)*: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
     - `count` *(number)*: streak’s length in consecutive games
-  - `standings` object: each teams’ standings related information, with the fields:
+  - `standings` object (**or `null` if querying coming season’s games**): each teams’ standings related information, with the fields:
     - `divisionRank` *(string)*: the team's regular season ranking in their division (based on point percentage); this comes as a *string* value from the NHL Stats API
     - `leagueRank` *(string)*: the team's regular season ranking in the league (based on point percentage); this comes as a *string* value from the NHL Stats API
-    - `pointsFromPlayoffSpot` *(string)*: point difference to the last playoff spot in the conference:
-      (**NOTE: This field is currently removed due to exceptional playoff spot logic in season 2019–20**)
+    - `pointsFromPlayoffSpot` *(string)*: point difference to the last playoff spot in the conference
+      (**this field is currently removed due to exceptional playoff spot logic in latest seasons**):
       - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
         i.e. by how many points the team is safe
       - for teams currently outside the playoffs, this is the point difference to the team in the last playoff spot (2nd wildcard
