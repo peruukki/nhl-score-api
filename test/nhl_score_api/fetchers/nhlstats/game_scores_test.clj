@@ -3,7 +3,7 @@
             [nhl-score-api.fetchers.nhlstats.game-scores :refer :all]
             [nhl-score-api.fetchers.nhlstats.latest-games :refer [filter-latest-games]]
             [nhl-score-api.fetchers.nhlstats.resources :as resources]
-            [nhl-score-api.utils :refer [fmap]]))
+            [nhl-score-api.utils :refer [fmap-vals]]))
 
 (deftest game-scores-parsing-scores
 
@@ -293,7 +293,7 @@
           pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
           current-stats-standings (map #(:standings (:current-stats %)) games)
           ranks (map
-                  #(fmap (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
+                  #(fmap-vals (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
                   current-stats-standings)]
       (is (= (repeat 9 nil) pre-game-stats-standings) "Pre-game standings should not exist")
       (is (= [{"CAR" {:division-rank "4" :league-rank "9"} "NJD" {:division-rank "8" :league-rank "26"}}
@@ -315,7 +315,7 @@
           pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
           current-stats-standings (map #(:standings (:current-stats %)) games)
           ranks (map
-                  #(fmap (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
+                  #(fmap-vals (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
                   current-stats-standings)]
       (is (= pre-game-stats-standings current-stats-standings) "Parsed standings, pre-game vs. current stats")
       (is (= [{"DET" {:division-rank "8" :league-rank "31"} "TBL" {:division-rank "2" :league-rank "4"}}
@@ -333,7 +333,7 @@
                     (:records resources/standings-playoff-spots-per-division-5-3-4-4)))
           standings (map #(:standings (:current-stats %)) games)
           points-from-playoff-spot (map
-                                     #(fmap (fn [team-stats] (select-keys team-stats [:points-from-playoff-spot])) %)
+                                     #(fmap-vals (fn [team-stats] (select-keys team-stats [:points-from-playoff-spot])) %)
                                      standings)]
       (is (= 9
              (count points-from-playoff-spot)) "Parsed points from playoff spot count")
