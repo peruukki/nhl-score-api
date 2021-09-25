@@ -11,6 +11,7 @@
                  [com.taoensso/carmine "2.19.1"]
                  [enlive "1.1.6"]
                  [http-kit "2.1.19"]
+                 [ring/ring-core "1.9.4"]
                  [yleisradio/new-reliquary "1.0.1"]]
   :main nhl-score-api.core
   :profiles {:kaocha {:dependencies [[lambdaisland/kaocha "0.0-590"]]}

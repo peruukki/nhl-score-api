@@ -3,6 +3,7 @@
             [nhl-score-api.cache :as cache]
             [camel-snake-kebab.core :refer [->camelCaseString]]
             [org.httpkit.server :as server]
+            [ring.middleware.params :refer [wrap-params]]
             [clojure.data.json :as json]
             [clojure.java.io :as io]
             [new-reliquary.ring :refer [wrap-newrelic-transaction]])
@@ -71,4 +72,4 @@
       (format-response 500 {:error "Server error"}))))
 
 ; Send New Relic transaction for each request
-(def app (wrap-newrelic-transaction request-handler))
+(def app (wrap-newrelic-transaction (wrap-params request-handler)))
