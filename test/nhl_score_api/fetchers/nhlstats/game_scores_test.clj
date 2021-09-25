@@ -1,7 +1,7 @@
 (ns nhl-score-api.fetchers.nhlstats.game-scores-test
   (:require [clojure.test :refer :all]
             [nhl-score-api.fetchers.nhlstats.game-scores :refer :all]
-            [nhl-score-api.fetchers.nhlstats.latest-games :refer [filter-latest-games]]
+            [nhl-score-api.fetchers.nhlstats.transformer :refer [filter-latest-games]]
             [nhl-score-api.fetchers.nhlstats.resources :as resources]
             [nhl-score-api.utils :refer [fmap-vals]]))
 

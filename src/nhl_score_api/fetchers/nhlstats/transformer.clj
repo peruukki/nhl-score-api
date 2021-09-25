@@ -1,4 +1,4 @@
-(ns nhl-score-api.fetchers.nhlstats.latest-games
+(ns nhl-score-api.fetchers.nhlstats.transformer
   (:require [clj-time.format :as format]))
 
 (defn- prettify-date [date]

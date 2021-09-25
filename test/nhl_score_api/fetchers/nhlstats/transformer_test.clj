@@ -1,6 +1,6 @@
-(ns nhl-score-api.fetchers.nhlstats.latest-games-test
+(ns nhl-score-api.fetchers.nhlstats.transformer-test
   (:require [clojure.test :refer :all]
-            [nhl-score-api.fetchers.nhlstats.latest-games :refer :all]
+            [nhl-score-api.fetchers.nhlstats.transformer :refer :all]
             [nhl-score-api.fetchers.nhlstats.resources :as resources]))
 
 (deftest filter-latest-games-test

@@ -1,5 +1,5 @@
 (ns nhl-score-api.fetchers.nhlstats.game-scores
-  (:require [nhl-score-api.fetchers.nhlstats.latest-games :refer [finished-game? live-game?]]
+  (:require [nhl-score-api.fetchers.nhlstats.transformer :refer [finished-game? live-game?]]
             [clojure.string :as str]))
 
 (def pre-game-stats-key :pre-game-stats)
