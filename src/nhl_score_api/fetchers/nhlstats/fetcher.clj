@@ -1,6 +1,6 @@
 (ns nhl-score-api.fetchers.nhlstats.fetcher
   (:require [nhl-score-api.fetchers.nhlstats.game-scores :as game-scores]
-            [nhl-score-api.fetchers.nhlstats.transformer :refer [filter-latest-games]]
+            [nhl-score-api.fetchers.nhlstats.transformer :refer [get-latest-games]]
             [clojure.data.json :as json]
             [camel-snake-kebab.core :refer [->kebab-case-keyword]]
             [clj-time.core :as time]
@@ -41,6 +41,6 @@
           (do (println "Using mocked NHL Stats API response from" mocked-latest-games-info-file)
               (api-response-to-json (slurp mocked-latest-games-info-file)))
           (fetch-latest-games-info))
-        date-and-api-games (filter-latest-games latest-games-info)
+        date-and-api-games (get-latest-games latest-games-info)
         standings-info (fetch-standings-info (:raw (:date date-and-api-games)))]
     (game-scores/parse-game-scores date-and-api-games (:records standings-info))))

@@ -44,11 +44,16 @@
   (or (finished-game? game)
       (live-game? game)))
 
-(defn filter-latest-games [api-response]
+(defn- transform-games [api-response]
   (->> api-response
        :dates
        (map #(select-keys % [:date :games]))
        (map remove-pr-games)
-       get-latest-date-and-games-with-finished-games
-       format-date
-       sort-games-by-state))
+       (map format-date)
+       (map sort-games-by-state)))
+
+(defn get-games [api-response]
+  (transform-games api-response))
+
+(defn get-latest-games [api-response]
+  (get-latest-date-and-games-with-finished-games (get-games api-response)))

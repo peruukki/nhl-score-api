@@ -1,7 +1,7 @@
 (ns nhl-score-api.fetchers.nhlstats.game-scores-test
   (:require [clojure.test :refer :all]
             [nhl-score-api.fetchers.nhlstats.game-scores :refer :all]
-            [nhl-score-api.fetchers.nhlstats.transformer :refer [filter-latest-games]]
+            [nhl-score-api.fetchers.nhlstats.transformer :refer [get-latest-games]]
             [nhl-score-api.fetchers.nhlstats.resources :as resources]
             [nhl-score-api.utils :refer [fmap-vals]]))
 
@@ -10,7 +10,7 @@
   (testing "Parsing scores with games finished in overtime and in shootout"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
+                    (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
                     (:records resources/standings)))]
       (is (= 9
              (count games)) "Parsed game count")
@@ -45,7 +45,7 @@
   (testing "Parsing scores with games finished, on-going and not yet started"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/games-in-live-preview-and-final-states)
+                    (get-latest-games resources/games-in-live-preview-and-final-states)
                     (:records resources/standings)))]
       (is (= 7
              (count games)) "Parsed game count")
@@ -86,7 +86,7 @@
     (let [game (nth
                  (:games
                    (parse-game-scores
-                     (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
+                     (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
                      (:records resources/standings)))
                  4)
           goals (:goals game)]
@@ -106,7 +106,7 @@
     (let [game (nth
                  (:games
                    (parse-game-scores
-                     (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
+                     (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
                      (:records resources/standings)))
                  3)
           goals (map #(dissoc % :strength) (:goals game))]  ; 'strength' field has its own test
@@ -141,7 +141,7 @@
     (let [game (nth
                  (:games
                    (parse-game-scores
-                     (filter-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
+                     (get-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
                      (:records resources/standings)))
                  2)]
       (is (= {"CHI" 0 "STL" 1 :overtime true}
@@ -156,7 +156,7 @@
     (let [game (nth
                  (:games
                    (parse-game-scores
-                     (filter-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
+                     (get-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
                      (:records resources/standings)))
                  1)
           goals (:goals game)]
@@ -171,7 +171,7 @@
     (let [game (nth
                  (:games
                    (parse-game-scores
-                     (filter-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
+                     (get-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
                      (:records resources/standings)))
                  1)
           goals (:goals game)]
@@ -187,7 +187,7 @@
   (testing "Parsing games' statuses"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/games-in-live-preview-and-final-states)
+                    (get-latest-games resources/games-in-live-preview-and-final-states)
                     (:records resources/standings)))
           statuses (map #(:status %) games)]
       (is (= [{:state "FINAL"}
@@ -210,7 +210,7 @@
   (testing "Parsing games' start times"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/games-in-live-preview-and-final-states)
+                    (get-latest-games resources/games-in-live-preview-and-final-states)
                     (:records resources/standings)))
           start-times (map #(:start-time %) games)]
       (is (= ["2016-02-28T17:30:00Z"
@@ -227,7 +227,7 @@
   (testing "Parsing teams' pre-game regular season records"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
+                    (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
                     (:records resources/standings)))
           records (map #(:records (:pre-game-stats %)) games)]
       (is (= 9
@@ -246,7 +246,7 @@
   (testing "Parsing teams' current regular season records"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
+                    (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
                     (:records resources/standings)))
           records (map #(:records (:current-stats %)) games)]
       (is (= 9
@@ -267,7 +267,7 @@
   (testing "Parsing teams' current streaks"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
+                    (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
                     (:records resources/standings)))
           streaks (map #(:streaks (:current-stats %)) games)]
       (is (= 9
@@ -288,7 +288,7 @@
   (testing "Parsing teams' division and league ranks for regular season games"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
+                    (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
                     (:records resources/standings)))
           pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
           current-stats-standings (map #(:standings (:current-stats %)) games)
@@ -310,7 +310,7 @@
   (testing "Parsing teams' division and league ranks for playoff games"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
+                    (get-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
                     (:records resources/standings)))
           pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
           current-stats-standings (map #(:standings (:current-stats %)) games)
@@ -329,7 +329,7 @@
   (testing "Parsing teams' points from playoff spot"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
+                    (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
                     (:records resources/standings-playoff-spots-per-division-5-3-4-4)))
           standings (map #(:standings (:current-stats %)) games)
           points-from-playoff-spot (map
@@ -378,7 +378,7 @@
   (testing "Parsing teams' pre-game playoff records when teams have no OT loss values in their records"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/playoff-games-live-finished-with-1st-games)
+                    (get-latest-games resources/playoff-games-live-finished-with-1st-games)
                     (:records resources/standings)))
           records (map #(:records (:pre-game-stats %)) games)]
       (is (= 5
@@ -393,7 +393,7 @@
   (testing "Parsing teams' pre-game playoff records when teams have OT loss values in their records"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/playoff-games-with-ot-losses-in-records)
+                    (get-latest-games resources/playoff-games-with-ot-losses-in-records)
                     (:records resources/standings)))
           records (map #(:records (:pre-game-stats %)) games)]
       (is (= 5
@@ -408,7 +408,7 @@
   (testing "Parsing teams' current playoff records"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/playoff-games-live-finished-with-1st-games)
+                    (get-latest-games resources/playoff-games-live-finished-with-1st-games)
                     (:records resources/standings)))
           records (map #(:records (:current-stats %)) games)]
       (is (= 5
@@ -425,7 +425,7 @@
   (testing "Parsing pre-game playoff series wins from playoff games"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/playoff-games-finished-with-2nd-games)
+                    (get-latest-games resources/playoff-games-finished-with-2nd-games)
                     (:records resources/standings)))
           playoff-series (map #(:playoff-series (:pre-game-stats %)) games)
           wins (map :wins playoff-series)]
@@ -435,7 +435,7 @@
   (testing "Parsing current playoff series wins from playoff games"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/playoff-games-finished-with-2nd-games)
+                    (get-latest-games resources/playoff-games-finished-with-2nd-games)
                     (:records resources/standings)))
           playoff-series (map #(:playoff-series (:current-stats %)) games)
           wins (map :wins playoff-series)]
@@ -445,7 +445,7 @@
   (testing "Parsing pre-game playoff series wins from first playoff games"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/playoff-games-live-finished-with-1st-games)
+                    (get-latest-games resources/playoff-games-live-finished-with-1st-games)
                     (:records resources/standings)))
           playoff-series (map #(:playoff-series (:pre-game-stats %)) games)
           wins (map :wins playoff-series)]
@@ -459,7 +459,7 @@
   (testing "Parsing current playoff series wins from first playoff games"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/playoff-games-live-finished-with-1st-games)
+                    (get-latest-games resources/playoff-games-live-finished-with-1st-games)
                     (:records resources/standings)))
           playoff-series (map #(:playoff-series (:current-stats %)) games)
           wins (map :wins playoff-series)]
@@ -473,7 +473,7 @@
   (testing "Parsing playoff rounds from playoff games"
     (let [games (:games
                   (parse-game-scores
-                    (filter-latest-games resources/playoff-games-live-finished-with-1st-games)
+                    (get-latest-games resources/playoff-games-live-finished-with-1st-games)
                     (:records resources/standings)))
           pre-game-stats-playoff-series (map #(:playoff-series (:pre-game-stats %)) games)
           current-stats-playoff-series (map #(:playoff-series (:current-stats %)) games)
@@ -489,14 +489,14 @@
   (testing "Validating valid game with goals"
     (let [game (first (:games
                         (parse-game-scores
-                          (filter-latest-games resources/games-in-live-preview-and-final-states)
+                          (get-latest-games resources/games-in-live-preview-and-final-states)
                           (:records resources/standings))))]
       (is (= (contains? game :errors) false) "No validation errors")))
 
   (testing "Validating valid game without goals"
     (let [game (nth (:games
                         (parse-game-scores
-                          (filter-latest-games resources/games-in-live-preview-and-final-states)
+                          (get-latest-games resources/games-in-live-preview-and-final-states)
                           (:records resources/standings)))
                     3)]
       (is (= (contains? game :errors) false) "No validation errors")))
@@ -504,7 +504,7 @@
   (testing "Validating valid non-finished game with multiple shootout goals"
     (let [game (nth (:games
                       (parse-game-scores
-                        (filter-latest-games resources/games-for-validation-testing)
+                        (get-latest-games resources/games-for-validation-testing)
                         (:records resources/standings)))
                     4)]
       (is (= (contains? game :errors) false) "No validation errors")))
@@ -512,7 +512,7 @@
   (testing "Validating valid finished game with multiple shootout goals"
     (let [game (nth (:games
                       (parse-game-scores
-                        (filter-latest-games resources/games-for-validation-testing)
+                        (get-latest-games resources/games-for-validation-testing)
                         (:records resources/standings)))
                     3)]
       (is (= (contains? game :errors) false) "No validation errors")))
@@ -520,7 +520,7 @@
   (testing "Validating game missing all goals"
     (let [game (first (:games
                         (parse-game-scores
-                          (filter-latest-games resources/games-for-validation-testing)
+                          (get-latest-games resources/games-for-validation-testing)
                           (:records resources/standings))))]
       (is (= (contains? game :errors) true) "Contains validation errors")
       (is (= [{:error :MISSING-ALL-GOALS}]
@@ -529,7 +529,7 @@
   (testing "Validating game missing one goal"
     (let [game (second (:games
                         (parse-game-scores
-                          (filter-latest-games resources/games-for-validation-testing)
+                          (get-latest-games resources/games-for-validation-testing)
                           (:records resources/standings))))]
       (is (= (contains? game :errors) true) "Contains validation errors")
       (is (= [{:error :SCORE-AND-GOAL-COUNT-MISMATCH :details {:goal-count 4 :score-count 5}}]
@@ -538,7 +538,7 @@
   (testing "Validating game having one goal too many"
     (let [game (nth (:games
                         (parse-game-scores
-                          (filter-latest-games resources/games-for-validation-testing)
+                          (get-latest-games resources/games-for-validation-testing)
                           (:records resources/standings)))
                     2)]
       (is (= (contains? game :errors) true) "Contains validation errors")
