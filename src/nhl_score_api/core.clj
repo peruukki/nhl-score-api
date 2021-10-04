@@ -43,25 +43,28 @@
   [request-path request-params fetch-latest-scores-api-fn fetch-scores-in-date-range-api-fn cache-get-fn cache-set-fn]
   (case request-path
     "/"
-    {:version version}
+    {:status 200
+     :body {:version version}}
 
     "/api/scores/latest"
-    (get-cached-response
-      request-path
-      fetch-latest-scores-api-fn
-      cache-get-fn
-      cache-set-fn
-      60)
+    {:status 200
+     :body (get-cached-response
+             request-path
+             fetch-latest-scores-api-fn
+             cache-get-fn
+             cache-set-fn
+             60)}
 
     "/api/scores"
-    (get-cached-response
-      request-path
-      #(fetch-scores-in-date-range-api-fn (:start-date request-params) (:end-date request-params))
-      cache-get-fn
-      cache-set-fn
-      60)
+    {:status 200
+     :body (get-cached-response
+             request-path
+             #(fetch-scores-in-date-range-api-fn (:start-date request-params) (:end-date request-params))
+             cache-get-fn
+             cache-set-fn
+             60)}
 
-    nil))
+    {:status 404 :body {}}))
 
 (defn json-key-transformer [key]
   (if (keyword? key)
@@ -79,18 +82,17 @@
 (defn request-handler [request]
   (println "Received request" request)
   (try
-    (let [request-params (fmap-keys ->kebab-case-keyword (:params request))
-          success-response
+    (let [request-params
+          (fmap-keys ->kebab-case-keyword (:params request))
+          response
           (get-response
             (:uri request)
             request-params
             fetcher/fetch-latest-scores
             fetcher/fetch-scores-in-date-range
             cache/get-value
-            cache/set-value)
-          response
-          (or success-response {})]
-      (format-response (if success-response 200 404) response))
+            cache/set-value)]
+      (format-response (:status response) (:body response)))
     (catch Exception e
       (println "Caught exception" e)
       (format-response 500 {:error "Server error"}))))
