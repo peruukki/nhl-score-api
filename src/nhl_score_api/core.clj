@@ -1,7 +1,7 @@
 (ns nhl-score-api.core
   (:require [nhl-score-api.fetchers.nhlstats.fetcher :as fetcher]
             [nhl-score-api.cache :as cache]
-            [nhl-score-api.utils :refer [fmap-keys]]
+            [nhl-score-api.utils :refer [fmap-keys fmap-vals format-date]]
             [nhl-score-api.param-parser :as params]
             [nhl-score-api.param-validator :as validate]
             [camel-snake-kebab.core :refer [->camelCaseString ->kebab-case-keyword]]
@@ -9,6 +9,7 @@
             [ring.middleware.params :refer [wrap-params]]
             [clojure.data.json :as json]
             [clojure.java.io :as io]
+            [clojure.string :as str]
             [new-reliquary.ring :refer [wrap-newrelic-transaction]])
   (:import (java.util Properties))
   (:gen-class))
@@ -37,9 +38,13 @@
     (println "Listening on" (str ip ":" port))
     (server/run-server app {:ip ip :port port})))
 
-(defn- get-cached-response [request-path response-fn cache-get-fn cache-set-fn ttl-seconds]
-  (or (cache-get-fn request-path)
-      (cache-set-fn request-path (response-fn) ttl-seconds)))
+(defn- get-cached-response [request-path request-params response-fn cache-get-fn cache-set-fn ttl-seconds]
+  (let [params-key-part (if request-params
+                          (str "?" (str/join "&" (for [[k v] request-params] (str (->camelCaseString k) "=" v))))
+                          nil)
+        cache-key (str request-path params-key-part)]
+    (or (cache-get-fn cache-key)
+        (cache-set-fn cache-key (response-fn) ttl-seconds))))
 
 (defn get-response
   [request-path request-params fetch-latest-scores-api-fn fetch-scores-in-date-range-api-fn cache-get-fn cache-set-fn]
@@ -52,6 +57,7 @@
     {:status 200
      :body (get-cached-response
              request-path
+             nil
              fetch-latest-scores-api-fn
              cache-get-fn
              cache-set-fn
@@ -73,6 +79,7 @@
             {:status 200
              :body (get-cached-response
                      request-path
+                     (fmap-vals format-date (:values parsed-params))
                      #(fetch-scores-in-date-range-api-fn start-date end-date)
                      cache-get-fn
                      cache-set-fn

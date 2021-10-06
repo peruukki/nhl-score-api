@@ -107,12 +107,12 @@
     (let [path "/api/scores"
           params {:start-date "2021-09-25" :end-date "2021-09-26"}]
       (get-response path params latest-scores-api-fn scores-in-date-range-api-fn cache-get-fn cache-set-fn)
-      (is (= path
-             @cache-get-key) "Cache was searched for request path key")
+      (is (= (str path "?" "startDate=2021-09-25" "&" "endDate=2021-09-26")
+             @cache-get-key) "Cache was searched for key containing request path and parameters")
       (is (= true
              @scores-in-date-range-fetched) "Scores were fetched")
-      (is (= path
-             @cache-set-key) "Request path was stored in the cache as key")
+      (is (= (str path "?" "startDate=2021-09-25" "&" "endDate=2021-09-26")
+             @cache-set-key) "Request path and parameters were stored in the cache as key")
       (is (= scores-in-date-range
              @cache-set-value) "Response was stored in the cache as value")
       (is (= 60

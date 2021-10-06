@@ -15,4 +15,4 @@
 (defn format-date
   "Formats given date-time to YYMMDD format"
   [date]
-  (format/unparse (format/formatters :year-month-day) date))
+  (when date (format/unparse (format/formatters :year-month-day) date)))
