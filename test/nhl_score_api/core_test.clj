@@ -10,8 +10,8 @@
 (def latest-scores-fetched (atom false))
 (def scores-in-date-range-fetched (atom false))
 
-(def latest-scores {:teams [] :scores {} :goals []})
-(def scores-in-date-range [{:teams [] :scores {} :goals []}])
+(def latest-scores {:teams {} :scores {} :goals []})
+(def scores-in-date-range [{:teams {} :scores {} :goals []}])
 
 (declare assert-status assert-json-content-type assert-cors-enabled assert-browser-caching-disabled assert-body)
 (declare reset-cache-state! cache-get-fn cache-set-fn)
@@ -34,6 +34,35 @@
       (assert-status response 404)
       (assert-json-content-type response)
       (assert-body response {} "Response contains empty body"))))
+
+(deftest latest-scores-route
+  (testing "Returns success response"
+    (let [path "/api/scores/latest"
+          response (get-response path {} latest-scores-api-fn scores-in-date-range-api-fn cache-get-fn cache-set-fn)]
+      (is (= 200 (:status response)) "Response status is 200"))))
+
+(deftest scores-in-date-range-route
+  (testing "Returns success response with :start-date parameter"
+    (let [path "/api/scores"
+          response (get-response path {:start-date "2021-10-03"} latest-scores-api-fn scores-in-date-range-api-fn cache-get-fn cache-set-fn)]
+      (is (= 200 (:status response)) "Response status is 200")))
+
+  (testing "Returns success response with :start-date and :end-date parameters"
+    (let [path "/api/scores"
+          response (get-response path {:start-date "2021-10-03" :end-date "2021-10-04"} latest-scores-api-fn scores-in-date-range-api-fn cache-get-fn cache-set-fn)]
+      (is (= 200 (:status response)) "Response status is 200")))
+
+  (testing "Returns failure response without parameters"
+    (let [path "/api/scores"
+          response (get-response path {} latest-scores-api-fn scores-in-date-range-api-fn cache-get-fn cache-set-fn)]
+      (is (= 400 (:status response)) "Response status is 400")
+      (is (= {:errors ["Missing required parameter startDate"]} (:body response)) "Response body contains errors")))
+
+  (testing "Returns failure response with invalid date range parameters"
+    (let [path "/api/scores"
+          response (get-response path {:start-date "2021-10-01" :end-date "2021-10-17"} latest-scores-api-fn scores-in-date-range-api-fn cache-get-fn cache-set-fn)]
+      (is (= 400 (:status response)) "Response status is 400")
+      (is (= {:errors ["Date range exceeds maximum limit of 16 days"]} (:body response)) "Response body contains errors"))))
 
 (deftest json-key-transforming
   (testing "Response JSON keyword key is transformed to camel case"
@@ -142,7 +171,8 @@
 (defn- cache-set-fn [key value ttl-seconds]
   (reset! cache-set-key key)
   (reset! cache-set-value value)
-  (reset! cache-set-ttl-seconds ttl-seconds))
+  (reset! cache-set-ttl-seconds ttl-seconds)
+  value)
 
 (defn- latest-scores-api-fn []
   (reset! latest-scores-fetched true)

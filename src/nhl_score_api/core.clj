@@ -2,6 +2,8 @@
   (:require [nhl-score-api.fetchers.nhlstats.fetcher :as fetcher]
             [nhl-score-api.cache :as cache]
             [nhl-score-api.utils :refer [fmap-keys]]
+            [nhl-score-api.param-parser :as params]
+            [nhl-score-api.param-validator :as validate]
             [camel-snake-kebab.core :refer [->camelCaseString ->kebab-case-keyword]]
             [org.httpkit.server :as server]
             [ring.middleware.params :refer [wrap-params]]
@@ -56,13 +58,25 @@
              60)}
 
     "/api/scores"
-    {:status 200
-     :body (get-cached-response
-             request-path
-             #(fetch-scores-in-date-range-api-fn (:start-date request-params) (:end-date request-params))
-             cache-get-fn
-             cache-set-fn
-             60)}
+    (let [expected-params [{:field :start-date :type :date :required? true}
+                           {:field :end-date :type :date}]
+          parsed-params (params/parse-params expected-params request-params)]
+      (if (not-empty (:errors parsed-params))
+        {:status 400
+         :body {:errors (:errors parsed-params)}}
+        (let [start-date (:start-date (:values parsed-params))
+              end-date (:end-date (:values parsed-params))
+              validation-error (validate/validate-date-range start-date end-date 16)]
+          (if validation-error
+            {:status 400
+             :body {:errors [validation-error]}}
+            {:status 200
+             :body (get-cached-response
+                     request-path
+                     #(fetch-scores-in-date-range-api-fn start-date end-date)
+                     cache-get-fn
+                     cache-set-fn
+                     60)}))))
 
     {:status 404 :body {}}))
 

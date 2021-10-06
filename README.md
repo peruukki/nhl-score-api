@@ -39,7 +39,9 @@ The fields are described in more detail in [Response fields](#response-fields).
 #### `GET` [/api/scores?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD](https://nhl-score-api.herokuapp.com/api/scores?startDate=2021-09-25&endDate=2021-09-26)
 
 Returns an array of objects with the date and the scores from given date range’s games.
-Both `startDate` and `endDate` are inclusive, and `endDate` is optional.
+Both `startDate` and `endDate` are inclusive, and `endDate` is optional. **The range is
+limited to a maximum of 16 days** to set some reasonable limit for the (cached) response;
+you can get a full month’s games with two requests, and 16 is a nice power of two.
 
 The `date` object contains the date in a raw format and a prettier, displayable format.
 
