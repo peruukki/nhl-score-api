@@ -56,6 +56,14 @@ The `games` array contains details of the games, each game item containing these
 - `currentStats` *(object)*
 - `errors` *(array)* (only present if data validity errors were detected)
 
+**If a date has no scheduled games**, you will either get:
+- no entry for that date in the response, or
+- an entry with an empty `games` array
+
+This variety comes directly from the NHL Stats API response, I don’t know why it
+behaves differently for some date ranges than others. Check the entries’ `date` > `raw`
+field to see what dates are actually included.
+
 The fields are described in more detail in [Response fields](#response-fields).
 
 ### Response examples
