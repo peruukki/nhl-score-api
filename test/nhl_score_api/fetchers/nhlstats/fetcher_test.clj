@@ -17,20 +17,20 @@
              (:endDate query-params)) "End date")))
 
   (testing "Scores are requested from given start date"
-    (let [start-date "2021-09-25"
+    (let [start-date (time/date-time 2021 9 25)
           query-params (get-schedule-query-params start-date nil)]
-      (is (= start-date
+      (is (= "2021-09-25"
              (:startDate query-params)) "Start date")
-      (is (= start-date
+      (is (= "2021-09-25"
              (:endDate query-params)) "End date")))
 
   (testing "Scores are requested from given date range"
-    (let [start-date "2021-09-25"
-          end-date "2021-10-01"
+    (let [start-date (time/date-time 2021 9 25)
+          end-date (time/date-time 2021 10 1)
           query-params (get-schedule-query-params start-date end-date)]
-      (is (= start-date
+      (is (= "2021-09-25"
              (:startDate query-params)) "Start date")
-      (is (= end-date
+      (is (= "2021-10-01"
              (:endDate query-params)) "End date")))
 
   (testing "All needed schedule details are requested"
