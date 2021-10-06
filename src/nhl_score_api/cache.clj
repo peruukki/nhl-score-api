@@ -21,7 +21,9 @@
   "Returns the value of the key from Redis, or nil if not found."
   [key]
   (let [value (if redis-disabled? nil (wcar* (car/get key)))]
-    (when value (println "Found key" key "value from cache"))
+    (if value
+      (println "Key" key "value found from cache")
+      (println "Key" key "value not in cache"))
     value))
 
 (defn set-value
