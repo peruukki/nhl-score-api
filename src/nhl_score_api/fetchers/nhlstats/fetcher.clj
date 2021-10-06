@@ -1,6 +1,7 @@
 (ns nhl-score-api.fetchers.nhlstats.fetcher
   (:require [nhl-score-api.fetchers.nhlstats.game-scores :as game-scores]
             [nhl-score-api.fetchers.nhlstats.transformer :refer [get-games get-latest-games]]
+            [nhl-score-api.utils :refer [format-date]]
             [clojure.data.json :as json]
             [camel-snake-kebab.core :refer [->kebab-case-keyword]]
             [clj-time.core :as time]
@@ -12,9 +13,6 @@
 (def standings-url (str base-url "/standings"))
 
 (def mocked-latest-games-info-file (System/getenv "MOCK_NHL_STATS_API"))
-
-(defn- format-date [date]
-  (format/unparse (format/formatters :year-month-day) date))
 
 (defn get-schedule-query-params [start-date end-date]
   (let [fetch-latest? (and (nil? start-date) (nil? end-date))
