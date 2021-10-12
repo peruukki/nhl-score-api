@@ -7,7 +7,7 @@
 (deftest get-schedule-query-params-test
 
   (testing "The last two days' scores are requested if no dates are given"
-    (let [now (time/date-time 2021 7 8)
+    (let [now (time/now)
           yesterday (format/unparse (format/formatters :year-month-day) (time/minus now (time/days 1)))
           today (format/unparse (format/formatters :year-month-day) now)
           query-params (get-schedule-query-params nil nil)]

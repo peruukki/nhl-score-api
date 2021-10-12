@@ -16,7 +16,7 @@
 
 (defn get-schedule-query-params [start-date end-date]
   (let [fetch-latest? (and (nil? start-date) (nil? end-date))
-        date-now (time/date-time 2021 7 8)
+        date-now (time/now)
         query-start-date (format-date (if fetch-latest? (time/minus date-now (time/days 1)) start-date))
         query-end-date (format-date (if fetch-latest? date-now (if (nil? end-date) start-date end-date)))]
     {:startDate query-start-date

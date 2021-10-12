@@ -15,8 +15,6 @@ The API is available at https://nhl-score-api.herokuapp.com/, and it serves as t
 
 #### `GET` [/api/scores/latest](https://nhl-score-api.herokuapp.com/api/scores/latest)
 
-**NOTE: This endpoint returns the last game of season 2020–21 until the start of next season.**
-
 Returns an object with the date and the scores from the latest round’s games.
 
 The `date` object contains the date in a raw format and a prettier, displayable format.
