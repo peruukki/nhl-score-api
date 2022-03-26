@@ -274,7 +274,6 @@
       points-for-first-team-out-of-playoffs-in-division
       points-for-first-team-out-of-playoffs)))
 
-; TODO: Use this again when "normal" playoff spot logic is resumed
 (defn- get-point-difference-to-playoff-spot [conference-id division-id team-record standings]
   (let [wild-card-teams (parse-wild-card-teams conference-id standings)]
     (if (empty? wild-card-teams)
@@ -295,11 +294,17 @@
         (str (if (> difference 0) "+" "") difference)))))
 
 (defn- derive-standings [standings team-details]
-  (let [division-id (:id (:division team-details))
+  (let [conference-id (:id (:conference team-details))
+        division-id (:id (:division team-details))
         team-id (:id team-details)
-        team-record (parse-team-record-from-standings standings division-id team-id)]
-    {:division-rank (:pp-division-rank team-record)
-     :league-rank (:pp-league-rank team-record)}))
+        team-record (parse-team-record-from-standings standings division-id team-id)
+        point-difference-to-playoff-spot
+        (get-point-difference-to-playoff-spot conference-id division-id team-record standings)
+        basic-standings {:division-rank (:pp-division-rank team-record)
+                         :league-rank (:pp-league-rank team-record)}]
+    (if (nil? point-difference-to-playoff-spot)
+      basic-standings
+      (assoc basic-standings :points-from-playoff-spot point-difference-to-playoff-spot))))
 
 (defn- parse-standings [team-details standings]
   (let [away-details (:away team-details)

@@ -165,11 +165,13 @@ The fields are described in more detail in [Response fields](#response-fields).
         "standings": {
           "BOS": {
             "divisionRank": "2",
-            "leagueRank": "8"
+            "leagueRank": "8",
+            "pointsFromPlayoffSpot": "+17"
           },
           "CHI": {
             "divisionRank": "6",
-            "leagueRank": "25"
+            "leagueRank": "25",
+            "pointsFromPlayoffSpot": "-4"
           }
         }
       }
@@ -268,11 +270,13 @@ The fields are described in more detail in [Response fields](#response-fields).
         "standings": {
           "OTT": {
             "divisionRank": "8",
-            "leagueRank": "29"
+            "leagueRank": "29",
+            "pointsFromPlayoffSpot": "+2"
           },
           "DET": {
             "divisionRank": "7",
-            "leagueRank": "23"
+            "leagueRank": "23",
+            "pointsFromPlayoffSpot": "0"
           }
         }
       }
@@ -447,7 +451,6 @@ The fields are described in more detail in [Response fields](#response-fields).
     - `divisionRank` *(string)*: the team's regular season ranking in their division (based on point percentage); this comes as a *string* value from the NHL Stats API
     - `leagueRank` *(string)*: the team's regular season ranking in the league (based on point percentage); this comes as a *string* value from the NHL Stats API
     - `pointsFromPlayoffSpot` *(string)*: point difference to the last playoff spot in the conference
-      (**this field is currently removed due to exceptional playoff spot logic in latest seasons**):
       - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
         i.e. by how many points the team is safe
       - for teams currently outside the playoffs, this is the point difference to the team in the last playoff spot (2nd wildcard

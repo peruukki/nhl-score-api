@@ -323,8 +323,7 @@
               {"CHI" {:division-rank "7" :league-rank "23"} "STL" {:division-rank "1" :league-rank "2"}}]
              ranks) "Parsed current stats division and league ranks"))))
 
-; TODO: Enable this again when "normal" playoff spot logic is resumed
-(deftest ^:skip game-scores-parsing-team-points-from-playoff-spot
+(deftest game-scores-parsing-team-points-from-playoff-spot
 
   (testing "Parsing teams' points from playoff spot"
     (let [games (:games
