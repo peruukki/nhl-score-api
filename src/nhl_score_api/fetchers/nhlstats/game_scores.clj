@@ -276,20 +276,23 @@
 
 ; TODO: Use this again when "normal" playoff spot logic is resumed
 (defn- get-point-difference-to-playoff-spot [conference-id division-id team-record standings]
-  (let [is-team-out-of-playoffs (> (read-string (:wild-card-rank team-record)) 2)
-        wild-card-teams (parse-wild-card-teams conference-id standings)
-        no-wild-card-playoff-teams-in-division (not (some #(= (:division-id %) division-id) (take 2 wild-card-teams)))
-        comparison-team-points
-        (if is-team-out-of-playoffs
-          (get-comparison-team-points-for-team-out-of-playoff-spot division-id
-                                                                   standings
+  (let [wild-card-teams (parse-wild-card-teams conference-id standings)]
+    (if (empty? wild-card-teams)
+      nil
+      (let [is-team-out-of-playoffs (> (read-string (:wild-card-rank team-record)) 2)
+            no-wild-card-playoff-teams-in-division (not (some #(= (:division-id %) division-id)
+                                                              (take 2 wild-card-teams)))
+            comparison-team-points
+            (if is-team-out-of-playoffs
+              (get-comparison-team-points-for-team-out-of-playoff-spot division-id
+                                                                       standings
+                                                                       wild-card-teams
+                                                                       no-wild-card-playoff-teams-in-division)
+              (get-comparison-team-points-for-team-in-playoff-spot division-id
                                                                    wild-card-teams
-                                                                   no-wild-card-playoff-teams-in-division)
-          (get-comparison-team-points-for-team-in-playoff-spot division-id
-                                                               wild-card-teams
-                                                               no-wild-card-playoff-teams-in-division))
-        difference (- (:points team-record) comparison-team-points)]
-    (str (if (> difference 0) "+" "") difference)))
+                                                                   no-wild-card-playoff-teams-in-division))
+            difference (- (:points team-record) comparison-team-points)]
+        (str (if (> difference 0) "+" "") difference)))))
 
 (defn- derive-standings [standings team-details]
   (let [division-id (:id (:division team-details))
