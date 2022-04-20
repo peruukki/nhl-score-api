@@ -26,6 +26,7 @@ The `games` array contains details of the games, each game item containing these
 - `goals` *(array)*
 - `scores` *(object)*
 - `teams` *(object)*
+- `gameStats` *(object)*
 - `preGameStats` *(object)*
 - `currentStats` *(object)*
 - `errors` *(array)* (only present if data validity errors were detected)
@@ -50,6 +51,7 @@ The `games` array contains details of the games, each game item containing these
 - `goals` *(array)*
 - `scores` *(object)*
 - `teams` *(object)*
+- `gameStats` *(object)*
 - `preGameStats` *(object)*
 - `currentStats` *(object)*
 - `errors` *(array)* (only present if data validity errors were detected)
@@ -123,6 +125,48 @@ The fields are described in more detail in [Response fields](#response-fields).
           "locationName": "Chicago",
           "shortName": "Chicago",
           "teamName": "Blackhawks"
+        }
+      },
+      "gameStats": {
+        "blocked": {
+          "BOS": 8,
+          "CHI": 9
+        },
+        "faceOffWinPercentage": {
+          "BOS": "45.5",
+          "CHI": "54.5"
+        },
+        "giveaways": {
+          "BOS": 5,
+          "CHI": 12
+        },
+        "hits": {
+          "BOS": 22,
+          "CHI": 22
+        },
+        "pim": {
+          "BOS": 6,
+          "CHI": 4
+        },
+        "powerPlay": {
+          "BOS": {
+            "goals": 0,
+            "opportunities": 2,
+            "percentage": "0.0"
+          },
+          "CHI": {
+            "goals": 1,
+            "opportunities": 3,
+            "percentage": "33.3"
+          }
+        },
+        "shots": {
+          "BOS": 37,
+          "CHI": 25
+        },
+        "takeaways": {
+          "BOS": 8,
+          "CHI": 9
         }
       },
       "preGameStats": {
@@ -228,6 +272,48 @@ The fields are described in more detail in [Response fields](#response-fields).
           "locationName": "Detroit",
           "shortName": "Detroit",
           "teamName": "Red Wings"
+        }
+      },
+      "gameStats": {
+        "blocked": {
+          "OTT": 6,
+          "DET": 3
+        },
+        "faceOffWinPercentage": {
+          "OTT": "42.3",
+          "DET": "57.7"
+        },
+        "giveaways": {
+          "OTT": 4,
+          "DET": 7
+        },
+        "hits": {
+          "OTT": 11,
+          "DET": 15
+        },
+        "pim": {
+          "OTT": 2,
+          "DET": 4
+        },
+        "powerPlay": {
+          "OTT": {
+            "goals": 1,
+            "opportunities": 2,
+            "percentage": "50.0"
+          },
+          "DET": {
+            "goals": 0,
+            "opportunities": 1,
+            "percentage": "0.0"
+          }
+        },
+        "shots": {
+          "OTT": 19,
+          "DET": 24
+        },
+        "takeaways": {
+          "OTT": 4,
+          "DET": 7
         }
       },
       "preGameStats": {
@@ -426,6 +512,18 @@ The fields are described in more detail in [Response fields](#response-fields).
     - `locationName`: team location name, e.g. `"St. Louis"`
     - `shortName`: team short name, e.g. `"St Louis"` (note: "St" without a period)
     - `teamName`: team name, e.g. `"Blues"`
+- `gameStats` object: each teams’ game statistics, with the fields (**only included in started games**):
+  - `blocked`: blocked shots
+  - `faceOffWinPercentage`: what it says
+  - `giveaways`: what it says
+  - `hits`: what it says
+  - `pim`: penalties in minutes
+  - `powerPlay` *(object)*:
+    - `goals`: number of power play goals
+    - `opportunities`: number of power play opportunities
+    - `percentage`: power play efficiency, e.g. `50.0`
+  - `shots`: shots on goal
+  - `takeaways`: what it says
 - `preGameStats` object: each teams’ season statistics *before the game*, with the fields
   (**only included in the latest games response because historical standings data is not available**):
   - `records` object: each teams’ record for this regular/playoff season, with the fields:

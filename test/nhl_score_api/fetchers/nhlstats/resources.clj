@@ -18,3 +18,7 @@
 
 (def standings (read-resource "standings-2020-08-02.json"))
 (def standings-playoff-spots-per-division-5-3-4-4 (read-resource "standings-2020-02-16-modified.json"))
+
+(def boxscore-2015020930 (read-resource "boxscore-2015020930.json"))
+(def boxscore-2015020931 (read-resource "boxscore-2015020931.json"))
+(def boxscore-2015020932 (read-resource "boxscore-2015020932.json"))

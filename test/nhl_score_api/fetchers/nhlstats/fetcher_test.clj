@@ -42,3 +42,12 @@
   (testing "Standings are not fetched if there are no latest games"
     (is (= {:records nil}
            (fetch-standings-info nil)) "No team records")))
+
+(deftest get-boxscore-urls-by-game-pk-test
+
+  (testing "Boxscore URL is returned for live and finished games"
+    (is (= {"1" (str base-url "/game/1/boxscore")
+            "2" (str base-url "/game/2/boxscore")}
+           (get-boxscore-urls-by-game-pk [{:game-pk "1" :status {:abstract-game-state "Live"}}
+                                          {:game-pk "2" :status {:abstract-game-state "Final"}}
+                                          {:game-pk "3" :status {:abstract-game-state "Preview"}}])))))

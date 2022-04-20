@@ -379,6 +379,36 @@
 (defn- parse-game-start-time [api-game]
   (:game-date api-game))
 
+(defn- add-game-stats [game-details team-details boxscore]
+  (if (nil? boxscore)
+    game-details
+    (assoc game-details
+      :game-stats
+      (let [away-abbreviation (get-in team-details [:away :abbreviation])
+            home-abbreviation (get-in team-details [:home :abbreviation])
+            away-stats (get-in boxscore [:teams :away :team-stats :team-skater-stats])
+            home-stats (get-in boxscore [:teams :home :team-stats :team-skater-stats])]
+        {:blocked {away-abbreviation (:blocked away-stats)
+                   home-abbreviation (:blocked home-stats)}
+         :face-off-win-percentage {away-abbreviation (:face-off-win-percentage away-stats)
+                                   home-abbreviation (:face-off-win-percentage home-stats)}
+         :giveaways {away-abbreviation (:giveaways away-stats)
+                     home-abbreviation (:giveaways home-stats)}
+         :hits {away-abbreviation (:hits away-stats)
+                home-abbreviation (:hits home-stats)}
+         :pim {away-abbreviation (:pim away-stats)
+               home-abbreviation (:pim home-stats)}
+         :power-play {away-abbreviation {:goals (Math/round (:power-play-goals away-stats))
+                                         :opportunities (Math/round (:power-play-opportunities away-stats))
+                                         :percentage (:power-play-percentage away-stats)}
+                      home-abbreviation {:goals (Math/round (:power-play-goals home-stats))
+                                         :opportunities (Math/round (:power-play-opportunities home-stats))
+                                         :percentage (:power-play-percentage home-stats)}}
+         :shots {away-abbreviation (:shots away-stats)
+                 home-abbreviation (:shots home-stats)}
+         :takeaways {away-abbreviation (:takeaways away-stats)
+                     home-abbreviation (:takeaways home-stats)}}))))
+
 (defn- add-team-records [game-details api-game team-details teams scores include-pre-game-stats?]
   (if (all-star-game? api-game)
     game-details
@@ -447,7 +477,7 @@
 (defn- reject-empty-vals [game-details]
   (into {} (filter (comp not empty? val) game-details)))
 
-(defn- parse-game-details [standings include-pre-game-stats? api-game]
+(defn- parse-game-details [standings boxscore include-pre-game-stats? api-game]
   (let [team-details (parse-game-team-details api-game)
         scores (parse-scores api-game team-details)
         teams (get-teams team-details)]
@@ -458,6 +488,7 @@
          :teams teams
          pre-game-stats-key {}
          current-stats-key {}}
+        (add-game-stats team-details boxscore)
         (add-team-records api-game team-details teams scores include-pre-game-stats?)
         (add-team-streaks api-game team-details standings)
         (add-team-standings api-game team-details standings include-pre-game-stats?)
@@ -467,8 +498,10 @@
 
 (defn parse-game-scores
   ([date-and-api-games standings]
-   (parse-game-scores date-and-api-games standings true))
-  ([date-and-api-games standings include-pre-game-stats?]
+   (parse-game-scores date-and-api-games standings nil))
+  ([date-and-api-games standings boxscores]
+   (parse-game-scores date-and-api-games standings boxscores true))
+  ([date-and-api-games standings boxscores include-pre-game-stats?]
    {:date (:date date-and-api-games)
-    :games (map (partial parse-game-details standings include-pre-game-stats?)
+    :games (map #(parse-game-details standings (get boxscores (:game-pk %)) include-pre-game-stats? %)
                 (:games date-and-api-games))}))

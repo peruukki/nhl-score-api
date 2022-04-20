@@ -222,6 +222,49 @@
               "2016-02-29T02:30:00Z"]
              start-times) "Parsed game start times"))))
 
+(deftest game-scores-parsing-game-stats
+
+  (testing "Parsing game stats"
+    (let [games (:games
+                  (parse-game-scores
+                    (get-latest-games resources/games-in-live-preview-and-final-states)
+                    (:records resources/standings)
+                    {2015020932 resources/boxscore-2015020932
+                     2015020931 resources/boxscore-2015020931
+                     2015020930 resources/boxscore-2015020930}))
+          game-stats (map #(:game-stats %) games)]
+      (is (= 7
+             (count game-stats)) "Parsed game stats count")
+      (is (= [{:blocked {"WSH" 15 "CHI" 10}
+               :face-off-win-percentage {"WSH" "39.2" "CHI" "60.8"}
+               :giveaways {"WSH" 5 "CHI" 5}
+               :hits {"WSH" 47 "CHI" 27}
+               :pim {"WSH" 10 "CHI" 12}
+               :power-play {"WSH" {:goals 2 :opportunities 5 :percentage "40.0"}
+                            "CHI" {:goals 1 :opportunities 4 :percentage "25.0"}}
+               :shots {"WSH" 30 "CHI" 23}
+               :takeaways {"WSH" 3 "CHI" 8}}
+              {:blocked {"FLA" 8 "MIN" 13}
+               :face-off-win-percentage {"FLA" "44.1" "MIN" "55.9"}
+               :giveaways {"FLA" 8 "MIN" 6}
+               :hits {"FLA" 26 "MIN" 14}
+               :pim {"FLA" 14 "MIN" 10}
+               :power-play {"FLA" {:goals 1 :opportunities 3 :percentage "33.3"}
+                            "MIN" {:goals 1 :opportunities 5 :percentage "20.0"}}
+               :shots {"FLA" 18 "MIN" 27}
+               :takeaways {"FLA" 3 "MIN" 9}}
+              {:blocked {"STL" 21 "CAR" 10}
+               :face-off-win-percentage {"STL" "48.7" "CAR" "51.3"}
+               :giveaways {"STL" 6 "CAR" 10}
+               :hits {"STL" 30 "CAR" 29}
+               :pim {"STL" 6 "CAR" 4}
+               :power-play {"STL" {:goals 0 :opportunities 2 :percentage "0.0"}
+                            "CAR" {:goals 0 :opportunities 3 :percentage "0.0"}}
+               :shots {"STL" 40 "CAR" 34}
+               :takeaways {"STL" 7 "CAR" 9}}
+              nil nil nil nil]
+             game-stats) "Parsed game stats"))))
+
 (deftest game-scores-parsing-team-records
 
   (testing "Parsing teams' pre-game regular season records"
@@ -489,6 +532,7 @@
                   (parse-game-scores
                     (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout)
                     (:records resources/standings)
+                    nil
                     false))]
       (is (= [false]
              (distinct (map #(contains? % :pre-game-stats) games)))
