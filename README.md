@@ -1,7 +1,5 @@
 # nhl-score-api
 
-[![Build Status](https://travis-ci.org/peruukki/nhl-score-api.svg?branch=master)](https://travis-ci.org/peruukki/nhl-score-api)
-
 A JSON API that returns the scores and goals from the latest finished or on-going NHL games, based on the
 [schedule](https://statsapi.web.nhl.com/api/v1/schedule?expand=schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series,schedule.linescore),
 [standings](https://statsapi.web.nhl.com/api/v1/standings) and [boxscore](https://statsapi.web.nhl.com/api/v1/game/2021021092/boxscore) information from the NHL Stats API.
