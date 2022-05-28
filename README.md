@@ -418,6 +418,7 @@ The fields are described in more detail in [Response fields](#response-fields).
           }
         },
         "playoffSeries": {
+          "round": 0,
           "wins": {
             "NYR": 1,
             "PIT": 1
