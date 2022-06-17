@@ -152,6 +152,16 @@
                          {:player "Alex Pietrangelo" :season-total 1}]}]
              (:goals game)) "Parsed goals")))
 
+  (testing "Parsing game without goals"
+    (let [game (nth
+                 (:games
+                   (parse-game-scores
+                     (get-latest-games resources/games-for-validation-testing)
+                     (:records resources/standings)))
+                 0)]
+      (is (= []
+             (:goals game)) "Parsed goals")))
+
   (testing "Parsing empty net goal information"
     (let [game (nth
                  (:games

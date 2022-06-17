@@ -486,8 +486,10 @@
       game-details
       (assoc game-details :errors errors))))
 
-(defn- reject-empty-vals [game-details]
-  (into {} (filter (comp not empty? val) game-details)))
+(defn- reject-empty-vals-except-for-keys [game-details keys-to-keep]
+  (into {} (filter #(or (contains? keys-to-keep (key %))
+                        (seq (val %)))
+                   game-details)))
 
 (defn- parse-game-details [standings boxscore include-pre-game-stats? api-game]
   (let [team-details (parse-game-team-details api-game)
@@ -506,7 +508,7 @@
         (add-team-standings api-game team-details standings include-pre-game-stats?)
         (add-playoff-series-information api-game include-pre-game-stats?)
         (add-validation-errors)
-        (reject-empty-vals))))
+        (reject-empty-vals-except-for-keys #{:goals}))))
 
 (defn parse-game-scores
   ([date-and-api-games standings]
