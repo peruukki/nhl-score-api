@@ -573,8 +573,7 @@ marked as having ended in overtime in the `scores` object.
 
 - Java version 8
 - [Leiningen](http://leiningen.org/) is used for all project management.
-- [Docker](https://www.docker.com/) is used for running the application and [Redis](https://hub.docker.com/_/redis/)
-  locally. You can also optionally run the application without Docker and Redis.
+- [Docker](https://www.docker.com/) can be used optionally for running the application locally.
 
 ## Running application
 
@@ -586,8 +585,8 @@ To run the application locally in [Docker](https://www.docker.com/) containers, 
 ./docker-up.sh
 ```
 
-Downloading the [Clojure](https://hub.docker.com/_/clojure/) and [Redis](https://hub.docker.com/_/redis/)
-images will take quite a while on the first run, but they will be reused after that.
+Downloading the [Clojure](https://hub.docker.com/_/clojure/) image will take quite a while on the first run,
+but it will be reused after that.
 
 To delete all containers, run:
 
@@ -599,22 +598,10 @@ To delete all containers, run:
 
 You can also run the application locally with `lein run`.
 
-If you have Redis running somewhere externally, you can specify it with the `REDIS_URL` environment variable:
-
-```sh
-REDIS_URL=redis://localhost lein run
-```
-
-You can also run the application without Redis caching:
-
-```sh
-REDIS_DISABLED=true lein run
-```
-
 To return latest scores from mock NHL Stats API data, you can specify a mock data source file:
 
 ```sh
-REDIS_DISABLED=true MOCK_NHL_STATS_API=test/nhl_score_api/fetchers/nhlstats/resources/schedule-2016-02-28-live-preview-final-postponed-modified.json lein run
+MOCK_NHL_STATS_API=test/nhl_score_api/fetchers/nhlstats/resources/schedule-2016-02-28-live-preview-final-postponed-modified.json lein run
 ```
 
 ## Running tests
@@ -645,7 +632,7 @@ Deploying to [Heroku](http://heroku.com/):
 ./deploy.sh
 ```
 
-The latest scores are cached for one minute in [Heroku Redis](https://elements.heroku.com/addons/heroku-redis).
+The API responses are cached in-memory for one minute.
 
 ## License
 

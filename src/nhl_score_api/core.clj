@@ -1,7 +1,6 @@
 (ns nhl-score-api.core
   (:require [nhl-score-api.fetchers.nhlstats.fetcher :as fetcher]
-            [nhl-score-api.cache :as cache]
-            [nhl-score-api.utils :refer [fmap-keys fmap-vals format-date]]
+            [nhl-score-api.utils :refer [fmap-keys]]
             [nhl-score-api.param-parser :as params]
             [nhl-score-api.param-validator :as validate]
             [camel-snake-kebab.core :refer [->camelCaseString ->kebab-case-keyword]]
@@ -9,7 +8,6 @@
             [ring.middleware.params :refer [wrap-params]]
             [clojure.data.json :as json]
             [clojure.java.io :as io]
-            [clojure.string :as str]
             [new-reliquary.ring :refer [wrap-newrelic-transaction]])
   (:import (java.util Properties))
   (:gen-class))
@@ -34,20 +32,11 @@
   (let [ip "0.0.0.0"
         port (Integer/parseInt (get (System/getenv) "PORT" "8080"))]
     (println "Starting server version" version)
-    (cache/connect)
     (println "Listening on" (str ip ":" port))
     (server/run-server app {:ip ip :port port})))
 
-(defn- get-cached-response [request-path request-params response-fn cache-get-fn cache-set-fn ttl-seconds]
-  (let [params-key-part (if request-params
-                          (str "?" (str/join "&" (for [[k v] request-params] (str (->camelCaseString k) "=" v))))
-                          nil)
-        cache-key (str request-path params-key-part)]
-    (or (cache-get-fn cache-key)
-        (cache-set-fn cache-key (response-fn) ttl-seconds))))
-
 (defn get-response
-  [request-path request-params fetch-latest-scores-api-fn fetch-scores-in-date-range-api-fn cache-get-fn cache-set-fn]
+  [request-path request-params fetch-latest-scores-api-fn fetch-scores-in-date-range-api-fn]
   (case request-path
     "/"
     {:status 200
@@ -55,13 +44,7 @@
 
     "/api/scores/latest"
     {:status 200
-     :body (get-cached-response
-             request-path
-             nil
-             fetch-latest-scores-api-fn
-             cache-get-fn
-             cache-set-fn
-             60)}
+     :body (fetch-latest-scores-api-fn)}
 
     "/api/scores"
     (let [expected-params [{:field :start-date :type :date :required? true}
@@ -77,13 +60,7 @@
             {:status 400
              :body {:errors [validation-error]}}
             {:status 200
-             :body (get-cached-response
-                     request-path
-                     (fmap-vals format-date (:values parsed-params))
-                     #(fetch-scores-in-date-range-api-fn start-date end-date)
-                     cache-get-fn
-                     cache-set-fn
-                     60)}))))
+             :body (fetch-scores-in-date-range-api-fn start-date end-date)}))))
 
     {:status 404 :body {}}))
 
@@ -109,10 +86,8 @@
           (get-response
             (:uri request)
             request-params
-            fetcher/fetch-latest-scores
-            fetcher/fetch-scores-in-date-range
-            cache/get-value
-            cache/set-value)]
+            fetcher/fetch-latest-scores-cached
+            fetcher/fetch-scores-in-date-range-cached)]
       (format-response (:status response) (:body response)))
     (catch Exception e
       (println "Caught exception" e)

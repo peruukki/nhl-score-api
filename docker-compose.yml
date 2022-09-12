@@ -7,7 +7,3 @@ services:
     image: nhl-score-api-${BUILD_FLAVOR}
     ports:
       - "8080:8080"
-    depends_on:
-      - redis
-  redis:
-    image: redis:6.0.12
