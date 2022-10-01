@@ -15,7 +15,8 @@ The API is available at https://nhl-score-api.herokuapp.com/, and it serves as t
 
 Returns an object with the date and the scores from the latest round’s games.
 
-The `date` object contains the date in a raw format and a prettier, displayable format.
+The `date` object contains the date in a raw format and a prettier, displayable format, or
+`null` if there are no scores.
 
 The `games` array contains details of the games, each game item containing these fields:
 
@@ -40,7 +41,9 @@ Both `startDate` and `endDate` are inclusive, and `endDate` is optional. **The r
 limited to a maximum of 16 days** to set some reasonable limit for the (cached) response;
 you can get a full month’s games with two requests, and 16 is a nice power of two.
 
-The `date` object contains the date in a raw format and a prettier, displayable format.
+The `date` object contains the date in a raw format and a prettier, displayable format. Contrary to the
+`/api/scores/latest` endpoint, the `date` is included even if that date has no scheduled games.
+Though see the "If a date has no scheduled games" part below for possible peculiarities in that case.
 
 The `games` array contains details of the games, each game item containing these fields:
 
