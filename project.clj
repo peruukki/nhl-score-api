@@ -11,7 +11,7 @@
                  [camel-snake-kebab "0.4.3"]
                  [enlive "1.1.6"]
                  [http-kit "2.1.19"]
-                 [ring/ring-core "1.9.4"]
+                 [ring/ring-core "1.9.6"]
                  [yleisradio/new-reliquary "1.0.1"]]
   :main nhl-score-api.core
   :profiles {:kaocha {:dependencies [[lambdaisland/kaocha "0.0-590"]]}
