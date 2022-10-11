@@ -3,9 +3,9 @@
   :license {:name "MIT"
             :url "https://opensource.org/licenses/MIT"}
   :min-lein-version "2.0.0"
-  :dependencies [[org.clojure/clojure "1.10.1"]
+  :dependencies [[org.clojure/clojure "1.11.1"]
                  [org.clojure/core.memoize "1.0.257"]
-                 [org.clojure/data.json "0.2.6"]
+                 [org.clojure/data.json "2.4.0"]
                  [clj-http-lite "0.3.0"] ; clj-http-lite supports SNI (unlike http-kit or clj-http)
                  [clj-time "0.11.0"]
                  [camel-snake-kebab "0.3.2"]
