@@ -14,7 +14,7 @@
                  [ring/ring-core "1.9.6"]
                  [yleisradio/new-reliquary "1.1.0"]]
   :main nhl-score-api.core
-  :profiles {:kaocha {:dependencies [[lambdaisland/kaocha "0.0-590"]]}
+  :profiles {:kaocha  {:dependencies [[lambdaisland/kaocha "1.70.1086"]]}
              :uberjar {:aot :all}}
   :aliases {"kaocha" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner" "--reporter" "kaocha.report/documentation" "--skip-meta" "skip"]}
   :plugins [[lein-heroku "0.5.3"]]
