@@ -7,7 +7,7 @@
                  [org.clojure/core.memoize "1.0.257"]
                  [org.clojure/data.json "2.4.0"]
                  [clj-http-lite "0.3.0"] ; clj-http-lite supports SNI (unlike http-kit or clj-http)
-                 [clj-time "0.11.0"]
+                 [clj-time "0.15.2"]
                  [camel-snake-kebab "0.3.2"]
                  [enlive "1.1.6"]
                  [http-kit "2.1.19"]
