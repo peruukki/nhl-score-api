@@ -12,7 +12,7 @@
                  [enlive "1.1.6"]
                  [http-kit "2.1.19"]
                  [ring/ring-core "1.9.6"]
-                 [yleisradio/new-reliquary "1.0.1"]]
+                 [yleisradio/new-reliquary "1.1.0"]]
   :main nhl-score-api.core
   :profiles {:kaocha {:dependencies [[lambdaisland/kaocha "0.0-590"]]}
              :uberjar {:aot :all}}
