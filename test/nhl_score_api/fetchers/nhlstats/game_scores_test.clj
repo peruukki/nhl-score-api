@@ -91,14 +91,14 @@
                  4)
           goals (:goals game)]
       (is (= [{:team "EDM" :min 0 :sec 22 :period "1"
-               :scorer {:player "Connor McDavid" :season-total 11}
-               :assists [{:player "Jordan Eberle" :season-total 19}]}
+               :scorer {:player "Connor McDavid" :player-id 8478402 :season-total 11}
+               :assists [{:player "Jordan Eberle" :player-id 8474586 :season-total 19}]}
               {:team "BUF" :min 9 :sec 6 :period "3"
-               :scorer {:player "Cal O'Reilly" :season-total 1}
-               :assists [{:player "Sam Reinhart" :season-total 11}
-                         {:player "Mark Pysyk" :season-total 5}]}
+               :scorer {:player "Cal O'Reilly" :player-id 8471811 :season-total 1}
+               :assists [{:player "Sam Reinhart" :player-id 8477933 :season-total 11}
+                         {:player "Mark Pysyk" :player-id 8475796 :season-total 5}]}
               {:team "EDM" :min 3 :sec 48 :period "OT"
-               :scorer {:player "Connor McDavid" :season-total 12}
+               :scorer {:player "Connor McDavid" :player-id 8478402 :season-total 12}
                :assists []}]
              goals) "Parsed goals")))
 
@@ -111,30 +111,30 @@
                  3)
           goals (map #(dissoc % :strength) (:goals game))]  ; 'strength' field has its own test
       (is (= [{:team "STL" :min 3 :sec 36 :period "1"
-               :scorer {:player "Dmitrij Jaskin" :season-total 4}
-               :assists [{:player "Jaden Schwartz" :season-total 7}
-                         {:player "Alex Pietrangelo" :season-total 22}]}
+               :scorer {:player "Dmitrij Jaskin" :player-id 8476436 :season-total 4}
+               :assists [{:player "Jaden Schwartz" :player-id 8475768 :season-total 7}
+                         {:player "Alex Pietrangelo" :player-id 8474565 :season-total 22}]}
               {:team "STL" :min 12 :sec 53 :period "1"
-               :scorer {:player "Jaden Schwartz" :season-total 5}
-               :assists [{:player "David Backes" :season-total 19}
-                         {:player "Kevin Shattenkirk" :season-total 22}]}
+               :scorer {:player "Jaden Schwartz" :player-id 8475768 :season-total 5}
+               :assists [{:player "David Backes" :player-id 8470655 :season-total 19}
+                         {:player "Kevin Shattenkirk" :player-id 8474031 :season-total 22}]}
               {:team "STL" :min 10 :sec 38 :period "2"
-               :scorer {:player "Vladimir Tarasenko" :season-total 30}
-               :assists [{:player "Kevin Shattenkirk" :season-total 23}
-                         {:player "Jaden Schwartz" :season-total 8}]}
+               :scorer {:player "Vladimir Tarasenko":player-id 8475765 :season-total 30}
+               :assists [{:player "Kevin Shattenkirk" :player-id 8474031 :season-total 23}
+                         {:player "Jaden Schwartz" :player-id 8475768 :season-total 8}]}
               {:team "OTT" :min 12 :sec 32 :period "2"
-               :scorer {:player "Ryan Dzingel" :season-total 2}
-               :assists [{:player "Dion Phaneuf" :season-total 27}
-                         {:player "Mika Zibanejad" :season-total 26}]}
+               :scorer {:player "Ryan Dzingel" :player-id 8476288 :season-total 2}
+               :assists [{:player "Dion Phaneuf" :player-id 8470602 :season-total 27}
+                         {:player "Mika Zibanejad" :player-id 8476459 :season-total 26}]}
               {:team "OTT" :min 17 :sec 19 :period "3"
-               :scorer {:player "Jean-Gabriel Pageau" :season-total 15}
-               :assists [{:player "Mark Stone" :season-total 30}
-                         {:player "Erik Karlsson" :season-total 57}]}
+               :scorer {:player "Jean-Gabriel Pageau" :player-id 8476419 :season-total 15}
+               :assists [{:player "Mark Stone" :player-id 8475913 :season-total 30}
+                         {:player "Erik Karlsson" :player-id 8474578 :season-total 57}]}
               {:team "OTT" :min 19 :sec 59 :period "3"
-               :scorer {:player "Jean-Gabriel Pageau" :season-total 16}
-               :assists [{:player "Bobby Ryan" :season-total 27}
-                         {:player "Zack Smith" :season-total 7}]}
-              {:team "STL" :period "SO" :scorer {:player "Patrik Berglund"}}]
+               :scorer {:player "Jean-Gabriel Pageau" :player-id 8476419 :season-total 16}
+               :assists [{:player "Bobby Ryan" :player-id 8471676 :season-total 27}
+                         {:player "Zack Smith" :player-id 8474250 :season-total 7}]}
+              {:team "STL" :period "SO" :scorer {:player "Patrik Berglund" :player-id 8473534}}]
              goals) "Parsed goals")))
 
   (testing "Parsing game with goal in playoff overtime"
@@ -147,9 +147,9 @@
       (is (= {"CHI" 0 "STL" 1 :overtime true}
              (:scores game)) "Parsed scores")
       (is (= [{:team "STL" :min 9 :sec 4 :period "4"
-               :scorer {:player "David Backes" :season-total 1}
-               :assists [{:player "Jay Bouwmeester" :season-total 1}
-                         {:player "Alex Pietrangelo" :season-total 1}]}]
+               :scorer {:player "David Backes" :player-id 8470655 :season-total 1}
+               :assists [{:player "Jay Bouwmeester" :player-id 8470151 :season-total 1}
+                         {:player "Alex Pietrangelo" :player-id 8474565 :season-total 1}]}]
              (:goals game)) "Parsed goals")))
 
   (testing "Parsing game without goals"

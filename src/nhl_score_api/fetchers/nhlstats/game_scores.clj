@@ -53,6 +53,9 @@
 (defn- parse-goal-assists-details [scoring-play]
   (filter #(= "Assist" (:player-type %)) (:players scoring-play)))
 
+(defn- parse-player-id [player-details]
+  (:id (:player player-details)))
+
 (defn- parse-player-name [player-details]
   (:full-name (:player player-details)))
 
@@ -77,13 +80,14 @@
     player-details))
 
 (defn- parse-goal-scorer [scoring-play period]
-  (let [scorer-details (parse-goal-scorer-details scoring-play)
-        player (parse-player-name scorer-details)
-        season-total (parse-season-total scorer-details period)]
-    (add-season-total {:player player} season-total)))
+  (let [scorer-details (parse-goal-scorer-details scoring-play)]
+    (add-season-total {:player (parse-player-name scorer-details)
+                       :player-id (parse-player-id scorer-details)}
+                      (parse-season-total scorer-details period))))
 
 (defn- parse-goal-assist [assist-details]
   {:player (parse-player-name assist-details)
+   :player-id (parse-player-id assist-details)
    :season-total (:season-total assist-details)})
 
 (defn- parse-goal-assists [scoring-play]

@@ -89,15 +89,18 @@ The fields are described in more detail in [Response fields](#response-fields).
           "period": "OT",
           "scorer": {
             "player": "David Krejci",
+            "playerId": 8471276,
             "seasonTotal": 1
           },
           "assists": [
             {
               "player": "Torey Krug",
+              "playerId": 8476792,
               "seasonTotal": 3
             },
             {
               "player": "Zdeno Chara",
+              "playerId": 8465009,
               "seasonTotal": 2
             }
           ],
@@ -241,11 +244,13 @@ The fields are described in more detail in [Response fields](#response-fields).
           "period": "OT",
           "scorer": {
             "player": "Kyle Turris",
+            "playerId": 8474068,
             "seasonTotal": 1
           },
           "assists": [
             {
               "player": "Mika Zibanejad",
+              "playerId": 8476459,
               "seasonTotal": 3
             }
           ],
@@ -481,13 +486,15 @@ The fields are described in more detail in [Response fields](#response-fields).
 - `goals` array: list of goal details, in the order the goals were scored
   - gameplay goal:
     - `assists` *(array)* of objects with the fields (an empty array for unassisted goals):
-      - `player`: the name of the player credited with the assist
+      - `player` *(string)*: the name of the player credited with the assist
+      - `playerId` *(number)*: player ID in NHL APIs (can be used to fetch other resources from NHL APIs)
       - `seasonTotal` *(number)*: the number of assists the player has had this season
     - `emptyNet` *(boolean)*: set to `true` if the goal was scored in an empty net, absent if it wasn’t
     - `min` *(number)*: the goal scoring time minutes, from the start of the period
     - `period` *(string)*: in which period the goal was scored; `"OT"` means **regular season 5 minute overtime**
     - `scorer` *(object)*:
-      - `player`: the name of the goal scorer
+      - `player` *(string)*: the name of the goal scorer
+      - `playerId` *(number)*: player ID in NHL APIs (can be used to fetch other resources from NHL APIs)
       - `seasonTotal` *(number)*: the number of goals the player has scored this season
     - `sec` *(number)*: the goal scoring time seconds, from the start of the period
     - `strength` *(string)*: can be set to `"PPG"` (power play goal) or `"SHG"` (short handed goal); absent
@@ -496,7 +503,8 @@ The fields are described in more detail in [Response fields](#response-fields).
   - shootout goal:
     - `period` *(string)*: `"SO"`
     - `scorer` *(object)*:
-      - `player`: the name of the goal scorer
+      - `player` *(string)*: the name of the goal scorer
+      - `playerId` *(number)*: player ID in NHL APIs (can be used to fetch other resources from NHL APIs)
     - `team` *(string)*: the team that scored the goal
 - `scores` object: each team’s goal count, plus one of these possible fields:
   - `overtime`: set to `true` if the game ended in overtime, absent if it didn’t
