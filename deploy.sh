@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-lein uberjar && lein heroku deploy
+lein uberjar && heroku deploy:jar target/server.jar

@@ -637,6 +637,14 @@ lein test
 
 ## Deployment setup
 
+You need to install the [Heroku Java CLI plugin](https://github.com/heroku/plugin-java) first:
+
+```sh
+heroku plugins:install java
+# alternative if the above doesn't work:
+heroku plugins:install @heroku-cli/plugin-java
+```
+
 Deploying to [Heroku](http://heroku.com/):
 
 ```sh
