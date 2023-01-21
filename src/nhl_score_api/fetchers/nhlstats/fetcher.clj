@@ -6,7 +6,6 @@
             [clojure.data.json :as json]
             [camel-snake-kebab.core :refer [->kebab-case-keyword]]
             [clj-time.core :as time]
-            [clj-time.format :as format]
             [clj-http.lite.client :as http])) ; clj-http-lite supports SNI (unlike http-kit or clj-http)
 
 (def base-url "https://statsapi.web.nhl.com/api/v1")
