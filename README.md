@@ -635,23 +635,28 @@ Or with the regular test runner:
 lein test
 ```
 
-## Deployment setup
+## Deployment
 
-You need to install the [Heroku Java CLI plugin](https://github.com/heroku/plugin-java) first:
+The API is deployed to [Heroku](http://heroku.com/) from a development machine, no CI/CD setup. 😬
 
-```sh
-heroku plugins:install java
-# alternative if the above doesn't work:
-heroku plugins:install @heroku-cli/plugin-java
-```
-
-Deploying to [Heroku](http://heroku.com/):
+Deployment is done with a single script:
 
 ```sh
 ./deploy.sh
 ```
 
 The API responses are cached in-memory for one minute.
+
+### Deployment setup
+
+1. Create a Java web app in Heroku
+2. Install and set up the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+3. Install the [Heroku Java CLI plugin](https://github.com/heroku/plugin-java):
+```sh
+heroku plugins:install java
+# alternative if the above doesn't work:
+heroku plugins:install @heroku-cli/plugin-java
+```
 
 ## License
 
