@@ -6,6 +6,7 @@
             [clojure.data.json :as json]
             [camel-snake-kebab.core :refer [->kebab-case-keyword]]
             [clj-time.core :as time]
+            [clj-time.format :as format]
             [clj-http.lite.client :as http])) ; clj-http-lite supports SNI (unlike http-kit or clj-http)
 
 (def base-url "https://statsapi.web.nhl.com/api/v1")
@@ -24,6 +25,12 @@
      :endDate query-end-date
      :expand "schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series,schedule.linescore"}))
 
+(defn get-standings-query-params [date-str]
+  (let [date (format/parse (format/formatters :year-month-day) date-str)
+        year (time/year date)
+        start-year (if (> (time/month date) 8) year (- year 1))]
+    {:season (str start-year (+ start-year 1))}))
+
 (defn api-response-to-json [api-response]
   (json/read-str api-response :key-fn ->kebab-case-keyword))
 
@@ -33,7 +40,7 @@
 (defn fetch-standings-info [latest-games-date-str]
   (if (nil? latest-games-date-str)
     {:records nil}
-    (api-response-to-json (:body (http/get standings-url)))))
+    (api-response-to-json (:body (http/get standings-url {:query-params (get-standings-query-params latest-games-date-str)})))))
 
 (defn get-boxscore-urls-by-game-pk [api-games]
   (->> api-games
@@ -64,7 +71,7 @@
 (defn- fetch-scores-in-date-range [start-date end-date]
   (let [games-info (fetch-games-info start-date end-date)
         dates-and-api-games (get-games games-info)
-        standings-info (fetch-standings-info (:raw (:date (first dates-and-api-games))))
+        standings-info (fetch-standings-info (:raw (:date (last dates-and-api-games))))
         boxscores-infos (map #(fetch-boxscores-info (:games %)) dates-and-api-games)]
     (map-indexed #(game-scores/parse-game-scores %2 (:records standings-info) (nth boxscores-infos %1) false)
                  dates-and-api-games)))

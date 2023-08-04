@@ -37,6 +37,14 @@
     (is (= "schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series,schedule.linescore"
            (:expand (get-schedule-query-params nil nil))) "Expanded fields")))
 
+(deftest get-standings-query-params-test
+
+  (testing "Standings are requested for appropriate season"
+    (is (= "20202021"
+           (:season (get-standings-query-params "2021-08-31"))) "Date in August")
+    (is (= "20212022"
+           (:season (get-standings-query-params "2021-09-01"))) "Date in September")))
+
 (deftest fetch-standings-info-test
 
   (testing "Standings are not fetched if there are no latest games"
