@@ -1,5 +1,10 @@
 # nhl-score-api
 
+> [!IMPORTANT]
+> The [NHL Stats API](https://statsapi.web.nhl.com) that this project uses as its source is no longer available due to the NHL site switching to another API.
+> See the related [discussion on the unofficial documentation site](https://gitlab.com/dword4/nhlapi/-/issues/110) if you're interested.
+> I'm working on migrating to the new API but it will take some time, it's in many ways different from the previous one.
+
 A JSON API that returns the scores and goals from the latest finished or on-going NHL games, based on the
 [schedule](https://statsapi.web.nhl.com/api/v1/schedule?expand=schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series,schedule.linescore),
 [standings](https://statsapi.web.nhl.com/api/v1/standings) and [boxscore](https://statsapi.web.nhl.com/api/v1/game/2021021092/boxscore) information from the NHL Stats API.
