@@ -3,14 +3,21 @@
 > [!IMPORTANT]
 > The [NHL Stats API](https://statsapi.web.nhl.com) that this project uses as its source is no longer available due to the NHL site switching to another API.
 > See the related [discussion on the unofficial documentation site](https://gitlab.com/dword4/nhlapi/-/issues/110) if you're interested.
+>
 > I'm working on migrating to the new API but it will take some time, it's in many ways different from the previous one.
+> Fetching the latest scores should somewhat work now, but fetching scores from a specific date range doesn't yet.
 
-A JSON API that returns the scores and goals from the latest finished or on-going NHL games, based on the
-[schedule](https://statsapi.web.nhl.com/api/v1/schedule?expand=schedule.teams,schedule.scoringplays,schedule.game.seriesSummary,seriesSummary.series,schedule.linescore),
-[standings](https://statsapi.web.nhl.com/api/v1/standings) and [boxscore](https://statsapi.web.nhl.com/api/v1/game/2021021092/boxscore) information from the NHL Stats API.
-The NHL Stats API is undocumented, but [unofficial documentation](https://gitlab.com/dword4/nhlapi) exists.
+A JSON API that returns the scores and goals from the latest finished or on-going NHL games. The data is sourced from the
+same API at https://api-web.nhle.com that the NHL website uses. The NHL's API is undocumented but
+[unofficial documentation](https://gitlab.com/dword4/nhlapi) exists.
 
-The API is available at https://nhl-score-api.herokuapp.com/, and it serves as the backend for [nhl-recap](https://github.com/peruukki/nhl-recap).
+How we use the NHL's API:
+- [schedule](https://api-web.nhle.com/v1/schedule/2023-11-07) gives us a list of the week's games; we check the game
+  statuses and get the game IDs to fetch the games' "landings"
+- [landing](https://api-web.nhle.com/v1/gamecenter/2023020180/landing) gives us the details of an individual game
+- [standings](https://api-web.nhle.com/v1/standings/2023-11-07) gives us team stats
+
+This API is available at https://nhl-score-api.herokuapp.com/, and it serves as the backend for [nhl-recap](https://github.com/peruukki/nhl-recap).
 
 ## API
 

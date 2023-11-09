@@ -1,0 +1,758 @@
+{
+  "id": 2023020206,
+  "season": 20232024,
+  "gameType": 2,
+  "gameDate": "2023-11-10",
+  "venue": {
+    "default": "Prudential Center"
+  },
+  "startTimeUTC": "2023-11-11T00:00:00Z",
+  "easternUTCOffset": "-05:00",
+  "venueUTCOffset": "-05:00",
+  "venueTimezone": "US/Eastern",
+  "tvBroadcasts": [
+    {
+      "id": 409,
+      "market": "H",
+      "countryCode": "US",
+      "network": "MSGSN"
+    },
+    {
+      "id": 520,
+      "market": "A",
+      "countryCode": "US",
+      "network": "MNMT2"
+    }
+  ],
+  "gameState": "OFF",
+  "gameScheduleState": "OK",
+  "awayTeam": {
+    "id": 15,
+    "name": {
+      "default": "Capitals"
+    },
+    "abbrev": "WSH",
+    "placeName": {
+      "default": "Washington"
+    },
+    "score": 4,
+    "sog": 27,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg"
+  },
+  "homeTeam": {
+    "id": 1,
+    "name": {
+      "default": "Devils"
+    },
+    "abbrev": "NJD",
+    "placeName": {
+      "default": "New Jersey"
+    },
+    "score": 2,
+    "sog": 26,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg"
+  },
+  "shootoutInUse": true,
+  "maxPeriods": 5,
+  "regPeriods": 3,
+  "otInUse": true,
+  "tiesInUse": false,
+  "clock": {
+    "timeRemaining": "00:00",
+    "secondsRemaining": 0,
+    "running": false,
+    "inIntermission": false
+  },
+  "summary": {
+    "linescore": {
+      "byPeriod": [
+        {
+          "period": 1,
+          "periodDescriptor": {
+            "number": 1,
+            "periodType": "REG"
+          },
+          "away": 2,
+          "home": 0
+        },
+        {
+          "period": 2,
+          "periodDescriptor": {
+            "number": 2,
+            "periodType": "REG"
+          },
+          "away": 1,
+          "home": 0
+        },
+        {
+          "period": 3,
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "away": 1,
+          "home": 2
+        }
+      ],
+      "totals": {
+        "away": 4,
+        "home": 2
+      }
+    },
+    "scoring": [
+      {
+        "period": 1,
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
+        "goals": [
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8477979,
+            "firstName": "Nicolas",
+            "lastName": "Aube-Kubel",
+            "name": "N. Aube-Kubel",
+            "teamAbbrev": "WSH",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/WSH/8477979.png",
+            "highlightClip": 6340906511112,
+            "goalsToDate": 1,
+            "awayScore": 1,
+            "homeScore": 0,
+            "leadingTeamAbbrev": "WSH",
+            "timeInPeriod": "10:22",
+            "shotType": "slap",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8480873,
+                "firstName": "Rasmus",
+                "lastName": "Sandin",
+                "assistsToDate": 2
+              },
+              {
+                "playerId": 8477947,
+                "firstName": "Sonny",
+                "lastName": "Milano",
+                "assistsToDate": 2
+              }
+            ]
+          },
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8479359,
+            "firstName": "Beck",
+            "lastName": "Malenstyn",
+            "name": "B. Malenstyn",
+            "teamAbbrev": "WSH",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/WSH/8479359.png",
+            "highlightClip": 6340907588112,
+            "goalsToDate": 1,
+            "awayScore": 2,
+            "homeScore": 0,
+            "leadingTeamAbbrev": "WSH",
+            "timeInPeriod": "10:37",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8477979,
+                "firstName": "Nicolas",
+                "lastName": "Aube-Kubel",
+                "assistsToDate": 1
+              },
+              {
+                "playerId": 8480796,
+                "firstName": "Martin",
+                "lastName": "Fehervary",
+                "assistsToDate": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "period": 2,
+        "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG"
+        },
+        "goals": [
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8475744,
+            "firstName": "Evgeny",
+            "lastName": "Kuznetsov",
+            "name": "E. Kuznetsov",
+            "teamAbbrev": "WSH",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/WSH/8475744.png",
+            "highlightClip": 6340907841112,
+            "goalsToDate": 2,
+            "awayScore": 3,
+            "homeScore": 0,
+            "leadingTeamAbbrev": "WSH",
+            "timeInPeriod": "06:34",
+            "shotType": "snap",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8476880,
+                "firstName": "Tom",
+                "lastName": "Wilson",
+                "assistsToDate": 4
+              },
+              {
+                "playerId": 8471214,
+                "firstName": "Alex",
+                "lastName": "Ovechkin",
+                "assistsToDate": 7
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "goals": [
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8478414,
+            "firstName": "Timo",
+            "lastName": "Meier",
+            "name": "T. Meier",
+            "teamAbbrev": "NJD",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/NJD/8478414.png",
+            "highlightClip": 6340911452112,
+            "goalsToDate": 4,
+            "awayScore": 3,
+            "homeScore": 1,
+            "leadingTeamAbbrev": "WSH",
+            "timeInPeriod": "07:13",
+            "shotType": "snap",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8479415,
+                "firstName": "Michael",
+                "lastName": "McLeod",
+                "assistsToDate": 3
+              },
+              {
+                "playerId": 8478507,
+                "firstName": "John",
+                "lastName": "Marino",
+                "assistsToDate": 9
+              }
+            ]
+          },
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8482110,
+            "firstName": "Dawson",
+            "lastName": "Mercer",
+            "name": "D. Mercer",
+            "teamAbbrev": "NJD",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/NJD/8482110.png",
+            "highlightClip": 6340910173112,
+            "goalsToDate": 2,
+            "awayScore": 3,
+            "homeScore": 2,
+            "leadingTeamAbbrev": "WSH",
+            "timeInPeriod": "09:12",
+            "shotType": "tip-in",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8475726,
+                "firstName": "Tyler",
+                "lastName": "Toffoli",
+                "assistsToDate": 6
+              },
+              {
+                "playerId": 8481033,
+                "firstName": "Akira",
+                "lastName": "Schmid",
+                "assistsToDate": 2
+              }
+            ]
+          },
+          {
+            "situationCode": "1560",
+            "strength": "ev",
+            "playerId": 8475744,
+            "firstName": "Evgeny",
+            "lastName": "Kuznetsov",
+            "name": "E. Kuznetsov",
+            "teamAbbrev": "WSH",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/WSH/8475744.png",
+            "highlightClip": 6340910792112,
+            "goalsToDate": 3,
+            "awayScore": 4,
+            "homeScore": 2,
+            "leadingTeamAbbrev": "WSH",
+            "timeInPeriod": "18:09",
+            "shotType": "wrist",
+            "goalModifier": "empty-net",
+            "assists": [
+              {
+                "playerId": 8479321,
+                "firstName": "Lucas",
+                "lastName": "Johansen",
+                "assistsToDate": 1
+              },
+              {
+                "playerId": 8476880,
+                "firstName": "Tom",
+                "lastName": "Wilson",
+                "assistsToDate": 5
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "shootout": [],
+    "threeStars": [
+      {
+        "star": 1,
+        "playerId": 8477979,
+        "teamAbbrev": "WSH",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/WSH/8477979.png",
+        "name": "N. Aube-Kubel",
+        "firstName": "Nicolas",
+        "lastName": "Aube-Kubel",
+        "sweaterNo": 96,
+        "position": "R",
+        "goals": 1,
+        "assists": 1,
+        "points": 2
+      },
+      {
+        "star": 2,
+        "playerId": 8479292,
+        "teamAbbrev": "WSH",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/WSH/8479292.png",
+        "name": "C. Lindgren",
+        "firstName": "Charlie",
+        "lastName": "Lindgren",
+        "sweaterNo": 79,
+        "position": "G",
+        "goalsAgainstAverage": 2.03,
+        "savePctg": 0.923
+      },
+      {
+        "star": 3,
+        "playerId": 8478414,
+        "teamAbbrev": "NJD",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/NJD/8478414.png",
+        "name": "T. Meier",
+        "firstName": "Timo",
+        "lastName": "Meier",
+        "sweaterNo": 28,
+        "position": "R",
+        "goals": 1,
+        "assists": 0,
+        "points": 1
+      }
+    ],
+    "teamGameStats": [
+      {
+        "category": "sog",
+        "awayValue": "27",
+        "homeValue": "26"
+      },
+      {
+        "category": "faceoffPctg",
+        "awayValue": "49.2",
+        "homeValue": "50.8"
+      },
+      {
+        "category": "powerPlay",
+        "awayValue": "0/4",
+        "homeValue": "0/4"
+      },
+      {
+        "category": "pim",
+        "awayValue": "8",
+        "homeValue": "8"
+      },
+      {
+        "category": "hits",
+        "awayValue": "14",
+        "homeValue": "27"
+      },
+      {
+        "category": "blockedShots",
+        "awayValue": "18",
+        "homeValue": "12"
+      },
+      {
+        "category": "giveaways",
+        "awayValue": "1",
+        "homeValue": "11"
+      },
+      {
+        "category": "takeaways",
+        "awayValue": "4",
+        "homeValue": "3"
+      }
+    ],
+    "shotsByPeriod": [
+      {
+        "period": 1,
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
+        "away": 12,
+        "home": 2
+      },
+      {
+        "period": 2,
+        "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG"
+        },
+        "away": 8,
+        "home": 11
+      },
+      {
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "away": 7,
+        "home": 13
+      }
+    ],
+    "penalties": [
+      {
+        "period": 1,
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
+        "penalties": [
+          {
+            "timeInPeriod": "04:18",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "John Marino",
+            "teamAbbrev": "NJD",
+            "drawnBy": "Tom Wilson",
+            "descKey": "interference"
+          },
+          {
+            "timeInPeriod": "14:24",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Brendan Smith",
+            "teamAbbrev": "NJD",
+            "drawnBy": "Nicolas Aube-Kubel",
+            "descKey": "interference"
+          },
+          {
+            "timeInPeriod": "14:37",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Evgeny Kuznetsov",
+            "teamAbbrev": "WSH",
+            "drawnBy": "Tomas Nosek",
+            "descKey": "hooking"
+          },
+          {
+            "timeInPeriod": "18:37",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Dougie Hamilton",
+            "teamAbbrev": "NJD",
+            "drawnBy": "Beck Malenstyn",
+            "descKey": "interference"
+          }
+        ]
+      },
+      {
+        "period": 2,
+        "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG"
+        },
+        "penalties": [
+          {
+            "timeInPeriod": "19:35",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "T.J. Oshie",
+            "teamAbbrev": "WSH",
+            "drawnBy": "Brendan Smith",
+            "descKey": "tripping"
+          }
+        ]
+      },
+      {
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "penalties": [
+          {
+            "timeInPeriod": "03:55",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Lucas Johansen",
+            "teamAbbrev": "WSH",
+            "drawnBy": "Erik Haula",
+            "descKey": "holding"
+          },
+          {
+            "timeInPeriod": "11:49",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Timo Meier",
+            "teamAbbrev": "NJD",
+            "drawnBy": "Beck Malenstyn",
+            "descKey": "high-sticking"
+          },
+          {
+            "timeInPeriod": "18:09",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Tom Wilson",
+            "teamAbbrev": "WSH",
+            "drawnBy": "Timo Meier",
+            "descKey": "roughing"
+          }
+        ]
+      }
+    ],
+    "seasonSeries": [
+      {
+        "id": 2023020099,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2023-10-25",
+        "startTimeUTC": "2023-10-25T23:30:00Z",
+        "easternUTCOffset": "-04:00",
+        "venueUTCOffset": "-04:00",
+        "gameState": "OFF",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 15,
+          "abbrev": "WSH",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg",
+          "score": 6
+        },
+        "homeTeam": {
+          "id": 1,
+          "abbrev": "NJD",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+          "score": 4
+        },
+        "clock": {
+          "timeRemaining": "00:00",
+          "secondsRemaining": 0,
+          "running": false,
+          "inIntermission": false
+        },
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "gameOutcome": {
+          "lastPeriodType": "REG"
+        }
+      },
+      {
+        "id": 2023020206,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2023-11-10",
+        "startTimeUTC": "2023-11-11T00:00:00Z",
+        "easternUTCOffset": "-05:00",
+        "venueUTCOffset": "-05:00",
+        "gameState": "OFF",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 15,
+          "abbrev": "WSH",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg",
+          "score": 4
+        },
+        "homeTeam": {
+          "id": 1,
+          "abbrev": "NJD",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+          "score": 2
+        },
+        "clock": {
+          "timeRemaining": "00:00",
+          "secondsRemaining": 0,
+          "running": false,
+          "inIntermission": false
+        },
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "gameOutcome": {
+          "lastPeriodType": "REG"
+        }
+      },
+      {
+        "id": 2023020587,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2024-01-03",
+        "startTimeUTC": "2024-01-04T00:30:00Z",
+        "easternUTCOffset": "-05:00",
+        "venueUTCOffset": "-05:00",
+        "gameState": "FUT",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 1,
+          "abbrev": "NJD",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg"
+        },
+        "homeTeam": {
+          "id": 15,
+          "abbrev": "WSH",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg"
+        }
+      },
+      {
+        "id": 2023020879,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2024-02-20",
+        "startTimeUTC": "2024-02-21T00:00:00Z",
+        "easternUTCOffset": "-05:00",
+        "venueUTCOffset": "-05:00",
+        "gameState": "FUT",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 1,
+          "abbrev": "NJD",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg"
+        },
+        "homeTeam": {
+          "id": 15,
+          "abbrev": "WSH",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg"
+        }
+      }
+    ],
+    "gameInfo": {
+      "referees": [
+        {
+          "default": "Gord Dwyer"
+        },
+        {
+          "default": "Justin Kea"
+        }
+      ],
+      "linesmen": [
+        {
+          "default": "Matt MacPherson"
+        },
+        {
+          "default": "Kilian McNamara"
+        }
+      ],
+      "awayTeam": {
+        "headCoach": {
+          "default": "Spencer Carbery"
+        },
+        "scratches": [
+          {
+            "id": 8475311,
+            "firstName": {
+              "default": "Darcy"
+            },
+            "lastName": {
+              "default": "Kuemper"
+            }
+          },
+          {
+            "id": 8480823,
+            "firstName": {
+              "default": "Alexander",
+              "cs": "Alexandr",
+              "sk": "Alexandr"
+            },
+            "lastName": {
+              "default": "Alexeyev",
+              "cs": "Alexejev",
+              "sk": "Alexejev"
+            }
+          },
+          {
+            "id": 8482148,
+            "firstName": {
+              "default": "Hendrix"
+            },
+            "lastName": {
+              "default": "Lapierre"
+            }
+          }
+        ]
+      },
+      "homeTeam": {
+        "headCoach": {
+          "default": "Lindy Ruff"
+        },
+        "scratches": [
+          {
+            "id": 8478051,
+            "firstName": {
+              "default": "Max",
+              "cs": "Maxwell",
+              "de": "Maxwell",
+              "es": "Maxwell",
+              "fi": "Maxwell",
+              "sk": "Maxwell",
+              "sv": "Maxwell"
+            },
+            "lastName": {
+              "default": "Willman"
+            }
+          },
+          {
+            "id": 8480002,
+            "firstName": {
+              "default": "Nico"
+            },
+            "lastName": {
+              "default": "Hischier"
+            }
+          },
+          {
+            "id": 8481559,
+            "firstName": {
+              "default": "Jack"
+            },
+            "lastName": {
+              "default": "Hughes"
+            }
+          }
+        ]
+      }
+    },
+    "gameVideo": {
+      "threeMinRecap": 6340911596112,
+      "condensedGame": 6340910584112
+    }
+  }
+}

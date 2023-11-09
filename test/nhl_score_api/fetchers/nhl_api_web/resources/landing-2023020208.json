@@ -1,0 +1,805 @@
+{
+  "id": 2023020208,
+  "season": 20232024,
+  "gameType": 2,
+  "gameDate": "2023-11-10",
+  "venue": {
+    "default": "Honda Center"
+  },
+  "startTimeUTC": "2023-11-11T03:00:00Z",
+  "easternUTCOffset": "-05:00",
+  "venueUTCOffset": "-08:00",
+  "venueTimezone": "America/Los_Angeles",
+  "tvBroadcasts": [
+    {
+      "id": 323,
+      "market": "A",
+      "countryCode": "US",
+      "network": "NBCSP+"
+    },
+    {
+      "id": 355,
+      "market": "H",
+      "countryCode": "US",
+      "network": "BSW"
+    }
+  ],
+  "gameState": "OFF",
+  "gameScheduleState": "OK",
+  "awayTeam": {
+    "id": 4,
+    "name": {
+      "default": "Flyers"
+    },
+    "abbrev": "PHI",
+    "placeName": {
+      "default": "Philadelphia",
+      "fr": "Philadelphie"
+    },
+    "score": 6,
+    "sog": 36,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg"
+  },
+  "homeTeam": {
+    "id": 24,
+    "name": {
+      "default": "Ducks"
+    },
+    "abbrev": "ANA",
+    "placeName": {
+      "default": "Anaheim"
+    },
+    "score": 3,
+    "sog": 38,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg"
+  },
+  "shootoutInUse": true,
+  "maxPeriods": 5,
+  "regPeriods": 3,
+  "otInUse": true,
+  "tiesInUse": false,
+  "clock": {
+    "timeRemaining": "01:23",
+    "secondsRemaining": 83,
+    "running": false,
+    "inIntermission": true
+  },
+  "summary": {
+    "linescore": {
+      "byPeriod": [
+        {
+          "period": 1,
+          "periodDescriptor": {
+            "number": 1,
+            "periodType": "REG"
+          },
+          "away": 2,
+          "home": 0
+        },
+        {
+          "period": 2,
+          "periodDescriptor": {
+            "number": 2,
+            "periodType": "REG"
+          },
+          "away": 1,
+          "home": 1
+        },
+        {
+          "period": 3,
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "away": 3,
+          "home": 2
+        }
+      ],
+      "totals": {
+        "away": 6,
+        "home": 3
+      }
+    },
+    "scoring": [
+      {
+        "period": 1,
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
+        "goals": [
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8476461,
+            "firstName": "Sean",
+            "lastName": "Couturier",
+            "name": "S. Couturier",
+            "teamAbbrev": "PHI",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8476461.png",
+            "highlightClip": 6340912104112,
+            "goalsToDate": 3,
+            "awayScore": 1,
+            "homeScore": 0,
+            "leadingTeamAbbrev": "PHI",
+            "timeInPeriod": "04:57",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8474715,
+                "firstName": "Cam",
+                "lastName": "Atkinson",
+                "assistsToDate": 4
+              },
+              {
+                "playerId": 8481178,
+                "firstName": "Egor",
+                "lastName": "Zamula",
+                "assistsToDate": 3
+              }
+            ]
+          },
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8474715,
+            "firstName": "Cam",
+            "lastName": "Atkinson",
+            "name": "C. Atkinson",
+            "teamAbbrev": "PHI",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8474715.png",
+            "highlightClip": 6340913988112,
+            "goalsToDate": 7,
+            "awayScore": 2,
+            "homeScore": 0,
+            "leadingTeamAbbrev": "PHI",
+            "timeInPeriod": "12:31",
+            "shotType": "backhand",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8477948,
+                "firstName": "Travis",
+                "lastName": "Sanheim",
+                "assistsToDate": 11
+              },
+              {
+                "playerId": 8482159,
+                "firstName": "Tyson",
+                "lastName": "Foerster",
+                "assistsToDate": 3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "period": 2,
+        "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG"
+        },
+        "goals": [
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8478011,
+            "firstName": "Louie",
+            "lastName": "Belpedio",
+            "name": "L. Belpedio",
+            "teamAbbrev": "PHI",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8478011.png",
+            "highlightClip": 6340916152112,
+            "goalsToDate": 2,
+            "awayScore": 3,
+            "homeScore": 0,
+            "leadingTeamAbbrev": "PHI",
+            "timeInPeriod": "02:33",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8480797,
+                "firstName": "Joel",
+                "lastName": "Farabee",
+                "assistsToDate": 5
+              }
+            ]
+          },
+          {
+            "situationCode": "1451",
+            "strength": "pp",
+            "playerId": 8484153,
+            "firstName": "Leo",
+            "lastName": "Carlsson",
+            "name": "L. Carlsson",
+            "teamAbbrev": "ANA",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/ANA/8484153.png",
+            "highlightClip": 6340930128112,
+            "goalsToDate": 4,
+            "awayScore": 3,
+            "homeScore": 1,
+            "leadingTeamAbbrev": "PHI",
+            "timeInPeriod": "13:15",
+            "shotType": "snap",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8473986,
+                "firstName": "Alex",
+                "lastName": "Killorn",
+                "assistsToDate": 1
+              },
+              {
+                "playerId": 8482745,
+                "firstName": "Mason",
+                "lastName": "McTavish",
+                "assistsToDate": 8
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "goals": [
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8477948,
+            "firstName": "Travis",
+            "lastName": "Sanheim",
+            "name": "T. Sanheim",
+            "teamAbbrev": "PHI",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8477948.png",
+            "highlightClip": 6340920468112,
+            "goalsToDate": 2,
+            "awayScore": 4,
+            "homeScore": 1,
+            "leadingTeamAbbrev": "PHI",
+            "timeInPeriod": "07:39",
+            "shotType": "backhand",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8480797,
+                "firstName": "Joel",
+                "lastName": "Farabee",
+                "assistsToDate": 6
+              },
+              {
+                "playerId": 8481546,
+                "firstName": "Cam",
+                "lastName": "York",
+                "assistsToDate": 3
+              }
+            ]
+          },
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8484153,
+            "firstName": "Leo",
+            "lastName": "Carlsson",
+            "name": "L. Carlsson",
+            "teamAbbrev": "ANA",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/ANA/8484153.png",
+            "highlightClip": 6340927986112,
+            "goalsToDate": 5,
+            "awayScore": 4,
+            "homeScore": 2,
+            "leadingTeamAbbrev": "PHI",
+            "timeInPeriod": "10:34",
+            "shotType": "snap",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8473986,
+                "firstName": "Alex",
+                "lastName": "Killorn",
+                "assistsToDate": 2
+              },
+              {
+                "playerId": 8483490,
+                "firstName": "Pavel",
+                "lastName": "Mintyukov",
+                "assistsToDate": 8
+              }
+            ]
+          },
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8480015,
+            "firstName": "Owen",
+            "lastName": "Tippett",
+            "name": "O. Tippett",
+            "teamAbbrev": "PHI",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8480015.png",
+            "highlightClip": 6340926035112,
+            "goalsToDate": 3,
+            "awayScore": 5,
+            "homeScore": 2,
+            "leadingTeamAbbrev": "PHI",
+            "timeInPeriod": "13:07",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8480028,
+                "firstName": "Morgan",
+                "lastName": "Frost",
+                "assistsToDate": 1
+              }
+            ]
+          },
+          {
+            "situationCode": "1460",
+            "strength": "pp",
+            "playerId": 8484153,
+            "firstName": "Leo",
+            "lastName": "Carlsson",
+            "name": "L. Carlsson",
+            "teamAbbrev": "ANA",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/ANA/8484153.png",
+            "goalsToDate": 6,
+            "awayScore": 5,
+            "homeScore": 3,
+            "leadingTeamAbbrev": "PHI",
+            "timeInPeriod": "18:32",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8478873,
+                "firstName": "Troy",
+                "lastName": "Terry",
+                "assistsToDate": 6
+              },
+              {
+                "playerId": 8476458,
+                "firstName": "Ryan",
+                "lastName": "Strome",
+                "assistsToDate": 10
+              }
+            ]
+          },
+          {
+            "situationCode": "1560",
+            "strength": "ev",
+            "playerId": 8480015,
+            "firstName": "Owen",
+            "lastName": "Tippett",
+            "name": "O. Tippett",
+            "teamAbbrev": "PHI",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8480015.png",
+            "highlightClip": 6340930803112,
+            "goalsToDate": 4,
+            "awayScore": 6,
+            "homeScore": 3,
+            "leadingTeamAbbrev": "PHI",
+            "timeInPeriod": "18:59",
+            "shotType": "wrist",
+            "goalModifier": "empty-net",
+            "assists": [
+              {
+                "playerId": 8477948,
+                "firstName": "Travis",
+                "lastName": "Sanheim",
+                "assistsToDate": 12
+              },
+              {
+                "playerId": 8476872,
+                "firstName": "Scott",
+                "lastName": "Laughton",
+                "assistsToDate": 8
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "shootout": [],
+    "threeStars": [
+      {
+        "star": 1,
+        "playerId": 8481035,
+        "teamAbbrev": "PHI",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8481035.png",
+        "name": "S. Ersson",
+        "firstName": "Samuel",
+        "lastName": "Ersson",
+        "sweaterNo": 33,
+        "position": "G",
+        "goalsAgainstAverage": 3.0,
+        "savePctg": 0.921
+      },
+      {
+        "star": 2,
+        "playerId": 8484153,
+        "teamAbbrev": "ANA",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/ANA/8484153.png",
+        "name": "L. Carlsson",
+        "firstName": "Leo",
+        "lastName": "Carlsson",
+        "sweaterNo": 91,
+        "position": "C",
+        "goals": 3,
+        "assists": 0,
+        "points": 3
+      },
+      {
+        "star": 3,
+        "playerId": 8477948,
+        "teamAbbrev": "PHI",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8477948.png",
+        "name": "T. Sanheim",
+        "firstName": "Travis",
+        "lastName": "Sanheim",
+        "sweaterNo": 6,
+        "position": "D",
+        "goals": 1,
+        "assists": 2,
+        "points": 3
+      }
+    ],
+    "teamGameStats": [
+      {
+        "category": "sog",
+        "awayValue": "36",
+        "homeValue": "38"
+      },
+      {
+        "category": "faceoffPctg",
+        "awayValue": "49.2",
+        "homeValue": "50.8"
+      },
+      {
+        "category": "powerPlay",
+        "awayValue": "0/3",
+        "homeValue": "2/6"
+      },
+      {
+        "category": "pim",
+        "awayValue": "12",
+        "homeValue": "6"
+      },
+      {
+        "category": "hits",
+        "awayValue": "10",
+        "homeValue": "14"
+      },
+      {
+        "category": "blockedShots",
+        "awayValue": "21",
+        "homeValue": "9"
+      },
+      {
+        "category": "giveaways",
+        "awayValue": "7",
+        "homeValue": "12"
+      },
+      {
+        "category": "takeaways",
+        "awayValue": "7",
+        "homeValue": "3"
+      }
+    ],
+    "shotsByPeriod": [
+      {
+        "period": 1,
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
+        "away": 17,
+        "home": 15
+      },
+      {
+        "period": 2,
+        "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG"
+        },
+        "away": 7,
+        "home": 15
+      },
+      {
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "away": 12,
+        "home": 8
+      }
+    ],
+    "penalties": [
+      {
+        "period": 1,
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
+        "penalties": [
+          {
+            "timeInPeriod": "07:11",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Ilya Lyubushkin",
+            "teamAbbrev": "ANA",
+            "drawnBy": "Garnet Hathaway",
+            "descKey": "tripping"
+          },
+          {
+            "timeInPeriod": "18:02",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Sean Couturier",
+            "teamAbbrev": "PHI",
+            "drawnBy": "Mason McTavish",
+            "descKey": "tripping"
+          }
+        ]
+      },
+      {
+        "period": 2,
+        "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG"
+        },
+        "penalties": [
+          {
+            "timeInPeriod": "10:33",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Radko Gudas",
+            "teamAbbrev": "ANA",
+            "drawnBy": "Nick Seeler",
+            "descKey": "cross-checking"
+          },
+          {
+            "timeInPeriod": "11:34",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Cam Atkinson",
+            "teamAbbrev": "PHI",
+            "drawnBy": "Adam Henrique",
+            "descKey": "hooking"
+          },
+          {
+            "timeInPeriod": "13:48",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Morgan Frost",
+            "teamAbbrev": "PHI",
+            "drawnBy": "Max Jones",
+            "descKey": "cross-checking"
+          },
+          {
+            "timeInPeriod": "16:46",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Cam York",
+            "teamAbbrev": "PHI",
+            "drawnBy": "Troy Terry",
+            "descKey": "slashing"
+          }
+        ]
+      },
+      {
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "penalties": [
+          {
+            "timeInPeriod": "01:39",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Egor Zamula",
+            "teamAbbrev": "PHI",
+            "descKey": "delaying-game-puck-over-glass"
+          },
+          {
+            "timeInPeriod": "03:56",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Lukas Dostal",
+            "teamAbbrev": "ANA",
+            "drawnBy": "Joel Farabee",
+            "descKey": "roughing",
+            "servedBy": "Ross Johnston"
+          },
+          {
+            "timeInPeriod": "16:37",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Scott Laughton",
+            "teamAbbrev": "PHI",
+            "drawnBy": "Jackson LaCombe",
+            "descKey": "hooking"
+          }
+        ]
+      }
+    ],
+    "seasonSeries": [
+      {
+        "id": 2023020117,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2023-10-28",
+        "startTimeUTC": "2023-10-28T17:00:00Z",
+        "easternUTCOffset": "-04:00",
+        "venueUTCOffset": "-04:00",
+        "gameState": "OFF",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 24,
+          "abbrev": "ANA",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
+          "score": 7
+        },
+        "homeTeam": {
+          "id": 4,
+          "abbrev": "PHI",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg",
+          "score": 4
+        },
+        "clock": {
+          "timeRemaining": "00:00",
+          "secondsRemaining": 0,
+          "running": false,
+          "inIntermission": false
+        },
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "gameOutcome": {
+          "lastPeriodType": "REG"
+        }
+      },
+      {
+        "id": 2023020208,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2023-11-10",
+        "startTimeUTC": "2023-11-11T03:00:00Z",
+        "easternUTCOffset": "-05:00",
+        "venueUTCOffset": "-08:00",
+        "gameState": "OFF",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 4,
+          "abbrev": "PHI",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg",
+          "score": 6
+        },
+        "homeTeam": {
+          "id": 24,
+          "abbrev": "ANA",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
+          "score": 3
+        },
+        "clock": {
+          "timeRemaining": "00:00",
+          "secondsRemaining": 0,
+          "running": false,
+          "inIntermission": false
+        },
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "gameOutcome": {
+          "lastPeriodType": "REG"
+        }
+      }
+    ],
+    "gameInfo": {
+      "referees": [
+        {
+          "default": "Frederick L'Ecuyer"
+        },
+        {
+          "default": "Graham Skilliter"
+        }
+      ],
+      "linesmen": [
+        {
+          "default": "Bevan Mills"
+        },
+        {
+          "default": "Ryan Gibbons"
+        }
+      ],
+      "awayTeam": {
+        "headCoach": {
+          "default": "John Tortorella"
+        },
+        "scratches": [
+          {
+            "id": 8479376,
+            "firstName": {
+              "default": "Victor"
+            },
+            "lastName": {
+              "default": "Mete"
+            }
+          },
+          {
+            "id": 8479394,
+            "firstName": {
+              "default": "Carter"
+            },
+            "lastName": {
+              "default": "Hart"
+            }
+          },
+          {
+            "id": 8480068,
+            "firstName": {
+              "default": "Ryan"
+            },
+            "lastName": {
+              "default": "Poehling"
+            }
+          }
+        ]
+      },
+      "homeTeam": {
+        "headCoach": {
+          "default": "Greg Cronin"
+        },
+        "scratches": [
+          {
+            "id": 8480870,
+            "firstName": {
+              "default": "Bo",
+              "cs": "Benoit-Olivier",
+              "de": "Benoit-Olivier",
+              "es": "Benoit-Olivier",
+              "fi": "Benoit-Olivier",
+              "sk": "Benoit-Olivier",
+              "sv": "Benoit-Olivier"
+            },
+            "lastName": {
+              "default": "Groulx"
+            }
+          },
+          {
+            "id": 8481533,
+            "firstName": {
+              "default": "Trevor"
+            },
+            "lastName": {
+              "default": "Zegras"
+            }
+          },
+          {
+            "id": 8483482,
+            "firstName": {
+              "default": "Tristan"
+            },
+            "lastName": {
+              "default": "Luneau"
+            }
+          }
+        ]
+      }
+    },
+    "gameVideo": {
+      "threeMinRecap": 6340931107112,
+      "condensedGame": 6340929648112
+    }
+  }
+}

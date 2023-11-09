@@ -1,5 +1,5 @@
 (ns nhl-score-api.core
-  (:require [nhl-score-api.fetchers.nhlstats.fetcher :as fetcher]
+  (:require [nhl-score-api.fetchers.nhl-api-web.fetcher :as fetcher]
             [nhl-score-api.utils :refer [fmap-keys]]
             [nhl-score-api.param-parser :as params]
             [nhl-score-api.param-validator :as validate]

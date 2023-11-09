@@ -1,0 +1,875 @@
+{
+  "id": 2023020207,
+  "season": 20232024,
+  "gameType": 2,
+  "gameDate": "2023-11-10",
+  "venue": {
+    "default": "Scotiabank Arena"
+  },
+  "startTimeUTC": "2023-11-11T00:00:00Z",
+  "easternUTCOffset": "-05:00",
+  "venueUTCOffset": "-05:00",
+  "venueTimezone": "America/Toronto",
+  "tvBroadcasts": [
+    {
+      "id": 281,
+      "market": "N",
+      "countryCode": "CA",
+      "network": "TVAS"
+    },
+    {
+      "id": 289,
+      "market": "A",
+      "countryCode": "CA",
+      "network": "SNW"
+    },
+    {
+      "id": 293,
+      "market": "H",
+      "countryCode": "CA",
+      "network": "TSN4"
+    }
+  ],
+  "gameState": "OFF",
+  "gameScheduleState": "OK",
+  "awayTeam": {
+    "id": 20,
+    "name": {
+      "default": "Flames"
+    },
+    "abbrev": "CGY",
+    "placeName": {
+      "default": "Calgary"
+    },
+    "score": 4,
+    "sog": 28,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg"
+  },
+  "homeTeam": {
+    "id": 10,
+    "name": {
+      "default": "Maple Leafs"
+    },
+    "abbrev": "TOR",
+    "placeName": {
+      "default": "Toronto"
+    },
+    "score": 5,
+    "sog": 36,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg"
+  },
+  "shootoutInUse": true,
+  "maxPeriods": 5,
+  "regPeriods": 3,
+  "otInUse": true,
+  "tiesInUse": false,
+  "clock": {
+    "timeRemaining": "00:00",
+    "secondsRemaining": 0,
+    "running": false,
+    "inIntermission": false
+  },
+  "summary": {
+    "linescore": {
+      "byPeriod": [
+        {
+          "period": 1,
+          "periodDescriptor": {
+            "number": 1,
+            "periodType": "REG"
+          },
+          "away": 1,
+          "home": 2
+        },
+        {
+          "period": 2,
+          "periodDescriptor": {
+            "number": 2,
+            "periodType": "REG"
+          },
+          "away": 2,
+          "home": 2
+        },
+        {
+          "period": 3,
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "away": 1,
+          "home": 0
+        },
+        {
+          "period": 4,
+          "periodDescriptor": {
+            "number": 4,
+            "periodType": "OT"
+          },
+          "away": 0,
+          "home": 0
+        },
+        {
+          "period": 5,
+          "periodDescriptor": {
+            "number": 5,
+            "periodType": "SO"
+          },
+          "away": 0,
+          "home": 1
+        }
+      ],
+      "shootout": {
+        "awayDecidingGoal": 1,
+        "awayConversions": 1,
+        "awayAttempts": 5,
+        "homeDecidingGoal": 2,
+        "homeConversions": 2,
+        "homeAttempts": 5
+      },
+      "totals": {
+        "away": 4,
+        "home": 5
+      }
+    },
+    "scoring": [
+      {
+        "period": 1,
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
+        "goals": [
+          {
+            "situationCode": "1451",
+            "strength": "pp",
+            "playerId": 8477939,
+            "firstName": "William",
+            "lastName": "Nylander",
+            "name": "W. Nylander",
+            "teamAbbrev": "TOR",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477939.png",
+            "highlightClip": 6340906526112,
+            "highlightClipFr": 6340909082112,
+            "goalsToDate": 8,
+            "awayScore": 0,
+            "homeScore": 1,
+            "leadingTeamAbbrev": "TOR",
+            "timeInPeriod": "03:01",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": []
+          },
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8482074,
+            "firstName": "Connor",
+            "lastName": "Zary",
+            "name": "C. Zary",
+            "teamAbbrev": "CGY",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8482074.png",
+            "highlightClip": 6340906940112,
+            "highlightClipFr": 6340908490112,
+            "goalsToDate": 2,
+            "awayScore": 1,
+            "homeScore": 1,
+            "timeInPeriod": "07:02",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8475172,
+                "firstName": "Nazem",
+                "lastName": "Kadri",
+                "assistsToDate": 6
+              }
+            ]
+          },
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8475714,
+            "firstName": "Calle",
+            "lastName": "Jarnkrok",
+            "name": "C. Jarnkrok",
+            "teamAbbrev": "TOR",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8475714.png",
+            "highlightClip": 6340906547112,
+            "highlightClipFr": 6340907997112,
+            "goalsToDate": 4,
+            "awayScore": 1,
+            "homeScore": 2,
+            "leadingTeamAbbrev": "TOR",
+            "timeInPeriod": "08:18",
+            "shotType": "backhand",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8477503,
+                "firstName": "Max",
+                "lastName": "Domi",
+                "assistsToDate": 7
+              },
+              {
+                "playerId": 8481582,
+                "firstName": "Nicholas",
+                "lastName": "Robertson",
+                "assistsToDate": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "period": 2,
+        "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG"
+        },
+        "goals": [
+          {
+            "situationCode": "1541",
+            "strength": "sh",
+            "playerId": 8477939,
+            "firstName": "William",
+            "lastName": "Nylander",
+            "name": "W. Nylander",
+            "teamAbbrev": "TOR",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477939.png",
+            "highlightClip": 6340909654112,
+            "highlightClipFr": 6340909143112,
+            "goalsToDate": 9,
+            "awayScore": 1,
+            "homeScore": 3,
+            "leadingTeamAbbrev": "TOR",
+            "timeInPeriod": "01:06",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": []
+          },
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8475166,
+            "firstName": "John",
+            "lastName": "Tavares",
+            "name": "J. Tavares",
+            "teamAbbrev": "TOR",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8475166.png",
+            "highlightClip": 6340910508112,
+            "highlightClipFr": 6340911311112,
+            "goalsToDate": 6,
+            "awayScore": 1,
+            "homeScore": 4,
+            "leadingTeamAbbrev": "TOR",
+            "timeInPeriod": "04:45",
+            "shotType": "snap",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8477939,
+                "firstName": "William",
+                "lastName": "Nylander",
+                "assistsToDate": 12
+              },
+              {
+                "playerId": 8476853,
+                "firstName": "Morgan",
+                "lastName": "Rielly",
+                "assistsToDate": 9
+              }
+            ]
+          },
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8477507,
+            "firstName": "Nikita",
+            "lastName": "Zadorov",
+            "name": "N. Zadorov",
+            "teamAbbrev": "CGY",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8477507.png",
+            "highlightClip": 6340910510112,
+            "highlightClipFr": 6340910812112,
+            "goalsToDate": 1,
+            "awayScore": 2,
+            "homeScore": 4,
+            "leadingTeamAbbrev": "TOR",
+            "timeInPeriod": "05:33",
+            "shotType": "slap",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8478233,
+                "firstName": "Andrew",
+                "lastName": "Mangiapane",
+                "assistsToDate": 4
+              },
+              {
+                "playerId": 8476456,
+                "firstName": "Jonathan",
+                "lastName": "Huberdeau",
+                "assistsToDate": 5
+              }
+            ]
+          },
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8478421,
+            "firstName": "A.J.",
+            "lastName": "Greer",
+            "name": "A. Greer",
+            "teamAbbrev": "CGY",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8478421.png",
+            "highlightClip": 6340911026112,
+            "highlightClipFr": 6340910242112,
+            "goalsToDate": 2,
+            "awayScore": 3,
+            "homeScore": 4,
+            "leadingTeamAbbrev": "TOR",
+            "timeInPeriod": "12:22",
+            "shotType": "tip-in",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8477346,
+                "firstName": "MacKenzie",
+                "lastName": "Weegar",
+                "assistsToDate": 4
+              },
+              {
+                "playerId": 8478397,
+                "firstName": "Rasmus",
+                "lastName": "Andersson",
+                "assistsToDate": 3
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "goals": [
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8481028,
+            "firstName": "Martin",
+            "lastName": "Pospisil",
+            "name": "M. Pospisil",
+            "teamAbbrev": "CGY",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8481028.png",
+            "highlightClip": 6340911568112,
+            "highlightClipFr": 6340912725112,
+            "goalsToDate": 2,
+            "awayScore": 4,
+            "homeScore": 4,
+            "timeInPeriod": "03:22",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8474150,
+                "firstName": "Mikael",
+                "lastName": "Backlund",
+                "assistsToDate": 4
+              },
+              {
+                "playerId": 8476399,
+                "firstName": "Blake",
+                "lastName": "Coleman",
+                "assistsToDate": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "period": 4,
+        "periodDescriptor": {
+          "number": 4,
+          "periodType": "OT"
+        },
+        "goals": []
+      },
+      {
+        "period": 5,
+        "periodDescriptor": {
+          "number": 5,
+          "periodType": "SO"
+        },
+        "goals": [
+          {
+            "situationCode": "1010",
+            "strength": "ev",
+            "playerId": 8477503,
+            "firstName": "Max",
+            "lastName": "Domi",
+            "name": "M. Domi",
+            "teamAbbrev": "TOR",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477503.png",
+            "goalsToDate": 0,
+            "awayScore": 4,
+            "homeScore": 5,
+            "leadingTeamAbbrev": "TOR",
+            "timeInPeriod": "00:00",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": []
+          }
+        ]
+      }
+    ],
+    "shootout": [
+      {
+        "sequence": 1,
+        "playerId": 8477939,
+        "teamAbbrev": "TOR",
+        "firstName": "William",
+        "lastName": "Nylander",
+        "shotType": "wrist",
+        "result": "save",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477939.png",
+        "gameWinner": false
+      },
+      {
+        "sequence": 2,
+        "playerId": 8476456,
+        "teamAbbrev": "CGY",
+        "firstName": "Jonathan",
+        "lastName": "Huberdeau",
+        "shotType": "wrist",
+        "result": "save",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8476456.png",
+        "gameWinner": false
+      },
+      {
+        "sequence": 3,
+        "playerId": 8479318,
+        "teamAbbrev": "TOR",
+        "firstName": "Auston",
+        "lastName": "Matthews",
+        "shotType": "wrist",
+        "result": "save",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8479318.png",
+        "gameWinner": false
+      },
+      {
+        "sequence": 4,
+        "playerId": 8481068,
+        "teamAbbrev": "CGY",
+        "firstName": "Yegor",
+        "lastName": "Sharangovich",
+        "shotType": "wrist",
+        "result": "goal",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8481068.png",
+        "gameWinner": false
+      },
+      {
+        "sequence": 5,
+        "playerId": 8478483,
+        "teamAbbrev": "TOR",
+        "firstName": "Mitchell",
+        "lastName": "Marner",
+        "shotType": "backhand",
+        "result": "goal",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8478483.png",
+        "gameWinner": false
+      },
+      {
+        "sequence": 6,
+        "playerId": 8482074,
+        "teamAbbrev": "CGY",
+        "firstName": "Connor",
+        "lastName": "Zary",
+        "shotType": "wrist",
+        "result": "save",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8482074.png",
+        "gameWinner": false
+      },
+      {
+        "sequence": 7,
+        "playerId": 8481582,
+        "teamAbbrev": "TOR",
+        "firstName": "Nicholas",
+        "lastName": "Robertson",
+        "shotType": "wrist",
+        "result": "save",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8481582.png",
+        "gameWinner": false
+      },
+      {
+        "sequence": 8,
+        "playerId": 8475172,
+        "teamAbbrev": "CGY",
+        "firstName": "Nazem",
+        "lastName": "Kadri",
+        "shotType": "wrist",
+        "result": "save",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8475172.png",
+        "gameWinner": false
+      },
+      {
+        "sequence": 9,
+        "playerId": 8477503,
+        "teamAbbrev": "TOR",
+        "firstName": "Max",
+        "lastName": "Domi",
+        "shotType": "wrist",
+        "result": "goal",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477503.png",
+        "gameWinner": true
+      },
+      {
+        "sequence": 10,
+        "playerId": 8479346,
+        "teamAbbrev": "CGY",
+        "firstName": "Dillon",
+        "lastName": "Dube",
+        "shotType": "backhand",
+        "result": "save",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8479346.png",
+        "gameWinner": false
+      }
+    ],
+    "threeStars": [
+      {
+        "star": 1,
+        "playerId": 8477939,
+        "teamAbbrev": "TOR",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477939.png",
+        "name": "W. Nylander",
+        "firstName": "William",
+        "lastName": "Nylander",
+        "sweaterNo": 88,
+        "position": "R",
+        "goals": 2,
+        "assists": 1,
+        "points": 3
+      },
+      {
+        "star": 2,
+        "playerId": 8477503,
+        "teamAbbrev": "TOR",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477503.png",
+        "name": "M. Domi",
+        "firstName": "Max",
+        "lastName": "Domi",
+        "sweaterNo": 11,
+        "position": "C",
+        "goals": 0,
+        "assists": 1,
+        "points": 1
+      },
+      {
+        "star": 3,
+        "playerId": 8476853,
+        "teamAbbrev": "TOR",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8476853.png",
+        "name": "M. Rielly",
+        "firstName": "Morgan",
+        "lastName": "Rielly",
+        "sweaterNo": 44,
+        "position": "D",
+        "goals": 0,
+        "assists": 1,
+        "points": 1
+      }
+    ],
+    "teamGameStats": [
+      {
+        "category": "sog",
+        "awayValue": "28",
+        "homeValue": "36"
+      },
+      {
+        "category": "faceoffPctg",
+        "awayValue": "40.7",
+        "homeValue": "59.3"
+      },
+      {
+        "category": "powerPlay",
+        "awayValue": "0/2",
+        "homeValue": "1/1"
+      },
+      {
+        "category": "pim",
+        "awayValue": "4",
+        "homeValue": "6"
+      },
+      {
+        "category": "hits",
+        "awayValue": "21",
+        "homeValue": "25"
+      },
+      {
+        "category": "blockedShots",
+        "awayValue": "19",
+        "homeValue": "15"
+      },
+      {
+        "category": "giveaways",
+        "awayValue": "7",
+        "homeValue": "11"
+      },
+      {
+        "category": "takeaways",
+        "awayValue": "13",
+        "homeValue": "10"
+      }
+    ],
+    "shotsByPeriod": [
+      {
+        "period": 1,
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
+        "away": 11,
+        "home": 8
+      },
+      {
+        "period": 2,
+        "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG"
+        },
+        "away": 8,
+        "home": 14
+      },
+      {
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "away": 3,
+        "home": 11
+      },
+      {
+        "period": 4,
+        "periodDescriptor": {
+          "number": 4,
+          "periodType": "OT"
+        },
+        "away": 6,
+        "home": 3
+      },
+      {
+        "period": 5,
+        "periodDescriptor": {
+          "number": 5,
+          "periodType": "SO"
+        },
+        "away": 0,
+        "home": 0
+      }
+    ],
+    "penalties": [
+      {
+        "period": 1,
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
+        "penalties": [
+          {
+            "timeInPeriod": "02:13",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "A.J. Greer",
+            "teamAbbrev": "CGY",
+            "drawnBy": "Nicholas Robertson",
+            "descKey": "holding"
+          },
+          {
+            "timeInPeriod": "16:11",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "TJ Brodie",
+            "teamAbbrev": "TOR",
+            "drawnBy": "Connor Zary",
+            "descKey": "hooking"
+          },
+          {
+            "timeInPeriod": "17:14",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Nazem Kadri",
+            "teamAbbrev": "CGY",
+            "drawnBy": "Joseph Woll",
+            "descKey": "slashing"
+          },
+          {
+            "timeInPeriod": "17:14",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "William Lagesson",
+            "teamAbbrev": "TOR",
+            "drawnBy": "Nazem Kadri",
+            "descKey": "roughing"
+          },
+          {
+            "timeInPeriod": "19:33",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Jake McCabe",
+            "teamAbbrev": "TOR",
+            "drawnBy": "Mikael Backlund",
+            "descKey": "roughing"
+          }
+        ]
+      }
+    ],
+    "seasonSeries": [
+      {
+        "id": 2023020207,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2023-11-10",
+        "startTimeUTC": "2023-11-11T00:00:00Z",
+        "easternUTCOffset": "-05:00",
+        "venueUTCOffset": "-05:00",
+        "gameState": "OFF",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 20,
+          "abbrev": "CGY",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg",
+          "score": 4
+        },
+        "homeTeam": {
+          "id": 10,
+          "abbrev": "TOR",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
+          "score": 5
+        },
+        "clock": {
+          "timeRemaining": "00:00",
+          "secondsRemaining": 0,
+          "running": false,
+          "inIntermission": false
+        },
+        "period": 5,
+        "periodDescriptor": {
+          "number": 5,
+          "periodType": "SO"
+        },
+        "gameOutcome": {
+          "lastPeriodType": "SO"
+        }
+      },
+      {
+        "id": 2023020697,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2024-01-18",
+        "startTimeUTC": "2024-01-19T02:00:00Z",
+        "easternUTCOffset": "-05:00",
+        "venueUTCOffset": "-07:00",
+        "gameState": "FUT",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 10,
+          "abbrev": "TOR",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg"
+        },
+        "homeTeam": {
+          "id": 20,
+          "abbrev": "CGY",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg"
+        }
+      }
+    ],
+    "gameInfo": {
+      "referees": [
+        {
+          "default": "Chris Lee"
+        },
+        {
+          "default": "Kevin Pollock"
+        }
+      ],
+      "linesmen": [
+        {
+          "default": "Brandon Gawryletz"
+        },
+        {
+          "default": "Ryan Galloway"
+        }
+      ],
+      "awayTeam": {
+        "headCoach": {
+          "default": "Ryan Huska"
+        },
+        "scratches": [
+          {
+            "id": 8474593,
+            "firstName": {
+              "default": "Jacob"
+            },
+            "lastName": {
+              "default": "Markstrom",
+              "cs": "Markström",
+              "fi": "Markström",
+              "sk": "Markström"
+            }
+          },
+          {
+            "id": 8478502,
+            "firstName": {
+              "default": "Dennis"
+            },
+            "lastName": {
+              "default": "Gilbert"
+            }
+          },
+          {
+            "id": 8482652,
+            "firstName": {
+              "default": "Walker"
+            },
+            "lastName": {
+              "default": "Duehr"
+            }
+          }
+        ]
+      },
+      "homeTeam": {
+        "headCoach": {
+          "default": "Sheldon Keefe"
+        },
+        "scratches": [
+          {
+            "id": 8475906,
+            "firstName": {
+              "default": "John"
+            },
+            "lastName": {
+              "default": "Klingberg"
+            }
+          },
+          {
+            "id": 8480995,
+            "firstName": {
+              "default": "Pontus"
+            },
+            "lastName": {
+              "default": "Holmberg"
+            }
+          }
+        ]
+      }
+    },
+    "gameVideo": {
+      "threeMinRecap": 6340914450112,
+      "threeMinRecapFr": 6340913659112,
+      "condensedGame": 6340914941112
+    }
+  }
+}

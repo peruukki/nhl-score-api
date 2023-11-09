@@ -1,0 +1,764 @@
+{
+  "id": 2023020195,
+  "season": 20232024,
+  "gameType": 2,
+  "gameDate": "2023-11-09",
+  "venue": {
+    "default": "Little Caesars Arena"
+  },
+  "startTimeUTC": "2023-11-10T00:00:00Z",
+  "easternUTCOffset": "-05:00",
+  "venueUTCOffset": "-05:00",
+  "venueTimezone": "America/Detroit",
+  "tvBroadcasts": [
+    {
+      "id": 33,
+      "market": "A",
+      "countryCode": "CA",
+      "network": "RDS"
+    },
+    {
+      "id": 131,
+      "market": "A",
+      "countryCode": "CA",
+      "network": "TSN2"
+    },
+    {
+      "id": 351,
+      "market": "H",
+      "countryCode": "US",
+      "network": "BSDET"
+    }
+  ],
+  "gameState": "OFF",
+  "gameScheduleState": "OK",
+  "awayTeam": {
+    "id": 8,
+    "name": {
+      "default": "Canadiens"
+    },
+    "abbrev": "MTL",
+    "placeName": {
+      "default": "Montréal"
+    },
+    "score": 3,
+    "sog": 27,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg"
+  },
+  "homeTeam": {
+    "id": 17,
+    "name": {
+      "default": "Red Wings"
+    },
+    "abbrev": "DET",
+    "placeName": {
+      "default": "Detroit"
+    },
+    "score": 2,
+    "sog": 29,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
+  },
+  "shootoutInUse": true,
+  "maxPeriods": 5,
+  "regPeriods": 3,
+  "otInUse": true,
+  "tiesInUse": false,
+  "clock": {
+    "timeRemaining": "00:44",
+    "secondsRemaining": 44,
+    "running": false,
+    "inIntermission": false
+  },
+  "summary": {
+    "linescore": {
+      "byPeriod": [
+        {
+          "period": 1,
+          "periodDescriptor": {
+            "number": 1,
+            "periodType": "REG"
+          },
+          "away": 1,
+          "home": 0
+        },
+        {
+          "period": 2,
+          "periodDescriptor": {
+            "number": 2,
+            "periodType": "REG"
+          },
+          "away": 0,
+          "home": 1
+        },
+        {
+          "period": 3,
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "away": 1,
+          "home": 1
+        },
+        {
+          "period": 4,
+          "periodDescriptor": {
+            "number": 4,
+            "periodType": "OT"
+          },
+          "away": 1,
+          "home": 0
+        }
+      ],
+      "totals": {
+        "away": 3,
+        "home": 2
+      }
+    },
+    "scoring": [
+      {
+        "period": 1,
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
+        "goals": [
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8476875,
+            "firstName": "Mike",
+            "lastName": "Matheson",
+            "name": "M. Matheson",
+            "teamAbbrev": "MTL",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/MTL/8476875.png",
+            "highlightClip": 6340832394112,
+            "highlightClipFr": 6340832395112,
+            "goalsToDate": 3,
+            "awayScore": 1,
+            "homeScore": 0,
+            "leadingTeamAbbrev": "MTL",
+            "timeInPeriod": "07:02",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8481618,
+                "firstName": "Alex",
+                "lastName": "Newhook",
+                "assistsToDate": 4
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "period": 2,
+        "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG"
+        },
+        "goals": [
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8478432,
+            "firstName": "Christian",
+            "lastName": "Fischer",
+            "name": "C. Fischer",
+            "teamAbbrev": "DET",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/DET/8478432.png",
+            "highlightClip": 6340837690112,
+            "highlightClipFr": 6340837592112,
+            "goalsToDate": 1,
+            "awayScore": 1,
+            "homeScore": 1,
+            "timeInPeriod": "16:44",
+            "shotType": "deflected",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8479992,
+                "firstName": "Michael",
+                "lastName": "Rasmussen",
+                "assistsToDate": 3
+              },
+              {
+                "playerId": 8475279,
+                "firstName": "Ben",
+                "lastName": "Chiarot",
+                "assistsToDate": 4
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "goals": [
+          {
+            "situationCode": "1541",
+            "strength": "pp",
+            "playerId": 8480018,
+            "firstName": "Nick",
+            "lastName": "Suzuki",
+            "name": "N. Suzuki",
+            "teamAbbrev": "MTL",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/MTL/8480018.png",
+            "highlightClip": 6340836357112,
+            "highlightClipFr": 6340837130112,
+            "goalsToDate": 5,
+            "awayScore": 2,
+            "homeScore": 1,
+            "leadingTeamAbbrev": "MTL",
+            "timeInPeriod": "00:26",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8476875,
+                "firstName": "Mike",
+                "lastName": "Matheson",
+                "assistsToDate": 6
+              },
+              {
+                "playerId": 8477497,
+                "firstName": "Sean",
+                "lastName": "Monahan",
+                "assistsToDate": 6
+              }
+            ]
+          },
+          {
+            "situationCode": "1551",
+            "strength": "ev",
+            "playerId": 8477456,
+            "firstName": "J.T.",
+            "lastName": "Compher",
+            "name": "J. Compher",
+            "teamAbbrev": "DET",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/DET/8477456.png",
+            "highlightClip": 6340837530112,
+            "highlightClipFr": 6340838427112,
+            "goalsToDate": 3,
+            "awayScore": 2,
+            "homeScore": 2,
+            "timeInPeriod": "06:06",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": []
+          }
+        ]
+      },
+      {
+        "period": 4,
+        "periodDescriptor": {
+          "number": 4,
+          "periodType": "OT"
+        },
+        "goals": [
+          {
+            "situationCode": "1431",
+            "strength": "pp",
+            "playerId": 8481540,
+            "firstName": "Cole",
+            "lastName": "Caufield",
+            "name": "C. Caufield",
+            "teamAbbrev": "MTL",
+            "headshot": "https://assets.nhle.com/mugs/nhl/20232024/MTL/8481540.png",
+            "highlightClip": 6340840617112,
+            "highlightClipFr": 6340841109112,
+            "goalsToDate": 5,
+            "awayScore": 3,
+            "homeScore": 2,
+            "leadingTeamAbbrev": "MTL",
+            "timeInPeriod": "04:16",
+            "shotType": "wrist",
+            "goalModifier": "none",
+            "assists": [
+              {
+                "playerId": 8476875,
+                "firstName": "Mike",
+                "lastName": "Matheson",
+                "assistsToDate": 7
+              },
+              {
+                "playerId": 8480018,
+                "firstName": "Nick",
+                "lastName": "Suzuki",
+                "assistsToDate": 7
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "shootout": [],
+    "threeStars": [
+      {
+        "star": 1,
+        "playerId": 8481540,
+        "teamAbbrev": "MTL",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/MTL/8481540.png",
+        "name": "C. Caufield",
+        "firstName": "Cole",
+        "lastName": "Caufield",
+        "sweaterNo": 22,
+        "position": "R",
+        "goals": 1,
+        "assists": 0,
+        "points": 1
+      },
+      {
+        "star": 2,
+        "playerId": 8477456,
+        "teamAbbrev": "DET",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/DET/8477456.png",
+        "name": "J. Compher",
+        "firstName": "J.T.",
+        "lastName": "Compher",
+        "sweaterNo": 37,
+        "position": "L",
+        "goals": 1,
+        "assists": 0,
+        "points": 1
+      },
+      {
+        "star": 3,
+        "playerId": 8480018,
+        "teamAbbrev": "MTL",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/MTL/8480018.png",
+        "name": "N. Suzuki",
+        "firstName": "Nick",
+        "lastName": "Suzuki",
+        "sweaterNo": 14,
+        "position": "C",
+        "goals": 1,
+        "assists": 1,
+        "points": 2
+      }
+    ],
+    "teamGameStats": [
+      {
+        "category": "sog",
+        "awayValue": "27",
+        "homeValue": "29"
+      },
+      {
+        "category": "faceoffPctg",
+        "awayValue": "53.4",
+        "homeValue": "46.6"
+      },
+      {
+        "category": "powerPlay",
+        "awayValue": "2/5",
+        "homeValue": "0/4"
+      },
+      {
+        "category": "pim",
+        "awayValue": "10",
+        "homeValue": "22"
+      },
+      {
+        "category": "hits",
+        "awayValue": "18",
+        "homeValue": "17"
+      },
+      {
+        "category": "blockedShots",
+        "awayValue": "14",
+        "homeValue": "12"
+      },
+      {
+        "category": "giveaways",
+        "awayValue": "1",
+        "homeValue": "10"
+      },
+      {
+        "category": "takeaways",
+        "awayValue": "4",
+        "homeValue": "2"
+      }
+    ],
+    "shotsByPeriod": [
+      {
+        "period": 1,
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
+        "away": 10,
+        "home": 8
+      },
+      {
+        "period": 2,
+        "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG"
+        },
+        "away": 6,
+        "home": 14
+      },
+      {
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "away": 6,
+        "home": 4
+      },
+      {
+        "period": 4,
+        "periodDescriptor": {
+          "number": 4,
+          "periodType": "OT"
+        },
+        "away": 5,
+        "home": 3
+      }
+    ],
+    "penalties": [
+      {
+        "period": 1,
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
+        "penalties": [
+          {
+            "timeInPeriod": "02:58",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Jordan Harris",
+            "teamAbbrev": "MTL",
+            "drawnBy": "Klim Kostin",
+            "descKey": "holding"
+          },
+          {
+            "timeInPeriod": "07:12",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Jeff Petry",
+            "teamAbbrev": "DET",
+            "descKey": "delaying-game-puck-over-glass"
+          },
+          {
+            "timeInPeriod": "14:15",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Michael Pezzetta",
+            "teamAbbrev": "MTL",
+            "drawnBy": "Joe Veleno",
+            "descKey": "holding"
+          },
+          {
+            "timeInPeriod": "15:05",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Lucas Raymond",
+            "teamAbbrev": "DET",
+            "drawnBy": "Joel Armia",
+            "descKey": "slashing"
+          }
+        ]
+      },
+      {
+        "period": 2,
+        "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG"
+        },
+        "penalties": [
+          {
+            "timeInPeriod": "03:02",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Josh Anderson",
+            "teamAbbrev": "MTL",
+            "drawnBy": "Joe Veleno",
+            "descKey": "tripping"
+          },
+          {
+            "timeInPeriod": "05:58",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Kaiden Guhle",
+            "teamAbbrev": "MTL",
+            "drawnBy": "Christian Fischer",
+            "descKey": "holding"
+          },
+          {
+            "timeInPeriod": "10:53",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Jake Walman",
+            "teamAbbrev": "DET",
+            "drawnBy": "Josh Anderson",
+            "descKey": "holding"
+          },
+          {
+            "timeInPeriod": "18:29",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Dylan Larkin",
+            "teamAbbrev": "DET",
+            "drawnBy": "Kaiden Guhle",
+            "descKey": "tripping"
+          }
+        ]
+      },
+      {
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "penalties": [
+          {
+            "timeInPeriod": "08:58",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Brendan Gallagher",
+            "teamAbbrev": "MTL",
+            "drawnBy": "Moritz Seider",
+            "descKey": "roughing"
+          },
+          {
+            "timeInPeriod": "08:58",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Moritz Seider",
+            "teamAbbrev": "DET",
+            "drawnBy": "Brendan Gallagher",
+            "descKey": "roughing"
+          }
+        ]
+      },
+      {
+        "period": 4,
+        "periodDescriptor": {
+          "number": 4,
+          "periodType": "OT"
+        },
+        "penalties": [
+          {
+            "timeInPeriod": "03:27",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "James Reimer",
+            "teamAbbrev": "DET",
+            "drawnBy": "Cole Caufield",
+            "descKey": "holding-the-stick",
+            "servedBy": "Alex DeBrincat"
+          },
+          {
+            "timeInPeriod": "04:16",
+            "type": "MIS",
+            "duration": 10,
+            "committedByPlayer": "J.T. Compher",
+            "teamAbbrev": "DET",
+            "descKey": "misconduct"
+          }
+        ]
+      }
+    ],
+    "seasonSeries": [
+      {
+        "id": 2023020195,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2023-11-09",
+        "startTimeUTC": "2023-11-10T00:00:00Z",
+        "easternUTCOffset": "-05:00",
+        "venueUTCOffset": "-05:00",
+        "gameState": "OFF",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 8,
+          "abbrev": "MTL",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
+          "score": 3
+        },
+        "homeTeam": {
+          "id": 17,
+          "abbrev": "DET",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
+          "score": 2
+        },
+        "clock": {
+          "timeRemaining": "00:44",
+          "secondsRemaining": 44,
+          "running": false,
+          "inIntermission": false
+        },
+        "period": 4,
+        "periodDescriptor": {
+          "number": 4,
+          "periodType": "OT"
+        },
+        "gameOutcome": {
+          "lastPeriodType": "OT",
+          "otPeriods": 1
+        }
+      },
+      {
+        "id": 2023020361,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2023-12-02",
+        "startTimeUTC": "2023-12-03T00:00:00Z",
+        "easternUTCOffset": "-05:00",
+        "venueUTCOffset": "-05:00",
+        "gameState": "FUT",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 17,
+          "abbrev": "DET",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
+        },
+        "homeTeam": {
+          "id": 8,
+          "abbrev": "MTL",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg"
+        }
+      },
+      {
+        "id": 2023021287,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2024-04-15",
+        "startTimeUTC": "2024-04-15T23:00:00Z",
+        "easternUTCOffset": "-04:00",
+        "venueUTCOffset": "-04:00",
+        "gameState": "FUT",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 8,
+          "abbrev": "MTL",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg"
+        },
+        "homeTeam": {
+          "id": 17,
+          "abbrev": "DET",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
+        }
+      },
+      {
+        "id": 2023021298,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2024-04-16",
+        "startTimeUTC": "2024-04-16T23:00:00Z",
+        "easternUTCOffset": "-04:00",
+        "venueUTCOffset": "-04:00",
+        "gameState": "FUT",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 17,
+          "abbrev": "DET",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
+        },
+        "homeTeam": {
+          "id": 8,
+          "abbrev": "MTL",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg"
+        }
+      }
+    ],
+    "gameInfo": {
+      "referees": [
+        {
+          "default": "Brian Pochmara"
+        },
+        {
+          "default": "Brandon Blandina"
+        }
+      ],
+      "linesmen": [
+        {
+          "default": "Tommy Hughes"
+        },
+        {
+          "default": "Brad Kovachik"
+        }
+      ],
+      "awayTeam": {
+        "headCoach": {
+          "default": "Martin St. Louis"
+        },
+        "scratches": [
+          {
+            "id": 8478470,
+            "firstName": {
+              "default": "Sam"
+            },
+            "lastName": {
+              "default": "Montembeault"
+            }
+          },
+          {
+            "id": 8481058,
+            "firstName": {
+              "default": "Jesse"
+            },
+            "lastName": {
+              "default": "Ylönen"
+            }
+          },
+          {
+            "id": 8481093,
+            "firstName": {
+              "default": "Rafael"
+            },
+            "lastName": {
+              "default": "Harvey-Pinard"
+            }
+          }
+        ]
+      },
+      "homeTeam": {
+        "headCoach": {
+          "default": "Derek Lalonde"
+        },
+        "scratches": [
+          {
+            "id": 8476906,
+            "firstName": {
+              "default": "Shayne"
+            },
+            "lastName": {
+              "default": "Gostisbehere"
+            }
+          },
+          {
+            "id": 8477952,
+            "firstName": {
+              "default": "Robby"
+            },
+            "lastName": {
+              "default": "Fabbri"
+            }
+          },
+          {
+            "id": 8478024,
+            "firstName": {
+              "default": "Ville"
+            },
+            "lastName": {
+              "default": "Husso"
+            }
+          }
+        ]
+      }
+    },
+    "gameVideo": {
+      "threeMinRecap": 6340839267112,
+      "threeMinRecapFr": 6340840337112,
+      "condensedGame": 6340840444112
+    }
+  }
+}
