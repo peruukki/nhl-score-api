@@ -31,12 +31,16 @@
   (json/read-str api-response :key-fn ->kebab-case-keyword))
 
 (defn- fetch-games-info [date-str]
-  (api-response-to-json (:body (http/get (get-schedule-url (get-schedule-start-date date-str))))))
+  (let [start-date (get-schedule-start-date date-str)]
+    (println "Fetching schedule" start-date)
+    (api-response-to-json (:body (http/get (get-schedule-url start-date))))))
 
 (defn fetch-standings-info [date-str]
   (if (nil? date-str)
     {:records nil}
-    (api-response-to-json (:body (http/get (get-standings-url date-str))))))
+    (do
+      (println "Fetching standings" date-str)
+      (api-response-to-json (:body (http/get (get-standings-url date-str)))))))
 
 (defn get-landing-urls-by-game-id [schedule-games]
   (->> schedule-games
@@ -47,7 +51,10 @@
 (defn fetch-landings-info [schedule-games]
   (->> schedule-games
        (get-landing-urls-by-game-id)
-       (map (fn [pk-and-url] [(first pk-and-url) (api-response-to-json (:body (http/get (second pk-and-url))))]))
+       (map (fn [id-and-url] [(first id-and-url)
+                              (do
+                                (println "Fetching landing" (first id-and-url))
+                                (api-response-to-json (:body (http/get (second id-and-url)))))]))
        (into {})))
 
 (defn- fetch-latest-scores []
