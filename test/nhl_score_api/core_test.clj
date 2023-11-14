@@ -38,15 +38,15 @@
       (is (= 200 (:status response)) "Response status is 200"))))
 
 (deftest scores-in-date-range-route
-  (testing "Returns success response with :start-date parameter"
+  (testing "Returns server error response with :start-date parameter"
     (let [path "/api/scores"
           response (get-response path {:start-date "2021-10-03"} latest-scores-api-fn scores-in-date-range-api-fn)]
-      (is (= 200 (:status response)) "Response status is 200")))
+      (is (= 500 (:status response)) "Response status is 500")))
 
-  (testing "Returns success response with :start-date and :end-date parameters"
+  (testing "Returns server error response with :start-date and :end-date parameters"
     (let [path "/api/scores"
           response (get-response path {:start-date "2021-10-03" :end-date "2021-10-04"} latest-scores-api-fn scores-in-date-range-api-fn)]
-      (is (= 200 (:status response)) "Response status is 200")))
+      (is (= 500 (:status response)) "Response status is 500")))
 
   (testing "Returns failure response without parameters"
     (let [path "/api/scores"

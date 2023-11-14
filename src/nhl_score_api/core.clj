@@ -59,8 +59,10 @@
           (if validation-error
             {:status 400
              :body {:errors [validation-error]}}
-            {:status 200
-             :body (fetch-scores-in-date-range-api-fn start-date end-date)}))))
+            {:status 500
+             :body "Not supported yet"
+             ;:body (fetch-scores-in-date-range-api-fn start-date end-date)
+             }))))
 
     {:status 404 :body {}}))
 
