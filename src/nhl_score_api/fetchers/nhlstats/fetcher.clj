@@ -7,7 +7,7 @@
             [camel-snake-kebab.core :refer [->kebab-case-keyword]]
             [clj-time.core :as time]
             [clj-time.format :as format]
-            [clj-http.lite.client :as http])) ; clj-http-lite supports SNI (unlike http-kit or clj-http)
+            [clj-http.client :as http]))
 
 (def base-url "https://statsapi.web.nhl.com/api/v1")
 (def scores-url (str base-url "/schedule"))

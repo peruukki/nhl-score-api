@@ -7,7 +7,7 @@
             [camel-snake-kebab.core :refer [->kebab-case-keyword]]
             [clj-time.core :as time]
             [clj-time.format :as format]
-            [clj-http.lite.client :as http])) ; clj-http-lite supports SNI (unlike http-kit or clj-http)
+            [clj-http.client :as http]))
 
 (def base-url "https://api-web.nhle.com/v1")
 (defn- get-schedule-url [date-str] (str base-url "/schedule/" date-str))
@@ -33,14 +33,14 @@
 (defn- fetch-games-info [date-str]
   (let [start-date (get-schedule-start-date date-str)]
     (println "Fetching schedule" start-date)
-    (api-response-to-json (:body (http/get (get-schedule-url start-date))))))
+    (api-response-to-json (:body (http/get (get-schedule-url start-date) {:debug true})))))
 
 (defn fetch-standings-info [date-str]
   (if (nil? date-str)
     {:records nil}
     (do
       (println "Fetching standings" date-str)
-      (api-response-to-json (:body (http/get (get-standings-url date-str)))))))
+      (api-response-to-json (:body (http/get (get-standings-url date-str) {:debug true}))))))
 
 (defn get-landing-urls-by-game-id [schedule-games]
   (->> schedule-games
@@ -54,7 +54,7 @@
        (map (fn [id-and-url] [(first id-and-url)
                               (do
                                 (println "Fetching landing" (first id-and-url))
-                                (api-response-to-json (:body (http/get (second id-and-url)))))]))
+                                (api-response-to-json (:body (http/get (second id-and-url) {:debug true}))))]))
        (into {})))
 
 (defn- fetch-latest-scores []
