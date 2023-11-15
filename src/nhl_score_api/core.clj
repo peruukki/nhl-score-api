@@ -55,15 +55,12 @@
          :body {:errors (:errors parsed-params)}}
         (let [start-date (:start-date (:values parsed-params))
               end-date (:end-date (:values parsed-params))
-              validation-error (validate/validate-date-range start-date end-date 16)]
+              validation-error (validate/validate-date-range start-date end-date 7)]
           (if validation-error
             {:status 400
              :body {:errors [validation-error]}}
-            {:status 500
-             :body "Not supported yet"
-             ;:body (fetch-scores-in-date-range-api-fn start-date end-date)
-             }))))
-
+            {:status 200
+             :body (fetch-scores-in-date-range-api-fn start-date (or end-date start-date))}))))
     {:status 404 :body {}}))
 
 (defn json-key-transformer [key]

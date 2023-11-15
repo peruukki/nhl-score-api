@@ -1,5 +1,6 @@
 (ns nhl-score-api.fetchers.nhl-api-web.transformer
-  (:require [clj-time.format :as format]))
+  (:require [clj-time.core :as time]
+            [clj-time.format :as format]))
 
 (defn- prettify-date [date]
   (format/unparse (format/formatter "E MMM d") (format/parse date)))
@@ -30,10 +31,6 @@
   (let [accepted-games (remove pr-game? (:games date-and-games))]
     (assoc date-and-games :games accepted-games)))
 
-(defn- get-latest-date-and-games-with-finished-games [dates-and-games]
-  (last
-    (filter has-started-games? dates-and-games)))
-
 (defn- format-date [date-and-games]
   (assoc date-and-games :date (get-date (:date date-and-games))))
 
@@ -62,4 +59,15 @@
   (transform-games api-response))
 
 (defn get-latest-games [api-response]
-  (get-latest-date-and-games-with-finished-games (get-games api-response)))
+  (let [dates-and-games (get-games api-response)]
+    (last
+      (filter has-started-games? dates-and-games))))
+
+(defn- within-date-range? [date-str start-date end-date]
+  (let [range (time/interval start-date (time/plus end-date (time/seconds 1)))
+        parsed-date (format/parse (format/formatters :year-month-day) date-str)]
+    (time/within? range parsed-date)))
+
+(defn get-games-in-date-range [api-response start-date end-date]
+  (let [dates-and-games (get-games api-response)]
+    (filter #(within-date-range? (:raw (:date %)) start-date end-date) dates-and-games)))

@@ -1,7 +1,7 @@
 (ns nhl-score-api.fetchers.nhl-api-web.fetcher
   (:require [nhl-score-api.cache :as cache]
             [nhl-score-api.fetchers.nhl-api-web.game-scores :as game-scores]
-            [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-games get-latest-games started-game?]]
+            [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-games-in-date-range get-latest-games started-game?]]
             [nhl-score-api.utils :refer [format-date]]
             [clojure.data.json :as json]
             [camel-snake-kebab.core :refer [->kebab-case-keyword]]
@@ -73,7 +73,7 @@
 
 (defn- fetch-scores-in-date-range [start-date end-date]
   (let [games-info (fetch-games-info start-date)
-        dates-and-schedule-games (get-games games-info)
+        dates-and-schedule-games (get-games-in-date-range games-info start-date end-date)
         standings-info (fetch-standings-info (:raw (:date (last dates-and-schedule-games))))
         landings-infos (map #(fetch-landings-info (:games %)) dates-and-schedule-games)]
     (map-indexed #(game-scores/parse-game-scores %2 (:standings standings-info) (nth landings-infos %1) false)

@@ -1,17 +1,18 @@
 # nhl-score-api
 
 > [!IMPORTANT]
-> The [NHL Stats API](https://statsapi.web.nhl.com) that this project uses as its source is no longer available due to the NHL site switching to another API.
-> See the related [discussion on the unofficial documentation site](https://gitlab.com/dword4/nhlapi/-/issues/110) if you're interested.
+> The [NHL Stats API](https://statsapi.web.nhl.com) that this project used until recently as its source is no longer
+> available due to the NHL site switching to another API. See the related
+> [discussion on the unofficial documentation site](https://gitlab.com/dword4/nhlapi/-/issues/110) if you're interested.
 >
-> I'm working on migrating to the new API but it will take some time, it's in many ways different from the previous one.
-> Fetching the latest scores should somewhat work now, but fetching scores from a specific date range doesn't yet.
+> I'm still working on finalizing the migration to the new API. Fetching scores should mostly work now, but playoff
+> specific data is not yet included.
 
 A JSON API that returns the scores and goals from the latest finished or on-going NHL games. The data is sourced from the
-same API at https://api-web.nhle.com that the NHL website uses. The NHL's API is undocumented but
+same NHL Stats API at https://api-web.nhle.com that the NHL website uses. The NHL Stats API is undocumented but
 [unofficial documentation](https://gitlab.com/dword4/nhlapi) exists.
 
-How we use the NHL's API:
+How we use the NHL Stats API:
 - [schedule](https://api-web.nhle.com/v1/schedule/2023-11-07) gives us a list of the week's games; we check the game
   statuses and get the game IDs to fetch the games' "landings"
 - [landing](https://api-web.nhle.com/v1/gamecenter/2023020180/landing) gives us the details of an individual game
@@ -50,8 +51,8 @@ The fields are described in more detail in [Response fields](#response-fields).
 
 Returns an array of objects with the date and the scores from given date range’s games.
 Both `startDate` and `endDate` are inclusive, and `endDate` is optional. **The range is
-limited to a maximum of 16 days** to set some reasonable limit for the (cached) response;
-you can get a full month’s games with two requests, and 16 is a nice power of two.
+limited to a maximum of 7 days** to set some reasonable limit for the (cached) response;
+this also matches the NHL Stats API that returns one week's schedule at a time.
 
 The `date` object contains the date in a raw format and a prettier, displayable format. Contrary to the
 `/api/scores/latest` endpoint, the `date` is included even if that date has no scheduled games.

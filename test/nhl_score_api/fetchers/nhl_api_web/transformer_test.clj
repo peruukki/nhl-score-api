@@ -1,5 +1,6 @@
 (ns nhl-score-api.fetchers.nhl-api-web.transformer-test
   (:require [clojure.test :refer :all]
+            [clj-time.core :as time]
             [nhl-score-api.fetchers.nhl-api-web.transformer :refer :all]
             [nhl-score-api.fetchers.nhl-api-web.resources :as resources]))
 
@@ -32,3 +33,14 @@
              (:raw date)))
       (is (= "Fri Nov 10"
              (:pretty date))))))
+
+(deftest get-games-in-date-range-test
+
+  (testing "Only games within given range are returned"
+    (let [dates-and-games (get-games-in-date-range resources/games-finished-in-regulation-overtime-and-shootout
+                                                   (time/date-time 2023 11 9)
+                                                   (time/date-time 2023 11 10))]
+      (is (= ["2023-11-09" "2023-11-10"]
+             (map #(:raw (:date %)) dates-and-games)) "Dates")
+      (is (= [10 6]
+             (map #(count (:games %)) dates-and-games)) "Game counts"))))
