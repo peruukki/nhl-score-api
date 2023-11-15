@@ -47,7 +47,7 @@ The fields are described in more detail in [Response fields](#response-fields).
 
 ### Scores / game previews from given date range
 
-#### `GET` [/api/scores?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD](https://nhl-score-api.herokuapp.com/api/scores?startDate=2021-10-12&endDate=2021-10-13)
+#### `GET` [/api/scores?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD](https://nhl-score-api.herokuapp.com/api/scores?startDate=2023-11-12&endDate=2023-11-13)
 
 Returns an array of objects with the date and the scores from given date range’s games.
 Both `startDate` and `endDate` are inclusive, and `endDate` is optional. **The range is
