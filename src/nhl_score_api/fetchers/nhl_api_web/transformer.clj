@@ -14,6 +14,7 @@
     "OFF" "Final"
     "FINAL" "Final"
     "OVER" "Final"
+    "CRIT" "Live"
     "LIVE" "Live"
     "Preview"))
 
