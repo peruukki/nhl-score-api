@@ -14,17 +14,15 @@
 (defn- regular-season-game? [schedule-game]
   (= 2 (:game-type schedule-game)))
 
-(defn- all-star-game? [schedule-game]
-  ; TODO Check the real value
-  (= -1 (:game-type schedule-game)))
+(defn- playoff-game? [schedule-game]
+  (= 3 (:game-type schedule-game)))
 
 (defn- non-playoff-game? [schedule-game]
-  (or
-    (regular-season-game? schedule-game)
-    (all-star-game? schedule-game)))
+  (not (playoff-game? schedule-game)))
 
-(defn- playoff-game? [schedule-game]
-  (not (non-playoff-game? schedule-game)))
+(defn- non-league-game? [schedule-game]
+  (not (or (regular-season-game? schedule-game)
+           (playoff-game? schedule-game))))
 
 (defn- parse-time-str
   ([time-str] (parse-time-str time-str nil))
@@ -430,7 +428,7 @@
          :takeaways (parse-stat "takeaways")}))))
 
 (defn- add-team-records [game-details schedule-game standings teams scores include-pre-game-stats?]
-  (if (all-star-game? schedule-game)
+  (if (non-league-game? schedule-game)
     game-details
     (let [records (parse-records schedule-game standings teams scores)
           with-pre-game-stats (if include-pre-game-stats?
@@ -444,7 +442,7 @@
     (add-stats-field game-details current-stats-key :streaks (parse-streaks team-details standings))))
 
 (defn- add-team-standings [game-details schedule-game team-details standings include-pre-game-stats?]
-  (if (all-star-game? schedule-game)
+  (if (non-league-game? schedule-game)
     game-details
     (let [parsed-standings (parse-standings team-details standings)]
       (cond-> game-details
