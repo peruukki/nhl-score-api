@@ -14,7 +14,7 @@ same NHL Stats API at https://api-web.nhle.com that the NHL website uses. The NH
 
 How we use the NHL Stats API:
 - [schedule](https://api-web.nhle.com/v1/schedule/2023-11-07) gives us a list of the week's games; we check the game
-  statuses and get the game IDs to fetch the games' "landings"
+  statuses and get the game IDs to fetch the games' gamecenter landing page data
 - [landing](https://api-web.nhle.com/v1/gamecenter/2023020180/landing) gives us the details of an individual game
 - [standings](https://api-web.nhle.com/v1/standings/2023-11-07) gives us team stats
 
