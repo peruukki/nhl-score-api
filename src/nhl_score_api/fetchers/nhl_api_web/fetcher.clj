@@ -2,7 +2,7 @@
   (:require [nhl-score-api.cache :as cache]
             [nhl-score-api.fetchers.nhl-api-web.game-scores :as game-scores]
             [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-games-in-date-range get-latest-games started-game?]]
-            [nhl-score-api.utils :refer [format-date]]
+            [nhl-score-api.utils :refer [format-date parse-date]]
             [clojure.data.json :as json]
             [camel-snake-kebab.core :refer [->kebab-case-keyword]]
             [clj-time.core :as time]
@@ -22,7 +22,7 @@
     (format-date (if fetch-latest? (time/minus date-now (time/days 1)) start-date))))
 
 (defn get-standings-query-params [date-str]
-  (let [date (format/parse (format/formatters :year-month-day) date-str)
+  (let [date (parse-date date-str)
         year (time/year date)
         start-year (if (> (time/month date) 8) year (- year 1))]
     {:season (str start-year (+ start-year 1))}))

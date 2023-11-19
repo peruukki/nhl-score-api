@@ -1,14 +1,15 @@
 (ns nhl-score-api.fetchers.nhl-api-web.fetcher-test
   (:require [clojure.test :refer :all]
             [clj-time.core :as time]
-            [clj-time.format :as format]
-            [nhl-score-api.fetchers.nhl-api-web.fetcher :refer :all]))
+            [nhl-score-api.fetchers.nhl-api-web.fetcher :refer :all]
+            [nhl-score-api.fetchers.nhl-api-web.resources :as resources]
+            [nhl-score-api.utils :refer [format-date]]))
 
 (deftest get-scores-query-params-test
 
   (testing "Scores are requested starting from yesterday if no dates are given"
     (let [now (time/now)
-          yesterday (format/unparse (format/formatters :year-month-day) (time/minus now (time/days 1)))]
+          yesterday (format-date (time/minus now (time/days 1)))]
       (is (= yesterday
              (get-schedule-start-date nil)) "Start date")))
 

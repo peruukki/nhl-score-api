@@ -1,5 +1,6 @@
 (ns nhl-score-api.fetchers.nhl-api-web.transformer
-  (:require [clj-time.core :as time]
+  (:require [nhl-score-api.utils :refer [parse-date]]
+            [clj-time.core :as time]
             [clj-time.format :as format]))
 
 (defn- prettify-date [date]
@@ -76,7 +77,7 @@
 
 (defn- within-date-range? [date-str start-date end-date]
   (let [range (time/interval start-date (time/plus end-date (time/seconds 1)))
-        parsed-date (format/parse (format/formatters :year-month-day) date-str)]
+        parsed-date (parse-date date-str)]
     (time/within? range parsed-date)))
 
 (defn get-games-in-date-range [api-response start-date end-date]

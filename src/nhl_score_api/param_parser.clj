@@ -1,10 +1,10 @@
 (ns nhl-score-api.param-parser
-  (:require [clj-time.format :as format]
+  (:require [nhl-score-api.utils :refer [parse-date]]
             [camel-snake-kebab.core :refer [->camelCaseString]]))
 
 (defn- parse-fn-date [name field value]
   (try
-    {:success {field (format/parse (format/formatters :year-month-day) value)}}
+    {:success {field (parse-date value)}}
     (catch Exception e {:error (str "Invalid parameter " name ": " (.getMessage e))})))
 
 (def parse-fns {:date parse-fn-date})

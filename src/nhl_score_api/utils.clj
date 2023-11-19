@@ -13,6 +13,11 @@
   (into {} (for [[k v] m] [(f k) v])))
 
 (defn format-date
-  "Formats given date-time to YYMMDD format"
+  "Formats given date-time to YY-MM-DD format"
   [date]
   (when date (format/unparse (format/formatters :year-month-day) date)))
+
+(defn parse-date
+  "Parses given date string in YY-MM-DD format to a date-time instance"
+  [date-str]
+  (when date-str (format/parse (format/formatters :year-month-day) date-str)))
