@@ -24,7 +24,7 @@
       "network": "MNMT2"
     }
   ],
-  "gameState": "OFF",
+  "gameState": "CRIT",
   "gameScheduleState": "OK",
   "awayTeam": {
     "id": 15,

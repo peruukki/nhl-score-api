@@ -1034,6 +1034,86 @@
           "gameCenterLink": "/gamecenter/cgy-vs-tor/2023/11/10/2023020207"
         },
         {
+          "id": 2023020206,
+          "season": 20232024,
+          "gameType": 2,
+          "venue": {
+            "default": "Prudential Center"
+          },
+          "neutralSite": false,
+          "startTimeUTC": "2023-11-11T00:00:00Z",
+          "easternUTCOffset": "-05:00",
+          "venueUTCOffset": "-05:00",
+          "venueTimezone": "US/Eastern",
+          "gameState": "CRIT",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 409,
+              "market": "H",
+              "countryCode": "US",
+              "network": "MSGSN"
+            },
+            {
+              "id": 520,
+              "market": "A",
+              "countryCode": "US",
+              "network": "MNMT2"
+            }
+          ],
+          "awayTeam": {
+            "id": 15,
+            "placeName": {
+              "default": "Washington"
+            },
+            "abbrev": "WSH",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WSH_dark.svg",
+            "awaySplitSquad": false,
+            "score": 4
+          },
+          "homeTeam": {
+            "id": 1,
+            "placeName": {
+              "default": "New Jersey"
+            },
+            "abbrev": "NJD",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg",
+            "homeSplitSquad": false,
+            "score": 2
+          },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "REG"
+          },
+          "winningGoalie": {
+            "playerId": 8479292,
+            "firstInitial": {
+              "default": "C."
+            },
+            "lastName": {
+              "default": "Lindgren"
+            }
+          },
+          "winningGoalScorer": {
+            "playerId": 8475744,
+            "firstInitial": {
+              "default": "E."
+            },
+            "lastName": {
+              "default": "Kuznetsov",
+              "cs": "Kuzněcov",
+              "sk": "Kuznecov"
+            }
+          },
+          "threeMinRecap": "/video/recap-capitals-at-devils-11-10-23-6340912570112",
+          "gameCenterLink": "/gamecenter/wsh-vs-njd/2023/11/10/2023020206"
+        },
+        {
           "id": 2023020208,
           "season": 20232024,
           "gameType": 2,

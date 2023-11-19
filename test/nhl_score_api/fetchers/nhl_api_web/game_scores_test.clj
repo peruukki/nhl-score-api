@@ -17,17 +17,17 @@
                     (get-latest-games default-games)
                     default-standings
                     default-landings))]
-      (is (= 6
+      (is (= 7
              (count games)) "Parsed game count")
       (is (= 3
              (count (filter #(= (:state (:status %)) "FINAL") games))) "Parsed finished game count")
-      (is (= 1
+      (is (= 2
              (count (filter #(= (:state (:status %)) "LIVE") games))) "Parsed on-going game count")
       (is (= 2
              (count (filter #(= (:state (:status %)) "PREVIEW") games))) "Parsed not started game count")
       (is (= 0
              (count (filter #(= (:state (:status %)) "POSTPONED") games))) "Parsed postponed game count")
-      (is (= [5 9 5 9 0 0]
+      (is (= [5 9 5 6 9 0 0]
              (map #(count (:goals %)) games)) "Parsed goal count")
       (is (= [{:away {:abbreviation "MTL" :id 8 :location-name "Montréal" :short-name "Montréal" :team-name "Canadiens"}
                :home {:abbreviation "DET" :id 17 :location-name "Detroit" :short-name "Detroit" :team-name "Red Wings"}}
@@ -35,6 +35,8 @@
                :home {:abbreviation "TOR" :id 10 :location-name "Toronto" :short-name "Toronto" :team-name "Maple Leafs"}}
               {:away {:abbreviation "SJS" :id 28 :location-name "San Jose" :short-name "San Jose" :team-name "Sharks"}
                :home {:abbreviation "VGK" :id 54 :location-name "Vegas" :short-name "Vegas" :team-name "Golden Knights"}}
+              {:away {:abbreviation "WSH" :id 15 :location-name "Washington" :short-name "Washington" :team-name "Capitals"}
+               :home {:abbreviation "NJD" :id 1 :location-name "New Jersey" :short-name "New Jersey" :team-name "Devils"}}
               {:away {:abbreviation "PHI" :id 4 :location-name "Philadelphia" :short-name "Philadelphia" :team-name "Flyers"}
                :home {:abbreviation "ANA" :id 24 :location-name "Anaheim" :short-name "Anaheim" :team-name "Ducks"}}
               {:away {:abbreviation "DAL" :id 25 :location-name "Dallas" :short-name "Dallas" :team-name "Stars"}
@@ -45,6 +47,7 @@
       (is (= [{"MTL" 3 "DET" 2 :overtime true}
               {"CGY" 4 "TOR" 5 :shootout true}
               {"SJS" 0 "VGK" 5}
+              {"WSH" 4 "NJD" 2}
               {"PHI" 6 "ANA" 3}
               {"DAL" 0 "WPG" 0}
               {"BUF" 0 "PIT" 0}]
@@ -157,7 +160,7 @@
                      (get-latest-games default-games)
                      default-standings
                      (resources/get-landings [2023020208])))
-                 3)
+                 4)
           goals (:goals game)]
       (is (= [false]
              (distinct (map #(contains? % :empty-net) (drop-last goals))))
@@ -197,6 +200,10 @@
               {:state    "LIVE"
                :progress {:current-period                3,
                           :current-period-ordinal        "3rd",
+                          :current-period-time-remaining {:pretty "END" :min 0 :sec 0}}}
+              {:state    "LIVE"
+               :progress {:current-period                3,
+                          :current-period-ordinal        "3rd",
                           :current-period-time-remaining {:pretty "01:23" :min 1 :sec 23}}}
               {:state "PREVIEW"}
               {:state "PREVIEW"}]
@@ -213,6 +220,7 @@
       (is (= ["2023-11-10T00:00:00Z"
               "2023-11-11T00:00:00Z"
               "2023-11-11T03:00:00Z"
+              "2023-11-11T00:00:00Z"
               "2023-11-11T03:00:00Z"
               "2023-11-11T20:00:00Z"
               "2023-11-12T00:30:00Z"]
@@ -227,7 +235,7 @@
                     default-standings
                     default-landings))
           game-stats (map #(:game-stats %) games)]
-      (is (= 6
+      (is (= 7
              (count game-stats)) "Parsed game stats count")
       (is (= [{:blocked                 {"MTL" 14 "DET" 12}
                :face-off-win-percentage {"MTL" "53.4" "DET" "46.6"}
@@ -256,6 +264,15 @@
                                          "VGK" {:goals 0 :opportunities 0 :percentage "0.0"}}
                :shots                   {"SJS" 20 "VGK" 39}
                :takeaways               {"SJS" 4 "VGK" 7}}
+              {:blocked                 {"WSH" 18 "NJD" 12}
+               :face-off-win-percentage {"WSH" "49.2" "NJD" "50.8"}
+               :giveaways               {"WSH" 1 "NJD" 11}
+               :hits                    {"WSH" 14 "NJD" 27}
+               :pim                     {"WSH" 8 "NJD" 8}
+               :power-play              {"WSH" {:goals 0 :opportunities 4 :percentage "0.0"}
+                                         "NJD" {:goals 0 :opportunities 4 :percentage "0.0"}}
+               :shots                   {"WSH" 27 "NJD" 26}
+               :takeaways               {"WSH" 4 "NJD" 3}}
               {:blocked                 {"PHI" 21 "ANA" 9}
                :face-off-win-percentage {"PHI" "49.2" "ANA" "50.8"}
                :giveaways               {"PHI" 7 "ANA" 12}
@@ -277,11 +294,12 @@
                     default-standings
                     default-landings))
           records (map #(:records (:pre-game-stats %)) games)]
-      (is (= 6
+      (is (= 7
              (count records)) "Parsed pre-game regular season records count")
       (is (= [{"DET" {:wins 7 :losses 5 :ot 1} "MTL" {:wins 5 :losses 5 :ot 2}}
               {"CGY" {:wins 4 :losses 7 :ot 0} "TOR" {:wins 5 :losses 5 :ot 2}}
               {"SJS" {:wins 2 :losses 9 :ot 1} "VGK" {:wins 10 :losses 2 :ot 1}}
+              {"WSH" {:wins 5 :losses 4 :ot 2} "NJD" {:wins 7 :losses 4 :ot 1}}
               {"ANA" {:wins 7 :losses 5 :ot 0} "PHI" {:wins 5 :losses 7 :ot 1}}
               {"DAL" {:wins 8 :losses 3 :ot 1} "WPG" {:wins 7 :losses 4 :ot 2}}
               {"BUF" {:wins 6 :losses 6 :ot 1} "PIT" {:wins 6 :losses 6 :ot 0}}]
@@ -294,11 +312,12 @@
                     default-standings
                     default-landings))
           records (map #(:records (:current-stats %)) games)]
-      (is (= 6
+      (is (= 7
              (count records)) "Parsed current regular season records count")
       (is (= [{"DET" {:wins 7 :losses 5 :ot 2} "MTL" {:wins 6 :losses 5 :ot 2}}
               {"CGY" {:wins 4 :losses 7 :ot 1} "TOR" {:wins 6 :losses 5 :ot 2}}
               {"SJS" {:wins 2 :losses 10 :ot 1} "VGK" {:wins 11 :losses 2 :ot 1}}
+              {"WSH" {:wins 5 :losses 4 :ot 2} "NJD" {:wins 7 :losses 4 :ot 1}}
               {"ANA" {:wins 7 :losses 5 :ot 0} "PHI" {:wins 5 :losses 7 :ot 1}}
               {"DAL" {:wins 8 :losses 3 :ot 1} "WPG" {:wins 7 :losses 4 :ot 2}}
               {"BUF" {:wins 6 :losses 6 :ot 1} "PIT" {:wins 6 :losses 6 :ot 0}}]
@@ -312,11 +331,12 @@
                     (get-latest-games default-games)
                     default-standings))
           streaks (map #(:streaks (:current-stats %)) games)]
-      (is (= 6
+      (is (= 7
              (count streaks)) "Parsed streaks count")
       (is (= [{"DET" {:type "OT" :count 1} "MTL" {:type "WINS" :count 1}}
               {"CGY" {:type "WINS" :count 2} "TOR" {:type "LOSSES" :count 1}}
               {"SJS" {:type "WINS" :count 2} "VGK" {:type "LOSSES" :count 2}}
+              {"WSH" {:type "OT" :count 1} "NJD" {:type "LOSSES" :count 1}}
               {"ANA" {:type "LOSSES" :count 1} "PHI" {:type "LOSSES" :count 2}}
               {"DAL" {:type "WINS" :count 1} "WPG" {:type "WINS" :count 3}}
               {"BUF" {:type "OT" :count 1} "PIT" {:type "WINS" :count 3}}]
@@ -334,10 +354,11 @@
           ranks (map
                   #(fmap-vals (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
                   current-stats-standings)]
-      (is (= (repeat 6 nil) pre-game-stats-standings) "Pre-game standings should not exist")
+      (is (= (repeat 7 nil) pre-game-stats-standings) "Pre-game standings should not exist")
       (is (= [{"DET" {:division-rank "2" :league-rank "10"} "MTL" {:division-rank "6" :league-rank "16"}}
               {"CGY" {:division-rank "6" :league-rank "30"} "TOR" {:division-rank "5" :league-rank "15"}}
               {"SJS" {:division-rank "8" :league-rank "32"} "VGK" {:division-rank "1" :league-rank "2"}}
+              {"WSH" {:division-rank "5" :league-rank "22"} "NJD" {:division-rank "3" :league-rank "12"}}
               {"ANA" {:division-rank "4" :league-rank "14"} "PHI" {:division-rank "7" :league-rank "25"}}
               {"DAL" {:division-rank "1" :league-rank "6"} "WPG" {:division-rank "3" :league-rank "8"}}
               {"BUF" {:division-rank "7" :league-rank "19"} "PIT" {:division-rank "6" :league-rank "23"}}]
@@ -372,7 +393,7 @@
           points-from-playoff-spot (map
                                      #(fmap-vals (fn [team-stats] (select-keys team-stats [:points-from-playoff-spot])) %)
                                      standings)]
-      (is (= 6
+      (is (= 7
              (count points-from-playoff-spot)) "Parsed points from playoff spot count")
       ; The test standings are:
       ;
@@ -402,6 +423,7 @@
       (is (= [{"DET" {:points-from-playoff-spot "+2"} "MTL" {:points-from-playoff-spot "0"}}
               {"CGY" {:points-from-playoff-spot "-4"} "TOR" {:points-from-playoff-spot "0"}}
               {"SJS" {:points-from-playoff-spot "-8"} "VGK" {:points-from-playoff-spot "+10"}}
+              {"WSH" {:points-from-playoff-spot "-2"} "NJD" {:points-from-playoff-spot "+2"}}
               {"ANA" {:points-from-playoff-spot "+1"} "PHI" {:points-from-playoff-spot "-3"}}
               {"DAL" {:points-from-playoff-spot "+4"} "WPG" {:points-from-playoff-spot "+3"}}
               {"BUF" {:points-from-playoff-spot "-1"} "PIT" {:points-from-playoff-spot "-2"}}]
