@@ -1478,6 +1478,60 @@
           "periodDescriptor": {},
           "ticketsLink": "https://www.ticketmaster.com/event/16005ED7DA24648F?brand=nhl&wt.mc_id=NHL_LEAGUE_PIT_SCHED_PAGE_LINK_GM7&utm_source=nhl.com&utm_medium=client&utm_campaign=NHL_LEAGUE_PIT&utm_content=SCHED_PAGE_LINK_GM7&CAMEFROM=NHLPENGUINS_NHL_SCHED_PAGE_LINK",
           "gameCenterLink": "/gamecenter/buf-vs-pit/2023/11/11/2023020217"
+        },
+        {
+          "id": 2023020214,
+          "season": 20232024,
+          "gameType": 2,
+          "venue": {
+            "default": "Amalie Arena"
+          },
+          "neutralSite": false,
+          "startTimeUTC": "2023-11-12T00:00:00Z",
+          "easternUTCOffset": "-05:00",
+          "venueUTCOffset": "-05:00",
+          "venueTimezone": "US/Eastern",
+          "gameState": "FUT",
+          "gameScheduleState": "PPD",
+          "tvBroadcasts": [
+            {
+              "id": 359,
+              "market": "H",
+              "countryCode": "US",
+              "network": "BSSUN"
+            },
+            {
+              "id": 375,
+              "market": "A",
+              "countryCode": "US",
+              "network": "BSSO"
+            }
+          ],
+          "awayTeam": {
+            "id": 12,
+            "placeName": {
+              "default": "Carolina",
+              "fr": "Caroline"
+            },
+            "abbrev": "CAR",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg",
+            "awaySplitSquad": false,
+            "score": 0
+          },
+          "homeTeam": {
+            "id": 14,
+            "placeName": {
+              "default": "Tampa Bay"
+            },
+            "abbrev": "TBL",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TBL_dark.svg",
+            "homeSplitSquad": false,
+            "score": 0
+          },
+          "periodDescriptor": {},
+          "gameCenterLink": "/gamecenter/car-vs-tbl/2023/11/11/2023020214"
         }
       ]
     },

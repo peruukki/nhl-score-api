@@ -10,13 +10,16 @@
    :pretty (prettify-date date)})
 
 (defn get-game-state [game]
-  (case (:game-state game)
-    "OFF" "Final"
-    "FINAL" "Final"
-    "OVER" "Final"
-    "CRIT" "Live"
-    "LIVE" "Live"
-    "Preview"))
+  (let [game-schedule-state (:game-schedule-state game)]
+    (if (= game-schedule-state "PPD")
+      "Postponed"
+      (case (:game-state game)
+        "OFF" "Final"
+        "FINAL" "Final"
+        "OVER" "Final"
+        "CRIT" "Live"
+        "LIVE" "Live"
+        "Preview"))))
 
 (declare started-game?)
 
@@ -35,8 +38,15 @@
 (defn- format-date [date-and-games]
   (assoc date-and-games :date (get-date (:date date-and-games))))
 
+(defn- game-comparator [game]
+  (case (get-game-state game)
+    "Final" 0
+    "Live" 1
+    "Preview" 2
+    "Postponed" 3))
+
 (defn- sort-games-by-state [games]
-  (assoc games :games (sort-by get-game-state (:games games))))
+  (assoc games :games (sort-by game-comparator (:games games))))
 
 (defn finished-game? [game]
   (= "Final" (get-game-state game)))
