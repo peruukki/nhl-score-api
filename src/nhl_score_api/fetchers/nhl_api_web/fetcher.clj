@@ -10,6 +10,8 @@
             [clj-http.client :as http]))
 
 (def base-url "https://api-web.nhle.com/v1")
+(def standings-parameters-url (str base-url "/standings-season"))
+
 (defn- get-schedule-url [date-str] (str base-url "/schedule/" date-str))
 (defn- get-standings-url [date-str] (str base-url "/standings/" date-str))
 (defn- get-landing-url [game-id] (str base-url "/gamecenter/" game-id "/landing"))
@@ -21,11 +23,12 @@
         date-now (time/now)]
     (format-date (if fetch-latest? (time/minus date-now (time/days 1)) start-date))))
 
-(defn get-standings-query-params [date-str]
-  (let [date (parse-date date-str)
-        year (time/year date)
-        start-year (if (> (time/month date) 8) year (- year 1))]
-    {:season (str start-year (+ start-year 1))}))
+(defn get-standings-request-date [date-str standings-parameters]
+  (let [season (last (filter #(>= (compare date-str (:standings-start %)) 0)
+                             (:seasons standings-parameters)))
+        max-end-date-str (:standings-end season)]
+    (cond max-end-date-str
+          (if (> (compare date-str max-end-date-str) 0) max-end-date-str date-str))))
 
 (defn api-response-to-json [api-response]
   (json/read-str api-response :key-fn ->kebab-case-keyword))
@@ -35,12 +38,17 @@
     (println "Fetching schedule" start-date)
     (api-response-to-json (:body (http/get (get-schedule-url start-date) {:debug true})))))
 
+(defn- fetch-standings-parameters []
+  (println "Fetching standings parameters")
+  (api-response-to-json (:body (http/get standings-parameters-url {:debug true}))))
+
 (defn fetch-standings-info [date-str]
   (if (nil? date-str)
     {:records nil}
-    (do
-      (println "Fetching standings" date-str)
-      (api-response-to-json (:body (http/get (get-standings-url date-str) {:debug true}))))))
+    (let [standings-parameters (fetch-standings-parameters)
+          standings-date-str (get-standings-request-date date-str standings-parameters)]
+      (println "Fetching standings" standings-date-str)
+      (api-response-to-json (:body (http/get (get-standings-url standings-date-str) {:debug true}))))))
 
 (defn get-landing-urls-by-game-id [schedule-games]
   (->> schedule-games

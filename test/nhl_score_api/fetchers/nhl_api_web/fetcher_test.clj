@@ -18,13 +18,21 @@
       (is (= "2021-09-25"
              (get-schedule-start-date start-date)) "Start date"))))
 
-(deftest get-standings-query-params-test
+(deftest get-standings-request-date-test
 
-  (testing "Standings are requested for appropriate season"
-    (is (= "20202021"
-           (:season (get-standings-query-params "2021-08-31"))) "Date in August")
-    (is (= "20212022"
-           (:season (get-standings-query-params "2021-09-01"))) "Date in September")))
+  (testing "Standings are requested for appropriate date"
+    (is (= "2023-11-18"
+           (get-standings-request-date "2023-11-18" resources/standings-parameters))
+        "Date during regular season")
+    (is (= "2023-04-14"
+           (get-standings-request-date "2023-08-31" resources/standings-parameters))
+        "Date in the past between regular seasons")
+    (is (= "2023-11-18"
+           (get-standings-request-date "2023-11-19" resources/standings-parameters))
+        "Date in the future")
+    (is (= nil
+           (get-standings-request-date "1900-11-19" resources/standings-parameters))
+        "Date before any season in NHL history")))
 
 (deftest fetch-standings-info-test
 
