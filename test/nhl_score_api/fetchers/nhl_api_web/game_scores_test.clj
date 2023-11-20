@@ -552,18 +552,6 @@
       (is (= [1 1 1 1 1]
              current-stats-rounds) "Parsed current stats playoff rounds")))))
 
-(deftest game-scores-pre-game-stats
-  (testing "Not including teams' pre-game stats"
-    (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games default-games)
-                    (:standings resources/standings)
-                    nil
-                    false))]
-      (is (= [false]
-             (distinct (map #(contains? % :pre-game-stats) games)))
-          "Pre-game stats are not included"))))
-
 ; TODO: Later
 (comment
 (deftest game-scores-validation

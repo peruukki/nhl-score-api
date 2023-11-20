@@ -547,8 +547,7 @@ The fields are described in more detail in [Response fields](#response-fields).
     - `percentage`: power play efficiency, e.g. `50.0`
   - `shots`: shots on goal
   - `takeaways`: what it says
-- `preGameStats` object: each teams’ season statistics *before the game*, with the fields
-  (**only included in the latest games response because historical standings data used not to be available**):
+- `preGameStats` object: each teams’ season statistics *before the game*, with the fields:
   - `records` object: each teams’ record for this regular/playoff season, with the fields:
     - `wins` *(number)*: win count (earning 2 pts)
     - `losses` *(number)*: regulation loss count (0 pts)

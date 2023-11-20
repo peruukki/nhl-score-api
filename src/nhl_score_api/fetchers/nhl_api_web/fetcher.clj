@@ -88,7 +88,7 @@
         standings-parameters (fetch-standings-parameters)
         standings-infos (map #(fetch-standings-info (:raw (:date %)) standings-parameters) dates-and-schedule-games)
         landings-infos (map #(fetch-landings-info (:games %)) dates-and-schedule-games)]
-    (map-indexed #(game-scores/parse-game-scores %2 (:standings (nth standings-infos %1)) (nth landings-infos %1) false)
+    (map-indexed #(game-scores/parse-game-scores %2 (:standings (nth standings-infos %1)) (nth landings-infos %1))
                  dates-and-schedule-games)))
 
 (def fetch-scores-in-date-range-cached
