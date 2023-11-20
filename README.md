@@ -548,7 +548,7 @@ The fields are described in more detail in [Response fields](#response-fields).
   - `shots`: shots on goal
   - `takeaways`: what it says
 - `preGameStats` object: each teams’ season statistics *before the game*, with the fields
-  (**only included in the latest games response because historical standings data is not available**):
+  (**only included in the latest games response because historical standings data used not to be available**):
   - `records` object: each teams’ record for this regular/playoff season, with the fields:
     - `wins` *(number)*: win count (earning 2 pts)
     - `losses` *(number)*: regulation loss count (0 pts)
@@ -560,7 +560,7 @@ The fields are described in more detail in [Response fields](#response-fields).
     pre-game stats), with the fields:
     - `divisionRank` *(string)*: the team's regular season ranking in their division (based on point percentage); this comes as a *string* value from the NHL Stats API
     - `leagueRank` *(string)*: the team's regular season ranking in the league (based on point percentage); this comes as a *string* value from the NHL Stats API
-- `currentStats` object: each teams’ *current* (ie. after the game if it has finished and NHL have updated their stats) season statistics, with the fields:
+- `currentStats` object: each teams’ current (ie. after the game if it has finished and NHL have updated their stats) season statistics *on the game date*, with the fields:
   - `records` object: each teams’ record for this regular/playoff season, with the fields:
     - `wins` *(number)*: win count (earning 2 pts)
     - `losses` *(number)*: regulation loss count (0 pts)

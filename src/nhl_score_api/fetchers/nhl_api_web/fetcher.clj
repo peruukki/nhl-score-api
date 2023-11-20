@@ -42,13 +42,15 @@
   (println "Fetching standings parameters")
   (api-response-to-json (:body (http/get standings-parameters-url {:debug true}))))
 
-(defn fetch-standings-info [date-str]
-  (if (nil? date-str)
-    {:records nil}
-    (let [standings-parameters (fetch-standings-parameters)
-          standings-date-str (get-standings-request-date date-str standings-parameters)]
-      (println "Fetching standings" standings-date-str)
-      (api-response-to-json (:body (http/get (get-standings-url standings-date-str) {:debug true}))))))
+(defn fetch-standings-info [date-str standings-parameters]
+  (let [standings-date-str (if (nil? date-str)
+                             nil
+                             (get-standings-request-date date-str standings-parameters))]
+    (if (nil? standings-date-str)
+      {:records nil}
+      (do
+        (println "Fetching standings" standings-date-str)
+        (api-response-to-json (:body (http/get (get-standings-url standings-date-str) {:debug true})))))))
 
 (defn get-landing-urls-by-game-id [schedule-games]
   (->> schedule-games
@@ -72,7 +74,8 @@
               (api-response-to-json (slurp mocked-latest-games-info-file)))
           (fetch-games-info nil))
         date-and-schedule-games (get-latest-games latest-games-info)
-        standings-info (fetch-standings-info (:raw (:date date-and-schedule-games)))
+        standings-parameters (fetch-standings-parameters)
+        standings-info (fetch-standings-info (:raw (:date date-and-schedule-games)) standings-parameters)
         landings-info (fetch-landings-info (:games date-and-schedule-games))]
     (game-scores/parse-game-scores date-and-schedule-games (:standings standings-info) landings-info)))
 
@@ -82,9 +85,10 @@
 (defn- fetch-scores-in-date-range [start-date end-date]
   (let [games-info (fetch-games-info start-date)
         dates-and-schedule-games (get-games-in-date-range games-info start-date end-date)
-        standings-info (fetch-standings-info (:raw (:date (last dates-and-schedule-games))))
+        standings-parameters (fetch-standings-parameters)
+        standings-infos (map #(fetch-standings-info (:raw (:date %)) standings-parameters) dates-and-schedule-games)
         landings-infos (map #(fetch-landings-info (:games %)) dates-and-schedule-games)]
-    (map-indexed #(game-scores/parse-game-scores %2 (:standings standings-info) (nth landings-infos %1) false)
+    (map-indexed #(game-scores/parse-game-scores %2 (:standings (nth standings-infos %1)) (nth landings-infos %1) false)
                  dates-and-schedule-games)))
 
 (def fetch-scores-in-date-range-cached
