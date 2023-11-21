@@ -96,7 +96,7 @@
                      default-standings
                      (resources/get-landings [2023020207])))
                  1)
-          goals (map #(dissoc % :strength) (:goals game))]  ; 'strength' field has its own test
+          goals (map #(dissoc % :strength) (:goals game))] ; 'strength' field has its own test
       (is (= [{:team    "TOR" :min 3 :sec 1 :period "1"
                :scorer  {:player "William Nylander" :player-id 8477939 :season-total 8}
                :assists []}
@@ -127,25 +127,50 @@
                :assists [{:player "Mikael Backlund" :player-id 8474150 :season-total 4}
                          {:player "Blake Coleman" :player-id 8476399 :season-total 2}]}
               {:team "TOR" :period "SO" :scorer {:player "Max Domi" :player-id 8477503}}]
+             goals) "Parsed goals"))))
+
+(deftest game-scores-parsing-playoff-games
+
+  (testing "Parsing game with goal in playoff overtime"
+    (let [game (last
+                 (:games
+                   (parse-game-scores
+                     (get-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
+                     (:standings resources/standings-for-playoffs)
+                     (resources/get-landings [2022030181]))))
+          goals (map #(dissoc % :strength) (:goals game))] ; 'strength' field has its own test
+      (is (= {"LAK" 4 "EDM" 3 :overtime true}
+             (:scores game)) "Parsed scores")
+      (is (= [{:team    "EDM" :min 6 :sec 57 :period "1"
+               :scorer  {:player "Leon Draisaitl" :player-id 8477934 :season-total 1}
+               :assists [{:player "Mattias Janmark" :player-id 8477406 :season-total 1}]}
+              {:team    "EDM" :min 12 :sec 31 :period "1"
+               :scorer  {:player "Evan Bouchard" :player-id 8480803 :season-total 1}
+               :assists [{:player "Ryan Nugent-Hopkins" :player-id 8476454 :season-total 1}
+                         {:player "Zach Hyman" :player-id 8475786 :season-total 1}]}
+              {:team    "LAK" :min 0 :sec 52 :period "3"
+               :scorer  {:player "Adrian Kempe" :player-id 8477960 :season-total 1}
+               :assists [{:player "Matt Roy" :player-id 8478911 :season-total 1}
+                         {:player "Anze Kopitar" :player-id 8471685 :season-total 1}]}
+              {:team    "EDM" :min 8 :sec 46 :period "3"
+               :scorer  {:player "Leon Draisaitl" :player-id 8477934 :season-total 2}
+               :assists [{:player "Evander Kane" :player-id 8475169 :season-total 1}]}
+              {:team    "LAK" :min 11 :sec 23 :period "3"
+               :scorer  {:player "Adrian Kempe" :player-id 8477960 :season-total 2}
+               :assists [{:player "Quinton Byfield" :player-id 8482124 :season-total 1}
+                         {:player "Anze Kopitar" :player-id 8471685 :season-total 2}]}
+              {:team    "LAK" :min 19 :sec 43 :period "3"
+               :scorer  {:player "Anze Kopitar" :player-id 8471685 :season-total 1}
+               :assists [{:player "Phillip Danault" :player-id 8476479 :season-total 1}
+                         {:player "Viktor Arvidsson" :player-id 8478042 :season-total 1}]}
+              {:team    "LAK" :min 9 :sec 19 :period "OT"
+               :scorer  {:player "Alex Iafallo" :player-id 8480113 :season-total 1}
+               :assists [{:player "Viktor Arvidsson" :player-id 8478042 :season-total 2}
+                         {:player "Anze Kopitar" :player-id 8471685 :season-total 3}]}]
              goals) "Parsed goals")))
 
   ; TODO later
   (comment
-    (testing "Parsing game with goal in playoff overtime"
-      (let [game (nth
-                   (:games
-                     (parse-game-scores
-                       (get-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
-                       default-standings))
-                   2)]
-        (is (= {"CHI" 0 "STL" 1 :overtime true}
-               (:scores game)) "Parsed scores")
-        (is (= [{:team    "STL" :min 9 :sec 4 :period "4"
-                 :scorer  {:player "David Backes" :player-id 8470655 :season-total 1}
-                 :assists [{:player "Jay Bouwmeester" :player-id 8470151 :season-total 1}
-                           {:player "Alex Pietrangelo" :player-id 8474565 :season-total 1}]}]
-               (:goals game)) "Parsed goals")))
-
     (testing "Parsing game without goals"
       (let [game (nth
                    (:games
