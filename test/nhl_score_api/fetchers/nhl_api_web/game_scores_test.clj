@@ -463,55 +463,7 @@
               {"CAR" {:points-from-playoff-spot "+3"} "TBL" {:points-from-playoff-spot "+2"}}]
              points-from-playoff-spot) "Parsed points from playoff spot"))))
 
-; TODO: Later
 (comment
-(deftest game-scores-parsing-team-playoff-records
-
-  (testing "Parsing teams' pre-game playoff records when teams have no OT loss values in their records"
-    (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games resources/playoff-games-live-finished-with-1st-games)
-                    (:standings resources/standings)))
-          records (map #(:records (:pre-game-stats %)) games)]
-      (is (= 5
-             (count records)) "Parsed pre-game playoff records count")
-      (is (= [{"NJD" {:wins 0 :losses 0} "TBL" {:wins 0 :losses 0}}
-              {"TOR" {:wins 0 :losses 0} "BOS" {:wins 0 :losses 0}}
-              {"CBJ" {:wins 0 :losses 0} "WSH" {:wins 0 :losses 0}}
-              {"COL" {:wins 0 :losses 0} "NSH" {:wins 0 :losses 0}}
-              {"SJS" {:wins 0 :losses 0} "ANA" {:wins 0 :losses 0}}]
-             records) "Parsed pre-game playoff records")))
-
-  (testing "Parsing teams' pre-game playoff records when teams have OT loss values in their records"
-    (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games resources/playoff-games-with-ot-losses-in-records)
-                    (:standings resources/standings)))
-          records (map #(:records (:pre-game-stats %)) games)]
-      (is (= 5
-             (count records)) "Parsed pre-game playoff records count")
-      (is (= [{"CAR" {:wins 0 :losses 0 :ot 0} "NYR" {:wins 0 :losses 0 :ot 0}}
-              {"CHI" {:wins 0 :losses 0 :ot 0} "EDM" {:wins 0 :losses 0 :ot 0}}
-              {"FLA" {:wins 0 :losses 0 :ot 0} "NYI" {:wins 0 :losses 0 :ot 0}}
-              {"MTL" {:wins 0 :losses 0 :ot 0} "PIT" {:wins 0 :losses 0 :ot 0}}
-              {"CGY" {:wins 0 :losses 0 :ot 0} "WPG" {:wins 0 :losses 0 :ot 0}}]
-             records) "Parsed pre-game playoff records")))
-
-  (testing "Parsing teams' current playoff records"
-    (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games resources/playoff-games-live-finished-with-1st-games)
-                    (:standings resources/standings)))
-          records (map #(:records (:current-stats %)) games)]
-      (is (= 5
-             (count records)) "Parsed current playoff records count")
-      (is (= [{"NJD" {:wins 0 :losses 1} "TBL" {:wins 1 :losses 0}}
-              {"TOR" {:wins 0 :losses 1} "BOS" {:wins 1 :losses 0}}
-              {"CBJ" {:wins 1 :losses 0} "WSH" {:wins 0 :losses 1}}
-              {"COL" {:wins 0 :losses 0} "NSH" {:wins 0 :losses 0}}
-              {"SJS" {:wins 0 :losses 0} "ANA" {:wins 0 :losses 0}}]
-             records) "Parsed current playoff records"))))
-
 (deftest game-scores-parsing-playoff-series
 
   (testing "Parsing pre-game playoff series wins from playoff games"
