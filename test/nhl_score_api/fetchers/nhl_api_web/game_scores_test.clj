@@ -398,23 +398,22 @@
               {"CAR" {:division-rank "2" :league-rank "9"} "TBL" {:division-rank "3" :league-rank "11"}}]
              ranks) "Parsed current stats division and league ranks")))
 
-  ; TODO: Later
-  (comment
-    (testing "Parsing teams' division and league ranks for playoff games"
+  (testing "Parsing teams' division and league ranks for playoff games"
     (let [games (:games
                   (parse-game-scores
                     (get-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
-                    (:standings resources/standings)))
+                    (:standings resources/standings-for-playoffs)))
           pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
           current-stats-standings (map #(:standings (:current-stats %)) games)
           ranks (map
                   #(fmap-vals (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
                   current-stats-standings)]
       (is (= pre-game-stats-standings current-stats-standings) "Parsed standings, pre-game vs. current stats")
-      (is (= [{"DET" {:division-rank "8" :league-rank "31"} "TBL" {:division-rank "2" :league-rank "4"}}
-              {"NYR" {:division-rank "7" :league-rank "18"} "PIT" {:division-rank "3" :league-rank "7"}}
-              {"CHI" {:division-rank "7" :league-rank "23"} "STL" {:division-rank "1" :league-rank "2"}}]
-             ranks) "Parsed current stats division and league ranks")))))
+      (is (= [{"NYI" {:division-rank "4" :league-rank "15"} "CAR" {:division-rank "1" :league-rank "2"}}
+              {"FLA" {:division-rank "4" :league-rank "17"} "BOS" {:division-rank "1" :league-rank "1"}}
+              {"MIN" {:division-rank "3" :league-rank "11"} "DAL" {:division-rank "2" :league-rank "8"}}
+              {"LAK" {:division-rank "3" :league-rank "10"} "EDM" {:division-rank "2" :league-rank "6"}}]
+             ranks) "Parsed current stats division and league ranks"))))
 
 (deftest game-scores-parsing-team-points-from-playoff-spot
 
