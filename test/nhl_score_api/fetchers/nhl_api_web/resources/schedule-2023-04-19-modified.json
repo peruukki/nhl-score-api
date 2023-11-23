@@ -1,21 +1,21 @@
 {
-  "nextStartDate": "2023-04-24",
-  "previousStartDate": "2023-04-10",
+  "nextStartDate": "2023-04-26",
+  "previousStartDate": "2023-04-12",
   "gameWeek": [
     {
-      "date": "2023-04-17",
-      "dayAbbrev": "MON",
+      "date": "2023-04-19",
+      "dayAbbrev": "WED",
       "numberOfGames": 4,
       "games": [
         {
-          "id": 2022030131,
+          "id": 2022030132,
           "season": 20222023,
           "gameType": 3,
           "venue": {
             "default": "PNC Arena"
           },
           "neutralSite": false,
-          "startTimeUTC": "2023-04-17T23:00:00Z",
+          "startTimeUTC": "2023-04-19T23:00:00Z",
           "easternUTCOffset": "-04:00",
           "venueUTCOffset": "-04:00",
           "venueTimezone": "US/Eastern",
@@ -31,7 +31,7 @@
             "logo": "https://assets.nhle.com/logos/nhl/svg/NYI_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NYI_dark.svg",
             "awaySplitSquad": false,
-            "score": 1
+            "score": 3
           },
           "homeTeam": {
             "id": 12,
@@ -43,14 +43,14 @@
             "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg",
             "homeSplitSquad": false,
-            "score": 2
+            "score": 4
           },
           "periodDescriptor": {
-            "number": 3,
-            "periodType": "REG"
+            "number": 4,
+            "periodType": "OT"
           },
           "gameOutcome": {
-            "lastPeriodType": "REG"
+            "lastPeriodType": "OT"
           },
           "winningGoalie": {
             "playerId": 8477293,
@@ -62,45 +62,50 @@
             }
           },
           "winningGoalScorer": {
-            "playerId": 8476474,
+            "playerId": 8475855,
             "firstInitial": {
-              "default": "S."
+              "default": "J."
             },
             "lastName": {
-              "default": "Noesen"
+              "default": "Fast",
+              "cs": "Fasth",
+              "de": "Fasth",
+              "fi": "Fasth",
+              "sk": "Fasth",
+              "sv": "Fasth"
             }
           },
           "seriesStatus": {
             "round": 1,
-            "gameNumberOfSeries": 1,
+            "gameNumberOfSeries": 2,
             "roundAbbrev": "R1",
             "roundCode": "1st_round",
             "seriesLetter": "C",
             "neededToWin": 4,
             "length": 7,
             "topSeedTeamId": 12,
-            "topSeedWins": 1,
+            "topSeedWins": 2,
             "bottomSeedTeamId": 2,
             "bottomSeedWins": 0,
             "awayTeamWins": 0,
-            "homeTeamWins": 1
+            "homeTeamWins": 2
           },
-          "threeMinRecap": "/video/recap-car-2-nyi-1-343628614",
-          "gameCenterLink": "/gamecenter/nyi-vs-car/2023/04/17/2022030131"
+          "threeMinRecap": "/video/recap-car-4-nyi-3-f-ot-343701784",
+          "gameCenterLink": "/gamecenter/nyi-vs-car/2023/04/19/2022030132"
         },
         {
-          "id": 2022030111,
+          "id": 2022030112,
           "season": 20222023,
           "gameType": 3,
           "venue": {
             "default": "TD Garden"
           },
           "neutralSite": false,
-          "startTimeUTC": "2023-04-17T23:30:00Z",
+          "startTimeUTC": "2023-04-19T23:30:00Z",
           "easternUTCOffset": "-04:00",
           "venueUTCOffset": "-04:00",
           "venueTimezone": "US/Eastern",
-          "gameState": "OVER",
+          "gameState": "OFF",
           "gameScheduleState": "OK",
           "tvBroadcasts": [],
           "awayTeam": {
@@ -113,7 +118,7 @@
             "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg",
             "awaySplitSquad": false,
-            "score": 1
+            "score": 6
           },
           "homeTeam": {
             "id": 6,
@@ -134,54 +139,54 @@
             "lastPeriodType": "REG"
           },
           "winningGoalie": {
-            "playerId": 8476999,
+            "playerId": 8479312,
             "firstInitial": {
-              "default": "L."
+              "default": "A."
             },
             "lastName": {
-              "default": "Ullmark"
+              "default": "Lyon"
             }
           },
           "winningGoalScorer": {
-            "playerId": 8473419,
+            "playerId": 8477409,
             "firstInitial": {
-              "default": "B."
+              "default": "C."
             },
             "lastName": {
-              "default": "Marchand"
+              "default": "Verhaeghe"
             }
           },
           "seriesStatus": {
             "round": 1,
-            "gameNumberOfSeries": 1,
+            "gameNumberOfSeries": 2,
             "roundAbbrev": "R1",
             "roundCode": "1st_round",
             "seriesLetter": "A",
             "neededToWin": 4,
             "length": 7,
             "topSeedTeamId": 6,
-            "topSeedWins": 0,
+            "topSeedWins": 1,
             "bottomSeedTeamId": 13,
-            "bottomSeedWins": 0,
-            "awayTeamWins": 0,
-            "homeTeamWins": 0
+            "bottomSeedWins": 1,
+            "awayTeamWins": 1,
+            "homeTeamWins": 1
           },
-          "threeMinRecap": "/video/recap-bos-3-fla-1-343629570",
-          "gameCenterLink": "/gamecenter/fla-vs-bos/2023/04/17/2022030111"
+          "threeMinRecap": "/video/recap-fla-6-bos-3-343705452",
+          "gameCenterLink": "/gamecenter/fla-vs-bos/2023/04/19/2022030112"
         },
         {
-          "id": 2022030161,
+          "id": 2022030162,
           "season": 20222023,
           "gameType": 3,
           "venue": {
             "default": "American Airlines Center"
           },
           "neutralSite": false,
-          "startTimeUTC": "2023-04-18T01:30:00Z",
+          "startTimeUTC": "2023-04-20T01:30:00Z",
           "easternUTCOffset": "-04:00",
           "venueUTCOffset": "-05:00",
           "venueTimezone": "US/Central",
-          "gameState": "LIVE",
+          "gameState": "OFF",
           "gameScheduleState": "OK",
           "tvBroadcasts": [],
           "awayTeam": {
@@ -204,65 +209,64 @@
             "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_dark.svg",
             "homeSplitSquad": false,
-            "score": 2
+            "score": 7
           },
           "periodDescriptor": {
-            "number": 5,
-            "periodType": "OT",
-            "otPeriods": 2
+            "number": 3,
+            "periodType": "REG"
           },
           "gameOutcome": {
-            "lastPeriodType": "OT"
+            "lastPeriodType": "REG"
           },
           "winningGoalie": {
-            "playerId": 8479406,
+            "playerId": 8479979,
             "firstInitial": {
-              "default": "F."
+              "default": "J."
             },
             "lastName": {
-              "default": "Gustavsson"
+              "default": "Oettinger"
             }
           },
           "winningGoalScorer": {
-            "playerId": 8477451,
+            "playerId": 8474149,
             "firstInitial": {
-              "default": "R."
+              "default": "E."
             },
             "lastName": {
-              "default": "Hartman"
+              "default": "Dadonov"
             }
           },
           "seriesStatus": {
             "round": 1,
-            "gameNumberOfSeries": 1,
+            "gameNumberOfSeries": 2,
             "roundAbbrev": "R1",
             "roundCode": "1st_round",
             "seriesLetter": "F",
             "neededToWin": 4,
             "length": 7,
             "topSeedTeamId": 25,
-            "topSeedWins": 0,
+            "topSeedWins": 1,
             "bottomSeedTeamId": 30,
-            "bottomSeedWins": 0,
-            "awayTeamWins": 0,
-            "homeTeamWins": 0
+            "bottomSeedWins": 1,
+            "awayTeamWins": 1,
+            "homeTeamWins": 1
           },
-          "threeMinRecap": "/video/recap-min-3-dal-2-f-2ot-343639990",
-          "gameCenterLink": "/gamecenter/min-vs-dal/2023/04/17/2022030161"
+          "threeMinRecap": "/video/recap-dal-7-min-3-343710396",
+          "gameCenterLink": "/gamecenter/min-vs-dal/2023/04/19/2022030162"
         },
         {
-          "id": 2022030181,
+          "id": 2022030182,
           "season": 20222023,
           "gameType": 3,
           "venue": {
             "default": "Rogers Place"
           },
           "neutralSite": false,
-          "startTimeUTC": "2023-04-18T02:00:00Z",
+          "startTimeUTC": "2023-04-20T02:00:00Z",
           "easternUTCOffset": "-04:00",
           "venueUTCOffset": "-06:00",
           "venueTimezone": "America/Edmonton",
-          "gameState": "CRIT",
+          "gameState": "OFF",
           "gameScheduleState": "OK",
           "tvBroadcasts": [],
           "awayTeam": {
@@ -274,7 +278,7 @@
             "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/LAK_dark.svg",
             "awaySplitSquad": false,
-            "score": 4
+            "score": 2
           },
           "homeTeam": {
             "id": 22,
@@ -285,50 +289,50 @@
             "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg",
             "homeSplitSquad": false,
-            "score": 3
+            "score": 4
           },
           "periodDescriptor": {
-            "number": 4,
-            "periodType": "OT"
+            "number": 3,
+            "periodType": "REG"
           },
           "gameOutcome": {
-            "lastPeriodType": "OT"
+            "lastPeriodType": "REG"
           },
           "winningGoalie": {
-            "playerId": 8476914,
+            "playerId": 8479973,
             "firstInitial": {
-              "default": "J."
+              "default": "S."
             },
             "lastName": {
-              "default": "Korpisalo"
+              "default": "Skinner"
             }
           },
           "winningGoalScorer": {
-            "playerId": 8480113,
+            "playerId": 8480011,
             "firstInitial": {
-              "default": "A."
+              "default": "K."
             },
             "lastName": {
-              "default": "Iafallo"
+              "default": "Kostin"
             }
           },
           "seriesStatus": {
             "round": 1,
-            "gameNumberOfSeries": 1,
+            "gameNumberOfSeries": 2,
             "roundAbbrev": "R1",
             "roundCode": "1st_round",
             "seriesLetter": "H",
             "neededToWin": 4,
             "length": 7,
             "topSeedTeamId": 22,
-            "topSeedWins": 0,
+            "topSeedWins": 1,
             "bottomSeedTeamId": 26,
             "bottomSeedWins": 1,
             "awayTeamWins": 1,
-            "homeTeamWins": 0
+            "homeTeamWins": 1
           },
-          "threeMinRecap": "/video/recap-lak-4-edm-3-f-ot-343638230",
-          "gameCenterLink": "/gamecenter/lak-vs-edm/2023/04/17/2022030181"
+          "threeMinRecap": "/video/recap-edm-4-lak-2-343713526",
+          "gameCenterLink": "/gamecenter/lak-vs-edm/2023/04/19/2022030182"
         }
       ]
     }
@@ -337,5 +341,5 @@
   "regularSeasonStartDate": "2022-10-07",
   "regularSeasonEndDate": "2023-04-14",
   "playoffEndDate": "2023-06-13",
-  "numberOfGames": 28
+  "numberOfGames": 27
 }

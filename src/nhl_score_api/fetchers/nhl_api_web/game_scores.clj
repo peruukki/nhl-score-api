@@ -313,30 +313,11 @@
      (derive-standings standings home-details)}))
 
 (defn- parse-current-playoff-series-wins [schedule-game teams]
-  (let [away-team (:abbreviation (:away teams))
-        home-team (:abbreviation (:home teams))
-        series-summary-description (:series-status-short (:series-summary schedule-game))
-        series-tied-match (re-find #"Tied (\d)-\d" series-summary-description)
-        team-leads-match (re-find #"(\w+) (?:leads|wins) (\d)-(\d)" series-summary-description)]
-    (cond
-      series-tied-match
-      (let [win-count (read-string (nth series-tied-match 1))]
-        {away-team win-count
-         home-team win-count})
-
-      team-leads-match
-      (let [leading-team (nth team-leads-match 1)
-            leading-team-win-count (read-string (nth team-leads-match 2))
-            trailing-team-win-count (read-string (nth team-leads-match 3))]
-        {away-team (if (= away-team leading-team) leading-team-win-count trailing-team-win-count)
-         home-team (if (= home-team leading-team) leading-team-win-count trailing-team-win-count)})
-
-      :else
-      {away-team 0
-       home-team 0})))
+  {(:abbreviation (:away teams)) (:away-team-wins (:series-status schedule-game))
+   (:abbreviation (:home teams)) (:home-team-wins (:series-status schedule-game))})
 
 (defn- parse-playoff-round [schedule-game]
-  (get-in schedule-game [:series-summary :series :round :number]))
+  (:round (:series-status schedule-game)))
 
 (defn- get-winning-team [game-details]
   (let [away-team (:abbreviation (:away (:teams game-details)))
@@ -364,7 +345,7 @@
   (let [teams (:teams game-details)
         parsed-current-wins (parse-current-playoff-series-wins schedule-game teams)
         win-count (apply + (vals parsed-current-wins))
-        game-number (get-in schedule-game [:series-summary :game-number])
+        game-number (:game-number-of-series (:series-status schedule-game))
         current-wins (cond (and (< win-count game-number) (finished-game? schedule-game))
                            (add-current-game-to-playoff-series-wins parsed-current-wins game-details)
 
@@ -508,7 +489,7 @@
         (add-team-records schedule-game standings teams scores)
         (add-team-streaks schedule-game team-details standings)
         (add-team-standings schedule-game team-details standings)
-        ;(add-playoff-series-information schedule-game)
+        (add-playoff-series-information schedule-game)
         ;(add-validation-errors)
         (reject-empty-vals-except-for-keys #{:goals}))))
 

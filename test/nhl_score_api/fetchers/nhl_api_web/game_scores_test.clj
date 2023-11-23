@@ -135,7 +135,7 @@
     (let [game (last
                  (:games
                    (parse-game-scores
-                     (get-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
+                     (get-latest-games resources/playoff-games-live-finished-in-regulation-and-overtime)
                      (:standings resources/standings-for-playoffs)
                      (resources/get-landings [2022030181]))))
           goals (map #(dissoc % :strength) (:goals game))] ; 'strength' field has its own test
@@ -401,7 +401,7 @@
   (testing "Parsing teams' division and league ranks for playoff games"
     (let [games (:games
                   (parse-game-scores
-                    (get-latest-games resources/playoff-games-finished-in-regulation-and-overtime)
+                    (get-latest-games resources/playoff-games-live-finished-in-regulation-and-overtime)
                     (:standings resources/standings-for-playoffs)))
           pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
           current-stats-standings (map #(:standings (:current-stats %)) games)
@@ -463,70 +463,51 @@
               {"CAR" {:points-from-playoff-spot "+3"} "TBL" {:points-from-playoff-spot "+2"}}]
              points-from-playoff-spot) "Parsed points from playoff spot"))))
 
-(comment
 (deftest game-scores-parsing-playoff-series
 
-  (testing "Parsing pre-game playoff series wins from playoff games"
+  (testing "Parsing playoff series wins from playoff games"
     (let [games (:games
                   (parse-game-scores
                     (get-latest-games resources/playoff-games-finished-with-2nd-games)
-                    (:standings resources/standings)))
-          playoff-series (map #(:playoff-series (:pre-game-stats %)) games)
-          wins (map :wins playoff-series)]
-      (is (= [{"DET" 0 "TBL" 1} {"NYI" 1 "FLA" 0} {"CHI" 0 "STL" 1} {"NSH" 0 "ANA" 0}]
-             wins) "Parsed pre-game playoff series wins")))
+                    (:standings resources/standings-for-playoffs)))
+          pre-game-stats-playoff-series (map #(:playoff-series (:pre-game-stats %)) games)
+          current-stats-playoff-series (map #(:playoff-series (:current-stats %)) games)]
+      (is (= [{"NYI" 0 "CAR" 1} {"FLA" 0 "BOS" 1} {"MIN" 1 "DAL" 0} {"LAK" 1 "EDM" 0}]
+             (map :wins pre-game-stats-playoff-series)) "Parsed pre-game playoff series wins")
+      (is (= [{"NYI" 0 "CAR" 2} {"FLA" 1 "BOS" 1} {"MIN" 1 "DAL" 1} {"LAK" 1 "EDM" 1}]
+             (map :wins current-stats-playoff-series)) "Parsed current playoff series wins")))
 
-  (testing "Parsing current playoff series wins from playoff games"
-    (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games resources/playoff-games-finished-with-2nd-games)
-                    (:standings resources/standings)))
-          playoff-series (map #(:playoff-series (:current-stats %)) games)
-          wins (map :wins playoff-series)]
-      (is (= [{"DET" 0 "TBL" 2} {"NYI" 1 "FLA" 1} {"CHI" 1 "STL" 1} {"NSH" 1 "ANA" 0}]
-             wins) "Parsed current playoff series wins")))
-
-  (testing "Parsing pre-game playoff series wins from first playoff games"
+  (testing "Parsing playoff series wins from first playoff games"
     (let [games (:games
                   (parse-game-scores
                     (get-latest-games resources/playoff-games-live-finished-with-1st-games)
-                    (:standings resources/standings)))
-          playoff-series (map #(:playoff-series (:pre-game-stats %)) games)
-          wins (map :wins playoff-series)]
-      (is (= [{"NJD" 0 "TBL" 0}                             ; finished & up to date
-              {"TOR" 0 "BOS" 0}                             ; finished & up to date
-              {"CBJ" 0 "WSH" 0}                             ; finished & current game missing from seriesRecord
-              {"COL" 0 "NSH" 0}                             ; in-progress & up to date
-              {"SJS" 0 "ANA" 0}]                            ; in-progress & current game included in seriesRecord
-             wins) "Parsed pre-game playoff series wins")))
-
-  (testing "Parsing current playoff series wins from first playoff games"
-    (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games resources/playoff-games-live-finished-with-1st-games)
-                    (:standings resources/standings)))
-          playoff-series (map #(:playoff-series (:current-stats %)) games)
-          wins (map :wins playoff-series)]
-      (is (= [{"NJD" 0 "TBL" 1}                             ; finished & up to date
-              {"TOR" 0 "BOS" 1}                             ; finished & up to date
-              {"CBJ" 1 "WSH" 0}                             ; finished & current game missing from seriesRecord
-              {"COL" 0 "NSH" 0}                             ; in-progress & up to date
-              {"SJS" 0 "ANA" 0}]                            ; in-progress & current game included in seriesRecord
-             wins) "Parsed current playoff series wins")))
+                    (:standings resources/standings-for-playoffs)))
+          pre-game-stats-playoff-series (map #(:playoff-series (:pre-game-stats %)) games)
+          current-stats-playoff-series (map #(:playoff-series (:current-stats %)) games)]
+      (is (= [{"NYI" 0 "CAR" 0}  ; finished & up to date
+              {"FLA" 0 "BOS" 0}  ; finished & current game missing from seriesStatus
+              {"MIN" 0 "DAL" 0}  ; in-progress & up to date
+              {"LAK" 0 "EDM" 0}] ; in-progress & current game included in seriesStatus
+             (map :wins pre-game-stats-playoff-series)) "Parsed pre-game playoff series wins")
+      (is (= [{"NYI" 0 "CAR" 1}  ; finished & up to date
+              {"FLA" 0 "BOS" 1}  ; finished & current game missing from seriesStatus
+              {"MIN" 0 "DAL" 0}  ; in-progress & up to date
+              {"LAK" 0 "EDM" 0}] ; in-progress & current game included in seriesStatus
+             (map :wins current-stats-playoff-series)) "Parsed current playoff series wins")))
 
   (testing "Parsing playoff rounds from playoff games"
     (let [games (:games
                   (parse-game-scores
                     (get-latest-games resources/playoff-games-live-finished-with-1st-games)
-                    (:standings resources/standings)))
+                    (:standings resources/standings-for-playoffs)))
           pre-game-stats-playoff-series (map #(:playoff-series (:pre-game-stats %)) games)
           current-stats-playoff-series (map #(:playoff-series (:current-stats %)) games)
           pre-game-stats-rounds (map :round pre-game-stats-playoff-series)
           current-stats-rounds (map :round current-stats-playoff-series)]
-      (is (= [1 1 1 1 1]
+      (is (= [1 1 1 1]
              pre-game-stats-rounds) "Parsed pre-game stats playoff rounds")
-      (is (= [1 1 1 1 1]
-             current-stats-rounds) "Parsed current stats playoff rounds")))))
+      (is (= [1 1 1 1]
+             current-stats-rounds) "Parsed current stats playoff rounds"))))
 
 ; TODO: Later
 (comment

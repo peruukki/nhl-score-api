@@ -5,8 +5,8 @@
 > available due to the NHL site switching to another API. See the related
 > [discussion on the unofficial documentation site](https://gitlab.com/dword4/nhlapi/-/issues/110) if you're interested.
 >
-> I'm still working on finalizing the migration to the new API. Fetching scores should mostly work now, but playoff
-> specific data is not yet included.
+> I'm still working on finalizing the migration to the new API. Fetching scores should work now, the only thing missing
+> should be the NHL API data validation to populate the `errors` field.
 
 A JSON API that returns the scores and goals from the latest finished or on-going NHL games. The data is sourced from the
 same NHL Stats API at https://api-web.nhle.com that the NHL website uses. The NHL Stats API is undocumented but
