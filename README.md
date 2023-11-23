@@ -553,8 +553,8 @@ The fields are described in more detail in [Response fields](#response-fields).
     - `losses` *(number)*: regulation loss count (0 pts)
     - `ot` *(number)*: loss count for games that went to overtime (1 pt)
   - `playoffSeries` object: current playoff series related information (only present in playoff games), with the fields:
-    - `round` *(number)*: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series, actual playoffs start from `1`
-    - `wins` object: each team’s win count in the series
+    - `round` *(number)*: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series (in 2020 due to COVID-19), actual playoffs start from `1`
+    - `wins` *(object)*: each team’s win count in the series
   - `standings` object: each teams’ standings related information (only present in playoff games because the NHL Stats API doesn’t provide separate
     pre-game stats), with the fields:
     - `divisionRank` *(string)*: the team's regular season ranking in their division (based on point percentage); this comes as a *string* value from the NHL Stats API
@@ -578,8 +578,8 @@ The fields are described in more detail in [Response fields](#response-fields).
       - Note: this value only indicates point differences and doesn’t consider which team is ranked higher if they have the same
         number of points
   - `playoffSeries` object: current playoff series related information (only present in playoff games), with the fields:
-    - `round` *(number)*: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series, actual playoffs start from `1`
-    - `wins` object: each team’s win count in the series
+    - `round` *(number)*: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series (in 2020 due to COVID-19), actual playoffs start from `1`
+    - `wins` *(object)*: each team’s win count in the series
 - `errors` array: list of data validation errors, only present if any were detected. Sometimes the NHL Stats API temporarily contains
   invalid or missing data. Currently we check if the goal data from the NHL Stats API (read from its `scoringPlays` field) contains the
   same number of goals than the score data (read from its `teams` field). If it doesn't, two different errors can be reported:
