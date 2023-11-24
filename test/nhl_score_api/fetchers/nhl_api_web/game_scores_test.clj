@@ -169,17 +169,15 @@
                          {:player "Anze Kopitar" :player-id 8471685 :season-total 3}]}]
              goals) "Parsed goals")))
 
-  ; TODO later
-  (comment
-    (testing "Parsing game without goals"
-      (let [game (nth
-                   (:games
-                     (parse-game-scores
-                       (get-latest-games resources/games-for-validation-testing)
-                       default-standings))
-                   0)]
-        (is (= []
-               (:goals game)) "Parsed goals"))))
+  (testing "Parsing game without goals"
+    (let [game (last
+                 (:games
+                   (parse-game-scores
+                     (get-latest-games default-games)
+                     default-standings
+                     default-landings)))]
+      (is (= []
+             (:goals game)) "Parsed goals")))
 
   (testing "Parsing empty net goal information"
     (let [game (nth
