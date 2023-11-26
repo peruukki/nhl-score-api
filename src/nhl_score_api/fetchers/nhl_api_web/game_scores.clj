@@ -174,7 +174,8 @@
   (if (nil? landing)
     nil
     (let [clock (:clock landing)
-          time-remaining-pretty (if (= (:seconds-remaining clock) 0)
+          time-remaining-pretty (if (or (:in-intermission clock)
+                                        (= (:seconds-remaining clock) 0))
                                   "END"
                                   (:time-remaining clock))
           time-remaining-structured (parse-time-str time-remaining-pretty 0)]

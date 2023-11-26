@@ -226,11 +226,11 @@
               {:state    "LIVE"
                :progress {:current-period                3,
                           :current-period-ordinal        "3rd",
-                          :current-period-time-remaining {:pretty "END" :min 0 :sec 0}}}
+                          :current-period-time-remaining {:pretty "01:02" :min 1 :sec 2}}}
               {:state    "LIVE"
                :progress {:current-period                3,
                           :current-period-ordinal        "3rd",
-                          :current-period-time-remaining {:pretty "01:23" :min 1 :sec 23}}}
+                          :current-period-time-remaining {:pretty "END" :min 0 :sec 0}}}
               {:state "PREVIEW"}
               {:state "PREVIEW"}
               {:state "POSTPONED"}]

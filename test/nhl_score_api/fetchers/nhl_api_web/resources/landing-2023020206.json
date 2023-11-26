@@ -58,8 +58,8 @@
   "otInUse": true,
   "tiesInUse": false,
   "clock": {
-    "timeRemaining": "00:00",
-    "secondsRemaining": 0,
+    "timeRemaining": "01:02",
+    "secondsRemaining": 62,
     "running": false,
     "inIntermission": false
   },
