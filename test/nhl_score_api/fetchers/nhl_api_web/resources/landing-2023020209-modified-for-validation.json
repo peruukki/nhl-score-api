@@ -1,0 +1,544 @@
+{
+  "id": 2023020209,
+  "season": 20232024,
+  "gameType": 2,
+  "gameDate": "2023-11-10",
+  "venue": {
+    "default": "T-Mobile Arena"
+  },
+  "startTimeUTC": "2023-11-11T03:00:00Z",
+  "easternUTCOffset": "-05:00",
+  "venueUTCOffset": "-08:00",
+  "venueTimezone": "US/Pacific",
+  "tvBroadcasts": [
+    {
+      "id": 281,
+      "market": "N",
+      "countryCode": "CA",
+      "network": "TVAS"
+    },
+    {
+      "id": 282,
+      "market": "N",
+      "countryCode": "CA",
+      "network": "SN"
+    },
+    {
+      "id": 314,
+      "market": "A",
+      "countryCode": "US",
+      "network": "NBCSCA"
+    },
+    {
+      "id": 521,
+      "market": "H",
+      "countryCode": "US",
+      "network": "SCRIPPS"
+    }
+  ],
+  "gameState": "OFF",
+  "gameScheduleState": "OK",
+  "awayTeam": {
+    "id": 28,
+    "name": {
+      "default": "Sharks"
+    },
+    "abbrev": "SJS",
+    "placeName": {
+      "default": "San Jose"
+    },
+    "score": 0,
+    "sog": 20,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg"
+  },
+  "homeTeam": {
+    "id": 54,
+    "name": {
+      "default": "Golden Knights"
+    },
+    "abbrev": "VGK",
+    "placeName": {
+      "default": "Vegas"
+    },
+    "score": 5,
+    "sog": 39,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg"
+  },
+  "shootoutInUse": true,
+  "maxPeriods": 5,
+  "regPeriods": 3,
+  "otInUse": true,
+  "tiesInUse": false,
+  "clock": {
+    "timeRemaining": "00:00",
+    "secondsRemaining": 0,
+    "running": false,
+    "inIntermission": false
+  },
+  "summary": {
+    "linescore": {
+      "byPeriod": [
+        {
+          "period": 1,
+          "periodDescriptor": {
+            "number": 1,
+            "periodType": "REG"
+          },
+          "away": 0,
+          "home": 2
+        },
+        {
+          "period": 2,
+          "periodDescriptor": {
+            "number": 2,
+            "periodType": "REG"
+          },
+          "away": 0,
+          "home": 0
+        },
+        {
+          "period": 3,
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "away": 0,
+          "home": 3
+        }
+      ],
+      "totals": {
+        "away": 0,
+        "home": 5
+      }
+    },
+    "scoring": [
+      {
+        "period": 1,
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
+        "goals": []
+      },
+      {
+        "period": 2,
+        "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG"
+        },
+        "goals": []
+      },
+      {
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "goals": []
+      }
+    ],
+    "shootout": [],
+    "threeStars": [
+      {
+        "star": 1,
+        "playerId": 8474166,
+        "teamAbbrev": "VGK",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8474166.png",
+        "name": "A. Martinez",
+        "firstName": "Alec",
+        "lastName": "Martinez",
+        "sweaterNo": 23,
+        "position": "D",
+        "goals": 2,
+        "assists": 0,
+        "points": 2
+      },
+      {
+        "star": 2,
+        "playerId": 8478499,
+        "teamAbbrev": "VGK",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8478499.png",
+        "name": "A. Hill",
+        "firstName": "Adin",
+        "lastName": "Hill",
+        "sweaterNo": 33,
+        "position": "G",
+        "goalsAgainstAverage": 0.0,
+        "savePctg": 1.0
+      },
+      {
+        "star": 3,
+        "playerId": 8474565,
+        "teamAbbrev": "VGK",
+        "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8474565.png",
+        "name": "A. Pietrangelo",
+        "firstName": "Alex",
+        "lastName": "Pietrangelo",
+        "sweaterNo": 7,
+        "position": "D",
+        "goals": 1,
+        "assists": 2,
+        "points": 3
+      }
+    ],
+    "teamGameStats": [
+      {
+        "category": "sog",
+        "awayValue": "20",
+        "homeValue": "39"
+      },
+      {
+        "category": "faceoffPctg",
+        "awayValue": "55.9",
+        "homeValue": "44.1"
+      },
+      {
+        "category": "powerPlay",
+        "awayValue": "0/4",
+        "homeValue": "0/0"
+      },
+      {
+        "category": "pim",
+        "awayValue": "2",
+        "homeValue": "10"
+      },
+      {
+        "category": "hits",
+        "awayValue": "19",
+        "homeValue": "14"
+      },
+      {
+        "category": "blockedShots",
+        "awayValue": "16",
+        "homeValue": "15"
+      },
+      {
+        "category": "giveaways",
+        "awayValue": "4",
+        "homeValue": "8"
+      },
+      {
+        "category": "takeaways",
+        "awayValue": "4",
+        "homeValue": "7"
+      }
+    ],
+    "shotsByPeriod": [
+      {
+        "period": 1,
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
+        "away": 6,
+        "home": 15
+      },
+      {
+        "period": 2,
+        "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG"
+        },
+        "away": 6,
+        "home": 13
+      },
+      {
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "away": 8,
+        "home": 11
+      }
+    ],
+    "penalties": [
+      {
+        "period": 1,
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
+        "penalties": [
+          {
+            "timeInPeriod": "07:06",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Brett Howden",
+            "teamAbbrev": "VGK",
+            "drawnBy": "Calen Addison",
+            "descKey": "high-sticking"
+          }
+        ]
+      },
+      {
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "penalties": [
+          {
+            "timeInPeriod": "01:07",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Brayden McNabb",
+            "teamAbbrev": "VGK",
+            "drawnBy": "Mikael Granlund",
+            "descKey": "tripping"
+          },
+          {
+            "timeInPeriod": "05:01",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Ben Hutton",
+            "teamAbbrev": "VGK",
+            "drawnBy": "Mike Hoffman",
+            "descKey": "hooking"
+          },
+          {
+            "timeInPeriod": "15:35",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Jonathan Marchessault",
+            "teamAbbrev": "VGK",
+            "drawnBy": "William Eklund",
+            "descKey": "roughing",
+            "servedBy": "Paul Cotter"
+          },
+          {
+            "timeInPeriod": "15:35",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "Jonathan Marchessault",
+            "teamAbbrev": "VGK",
+            "drawnBy": "Fabian Zetterlund",
+            "descKey": "cross-checking"
+          },
+          {
+            "timeInPeriod": "15:35",
+            "type": "MIN",
+            "duration": 2,
+            "committedByPlayer": "William Eklund",
+            "teamAbbrev": "SJS",
+            "drawnBy": "Jonathan Marchessault",
+            "descKey": "roughing"
+          }
+        ]
+      }
+    ],
+    "seasonSeries": [
+      {
+        "id": 2023020016,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2023-10-12",
+        "startTimeUTC": "2023-10-13T02:30:00Z",
+        "easternUTCOffset": "-04:00",
+        "venueUTCOffset": "-07:00",
+        "gameState": "OFF",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 54,
+          "abbrev": "VGK",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+          "score": 4
+        },
+        "homeTeam": {
+          "id": 28,
+          "abbrev": "SJS",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
+          "score": 1
+        },
+        "clock": {
+          "timeRemaining": "00:00",
+          "secondsRemaining": 0,
+          "running": false,
+          "inIntermission": false
+        },
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "gameOutcome": {
+          "lastPeriodType": "REG"
+        }
+      },
+      {
+        "id": 2023020209,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2023-11-10",
+        "startTimeUTC": "2023-11-11T03:00:00Z",
+        "easternUTCOffset": "-05:00",
+        "venueUTCOffset": "-08:00",
+        "gameState": "OFF",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 28,
+          "abbrev": "SJS",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
+          "score": 0
+        },
+        "homeTeam": {
+          "id": 54,
+          "abbrev": "VGK",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+          "score": 5
+        },
+        "clock": {
+          "timeRemaining": "00:00",
+          "secondsRemaining": 0,
+          "running": false,
+          "inIntermission": false
+        },
+        "period": 3,
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "gameOutcome": {
+          "lastPeriodType": "REG"
+        }
+      },
+      {
+        "id": 2023020427,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2023-12-10",
+        "startTimeUTC": "2023-12-11T03:00:00Z",
+        "easternUTCOffset": "-05:00",
+        "venueUTCOffset": "-08:00",
+        "gameState": "FUT",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 28,
+          "abbrev": "SJS",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg"
+        },
+        "homeTeam": {
+          "id": 54,
+          "abbrev": "VGK",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg"
+        }
+      },
+      {
+        "id": 2023020873,
+        "season": 20232024,
+        "gameType": 2,
+        "gameDate": "2024-02-19",
+        "startTimeUTC": "2024-02-19T21:00:00Z",
+        "easternUTCOffset": "-05:00",
+        "venueUTCOffset": "-08:00",
+        "gameState": "FUT",
+        "gameScheduleState": "OK",
+        "awayTeam": {
+          "id": 54,
+          "abbrev": "VGK",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg"
+        },
+        "homeTeam": {
+          "id": 28,
+          "abbrev": "SJS",
+          "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg"
+        }
+      }
+    ],
+    "gameInfo": {
+      "referees": [
+        {
+          "default": "TJ Luxmore"
+        },
+        {
+          "default": "Ghislain Hebert"
+        }
+      ],
+      "linesmen": [
+        {
+          "default": "Kyle Flemington"
+        },
+        {
+          "default": "Mitch Hunt"
+        }
+      ],
+      "awayTeam": {
+        "headCoach": {
+          "default": "David Quinn"
+        },
+        "scratches": [
+          {
+            "id": 8477407,
+            "firstName": {
+              "default": "Anthony"
+            },
+            "lastName": {
+              "default": "Duclair"
+            }
+          },
+          {
+            "id": 8480834,
+            "firstName": {
+              "default": "Ty"
+            },
+            "lastName": {
+              "default": "Emberson"
+            }
+          },
+          {
+            "id": 8481812,
+            "firstName": {
+              "default": "Nikolai",
+              "cs": "Nikolaj",
+              "sk": "Nikolaj"
+            },
+            "lastName": {
+              "default": "Knyzhov",
+              "cs": "Knyžov",
+              "sk": "Knyžov"
+            }
+          }
+        ]
+      },
+      "homeTeam": {
+        "headCoach": {
+          "default": "Bruce Cassidy"
+        },
+        "scratches": [
+          {
+            "id": 8476905,
+            "firstName": {
+              "default": "Chandler"
+            },
+            "lastName": {
+              "default": "Stephenson"
+            }
+          },
+          {
+            "id": 8479980,
+            "firstName": {
+              "default": "Nicolas"
+            },
+            "lastName": {
+              "default": "Hague"
+            }
+          },
+          {
+            "id": 8481167,
+            "firstName": {
+              "default": "Brayden"
+            },
+            "lastName": {
+              "default": "Pachal"
+            }
+          }
+        ]
+      }
+    },
+    "gameVideo": {
+      "threeMinRecap": 6340930323112,
+      "threeMinRecapFr": 6340930514112,
+      "condensedGame": 6340930030112
+    }
+  }
+}

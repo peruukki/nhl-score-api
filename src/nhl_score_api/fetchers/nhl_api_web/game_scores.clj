@@ -491,7 +491,7 @@
         (add-team-streaks schedule-game team-details standings)
         (add-team-standings schedule-game team-details standings)
         (add-playoff-series-information schedule-game)
-        ;(add-validation-errors)
+        (add-validation-errors)
         (reject-empty-vals-except-for-keys #{:goals}))))
 
 (defn parse-game-scores

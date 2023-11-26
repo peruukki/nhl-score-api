@@ -507,65 +507,52 @@
       (is (= [1 1 1 1]
              current-stats-rounds) "Parsed current stats playoff rounds"))))
 
-; TODO: Later
-(comment
 (deftest game-scores-validation
 
   (testing "Validating valid game with goals"
     (let [game (first (:games
                         (parse-game-scores
                           (get-latest-games default-games)
-                          (:standings resources/standings))))]
-      (is (= (contains? game :errors) false) "No validation errors")))
+                          default-standings
+                          default-landings)))]
+      (is (= false (empty? (:goals game))) "Game has some goals")
+      (is (= false (contains? game :errors)) "No validation errors")))
 
   (testing "Validating valid game without goals"
-    (let [game (nth (:games
-                      (parse-game-scores
-                        (get-latest-games default-games)
-                        (:standings resources/standings)))
-                    3)]
-      (is (= (contains? game :errors) false) "No validation errors")))
-
-  (testing "Validating valid non-finished game with multiple shootout goals"
-    (let [game (nth (:games
-                      (parse-game-scores
-                        (get-latest-games resources/games-for-validation-testing)
-                        (:standings resources/standings)))
-                    4)]
-      (is (= (contains? game :errors) false) "No validation errors")))
-
-  (testing "Validating valid finished game with multiple shootout goals"
-    (let [game (nth (:games
-                      (parse-game-scores
-                        (get-latest-games resources/games-for-validation-testing)
-                        (:standings resources/standings)))
-                    3)]
-      (is (= (contains? game :errors) false) "No validation errors")))
+    (let [game (last (:games
+                       (parse-game-scores
+                         (get-latest-games default-games)
+                         default-standings
+                         default-landings)))]
+      (is (= true (empty? (:goals game))) "Game has no goals")
+      (is (= false (contains? game :errors)) "No validation errors")))
 
   (testing "Validating game missing all goals"
-    (let [game (first (:games
+    (let [game (last (:games
                         (parse-game-scores
                           (get-latest-games resources/games-for-validation-testing)
-                          (:standings resources/standings))))]
-      (is (= (contains? game :errors) true) "Contains validation errors")
+                          default-standings
+                          (resources/get-landings ["2023020209-modified-for-validation"]))))]
+      (is (= true (contains? game :errors)) "Contains validation errors")
       (is (= [{:error :MISSING-ALL-GOALS}]
              (:errors game)) "Errors contain 'missing all goals' error")))
 
   (testing "Validating game missing one goal"
-    (let [game (second (:games
-                         (parse-game-scores
-                           (get-latest-games resources/games-for-validation-testing)
-                           (:standings resources/standings))))]
-      (is (= (contains? game :errors) true) "Contains validation errors")
-      (is (= [{:error :SCORE-AND-GOAL-COUNT-MISMATCH :details {:goal-count 4 :score-count 5}}]
+    (let [game (first (:games
+                        (parse-game-scores
+                          (get-latest-games resources/games-for-validation-testing)
+                          default-standings
+                          default-landings)))]
+      (is (= true (contains? game :errors)) "Contains validation errors")
+      (is (= [{:error :SCORE-AND-GOAL-COUNT-MISMATCH :details {:goal-count 6 :score-count 7}}]
              (:errors game)) "Errors contain expected 'score and goal count mismatch' error")))
 
   (testing "Validating game having one goal too many"
-    (let [game (nth (:games
-                      (parse-game-scores
-                        (get-latest-games resources/games-for-validation-testing)
-                        (:standings resources/standings)))
-                    2)]
-      (is (= (contains? game :errors) true) "Contains validation errors")
-      (is (= [{:error :SCORE-AND-GOAL-COUNT-MISMATCH :details {:goal-count 5 :score-count 3}}]
-             (:errors game)) "Errors contain expected 'score and goal count mismatch' error")))))
+    (let [game (second (:games
+                         (parse-game-scores
+                           (get-latest-games resources/games-for-validation-testing)
+                           default-standings
+                           default-landings)))]
+      (is (= true (contains? game :errors)) "Contains validation errors")
+      (is (= [{:error :SCORE-AND-GOAL-COUNT-MISMATCH :details {:goal-count 9 :score-count 8}}]
+             (:errors game)) "Errors contain expected 'score and goal count mismatch' error"))))
