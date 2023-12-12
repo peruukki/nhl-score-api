@@ -81,7 +81,8 @@
                                                         </xs:annotation>
                                                     </xs:element>
                                                 </xs:choice>
-                                                <xs:element name="method" minOccurs="1" maxOccurs="unbounded">
+                                                <xs:choice minOccurs="1">
+                                                    <xs:element maxOccurs="unbounded" name="method">
                                                     <xs:complexType>
                                                         <xs:choice minOccurs="1">
                                                             <xs:element name="returnType" type="xs:string" minOccurs="0">
@@ -129,6 +130,18 @@
                                                         
                                                     </xs:complexType>
                                                 </xs:element>
+                                                    <xs:element name="traceLambda">
+                                                        <xs:complexType>
+                                                            <xs:simpleContent>
+                                                                <xs:extension base="xs:boolean">
+                                                                    <xs:attribute type="xs:string" name="pattern"/>
+                                                                    <xs:attribute type="xs:boolean" name="includeNonstatic"/>
+                                                                </xs:extension>
+                                                            </xs:simpleContent>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element maxOccurs="unbounded" name="traceByReturnType"/>
+                                                </xs:choice>
                                             </xs:sequence>
                                         </xs:choice>
                                     </xs:sequence>
@@ -158,6 +171,17 @@
                                                 When true the transaction trace will not be provided if this point cut initiates the transaction.
                                                 If this point cut is reached in the middle of a transaction, then the transaction
                                                 trace will still be present, but this method will be excluded from the call graph.
+                                                When used in conjuction with leaf the agent will create a tracer with lower overhead.
+                                            </xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                    <xs:attribute name="leaf" type="xs:boolean" default="false">
+                                        <xs:annotation>
+                                            <xs:documentation>
+                                                When true this tracer will not have any child tracers.  This is useful when all time should be attributed to the tracer
+                                                even if other trace points are encountered during its execution. For example, database tracers often act as leaf tracers
+                                                so that all time is attributed to database activity even if instrumented external calls are made.
+                                                When used in conjuction with excludeFromTransactionTrace the agent will create a tracer with lower overhead.
                                             </xs:documentation>
                                         </xs:annotation>
                                     </xs:attribute>
