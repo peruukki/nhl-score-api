@@ -22,4 +22,4 @@
   :uberjar-name "server.jar"
   :heroku {:app-name "nhl-score-api"
            :include-files ["target" "newrelic"]
-           :process-types { "web" "java -javaagent:newrelic/newrelic.jar -jar target/server.jar" }})
+           :process-types {"web" "java -javaagent:newrelic/newrelic.jar -jar target/server.jar"}})
