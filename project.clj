@@ -19,7 +19,4 @@
   :profiles {:kaocha  {:dependencies [[lambdaisland/kaocha "1.87.1366"]]}
              :uberjar {:aot :all}}
   :aliases {"kaocha" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner" "--reporter" "kaocha.report/documentation" "--skip-meta" "skip"]}
-  :uberjar-name "server.jar"
-  :heroku {:app-name "nhl-score-api"
-           :include-files ["target" "newrelic"]
-           :process-types {"web" "java -javaagent:newrelic/newrelic.jar -jar target/server.jar"}})
+  :uberjar-name "server.jar")
