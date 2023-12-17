@@ -35,8 +35,8 @@
 
 (defn- fetch [transaction-name transaction-params url]
   (println "Fetching" transaction-name transaction-params)
-  (->> #(http/get url {:debug false})
-       (newrelic/with-newrelic-transaction "NHL API" transaction-name (or transaction-params {}))
+  (newrelic/set-transaction-name "NHL API" transaction-name)
+  (->> (http/get url {:debug false})
        :body
        api-response-to-json))
 
