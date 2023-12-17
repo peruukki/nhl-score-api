@@ -2,11 +2,10 @@
   (:require [nhl-score-api.cache :as cache]
             [nhl-score-api.fetchers.nhl-api-web.game-scores :as game-scores]
             [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-games-in-date-range get-latest-games started-game?]]
-            [nhl-score-api.utils :refer [format-date parse-date]]
+            [nhl-score-api.utils :refer [format-date]]
             [clojure.data.json :as json]
             [camel-snake-kebab.core :refer [->kebab-case-keyword]]
             [clj-time.core :as time]
-            [clj-time.format :as format]
             [clj-http.client :as http]))
 
 (def base-url "https://api-web.nhle.com/v1")
