@@ -33,21 +33,19 @@
 (defn api-response-to-json [api-response]
   (json/read-str api-response :key-fn ->kebab-case-keyword))
 
-(defn- fetch [transaction-name url & log-message]
-  (when log-message (apply println log-message))
+(defn- fetch [transaction-name transaction-params url]
+  (println "Fetching" transaction-name transaction-params)
   (->> #(http/get url {:debug true})
-       (newrelic/with-newrelic-transaction "NHL API" transaction-name)
+       (newrelic/with-newrelic-transaction "NHL API" transaction-name (or transaction-params {}))
        :body
        api-response-to-json))
 
 (defn- fetch-games-info [date-str]
   (let [start-date (get-schedule-start-date date-str)]
-    (fetch "Schedule"
-           (get-schedule-url start-date)
-           "Fetching schedule" start-date)))
+    (fetch "schedule" {:date start-date} (get-schedule-url start-date))))
 
 (defn- fetch-standings-parameters []
-  (fetch "Standings parameters" standings-parameters-url "Fetching standings parameters"))
+  (fetch "standings parameters" nil standings-parameters-url))
 
 (defn fetch-standings-info [date-str standings-parameters]
   (let [standings-date-str (if (nil? date-str)
@@ -55,9 +53,7 @@
                              (get-standings-request-date date-str standings-parameters))]
     (if (nil? standings-date-str)
       {:records nil}
-      (fetch "Standings"
-             (get-standings-url standings-date-str)
-             "Fetching standings" standings-date-str))))
+      (fetch "standings" {:date standings-date-str} (get-standings-url standings-date-str)))))
 
 (defn get-landing-urls-by-game-id [schedule-games]
   (->> schedule-games
@@ -68,7 +64,7 @@
 (defn fetch-landings-info [schedule-games]
   (->> schedule-games
        (get-landing-urls-by-game-id)
-       (map (fn [[id url]] [id (fetch "Landing" url "Fetching landing" id)]))
+       (map (fn [[id url]] [id (fetch "landing" {:id id} url)]))
        (into {})))
 
 (defn- fetch-latest-scores []
