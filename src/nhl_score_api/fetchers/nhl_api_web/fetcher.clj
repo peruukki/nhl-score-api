@@ -6,7 +6,8 @@
             [clojure.data.json :as json]
             [camel-snake-kebab.core :refer [->kebab-case-keyword]]
             [clj-time.core :as time]
-            [clj-http.client :as http]))
+            [clj-http.client :as http]
+            [new-reliquary.core :as newrelic]))
 
 (def base-url "https://api-web.nhle.com/v1")
 (def standings-parameters-url (str base-url "/standings-season"))
@@ -32,14 +33,21 @@
 (defn api-response-to-json [api-response]
   (json/read-str api-response :key-fn ->kebab-case-keyword))
 
+(defn- fetch [transaction-name url & log-message]
+  (when log-message (apply println log-message))
+  (->> #(http/get url {:debug true})
+       (newrelic/with-newrelic-transaction "NHL API" transaction-name)
+       :body
+       api-response-to-json))
+
 (defn- fetch-games-info [date-str]
   (let [start-date (get-schedule-start-date date-str)]
-    (println "Fetching schedule" start-date)
-    (api-response-to-json (:body (http/get (get-schedule-url start-date) {:debug true})))))
+    (fetch "Schedule"
+           (get-schedule-url start-date)
+           "Fetching schedule" start-date)))
 
 (defn- fetch-standings-parameters []
-  (println "Fetching standings parameters")
-  (api-response-to-json (:body (http/get standings-parameters-url {:debug true}))))
+  (fetch "Standings parameters" standings-parameters-url "Fetching standings parameters"))
 
 (defn fetch-standings-info [date-str standings-parameters]
   (let [standings-date-str (if (nil? date-str)
@@ -47,9 +55,9 @@
                              (get-standings-request-date date-str standings-parameters))]
     (if (nil? standings-date-str)
       {:records nil}
-      (do
-        (println "Fetching standings" standings-date-str)
-        (api-response-to-json (:body (http/get (get-standings-url standings-date-str) {:debug true})))))))
+      (fetch "Standings"
+             (get-standings-url standings-date-str)
+             "Fetching standings" standings-date-str))))
 
 (defn get-landing-urls-by-game-id [schedule-games]
   (->> schedule-games
@@ -60,10 +68,7 @@
 (defn fetch-landings-info [schedule-games]
   (->> schedule-games
        (get-landing-urls-by-game-id)
-       (map (fn [id-and-url] [(first id-and-url)
-                              (do
-                                (println "Fetching landing" (first id-and-url))
-                                (api-response-to-json (:body (http/get (second id-and-url) {:debug true}))))]))
+       (map (fn [[id url]] [id (fetch "Landing" url "Fetching landing" id)]))
        (into {})))
 
 (defn- fetch-latest-scores []
