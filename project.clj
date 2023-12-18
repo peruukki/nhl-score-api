@@ -16,6 +16,11 @@
                  [ring/ring-core "1.9.6"]
                  [yleisradio/new-reliquary "1.1.0"]]
   :main nhl-score-api.core
+  :release-tasks [["vcs" "assert-committed"]
+                  ["change" "version" "leiningen.release/bump-version"]
+                  ["change" "version" "leiningen.release/bump-version" "release"]
+                  ["vcs" "commit"]
+                  ["vcs" "tag" "--no-sign"]]
   :profiles {:kaocha  {:dependencies [[lambdaisland/kaocha "1.87.1366"]]}
              :uberjar {:aot :all}}
   :aliases {"kaocha" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner" "--reporter" "kaocha.report/documentation" "--skip-meta" "skip"]}
