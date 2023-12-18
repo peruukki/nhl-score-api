@@ -6,8 +6,7 @@
             [clojure.data.json :as json]
             [camel-snake-kebab.core :refer [->kebab-case-keyword]]
             [clj-time.core :as time]
-            [clj-http.client :as http]
-            [new-reliquary.core :as newrelic]))
+            [clj-http.client :as http]))
 
 (def base-url "https://api-web.nhle.com/v1")
 (def standings-parameters-url (str base-url "/standings-season"))
@@ -33,12 +32,11 @@
 (defn api-response-to-json [api-response]
   (json/read-str api-response :key-fn ->kebab-case-keyword))
 
-(defn- fetch [transaction-name transaction-params url]
-  (println "Fetching" transaction-name transaction-params)
-  (newrelic/set-transaction-name "NHL API" transaction-name)
-  (->> (http/get url {:debug false})
-       :body
-       api-response-to-json))
+(defn- fetch [endpoint-name endpoint-params url]
+  (println "Fetching" endpoint-name endpoint-params)
+  (-> (http/get url {:debug false})
+      :body
+      api-response-to-json))
 
 (defn- fetch-games-info [date-str]
   (let [start-date (get-schedule-start-date date-str)]
