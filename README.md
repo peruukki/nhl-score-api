@@ -650,10 +650,15 @@ lein test
 
 The API is deployed to [Heroku](http://heroku.com/) from a development machine, no CI/CD setup. 😬
 
-Deployment is done with a single script:
+Usual deployment process:
 
 ```sh
+# Bump version
+lein release <:minor|:patch>
+# Deploy to Heroku
 ./deploy.sh
+# Push to Git
+git push origin master --tags
 ```
 
 The API responses are cached in-memory for one minute.
