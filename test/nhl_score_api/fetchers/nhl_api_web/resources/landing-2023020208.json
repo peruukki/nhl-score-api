@@ -112,30 +112,66 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8476461,
-            "firstName": "Sean",
-            "lastName": "Couturier",
-            "name": "S. Couturier",
-            "teamAbbrev": "PHI",
+            "firstName": {
+              "default": "Sean"
+            },
+            "lastName": {
+              "default": "Couturier"
+            },
+            "name": {
+              "default": "S. Couturier"
+            },
+            "teamAbbrev": {
+              "default": "PHI"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8476461.png",
             "highlightClip": 6340912104112,
             "goalsToDate": 3,
             "awayScore": 1,
             "homeScore": 0,
-            "leadingTeamAbbrev": "PHI",
+            "leadingTeamAbbrev": {
+              "default": "PHI"
+            },
             "timeInPeriod": "04:57",
             "shotType": "wrist",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8474715,
-                "firstName": "Cam",
-                "lastName": "Atkinson",
+                "firstName": {
+                  "default": "Cam"
+                },
+                "lastName": {
+                  "default": "Atkinson"
+                },
+                "name": {
+                  "default": "C. Atkinson"
+                },
                 "assistsToDate": 4
               },
               {
                 "playerId": 8481178,
-                "firstName": "Egor",
-                "lastName": "Zamula",
+                "firstName": {
+                  "default": "Egor",
+                  "cs": "Jegor",
+                  "de": "Yegor",
+                  "es": "Yegor",
+                  "fi": "Yegor",
+                  "sk": "Jegor",
+                  "sv": "Yegor"
+                },
+                "lastName": {
+                  "default": "Zamula"
+                },
+                "name": {
+                  "default": "E. Zamula",
+                  "cs": "J. Zamula",
+                  "de": "Y. Zamula",
+                  "es": "Y. Zamula",
+                  "fi": "Y. Zamula",
+                  "sk": "J. Zamula",
+                  "sv": "Y. Zamula"
+                },
                 "assistsToDate": 3
               }
             ]
@@ -144,30 +180,54 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8474715,
-            "firstName": "Cam",
-            "lastName": "Atkinson",
-            "name": "C. Atkinson",
-            "teamAbbrev": "PHI",
+            "firstName": {
+              "default": "Cam"
+            },
+            "lastName": {
+              "default": "Atkinson"
+            },
+            "name": {
+              "default": "C. Atkinson"
+            },
+            "teamAbbrev": {
+              "default": "PHI"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8474715.png",
             "highlightClip": 6340913988112,
             "goalsToDate": 7,
             "awayScore": 2,
             "homeScore": 0,
-            "leadingTeamAbbrev": "PHI",
+            "leadingTeamAbbrev": {
+              "default": "PHI"
+            },
             "timeInPeriod": "12:31",
             "shotType": "backhand",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8477948,
-                "firstName": "Travis",
-                "lastName": "Sanheim",
+                "firstName": {
+                  "default": "Travis"
+                },
+                "lastName": {
+                  "default": "Sanheim"
+                },
+                "name": {
+                  "default": "T. Sanheim"
+                },
                 "assistsToDate": 11
               },
               {
                 "playerId": 8482159,
-                "firstName": "Tyson",
-                "lastName": "Foerster",
+                "firstName": {
+                  "default": "Tyson"
+                },
+                "lastName": {
+                  "default": "Foerster"
+                },
+                "name": {
+                  "default": "T. Foerster"
+                },
                 "assistsToDate": 3
               }
             ]
@@ -185,24 +245,41 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8478011,
-            "firstName": "Louie",
-            "lastName": "Belpedio",
-            "name": "L. Belpedio",
-            "teamAbbrev": "PHI",
+            "firstName": {
+              "default": "Louie"
+            },
+            "lastName": {
+              "default": "Belpedio"
+            },
+            "name": {
+              "default": "L. Belpedio"
+            },
+            "teamAbbrev": {
+              "default": "PHI"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8478011.png",
             "highlightClip": 6340916152112,
             "goalsToDate": 2,
             "awayScore": 3,
             "homeScore": 0,
-            "leadingTeamAbbrev": "PHI",
+            "leadingTeamAbbrev": {
+              "default": "PHI"
+            },
             "timeInPeriod": "02:33",
             "shotType": "wrist",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8480797,
-                "firstName": "Joel",
-                "lastName": "Farabee",
+                "firstName": {
+                  "default": "Joel"
+                },
+                "lastName": {
+                  "default": "Farabee"
+                },
+                "name": {
+                  "default": "J. Farabee"
+                },
                 "assistsToDate": 5
               }
             ]
@@ -211,30 +288,54 @@
             "situationCode": "1451",
             "strength": "pp",
             "playerId": 8484153,
-            "firstName": "Leo",
-            "lastName": "Carlsson",
-            "name": "L. Carlsson",
-            "teamAbbrev": "ANA",
+            "firstName": {
+              "default": "Leo"
+            },
+            "lastName": {
+              "default": "Carlsson"
+            },
+            "name": {
+              "default": "L. Carlsson"
+            },
+            "teamAbbrev": {
+              "default": "ANA"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/ANA/8484153.png",
             "highlightClip": 6340930128112,
             "goalsToDate": 4,
             "awayScore": 3,
             "homeScore": 1,
-            "leadingTeamAbbrev": "PHI",
+            "leadingTeamAbbrev": {
+              "default": "PHI"
+            },
             "timeInPeriod": "13:15",
             "shotType": "snap",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8473986,
-                "firstName": "Alex",
-                "lastName": "Killorn",
+                "firstName": {
+                  "default": "Alex"
+                },
+                "lastName": {
+                  "default": "Killorn"
+                },
+                "name": {
+                  "default": "A. Killorn"
+                },
                 "assistsToDate": 1
               },
               {
                 "playerId": 8482745,
-                "firstName": "Mason",
-                "lastName": "McTavish",
+                "firstName": {
+                  "default": "Mason"
+                },
+                "lastName": {
+                  "default": "McTavish"
+                },
+                "name": {
+                  "default": "M. McTavish"
+                },
                 "assistsToDate": 8
               }
             ]
@@ -252,30 +353,54 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8477948,
-            "firstName": "Travis",
-            "lastName": "Sanheim",
-            "name": "T. Sanheim",
-            "teamAbbrev": "PHI",
+            "firstName": {
+              "default": "Travis"
+            },
+            "lastName": {
+              "default": "Sanheim"
+            },
+            "name": {
+              "default": "T. Sanheim"
+            },
+            "teamAbbrev": {
+              "default": "PHI"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8477948.png",
             "highlightClip": 6340920468112,
             "goalsToDate": 2,
             "awayScore": 4,
             "homeScore": 1,
-            "leadingTeamAbbrev": "PHI",
+            "leadingTeamAbbrev": {
+              "default": "PHI"
+            },
             "timeInPeriod": "07:39",
             "shotType": "backhand",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8480797,
-                "firstName": "Joel",
-                "lastName": "Farabee",
+                "firstName": {
+                  "default": "Joel"
+                },
+                "lastName": {
+                  "default": "Farabee"
+                },
+                "name": {
+                  "default": "J. Farabee"
+                },
                 "assistsToDate": 6
               },
               {
                 "playerId": 8481546,
-                "firstName": "Cam",
-                "lastName": "York",
+                "firstName": {
+                  "default": "Cam"
+                },
+                "lastName": {
+                  "default": "York"
+                },
+                "name": {
+                  "default": "C. York"
+                },
                 "assistsToDate": 3
               }
             ]
@@ -284,30 +409,54 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8484153,
-            "firstName": "Leo",
-            "lastName": "Carlsson",
-            "name": "L. Carlsson",
-            "teamAbbrev": "ANA",
+            "firstName": {
+              "default": "Leo"
+            },
+            "lastName": {
+              "default": "Carlsson"
+            },
+            "name": {
+              "default": "L. Carlsson"
+            },
+            "teamAbbrev": {
+              "default": "ANA"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/ANA/8484153.png",
             "highlightClip": 6340927986112,
             "goalsToDate": 5,
             "awayScore": 4,
             "homeScore": 2,
-            "leadingTeamAbbrev": "PHI",
+            "leadingTeamAbbrev": {
+              "default": "PHI"
+            },
             "timeInPeriod": "10:34",
             "shotType": "snap",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8473986,
-                "firstName": "Alex",
-                "lastName": "Killorn",
+                "firstName": {
+                  "default": "Alex"
+                },
+                "lastName": {
+                  "default": "Killorn"
+                },
+                "name": {
+                  "default": "A. Killorn"
+                },
                 "assistsToDate": 2
               },
               {
                 "playerId": 8483490,
-                "firstName": "Pavel",
-                "lastName": "Mintyukov",
+                "firstName": {
+                  "default": "Pavel"
+                },
+                "lastName": {
+                  "default": "Mintyukov"
+                },
+                "name": {
+                  "default": "P. Mintyukov"
+                },
                 "assistsToDate": 8
               }
             ]
@@ -316,24 +465,41 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8480015,
-            "firstName": "Owen",
-            "lastName": "Tippett",
-            "name": "O. Tippett",
-            "teamAbbrev": "PHI",
+            "firstName": {
+              "default": "Owen"
+            },
+            "lastName": {
+              "default": "Tippett"
+            },
+            "name": {
+              "default": "O. Tippett"
+            },
+            "teamAbbrev": {
+              "default": "PHI"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8480015.png",
             "highlightClip": 6340926035112,
             "goalsToDate": 3,
             "awayScore": 5,
             "homeScore": 2,
-            "leadingTeamAbbrev": "PHI",
+            "leadingTeamAbbrev": {
+              "default": "PHI"
+            },
             "timeInPeriod": "13:07",
             "shotType": "wrist",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8480028,
-                "firstName": "Morgan",
-                "lastName": "Frost",
+                "firstName": {
+                  "default": "Morgan"
+                },
+                "lastName": {
+                  "default": "Frost"
+                },
+                "name": {
+                  "default": "M. Frost"
+                },
                 "assistsToDate": 1
               }
             ]
@@ -342,29 +508,53 @@
             "situationCode": "1460",
             "strength": "pp",
             "playerId": 8484153,
-            "firstName": "Leo",
-            "lastName": "Carlsson",
-            "name": "L. Carlsson",
-            "teamAbbrev": "ANA",
+            "firstName": {
+              "default": "Leo"
+            },
+            "lastName": {
+              "default": "Carlsson"
+            },
+            "name": {
+              "default": "L. Carlsson"
+            },
+            "teamAbbrev": {
+              "default": "ANA"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/ANA/8484153.png",
             "goalsToDate": 6,
             "awayScore": 5,
             "homeScore": 3,
-            "leadingTeamAbbrev": "PHI",
+            "leadingTeamAbbrev": {
+              "default": "PHI"
+            },
             "timeInPeriod": "18:32",
             "shotType": "wrist",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8478873,
-                "firstName": "Troy",
-                "lastName": "Terry",
+                "firstName": {
+                  "default": "Troy"
+                },
+                "lastName": {
+                  "default": "Terry"
+                },
+                "name": {
+                  "default": "T. Terry"
+                },
                 "assistsToDate": 6
               },
               {
                 "playerId": 8476458,
-                "firstName": "Ryan",
-                "lastName": "Strome",
+                "firstName": {
+                  "default": "Ryan"
+                },
+                "lastName": {
+                  "default": "Strome"
+                },
+                "name": {
+                  "default": "R. Strome"
+                },
                 "assistsToDate": 10
               }
             ]
@@ -373,30 +563,54 @@
             "situationCode": "1560",
             "strength": "ev",
             "playerId": 8480015,
-            "firstName": "Owen",
-            "lastName": "Tippett",
-            "name": "O. Tippett",
-            "teamAbbrev": "PHI",
+            "firstName": {
+              "default": "Owen"
+            },
+            "lastName": {
+              "default": "Tippett"
+            },
+            "name": {
+              "default": "O. Tippett"
+            },
+            "teamAbbrev": {
+              "default": "PHI"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8480015.png",
             "highlightClip": 6340930803112,
             "goalsToDate": 4,
             "awayScore": 6,
             "homeScore": 3,
-            "leadingTeamAbbrev": "PHI",
+            "leadingTeamAbbrev": {
+              "default": "PHI"
+            },
             "timeInPeriod": "18:59",
             "shotType": "wrist",
             "goalModifier": "empty-net",
             "assists": [
               {
                 "playerId": 8477948,
-                "firstName": "Travis",
-                "lastName": "Sanheim",
+                "firstName": {
+                  "default": "Travis"
+                },
+                "lastName": {
+                  "default": "Sanheim"
+                },
+                "name": {
+                  "default": "T. Sanheim"
+                },
                 "assistsToDate": 12
               },
               {
                 "playerId": 8476872,
-                "firstName": "Scott",
-                "lastName": "Laughton",
+                "firstName": {
+                  "default": "Scott"
+                },
+                "lastName": {
+                  "default": "Laughton"
+                },
+                "name": {
+                  "default": "S. Laughton"
+                },
                 "assistsToDate": 8
               }
             ]

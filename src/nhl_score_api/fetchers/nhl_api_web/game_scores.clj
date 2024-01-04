@@ -42,7 +42,7 @@
   (:player-id player-details))
 
 (defn- parse-player-name [player-details]
-  (str (:first-name player-details) " " (:last-name player-details)))
+  (str (:default (:first-name player-details)) " " (:default (:last-name player-details))))
 
 (defn- parse-goal-scorer-season-total [player-details period]
   (when (not= "SO" period)
@@ -98,7 +98,7 @@
     goal-details))
 
 (defn- parse-goal-details [goal-details]
-  (let [team (:team-abbrev goal-details)
+  (let [team (:default (:team-abbrev goal-details))
         period (:period goal-details)
         time (parse-goal-time goal-details period)
         scorer (parse-goal-scorer goal-details period)

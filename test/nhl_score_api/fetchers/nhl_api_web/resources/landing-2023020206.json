@@ -111,30 +111,54 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8477979,
-            "firstName": "Nicolas",
-            "lastName": "Aube-Kubel",
-            "name": "N. Aube-Kubel",
-            "teamAbbrev": "WSH",
+            "firstName": {
+              "default": "Nicolas"
+            },
+            "lastName": {
+              "default": "Aube-Kubel"
+            },
+            "name": {
+              "default": "N. Aube-Kubel"
+            },
+            "teamAbbrev": {
+              "default": "WSH"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/WSH/8477979.png",
             "highlightClip": 6340906511112,
             "goalsToDate": 1,
             "awayScore": 1,
             "homeScore": 0,
-            "leadingTeamAbbrev": "WSH",
+            "leadingTeamAbbrev": {
+              "default": "WSH"
+            },
             "timeInPeriod": "10:22",
             "shotType": "slap",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8480873,
-                "firstName": "Rasmus",
-                "lastName": "Sandin",
+                "firstName": {
+                  "default": "Rasmus"
+                },
+                "lastName": {
+                  "default": "Sandin"
+                },
+                "name": {
+                  "default": "R. Sandin"
+                },
                 "assistsToDate": 2
               },
               {
                 "playerId": 8477947,
-                "firstName": "Sonny",
-                "lastName": "Milano",
+                "firstName": {
+                  "default": "Sonny"
+                },
+                "lastName": {
+                  "default": "Milano"
+                },
+                "name": {
+                  "default": "S. Milano"
+                },
                 "assistsToDate": 2
               }
             ]
@@ -143,30 +167,58 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8479359,
-            "firstName": "Beck",
-            "lastName": "Malenstyn",
-            "name": "B. Malenstyn",
-            "teamAbbrev": "WSH",
+            "firstName": {
+              "default": "Beck"
+            },
+            "lastName": {
+              "default": "Malenstyn"
+            },
+            "name": {
+              "default": "B. Malenstyn"
+            },
+            "teamAbbrev": {
+              "default": "WSH"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/WSH/8479359.png",
             "highlightClip": 6340907588112,
             "goalsToDate": 1,
             "awayScore": 2,
             "homeScore": 0,
-            "leadingTeamAbbrev": "WSH",
+            "leadingTeamAbbrev": {
+              "default": "WSH"
+            },
             "timeInPeriod": "10:37",
             "shotType": "wrist",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8477979,
-                "firstName": "Nicolas",
-                "lastName": "Aube-Kubel",
+                "firstName": {
+                  "default": "Nicolas"
+                },
+                "lastName": {
+                  "default": "Aube-Kubel"
+                },
+                "name": {
+                  "default": "N. Aube-Kubel"
+                },
                 "assistsToDate": 1
               },
               {
                 "playerId": 8480796,
-                "firstName": "Martin",
-                "lastName": "Fehervary",
+                "firstName": {
+                  "default": "Martin"
+                },
+                "lastName": {
+                  "default": "Fehervary",
+                  "cs": "Fehérváry",
+                  "sk": "Fehérváry"
+                },
+                "name": {
+                  "default": "M. Fehervary",
+                  "cs": "M. Fehérváry",
+                  "sk": "M. Fehérváry"
+                },
                 "assistsToDate": 2
               }
             ]
@@ -184,30 +236,71 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8475744,
-            "firstName": "Evgeny",
-            "lastName": "Kuznetsov",
-            "name": "E. Kuznetsov",
-            "teamAbbrev": "WSH",
+            "firstName": {
+              "default": "Evgeny",
+              "cs": "Jevgenij",
+              "fi": "Jevgeni",
+              "sk": "Jevgenij"
+            },
+            "lastName": {
+              "default": "Kuznetsov",
+              "cs": "Kuzněcov",
+              "sk": "Kuznecov"
+            },
+            "name": {
+              "default": "E. Kuznetsov",
+              "cs": "J. Kuzněcov",
+              "fi": "J. Kuznetsov",
+              "sk": "J. Kuznecov"
+            },
+            "teamAbbrev": {
+              "default": "WSH"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/WSH/8475744.png",
             "highlightClip": 6340907841112,
             "goalsToDate": 2,
             "awayScore": 3,
             "homeScore": 0,
-            "leadingTeamAbbrev": "WSH",
+            "leadingTeamAbbrev": {
+              "default": "WSH"
+            },
             "timeInPeriod": "06:34",
             "shotType": "snap",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8476880,
-                "firstName": "Tom",
-                "lastName": "Wilson",
+                "firstName": {
+                  "default": "Tom"
+                },
+                "lastName": {
+                  "default": "Wilson"
+                },
+                "name": {
+                  "default": "T. Wilson"
+                },
                 "assistsToDate": 4
               },
               {
                 "playerId": 8471214,
-                "firstName": "Alex",
-                "lastName": "Ovechkin",
+                "firstName": {
+                  "default": "Alex",
+                  "cs": "Alexandr",
+                  "fi": "Aleksandr",
+                  "sk": "Alexander"
+                },
+                "lastName": {
+                  "default": "Ovechkin",
+                  "cs": "Ovečkin",
+                  "fi": "Ovetshkin",
+                  "sk": "Ovečkin"
+                },
+                "name": {
+                  "default": "A. Ovechkin",
+                  "cs": "A. Ovečkin",
+                  "fi": "A. Ovetshkin",
+                  "sk": "A. Ovečkin"
+                },
                 "assistsToDate": 7
               }
             ]
@@ -225,30 +318,54 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8478414,
-            "firstName": "Timo",
-            "lastName": "Meier",
-            "name": "T. Meier",
-            "teamAbbrev": "NJD",
+            "firstName": {
+              "default": "Timo"
+            },
+            "lastName": {
+              "default": "Meier"
+            },
+            "name": {
+              "default": "T. Meier"
+            },
+            "teamAbbrev": {
+              "default": "NJD"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/NJD/8478414.png",
-            "highlightClip": 6340911452112,
+            "highlightClip": 6340910167112,
             "goalsToDate": 4,
             "awayScore": 3,
             "homeScore": 1,
-            "leadingTeamAbbrev": "WSH",
+            "leadingTeamAbbrev": {
+              "default": "WSH"
+            },
             "timeInPeriod": "07:13",
             "shotType": "snap",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8479415,
-                "firstName": "Michael",
-                "lastName": "McLeod",
+                "firstName": {
+                  "default": "Michael"
+                },
+                "lastName": {
+                  "default": "McLeod"
+                },
+                "name": {
+                  "default": "M. McLeod"
+                },
                 "assistsToDate": 3
               },
               {
                 "playerId": 8478507,
-                "firstName": "John",
-                "lastName": "Marino",
+                "firstName": {
+                  "default": "John"
+                },
+                "lastName": {
+                  "default": "Marino"
+                },
+                "name": {
+                  "default": "J. Marino"
+                },
                 "assistsToDate": 9
               }
             ]
@@ -257,30 +374,54 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8482110,
-            "firstName": "Dawson",
-            "lastName": "Mercer",
-            "name": "D. Mercer",
-            "teamAbbrev": "NJD",
+            "firstName": {
+              "default": "Dawson"
+            },
+            "lastName": {
+              "default": "Mercer"
+            },
+            "name": {
+              "default": "D. Mercer"
+            },
+            "teamAbbrev": {
+              "default": "NJD"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/NJD/8482110.png",
-            "highlightClip": 6340910173112,
+            "highlightClip": 6340910757112,
             "goalsToDate": 2,
             "awayScore": 3,
             "homeScore": 2,
-            "leadingTeamAbbrev": "WSH",
+            "leadingTeamAbbrev": {
+              "default": "WSH"
+            },
             "timeInPeriod": "09:12",
             "shotType": "tip-in",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8475726,
-                "firstName": "Tyler",
-                "lastName": "Toffoli",
+                "firstName": {
+                  "default": "Tyler"
+                },
+                "lastName": {
+                  "default": "Toffoli"
+                },
+                "name": {
+                  "default": "T. Toffoli"
+                },
                 "assistsToDate": 6
               },
               {
                 "playerId": 8481033,
-                "firstName": "Akira",
-                "lastName": "Schmid",
+                "firstName": {
+                  "default": "Akira"
+                },
+                "lastName": {
+                  "default": "Schmid"
+                },
+                "name": {
+                  "default": "A. Schmid"
+                },
                 "assistsToDate": 2
               }
             ]
@@ -289,30 +430,62 @@
             "situationCode": "1560",
             "strength": "ev",
             "playerId": 8475744,
-            "firstName": "Evgeny",
-            "lastName": "Kuznetsov",
-            "name": "E. Kuznetsov",
-            "teamAbbrev": "WSH",
+            "firstName": {
+              "default": "Evgeny",
+              "cs": "Jevgenij",
+              "fi": "Jevgeni",
+              "sk": "Jevgenij"
+            },
+            "lastName": {
+              "default": "Kuznetsov",
+              "cs": "Kuzněcov",
+              "sk": "Kuznecov"
+            },
+            "name": {
+              "default": "E. Kuznetsov",
+              "cs": "J. Kuzněcov",
+              "fi": "J. Kuznetsov",
+              "sk": "J. Kuznecov"
+            },
+            "teamAbbrev": {
+              "default": "WSH"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/WSH/8475744.png",
             "highlightClip": 6340910792112,
             "goalsToDate": 3,
             "awayScore": 4,
             "homeScore": 2,
-            "leadingTeamAbbrev": "WSH",
+            "leadingTeamAbbrev": {
+              "default": "WSH"
+            },
             "timeInPeriod": "18:09",
             "shotType": "wrist",
             "goalModifier": "empty-net",
             "assists": [
               {
                 "playerId": 8479321,
-                "firstName": "Lucas",
-                "lastName": "Johansen",
+                "firstName": {
+                  "default": "Lucas"
+                },
+                "lastName": {
+                  "default": "Johansen"
+                },
+                "name": {
+                  "default": "L. Johansen"
+                },
                 "assistsToDate": 1
               },
               {
                 "playerId": 8476880,
-                "firstName": "Tom",
-                "lastName": "Wilson",
+                "firstName": {
+                  "default": "Tom"
+                },
+                "lastName": {
+                  "default": "Wilson"
+                },
+                "name": {
+                  "default": "T. Wilson"
+                },
                 "assistsToDate": 5
               }
             ]

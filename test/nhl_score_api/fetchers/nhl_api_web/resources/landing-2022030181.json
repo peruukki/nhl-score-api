@@ -106,24 +106,43 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8477934,
-            "firstName": "Leon",
-            "lastName": "Draisaitl",
-            "name": "L. Draisaitl",
-            "teamAbbrev": "EDM",
+            "firstName": {
+              "default": "Leon"
+            },
+            "lastName": {
+              "default": "Draisaitl"
+            },
+            "name": {
+              "default": "L. Draisaitl"
+            },
+            "teamAbbrev": {
+              "default": "EDM"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20222023/EDM/8477934.png",
             "highlightClip": 6335755666112,
             "goalsToDate": 1,
             "awayScore": 0,
             "homeScore": 1,
-            "leadingTeamAbbrev": "EDM",
+            "leadingTeamAbbrev": {
+              "default": "EDM"
+            },
             "timeInPeriod": "06:57",
             "shotType": "snap",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8477406,
-                "firstName": "Mattias",
-                "lastName": "Janmark",
+                "firstName": {
+                  "default": "Mattias"
+                },
+                "lastName": {
+                  "default": "Janmark",
+                  "sv": "Janmark-Nylén"
+                },
+                "name": {
+                  "default": "M. Janmark",
+                  "sv": "M. Janmark-Nylén"
+                },
                 "assistsToDate": 1
               }
             ]
@@ -132,30 +151,54 @@
             "situationCode": "1351",
             "strength": "pp",
             "playerId": 8480803,
-            "firstName": "Evan",
-            "lastName": "Bouchard",
-            "name": "E. Bouchard",
-            "teamAbbrev": "EDM",
+            "firstName": {
+              "default": "Evan"
+            },
+            "lastName": {
+              "default": "Bouchard"
+            },
+            "name": {
+              "default": "E. Bouchard"
+            },
+            "teamAbbrev": {
+              "default": "EDM"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20222023/EDM/8480803.png",
             "highlightClip": 6335754685112,
             "goalsToDate": 1,
             "awayScore": 0,
             "homeScore": 2,
-            "leadingTeamAbbrev": "EDM",
+            "leadingTeamAbbrev": {
+              "default": "EDM"
+            },
             "timeInPeriod": "12:31",
             "shotType": "snap",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8476454,
-                "firstName": "Ryan",
-                "lastName": "Nugent-Hopkins",
+                "firstName": {
+                  "default": "Ryan"
+                },
+                "lastName": {
+                  "default": "Nugent-Hopkins"
+                },
+                "name": {
+                  "default": "R. Nugent-Hopkins"
+                },
                 "assistsToDate": 1
               },
               {
                 "playerId": 8475786,
-                "firstName": "Zach",
-                "lastName": "Hyman",
+                "firstName": {
+                  "default": "Zach"
+                },
+                "lastName": {
+                  "default": "Hyman"
+                },
+                "name": {
+                  "default": "Z. Hyman"
+                },
                 "assistsToDate": 1
               }
             ]
@@ -181,30 +224,56 @@
             "situationCode": "1441",
             "strength": "ev",
             "playerId": 8477960,
-            "firstName": "Adrian",
-            "lastName": "Kempe",
-            "name": "A. Kempe",
-            "teamAbbrev": "LAK",
+            "firstName": {
+              "default": "Adrian"
+            },
+            "lastName": {
+              "default": "Kempe"
+            },
+            "name": {
+              "default": "A. Kempe"
+            },
+            "teamAbbrev": {
+              "default": "LAK"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20222023/LAK/8477960.png",
             "highlightClip": 6335753529112,
             "goalsToDate": 1,
             "awayScore": 1,
             "homeScore": 2,
-            "leadingTeamAbbrev": "EDM",
+            "leadingTeamAbbrev": {
+              "default": "EDM"
+            },
             "timeInPeriod": "00:52",
             "shotType": "backhand",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8478911,
-                "firstName": "Matt",
-                "lastName": "Roy",
+                "firstName": {
+                  "default": "Matt"
+                },
+                "lastName": {
+                  "default": "Roy"
+                },
+                "name": {
+                  "default": "M. Roy"
+                },
                 "assistsToDate": 1
               },
               {
                 "playerId": 8471685,
-                "firstName": "Anze",
-                "lastName": "Kopitar",
+                "firstName": {
+                  "default": "Anze",
+                  "cs": "Anže",
+                  "sk": "Anže"
+                },
+                "lastName": {
+                  "default": "Kopitar"
+                },
+                "name": {
+                  "default": "A. Kopitar"
+                },
                 "assistsToDate": 1
               }
             ]
@@ -213,24 +282,41 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8477934,
-            "firstName": "Leon",
-            "lastName": "Draisaitl",
-            "name": "L. Draisaitl",
-            "teamAbbrev": "EDM",
+            "firstName": {
+              "default": "Leon"
+            },
+            "lastName": {
+              "default": "Draisaitl"
+            },
+            "name": {
+              "default": "L. Draisaitl"
+            },
+            "teamAbbrev": {
+              "default": "EDM"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20222023/EDM/8477934.png",
             "highlightClip": 6335754409112,
             "goalsToDate": 2,
             "awayScore": 1,
             "homeScore": 3,
-            "leadingTeamAbbrev": "EDM",
+            "leadingTeamAbbrev": {
+              "default": "EDM"
+            },
             "timeInPeriod": "08:46",
             "shotType": "snap",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8475169,
-                "firstName": "Evander",
-                "lastName": "Kane",
+                "firstName": {
+                  "default": "Evander"
+                },
+                "lastName": {
+                  "default": "Kane"
+                },
+                "name": {
+                  "default": "E. Kane"
+                },
                 "assistsToDate": 1
               }
             ]
@@ -239,30 +325,56 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8477960,
-            "firstName": "Adrian",
-            "lastName": "Kempe",
-            "name": "A. Kempe",
-            "teamAbbrev": "LAK",
+            "firstName": {
+              "default": "Adrian"
+            },
+            "lastName": {
+              "default": "Kempe"
+            },
+            "name": {
+              "default": "A. Kempe"
+            },
+            "teamAbbrev": {
+              "default": "LAK"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20222023/LAK/8477960.png",
             "highlightClip": 6335753218112,
             "goalsToDate": 2,
             "awayScore": 2,
             "homeScore": 3,
-            "leadingTeamAbbrev": "EDM",
+            "leadingTeamAbbrev": {
+              "default": "EDM"
+            },
             "timeInPeriod": "11:23",
             "shotType": "snap",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8482124,
-                "firstName": "Quinton",
-                "lastName": "Byfield",
+                "firstName": {
+                  "default": "Quinton"
+                },
+                "lastName": {
+                  "default": "Byfield"
+                },
+                "name": {
+                  "default": "Q. Byfield"
+                },
                 "assistsToDate": 1
               },
               {
                 "playerId": 8471685,
-                "firstName": "Anze",
-                "lastName": "Kopitar",
+                "firstName": {
+                  "default": "Anze",
+                  "cs": "Anže",
+                  "sk": "Anže"
+                },
+                "lastName": {
+                  "default": "Kopitar"
+                },
+                "name": {
+                  "default": "A. Kopitar"
+                },
                 "assistsToDate": 2
               }
             ]
@@ -271,10 +383,20 @@
             "situationCode": "0641",
             "strength": "pp",
             "playerId": 8471685,
-            "firstName": "Anze",
-            "lastName": "Kopitar",
-            "name": "A. Kopitar",
-            "teamAbbrev": "LAK",
+            "firstName": {
+              "default": "Anze",
+              "cs": "Anže",
+              "sk": "Anže"
+            },
+            "lastName": {
+              "default": "Kopitar"
+            },
+            "name": {
+              "default": "A. Kopitar"
+            },
+            "teamAbbrev": {
+              "default": "LAK"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20222023/LAK/8471685.png",
             "highlightClip": 6335755175112,
             "goalsToDate": 1,
@@ -286,14 +408,28 @@
             "assists": [
               {
                 "playerId": 8476479,
-                "firstName": "Phillip",
-                "lastName": "Danault",
+                "firstName": {
+                  "default": "Phillip"
+                },
+                "lastName": {
+                  "default": "Danault"
+                },
+                "name": {
+                  "default": "P. Danault"
+                },
                 "assistsToDate": 1
               },
               {
                 "playerId": 8478042,
-                "firstName": "Viktor",
-                "lastName": "Arvidsson",
+                "firstName": {
+                  "default": "Viktor"
+                },
+                "lastName": {
+                  "default": "Arvidsson"
+                },
+                "name": {
+                  "default": "V. Arvidsson"
+                },
                 "assistsToDate": 1
               }
             ]
@@ -311,30 +447,56 @@
             "situationCode": "1541",
             "strength": "pp",
             "playerId": 8480113,
-            "firstName": "Alex",
-            "lastName": "Iafallo",
-            "name": "A. Iafallo",
-            "teamAbbrev": "LAK",
+            "firstName": {
+              "default": "Alex"
+            },
+            "lastName": {
+              "default": "Iafallo"
+            },
+            "name": {
+              "default": "A. Iafallo"
+            },
+            "teamAbbrev": {
+              "default": "LAK"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20222023/LAK/8480113.png",
             "highlightClip": 6335755273112,
             "goalsToDate": 1,
             "awayScore": 4,
             "homeScore": 3,
-            "leadingTeamAbbrev": "LAK",
+            "leadingTeamAbbrev": {
+              "default": "LAK"
+            },
             "timeInPeriod": "09:19",
             "shotType": "snap",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8478042,
-                "firstName": "Viktor",
-                "lastName": "Arvidsson",
+                "firstName": {
+                  "default": "Viktor"
+                },
+                "lastName": {
+                  "default": "Arvidsson"
+                },
+                "name": {
+                  "default": "V. Arvidsson"
+                },
                 "assistsToDate": 2
               },
               {
                 "playerId": 8471685,
-                "firstName": "Anze",
-                "lastName": "Kopitar",
+                "firstName": {
+                  "default": "Anze",
+                  "cs": "Anže",
+                  "sk": "Anže"
+                },
+                "lastName": {
+                  "default": "Kopitar"
+                },
+                "name": {
+                  "default": "A. Kopitar"
+                },
                 "assistsToDate": 3
               }
             ]

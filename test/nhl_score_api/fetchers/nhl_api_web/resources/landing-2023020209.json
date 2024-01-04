@@ -123,31 +123,55 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8474565,
-            "firstName": "Alex",
-            "lastName": "Pietrangelo",
-            "name": "A. Pietrangelo",
-            "teamAbbrev": "VGK",
+            "firstName": {
+              "default": "Alex"
+            },
+            "lastName": {
+              "default": "Pietrangelo"
+            },
+            "name": {
+              "default": "A. Pietrangelo"
+            },
+            "teamAbbrev": {
+              "default": "VGK"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8474565.png",
             "highlightClip": 6340912874112,
             "highlightClipFr": 6340912697112,
             "goalsToDate": 1,
             "awayScore": 0,
             "homeScore": 1,
-            "leadingTeamAbbrev": "VGK",
+            "leadingTeamAbbrev": {
+              "default": "VGK"
+            },
             "timeInPeriod": "01:00",
             "shotType": "wrap-around",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8478020,
-                "firstName": "Michael",
-                "lastName": "Amadio",
+                "firstName": {
+                  "default": "Michael"
+                },
+                "lastName": {
+                  "default": "Amadio"
+                },
+                "name": {
+                  "default": "M. Amadio"
+                },
                 "assistsToDate": 5
               },
               {
                 "playerId": 8475913,
-                "firstName": "Mark",
-                "lastName": "Stone",
+                "firstName": {
+                  "default": "Mark"
+                },
+                "lastName": {
+                  "default": "Stone"
+                },
+                "name": {
+                  "default": "M. Stone"
+                },
                 "assistsToDate": 10
               }
             ]
@@ -156,31 +180,55 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8474166,
-            "firstName": "Alec",
-            "lastName": "Martinez",
-            "name": "A. Martinez",
-            "teamAbbrev": "VGK",
+            "firstName": {
+              "default": "Alec"
+            },
+            "lastName": {
+              "default": "Martinez"
+            },
+            "name": {
+              "default": "A. Martinez"
+            },
+            "teamAbbrev": {
+              "default": "VGK"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8474166.png",
             "highlightClip": 6340914076112,
             "highlightClipFr": 6340914365112,
             "goalsToDate": 2,
             "awayScore": 0,
             "homeScore": 2,
-            "leadingTeamAbbrev": "VGK",
+            "leadingTeamAbbrev": {
+              "default": "VGK"
+            },
             "timeInPeriod": "11:19",
             "shotType": "slap",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8478020,
-                "firstName": "Michael",
-                "lastName": "Amadio",
+                "firstName": {
+                  "default": "Michael"
+                },
+                "lastName": {
+                  "default": "Amadio"
+                },
+                "name": {
+                  "default": "M. Amadio"
+                },
                 "assistsToDate": 6
               },
               {
                 "playerId": 8477478,
-                "firstName": "William",
-                "lastName": "Carrier",
+                "firstName": {
+                  "default": "William"
+                },
+                "lastName": {
+                  "default": "Carrier"
+                },
+                "name": {
+                  "default": "W. Carrier"
+                },
                 "assistsToDate": 1
               }
             ]
@@ -206,31 +254,55 @@
             "situationCode": "1541",
             "strength": "sh",
             "playerId": 8476448,
-            "firstName": "William",
-            "lastName": "Karlsson",
-            "name": "W. Karlsson",
-            "teamAbbrev": "VGK",
+            "firstName": {
+              "default": "William"
+            },
+            "lastName": {
+              "default": "Karlsson"
+            },
+            "name": {
+              "default": "W. Karlsson"
+            },
+            "teamAbbrev": {
+              "default": "VGK"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8476448.png",
             "highlightClip": 6340919639112,
             "highlightClipFr": 6340920545112,
             "goalsToDate": 8,
             "awayScore": 0,
             "homeScore": 3,
-            "leadingTeamAbbrev": "VGK",
+            "leadingTeamAbbrev": {
+              "default": "VGK"
+            },
             "timeInPeriod": "02:24",
             "shotType": "snap",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8478403,
-                "firstName": "Jack",
-                "lastName": "Eichel",
+                "firstName": {
+                  "default": "Jack"
+                },
+                "lastName": {
+                  "default": "Eichel"
+                },
+                "name": {
+                  "default": "J. Eichel"
+                },
                 "assistsToDate": 9
               },
               {
                 "playerId": 8474565,
-                "firstName": "Alex",
-                "lastName": "Pietrangelo",
+                "firstName": {
+                  "default": "Alex"
+                },
+                "lastName": {
+                  "default": "Pietrangelo"
+                },
+                "name": {
+                  "default": "A. Pietrangelo"
+                },
                 "assistsToDate": 7
               }
             ]
@@ -239,31 +311,55 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8474166,
-            "firstName": "Alec",
-            "lastName": "Martinez",
-            "name": "A. Martinez",
-            "teamAbbrev": "VGK",
+            "firstName": {
+              "default": "Alec"
+            },
+            "lastName": {
+              "default": "Martinez"
+            },
+            "name": {
+              "default": "A. Martinez"
+            },
+            "teamAbbrev": {
+              "default": "VGK"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8474166.png",
             "highlightClip": 6340920148112,
             "highlightClipFr": 6340921612112,
             "goalsToDate": 3,
             "awayScore": 0,
             "homeScore": 4,
-            "leadingTeamAbbrev": "VGK",
+            "leadingTeamAbbrev": {
+              "default": "VGK"
+            },
             "timeInPeriod": "04:40",
             "shotType": "wrist",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8474565,
-                "firstName": "Alex",
-                "lastName": "Pietrangelo",
+                "firstName": {
+                  "default": "Alex"
+                },
+                "lastName": {
+                  "default": "Pietrangelo"
+                },
+                "name": {
+                  "default": "A. Pietrangelo"
+                },
                 "assistsToDate": 8
               },
               {
                 "playerId": 8476448,
-                "firstName": "William",
-                "lastName": "Karlsson",
+                "firstName": {
+                  "default": "William"
+                },
+                "lastName": {
+                  "default": "Karlsson"
+                },
+                "name": {
+                  "default": "W. Karlsson"
+                },
                 "assistsToDate": 10
               }
             ]
@@ -272,25 +368,46 @@
             "situationCode": "1551",
             "strength": "pp",
             "playerId": 8479353,
-            "firstName": "Brett",
-            "lastName": "Howden",
-            "name": "B. Howden",
-            "teamAbbrev": "VGK",
+            "firstName": {
+              "default": "Brett"
+            },
+            "lastName": {
+              "default": "Howden"
+            },
+            "name": {
+              "default": "B. Howden"
+            },
+            "teamAbbrev": {
+              "default": "VGK"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8479353.png",
             "highlightClip": 6340923731112,
             "highlightClipFr": 6340928171112,
             "goalsToDate": 2,
             "awayScore": 0,
             "homeScore": 5,
-            "leadingTeamAbbrev": "VGK",
+            "leadingTeamAbbrev": {
+              "default": "VGK"
+            },
             "timeInPeriod": "09:34",
             "shotType": "wrist",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8480007,
-                "firstName": "Jonas",
-                "lastName": "Rondbjerg",
+                "firstName": {
+                  "default": "Jonas"
+                },
+                "lastName": {
+                  "default": "Rondbjerg",
+                  "cs": "Röndbjerg",
+                  "sk": "Röndbjerg"
+                },
+                "name": {
+                  "default": "J. Rondbjerg",
+                  "cs": "J. Röndbjerg",
+                  "sk": "J. Röndbjerg"
+                },
                 "assistsToDate": 2
               }
             ]
@@ -609,7 +726,7 @@
     "gameInfo": {
       "referees": [
         {
-          "default": "TJ Luxmore"
+          "default": "Thomas John Luxmore"
         },
         {
           "default": "Ghislain Hebert"

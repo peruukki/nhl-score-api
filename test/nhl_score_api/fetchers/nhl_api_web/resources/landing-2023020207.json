@@ -143,17 +143,27 @@
             "situationCode": "1451",
             "strength": "pp",
             "playerId": 8477939,
-            "firstName": "William",
-            "lastName": "Nylander",
-            "name": "W. Nylander",
-            "teamAbbrev": "TOR",
+            "firstName": {
+              "default": "William"
+            },
+            "lastName": {
+              "default": "Nylander"
+            },
+            "name": {
+              "default": "W. Nylander"
+            },
+            "teamAbbrev": {
+              "default": "TOR"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477939.png",
             "highlightClip": 6340906526112,
             "highlightClipFr": 6340909082112,
             "goalsToDate": 8,
             "awayScore": 0,
             "homeScore": 1,
-            "leadingTeamAbbrev": "TOR",
+            "leadingTeamAbbrev": {
+              "default": "TOR"
+            },
             "timeInPeriod": "03:01",
             "shotType": "wrist",
             "goalModifier": "none",
@@ -163,10 +173,18 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8482074,
-            "firstName": "Connor",
-            "lastName": "Zary",
-            "name": "C. Zary",
-            "teamAbbrev": "CGY",
+            "firstName": {
+              "default": "Connor"
+            },
+            "lastName": {
+              "default": "Zary"
+            },
+            "name": {
+              "default": "C. Zary"
+            },
+            "teamAbbrev": {
+              "default": "CGY"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8482074.png",
             "highlightClip": 6340906940112,
             "highlightClipFr": 6340908490112,
@@ -179,8 +197,15 @@
             "assists": [
               {
                 "playerId": 8475172,
-                "firstName": "Nazem",
-                "lastName": "Kadri",
+                "firstName": {
+                  "default": "Nazem"
+                },
+                "lastName": {
+                  "default": "Kadri"
+                },
+                "name": {
+                  "default": "N. Kadri"
+                },
                 "assistsToDate": 6
               }
             ]
@@ -189,31 +214,61 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8475714,
-            "firstName": "Calle",
-            "lastName": "Jarnkrok",
-            "name": "C. Jarnkrok",
-            "teamAbbrev": "TOR",
+            "firstName": {
+              "default": "Calle"
+            },
+            "lastName": {
+              "default": "Jarnkrok",
+              "cs": "Järnkrok",
+              "fi": "Järnkrok",
+              "sk": "Järnkrok"
+            },
+            "name": {
+              "default": "C. Jarnkrok",
+              "cs": "C. Järnkrok",
+              "fi": "C. Järnkrok",
+              "sk": "C. Järnkrok"
+            },
+            "teamAbbrev": {
+              "default": "TOR"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8475714.png",
             "highlightClip": 6340906547112,
             "highlightClipFr": 6340907997112,
             "goalsToDate": 4,
             "awayScore": 1,
             "homeScore": 2,
-            "leadingTeamAbbrev": "TOR",
+            "leadingTeamAbbrev": {
+              "default": "TOR"
+            },
             "timeInPeriod": "08:18",
             "shotType": "backhand",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8477503,
-                "firstName": "Max",
-                "lastName": "Domi",
+                "firstName": {
+                  "default": "Max"
+                },
+                "lastName": {
+                  "default": "Domi"
+                },
+                "name": {
+                  "default": "M. Domi"
+                },
                 "assistsToDate": 7
               },
               {
                 "playerId": 8481582,
-                "firstName": "Nicholas",
-                "lastName": "Robertson",
+                "firstName": {
+                  "default": "Nicholas"
+                },
+                "lastName": {
+                  "default": "Robertson"
+                },
+                "name": {
+                  "default": "N. Robertson"
+                },
                 "assistsToDate": 2
               }
             ]
@@ -231,17 +286,27 @@
             "situationCode": "1541",
             "strength": "sh",
             "playerId": 8477939,
-            "firstName": "William",
-            "lastName": "Nylander",
-            "name": "W. Nylander",
-            "teamAbbrev": "TOR",
+            "firstName": {
+              "default": "William"
+            },
+            "lastName": {
+              "default": "Nylander"
+            },
+            "name": {
+              "default": "W. Nylander"
+            },
+            "teamAbbrev": {
+              "default": "TOR"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477939.png",
-            "highlightClip": 6340909654112,
+            "highlightClip": 6340910211112,
             "highlightClipFr": 6340909143112,
             "goalsToDate": 9,
             "awayScore": 1,
             "homeScore": 3,
-            "leadingTeamAbbrev": "TOR",
+            "leadingTeamAbbrev": {
+              "default": "TOR"
+            },
             "timeInPeriod": "01:06",
             "shotType": "wrist",
             "goalModifier": "none",
@@ -251,31 +316,55 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8475166,
-            "firstName": "John",
-            "lastName": "Tavares",
-            "name": "J. Tavares",
-            "teamAbbrev": "TOR",
+            "firstName": {
+              "default": "John"
+            },
+            "lastName": {
+              "default": "Tavares"
+            },
+            "name": {
+              "default": "J. Tavares"
+            },
+            "teamAbbrev": {
+              "default": "TOR"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8475166.png",
             "highlightClip": 6340910508112,
             "highlightClipFr": 6340911311112,
             "goalsToDate": 6,
             "awayScore": 1,
             "homeScore": 4,
-            "leadingTeamAbbrev": "TOR",
+            "leadingTeamAbbrev": {
+              "default": "TOR"
+            },
             "timeInPeriod": "04:45",
             "shotType": "snap",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8477939,
-                "firstName": "William",
-                "lastName": "Nylander",
+                "firstName": {
+                  "default": "William"
+                },
+                "lastName": {
+                  "default": "Nylander"
+                },
+                "name": {
+                  "default": "W. Nylander"
+                },
                 "assistsToDate": 12
               },
               {
                 "playerId": 8476853,
-                "firstName": "Morgan",
-                "lastName": "Rielly",
+                "firstName": {
+                  "default": "Morgan"
+                },
+                "lastName": {
+                  "default": "Rielly"
+                },
+                "name": {
+                  "default": "M. Rielly"
+                },
                 "assistsToDate": 9
               }
             ]
@@ -284,31 +373,54 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8477507,
-            "firstName": "Nikita",
-            "lastName": "Zadorov",
-            "name": "N. Zadorov",
-            "teamAbbrev": "CGY",
+            "firstName": {
+              "default": "Nikita"
+            },
+            "lastName": {
+              "default": "Zadorov"
+            },
+            "name": {
+              "default": "N. Zadorov"
+            },
+            "teamAbbrev": {
+              "default": "CGY"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8477507.png",
-            "highlightClip": 6340910510112,
-            "highlightClipFr": 6340910812112,
+            "highlightClip": 6340910311112,
             "goalsToDate": 1,
             "awayScore": 2,
             "homeScore": 4,
-            "leadingTeamAbbrev": "TOR",
+            "leadingTeamAbbrev": {
+              "default": "TOR"
+            },
             "timeInPeriod": "05:33",
             "shotType": "slap",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8478233,
-                "firstName": "Andrew",
-                "lastName": "Mangiapane",
+                "firstName": {
+                  "default": "Andrew"
+                },
+                "lastName": {
+                  "default": "Mangiapane"
+                },
+                "name": {
+                  "default": "A. Mangiapane"
+                },
                 "assistsToDate": 4
               },
               {
                 "playerId": 8476456,
-                "firstName": "Jonathan",
-                "lastName": "Huberdeau",
+                "firstName": {
+                  "default": "Jonathan"
+                },
+                "lastName": {
+                  "default": "Huberdeau"
+                },
+                "name": {
+                  "default": "J. Huberdeau"
+                },
                 "assistsToDate": 5
               }
             ]
@@ -317,31 +429,54 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8478421,
-            "firstName": "A.J.",
-            "lastName": "Greer",
-            "name": "A. Greer",
-            "teamAbbrev": "CGY",
+            "firstName": {
+              "default": "A.J."
+            },
+            "lastName": {
+              "default": "Greer"
+            },
+            "name": {
+              "default": "A. Greer"
+            },
+            "teamAbbrev": {
+              "default": "CGY"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8478421.png",
-            "highlightClip": 6340911026112,
-            "highlightClipFr": 6340910242112,
+            "highlightClip": 6340910925112,
             "goalsToDate": 2,
             "awayScore": 3,
             "homeScore": 4,
-            "leadingTeamAbbrev": "TOR",
+            "leadingTeamAbbrev": {
+              "default": "TOR"
+            },
             "timeInPeriod": "12:22",
             "shotType": "tip-in",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8477346,
-                "firstName": "MacKenzie",
-                "lastName": "Weegar",
+                "firstName": {
+                  "default": "MacKenzie"
+                },
+                "lastName": {
+                  "default": "Weegar"
+                },
+                "name": {
+                  "default": "M. Weegar"
+                },
                 "assistsToDate": 4
               },
               {
                 "playerId": 8478397,
-                "firstName": "Rasmus",
-                "lastName": "Andersson",
+                "firstName": {
+                  "default": "Rasmus"
+                },
+                "lastName": {
+                  "default": "Andersson"
+                },
+                "name": {
+                  "default": "R. Andersson"
+                },
                 "assistsToDate": 3
               }
             ]
@@ -359,12 +494,24 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8481028,
-            "firstName": "Martin",
-            "lastName": "Pospisil",
-            "name": "M. Pospisil",
-            "teamAbbrev": "CGY",
+            "firstName": {
+              "default": "Martin"
+            },
+            "lastName": {
+              "default": "Pospisil",
+              "cs": "Pospíšil",
+              "sk": "Pospíšil"
+            },
+            "name": {
+              "default": "M. Pospisil",
+              "cs": "M. Pospíšil",
+              "sk": "M. Pospíšil"
+            },
+            "teamAbbrev": {
+              "default": "CGY"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8481028.png",
-            "highlightClip": 6340911568112,
+            "highlightClip": 6340910687112,
             "highlightClipFr": 6340912725112,
             "goalsToDate": 2,
             "awayScore": 4,
@@ -375,14 +522,28 @@
             "assists": [
               {
                 "playerId": 8474150,
-                "firstName": "Mikael",
-                "lastName": "Backlund",
+                "firstName": {
+                  "default": "Mikael"
+                },
+                "lastName": {
+                  "default": "Backlund"
+                },
+                "name": {
+                  "default": "M. Backlund"
+                },
                 "assistsToDate": 4
               },
               {
                 "playerId": 8476399,
-                "firstName": "Blake",
-                "lastName": "Coleman",
+                "firstName": {
+                  "default": "Blake"
+                },
+                "lastName": {
+                  "default": "Coleman"
+                },
+                "name": {
+                  "default": "B. Coleman"
+                },
                 "assistsToDate": 2
               }
             ]
@@ -408,15 +569,25 @@
             "situationCode": "1010",
             "strength": "ev",
             "playerId": 8477503,
-            "firstName": "Max",
-            "lastName": "Domi",
-            "name": "M. Domi",
-            "teamAbbrev": "TOR",
+            "firstName": {
+              "default": "Max"
+            },
+            "lastName": {
+              "default": "Domi"
+            },
+            "name": {
+              "default": "M. Domi"
+            },
+            "teamAbbrev": {
+              "default": "TOR"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477503.png",
             "goalsToDate": 0,
             "awayScore": 4,
             "homeScore": 5,
-            "leadingTeamAbbrev": "TOR",
+            "leadingTeamAbbrev": {
+              "default": "TOR"
+            },
             "timeInPeriod": "00:00",
             "shotType": "wrist",
             "goalModifier": "none",
