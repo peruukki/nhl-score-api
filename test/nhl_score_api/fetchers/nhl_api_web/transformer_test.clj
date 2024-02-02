@@ -26,6 +26,12 @@
       (is (= 0
              (count latest-games)) "Latest started games count")))
 
+  (testing "Non-league games are not returned"
+    (let [latest-games (:games
+                         (get-latest-games resources/non-league-games))]
+      (is (= 0
+             (count latest-games)) "Latest started games count")))
+
   (testing "Date of latest started games is included"
     (let [date (:date
                  (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout))]

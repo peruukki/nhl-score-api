@@ -1,6 +1,7 @@
 (ns nhl-score-api.fetchers.nhl-api-web.game-scores
   (:require [nhl-score-api.fetchers.nhl-api-web.data :refer [team-names]]
-            [nhl-score-api.fetchers.nhl-api-web.transformer :refer [finished-game? get-game-state live-game?]]
+            [nhl-score-api.fetchers.nhl-api-web.transformer :refer [finished-game? get-game-state live-game?
+                                                                    non-playoff-game? playoff-game? regular-season-game?]]
             [clojure.string :as str])
   (:import (java.util Locale)
            (java.text DecimalFormat DecimalFormatSymbols)))
@@ -10,19 +11,6 @@
 
 (defn- add-stats-field [game-details stats-key field value]
   (assoc game-details stats-key (assoc (stats-key game-details) field value)))
-
-(defn- regular-season-game? [schedule-game]
-  (= 2 (:game-type schedule-game)))
-
-(defn- playoff-game? [schedule-game]
-  (= 3 (:game-type schedule-game)))
-
-(defn- non-playoff-game? [schedule-game]
-  (not (playoff-game? schedule-game)))
-
-(defn- non-league-game? [schedule-game]
-  (not (or (regular-season-game? schedule-game)
-           (playoff-game? schedule-game))))
 
 (defn- parse-time-str
   ([time-str] (parse-time-str time-str nil))
@@ -410,11 +398,9 @@
          :takeaways (parse-stat "takeaways")}))))
 
 (defn- add-team-records [game-details schedule-game standings teams scores]
-  (if (non-league-game? schedule-game)
-    game-details
-    (let [records (parse-records schedule-game standings teams scores)
-          with-pre-game-stats (add-stats-field game-details pre-game-stats-key :records (pre-game-stats-key records))]
-      (add-stats-field with-pre-game-stats current-stats-key :records (current-stats-key records)))))
+  (let [records (parse-records schedule-game standings teams scores)
+        with-pre-game-stats (add-stats-field game-details pre-game-stats-key :records (pre-game-stats-key records))]
+    (add-stats-field with-pre-game-stats current-stats-key :records (current-stats-key records))))
 
 (defn- add-team-streaks [game-details schedule-game team-details standings]
   (if (not (regular-season-game? schedule-game))
@@ -422,14 +408,12 @@
     (add-stats-field game-details current-stats-key :streaks (parse-streaks team-details standings))))
 
 (defn- add-team-standings [game-details schedule-game team-details standings]
-  (if (non-league-game? schedule-game)
-    game-details
-    (let [parsed-standings (parse-standings team-details standings)]
-      (cond-> game-details
-              (playoff-game? schedule-game)
-              (add-stats-field pre-game-stats-key :standings parsed-standings)
-              true
-              (add-stats-field current-stats-key :standings parsed-standings)))))
+  (let [parsed-standings (parse-standings team-details standings)]
+    (cond-> game-details
+            (playoff-game? schedule-game)
+            (add-stats-field pre-game-stats-key :standings parsed-standings)
+            true
+            (add-stats-field current-stats-key :standings parsed-standings))))
 
 (defn- add-playoff-series-information [game-details schedule-game]
   (if (non-playoff-game? schedule-game)

@@ -24,16 +24,25 @@
 
 (declare started-game?)
 
+(defn regular-season-game? [schedule-game]
+  (= 2 (:game-type schedule-game)))
+
+(defn playoff-game? [schedule-game]
+  (= 3 (:game-type schedule-game)))
+
+(defn non-playoff-game? [schedule-game]
+  (not (playoff-game? schedule-game)))
+
+(defn- non-league-game? [schedule-game]
+  (not (or (regular-season-game? schedule-game)
+           (playoff-game? schedule-game))))
+
 (defn- has-started-games? [date-and-games]
   (let [games (:games date-and-games)]
     (some started-game? games)))
 
-; TODO Figure out game types
-(defn- pr-game? [game]
-  (= "PR" (:game-type game)))
-
-(defn- remove-pr-games [date-and-games]
-  (let [accepted-games (remove pr-game? (:games date-and-games))]
+(defn- remove-non-league-games [date-and-games]
+  (let [accepted-games (remove non-league-game? (:games date-and-games))]
     (assoc date-and-games :games accepted-games)))
 
 (defn- format-date [date-and-games]
@@ -63,7 +72,7 @@
   (->> api-response
        :game-week
        (map #(select-keys % [:date :games]))
-       (map remove-pr-games)
+       (map remove-non-league-games)
        (map format-date)
        (map sort-games-by-state)))
 
