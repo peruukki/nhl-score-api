@@ -34,9 +34,12 @@
 
 (defn- fetch [endpoint-name endpoint-params url]
   (println "Fetching" endpoint-name endpoint-params)
-  (-> (http/get url {:debug false})
-      :body
-      api-response-to-json))
+  (let [start-time (System/currentTimeMillis)
+        response (-> (http/get url {:debug false})
+                     :body
+                     api-response-to-json)]
+    (println "Fetched" endpoint-name endpoint-params "(took" (- (System/currentTimeMillis) start-time) "ms)")
+    response))
 
 (defn- fetch-games-info [date-str]
   (let [start-date (get-schedule-start-date date-str)]
