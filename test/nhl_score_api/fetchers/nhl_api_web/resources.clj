@@ -16,7 +16,6 @@
 
 (def standings (read-resource "standings-2023-11-09.json"))
 (def standings-for-playoffs (read-resource "standings-2023-04-14.json"))
-(def standings-parameters (read-resource "standings-season-2023-11-18.json"))
 
 (defn get-landings [game-ids]
   (into {} (for [game-id game-ids] [game-id (read-resource (str "landing-" game-id ".json"))])))

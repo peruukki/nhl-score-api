@@ -9,7 +9,6 @@
             [clj-http.client :as http]))
 
 (def base-url "https://api-web.nhle.com/v1")
-(def standings-parameters-url (str base-url "/standings-season"))
 
 (defn- get-schedule-url [date-str] (str base-url "/schedule/" date-str))
 (defn- get-standings-url [date-str] (str base-url "/standings/" date-str))
@@ -22,12 +21,8 @@
         date-now (time/now)]
     (format-date (if fetch-latest? (time/minus date-now (time/days 1)) start-date))))
 
-(defn get-standings-request-date [date-str standings-parameters]
-  (let [season (last (filter #(>= (compare date-str (:standings-start %)) 0)
-                             (:seasons standings-parameters)))
-        max-end-date-str (:standings-end season)]
-    (cond max-end-date-str
-          (if (> (compare date-str max-end-date-str) 0) max-end-date-str date-str))))
+(defn get-standings-request-date [{:keys [requested-date-str current-date-str regular-season-end-date-str]}]
+  (first (sort [requested-date-str current-date-str regular-season-end-date-str])))
 
 (defn api-response-to-json [api-response]
   (json/read-str api-response :key-fn ->kebab-case-keyword))
@@ -45,13 +40,12 @@
   (let [start-date (get-schedule-start-date date-str)]
     (fetch "schedule" {:date start-date} (get-schedule-url start-date))))
 
-(defn- fetch-standings-parameters []
-  (fetch "standings parameters" nil standings-parameters-url))
-
-(defn fetch-standings-info [date-str standings-parameters]
+(defn fetch-standings-info [date-str regular-season-end-date-str]
   (let [standings-date-str (if (nil? date-str)
                              nil
-                             (get-standings-request-date date-str standings-parameters))]
+                             (get-standings-request-date {:requested-date-str date-str
+                                                          :current-date-str (format-date (time/now))
+                                                          :regular-season-end-date-str regular-season-end-date-str}))]
     (if (nil? standings-date-str)
       {:records nil}
       (fetch "standings" {:date standings-date-str} (get-standings-url standings-date-str)))))
@@ -75,8 +69,8 @@
               (api-response-to-json (slurp mocked-latest-games-info-file)))
           (fetch-games-info nil))
         date-and-schedule-games (get-latest-games latest-games-info)
-        standings-parameters (fetch-standings-parameters)
-        standings-info (fetch-standings-info (:raw (:date date-and-schedule-games)) standings-parameters)
+        regular-season-end-date-str (:regular-season-end-date latest-games-info)
+        standings-info (fetch-standings-info (:raw (:date date-and-schedule-games)) regular-season-end-date-str)
         landings-info (fetch-landings-info (:games date-and-schedule-games))]
     (game-scores/parse-game-scores date-and-schedule-games (:standings standings-info) landings-info)))
 
@@ -86,8 +80,8 @@
 (defn- fetch-scores-in-date-range [start-date end-date]
   (let [games-info (fetch-games-info start-date)
         dates-and-schedule-games (get-games-in-date-range games-info start-date end-date)
-        standings-parameters (fetch-standings-parameters)
-        standings-infos (map #(fetch-standings-info (:raw (:date %)) standings-parameters) dates-and-schedule-games)
+        regular-season-end-date-str (:regular-season-end-date games-info)
+        standings-infos (map #(fetch-standings-info (:raw (:date %)) regular-season-end-date-str) dates-and-schedule-games)
         landings-infos (map #(fetch-landings-info (:games %)) dates-and-schedule-games)]
     (map-indexed #(game-scores/parse-game-scores %2 (:standings (nth standings-infos %1)) (nth landings-infos %1))
                  dates-and-schedule-games)))

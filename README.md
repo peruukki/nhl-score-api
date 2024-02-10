@@ -15,7 +15,6 @@ How we use the NHL Stats API:
 - [schedule](https://api-web.nhle.com/v1/schedule/2023-11-07) gives us a list of the week's games; we check the game
   statuses and get the game IDs to fetch the games' gamecenter landing page data
 - [landing](https://api-web.nhle.com/v1/gamecenter/2023020180/landing) gives us the details of an individual game
-- [standings-season](https://api-web.nhle.com/v1/standings-season) gives us possible date ranges per season for requesting standings
 - [standings](https://api-web.nhle.com/v1/standings/2023-11-07) gives us team stats
 
 This API is available at https://nhl-score-api.herokuapp.com/, and it serves as the backend for [nhl-recap](https://github.com/peruukki/nhl-recap).
