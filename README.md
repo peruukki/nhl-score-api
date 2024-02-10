@@ -672,6 +672,10 @@ heroku plugins:install java
 # alternative if the above doesn't work:
 heroku plugins:install @heroku-cli/plugin-java
 ```
+4. If you have multiple Heroku apps, set the default app for this repository:
+```sh
+heroku git:remote -a <heroku-app-name>
+```
 
 ## License
 
