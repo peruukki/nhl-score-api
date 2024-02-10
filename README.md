@@ -665,14 +665,16 @@ The API responses are cached in-memory for one minute.
 ### Deployment setup
 
 1. Create a Java web app in Heroku
-2. Install and set up the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
-3. Install the [Heroku Java CLI plugin](https://github.com/heroku/plugin-java):
+2. Add and set up the [New Relic APM](https://elements.heroku.com/addons/newrelic) Heroku add-on
+   * Copy the New Relic JAR files (`newrelic.jar` etc.) to the `newrelic` directory in this repository
+3. Install and set up the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+4. Install the [Heroku Java CLI plugin](https://github.com/heroku/plugin-java):
 ```sh
 heroku plugins:install java
 # alternative if the above doesn't work:
 heroku plugins:install @heroku-cli/plugin-java
 ```
-4. If you have multiple Heroku apps, set the default app for this repository:
+5. If you have multiple Heroku apps, set the default app for this repository:
 ```sh
 heroku git:remote -a <heroku-app-name>
 ```
