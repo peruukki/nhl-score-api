@@ -7,5 +7,7 @@ pom.xml.asc
 *.class
 /.lein-*
 /.nrepl-port
-.hgignore
-.hg/
+.calva/output-window/
+.clj-kondo/
+.lsp/.cache/
+.lsp/sqlite.*.db
