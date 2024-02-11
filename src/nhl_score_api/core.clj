@@ -1,14 +1,15 @@
 (ns nhl-score-api.core
-  (:require [nhl-score-api.fetchers.nhl-api-web.fetcher :as fetcher]
-            [nhl-score-api.utils :refer [fmap-keys]]
-            [nhl-score-api.param-parser :as params]
-            [nhl-score-api.param-validator :as validate]
-            [camel-snake-kebab.core :refer [->camelCaseString ->kebab-case-keyword]]
-            [org.httpkit.server :as server]
-            [ring.middleware.params :refer [wrap-params]]
+  (:require [camel-snake-kebab.core :refer [->camelCaseString
+                                            ->kebab-case-keyword]]
             [clojure.data.json :as json]
             [clojure.java.io :as io]
-            [new-reliquary.ring :refer [wrap-newrelic-transaction]])
+            [new-reliquary.ring :refer [wrap-newrelic-transaction]]
+            [nhl-score-api.fetchers.nhl-api-web.fetcher :as fetcher]
+            [nhl-score-api.param-parser :as params]
+            [nhl-score-api.param-validator :as validate]
+            [nhl-score-api.utils :refer [fmap-keys]]
+            [org.httpkit.server :as server]
+            [ring.middleware.params :refer [wrap-params]])
   (:import (java.util Properties))
   (:gen-class))
 

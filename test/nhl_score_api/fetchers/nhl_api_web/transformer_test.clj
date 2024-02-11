@@ -1,8 +1,10 @@
 (ns nhl-score-api.fetchers.nhl-api-web.transformer-test
-  (:require [clojure.test :refer [deftest is testing]]
-            [clj-time.core :as time]
-            [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-game-state get-games-in-date-range get-latest-games]]
-            [nhl-score-api.fetchers.nhl-api-web.resources :as resources]))
+  (:require [clj-time.core :as time]
+            [clojure.test :refer [deftest is testing]]
+            [nhl-score-api.fetchers.nhl-api-web.resources :as resources]
+            [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-game-state
+                                                                    get-games-in-date-range
+                                                                    get-latest-games]]))
 
 (deftest get-latest-games-test
 

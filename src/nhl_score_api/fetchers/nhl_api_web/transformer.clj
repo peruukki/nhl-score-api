@@ -1,7 +1,7 @@
 (ns nhl-score-api.fetchers.nhl-api-web.transformer
-  (:require [nhl-score-api.utils :refer [parse-date]]
-            [clj-time.core :as time]
-            [clj-time.format :as format]))
+  (:require [clj-time.core :as time]
+            [clj-time.format :as format]
+            [nhl-score-api.utils :refer [parse-date]]))
 
 (defn- prettify-date [date]
   (format/unparse (format/formatter "E MMM d") (format/parse date)))

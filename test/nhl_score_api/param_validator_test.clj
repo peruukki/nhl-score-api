@@ -1,7 +1,7 @@
 (ns nhl-score-api.param-validator-test
-  (:require [clojure.test :refer [deftest is testing]]
-            [nhl-score-api.param-validator :refer [validate-date-range]]
-            [clj-time.core :as time]))
+  (:require [clj-time.core :as time]
+            [clojure.test :refer [deftest is testing]]
+            [nhl-score-api.param-validator :refer [validate-date-range]]))
 
 (deftest validating-date-range
   (testing "Validating date range with maximum limit"

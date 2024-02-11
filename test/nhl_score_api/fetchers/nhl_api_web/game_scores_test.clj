@@ -1,8 +1,8 @@
 (ns nhl-score-api.fetchers.nhl-api-web.game-scores-test
   (:require [clojure.test :refer [deftest is testing]]
             [nhl-score-api.fetchers.nhl-api-web.game-scores :refer [parse-game-scores]]
-            [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-latest-games]]
             [nhl-score-api.fetchers.nhl-api-web.resources :as resources]
+            [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-latest-games]]
             [nhl-score-api.utils :refer [fmap-vals]]))
 
 (def default-games resources/games-finished-in-regulation-overtime-and-shootout)

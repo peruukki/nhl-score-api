@@ -1,7 +1,7 @@
 (ns nhl-score-api.param-parser-test
-  (:require [clojure.test :refer [deftest is testing]]
-            [nhl-score-api.param-parser :refer [parse-params]]
-            [clj-time.core :as time]))
+  (:require [clj-time.core :as time]
+            [clojure.test :refer [deftest is testing]]
+            [nhl-score-api.param-parser :refer [parse-params]]))
 
 (deftest parsing-date-param
   (testing "Parsing valid date"

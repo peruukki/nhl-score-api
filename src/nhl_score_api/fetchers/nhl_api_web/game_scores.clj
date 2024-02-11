@@ -1,10 +1,14 @@
 (ns nhl-score-api.fetchers.nhl-api-web.game-scores
-  (:require [nhl-score-api.fetchers.nhl-api-web.data :refer [team-names]]
-            [nhl-score-api.fetchers.nhl-api-web.transformer :refer [finished-game? get-game-state live-game?
-                                                                    non-playoff-game? playoff-game? regular-season-game?]]
-            [clojure.string :as str])
-  (:import (java.util Locale)
-           (java.text DecimalFormat DecimalFormatSymbols)))
+  (:require [clojure.string :as str]
+            [nhl-score-api.fetchers.nhl-api-web.data :refer [team-names]]
+            [nhl-score-api.fetchers.nhl-api-web.transformer :refer [finished-game?
+                                                                    get-game-state
+                                                                    live-game?
+                                                                    non-playoff-game?
+                                                                    playoff-game?
+                                                                    regular-season-game?]])
+  (:import (java.text DecimalFormat DecimalFormatSymbols)
+           (java.util Locale)))
 
 (def pre-game-stats-key :pre-game-stats)
 (def current-stats-key :current-stats)

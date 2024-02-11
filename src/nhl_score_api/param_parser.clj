@@ -1,6 +1,6 @@
 (ns nhl-score-api.param-parser
-  (:require [nhl-score-api.utils :refer [parse-date]]
-            [camel-snake-kebab.core :refer [->camelCaseString]]))
+  (:require [camel-snake-kebab.core :refer [->camelCaseString]]
+            [nhl-score-api.utils :refer [parse-date]]))
 
 (defn- parse-fn-date [name field value]
   (try
