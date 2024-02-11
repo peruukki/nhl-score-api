@@ -28,7 +28,7 @@
 
 (declare app)
 
-(defn -main [& args]
+(defn -main []
   (let [ip "0.0.0.0"
         port (Integer/parseInt (get (System/getenv) "PORT" "8080"))]
     (println "Starting server version" version)

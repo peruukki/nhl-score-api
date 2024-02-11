@@ -1,7 +1,6 @@
 (ns nhl-score-api.core-test
   (:require [clojure.test :refer :all]
             [nhl-score-api.core :refer :all]
-            [nhl-score-api.cache :refer [get-cached-fn]]
             [clojure.data.json :as json]))
 
 (def latest-scores-fetched (atom false))
@@ -106,6 +105,7 @@
   (reset! latest-scores-fetched true)
   latest-scores)
 
+#_{:clj-kondo/ignore [:unused-binding]}
 (defn- scores-in-date-range-api-fn [start-date end-date]
   (reset! scores-in-date-range-fetched true)
   scores-in-date-range)
