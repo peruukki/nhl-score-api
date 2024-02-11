@@ -1,7 +1,11 @@
 (ns nhl-score-api.fetchers.nhl-api-web.fetcher-test
-  (:require [clojure.test :refer :all]
+  (:require [clojure.test :refer [deftest is testing]]
             [clj-time.core :as time]
-            [nhl-score-api.fetchers.nhl-api-web.fetcher :refer :all]
+            [nhl-score-api.fetchers.nhl-api-web.fetcher :refer [base-url
+                                                                fetch-standings-info
+                                                                get-landing-urls-by-game-id
+                                                                get-schedule-start-date
+                                                                get-standings-request-date]]
             [nhl-score-api.utils :refer [format-date]]))
 
 (deftest get-scores-query-params-test

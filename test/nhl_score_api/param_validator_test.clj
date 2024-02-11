@@ -1,6 +1,6 @@
 (ns nhl-score-api.param-validator-test
-  (:require [clojure.test :refer :all]
-            [nhl-score-api.param-validator :refer :all]
+  (:require [clojure.test :refer [deftest is testing]]
+            [nhl-score-api.param-validator :refer [validate-date-range]]
             [clj-time.core :as time]))
 
 (deftest validating-date-range

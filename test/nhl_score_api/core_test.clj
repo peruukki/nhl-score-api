@@ -1,6 +1,6 @@
 (ns nhl-score-api.core-test
-  (:require [clojure.test :refer :all]
-            [nhl-score-api.core :refer :all]
+  (:require [clojure.test :refer [deftest is testing]]
+            [nhl-score-api.core :refer [app get-response json-key-transformer]]
             [clojure.data.json :as json]))
 
 (def latest-scores-fetched (atom false))
