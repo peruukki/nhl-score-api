@@ -23,7 +23,9 @@
         date-now (time/now)]
     (format-date (if fetch-latest? (time/minus date-now (time/days 1)) start-date))))
 
-(defn get-standings-request-date [{:keys [requested-date-str current-date-str regular-season-end-date-str]}]
+(defn get-current-standings-request-date [{:keys [requested-date-str
+                                                  current-date-str
+                                                  regular-season-end-date-str]}]
   (first (sort [requested-date-str current-date-str regular-season-end-date-str])))
 
 (defn api-response-to-json [api-response]
@@ -43,11 +45,12 @@
     (fetch "schedule" {:date start-date} (get-schedule-url start-date))))
 
 (defn fetch-standings-info [date-str regular-season-end-date-str]
-  (let [standings-date-str (if (nil? date-str)
-                             nil
-                             (get-standings-request-date {:requested-date-str date-str
-                                                          :current-date-str (format-date (time/now))
-                                                          :regular-season-end-date-str regular-season-end-date-str}))]
+  (let [standings-date-str
+        (if (nil? date-str)
+          nil
+          (get-current-standings-request-date {:requested-date-str date-str
+                                               :current-date-str (format-date (time/now))
+                                               :regular-season-end-date-str regular-season-end-date-str}))]
     (if (nil? standings-date-str)
       {:records nil}
       (fetch "standings" {:date standings-date-str} (get-standings-url standings-date-str)))))

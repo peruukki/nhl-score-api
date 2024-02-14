@@ -5,7 +5,7 @@
                                                                 fetch-standings-info
                                                                 get-landing-urls-by-game-id
                                                                 get-schedule-start-date
-                                                                get-standings-request-date]]
+                                                                get-current-standings-request-date]]
             [nhl-score-api.utils :refer [format-date]]))
 
 (deftest get-scores-query-params-test
@@ -21,33 +21,33 @@
       (is (= "2021-09-25"
              (get-schedule-start-date start-date)) "Start date"))))
 
-(deftest get-standings-request-date-test
+(deftest get-current-standings-request-date-test
 
   (testing "Standings are requested for appropriate date"
     (is (= "2023-11-18"
-           (get-standings-request-date {:requested-date-str "2023-11-18"
-                                        :current-date-str "2023-11-18"
-                                        :regular-season-end-date-str "2024-04-14"}))
+           (get-current-standings-request-date {:requested-date-str "2023-11-18"
+                                                :current-date-str "2023-11-18"
+                                                :regular-season-end-date-str "2024-04-14"}))
         "Date during regular season")
     (is (= "2023-08-31"
-           (get-standings-request-date {:requested-date-str "2023-08-31"
-                                        :current-date-str "2023-11-18"
-                                        :regular-season-end-date-str "2024-04-14"}))
+           (get-current-standings-request-date {:requested-date-str "2023-08-31"
+                                                :current-date-str "2023-11-18"
+                                                :regular-season-end-date-str "2024-04-14"}))
         "Date in the past between regular seasons")
     (is (= "2023-11-18"
-           (get-standings-request-date {:requested-date-str "2024-08-31"
-                                        :current-date-str "2023-11-18"
-                                        :regular-season-end-date-str "2024-04-14"}))
+           (get-current-standings-request-date {:requested-date-str "2024-08-31"
+                                                :current-date-str "2023-11-18"
+                                                :regular-season-end-date-str "2024-04-14"}))
         "Date in the future after current regular season")
     (is (= "2023-11-18"
-           (get-standings-request-date {:requested-date-str "2023-11-19"
-                                        :current-date-str "2023-11-18"
-                                        :regular-season-end-date-str "2024-04-14"}))
+           (get-current-standings-request-date {:requested-date-str "2023-11-19"
+                                                :current-date-str "2023-11-18"
+                                                :regular-season-end-date-str "2024-04-14"}))
         "Date in the future during current regular season")
     (is (= nil
-           (get-standings-request-date {:requested-date-str "1900-11-19"
-                                        :current-date-str "2023-11-18"
-                                        :regular-season-end-date-str nil}))
+           (get-current-standings-request-date {:requested-date-str "1900-11-19"
+                                                :current-date-str "2023-11-18"
+                                                :regular-season-end-date-str nil}))
         "Date before any season in NHL history")))
 
 (deftest fetch-standings-info-test
