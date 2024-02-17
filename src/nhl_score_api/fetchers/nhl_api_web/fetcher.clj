@@ -52,7 +52,7 @@
                                                :current-date-str (format-date (time/now))
                                                :regular-season-end-date-str regular-season-end-date-str}))]
     (if (nil? standings-date-str)
-      {:records nil}
+      nil
       (fetch "standings" {:date standings-date-str} (get-standings-url standings-date-str)))))
 
 (defn get-landing-urls-by-game-id [schedule-games]

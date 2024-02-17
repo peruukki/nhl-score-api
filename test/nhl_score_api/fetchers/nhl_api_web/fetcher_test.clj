@@ -53,7 +53,7 @@
 (deftest fetch-standings-info-test
 
   (testing "Standings are not fetched if there are no latest games"
-    (is (= {:records nil}
+    (is (= nil
            (fetch-standings-info nil nil)) "No team records")))
 
 (deftest get-landing-urls-by-game-id-test
