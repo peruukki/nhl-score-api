@@ -7,7 +7,8 @@
 
 (def default-games resources/games-finished-in-regulation-overtime-and-shootout)
 (def default-landings (resources/get-landings [2023020195 2023020205 2023020206 2023020207 2023020208 2023020209]))
-(def default-standings (:standings resources/standings))
+(def default-standings {:pre-game (:standings resources/pre-game-standings)
+                        :current (:standings resources/current-standings)})
 
 (deftest game-scores-parsing-scores
 
@@ -325,13 +326,13 @@
       (is (= 8
              (count records)) "Parsed pre-game regular season records count")
       (is (= [{"DET" {:wins 7 :losses 5 :ot 1} "MTL" {:wins 5 :losses 5 :ot 2}}
-              {"CGY" {:wins 4 :losses 7 :ot 0} "TOR" {:wins 5 :losses 5 :ot 2}}
-              {"SJS" {:wins 2 :losses 9 :ot 1} "VGK" {:wins 10 :losses 2 :ot 1}}
+              {"CGY" {:wins 4 :losses 7 :ot 1} "TOR" {:wins 6 :losses 5 :ot 2}}
+              {"SJS" {:wins 1 :losses 10 :ot 1} "VGK" {:wins 11 :losses 2 :ot 1}}
               {"WSH" {:wins 5 :losses 4 :ot 2} "NJD" {:wins 7 :losses 4 :ot 1}}
               {"ANA" {:wins 7 :losses 5 :ot 0} "PHI" {:wins 5 :losses 7 :ot 1}}
-              {"DAL" {:wins 8 :losses 3 :ot 1} "WPG" {:wins 7 :losses 4 :ot 2}}
-              {"BUF" {:wins 6 :losses 6 :ot 1} "PIT" {:wins 6 :losses 6 :ot 0}}
-              {"CAR" {:wins 8 :losses 5 :ot 0} "TBL" {:wins 6 :losses 4 :ot 4}}]
+              {"DAL" {:wins 7 :losses 3 :ot 1} "WPG" {:wins 6 :losses 4 :ot 2}}
+              {"BUF" {:wins 6 :losses 6 :ot 1} "PIT" {:wins 5 :losses 6 :ot 0}}
+              {"CAR" {:wins 8 :losses 5 :ot 0} "TBL" {:wins 6 :losses 3 :ot 4}}]
              records) "Parsed pre-game regular season records")))
 
   (testing "Parsing teams' current regular season records"
@@ -354,6 +355,24 @@
              records) "Parsed current regular season records"))))
 
 (deftest game-scores-parsing-team-streaks
+
+  (testing "Parsing teams' pre-game streaks"
+    (let [games (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings))
+          streaks (map #(:streaks (:pre-game-stats %)) games)]
+      (is (= 8
+             (count streaks)) "Parsed streaks count")
+      (is (= [{"DET" {:type "LOSSES" :count 1} "MTL" {:type "LOSSES" :count 3}}
+              {"CGY" {:type "WINS" :count 2} "TOR" {:type "LOSSES" :count 1}}
+              {"SJS" {:type "WINS" :count 1} "VGK" {:type "LOSSES" :count 2}}
+              {"WSH" {:type "OT" :count 1} "NJD" {:type "LOSSES" :count 1}}
+              {"ANA" {:type "LOSSES" :count 1} "PHI" {:type "LOSSES" :count 2}}
+              {"DAL" {:type "LOSSES" :count 2} "WPG" {:type "WINS" :count 2}}
+              {"BUF" {:type "OT" :count 1} "PIT" {:type "WINS" :count 2}}
+              {"CAR" {:type "WINS" :count 2} "TBL" {:type "WINS" :count 1}}]
+             streaks) "Parsed streaks")))
 
   (testing "Parsing teams' current streaks"
     (let [games (:games
@@ -382,10 +401,21 @@
                     default-standings))
           pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
           current-stats-standings (map #(:standings (:current-stats %)) games)
-          ranks (map
-                  #(fmap-vals (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
-                  current-stats-standings)]
-      (is (= (repeat 8 nil) pre-game-stats-standings) "Pre-game standings should not exist")
+          pre-game-ranks (map
+                          #(fmap-vals (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
+                          pre-game-stats-standings)
+          current-ranks (map
+                         #(fmap-vals (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
+                         current-stats-standings)]
+      (is (= [{"DET" {:division-rank "4" :league-rank "12"} "MTL" {:division-rank "7" :league-rank "21"}}
+              {"CGY" {:division-rank "6" :league-rank "29"} "TOR" {:division-rank "5" :league-rank "15"}}
+              {"SJS" {:division-rank "8" :league-rank "32"} "VGK" {:division-rank "1" :league-rank "1"}}
+              {"WSH" {:division-rank "5" :league-rank "19"} "NJD" {:division-rank "3" :league-rank "10"}}
+              {"ANA" {:division-rank "4" :league-rank "14"} "PHI" {:division-rank "7" :league-rank "24"}}
+              {"DAL" {:division-rank "2" :league-rank "9"} "WPG" {:division-rank "3" :league-rank "13"}}
+              {"BUF" {:division-rank "6" :league-rank "18"} "PIT" {:division-rank "8" :league-rank "26"}}
+              {"CAR" {:division-rank "2" :league-rank "8"} "TBL" {:division-rank "2" :league-rank "7"}}]
+             pre-game-ranks) "Parsed pre-game stats division and league ranks")
       (is (= [{"DET" {:division-rank "2" :league-rank "10"} "MTL" {:division-rank "6" :league-rank "16"}}
               {"CGY" {:division-rank "6" :league-rank "30"} "TOR" {:division-rank "5" :league-rank "15"}}
               {"SJS" {:division-rank "8" :league-rank "32"} "VGK" {:division-rank "1" :league-rank "2"}}
@@ -394,13 +424,14 @@
               {"DAL" {:division-rank "1" :league-rank "6"} "WPG" {:division-rank "3" :league-rank "8"}}
               {"BUF" {:division-rank "7" :league-rank "19"} "PIT" {:division-rank "6" :league-rank "23"}}
               {"CAR" {:division-rank "2" :league-rank "9"} "TBL" {:division-rank "3" :league-rank "11"}}]
-             ranks) "Parsed current stats division and league ranks")))
+             current-ranks) "Parsed current stats division and league ranks")))
 
   (testing "Parsing teams' division and league ranks for playoff games"
     (let [games (:games
                   (parse-game-scores
                     (get-latest-games resources/playoff-games-live-finished-in-regulation-and-overtime)
-                    (:standings resources/standings-for-playoffs)))
+                    {:pre-game (:standings resources/standings-for-playoffs)
+                     :current (:standings resources/standings-for-playoffs)}))
           pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
           current-stats-standings (map #(:standings (:current-stats %)) games)
           ranks (map

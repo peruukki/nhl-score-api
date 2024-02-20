@@ -14,7 +14,8 @@
 (def non-league-games (read-resource "schedule-2024-02-01-modified.json"))
 (def games-for-validation-testing (read-resource "schedule-2023-11-09-modified-for-validation.json"))
 
-(def standings (read-resource "standings-2023-11-09.json"))
+(def current-standings (read-resource "standings-2023-11-09.json"))
+(def pre-game-standings (read-resource "standings-2023-11-08.json"))
 (def standings-for-playoffs (read-resource "standings-2023-04-14.json"))
 
 (defn get-landings [game-ids]

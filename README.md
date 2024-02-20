@@ -196,6 +196,28 @@ The fields are described in more detail in [Response fields](#response-fields).
             "losses": 22,
             "ot": 9
           }
+        },
+        "streaks": {
+          "BOS": {
+            "count": 1,
+            "type": "WINS"
+          },
+          "CHI": {
+            "count": 2,
+            "type": "LOSSES"
+          }
+        },
+        "standings": {
+          "BOS": {
+            "divisionRank": "3",
+            "leagueRank": "9",
+            "pointsFromPlayoffSpot": "+15"
+          },
+          "CHI": {
+            "divisionRank": "6",
+            "leagueRank": "25",
+            "pointsFromPlayoffSpot": "-3"
+          }
         }
       },
       "currentStats": {
@@ -344,6 +366,28 @@ The fields are described in more detail in [Response fields](#response-fields).
             "wins": 33,
             "losses": 36,
             "ot": 12
+          }
+        },
+        "streaks": {
+          "OTT": {
+            "count": 3,
+            "type": "LOSSES"
+          },
+          "DET": {
+            "count": 1,
+            "type": "WINS"
+          }
+        },
+        "standings": {
+          "OTT": {
+            "divisionRank": "8",
+            "leagueRank": "29",
+            "pointsFromPlayoffSpot": "0"
+          },
+          "DET": {
+            "divisionRank": "7",
+            "leagueRank": "23",
+            "pointsFromPlayoffSpot": "+2"
           }
         }
       },
@@ -553,10 +597,19 @@ The fields are described in more detail in [Response fields](#response-fields).
   - `playoffSeries` object: current playoff series related information (only present in playoff games), with the fields:
     - `round` *(number)*: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series (in 2020 due to COVID-19), actual playoffs start from `1`
     - `wins` *(object)*: each team’s win count in the series
-  - `standings` object: each teams’ standings related information (only present in playoff games because the NHL Stats API doesn’t provide separate
-    pre-game stats), with the fields:
+  - `streaks` object (**or `null` if querying coming season’s games**): each teams’ current form streak (only present in regular season games), with the fields:
+    - `type` *(string)*: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
+    - `count` *(number)*: streak’s length in consecutive games
+  - `standings` object: each teams’ standings related information, with the fields:
     - `divisionRank` *(string)*: the team's regular season ranking in their division (based on point percentage); this comes as a *string* value from the NHL Stats API
     - `leagueRank` *(string)*: the team's regular season ranking in the league (based on point percentage); this comes as a *string* value from the NHL Stats API
+    - `pointsFromPlayoffSpot` *(string)*: point difference to the last playoff spot in the conference
+      - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
+        i.e. by how many points the team is safe
+      - for teams currently outside the playoffs, this is the point difference to the team in the last playoff spot (2nd wildcard
+        position); i.e. by how many points (at minimum) the team needs to catch up
+      - Note: this value only indicates point differences and doesn’t consider which team is ranked higher if they have the same
+        number of points
 - `currentStats` object: each teams’ current (ie. after the game if it has finished and NHL have updated their stats) season statistics *on the game date*, with the fields:
   - `records` object: each teams’ record for this **regular season**, with the fields:
     - `wins` *(number)*: win count (earning 2 pts)

@@ -5,7 +5,6 @@
                                                                     get-game-state
                                                                     live-game?
                                                                     non-playoff-game?
-                                                                    playoff-game?
                                                                     regular-season-game?]])
   (:import (java.text DecimalFormat DecimalFormatSymbols)
            (java.util Locale)))
@@ -188,33 +187,9 @@
      home-team (assoc (select-keys home-details [:wins :losses])
                  :ot (:ot-losses home-details))}))
 
-(defn- reduce-current-game-from-records [records schedule-game teams scores]
-  (let [away-team (:abbreviation (:away teams))
-        home-team (:abbreviation (:home teams))
-        away-goals (get scores away-team)
-        home-goals (get scores home-team)
-        winning-team (if (> away-goals home-goals) away-team home-team)
-        losing-team (if (= winning-team home-team) away-team home-team)
-        winning-team-current-record (get records winning-team)
-        losing-team-current-record (get records losing-team)
-        records-have-ot (contains? losing-team-current-record :ot)
-        ot-loss (and
-                  records-have-ot
-                  (non-playoff-game? schedule-game)
-                  (or (contains? scores :overtime) (contains? scores :shootout)))
-        loss-key (if ot-loss :ot :losses)]
-    {winning-team (assoc winning-team-current-record :wins (- (:wins winning-team-current-record) 1))
-     losing-team (assoc losing-team-current-record loss-key (- (loss-key losing-team-current-record) 1))}))
-
-(defn- parse-records [schedule-game standings teams scores]
-  (let [current-records (parse-current-records standings teams)]
-    {current-stats-key
-     current-records
-     pre-game-stats-key
-     (if (finished-game? schedule-game)
-       (reduce-current-game-from-records current-records schedule-game teams scores)
-       current-records)}
-    ))
+(defn- parse-records [current-and-pre-game-standings teams]
+  {current-stats-key (parse-current-records (:current current-and-pre-game-standings) teams)
+   pre-game-stats-key (parse-current-records (:pre-game current-and-pre-game-standings) teams)})
 
 (defn- parse-streak-from-standings [standings team-abbreviation]
   (let [team-record (parse-team-record-from-standings standings team-abbreviation)
@@ -401,23 +376,27 @@
          :shots (parse-stat "sog")
          :takeaways (parse-stat "takeaways")}))))
 
-(defn- add-team-records [game-details schedule-game standings teams scores]
-  (let [records (parse-records schedule-game standings teams scores)
-        with-pre-game-stats (add-stats-field game-details pre-game-stats-key :records (pre-game-stats-key records))]
-    (add-stats-field with-pre-game-stats current-stats-key :records (current-stats-key records))))
+(defn- add-team-records [game-details current-and-pre-game-standings teams]
+  (let [records (parse-records current-and-pre-game-standings teams)]
+    (-> game-details
+        (add-stats-field pre-game-stats-key :records (pre-game-stats-key records))
+        (add-stats-field current-stats-key :records (current-stats-key records)))))
 
-(defn- add-team-streaks [game-details schedule-game team-details standings]
+(defn- add-team-streaks [game-details schedule-game team-details current-and-pre-game-standings]
   (if (not (regular-season-game? schedule-game))
     game-details
-    (add-stats-field game-details current-stats-key :streaks (parse-streaks team-details standings))))
+    (-> game-details
+        (add-stats-field pre-game-stats-key :streaks
+                         (parse-streaks team-details (:pre-game current-and-pre-game-standings)))
+        (add-stats-field current-stats-key :streaks
+                         (parse-streaks team-details (:current current-and-pre-game-standings))))))
 
-(defn- add-team-standings [game-details schedule-game team-details standings]
-  (let [parsed-standings (parse-standings team-details standings)]
-    (cond-> game-details
-            (playoff-game? schedule-game)
-            (add-stats-field pre-game-stats-key :standings parsed-standings)
-            true
-            (add-stats-field current-stats-key :standings parsed-standings))))
+(defn- add-team-standings [game-details team-details current-and-pre-game-standings]
+  (-> game-details
+      (add-stats-field pre-game-stats-key :standings
+                       (parse-standings team-details (:pre-game current-and-pre-game-standings)))
+      (add-stats-field current-stats-key :standings
+                       (parse-standings team-details (:current current-and-pre-game-standings)))))
 
 (defn- add-playoff-series-information [game-details schedule-game]
   (if (non-playoff-game? schedule-game)
@@ -463,7 +442,7 @@
                         (seq (val %)))
                    game-details)))
 
-(defn- parse-game-details [standings landing schedule-game]
+(defn- parse-game-details [current-and-pre-game-standings landing schedule-game]
   (let [team-details (parse-game-team-details schedule-game)
         scores (parse-scores schedule-game team-details)
         teams (get-teams team-details)]
@@ -475,17 +454,17 @@
          pre-game-stats-key {}
          current-stats-key {}}
         (add-game-stats team-details landing)
-        (add-team-records schedule-game standings teams scores)
-        (add-team-streaks schedule-game team-details standings)
-        (add-team-standings schedule-game team-details standings)
+        (add-team-records current-and-pre-game-standings teams)
+        (add-team-streaks schedule-game team-details current-and-pre-game-standings)
+        (add-team-standings team-details current-and-pre-game-standings)
         (add-playoff-series-information schedule-game)
         (add-validation-errors)
         (reject-empty-vals-except-for-keys #{:goals}))))
 
 (defn parse-game-scores
-  ([date-and-schedule-games standings]
-   (parse-game-scores date-and-schedule-games standings nil))
-  ([date-and-schedule-games standings landings]
+  ([date-and-schedule-games current-and-pre-game-standings]
+   (parse-game-scores date-and-schedule-games current-and-pre-game-standings nil))
+  ([date-and-schedule-games current-and-pre-game-standings landings]
    {:date (:date date-and-schedule-games)
-    :games (map #(parse-game-details standings (get landings (:id %)) %)
+    :games (map #(parse-game-details current-and-pre-game-standings (get landings (:id %)) %)
                 (:games date-and-schedule-games))}))
