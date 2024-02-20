@@ -57,11 +57,9 @@
 
 (defn fetch-standings-info [date-str regular-season-start-date-str regular-season-end-date-str]
   (let [standings-date-str
-        (if (nil? date-str)
-          nil
-          (get-current-standings-request-date {:requested-date-str date-str
-                                               :current-date-str (format-date (time/now))
-                                               :regular-season-end-date-str regular-season-end-date-str}))
+        (get-current-standings-request-date {:requested-date-str date-str
+                                             :current-date-str (format-date (time/now))
+                                             :regular-season-end-date-str regular-season-end-date-str})
         pre-game-standings-date-str
         (get-pre-game-standings-request-date {:current-standings-date-str standings-date-str
                                               :regular-season-start-date-str regular-season-start-date-str})]

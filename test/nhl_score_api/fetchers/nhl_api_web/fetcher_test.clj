@@ -49,7 +49,12 @@
            (get-current-standings-request-date {:requested-date-str "1900-11-19"
                                                 :current-date-str "2023-11-18"
                                                 :regular-season-end-date-str nil}))
-        "Date before any season in NHL history")))
+        "Date before any season in NHL history")
+    (is (= nil
+           (get-current-standings-request-date {:requested-date-str nil
+                                                :current-date-str "2023-11-18"
+                                                :regular-season-end-date-str "2024-04-14"}))
+        "No requested date")))
 
 (deftest get-pre-game-standings-request-date-test
 
