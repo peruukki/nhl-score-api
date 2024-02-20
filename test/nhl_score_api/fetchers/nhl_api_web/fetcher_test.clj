@@ -82,7 +82,10 @@
 
   (testing "Standings are not fetched if there are no latest games"
     (is (= nil
-           (fetch-standings-info nil nil nil)) "No team records")))
+           (fetch-standings-info {:date-str nil
+                                  :regular-season-start-date-str nil
+                                  :regular-season-end-date-str nil}))
+        "No team records")))
 
 (deftest get-landing-urls-by-game-id-test
 

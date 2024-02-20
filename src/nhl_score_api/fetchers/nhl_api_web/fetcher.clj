@@ -55,7 +55,7 @@
   (let [start-date (get-schedule-start-date date-str)]
     (fetch "schedule" {:date start-date} (get-schedule-url start-date))))
 
-(defn fetch-standings-info [date-str regular-season-start-date-str regular-season-end-date-str]
+(defn fetch-standings-info [{:keys [date-str regular-season-start-date-str regular-season-end-date-str]}]
   (let [standings-date-str
         (get-current-standings-request-date {:requested-date-str date-str
                                              :current-date-str (format-date (time/now))
@@ -93,9 +93,9 @@
               (api-response-to-json (slurp mocked-latest-games-info-file)))
           (fetch-games-info nil))
         date-and-schedule-games (get-latest-games latest-games-info)
-        standings-info (fetch-standings-info (:raw (:date date-and-schedule-games))
-                                             (:regular-season-start-date latest-games-info)
-                                             (:regular-season-end-date latest-games-info))
+        standings-info (fetch-standings-info {:date-str (:raw (:date date-and-schedule-games))
+                                              :regular-season-start-date-str (:regular-season-start-date latest-games-info)
+                                              :regular-season-end-date-str (:regular-season-end-date latest-games-info)})
         landings-info (fetch-landings-info (:games date-and-schedule-games))]
     (game-scores/parse-game-scores date-and-schedule-games standings-info landings-info)))
 
@@ -105,9 +105,9 @@
 (defn- fetch-scores-in-date-range [start-date end-date]
   (let [games-info (fetch-games-info start-date)
         dates-and-schedule-games (get-games-in-date-range games-info start-date end-date)
-        standings-infos (map #(fetch-standings-info (:raw (:date %))
-                                                    (:regular-season-start-date games-info)
-                                                    (:regular-season-end-date games-info))
+        standings-infos (map #(fetch-standings-info {:date-str (:raw (:date %))
+                                                     :regular-season-start-date-str (:regular-season-start-date games-info)
+                                                     :regular-season-end-date-str (:regular-season-end-date games-info)})
                              dates-and-schedule-games)
         landings-infos (map #(fetch-landings-info (:games %)) dates-and-schedule-games)]
     (map-indexed #(game-scores/parse-game-scores %2 (nth standings-infos %1) (nth landings-infos %1))
