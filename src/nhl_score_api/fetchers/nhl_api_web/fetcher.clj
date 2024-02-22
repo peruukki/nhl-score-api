@@ -48,7 +48,7 @@
         response (-> (http/get url {:debug false})
                      :body
                      api-response-to-json)]
-    (println "Fetched" endpoint-name endpoint-params "(took" (- (System/currentTimeMillis) start-time) "ms)")
+    (println "Fetched " endpoint-name endpoint-params "(took" (- (System/currentTimeMillis) start-time) "ms)")
     response))
 
 (defn- fetch-games-info [date-str]
