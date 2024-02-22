@@ -103,8 +103,11 @@
               (api-response-to-json (slurp mocked-latest-games-info-file)))
           (fetch-games-info nil))
         date-and-schedule-games (get-latest-games latest-games-info)
+        standings-date-str (if (= (count (:games date-and-schedule-games)) 0)
+                             nil
+                             (:raw (:date date-and-schedule-games)))
         standings-info (first
-                        (fetch-standings-infos {:date-strs [(:raw (:date date-and-schedule-games))]
+                        (fetch-standings-infos {:date-strs [standings-date-str]
                                                 :regular-season-start-date-str (:regular-season-start-date latest-games-info)
                                                 :regular-season-end-date-str (:regular-season-end-date latest-games-info)}))
         landings-info (fetch-landings-info (:games date-and-schedule-games))]
@@ -116,7 +119,11 @@
 (defn- fetch-scores-in-date-range [start-date end-date]
   (let [games-info (fetch-games-info start-date)
         dates-and-schedule-games (get-games-in-date-range games-info start-date end-date)
-        standings-infos (fetch-standings-infos {:date-strs (map #(:raw (:date %)) dates-and-schedule-games)
+        standings-date-strs (map #(if (= (count (:games %)) 0)
+                                    nil
+                                    (:raw (:date %)))
+                                 dates-and-schedule-games)
+        standings-infos (fetch-standings-infos {:date-strs standings-date-strs
                                                 :regular-season-start-date-str (:regular-season-start-date games-info)
                                                 :regular-season-end-date-str (:regular-season-end-date games-info)})
         landings-infos (map #(fetch-landings-info (:games %)) dates-and-schedule-games)]
