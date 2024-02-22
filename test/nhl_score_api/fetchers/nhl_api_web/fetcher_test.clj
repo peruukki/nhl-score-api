@@ -2,7 +2,7 @@
   (:require [clj-time.core :as time]
             [clojure.test :refer [deftest is testing]]
             [nhl-score-api.fetchers.nhl-api-web.fetcher :refer [base-url
-                                                                fetch-standings-info
+                                                                fetch-standings-infos
                                                                 get-current-standings-request-date
                                                                 get-landing-urls-by-game-id
                                                                 get-pre-game-standings-request-date
@@ -81,10 +81,10 @@
 (deftest fetch-standings-info-test
 
   (testing "Standings are not fetched if there are no latest games"
-    (is (= nil
-           (fetch-standings-info {:date-str nil
-                                  :regular-season-start-date-str nil
-                                  :regular-season-end-date-str nil}))
+    (is (= [nil]
+           (fetch-standings-infos {:date-strs [nil]
+                                   :regular-season-start-date-str nil
+                                   :regular-season-end-date-str nil}))
         "No team records")))
 
 (deftest get-landing-urls-by-game-id-test
