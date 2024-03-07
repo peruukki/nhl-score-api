@@ -338,14 +338,14 @@
 (defn- parse-game-start-time [schedule-game]
   (:start-time-utc schedule-game))
 
-(defn- default-game-stat-parse-fn [stat-value]
+(defn- parse-integer-game-stat [stat-value]
   (if (string? stat-value)
     (Integer/parseInt stat-value)
     stat-value))
 
 (defn- parse-game-stat
   ([game-stats away-abbreviation home-abbreviation stat-category]
-   (parse-game-stat game-stats away-abbreviation home-abbreviation stat-category default-game-stat-parse-fn))
+   (parse-game-stat game-stats away-abbreviation home-abbreviation stat-category parse-integer-game-stat))
   ([game-stats away-abbreviation home-abbreviation stat-category parse-fn]
    (let [stat (some #(when (= (:category %) stat-category) %) game-stats)]
      {away-abbreviation (parse-fn (:away-value stat))
