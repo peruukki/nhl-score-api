@@ -338,9 +338,14 @@
 (defn- parse-game-start-time [schedule-game]
   (:start-time-utc schedule-game))
 
+(defn- default-game-stat-parse-fn [stat-value]
+  (if (string? stat-value)
+    (Integer/parseInt stat-value)
+    stat-value))
+
 (defn- parse-game-stat
   ([game-stats away-abbreviation home-abbreviation stat-category]
-   (parse-game-stat game-stats away-abbreviation home-abbreviation stat-category #(Integer/parseInt %)))
+   (parse-game-stat game-stats away-abbreviation home-abbreviation stat-category default-game-stat-parse-fn))
   ([game-stats away-abbreviation home-abbreviation stat-category parse-fn]
    (let [stat (some #(when (= (:category %) stat-category) %) game-stats)]
      {away-abbreviation (parse-fn (:away-value stat))
@@ -358,6 +363,11 @@
      :opportunities opportunities
      :percentage    (.format formatter percentage)}))
 
+(defn- parse-float-percentage [stat-value]
+  (if (nil? stat-value)
+    nil
+    (format "%.1f" (* 100 stat-value))))
+
 (defn- add-game-stats [game-details team-details landing]
   (if (nil? landing)
     game-details
@@ -368,7 +378,7 @@
             parse-stat (partial parse-game-stat
                                 (:team-game-stats (:summary landing)) away-abbreviation home-abbreviation)]
         {:blocked (parse-stat "blockedShots")
-         :face-off-win-percentage (parse-stat "faceoffPctg" identity)
+         :face-off-win-percentage (parse-stat "faceoffWinningPctg" parse-float-percentage)
          :giveaways (parse-stat "giveaways")
          :hits (parse-stat "hits")
          :pim (parse-stat "pim")

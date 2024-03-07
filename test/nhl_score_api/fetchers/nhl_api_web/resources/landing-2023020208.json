@@ -663,46 +663,19 @@
       }
     ],
     "teamGameStats": [
+      { "category": "sog", "awayValue": 36, "homeValue": 38 },
       {
-        "category": "sog",
-        "awayValue": "36",
-        "homeValue": "38"
+        "category": "faceoffWinningPctg",
+        "awayValue": 0.492063,
+        "homeValue": 0.507937
       },
-      {
-        "category": "faceoffPctg",
-        "awayValue": "49.2",
-        "homeValue": "50.8"
-      },
-      {
-        "category": "powerPlay",
-        "awayValue": "0/3",
-        "homeValue": "2/6"
-      },
-      {
-        "category": "pim",
-        "awayValue": "12",
-        "homeValue": "6"
-      },
-      {
-        "category": "hits",
-        "awayValue": "10",
-        "homeValue": "14"
-      },
-      {
-        "category": "blockedShots",
-        "awayValue": "21",
-        "homeValue": "9"
-      },
-      {
-        "category": "giveaways",
-        "awayValue": "7",
-        "homeValue": "12"
-      },
-      {
-        "category": "takeaways",
-        "awayValue": "7",
-        "homeValue": "3"
-      }
+      { "category": "powerPlay", "awayValue": "0/3", "homeValue": "2/6" },
+      { "category": "powerPlayPctg", "awayValue": 0.0, "homeValue": 0.333333 },
+      { "category": "pim", "awayValue": 12, "homeValue": 6 },
+      { "category": "hits", "awayValue": 13, "homeValue": 18 },
+      { "category": "blockedShots", "awayValue": 21, "homeValue": 9 },
+      { "category": "giveaways", "awayValue": 7, "homeValue": 12 },
+      { "category": "takeaways", "awayValue": 7, "homeValue": 3 }
     ],
     "shotsByPeriod": [
       {

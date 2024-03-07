@@ -269,7 +269,7 @@
       (is (= [{:blocked                 {"MTL" 14 "DET" 12}
                :face-off-win-percentage {"MTL" "53.4" "DET" "46.6"}
                :giveaways               {"MTL" 1 "DET" 10}
-               :hits                    {"MTL" 18 "DET" 17}
+               :hits                    {"MTL" 21 "DET" 19}
                :pim                     {"MTL" 10 "DET" 22}
                :power-play              {"MTL" {:goals 2 :opportunities 5 :percentage "40.0"}
                                          "DET" {:goals 0 :opportunities 4 :percentage "0.0"}}
@@ -278,7 +278,7 @@
               {:blocked                 {"CGY" 19 "TOR" 15}
                :face-off-win-percentage {"CGY" "40.7" "TOR" "59.3"}
                :giveaways               {"CGY" 7 "TOR" 11}
-               :hits                    {"CGY" 21 "TOR" 25}
+               :hits                    {"CGY" 25 "TOR" 29}
                :pim                     {"CGY" 4 "TOR" 6}
                :power-play              {"CGY" {:goals 0 :opportunities 2 :percentage "0.0"}
                                          "TOR" {:goals 1 :opportunities 1 :percentage "100.0"}}
@@ -287,7 +287,7 @@
               {:blocked                 {"SJS" 16 "VGK" 15}
                :face-off-win-percentage {"SJS" "55.9" "VGK" "44.1"}
                :giveaways               {"SJS" 4 "VGK" 8}
-               :hits                    {"SJS" 19 "VGK" 14}
+               :hits                    {"SJS" 29 "VGK" 17}
                :pim                     {"SJS" 2 "VGK" 10}
                :power-play              {"SJS" {:goals 0 :opportunities 4 :percentage "0.0"}
                                          "VGK" {:goals 0 :opportunities 0 :percentage "0.0"}}
@@ -296,7 +296,7 @@
               {:blocked                 {"WSH" 18 "NJD" 12}
                :face-off-win-percentage {"WSH" "49.2" "NJD" "50.8"}
                :giveaways               {"WSH" 1 "NJD" 11}
-               :hits                    {"WSH" 14 "NJD" 27}
+               :hits                    {"WSH" 19 "NJD" 34}
                :pim                     {"WSH" 8 "NJD" 8}
                :power-play              {"WSH" {:goals 0 :opportunities 4 :percentage "0.0"}
                                          "NJD" {:goals 0 :opportunities 4 :percentage "0.0"}}
@@ -305,7 +305,7 @@
               {:blocked                 {"PHI" 21 "ANA" 9}
                :face-off-win-percentage {"PHI" "49.2" "ANA" "50.8"}
                :giveaways               {"PHI" 7 "ANA" 12}
-               :hits                    {"PHI" 10 "ANA" 14}
+               :hits                    {"PHI" 13 "ANA" 18}
                :pim                     {"PHI" 12 "ANA" 6}
                :power-play              {"PHI" {:goals 0 :opportunities 3 :percentage "0.0"}
                                          "ANA" {:goals 2 :opportunities 6 :percentage "33.3"}}
