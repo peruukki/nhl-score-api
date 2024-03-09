@@ -2,15 +2,30 @@
   "id": 2023020205,
   "season": 20232024,
   "gameType": 2,
+  "limitedScoring": false,
   "gameDate": "2023-11-10",
   "venue": { "default": "Amerant Bank Arena" },
+  "venueLocation": { "default": "Sunrise" },
   "startTimeUTC": "2023-11-11T00:00:00Z",
   "easternUTCOffset": "-05:00",
   "venueUTCOffset": "-05:00",
   "venueTimezone": "US/Eastern",
+  "periodDescriptor": { "number": 3, "periodType": "REG" },
   "tvBroadcasts": [
-    { "id": 353, "market": "H", "countryCode": "US", "network": "BSFL" },
-    { "id": 375, "market": "A", "countryCode": "US", "network": "BSSO" }
+    {
+      "id": 353,
+      "market": "H",
+      "countryCode": "US",
+      "network": "BSFL",
+      "sequenceNumber": 92
+    },
+    {
+      "id": 375,
+      "market": "A",
+      "countryCode": "US",
+      "network": "BSSO",
+      "sequenceNumber": 70
+    }
   ],
   "gameState": "OFF",
   "gameScheduleState": "OK",
@@ -37,29 +52,20 @@
   "regPeriods": 3,
   "otInUse": true,
   "tiesInUse": false,
-  "clock": {
-    "timeRemaining": "00:00",
-    "secondsRemaining": 0,
-    "running": false,
-    "inIntermission": false
-  },
   "summary": {
     "linescore": {
       "byPeriod": [
         {
-          "period": 1,
           "periodDescriptor": { "number": 1, "periodType": "REG" },
           "away": 1,
           "home": 2
         },
         {
-          "period": 2,
           "periodDescriptor": { "number": 2, "periodType": "REG" },
           "away": 1,
           "home": 1
         },
         {
-          "period": 3,
           "periodDescriptor": { "number": 3, "periodType": "REG" },
           "away": 0,
           "home": 2
@@ -69,7 +75,6 @@
     },
     "scoring": [
       {
-        "period": 1,
         "periodDescriptor": { "number": 1, "periodType": "REG" },
         "goals": [
           {
@@ -82,6 +87,7 @@
             "teamAbbrev": { "default": "CAR" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CAR/8480829.png",
             "highlightClip": 6340907671112,
+            "highlightClipFr": 6340907671112,
             "goalsToDate": 6,
             "awayScore": 1,
             "homeScore": 0,
@@ -130,6 +136,7 @@
             "teamAbbrev": { "default": "FLA" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/FLA/8479314.png",
             "highlightClip": 6340906988112,
+            "highlightClipFr": 6340906988112,
             "goalsToDate": 3,
             "awayScore": 1,
             "homeScore": 1,
@@ -163,6 +170,7 @@
             "teamAbbrev": { "default": "FLA" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/FLA/8484304.png",
             "highlightClip": 6340908002112,
+            "highlightClipFr": 6340908002112,
             "goalsToDate": 1,
             "awayScore": 1,
             "homeScore": 2,
@@ -190,7 +198,6 @@
         ]
       },
       {
-        "period": 2,
         "periodDescriptor": { "number": 2, "periodType": "REG" },
         "goals": [
           {
@@ -203,6 +210,7 @@
             "teamAbbrev": { "default": "FLA" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/FLA/8477493.png",
             "highlightClip": 6340909247112,
+            "highlightClipFr": 6340909247112,
             "goalsToDate": 5,
             "awayScore": 1,
             "homeScore": 3,
@@ -237,6 +245,7 @@
             "teamAbbrev": { "default": "CAR" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CAR/8478427.png",
             "highlightClip": 6340911212112,
+            "highlightClipFr": 6340911212112,
             "goalsToDate": 3,
             "awayScore": 2,
             "homeScore": 3,
@@ -264,7 +273,6 @@
         ]
       },
       {
-        "period": 3,
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "goals": [
           {
@@ -303,6 +311,7 @@
             "teamAbbrev": { "default": "FLA" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/FLA/8478831.png",
             "highlightClip": 6340913927112,
+            "highlightClipFr": 6340913927112,
             "goalsToDate": 3,
             "awayScore": 2,
             "homeScore": 5,
@@ -338,8 +347,6 @@
         "teamAbbrev": "FLA",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/FLA/8477493.png",
         "name": "A. Barkov",
-        "firstName": "Aleksander",
-        "lastName": "Barkov",
         "sweaterNo": 16,
         "position": "C",
         "goals": 1,
@@ -352,8 +359,6 @@
         "teamAbbrev": "FLA",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/FLA/8479314.png",
         "name": "M. Tkachuk",
-        "firstName": "Matthew",
-        "lastName": "Tkachuk",
         "sweaterNo": 19,
         "position": "L",
         "goals": 1,
@@ -366,8 +371,6 @@
         "teamAbbrev": "FLA",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/FLA/8477409.png",
         "name": "C. Verhaeghe",
-        "firstName": "Carter",
-        "lastName": "Verhaeghe",
         "sweaterNo": 23,
         "position": "C",
         "goals": 1,
@@ -392,19 +395,16 @@
     ],
     "shotsByPeriod": [
       {
-        "period": 1,
         "periodDescriptor": { "number": 1, "periodType": "REG" },
         "away": 11,
         "home": 13
       },
       {
-        "period": 2,
         "periodDescriptor": { "number": 2, "periodType": "REG" },
         "away": 12,
         "home": 12
       },
       {
-        "period": 3,
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "away": 7,
         "home": 10
@@ -412,7 +412,6 @@
     ],
     "penalties": [
       {
-        "period": 1,
         "periodDescriptor": { "number": 1, "periodType": "REG" },
         "penalties": [
           {
@@ -427,7 +426,6 @@
         ]
       },
       {
-        "period": 2,
         "periodDescriptor": { "number": 2, "periodType": "REG" },
         "penalties": [
           {
@@ -451,7 +449,6 @@
         ]
       },
       {
-        "period": 3,
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "penalties": [
           {
@@ -504,7 +501,7 @@
           "running": false,
           "inIntermission": false
         },
-        "period": 3,
+        "gameCenterLink": "/gamecenter/car-vs-fla/2023/11/10/2023020205",
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "gameOutcome": { "lastPeriodType": "REG" }
       },
@@ -516,18 +513,29 @@
         "startTimeUTC": "2024-02-23T00:00:00Z",
         "easternUTCOffset": "-05:00",
         "venueUTCOffset": "-05:00",
-        "gameState": "FUT",
+        "gameState": "OFF",
         "gameScheduleState": "OK",
         "awayTeam": {
           "id": 13,
           "abbrev": "FLA",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg"
+          "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
+          "score": 0
         },
         "homeTeam": {
           "id": 12,
           "abbrev": "CAR",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg"
-        }
+          "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
+          "score": 1
+        },
+        "clock": {
+          "timeRemaining": "00:00",
+          "secondsRemaining": 0,
+          "running": false,
+          "inIntermission": false
+        },
+        "gameCenterLink": "/gamecenter/fla-vs-car/2024/02/22/2023020889",
+        "periodDescriptor": { "number": 3, "periodType": "REG" },
+        "gameOutcome": { "lastPeriodType": "REG" }
       },
       {
         "id": 2023021046,
@@ -548,7 +556,8 @@
           "id": 12,
           "abbrev": "CAR",
           "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg"
-        }
+        },
+        "gameCenterLink": "/gamecenter/fla-vs-car/2024/03/14/2023021046"
       }
     ],
     "gameInfo": {
@@ -596,9 +605,25 @@
         ]
       }
     },
-    "gameVideo": {
-      "threeMinRecap": 6340911696112,
-      "condensedGame": 6340914037112
-    }
-  }
+    "gameReports": {
+      "gameSummary": "https://www.nhl.com/scores/htmlreports/20232024/GS020205.HTM",
+      "eventSummary": "https://www.nhl.com/scores/htmlreports/20232024/ES020205.HTM",
+      "playByPlay": "https://www.nhl.com/scores/htmlreports/20232024/PL020205.HTM",
+      "faceoffSummary": "https://www.nhl.com/scores/htmlreports/20232024/FS020205.HTM",
+      "faceoffComparison": "https://www.nhl.com/scores/htmlreports/20232024/FC020205.HTM",
+      "rosters": "https://www.nhl.com/scores/htmlreports/20232024/RO020205.HTM",
+      "shotSummary": "https://www.nhl.com/scores/htmlreports/20232024/SS020205.HTM",
+      "shiftChart": "https://www.nhl.com/stats/shiftcharts?id=2023020205",
+      "toiAway": "https://www.nhl.com/scores/htmlreports/20232024/TV020205.HTM",
+      "toiHome": "https://www.nhl.com/scores/htmlreports/20232024/TH020205.HTM"
+    },
+    "seasonSeriesWins": { "awayTeamWins": 2, "homeTeamWins": 1 }
+  },
+  "clock": {
+    "timeRemaining": "00:00",
+    "secondsRemaining": 0,
+    "running": false,
+    "inIntermission": false
+  },
+  "gameVideo": { "threeMinRecap": 6340911696112 }
 }

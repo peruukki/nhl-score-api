@@ -2,16 +2,37 @@
   "id": 2023020195,
   "season": 20232024,
   "gameType": 2,
+  "limitedScoring": false,
   "gameDate": "2023-11-09",
   "venue": { "default": "Little Caesars Arena" },
+  "venueLocation": { "default": "Detroit" },
   "startTimeUTC": "2023-11-10T00:00:00Z",
   "easternUTCOffset": "-05:00",
   "venueUTCOffset": "-05:00",
   "venueTimezone": "America/Detroit",
+  "periodDescriptor": { "number": 4, "periodType": "OT" },
   "tvBroadcasts": [
-    { "id": 33, "market": "A", "countryCode": "CA", "network": "RDS" },
-    { "id": 131, "market": "A", "countryCode": "CA", "network": "TSN2" },
-    { "id": 351, "market": "H", "countryCode": "US", "network": "BSDET" }
+    {
+      "id": 33,
+      "market": "A",
+      "countryCode": "CA",
+      "network": "RDS",
+      "sequenceNumber": 66
+    },
+    {
+      "id": 131,
+      "market": "A",
+      "countryCode": "CA",
+      "network": "TSN2",
+      "sequenceNumber": 50
+    },
+    {
+      "id": 351,
+      "market": "H",
+      "countryCode": "US",
+      "network": "BSDET",
+      "sequenceNumber": 51
+    }
   ],
   "gameState": "OFF",
   "gameScheduleState": "OK",
@@ -38,35 +59,25 @@
   "regPeriods": 3,
   "otInUse": true,
   "tiesInUse": false,
-  "clock": {
-    "timeRemaining": "00:44",
-    "secondsRemaining": 44,
-    "running": false,
-    "inIntermission": false
-  },
   "summary": {
     "linescore": {
       "byPeriod": [
         {
-          "period": 1,
           "periodDescriptor": { "number": 1, "periodType": "REG" },
           "away": 1,
           "home": 0
         },
         {
-          "period": 2,
           "periodDescriptor": { "number": 2, "periodType": "REG" },
           "away": 0,
           "home": 1
         },
         {
-          "period": 3,
           "periodDescriptor": { "number": 3, "periodType": "REG" },
           "away": 1,
           "home": 1
         },
         {
-          "period": 4,
           "periodDescriptor": { "number": 4, "periodType": "OT" },
           "away": 1,
           "home": 0
@@ -76,7 +87,6 @@
     },
     "scoring": [
       {
-        "period": 1,
         "periodDescriptor": { "number": 1, "periodType": "REG" },
         "goals": [
           {
@@ -110,7 +120,6 @@
         ]
       },
       {
-        "period": 2,
         "periodDescriptor": { "number": 2, "periodType": "REG" },
         "goals": [
           {
@@ -150,7 +159,6 @@
         ]
       },
       {
-        "period": 3,
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "goals": [
           {
@@ -210,7 +218,6 @@
         ]
       },
       {
-        "period": 4,
         "periodDescriptor": { "number": 4, "periodType": "OT" },
         "goals": [
           {
@@ -259,8 +266,6 @@
         "teamAbbrev": "MTL",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/MTL/8481540.png",
         "name": "C. Caufield",
-        "firstName": "Cole",
-        "lastName": "Caufield",
         "sweaterNo": 22,
         "position": "R",
         "goals": 1,
@@ -273,8 +278,6 @@
         "teamAbbrev": "DET",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/DET/8477456.png",
         "name": "J. Compher",
-        "firstName": "J.T.",
-        "lastName": "Compher",
         "sweaterNo": 37,
         "position": "L",
         "goals": 1,
@@ -287,8 +290,6 @@
         "teamAbbrev": "MTL",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/MTL/8480018.png",
         "name": "N. Suzuki",
-        "firstName": "Nick",
-        "lastName": "Suzuki",
         "sweaterNo": 14,
         "position": "C",
         "goals": 1,
@@ -313,25 +314,21 @@
     ],
     "shotsByPeriod": [
       {
-        "period": 1,
         "periodDescriptor": { "number": 1, "periodType": "REG" },
         "away": 10,
         "home": 8
       },
       {
-        "period": 2,
         "periodDescriptor": { "number": 2, "periodType": "REG" },
         "away": 6,
         "home": 14
       },
       {
-        "period": 3,
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "away": 6,
         "home": 4
       },
       {
-        "period": 4,
         "periodDescriptor": { "number": 4, "periodType": "OT" },
         "away": 5,
         "home": 3
@@ -339,7 +336,6 @@
     ],
     "penalties": [
       {
-        "period": 1,
         "periodDescriptor": { "number": 1, "periodType": "REG" },
         "penalties": [
           {
@@ -380,7 +376,6 @@
         ]
       },
       {
-        "period": 2,
         "periodDescriptor": { "number": 2, "periodType": "REG" },
         "penalties": [
           {
@@ -422,7 +417,6 @@
         ]
       },
       {
-        "period": 3,
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "penalties": [
           {
@@ -446,7 +440,6 @@
         ]
       },
       {
-        "period": 4,
         "periodDescriptor": { "number": 4, "periodType": "OT" },
         "penalties": [
           {
@@ -499,7 +492,7 @@
           "running": false,
           "inIntermission": false
         },
-        "period": 4,
+        "gameCenterLink": "/gamecenter/mtl-vs-det/2023/11/09/2023020195",
         "periodDescriptor": { "number": 4, "periodType": "OT" },
         "gameOutcome": { "lastPeriodType": "OT", "otPeriods": 1 }
       },
@@ -511,18 +504,29 @@
         "startTimeUTC": "2023-12-03T00:00:00Z",
         "easternUTCOffset": "-05:00",
         "venueUTCOffset": "-05:00",
-        "gameState": "FUT",
+        "gameState": "OFF",
         "gameScheduleState": "OK",
         "awayTeam": {
           "id": 17,
           "abbrev": "DET",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
+          "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
+          "score": 5
         },
         "homeTeam": {
           "id": 8,
           "abbrev": "MTL",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg"
-        }
+          "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
+          "score": 4
+        },
+        "clock": {
+          "timeRemaining": "04:06",
+          "secondsRemaining": 246,
+          "running": false,
+          "inIntermission": false
+        },
+        "gameCenterLink": "/gamecenter/det-vs-mtl/2023/12/02/2023020361",
+        "periodDescriptor": { "number": 4, "periodType": "OT" },
+        "gameOutcome": { "lastPeriodType": "OT", "otPeriods": 1 }
       },
       {
         "id": 2023021287,
@@ -543,7 +547,8 @@
           "id": 17,
           "abbrev": "DET",
           "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
-        }
+        },
+        "gameCenterLink": "/gamecenter/mtl-vs-det/2024/04/15/2023021287"
       },
       {
         "id": 2023021298,
@@ -564,7 +569,8 @@
           "id": 8,
           "abbrev": "MTL",
           "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg"
-        }
+        },
+        "gameCenterLink": "/gamecenter/det-vs-mtl/2024/04/16/2023021298"
       }
     ],
     "gameInfo": {
@@ -617,10 +623,29 @@
         ]
       }
     },
-    "gameVideo": {
-      "threeMinRecap": 6340839267112,
-      "threeMinRecapFr": 6340840337112,
-      "condensedGame": 6340840444112
-    }
+    "gameReports": {
+      "gameSummary": "https://www.nhl.com/scores/htmlreports/20232024/GS020195.HTM",
+      "eventSummary": "https://www.nhl.com/scores/htmlreports/20232024/ES020195.HTM",
+      "playByPlay": "https://www.nhl.com/scores/htmlreports/20232024/PL020195.HTM",
+      "faceoffSummary": "https://www.nhl.com/scores/htmlreports/20232024/FS020195.HTM",
+      "faceoffComparison": "https://www.nhl.com/scores/htmlreports/20232024/FC020195.HTM",
+      "rosters": "https://www.nhl.com/scores/htmlreports/20232024/RO020195.HTM",
+      "shotSummary": "https://www.nhl.com/scores/htmlreports/20232024/SS020195.HTM",
+      "shiftChart": "https://www.nhl.com/stats/shiftcharts?id=2023020195",
+      "toiAway": "https://www.nhl.com/scores/htmlreports/20232024/TV020195.HTM",
+      "toiHome": "https://www.nhl.com/scores/htmlreports/20232024/TH020195.HTM"
+    },
+    "seasonSeriesWins": { "awayTeamWins": 2, "homeTeamWins": 2 }
+  },
+  "clock": {
+    "timeRemaining": "00:44",
+    "secondsRemaining": 44,
+    "running": false,
+    "inIntermission": false
+  },
+  "gameVideo": {
+    "threeMinRecap": 6340839267112,
+    "threeMinRecapFr": 6340840337112,
+    "condensedGame": 6340840444112
   }
 }

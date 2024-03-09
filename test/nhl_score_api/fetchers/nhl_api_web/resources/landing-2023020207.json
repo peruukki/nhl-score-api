@@ -2,16 +2,37 @@
   "id": 2023020207,
   "season": 20232024,
   "gameType": 2,
+  "limitedScoring": false,
   "gameDate": "2023-11-10",
   "venue": { "default": "Scotiabank Arena" },
+  "venueLocation": { "default": "Toronto" },
   "startTimeUTC": "2023-11-11T00:00:00Z",
   "easternUTCOffset": "-05:00",
   "venueUTCOffset": "-05:00",
   "venueTimezone": "America/Toronto",
+  "periodDescriptor": { "number": 5, "periodType": "SO" },
   "tvBroadcasts": [
-    { "id": 281, "market": "N", "countryCode": "CA", "network": "TVAS" },
-    { "id": 289, "market": "A", "countryCode": "CA", "network": "SNW" },
-    { "id": 293, "market": "H", "countryCode": "CA", "network": "TSN4" }
+    {
+      "id": 281,
+      "market": "N",
+      "countryCode": "CA",
+      "network": "TVAS",
+      "sequenceNumber": 32
+    },
+    {
+      "id": 289,
+      "market": "A",
+      "countryCode": "CA",
+      "network": "SNW",
+      "sequenceNumber": 31
+    },
+    {
+      "id": 293,
+      "market": "H",
+      "countryCode": "CA",
+      "network": "TSN4",
+      "sequenceNumber": 89
+    }
   ],
   "gameState": "OFF",
   "gameScheduleState": "OK",
@@ -38,51 +59,40 @@
   "regPeriods": 3,
   "otInUse": true,
   "tiesInUse": false,
-  "clock": {
-    "timeRemaining": "00:00",
-    "secondsRemaining": 0,
-    "running": false,
-    "inIntermission": false
-  },
   "summary": {
     "linescore": {
       "byPeriod": [
         {
-          "period": 1,
           "periodDescriptor": { "number": 1, "periodType": "REG" },
           "away": 1,
           "home": 2
         },
         {
-          "period": 2,
           "periodDescriptor": { "number": 2, "periodType": "REG" },
           "away": 2,
           "home": 2
         },
         {
-          "period": 3,
           "periodDescriptor": { "number": 3, "periodType": "REG" },
           "away": 1,
           "home": 0
         },
         {
-          "period": 4,
           "periodDescriptor": { "number": 4, "periodType": "OT" },
           "away": 0,
           "home": 0
         },
         {
-          "period": 5,
           "periodDescriptor": { "number": 5, "periodType": "SO" },
           "away": 0,
           "home": 1
         }
       ],
       "shootout": {
-        "awayDecidingGoal": 1,
+        "awayDecidingGoal": 0,
         "awayConversions": 1,
         "awayAttempts": 5,
-        "homeDecidingGoal": 2,
+        "homeDecidingGoal": 0,
         "homeConversions": 2,
         "homeAttempts": 5
       },
@@ -90,7 +100,6 @@
     },
     "scoring": [
       {
-        "period": 1,
         "periodDescriptor": { "number": 1, "periodType": "REG" },
         "goals": [
           {
@@ -188,7 +197,6 @@
         ]
       },
       {
-        "period": 2,
         "periodDescriptor": { "number": 2, "periodType": "REG" },
         "goals": [
           {
@@ -256,6 +264,7 @@
             "teamAbbrev": { "default": "CGY" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8477507.png",
             "highlightClip": 6340910311112,
+            "highlightClipFr": 6340910311112,
             "goalsToDate": 1,
             "awayScore": 2,
             "homeScore": 4,
@@ -290,6 +299,7 @@
             "teamAbbrev": { "default": "CGY" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8478421.png",
             "highlightClip": 6340910925112,
+            "highlightClipFr": 6340910925112,
             "goalsToDate": 2,
             "awayScore": 3,
             "homeScore": 4,
@@ -317,7 +327,6 @@
         ]
       },
       {
-        "period": 3,
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "goals": [
           {
@@ -337,7 +346,7 @@
             },
             "teamAbbrev": { "default": "CGY" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8481028.png",
-            "highlightClip": 6340910687112,
+            "highlightClip": 6340911568112,
             "highlightClipFr": 6340912725112,
             "goalsToDate": 2,
             "awayScore": 4,
@@ -364,13 +373,8 @@
           }
         ]
       },
+      { "periodDescriptor": { "number": 4, "periodType": "OT" }, "goals": [] },
       {
-        "period": 4,
-        "periodDescriptor": { "number": 4, "periodType": "OT" },
-        "goals": []
-      },
-      {
-        "period": 5,
         "periodDescriptor": { "number": 5, "periodType": "SO" },
         "goals": [
           {
@@ -513,8 +517,6 @@
         "teamAbbrev": "TOR",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477939.png",
         "name": "W. Nylander",
-        "firstName": "William",
-        "lastName": "Nylander",
         "sweaterNo": 88,
         "position": "R",
         "goals": 2,
@@ -527,8 +529,6 @@
         "teamAbbrev": "TOR",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477503.png",
         "name": "M. Domi",
-        "firstName": "Max",
-        "lastName": "Domi",
         "sweaterNo": 11,
         "position": "C",
         "goals": 0,
@@ -541,8 +541,6 @@
         "teamAbbrev": "TOR",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8476853.png",
         "name": "M. Rielly",
-        "firstName": "Morgan",
-        "lastName": "Rielly",
         "sweaterNo": 44,
         "position": "D",
         "goals": 0,
@@ -567,31 +565,26 @@
     ],
     "shotsByPeriod": [
       {
-        "period": 1,
         "periodDescriptor": { "number": 1, "periodType": "REG" },
         "away": 11,
         "home": 8
       },
       {
-        "period": 2,
         "periodDescriptor": { "number": 2, "periodType": "REG" },
         "away": 8,
         "home": 14
       },
       {
-        "period": 3,
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "away": 3,
         "home": 11
       },
       {
-        "period": 4,
         "periodDescriptor": { "number": 4, "periodType": "OT" },
         "away": 6,
         "home": 3
       },
       {
-        "period": 5,
         "periodDescriptor": { "number": 5, "periodType": "SO" },
         "away": 0,
         "home": 0
@@ -599,7 +592,6 @@
     ],
     "penalties": [
       {
-        "period": 1,
         "periodDescriptor": { "number": 1, "periodType": "REG" },
         "penalties": [
           {
@@ -679,7 +671,7 @@
           "running": false,
           "inIntermission": false
         },
-        "period": 5,
+        "gameCenterLink": "/gamecenter/cgy-vs-tor/2023/11/10/2023020207",
         "periodDescriptor": { "number": 5, "periodType": "SO" },
         "gameOutcome": { "lastPeriodType": "SO" }
       },
@@ -691,18 +683,29 @@
         "startTimeUTC": "2024-01-19T02:00:00Z",
         "easternUTCOffset": "-05:00",
         "venueUTCOffset": "-07:00",
-        "gameState": "FUT",
+        "gameState": "OFF",
         "gameScheduleState": "OK",
         "awayTeam": {
           "id": 10,
           "abbrev": "TOR",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg"
+          "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
+          "score": 4
         },
         "homeTeam": {
           "id": 20,
           "abbrev": "CGY",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg"
-        }
+          "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg",
+          "score": 3
+        },
+        "clock": {
+          "timeRemaining": "00:00",
+          "secondsRemaining": 0,
+          "running": false,
+          "inIntermission": false
+        },
+        "gameCenterLink": "/gamecenter/tor-vs-cgy/2024/01/18/2023020697",
+        "periodDescriptor": { "number": 3, "periodType": "REG" },
+        "gameOutcome": { "lastPeriodType": "REG" }
       }
     ],
     "gameInfo": {
@@ -752,10 +755,29 @@
         ]
       }
     },
-    "gameVideo": {
-      "threeMinRecap": 6340914450112,
-      "threeMinRecapFr": 6340913659112,
-      "condensedGame": 6340914941112
-    }
+    "gameReports": {
+      "gameSummary": "https://www.nhl.com/scores/htmlreports/20232024/GS020207.HTM",
+      "eventSummary": "https://www.nhl.com/scores/htmlreports/20232024/ES020207.HTM",
+      "playByPlay": "https://www.nhl.com/scores/htmlreports/20232024/PL020207.HTM",
+      "faceoffSummary": "https://www.nhl.com/scores/htmlreports/20232024/FS020207.HTM",
+      "faceoffComparison": "https://www.nhl.com/scores/htmlreports/20232024/FC020207.HTM",
+      "rosters": "https://www.nhl.com/scores/htmlreports/20232024/RO020207.HTM",
+      "shotSummary": "https://www.nhl.com/scores/htmlreports/20232024/SS020207.HTM",
+      "shootoutSummary": "https://www.nhl.com/scores/htmlreports/20232024/SO020207.HTM",
+      "shiftChart": "https://www.nhl.com/stats/shiftcharts?id=2023020207",
+      "toiAway": "https://www.nhl.com/scores/htmlreports/20232024/TV020207.HTM",
+      "toiHome": "https://www.nhl.com/scores/htmlreports/20232024/TH020207.HTM"
+    },
+    "seasonSeriesWins": { "awayTeamWins": 0, "homeTeamWins": 2 }
+  },
+  "clock": {
+    "timeRemaining": "00:00",
+    "secondsRemaining": 0,
+    "running": false,
+    "inIntermission": false
+  },
+  "gameVideo": {
+    "threeMinRecap": 6340914450112,
+    "threeMinRecapFr": 6340913659112
   }
 }

@@ -2,12 +2,15 @@
   "id": 2022030181,
   "season": 20222023,
   "gameType": 3,
+  "limitedScoring": false,
   "gameDate": "2023-04-17",
   "venue": { "default": "Rogers Place" },
+  "venueLocation": { "default": "Edmonton" },
   "startTimeUTC": "2023-04-18T02:00:00Z",
   "easternUTCOffset": "-04:00",
   "venueUTCOffset": "-06:00",
   "venueTimezone": "America/Edmonton",
+  "periodDescriptor": { "number": 4, "periodType": "OT" },
   "tvBroadcasts": [],
   "gameState": "OFF",
   "gameScheduleState": "OK",
@@ -33,35 +36,25 @@
   "regPeriods": 3,
   "otInUse": true,
   "tiesInUse": false,
-  "clock": {
-    "timeRemaining": "10:41",
-    "secondsRemaining": 641,
-    "running": false,
-    "inIntermission": false
-  },
   "summary": {
     "linescore": {
       "byPeriod": [
         {
-          "period": 1,
           "periodDescriptor": { "number": 1, "periodType": "REG" },
           "away": 0,
           "home": 2
         },
         {
-          "period": 2,
           "periodDescriptor": { "number": 2, "periodType": "REG" },
           "away": 0,
           "home": 0
         },
         {
-          "period": 3,
           "periodDescriptor": { "number": 3, "periodType": "REG" },
           "away": 3,
           "home": 1
         },
         {
-          "period": 4,
           "periodDescriptor": { "number": 4, "periodType": "OT" },
           "away": 1,
           "home": 0
@@ -71,7 +64,6 @@
     },
     "scoring": [
       {
-        "period": 1,
         "periodDescriptor": { "number": 1, "periodType": "REG" },
         "goals": [
           {
@@ -84,6 +76,7 @@
             "teamAbbrev": { "default": "EDM" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20222023/EDM/8477934.png",
             "highlightClip": 6335755666112,
+            "highlightClipFr": 6335755666112,
             "goalsToDate": 1,
             "awayScore": 0,
             "homeScore": 1,
@@ -111,6 +104,7 @@
             "teamAbbrev": { "default": "EDM" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20222023/EDM/8480803.png",
             "highlightClip": 6335754685112,
+            "highlightClipFr": 6335754685112,
             "goalsToDate": 1,
             "awayScore": 0,
             "homeScore": 2,
@@ -137,13 +131,8 @@
           }
         ]
       },
+      { "periodDescriptor": { "number": 2, "periodType": "REG" }, "goals": [] },
       {
-        "period": 2,
-        "periodDescriptor": { "number": 2, "periodType": "REG" },
-        "goals": []
-      },
-      {
-        "period": 3,
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "goals": [
           {
@@ -156,6 +145,7 @@
             "teamAbbrev": { "default": "LAK" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20222023/LAK/8477960.png",
             "highlightClip": 6335753529112,
+            "highlightClipFr": 6335753529112,
             "goalsToDate": 1,
             "awayScore": 1,
             "homeScore": 2,
@@ -190,6 +180,7 @@
             "teamAbbrev": { "default": "EDM" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20222023/EDM/8477934.png",
             "highlightClip": 6335754409112,
+            "highlightClipFr": 6335754409112,
             "goalsToDate": 2,
             "awayScore": 1,
             "homeScore": 3,
@@ -217,6 +208,7 @@
             "teamAbbrev": { "default": "LAK" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20222023/LAK/8477960.png",
             "highlightClip": 6335753218112,
+            "highlightClipFr": 6335753218112,
             "goalsToDate": 2,
             "awayScore": 2,
             "homeScore": 3,
@@ -251,6 +243,7 @@
             "teamAbbrev": { "default": "LAK" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20222023/LAK/8471685.png",
             "highlightClip": 6335755175112,
+            "highlightClipFr": 6335755175112,
             "goalsToDate": 1,
             "awayScore": 3,
             "homeScore": 3,
@@ -277,7 +270,6 @@
         ]
       },
       {
-        "period": 4,
         "periodDescriptor": { "number": 4, "periodType": "OT" },
         "goals": [
           {
@@ -290,6 +282,7 @@
             "teamAbbrev": { "default": "LAK" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20222023/LAK/8480113.png",
             "highlightClip": 6335755273112,
+            "highlightClipFr": 6335755273112,
             "goalsToDate": 1,
             "awayScore": 4,
             "homeScore": 3,
@@ -325,8 +318,6 @@
         "teamAbbrev": "LAK",
         "headshot": "https://assets.nhle.com/mugs/nhl/20222023/LAK/8477960.png",
         "name": "A. Kempe",
-        "firstName": "Adrian",
-        "lastName": "Kempe",
         "sweaterNo": 9,
         "position": "R",
         "goals": 2,
@@ -339,8 +330,6 @@
         "teamAbbrev": "EDM",
         "headshot": "https://assets.nhle.com/mugs/nhl/20222023/EDM/8477934.png",
         "name": "L. Draisaitl",
-        "firstName": "Leon",
-        "lastName": "Draisaitl",
         "sweaterNo": 29,
         "position": "C",
         "goals": 2,
@@ -353,8 +342,6 @@
         "teamAbbrev": "LAK",
         "headshot": "https://assets.nhle.com/mugs/nhl/20222023/LAK/8471685.png",
         "name": "A. Kopitar",
-        "firstName": "Anze",
-        "lastName": "Kopitar",
         "sweaterNo": 11,
         "position": "C",
         "goals": 1,
@@ -363,36 +350,41 @@
       }
     ],
     "teamGameStats": [
-      { "category": "sog", "awayValue": "35", "homeValue": "40" },
-      { "category": "faceoffPctg", "awayValue": "42.5", "homeValue": "57.5" },
+      { "category": "sog", "awayValue": 35, "homeValue": 40 },
+      {
+        "category": "faceoffWinningPctg",
+        "awayValue": 0.424658,
+        "homeValue": 0.575342
+      },
       { "category": "powerPlay", "awayValue": "2/6", "homeValue": "1/3" },
-      { "category": "pim", "awayValue": "8", "homeValue": "14" },
-      { "category": "hits", "awayValue": "49", "homeValue": "50" },
-      { "category": "blockedShots", "awayValue": "17", "homeValue": "19" },
-      { "category": "giveaways", "awayValue": "12", "homeValue": "18" },
-      { "category": "takeaways", "awayValue": "8", "homeValue": "11" }
+      {
+        "category": "powerPlayPctg",
+        "awayValue": 0.333333,
+        "homeValue": 0.333333
+      },
+      { "category": "pim", "awayValue": 8, "homeValue": 14 },
+      { "category": "hits", "awayValue": 49, "homeValue": 50 },
+      { "category": "blockedShots", "awayValue": 17, "homeValue": 19 },
+      { "category": "giveaways", "awayValue": 12, "homeValue": 18 },
+      { "category": "takeaways", "awayValue": 8, "homeValue": 11 }
     ],
     "shotsByPeriod": [
       {
-        "period": 1,
         "periodDescriptor": { "number": 1, "periodType": "REG" },
         "away": 6,
         "home": 9
       },
       {
-        "period": 2,
         "periodDescriptor": { "number": 2, "periodType": "REG" },
         "away": 11,
         "home": 13
       },
       {
-        "period": 3,
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "away": 14,
         "home": 7
       },
       {
-        "period": 4,
         "periodDescriptor": { "number": 4, "periodType": "OT" },
         "away": 4,
         "home": 11
@@ -400,7 +392,6 @@
     ],
     "penalties": [
       {
-        "period": 1,
         "periodDescriptor": { "number": 1, "periodType": "REG" },
         "penalties": [
           {
@@ -451,7 +442,6 @@
         ]
       },
       {
-        "period": 2,
         "periodDescriptor": { "number": 2, "periodType": "REG" },
         "penalties": [
           {
@@ -493,7 +483,6 @@
         ]
       },
       {
-        "period": 3,
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "penalties": [
           {
@@ -508,7 +497,6 @@
         ]
       },
       {
-        "period": 4,
         "periodDescriptor": { "number": 4, "periodType": "OT" },
         "penalties": [
           {
@@ -552,7 +540,7 @@
           "running": false,
           "inIntermission": false
         },
-        "period": 4,
+        "gameCenterLink": "/gamecenter/lak-vs-edm/2023/04/17/2022030181",
         "periodDescriptor": { "number": 4, "periodType": "OT" },
         "gameOutcome": { "lastPeriodType": "OT", "otPeriods": 1 }
       },
@@ -584,7 +572,7 @@
           "running": false,
           "inIntermission": false
         },
-        "period": 3,
+        "gameCenterLink": "/gamecenter/lak-vs-edm/2023/04/19/2022030182",
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "gameOutcome": { "lastPeriodType": "REG" }
       },
@@ -616,7 +604,7 @@
           "running": false,
           "inIntermission": false
         },
-        "period": 4,
+        "gameCenterLink": "/gamecenter/edm-vs-lak/2023/04/21/2022030183",
         "periodDescriptor": { "number": 4, "periodType": "OT" },
         "gameOutcome": { "lastPeriodType": "OT", "otPeriods": 1 }
       },
@@ -648,7 +636,7 @@
           "running": false,
           "inIntermission": false
         },
-        "period": 4,
+        "gameCenterLink": "/gamecenter/edm-vs-lak/2023/04/23/2022030184",
         "periodDescriptor": { "number": 4, "periodType": "OT" },
         "gameOutcome": { "lastPeriodType": "OT", "otPeriods": 1 }
       },
@@ -680,7 +668,7 @@
           "running": false,
           "inIntermission": false
         },
-        "period": 3,
+        "gameCenterLink": "/gamecenter/lak-vs-edm/2023/04/25/2022030185",
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "gameOutcome": { "lastPeriodType": "REG" }
       },
@@ -712,7 +700,7 @@
           "running": false,
           "inIntermission": false
         },
-        "period": 3,
+        "gameCenterLink": "/gamecenter/edm-vs-lak/2023/04/29/2022030186",
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "gameOutcome": { "lastPeriodType": "REG" }
       }
@@ -780,9 +768,28 @@
         ]
       }
     },
-    "gameVideo": {
-      "threeMinRecap": 6336325765112,
-      "condensedGame": 6336325383112
-    }
+    "gameReports": {
+      "gameSummary": "https://www.nhl.com/scores/htmlreports/20222023/GS030181.HTM",
+      "eventSummary": "https://www.nhl.com/scores/htmlreports/20222023/ES030181.HTM",
+      "playByPlay": "https://www.nhl.com/scores/htmlreports/20222023/PL030181.HTM",
+      "faceoffSummary": "https://www.nhl.com/scores/htmlreports/20222023/FS030181.HTM",
+      "faceoffComparison": "https://www.nhl.com/scores/htmlreports/20222023/FC030181.HTM",
+      "rosters": "https://www.nhl.com/scores/htmlreports/20222023/RO030181.HTM",
+      "shotSummary": "https://www.nhl.com/scores/htmlreports/20222023/SS030181.HTM",
+      "shiftChart": "https://www.nhl.com/stats/shiftcharts?id=2022030181",
+      "toiAway": "https://www.nhl.com/scores/htmlreports/20222023/TV030181.HTM",
+      "toiHome": "https://www.nhl.com/scores/htmlreports/20222023/TH030181.HTM"
+    },
+    "seasonSeriesWins": { "awayTeamWins": 2, "homeTeamWins": 4 }
+  },
+  "clock": {
+    "timeRemaining": "10:41",
+    "secondsRemaining": 641,
+    "running": false,
+    "inIntermission": false
+  },
+  "gameVideo": {
+    "threeMinRecap": 6336325765112,
+    "condensedGame": 6336325383112
   }
 }

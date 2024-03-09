@@ -2,15 +2,30 @@
   "id": 2023020206,
   "season": 20232024,
   "gameType": 2,
+  "limitedScoring": false,
   "gameDate": "2023-11-10",
   "venue": { "default": "Prudential Center" },
+  "venueLocation": { "default": "Newark" },
   "startTimeUTC": "2023-11-11T00:00:00Z",
   "easternUTCOffset": "-05:00",
   "venueUTCOffset": "-05:00",
   "venueTimezone": "US/Eastern",
+  "periodDescriptor": { "number": 3, "periodType": "REG" },
   "tvBroadcasts": [
-    { "id": 409, "market": "H", "countryCode": "US", "network": "MSGSN" },
-    { "id": 520, "market": "A", "countryCode": "US", "network": "MNMT2" }
+    {
+      "id": 409,
+      "market": "H",
+      "countryCode": "US",
+      "network": "MSGSN",
+      "sequenceNumber": 88
+    },
+    {
+      "id": 520,
+      "market": "A",
+      "countryCode": "US",
+      "network": "MNMT2",
+      "sequenceNumber": 98
+    }
   ],
   "gameState": "CRIT",
   "gameScheduleState": "OK",
@@ -37,29 +52,20 @@
   "regPeriods": 3,
   "otInUse": true,
   "tiesInUse": false,
-  "clock": {
-    "timeRemaining": "01:02",
-    "secondsRemaining": 62,
-    "running": false,
-    "inIntermission": false
-  },
   "summary": {
     "linescore": {
       "byPeriod": [
         {
-          "period": 1,
           "periodDescriptor": { "number": 1, "periodType": "REG" },
           "away": 2,
           "home": 0
         },
         {
-          "period": 2,
           "periodDescriptor": { "number": 2, "periodType": "REG" },
           "away": 1,
           "home": 0
         },
         {
-          "period": 3,
           "periodDescriptor": { "number": 3, "periodType": "REG" },
           "away": 1,
           "home": 2
@@ -69,7 +75,6 @@
     },
     "scoring": [
       {
-        "period": 1,
         "periodDescriptor": { "number": 1, "periodType": "REG" },
         "goals": [
           {
@@ -82,6 +87,7 @@
             "teamAbbrev": { "default": "WSH" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/WSH/8477979.png",
             "highlightClip": 6340906511112,
+            "highlightClipFr": 6340906511112,
             "goalsToDate": 1,
             "awayScore": 1,
             "homeScore": 0,
@@ -116,6 +122,7 @@
             "teamAbbrev": { "default": "WSH" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/WSH/8479359.png",
             "highlightClip": 6340907588112,
+            "highlightClipFr": 6340907588112,
             "goalsToDate": 1,
             "awayScore": 2,
             "homeScore": 0,
@@ -151,7 +158,6 @@
         ]
       },
       {
-        "period": 2,
         "periodDescriptor": { "number": 2, "periodType": "REG" },
         "goals": [
           {
@@ -178,6 +184,7 @@
             "teamAbbrev": { "default": "WSH" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/WSH/8475744.png",
             "highlightClip": 6340907841112,
+            "highlightClipFr": 6340907841112,
             "goalsToDate": 2,
             "awayScore": 3,
             "homeScore": 0,
@@ -220,7 +227,6 @@
         ]
       },
       {
-        "period": 3,
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "goals": [
           {
@@ -232,7 +238,8 @@
             "name": { "default": "T. Meier" },
             "teamAbbrev": { "default": "NJD" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/NJD/8478414.png",
-            "highlightClip": 6340910167112,
+            "highlightClip": 6340911452112,
+            "highlightClipFr": 6340911452112,
             "goalsToDate": 4,
             "awayScore": 3,
             "homeScore": 1,
@@ -267,6 +274,7 @@
             "teamAbbrev": { "default": "NJD" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/NJD/8482110.png",
             "highlightClip": 6340910757112,
+            "highlightClipFr": 6340910757112,
             "goalsToDate": 2,
             "awayScore": 3,
             "homeScore": 2,
@@ -315,6 +323,7 @@
             "teamAbbrev": { "default": "WSH" },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/WSH/8475744.png",
             "highlightClip": 6340910792112,
+            "highlightClipFr": 6340910792112,
             "goalsToDate": 3,
             "awayScore": 4,
             "homeScore": 2,
@@ -350,8 +359,6 @@
         "teamAbbrev": "WSH",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/WSH/8477979.png",
         "name": "N. Aube-Kubel",
-        "firstName": "Nicolas",
-        "lastName": "Aube-Kubel",
         "sweaterNo": 96,
         "position": "R",
         "goals": 1,
@@ -364,8 +371,6 @@
         "teamAbbrev": "WSH",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/WSH/8479292.png",
         "name": "C. Lindgren",
-        "firstName": "Charlie",
-        "lastName": "Lindgren",
         "sweaterNo": 79,
         "position": "G",
         "goalsAgainstAverage": 2.03,
@@ -377,8 +382,6 @@
         "teamAbbrev": "NJD",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/NJD/8478414.png",
         "name": "T. Meier",
-        "firstName": "Timo",
-        "lastName": "Meier",
         "sweaterNo": 28,
         "position": "R",
         "goals": 1,
@@ -403,19 +406,16 @@
     ],
     "shotsByPeriod": [
       {
-        "period": 1,
         "periodDescriptor": { "number": 1, "periodType": "REG" },
         "away": 12,
         "home": 2
       },
       {
-        "period": 2,
         "periodDescriptor": { "number": 2, "periodType": "REG" },
         "away": 8,
         "home": 11
       },
       {
-        "period": 3,
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "away": 7,
         "home": 13
@@ -423,7 +423,6 @@
     ],
     "penalties": [
       {
-        "period": 1,
         "periodDescriptor": { "number": 1, "periodType": "REG" },
         "penalties": [
           {
@@ -465,7 +464,6 @@
         ]
       },
       {
-        "period": 2,
         "periodDescriptor": { "number": 2, "periodType": "REG" },
         "penalties": [
           {
@@ -480,7 +478,6 @@
         ]
       },
       {
-        "period": 3,
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "penalties": [
           {
@@ -542,7 +539,7 @@
           "running": false,
           "inIntermission": false
         },
-        "period": 3,
+        "gameCenterLink": "/gamecenter/wsh-vs-njd/2023/10/25/2023020099",
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "gameOutcome": { "lastPeriodType": "REG" }
       },
@@ -574,7 +571,7 @@
           "running": false,
           "inIntermission": false
         },
-        "period": 3,
+        "gameCenterLink": "/gamecenter/wsh-vs-njd/2023/11/10/2023020206",
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "gameOutcome": { "lastPeriodType": "REG" }
       },
@@ -586,18 +583,29 @@
         "startTimeUTC": "2024-01-04T00:30:00Z",
         "easternUTCOffset": "-05:00",
         "venueUTCOffset": "-05:00",
-        "gameState": "FUT",
+        "gameState": "OFF",
         "gameScheduleState": "OK",
         "awayTeam": {
           "id": 1,
           "abbrev": "NJD",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg"
+          "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+          "score": 6
         },
         "homeTeam": {
           "id": 15,
           "abbrev": "WSH",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg"
-        }
+          "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg",
+          "score": 3
+        },
+        "clock": {
+          "timeRemaining": "00:00",
+          "secondsRemaining": 0,
+          "running": false,
+          "inIntermission": false
+        },
+        "gameCenterLink": "/gamecenter/njd-vs-wsh/2024/01/03/2023020587",
+        "periodDescriptor": { "number": 3, "periodType": "REG" },
+        "gameOutcome": { "lastPeriodType": "REG" }
       },
       {
         "id": 2023020879,
@@ -607,18 +615,29 @@
         "startTimeUTC": "2024-02-21T00:00:00Z",
         "easternUTCOffset": "-05:00",
         "venueUTCOffset": "-05:00",
-        "gameState": "FUT",
+        "gameState": "OFF",
         "gameScheduleState": "OK",
         "awayTeam": {
           "id": 1,
           "abbrev": "NJD",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg"
+          "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+          "score": 2
         },
         "homeTeam": {
           "id": 15,
           "abbrev": "WSH",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg"
-        }
+          "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg",
+          "score": 6
+        },
+        "clock": {
+          "timeRemaining": "00:00",
+          "secondsRemaining": 0,
+          "running": false,
+          "inIntermission": false
+        },
+        "gameCenterLink": "/gamecenter/njd-vs-wsh/2024/02/20/2023020879",
+        "periodDescriptor": { "number": 3, "periodType": "REG" },
+        "gameOutcome": { "lastPeriodType": "REG" }
       }
     ],
     "gameInfo": {
@@ -684,9 +703,25 @@
         ]
       }
     },
-    "gameVideo": {
-      "threeMinRecap": 6340911596112,
-      "condensedGame": 6340910584112
-    }
-  }
+    "gameReports": {
+      "gameSummary": "https://www.nhl.com/scores/htmlreports/20232024/GS020206.HTM",
+      "eventSummary": "https://www.nhl.com/scores/htmlreports/20232024/ES020206.HTM",
+      "playByPlay": "https://www.nhl.com/scores/htmlreports/20232024/PL020206.HTM",
+      "faceoffSummary": "https://www.nhl.com/scores/htmlreports/20232024/FS020206.HTM",
+      "faceoffComparison": "https://www.nhl.com/scores/htmlreports/20232024/FC020206.HTM",
+      "rosters": "https://www.nhl.com/scores/htmlreports/20232024/RO020206.HTM",
+      "shotSummary": "https://www.nhl.com/scores/htmlreports/20232024/SS020206.HTM",
+      "shiftChart": "https://www.nhl.com/stats/shiftcharts?id=2023020206",
+      "toiAway": "https://www.nhl.com/scores/htmlreports/20232024/TV020206.HTM",
+      "toiHome": "https://www.nhl.com/scores/htmlreports/20232024/TH020206.HTM"
+    },
+    "seasonSeriesWins": { "awayTeamWins": 3, "homeTeamWins": 1 }
+  },
+  "clock": {
+    "timeRemaining": "01:02",
+    "secondsRemaining": 62,
+    "running": false,
+    "inIntermission": false
+  },
+  "gameVideo": { "threeMinRecap": 6340911596112 }
 }

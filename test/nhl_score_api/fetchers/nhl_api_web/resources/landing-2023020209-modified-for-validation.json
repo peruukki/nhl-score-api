@@ -2,17 +2,44 @@
   "id": 2023020209,
   "season": 20232024,
   "gameType": 2,
+  "limitedScoring": false,
   "gameDate": "2023-11-10",
   "venue": { "default": "T-Mobile Arena" },
+  "venueLocation": { "default": "Paradise" },
   "startTimeUTC": "2023-11-11T03:00:00Z",
   "easternUTCOffset": "-05:00",
   "venueUTCOffset": "-08:00",
   "venueTimezone": "US/Pacific",
+  "periodDescriptor": { "number": 3, "periodType": "REG" },
   "tvBroadcasts": [
-    { "id": 281, "market": "N", "countryCode": "CA", "network": "TVAS" },
-    { "id": 282, "market": "N", "countryCode": "CA", "network": "SN" },
-    { "id": 314, "market": "A", "countryCode": "US", "network": "NBCSCA" },
-    { "id": 521, "market": "H", "countryCode": "US", "network": "SCRIPPS" }
+    {
+      "id": 281,
+      "market": "N",
+      "countryCode": "CA",
+      "network": "TVAS",
+      "sequenceNumber": 32
+    },
+    {
+      "id": 282,
+      "market": "N",
+      "countryCode": "CA",
+      "network": "SN",
+      "sequenceNumber": 21
+    },
+    {
+      "id": 314,
+      "market": "A",
+      "countryCode": "US",
+      "network": "NBCSCA",
+      "sequenceNumber": 63
+    },
+    {
+      "id": 521,
+      "market": "H",
+      "countryCode": "US",
+      "network": "SCRIPPS",
+      "sequenceNumber": 87
+    }
   ],
   "gameState": "OFF",
   "gameScheduleState": "OK",
@@ -39,29 +66,20 @@
   "regPeriods": 3,
   "otInUse": true,
   "tiesInUse": false,
-  "clock": {
-    "timeRemaining": "00:00",
-    "secondsRemaining": 0,
-    "running": false,
-    "inIntermission": false
-  },
   "summary": {
     "linescore": {
       "byPeriod": [
         {
-          "period": 1,
           "periodDescriptor": { "number": 1, "periodType": "REG" },
           "away": 0,
           "home": 2
         },
         {
-          "period": 2,
           "periodDescriptor": { "number": 2, "periodType": "REG" },
           "away": 0,
           "home": 0
         },
         {
-          "period": 3,
           "periodDescriptor": { "number": 3, "periodType": "REG" },
           "away": 0,
           "home": 3
@@ -70,21 +88,9 @@
       "totals": { "away": 0, "home": 5 }
     },
     "scoring": [
-      {
-        "period": 1,
-        "periodDescriptor": { "number": 1, "periodType": "REG" },
-        "goals": []
-      },
-      {
-        "period": 2,
-        "periodDescriptor": { "number": 2, "periodType": "REG" },
-        "goals": []
-      },
-      {
-        "period": 3,
-        "periodDescriptor": { "number": 3, "periodType": "REG" },
-        "goals": []
-      }
+      { "periodDescriptor": { "number": 1, "periodType": "REG" }, "goals": [] },
+      { "periodDescriptor": { "number": 2, "periodType": "REG" }, "goals": [] },
+      { "periodDescriptor": { "number": 3, "periodType": "REG" }, "goals": [] }
     ],
     "shootout": [],
     "threeStars": [
@@ -94,8 +100,6 @@
         "teamAbbrev": "VGK",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8474166.png",
         "name": "A. Martinez",
-        "firstName": "Alec",
-        "lastName": "Martinez",
         "sweaterNo": 23,
         "position": "D",
         "goals": 2,
@@ -108,8 +112,6 @@
         "teamAbbrev": "VGK",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8478499.png",
         "name": "A. Hill",
-        "firstName": "Adin",
-        "lastName": "Hill",
         "sweaterNo": 33,
         "position": "G",
         "goalsAgainstAverage": 0.0,
@@ -121,8 +123,6 @@
         "teamAbbrev": "VGK",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8474565.png",
         "name": "A. Pietrangelo",
-        "firstName": "Alex",
-        "lastName": "Pietrangelo",
         "sweaterNo": 7,
         "position": "D",
         "goals": 1,
@@ -131,30 +131,32 @@
       }
     ],
     "teamGameStats": [
-      { "category": "sog", "awayValue": "20", "homeValue": "39" },
-      { "category": "faceoffPctg", "awayValue": "55.9", "homeValue": "44.1" },
+      { "category": "sog", "awayValue": 20, "homeValue": 39 },
+      {
+        "category": "faceoffWinningPctg",
+        "awayValue": 0.559322,
+        "homeValue": 0.440678
+      },
       { "category": "powerPlay", "awayValue": "0/4", "homeValue": "0/0" },
-      { "category": "pim", "awayValue": "2", "homeValue": "10" },
-      { "category": "hits", "awayValue": "19", "homeValue": "14" },
-      { "category": "blockedShots", "awayValue": "16", "homeValue": "15" },
-      { "category": "giveaways", "awayValue": "4", "homeValue": "8" },
-      { "category": "takeaways", "awayValue": "4", "homeValue": "7" }
+      { "category": "powerPlayPctg", "awayValue": 0.0, "homeValue": 0.0 },
+      { "category": "pim", "awayValue": 2, "homeValue": 10 },
+      { "category": "hits", "awayValue": 29, "homeValue": 17 },
+      { "category": "blockedShots", "awayValue": 16, "homeValue": 15 },
+      { "category": "giveaways", "awayValue": 4, "homeValue": 8 },
+      { "category": "takeaways", "awayValue": 4, "homeValue": 7 }
     ],
     "shotsByPeriod": [
       {
-        "period": 1,
         "periodDescriptor": { "number": 1, "periodType": "REG" },
         "away": 6,
         "home": 15
       },
       {
-        "period": 2,
         "periodDescriptor": { "number": 2, "periodType": "REG" },
         "away": 6,
         "home": 13
       },
       {
-        "period": 3,
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "away": 8,
         "home": 11
@@ -162,7 +164,6 @@
     ],
     "penalties": [
       {
-        "period": 1,
         "periodDescriptor": { "number": 1, "periodType": "REG" },
         "penalties": [
           {
@@ -177,7 +178,6 @@
         ]
       },
       {
-        "period": 3,
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "penalties": [
           {
@@ -258,7 +258,7 @@
           "running": false,
           "inIntermission": false
         },
-        "period": 3,
+        "gameCenterLink": "/gamecenter/vgk-vs-sjs/2023/10/12/2023020016",
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "gameOutcome": { "lastPeriodType": "REG" }
       },
@@ -290,7 +290,7 @@
           "running": false,
           "inIntermission": false
         },
-        "period": 3,
+        "gameCenterLink": "/gamecenter/sjs-vs-vgk/2023/11/10/2023020209",
         "periodDescriptor": { "number": 3, "periodType": "REG" },
         "gameOutcome": { "lastPeriodType": "REG" }
       },
@@ -302,18 +302,29 @@
         "startTimeUTC": "2023-12-11T03:00:00Z",
         "easternUTCOffset": "-05:00",
         "venueUTCOffset": "-08:00",
-        "gameState": "FUT",
+        "gameState": "OFF",
         "gameScheduleState": "OK",
         "awayTeam": {
           "id": 28,
           "abbrev": "SJS",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg"
+          "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
+          "score": 4
         },
         "homeTeam": {
           "id": 54,
           "abbrev": "VGK",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg"
-        }
+          "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+          "score": 5
+        },
+        "clock": {
+          "timeRemaining": "00:00",
+          "secondsRemaining": 0,
+          "running": false,
+          "inIntermission": false
+        },
+        "gameCenterLink": "/gamecenter/sjs-vs-vgk/2023/12/10/2023020427",
+        "periodDescriptor": { "number": 5, "periodType": "SO" },
+        "gameOutcome": { "lastPeriodType": "SO" }
       },
       {
         "id": 2023020873,
@@ -323,18 +334,29 @@
         "startTimeUTC": "2024-02-19T21:00:00Z",
         "easternUTCOffset": "-05:00",
         "venueUTCOffset": "-08:00",
-        "gameState": "FUT",
+        "gameState": "OFF",
         "gameScheduleState": "OK",
         "awayTeam": {
           "id": 54,
           "abbrev": "VGK",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg"
+          "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+          "score": 4
         },
         "homeTeam": {
           "id": 28,
           "abbrev": "SJS",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg"
-        }
+          "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
+          "score": 0
+        },
+        "clock": {
+          "timeRemaining": "00:00",
+          "secondsRemaining": 0,
+          "running": false,
+          "inIntermission": false
+        },
+        "gameCenterLink": "/gamecenter/vgk-vs-sjs/2024/02/19/2023020873",
+        "periodDescriptor": { "number": 3, "periodType": "REG" },
+        "gameOutcome": { "lastPeriodType": "REG" }
       }
     ],
     "gameInfo": {
@@ -391,10 +413,29 @@
         ]
       }
     },
-    "gameVideo": {
-      "threeMinRecap": 6340930323112,
-      "threeMinRecapFr": 6340930514112,
-      "condensedGame": 6340930030112
-    }
+    "gameReports": {
+      "gameSummary": "https://www.nhl.com/scores/htmlreports/20232024/GS020209.HTM",
+      "eventSummary": "https://www.nhl.com/scores/htmlreports/20232024/ES020209.HTM",
+      "playByPlay": "https://www.nhl.com/scores/htmlreports/20232024/PL020209.HTM",
+      "faceoffSummary": "https://www.nhl.com/scores/htmlreports/20232024/FS020209.HTM",
+      "faceoffComparison": "https://www.nhl.com/scores/htmlreports/20232024/FC020209.HTM",
+      "rosters": "https://www.nhl.com/scores/htmlreports/20232024/RO020209.HTM",
+      "shotSummary": "https://www.nhl.com/scores/htmlreports/20232024/SS020209.HTM",
+      "shiftChart": "https://www.nhl.com/stats/shiftcharts?id=2023020209",
+      "toiAway": "https://www.nhl.com/scores/htmlreports/20232024/TV020209.HTM",
+      "toiHome": "https://www.nhl.com/scores/htmlreports/20232024/TH020209.HTM"
+    },
+    "seasonSeriesWins": { "awayTeamWins": 0, "homeTeamWins": 4 }
+  },
+  "clock": {
+    "timeRemaining": "00:00",
+    "secondsRemaining": 0,
+    "running": false,
+    "inIntermission": false
+  },
+  "gameVideo": {
+    "threeMinRecap": 6340930323112,
+    "threeMinRecapFr": 6340930514112,
+    "condensedGame": 6340930030112
   }
 }
