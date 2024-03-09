@@ -12,9 +12,24 @@
 
 (def base-url "https://api-web.nhle.com/v1")
 
-(defn- get-schedule-url [date-str] (str base-url "/schedule/" date-str))
-(defn- get-standings-url [date-str] (str base-url "/standings/" date-str))
-(defn- get-landing-url [game-id] (str base-url "/gamecenter/" game-id "/landing"))
+(defprotocol ApiRequest
+  (description [_])
+  (url [_]))
+
+(defrecord LandingApiRequest [game-id]
+  ApiRequest
+  (description [_] (str "landing " {:game-id game-id}))
+  (url [_] (str base-url "/gamecenter/" game-id "/landing")))
+
+(defrecord ScheduleApiRequest [date-str]
+  ApiRequest
+  (description [_] (str "schedule " {:date date-str}))
+  (url [_] (str base-url "/schedule/" date-str)))
+
+(defrecord StandingsApiRequest [date-str]
+  ApiRequest
+  (description [_] (str "standings " {:date date-str}))
+  (url [_] (str base-url "/standings/" date-str)))
 
 (def mocked-latest-games-info-file (System/getenv "MOCK_NHL_API_WEB"))
 
@@ -42,18 +57,18 @@
 (defn api-response-to-json [api-response]
   (json/read-str api-response :key-fn ->kebab-case-keyword))
 
-(defn- fetch [endpoint-name endpoint-params url]
-  (println "Fetching" endpoint-name endpoint-params)
+(defn- fetch [api-request]
+  (println "Fetching" (description api-request))
   (let [start-time (System/currentTimeMillis)
-        response (-> (http/get url {:debug false})
+        response (-> (http/get (url api-request) {:debug false})
                      :body
                      api-response-to-json)]
-    (println "Fetched " endpoint-name endpoint-params "(took" (- (System/currentTimeMillis) start-time) "ms)")
+    (println "Fetched " (description api-request) "(took" (- (System/currentTimeMillis) start-time) "ms)")
     response))
 
 (defn- fetch-games-info [date-str]
   (let [start-date (get-schedule-start-date date-str)]
-    (fetch "schedule" {:date start-date} (get-schedule-url start-date))))
+    (fetch (ScheduleApiRequest. start-date))))
 
 (defn- get-standings-date-strs [{:keys [date-strs regular-season-start-date-str regular-season-end-date-str]}]
   (let [current-date-str (format-date (time/now))]
@@ -76,7 +91,7 @@
                               set)
         standings-per-unique-date-str (map #(if (nil? %)
                                               nil
-                                              (:standings (fetch "standings" {:date %} (get-standings-url %)))) unique-date-strs)
+                                              (:standings (fetch (StandingsApiRequest. %)))) unique-date-strs)
         standings-by-date-str (zipmap unique-date-strs standings-per-unique-date-str)]
     (map #(if (nil? (:current %))
             nil
@@ -84,16 +99,15 @@
                       :current (get standings-by-date-str (:current %))))
          standings-date-strs)))
 
-(defn get-landing-urls-by-game-id [schedule-games]
+(defn get-landing-game-ids [schedule-games]
   (->> schedule-games
        (filter started-game?)
-       (map (fn [schedule-game] [(:id schedule-game) (get-landing-url (:id schedule-game))]))
-       (into {})))
+       (map #(:id %))))
 
 (defn fetch-landings-info [schedule-games]
   (->> schedule-games
-       (get-landing-urls-by-game-id)
-       (map (fn [[id url]] [id (fetch "landing" {:id id} url)]))
+       (get-landing-game-ids)
+       (map #(vector % (fetch (LandingApiRequest. %))))
        (into {})))
 
 (defn- fetch-latest-scores []

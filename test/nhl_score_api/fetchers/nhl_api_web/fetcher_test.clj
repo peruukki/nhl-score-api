@@ -1,10 +1,9 @@
 (ns nhl-score-api.fetchers.nhl-api-web.fetcher-test
   (:require [clj-time.core :as time]
             [clojure.test :refer [deftest is testing]]
-            [nhl-score-api.fetchers.nhl-api-web.fetcher :refer [base-url
-                                                                fetch-standings-infos
+            [nhl-score-api.fetchers.nhl-api-web.fetcher :refer [fetch-standings-infos
                                                                 get-current-standings-request-date
-                                                                get-landing-urls-by-game-id
+                                                                get-landing-game-ids
                                                                 get-pre-game-standings-request-date
                                                                 get-schedule-start-date]]
             [nhl-score-api.utils :refer [format-date]]))
@@ -87,11 +86,10 @@
                                    :regular-season-end-date-str nil}))
         "No team records")))
 
-(deftest get-landing-urls-by-game-id-test
+(deftest get-landing-game-ids-test
 
   (testing "Landing URL is returned for live and finished games"
-    (is (= {1 (str base-url "/gamecenter/1/landing")
-            2 (str base-url "/gamecenter/2/landing")}
-           (get-landing-urls-by-game-id [{:id 1 :game-state "LIVE"}
-                                         {:id 2 :game-state "OFF"}
-                                         {:id 3 :game-state "FUT"}])))))
+    (is (= [1 2]
+           (get-landing-game-ids [{:id 1 :game-state "LIVE"}
+                                  {:id 2 :game-state "OFF"}
+                                  {:id 3 :game-state "FUT"}])))))
