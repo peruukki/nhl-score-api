@@ -11,9 +11,7 @@
           "id": 2023020206,
           "season": 20232024,
           "gameType": 2,
-          "venue": {
-            "default": "Prudential Center"
-          },
+          "venue": { "default": "Prudential Center" },
           "neutralSite": false,
           "startTimeUTC": "2023-11-11T00:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -37,9 +35,7 @@
           ],
           "awayTeam": {
             "id": 15,
-            "placeName": {
-              "default": "Washington"
-            },
+            "placeName": { "default": "Washington" },
             "abbrev": "WSH",
             "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WSH_dark.svg",
@@ -48,36 +44,23 @@
           },
           "homeTeam": {
             "id": 1,
-            "placeName": {
-              "default": "New Jersey"
-            },
+            "placeName": { "default": "New Jersey" },
             "abbrev": "NJD",
             "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg",
             "homeSplitSquad": false,
             "score": 3
           },
-          "periodDescriptor": {
-            "number": 3,
-            "periodType": "REG"
-          },
-          "gameOutcome": {
-            "lastPeriodType": "REG"
-          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
           "winningGoalie": {
             "playerId": 8479292,
-            "firstInitial": {
-              "default": "C."
-            },
-            "lastName": {
-              "default": "Lindgren"
-            }
+            "firstInitial": { "default": "C." },
+            "lastName": { "default": "Lindgren" }
           },
           "winningGoalScorer": {
             "playerId": 8475744,
-            "firstInitial": {
-              "default": "E."
-            },
+            "firstInitial": { "default": "E." },
             "lastName": {
               "default": "Kuznetsov",
               "cs": "Kuzněcov",
@@ -91,9 +74,7 @@
           "id": 2023020208,
           "season": 20232024,
           "gameType": 2,
-          "venue": {
-            "default": "Honda Center"
-          },
+          "venue": { "default": "Honda Center" },
           "neutralSite": false,
           "startTimeUTC": "2023-11-11T03:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -108,19 +89,11 @@
               "countryCode": "US",
               "network": "NBCSP+"
             },
-            {
-              "id": 355,
-              "market": "H",
-              "countryCode": "US",
-              "network": "BSW"
-            }
+            { "id": 355, "market": "H", "countryCode": "US", "network": "BSW" }
           ],
           "awayTeam": {
             "id": 4,
-            "placeName": {
-              "default": "Philadelphia",
-              "fr": "Philadelphie"
-            },
+            "placeName": { "default": "Philadelphia", "fr": "Philadelphie" },
             "abbrev": "PHI",
             "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PHI_dark.svg",
@@ -129,39 +102,24 @@
           },
           "homeTeam": {
             "id": 24,
-            "placeName": {
-              "default": "Anaheim"
-            },
+            "placeName": { "default": "Anaheim" },
             "abbrev": "ANA",
             "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/ANA_dark.svg",
             "homeSplitSquad": false,
             "score": 3
           },
-          "periodDescriptor": {
-            "number": 3,
-            "periodType": "REG"
-          },
-          "gameOutcome": {
-            "lastPeriodType": "REG"
-          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
           "winningGoalie": {
             "playerId": 8481035,
-            "firstInitial": {
-              "default": "S."
-            },
-            "lastName": {
-              "default": "Ersson"
-            }
+            "firstInitial": { "default": "S." },
+            "lastName": { "default": "Ersson" }
           },
           "winningGoalScorer": {
             "playerId": 8477948,
-            "firstInitial": {
-              "default": "T."
-            },
-            "lastName": {
-              "default": "Sanheim"
-            }
+            "firstInitial": { "default": "T." },
+            "lastName": { "default": "Sanheim" }
           },
           "threeMinRecap": "/video/recap-flyers-at-ducks-11-10-23-6340929941112",
           "gameCenterLink": "/gamecenter/phi-vs-ana/2023/11/10/2023020208"
@@ -170,9 +128,7 @@
           "id": 2023020209,
           "season": 20232024,
           "gameType": 2,
-          "venue": {
-            "default": "T-Mobile Arena"
-          },
+          "venue": { "default": "T-Mobile Arena" },
           "neutralSite": false,
           "startTimeUTC": "2023-11-11T03:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -187,12 +143,7 @@
               "countryCode": "CA",
               "network": "TVAS"
             },
-            {
-              "id": 282,
-              "market": "N",
-              "countryCode": "CA",
-              "network": "SN"
-            },
+            { "id": 282, "market": "N", "countryCode": "CA", "network": "SN" },
             {
               "id": 314,
               "market": "A",
@@ -208,9 +159,7 @@
           ],
           "awayTeam": {
             "id": 28,
-            "placeName": {
-              "default": "San Jose"
-            },
+            "placeName": { "default": "San Jose" },
             "abbrev": "SJS",
             "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/SJS_dark.svg",
@@ -219,39 +168,24 @@
           },
           "homeTeam": {
             "id": 54,
-            "placeName": {
-              "default": "Vegas"
-            },
+            "placeName": { "default": "Vegas" },
             "abbrev": "VGK",
             "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg",
             "homeSplitSquad": false,
             "score": 5
           },
-          "periodDescriptor": {
-            "number": 3,
-            "periodType": "REG"
-          },
-          "gameOutcome": {
-            "lastPeriodType": "REG"
-          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
           "winningGoalie": {
             "playerId": 8478499,
-            "firstInitial": {
-              "default": "A."
-            },
-            "lastName": {
-              "default": "Hill"
-            }
+            "firstInitial": { "default": "A." },
+            "lastName": { "default": "Hill" }
           },
           "winningGoalScorer": {
             "playerId": 8474565,
-            "firstInitial": {
-              "default": "A."
-            },
-            "lastName": {
-              "default": "Pietrangelo"
-            }
+            "firstInitial": { "default": "A." },
+            "lastName": { "default": "Pietrangelo" }
           },
           "threeMinRecap": "/video/recap-sharks-at-golden-knights-11-10-23-6340930024112",
           "threeMinRecapFr": "/fr/video/recap-sharks-at-golden-knights-11-10-23-6340930514112",
