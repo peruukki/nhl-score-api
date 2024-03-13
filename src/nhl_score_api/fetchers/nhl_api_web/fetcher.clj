@@ -5,6 +5,7 @@
             [clojure.core.cache :as cache]
             [clojure.core.cache.wrapped :as cache.wrapped]
             [clojure.data.json :as json]
+            [clojure.string :as str]
             [nhl-score-api.fetchers.nhl-api-web.game-scores :as game-scores]
             [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-games-in-date-range
                                                                     get-latest-games
@@ -15,6 +16,13 @@
   {:short-lived (atom (-> {}
                           (cache/lru-cache-factory :threshold 32)
                           (cache/ttl-cache-factory :ttl (* 60 1000))))})
+
+(defn- log-cache-sizes!
+  "Logs all cache sizes and returns passed response"
+  [response]
+  (println "Cache sizes:" (str/join ", "
+                                    (map (fn [[id cache]] (str id " " (count @cache))) caches)))
+  response)
 
 (def base-url "https://api-web.nhle.com/v1")
 
@@ -145,7 +153,9 @@
                                                 :regular-season-start-date-str (:regular-season-start-date latest-games-info)
                                                 :regular-season-end-date-str (:regular-season-end-date latest-games-info)}))
         landings-info (fetch-landings-info (:games date-and-schedule-games))]
-    (game-scores/parse-game-scores date-and-schedule-games standings-info landings-info)))
+    (->
+     (game-scores/parse-game-scores date-and-schedule-games standings-info landings-info)
+     log-cache-sizes!)))
 
 (defn fetch-scores-in-date-range [start-date end-date]
   (let [games-info (fetch-games-info start-date)
@@ -158,5 +168,7 @@
                                                 :regular-season-start-date-str (:regular-season-start-date games-info)
                                                 :regular-season-end-date-str (:regular-season-end-date games-info)})
         landings-infos (map #(fetch-landings-info (:games %)) dates-and-schedule-games)]
-    (map-indexed #(game-scores/parse-game-scores %2 (nth standings-infos %1) (nth landings-infos %1))
-                 dates-and-schedule-games)))
+    (->
+     (doall (map-indexed #(game-scores/parse-game-scores %2 (nth standings-infos %1) (nth landings-infos %1))
+                         dates-and-schedule-games))
+     log-cache-sizes!)))
