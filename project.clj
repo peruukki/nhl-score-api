@@ -4,7 +4,7 @@
             :url "https://opensource.org/licenses/MIT"}
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.11.1"]
-                 [org.clojure/core.memoize "1.0.257"]
+                 [org.clojure/core.cache "1.1.234"]
                  [org.clojure/data.json "2.4.0"]
                  [clj-http "3.12.3"]
                  [clj-time "0.15.2"]

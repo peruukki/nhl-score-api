@@ -2,32 +2,42 @@
   (:require [camel-snake-kebab.core :refer [->kebab-case-keyword]]
             [clj-http.client :as http]
             [clj-time.core :as time]
+            [clojure.core.cache :as cache]
+            [clojure.core.cache.wrapped :as cache.wrapped]
             [clojure.data.json :as json]
-            [nhl-score-api.cache :as cache]
             [nhl-score-api.fetchers.nhl-api-web.game-scores :as game-scores]
             [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-games-in-date-range
                                                                     get-latest-games
                                                                     started-game?]]
             [nhl-score-api.utils :refer [format-date parse-date]]))
 
+(def caches
+  {:short-lived (atom (-> {}
+                          (cache/lru-cache-factory :threshold 32)
+                          (cache/ttl-cache-factory :ttl (* 60 1000))))})
+
 (def base-url "https://api-web.nhle.com/v1")
 
 (defprotocol ApiRequest
+  (cache-id [_])
   (description [_])
   (url [_]))
 
 (defrecord LandingApiRequest [game-id]
   ApiRequest
+  (cache-id [_] :short-lived)
   (description [_] (str "landing " {:game-id game-id}))
   (url [_] (str base-url "/gamecenter/" game-id "/landing")))
 
 (defrecord ScheduleApiRequest [date-str]
   ApiRequest
+  (cache-id [_] :short-lived)
   (description [_] (str "schedule " {:date date-str}))
   (url [_] (str base-url "/schedule/" date-str)))
 
 (defrecord StandingsApiRequest [date-str]
   ApiRequest
+  (cache-id [_] :short-lived)
   (description [_] (str "standings " {:date date-str}))
   (url [_] (str base-url "/standings/" date-str)))
 
@@ -66,9 +76,19 @@
     (println "Fetched " (description api-request) "(took" (- (System/currentTimeMillis) start-time) "ms)")
     response))
 
+(defn- fetch-cached [api-request]
+  (let [cache-id (cache-id api-request)
+        cache (caches cache-id)]
+    (cache.wrapped/lookup-or-miss cache
+                                  (url api-request)
+                                  (fn [_]
+                                    (let [response (fetch api-request)]
+                                      (println "Caching" (url api-request) "response in" cache-id)
+                                      response)))))
+
 (defn- fetch-games-info [date-str]
   (let [start-date (get-schedule-start-date date-str)]
-    (fetch (ScheduleApiRequest. start-date))))
+    (fetch-cached (ScheduleApiRequest. start-date))))
 
 (defn- get-standings-date-strs [{:keys [date-strs regular-season-start-date-str regular-season-end-date-str]}]
   (let [current-date-str (format-date (time/now))]
@@ -91,7 +111,7 @@
                               set)
         standings-per-unique-date-str (map #(if (nil? %)
                                               nil
-                                              (:standings (fetch (StandingsApiRequest. %)))) unique-date-strs)
+                                              (:standings (fetch-cached (StandingsApiRequest. %)))) unique-date-strs)
         standings-by-date-str (zipmap unique-date-strs standings-per-unique-date-str)]
     (map #(if (nil? (:current %))
             nil
@@ -107,10 +127,10 @@
 (defn fetch-landings-info [schedule-games]
   (->> schedule-games
        (get-landing-game-ids)
-       (map #(vector % (fetch (LandingApiRequest. %))))
+       (map #(vector % (fetch-cached (LandingApiRequest. %))))
        (into {})))
 
-(defn- fetch-latest-scores []
+(defn fetch-latest-scores []
   (let [latest-games-info
         (if mocked-latest-games-info-file
           (do (println "Using mocked NHL Stats API response from" mocked-latest-games-info-file)
@@ -127,10 +147,7 @@
         landings-info (fetch-landings-info (:games date-and-schedule-games))]
     (game-scores/parse-game-scores date-and-schedule-games standings-info landings-info)))
 
-(def fetch-latest-scores-cached
-  (cache/get-cached-fn fetch-latest-scores "fetch-latest-scores" 60000))
-
-(defn- fetch-scores-in-date-range [start-date end-date]
+(defn fetch-scores-in-date-range [start-date end-date]
   (let [games-info (fetch-games-info start-date)
         dates-and-schedule-games (get-games-in-date-range games-info start-date end-date)
         standings-date-strs (map #(if (= (count (:games %)) 0)
@@ -143,6 +160,3 @@
         landings-infos (map #(fetch-landings-info (:games %)) dates-and-schedule-games)]
     (map-indexed #(game-scores/parse-game-scores %2 (nth standings-infos %1) (nth landings-infos %1))
                  dates-and-schedule-games)))
-
-(def fetch-scores-in-date-range-cached
-  (cache/get-cached-fn fetch-scores-in-date-range "fetch-scores-in-date-range" 60000))

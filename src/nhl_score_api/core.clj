@@ -86,8 +86,8 @@
           (get-response
             (:uri request)
             request-params
-            fetcher/fetch-latest-scores-cached
-            fetcher/fetch-scores-in-date-range-cached)]
+            fetcher/fetch-latest-scores
+            fetcher/fetch-scores-in-date-range)]
       (format-response (:status response) (:body response)))
     (catch Exception e
       (println "Caught exception" e)
