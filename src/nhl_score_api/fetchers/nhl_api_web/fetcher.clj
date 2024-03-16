@@ -89,9 +89,9 @@
         cache (caches cache-id)]
     (cache.wrapped/lookup-or-miss cache
                                   (url api-request)
-                                  (fn [_]
+                                  (fn [url]
                                     (let [response (fetch api-request)]
-                                      (println "Caching" (url api-request) "response in" cache-id)
+                                      (println "Caching" url "response in" cache-id)
                                       response)))))
 
 (defn- fetch-games-info [date-str]
