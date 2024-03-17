@@ -13,7 +13,6 @@
 (declare latest-scores-api-fn)
 (declare scores-in-date-range-api-fn)
 
-
 (deftest api-routing
   (testing "Root path returns project version"
     (let [version (System/getProperty "nhl-score-api.version")
