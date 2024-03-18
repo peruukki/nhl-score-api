@@ -2,50 +2,40 @@
   (:require [camel-snake-kebab.core :refer [->kebab-case-keyword]]
             [clj-http.client :as http]
             [clj-time.core :as time]
-            [clojure.core.cache :as cache]
-            [clojure.core.cache.wrapped :as cache.wrapped]
             [clojure.data.json :as json]
             [clojure.string :as str]
+            [nhl-score-api.cache :as cache]
             [nhl-score-api.fetchers.nhl-api-web.game-scores :as game-scores]
             [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-games-in-date-range
                                                                     get-latest-games
                                                                     started-game?]]
             [nhl-score-api.utils :refer [format-date parse-date]]))
 
-(def caches
-  {:short-lived (atom (-> {}
-                          (cache/lru-cache-factory :threshold 32)
-                          (cache/ttl-cache-factory :ttl (* 60 1000))))})
-
 (defn- log-cache-sizes!
   "Logs all cache sizes and returns passed response"
   [response]
   (println "Cache sizes:" (str/join ", "
-                                    (map (fn [[id cache]] (str id " " (count @cache))) caches)))
+                                    (map (fn [[id cache]] (str id " " (count @cache))) cache/caches)))
   response)
 
 (def base-url "https://api-web.nhle.com/v1")
 
 (defprotocol ApiRequest
-  (cache-id [_])
   (description [_])
   (url [_]))
 
 (defrecord LandingApiRequest [game-id]
   ApiRequest
-  (cache-id [_] :short-lived)
   (description [_] (str "landing " {:game-id game-id}))
   (url [_] (str base-url "/gamecenter/" game-id "/landing")))
 
 (defrecord ScheduleApiRequest [date-str]
   ApiRequest
-  (cache-id [_] :short-lived)
   (description [_] (str "schedule " {:date date-str}))
   (url [_] (str base-url "/schedule/" date-str)))
 
 (defrecord StandingsApiRequest [date-str]
   ApiRequest
-  (cache-id [_] :short-lived)
   (description [_] (str "standings " {:date date-str}))
   (url [_] (str base-url "/standings/" date-str)))
 
@@ -85,14 +75,7 @@
     response))
 
 (defn- fetch-cached [api-request]
-  (let [cache-id (cache-id api-request)
-        cache (caches cache-id)]
-    (cache.wrapped/lookup-or-miss cache
-                                  (url api-request)
-                                  (fn [url]
-                                    (let [response (fetch api-request)]
-                                      (println "Caching" url "response in" cache-id)
-                                      response)))))
+  (cache/get-cached (url api-request) #(fetch api-request)))
 
 (defn- fetch-games-info [date-str]
   (let [start-date (get-schedule-start-date date-str)]
