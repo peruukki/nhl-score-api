@@ -47,3 +47,11 @@
     (is (= {:value "value-fn-value"} result) "result is from fetch-fn")
     (is (= {:from-cache? false} (meta result)) "result is not from cache")
     (is (= true @value-fn-called) "value-fn was called")))
+
+(deftest archive-storing-value
+  (is (= nil
+         (cache.wrapped/lookup (:archive cache/caches) "key")) "value is not in archive")
+  (is (= {:value "value"}
+         (cache/archive "key" {:value "value"})) "archived value is returned")
+  (is (= {:value "value"}
+         (cache.wrapped/lookup (:archive cache/caches) "key")) "value is in archive"))

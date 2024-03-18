@@ -21,21 +21,25 @@
 (def base-url "https://api-web.nhle.com/v1")
 
 (defprotocol ApiRequest
+  (archive? [_ response])
   (description [_])
   (url [_]))
 
 (defrecord LandingApiRequest [game-id]
   ApiRequest
+  (archive? [_ response] (= "OFF" (:game-state response)))
   (description [_] (str "landing " {:game-id game-id}))
   (url [_] (str base-url "/gamecenter/" game-id "/landing")))
 
 (defrecord ScheduleApiRequest [date-str]
   ApiRequest
+  (archive? [_ _] false)
   (description [_] (str "schedule " {:date date-str}))
   (url [_] (str base-url "/schedule/" date-str)))
 
 (defrecord StandingsApiRequest [date-str]
   ApiRequest
+  (archive? [_ _] false)
   (description [_] (str "standings " {:date date-str}))
   (url [_] (str base-url "/standings/" date-str)))
 
@@ -75,7 +79,11 @@
     response))
 
 (defn- fetch-cached [api-request]
-  (cache/get-cached (url api-request) #(fetch api-request)))
+  (let [response (cache/get-cached (url api-request) #(fetch api-request))
+        from-cache? (:from-cache? (meta response))]
+    (if (and (not from-cache?) (archive? api-request response))
+      (cache/archive (url api-request) response)
+      response)))
 
 (defn- fetch-games-info [date-str]
   (let [start-date (get-schedule-start-date date-str)]

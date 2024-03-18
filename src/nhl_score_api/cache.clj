@@ -29,3 +29,10 @@
                     (swap! from-cache? not)
                     value))))]
     (with-meta value {:from-cache? @from-cache?})))
+
+(defn archive
+  "Stores value in archive cache and returns the value."
+  [cache-key value]
+  (println "Caching" cache-key "value in" :archive)
+  (cache.wrapped/miss (:archive caches) cache-key value)
+  value)
