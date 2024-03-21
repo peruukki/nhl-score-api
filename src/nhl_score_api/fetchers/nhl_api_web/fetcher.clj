@@ -45,10 +45,19 @@
 
 (def mocked-latest-games-info-file (System/getenv "MOCK_NHL_API_WEB"))
 
+(defn get-current-schedule-date
+  "Returns what is considered the current schedule date in UTC, which can be different from
+   current actual date: the schedule date changes at 6 AM US/Pacific time (the earliest timezone
+   in the NHL). By that time we consider the previous schedule date's data finalised."
+  [current-time]
+  (let [adjusted-date-time (time/minus (time/to-time-zone current-time (time/time-zone-for-id "US/Pacific"))
+                                       (time/hours 6))]
+    (apply time/date-time (map #(% adjusted-date-time) [time/year time/month time/day]))))
+
 (defn get-schedule-start-date [start-date]
   (let [fetch-latest? (nil? start-date)
-        date-now (time/now)]
-    (format-date (if fetch-latest? (time/minus date-now (time/days 1)) start-date))))
+        current-date (get-current-schedule-date (time/now))]
+    (format-date (if fetch-latest? (time/minus current-date (time/days 1)) start-date))))
 
 (defn get-current-standings-request-date [{:keys [requested-date-str
                                                   current-date-str
@@ -90,7 +99,7 @@
     (fetch-cached (ScheduleApiRequest. start-date))))
 
 (defn- get-standings-date-strs [{:keys [date-strs regular-season-start-date-str regular-season-end-date-str]}]
-  (let [current-date-str (format-date (time/now))]
+  (let [current-date-str (format-date (get-current-schedule-date (time/now)))]
     (map #(let [standings-date-str
                 (get-current-standings-request-date {:requested-date-str %
                                                      :current-date-str current-date-str

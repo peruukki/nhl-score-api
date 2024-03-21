@@ -2,6 +2,7 @@
   (:require [clj-time.core :as time]
             [clojure.test :refer [deftest is testing]]
             [nhl-score-api.fetchers.nhl-api-web.fetcher :refer [fetch-standings-infos
+                                                                get-current-schedule-date
                                                                 get-current-standings-request-date
                                                                 get-landing-game-ids
                                                                 get-pre-game-standings-request-date
@@ -11,8 +12,8 @@
 (deftest get-scores-query-params-test
 
   (testing "Scores are requested starting from yesterday if no dates are given"
-    (let [now (time/now)
-          yesterday (format-date (time/minus now (time/days 1)))]
+    (let [current-date (get-current-schedule-date (time/now))
+          yesterday (format-date (time/minus current-date (time/days 1)))]
       (is (= yesterday
              (get-schedule-start-date nil)) "Start date")))
 
@@ -93,3 +94,14 @@
            (get-landing-game-ids [{:id 1 :game-state "LIVE"}
                                   {:id 2 :game-state "OFF"}
                                   {:id 3 :game-state "FUT"}])))))
+
+(deftest get-current-schedule-date-test
+
+  (testing "Previous date is returned before 6 AM US/Pacific (-07:00 on tested date)"
+    (is (= "2024-03-20" (format-date (get-current-schedule-date (time/date-time 2024 3 21 12 59 59))))))
+
+  (testing "Current date is returned at 6 AM US/Pacific (-07:00 on tested date)"
+    (is (= "2024-03-21" (format-date (get-current-schedule-date (time/date-time 2024 3 21 13 00 00))))))
+
+  (testing "Current date is returned after 6 AM US/Pacific (-07:00 on tested date)"
+    (is (= "2024-03-21" (format-date (get-current-schedule-date (time/date-time 2024 3 21 13 00 01)))))))
