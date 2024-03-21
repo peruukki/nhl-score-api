@@ -37,9 +37,13 @@
   (description [_] (str "schedule " {:date date-str}))
   (url [_] (str base-url "/schedule/" date-str)))
 
-(defrecord StandingsApiRequest [date-str]
+(defrecord StandingsApiRequest [date-str current-date-str]
   ApiRequest
-  (archive? [_ _] false)
+  (archive? [_ response] (->> response
+                              :standings
+                              (map :date)
+                              set
+                              (every? #(< (compare % current-date-str) 0))))
   (description [_] (str "standings " {:date date-str}))
   (url [_] (str base-url "/standings/" date-str)))
 
@@ -98,28 +102,29 @@
   (let [start-date (get-schedule-start-date date-str)]
     (fetch-cached (ScheduleApiRequest. start-date))))
 
-(defn- get-standings-date-strs [{:keys [date-strs regular-season-start-date-str regular-season-end-date-str]}]
-  (let [current-date-str (format-date (get-current-schedule-date (time/now)))]
-    (map #(let [standings-date-str
-                (get-current-standings-request-date {:requested-date-str %
-                                                     :current-date-str current-date-str
-                                                     :regular-season-end-date-str regular-season-end-date-str})
-                pre-game-standings-date-str
-                (get-pre-game-standings-request-date {:current-standings-date-str standings-date-str
-                                                      :regular-season-start-date-str regular-season-start-date-str})]
-            {:current standings-date-str
-             :pre-game pre-game-standings-date-str})
-         date-strs)))
+(defn- get-standings-date-strs [{:keys [current-date-str date-strs regular-season-start-date-str regular-season-end-date-str]}]
+  (map #(let [standings-date-str
+              (get-current-standings-request-date {:requested-date-str %
+                                                   :current-date-str current-date-str
+                                                   :regular-season-end-date-str regular-season-end-date-str})
+              pre-game-standings-date-str
+              (get-pre-game-standings-request-date {:current-standings-date-str standings-date-str
+                                                    :regular-season-start-date-str regular-season-start-date-str})]
+          {:current standings-date-str
+           :pre-game pre-game-standings-date-str})
+       date-strs))
 
 (defn fetch-standings-infos [date-str-params]
-  (let [standings-date-strs (get-standings-date-strs date-str-params)
+  (let [current-date-str (format-date (get-current-schedule-date (time/now)))
+        standings-date-strs (get-standings-date-strs (assoc date-str-params :current-date-str current-date-str))
         unique-date-strs (->> standings-date-strs
                               (map vals)
                               flatten
                               set)
         standings-per-unique-date-str (map #(if (nil? %)
                                               nil
-                                              (:standings (fetch-cached (StandingsApiRequest. %)))) unique-date-strs)
+                                              (:standings (fetch-cached (StandingsApiRequest. % current-date-str))))
+                                           unique-date-strs)
         standings-by-date-str (zipmap unique-date-strs standings-per-unique-date-str)]
     (map #(if (nil? (:current %))
             nil
