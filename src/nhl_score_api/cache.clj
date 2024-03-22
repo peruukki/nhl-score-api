@@ -36,3 +36,8 @@
   (println "Caching" cache-key "value in" :archive)
   (cache.wrapped/miss (:archive caches) cache-key value)
   value)
+
+(defn evict-from-short-lived!
+  "Evicts keys from the short-lived cache."
+  [cache-keys]
+  (doseq [cache-key cache-keys] (cache.wrapped/evict (:short-lived caches) cache-key)))

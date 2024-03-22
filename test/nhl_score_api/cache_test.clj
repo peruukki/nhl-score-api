@@ -11,6 +11,7 @@
                             "common-key" {:value "common-value-from-archive"}})
   (cache.wrapped/seed
    (:short-lived cache/caches) {"short-lived-key" {:value "short-lived-value"}
+                                "another-short-lived-key" {:value "another-short-lived-value"}
                                 "common-key" {:value "common-value-from-short-lived"}})
   (f))
 
@@ -55,3 +56,14 @@
          (cache/archive "key" {:value "value"})) "archived value is returned")
   (is (= {:value "value"}
          (cache.wrapped/lookup (:archive cache/caches) "key")) "value is in archive"))
+
+(deftest evict-from-short-lived!-removing-keys
+  (is (= #{"archive-key" "common-key"}
+         (set (keys @(:archive cache/caches)))) "archive has 2 keys")
+  (is (= #{"short-lived-key" "another-short-lived-key" "common-key"}
+         (set (keys @(:short-lived cache/caches)))) "short-lived has 3 keys")
+  (cache/evict-from-short-lived! ["short-lived-key" "common-key" "non-existing-key"])
+  (is (= #{"archive-key" "common-key"}
+         (set (keys @(:archive cache/caches)))) "archive still has 2 keys")
+  (is (= #{"another-short-lived-key"}
+         (set (keys @(:short-lived cache/caches)))) "short-lived now has 1 key"))

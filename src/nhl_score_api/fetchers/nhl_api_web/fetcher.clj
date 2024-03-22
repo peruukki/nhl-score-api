@@ -143,6 +143,12 @@
        (map #(vector % (fetch-cached (LandingApiRequest. %))))
        (into {})))
 
+(defn- prune-cache-and-fetch-landings-info [games-info date-and-schedule-games]
+  (when-not (:from-cache? (meta games-info))
+    (println "Evicting" (:raw (:date date-and-schedule-games)) "landings from :short-lived")
+    (cache/evict-from-short-lived! (map #(url (LandingApiRequest. (:id %))) (:games date-and-schedule-games))))
+  (fetch-landings-info (:games date-and-schedule-games)))
+
 (defn fetch-latest-scores []
   (let [latest-games-info
         (if mocked-latest-games-info-file
@@ -156,11 +162,11 @@
         standings-info (first
                         (fetch-standings-infos {:date-strs [standings-date-str]
                                                 :regular-season-start-date-str (:regular-season-start-date latest-games-info)
-                                                :regular-season-end-date-str (:regular-season-end-date latest-games-info)}))
-        landings-info (fetch-landings-info (:games date-and-schedule-games))]
-    (->
-     (game-scores/parse-game-scores date-and-schedule-games standings-info landings-info)
-     log-cache-sizes!)))
+                                                :regular-season-end-date-str (:regular-season-end-date latest-games-info)}))]
+    (->> date-and-schedule-games
+         (prune-cache-and-fetch-landings-info latest-games-info)
+         (game-scores/parse-game-scores date-and-schedule-games standings-info)
+         log-cache-sizes!)))
 
 (defn fetch-scores-in-date-range [start-date end-date]
   (let [games-info (fetch-games-info start-date)
@@ -171,9 +177,11 @@
                                  dates-and-schedule-games)
         standings-infos (fetch-standings-infos {:date-strs standings-date-strs
                                                 :regular-season-start-date-str (:regular-season-start-date games-info)
-                                                :regular-season-end-date-str (:regular-season-end-date games-info)})
-        landings-infos (map #(fetch-landings-info (:games %)) dates-and-schedule-games)]
+                                                :regular-season-end-date-str (:regular-season-end-date games-info)})]
     (->
-     (doall (map-indexed #(game-scores/parse-game-scores %2 (nth standings-infos %1) (nth landings-infos %1))
+     (doall (map-indexed (fn [index date-and-schedule-games]
+                           (->> date-and-schedule-games
+                                (prune-cache-and-fetch-landings-info games-info)
+                                (game-scores/parse-game-scores date-and-schedule-games (nth standings-infos index))))
                          dates-and-schedule-games))
      log-cache-sizes!)))
