@@ -4,7 +4,7 @@
 
 (def caches
   {:archive (atom (-> {}
-                      (cache/lru-cache-factory :threshold 32)
+                      (cache/lru-cache-factory :threshold 64)
                       (cache/ttl-cache-factory :ttl (* 24 60 60 1000))))
    :short-lived (atom (-> {}
                           (cache/lru-cache-factory :threshold 32)
