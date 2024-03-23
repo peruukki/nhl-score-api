@@ -78,7 +78,7 @@
    :body (json/write-str body :key-fn json-key-transformer)})
 
 (defn request-handler [request]
-  (println "Received request" request)
+  (println "Received request" (select-keys request [:uri :params :remote-addr :headers]))
   (try
     (let [request-params
           (fmap-keys ->kebab-case-keyword (:params request))
