@@ -9,7 +9,7 @@
 (def latest-scores {:teams {} :scores {} :goals []})
 (def scores-in-date-range [{:teams {} :scores {} :goals []}])
 
-(declare assert-status assert-json-content-type assert-cors-enabled assert-browser-caching-disabled assert-body)
+(declare assert-status assert-json-content-type assert-cors-enabled assert-cache-control-set assert-body)
 (declare latest-scores-api-fn)
 (declare scores-in-date-range-api-fn)
 
@@ -68,9 +68,9 @@
            (json-key-transformer "goal-count")) "Key is not transformed")))
 
 (deftest browser-caching
-  (testing "Browser caching is disabled by response headers")
+  (testing "Browser caching is controlled by response headers")
     (let [response (app {:uri "/"})]
-      (assert-browser-caching-disabled response)))
+      (assert-cache-control-set response)))
 
 (defn- assert-status [response expected-status]
   (is (= expected-status
@@ -90,10 +90,10 @@
          (get (:headers response) "Access-Control-Allow-Headers"))
       "Access-Control-Allow-Headers allows Content-Type header"))
 
-(defn- assert-browser-caching-disabled [response]
-  (is (= "0"
-         (get (:headers response) "Expires"))
-      "Expires header disables browser caching"))
+(defn- assert-cache-control-set [response]
+  (is (= "max-age=60"
+         (get (:headers response) "Cache-Control"))
+      "Cache-Control header sets max-age"))
 
 (defn- assert-body [response expected-body message]
   (is (= (json/write-str expected-body)
