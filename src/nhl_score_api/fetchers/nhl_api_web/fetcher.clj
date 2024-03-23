@@ -33,12 +33,12 @@
   (description [_] (str "landing " {:game-id game-id}))
   (url [_] (str base-url "/gamecenter/" game-id "/landing")))
 
-(defrecord ScheduleApiRequest [date-str]
+(defrecord ScheduleApiRequest [start-date-str end-date-str]
   ApiRequest
   (archive? [_ _] false)
-  (cache-key [_] (str "schedule-" date-str))
-  (description [_] (str "schedule " {:date date-str}))
-  (url [_] (str base-url "/schedule/" date-str)))
+  (cache-key [_] (str "schedule-" start-date-str (when end-date-str (str "-" end-date-str))))
+  (description [_] (str "schedule " {:date start-date-str}))
+  (url [_] (str base-url "/schedule/" start-date-str)))
 
 (defrecord StandingsApiRequest [date-str current-date-str]
   ApiRequest
@@ -101,9 +101,9 @@
       (cache/archive (cache-key api-request) response)
       response)))
 
-(defn- fetch-games-info [date]
-  (let [start-date (or (format-date date) (get-schedule-start-date-for-latest-scores))]
-    (fetch-cached (ScheduleApiRequest. start-date))))
+(defn- fetch-games-info [start-date end-date]
+  (let [start-date-str (or (format-date start-date) (get-schedule-start-date-for-latest-scores))]
+    (fetch-cached (ScheduleApiRequest. start-date-str (format-date end-date)))))
 
 (defn- get-standings-date-strs [{:keys [current-date-str date-strs regular-season-start-date-str regular-season-end-date-str]}]
   (map #(let [standings-date-str
@@ -154,7 +154,7 @@
   (fetch-landings-info (:games date-and-schedule-games)))
 
 (defn fetch-latest-scores []
-  (let [latest-games-info (fetch-games-info nil)
+  (let [latest-games-info (fetch-games-info nil nil)
         date-and-schedule-games (get-latest-games latest-games-info)
         standings-date-str (if (= (count (:games date-and-schedule-games)) 0)
                              nil
@@ -169,7 +169,7 @@
          log-cache-sizes!)))
 
 (defn fetch-scores-in-date-range [start-date end-date]
-  (let [games-info (fetch-games-info start-date)
+  (let [games-info (fetch-games-info start-date end-date)
         dates-and-schedule-games (get-games-in-date-range games-info start-date end-date)
         standings-date-strs (map #(if (= (count (:games %)) 0)
                                     nil
