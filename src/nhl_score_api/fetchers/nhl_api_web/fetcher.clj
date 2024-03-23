@@ -62,10 +62,11 @@
                                        (time/hours 6))]
     (apply time/date-time (map #(% adjusted-date-time) [time/year time/month time/day]))))
 
-(defn get-schedule-start-date [start-date]
-  (let [fetch-latest? (nil? start-date)
-        current-date (get-current-schedule-date (time/now))]
-    (format-date (if fetch-latest? (time/minus current-date (time/days 1)) start-date))))
+(defn get-schedule-start-date-for-latest-scores []
+  (-> (time/now)
+      get-current-schedule-date
+      (time/minus (time/days 1))
+      format-date))
 
 (defn get-current-standings-request-date [{:keys [requested-date-str
                                                   current-date-str
@@ -102,8 +103,8 @@
       (cache/archive (cache-key api-request) response)
       response)))
 
-(defn- fetch-games-info [date-str]
-  (let [start-date (get-schedule-start-date date-str)]
+(defn- fetch-games-info [date]
+  (let [start-date (or (format-date date) (get-schedule-start-date-for-latest-scores))]
     (fetch-cached (ScheduleApiRequest. start-date))))
 
 (defn- get-standings-date-strs [{:keys [current-date-str date-strs regular-season-start-date-str regular-season-end-date-str]}]

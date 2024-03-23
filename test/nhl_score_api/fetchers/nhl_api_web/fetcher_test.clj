@@ -6,21 +6,16 @@
                                                                 get-current-standings-request-date
                                                                 get-landing-game-ids
                                                                 get-pre-game-standings-request-date
-                                                                get-schedule-start-date]]
+                                                                get-schedule-start-date-for-latest-scores]]
             [nhl-score-api.utils :refer [format-date]]))
 
-(deftest get-scores-query-params-test
+(deftest get-schedule-start-date-for-latest-scores-test
 
-  (testing "Scores are requested starting from yesterday if no dates are given"
+  (testing "Scores are requested starting from yesterday"
     (let [current-date (get-current-schedule-date (time/now))
           yesterday (format-date (time/minus current-date (time/days 1)))]
       (is (= yesterday
-             (get-schedule-start-date nil)) "Start date")))
-
-  (testing "Scores are requested from given start date"
-    (let [start-date (time/date-time 2021 9 25)]
-      (is (= "2021-09-25"
-             (get-schedule-start-date start-date)) "Start date"))))
+             (get-schedule-start-date-for-latest-scores)) "Start date"))))
 
 (deftest get-current-standings-request-date-test
 
