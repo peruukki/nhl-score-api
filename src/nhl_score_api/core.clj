@@ -73,7 +73,7 @@
   {:status status
    :headers {"Access-Control-Allow-Origin" "*"
              "Access-Control-Allow-Headers" "Content-Type"
-             "Expires" "0"
+             "Cache-Control" "max-age=60"
              "Content-Type" "application/json; charset=utf-8"}
    :body (json/write-str body :key-fn json-key-transformer)})
 
