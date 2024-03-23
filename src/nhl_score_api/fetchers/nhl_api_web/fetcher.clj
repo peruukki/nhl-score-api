@@ -22,18 +22,21 @@
 
 (defprotocol ApiRequest
   (archive? [_ response])
+  (cache-key [_])
   (description [_])
   (url [_]))
 
 (defrecord LandingApiRequest [game-id]
   ApiRequest
   (archive? [_ response] (= "OFF" (:game-state response)))
+  (cache-key [_] (str "landing-" game-id))
   (description [_] (str "landing " {:game-id game-id}))
   (url [_] (str base-url "/gamecenter/" game-id "/landing")))
 
 (defrecord ScheduleApiRequest [date-str]
   ApiRequest
   (archive? [_ _] false)
+  (cache-key [_] (str "schedule-" date-str))
   (description [_] (str "schedule " {:date date-str}))
   (url [_] (str base-url "/schedule/" date-str)))
 
@@ -44,6 +47,7 @@
                               (map :date)
                               set
                               (every? #(< (compare % current-date-str) 0))))
+  (cache-key [_] (str "standings-" date-str))
   (description [_] (str "standings " {:date date-str}))
   (url [_] (str base-url "/standings/" date-str)))
 
@@ -92,10 +96,10 @@
     response))
 
 (defn- fetch-cached [api-request]
-  (let [response (cache/get-cached (url api-request) #(fetch api-request))
+  (let [response (cache/get-cached (cache-key api-request) #(fetch api-request))
         from-cache? (:from-cache? (meta response))]
     (if (and (not from-cache?) (archive? api-request response))
-      (cache/archive (url api-request) response)
+      (cache/archive (cache-key api-request) response)
       response)))
 
 (defn- fetch-games-info [date-str]
@@ -146,7 +150,8 @@
 (defn- prune-cache-and-fetch-landings-info [games-info date-and-schedule-games]
   (when-not (:from-cache? (meta games-info))
     (println "Evicting" (:raw (:date date-and-schedule-games)) "landings from :short-lived")
-    (cache/evict-from-short-lived! (map #(url (LandingApiRequest. (:id %))) (:games date-and-schedule-games))))
+    (cache/evict-from-short-lived! (map #(cache-key (LandingApiRequest. (:id %)))
+                                        (:games date-and-schedule-games))))
   (fetch-landings-info (:games date-and-schedule-games)))
 
 (defn fetch-latest-scores []
