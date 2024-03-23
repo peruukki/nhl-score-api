@@ -672,12 +672,6 @@ To delete all containers, run:
 
 You can also run the application locally with `lein run`.
 
-To return latest scores from mock NHL Stats API data, you can specify a mock data source file:
-
-```sh
-MOCK_NHL_STATS_API=test/nhl_score_api/fetchers/nhlstats/resources/schedule-2016-02-28-live-preview-final-postponed-modified.json lein run
-```
-
 ## Running tests
 
 Run tests with the [Kaocha test runner](https://github.com/lambdaisland/kaocha) for improved test failure reporting:

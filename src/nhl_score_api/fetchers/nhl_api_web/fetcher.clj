@@ -51,8 +51,6 @@
   (description [_] (str "standings " {:date date-str}))
   (url [_] (str base-url "/standings/" date-str)))
 
-(def mocked-latest-games-info-file (System/getenv "MOCK_NHL_API_WEB"))
-
 (defn get-current-schedule-date
   "Returns what is considered the current schedule date in UTC, which can be different from
    current actual date: the schedule date changes at 6 AM US/Pacific time (the earliest timezone
@@ -156,11 +154,7 @@
   (fetch-landings-info (:games date-and-schedule-games)))
 
 (defn fetch-latest-scores []
-  (let [latest-games-info
-        (if mocked-latest-games-info-file
-          (do (println "Using mocked NHL Stats API response from" mocked-latest-games-info-file)
-              (api-response-to-json (slurp mocked-latest-games-info-file)))
-          (fetch-games-info nil))
+  (let [latest-games-info (fetch-games-info nil)
         date-and-schedule-games (get-latest-games latest-games-info)
         standings-date-str (if (= (count (:games date-and-schedule-games)) 0)
                              nil
