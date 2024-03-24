@@ -35,7 +35,15 @@
 
 (defrecord ScheduleApiRequest [start-date-str end-date-str]
   ApiRequest
-  (archive? [_ _] false)
+  (archive? [_ response] (->> response
+                              :game-week
+                              (filter (if end-date-str
+                                        #(and (<= (compare start-date-str (:date %)) 0)
+                                              (<= (compare (:date %) end-date-str) 0))
+                                        #(= 0 (compare start-date-str (:date %)))))
+                              (map :games)
+                              flatten
+                              (every? #(= "OFF" (:game-state %)))))
   (cache-key [_] (str "schedule-" start-date-str (when end-date-str (str "-" end-date-str))))
   (description [_] (str "schedule " {:date start-date-str}))
   (url [_] (str base-url "/schedule/" start-date-str)))
@@ -102,8 +110,10 @@
       response)))
 
 (defn- fetch-games-info [start-date end-date]
-  (let [start-date-str (or (format-date start-date) (get-schedule-start-date-for-latest-scores))]
-    (fetch-cached (ScheduleApiRequest. start-date-str (format-date end-date)))))
+  (let [start-date-str (or (format-date start-date) (get-schedule-start-date-for-latest-scores))
+        end-date-str (format-date end-date)]
+    (fetch-cached (ScheduleApiRequest. start-date-str (when (< (compare start-date-str end-date-str) 0)
+                                                        end-date-str)))))
 
 (defn- get-standings-date-strs [{:keys [current-date-str date-strs regular-season-start-date-str regular-season-end-date-str]}]
   (map #(let [standings-date-str
