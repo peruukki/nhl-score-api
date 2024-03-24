@@ -3,20 +3,12 @@
             [clj-http.client :as http]
             [clj-time.core :as time]
             [clojure.data.json :as json]
-            [clojure.string :as str]
             [nhl-score-api.cache :as cache]
             [nhl-score-api.fetchers.nhl-api-web.game-scores :as game-scores]
             [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-games-in-date-range
                                                                     get-latest-games
                                                                     started-game?]]
             [nhl-score-api.utils :refer [format-date parse-date]]))
-
-(defn- log-cache-sizes!
-  "Logs all cache sizes and returns passed response"
-  [response]
-  (println "Cache sizes:" (str/join ", "
-                                    (map (fn [[id cache]] (str id " " (count @cache))) cache/caches)))
-  response)
 
 (def base-url "https://api-web.nhle.com/v1")
 
@@ -176,7 +168,7 @@
     (->> date-and-schedule-games
          (prune-cache-and-fetch-landings-info latest-games-info)
          (game-scores/parse-game-scores date-and-schedule-games standings-info)
-         log-cache-sizes!)))
+         cache/log-cache-sizes!)))
 
 (defn fetch-scores-in-date-range [start-date end-date]
   (let [games-info (fetch-games-info start-date end-date)
@@ -194,4 +186,4 @@
                                 (prune-cache-and-fetch-landings-info games-info)
                                 (game-scores/parse-game-scores date-and-schedule-games (nth standings-infos index))))
                          dates-and-schedule-games))
-     log-cache-sizes!)))
+     cache/log-cache-sizes!)))

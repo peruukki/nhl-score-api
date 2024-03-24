@@ -1,6 +1,7 @@
 (ns nhl-score-api.cache
   (:require [clojure.core.cache :as cache]
-            [clojure.core.cache.wrapped :as cache.wrapped]))
+            [clojure.core.cache.wrapped :as cache.wrapped]
+            [clojure.string :as str]))
 
 (def caches
   {:archive (atom (-> {}
@@ -41,3 +42,10 @@
   "Evicts keys from the short-lived cache."
   [cache-keys]
   (doseq [cache-key cache-keys] (cache.wrapped/evict (:short-lived caches) cache-key)))
+
+(defn log-cache-sizes!
+  "Logs all cache sizes and returns passed value."
+  [value]
+  (println "Cache sizes:" (str/join ", "
+                                    (map (fn [[id cache]] (str id " " (count @cache))) caches)))
+  value)
