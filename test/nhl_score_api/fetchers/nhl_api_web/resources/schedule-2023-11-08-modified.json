@@ -1,7 +1,221 @@
 {
-  "nextStartDate": "2023-11-16",
-  "previousStartDate": "2023-11-02",
+  "nextStartDate": "2023-11-15",
+  "previousStartDate": "2023-11-01",
   "gameWeek": [
+    {
+      "date": "2023-11-08",
+      "dayAbbrev": "WED",
+      "numberOfGames": 3,
+      "games": [
+        {
+          "id": 2023020190,
+          "season": 20232024,
+          "gameType": 2,
+          "venue": { "default": "Scotiabank Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2023-11-09T00:00:00Z",
+          "easternUTCOffset": "-05:00",
+          "venueUTCOffset": "-05:00",
+          "venueTimezone": "America/Toronto",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 282,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "SN",
+              "sequenceNumber": 21
+            },
+            {
+              "id": 281,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "TVAS",
+              "sequenceNumber": 31
+            }
+          ],
+          "awayTeam": {
+            "id": 9,
+            "placeName": { "default": "Ottawa" },
+            "abbrev": "OTT",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/OTT_dark.svg",
+            "awaySplitSquad": false,
+            "score": 6
+          },
+          "homeTeam": {
+            "id": 10,
+            "placeName": { "default": "Toronto" },
+            "abbrev": "TOR",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TOR_dark.svg",
+            "homeSplitSquad": false,
+            "score": 3
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8476914,
+            "firstInitial": { "default": "J." },
+            "lastName": { "default": "Korpisalo" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8477330,
+            "firstInitial": { "default": "D." },
+            "lastName": {
+              "default": "Kubalik",
+              "cs": "Kubalík",
+              "sk": "Kubalík"
+            }
+          },
+          "threeMinRecap": "/video/recap-senators-at-maple-leafs-11-8-23-6340769066112",
+          "threeMinRecapFr": "/fr/video/recap-senators-at-maple-leafs-11-8-23-6340768473112",
+          "gameCenterLink": "/gamecenter/ott-vs-tor/2023/11/08/2023020190"
+        },
+        {
+          "id": 2023020191,
+          "season": 20232024,
+          "gameType": 2,
+          "venue": { "default": "Capital One Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2023-11-09T00:30:00Z",
+          "easternUTCOffset": "-05:00",
+          "venueUTCOffset": "-05:00",
+          "venueTimezone": "US/Eastern",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 385,
+              "market": "N",
+              "countryCode": "US",
+              "network": "TNT",
+              "sequenceNumber": 4
+            },
+            {
+              "id": 519,
+              "market": "N",
+              "countryCode": "US",
+              "network": "MAX",
+              "sequenceNumber": 9
+            }
+          ],
+          "awayTeam": {
+            "id": 13,
+            "placeName": { "default": "Florida", "fr": "Floride" },
+            "abbrev": "FLA",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg",
+            "awaySplitSquad": false,
+            "score": 4
+          },
+          "homeTeam": {
+            "id": 15,
+            "placeName": { "default": "Washington" },
+            "abbrev": "WSH",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WSH_dark.svg",
+            "homeSplitSquad": false,
+            "score": 3
+          },
+          "periodDescriptor": { "number": 4, "periodType": "OT" },
+          "gameOutcome": { "lastPeriodType": "OT" },
+          "winningGoalie": {
+            "playerId": 8475683,
+            "firstInitial": { "default": "S." },
+            "lastName": {
+              "default": "Bobrovsky",
+              "cs": "Bobrovskij",
+              "sk": "Bobrovskij"
+            }
+          },
+          "winningGoalScorer": {
+            "playerId": 8477933,
+            "firstInitial": { "default": "S." },
+            "lastName": { "default": "Reinhart" }
+          },
+          "threeMinRecap": "/video/recap-panthers-at-capitals-11-8-23-6340772851112",
+          "gameCenterLink": "/gamecenter/fla-vs-wsh/2023/11/08/2023020191"
+        },
+        {
+          "id": 2023020192,
+          "season": 20232024,
+          "gameType": 2,
+          "venue": { "default": "T-Mobile Arena" },
+          "neutralSite": false,
+          "startTimeUTC": "2023-11-09T03:00:00Z",
+          "easternUTCOffset": "-05:00",
+          "venueUTCOffset": "-08:00",
+          "venueTimezone": "US/Pacific",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "tvBroadcasts": [
+            {
+              "id": 385,
+              "market": "N",
+              "countryCode": "US",
+              "network": "TNT",
+              "sequenceNumber": 4
+            },
+            {
+              "id": 519,
+              "market": "N",
+              "countryCode": "US",
+              "network": "MAX",
+              "sequenceNumber": 9
+            },
+            {
+              "id": 283,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "SN360",
+              "sequenceNumber": 23
+            },
+            {
+              "id": 281,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "TVAS",
+              "sequenceNumber": 31
+            }
+          ],
+          "awayTeam": {
+            "id": 26,
+            "placeName": { "default": "Los Angeles" },
+            "abbrev": "LAK",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/LAK_dark.svg",
+            "awaySplitSquad": false,
+            "score": 4
+          },
+          "homeTeam": {
+            "id": 54,
+            "placeName": { "default": "Vegas" },
+            "abbrev": "VGK",
+            "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+            "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg",
+            "homeSplitSquad": false,
+            "score": 1
+          },
+          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "gameOutcome": { "lastPeriodType": "REG" },
+          "winningGoalie": {
+            "playerId": 8475660,
+            "firstInitial": { "default": "C." },
+            "lastName": { "default": "Talbot" }
+          },
+          "winningGoalScorer": {
+            "playerId": 8479675,
+            "firstInitial": { "default": "T." },
+            "lastName": { "default": "Moore" }
+          },
+          "threeMinRecap": "/video/recap-kings-at-golden-knights-11-8-23-6340783105112",
+          "threeMinRecapFr": "/fr/video/recap-kings-at-golden-knights-11-8-23-6340784374112",
+          "gameCenterLink": "/gamecenter/lak-vs-vgk/2023/11/08/2023020192"
+        }
+      ]
+    },
     {
       "date": "2023-11-09",
       "dayAbbrev": "THU",
@@ -1583,5 +1797,5 @@
   "regularSeasonStartDate": "2023-10-10",
   "regularSeasonEndDate": "2024-04-18",
   "playoffEndDate": "2024-06-18",
-  "numberOfGames": 49
+  "numberOfGames": 48
 }
