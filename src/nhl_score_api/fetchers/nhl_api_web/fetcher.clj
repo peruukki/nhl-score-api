@@ -4,52 +4,12 @@
             [clj-time.core :as time]
             [clojure.data.json :as json]
             [nhl-score-api.cache :as cache]
+            [nhl-score-api.fetchers.nhl-api-web.api :as api]
             [nhl-score-api.fetchers.nhl-api-web.game-scores :as game-scores]
             [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-games-in-date-range
                                                                     get-latest-games
                                                                     started-game?]]
             [nhl-score-api.utils :refer [format-date parse-date]]))
-
-(def base-url "https://api-web.nhle.com/v1")
-
-(defprotocol ApiRequest
-  (archive? [_ response])
-  (cache-key [_])
-  (description [_])
-  (url [_]))
-
-(defrecord LandingApiRequest [game-id]
-  ApiRequest
-  (archive? [_ response] (= "OFF" (:game-state response)))
-  (cache-key [_] (str "landing-" game-id))
-  (description [_] (str "landing " {:game-id game-id}))
-  (url [_] (str base-url "/gamecenter/" game-id "/landing")))
-
-(defrecord ScheduleApiRequest [start-date-str end-date-str]
-  ApiRequest
-  (archive? [_ response] (->> response
-                              :game-week
-                              (filter (if end-date-str
-                                        #(and (<= (compare start-date-str (:date %)) 0)
-                                              (<= (compare (:date %) end-date-str) 0))
-                                        #(= 0 (compare start-date-str (:date %)))))
-                              (map :games)
-                              flatten
-                              (every? #(= "OFF" (:game-state %)))))
-  (cache-key [_] (str "schedule-" start-date-str (when end-date-str (str "-" end-date-str))))
-  (description [_] (str "schedule " {:date start-date-str}))
-  (url [_] (str base-url "/schedule/" start-date-str)))
-
-(defrecord StandingsApiRequest [date-str current-date-str]
-  ApiRequest
-  (archive? [_ response] (->> response
-                              :standings
-                              (map :date)
-                              set
-                              (every? #(< (compare % current-date-str) 0))))
-  (cache-key [_] (str "standings-" date-str))
-  (description [_] (str "standings " {:date date-str}))
-  (url [_] (str base-url "/standings/" date-str)))
 
 (defn get-current-schedule-date
   "Returns what is considered the current schedule date in UTC, which can be different from
@@ -86,26 +46,26 @@
   (json/read-str api-response :key-fn ->kebab-case-keyword))
 
 (defn- fetch [api-request]
-  (println "Fetching" (description api-request))
+  (println "Fetching" (api/description api-request))
   (let [start-time (System/currentTimeMillis)
-        response (-> (http/get (url api-request) {:debug false})
+        response (-> (http/get (api/url api-request) {:debug false})
                      :body
                      api-response-to-json)]
-    (println "Fetched " (description api-request) "(took" (- (System/currentTimeMillis) start-time) "ms)")
+    (println "Fetched " (api/description api-request) "(took" (- (System/currentTimeMillis) start-time) "ms)")
     response))
 
 (defn- fetch-cached [api-request]
-  (let [response (cache/get-cached (cache-key api-request) #(fetch api-request))
+  (let [response (cache/get-cached (api/cache-key api-request) #(fetch api-request))
         from-cache? (:from-cache? (meta response))]
-    (if (and (not from-cache?) (archive? api-request response))
-      (cache/archive (cache-key api-request) response)
+    (if (and (not from-cache?) (api/archive? api-request response))
+      (cache/archive (api/cache-key api-request) response)
       response)))
 
 (defn- fetch-games-info [start-date end-date]
   (let [start-date-str (or (format-date start-date) (get-schedule-start-date-for-latest-scores))
         end-date-str (format-date end-date)]
-    (fetch-cached (ScheduleApiRequest. start-date-str (when (< (compare start-date-str end-date-str) 0)
-                                                        end-date-str)))))
+    (fetch-cached (api/->ScheduleApiRequest start-date-str (when (< (compare start-date-str end-date-str) 0)
+                                                             end-date-str)))))
 
 (defn- get-standings-date-strs [{:keys [current-date-str date-strs regular-season-start-date-str regular-season-end-date-str]}]
   (map #(let [standings-date-str
@@ -128,7 +88,7 @@
                               set)
         standings-per-unique-date-str (map #(if (nil? %)
                                               nil
-                                              (:standings (fetch-cached (StandingsApiRequest. % current-date-str))))
+                                              (:standings (fetch-cached (api/->StandingsApiRequest % current-date-str))))
                                            unique-date-strs)
         standings-by-date-str (zipmap unique-date-strs standings-per-unique-date-str)]
     (map #(if (nil? (:current %))
@@ -145,13 +105,13 @@
 (defn fetch-landings-info [schedule-games]
   (->> schedule-games
        (get-landing-game-ids)
-       (map #(vector % (fetch-cached (LandingApiRequest. %))))
+       (map #(vector % (fetch-cached (api/->LandingApiRequest %))))
        (into {})))
 
 (defn- prune-cache-and-fetch-landings-info [games-info date-and-schedule-games]
   (when-not (:from-cache? (meta games-info))
     (println "Evicting" (:raw (:date date-and-schedule-games)) "landings from :short-lived")
-    (cache/evict-from-short-lived! (map #(cache-key (LandingApiRequest. (:id %)))
+    (cache/evict-from-short-lived! (map #(api/cache-key (api/->LandingApiRequest (:id %)))
                                         (:games date-and-schedule-games))))
   (fetch-landings-info (:games date-and-schedule-games)))
 

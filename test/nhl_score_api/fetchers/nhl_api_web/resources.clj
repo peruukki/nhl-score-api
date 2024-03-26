@@ -18,5 +18,7 @@
 (def pre-game-standings (read-resource "standings-2023-11-08.json"))
 (def standings-for-playoffs (read-resource "standings-2023-04-14.json"))
 
+(defn get-landing [game-id]
+  (read-resource (str "landing-" game-id ".json")))
 (defn get-landings [game-ids]
-  (into {} (for [game-id game-ids] [game-id (read-resource (str "landing-" game-id ".json"))])))
+  (into {} (for [game-id game-ids] [game-id (get-landing game-id)])))
