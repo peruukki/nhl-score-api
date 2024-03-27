@@ -81,25 +81,26 @@
              (api/url (api/->ScheduleApiRequest "2023-02-02" "2023-02-03")))))))
 
 (deftest standings-api-request-test
-  (testing "archive?"
-    (testing "Archives standings from earlier dates"
-      (is (= true
-             (api/archive? (api/->StandingsApiRequest "2023-11-09" "2023-11-10")
-                           resources/current-standings))))
+  (let [schedule-response resources/games-finished-in-regulation-overtime-and-shootout]
+    (testing "archive?"
+      (testing "Archives standings from date where all games are in OFF state"
+        (is (= true
+               (api/archive? (api/->StandingsApiRequest "2023-11-09" schedule-response)
+                             resources/current-standings))))
 
-    (testing "Does not archive standings from current date"
-      (is (= false
-             (api/archive? (api/->StandingsApiRequest "2023-11-09" "2023-11-09")
-                           resources/current-standings)))))
+      (testing "Does not archive standings from date where not all games are in OFF state"
+        (is (= false
+               (api/archive? (api/->StandingsApiRequest "2023-11-10" schedule-response)
+                             resources/current-standings)))))
 
-  (testing "cache-key"
-    (is (= "standings-2023-11-09"
-           (api/cache-key (api/->StandingsApiRequest "2023-11-09" "2023-11-10")))))
+    (testing "cache-key"
+      (is (= "standings-2023-11-09"
+             (api/cache-key (api/->StandingsApiRequest "2023-11-09" schedule-response)))))
 
-  (testing "description"
-    (is (= "standings {:date \"2023-11-09\"}"
-           (api/description (api/->StandingsApiRequest "2023-11-09" "2023-11-10")))))
+    (testing "description"
+      (is (= "standings {:date \"2023-11-09\"}"
+             (api/description (api/->StandingsApiRequest "2023-11-09" schedule-response)))))
 
-  (testing "url"
-    (is (= (str base-url "/standings/2023-11-09")
-           (api/url (api/->StandingsApiRequest "2023-11-09" "2023-11-10"))))))
+    (testing "url"
+      (is (= (str base-url "/standings/2023-11-09")
+             (api/url (api/->StandingsApiRequest "2023-11-09" schedule-response)))))))

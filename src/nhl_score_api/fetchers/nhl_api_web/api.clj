@@ -30,13 +30,14 @@
   (description [_] (str "schedule " {:date start-date-str}))
   (url [_] (str base-url "/schedule/" start-date-str)))
 
-(defrecord StandingsApiRequest [date-str current-date-str]
+(defrecord StandingsApiRequest [date-str schedule-response]
   ApiRequest
-  (archive? [_ response] (->> response
-                              :standings
-                              (map :date)
-                              set
-                              (every? #(< (compare % current-date-str) 0))))
+  (archive? [_ _] (->> schedule-response
+                       :game-week
+                       (filter #(= 0 (compare date-str (:date %))))
+                       (map :games)
+                       flatten
+                       (every? #(= "OFF" (:game-state %)))))
   (cache-key [_] (str "standings-" date-str))
   (description [_] (str "standings " {:date date-str}))
   (url [_] (str base-url "/standings/" date-str)))

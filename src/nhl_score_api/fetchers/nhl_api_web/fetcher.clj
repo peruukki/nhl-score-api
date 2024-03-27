@@ -76,16 +76,15 @@
            :pre-game pre-game-standings-date-str})
        date-strs))
 
-(defn fetch-standings-infos [date-str-params]
+(defn fetch-standings-infos [date-str-params games-info]
   (let [current-date-str (format-date (get-current-schedule-date (time/now)))
         standings-date-strs (get-standings-date-strs (assoc date-str-params :current-date-str current-date-str))
         unique-date-strs (->> standings-date-strs
                               (map vals)
                               flatten
                               set)
-        standings-per-unique-date-str (map #(if (nil? %)
-                                              nil
-                                              (:standings (fetch-cached (api/->StandingsApiRequest % current-date-str))))
+        standings-per-unique-date-str (map #(when %
+                                              (:standings (fetch-cached (api/->StandingsApiRequest % games-info))))
                                            unique-date-strs)
         standings-by-date-str (zipmap unique-date-strs standings-per-unique-date-str)]
     (map #(if (nil? (:current %))
@@ -121,7 +120,8 @@
         standings-info (first
                         (fetch-standings-infos {:date-strs [standings-date-str]
                                                 :regular-season-start-date-str (:regular-season-start-date latest-games-info)
-                                                :regular-season-end-date-str (:regular-season-end-date latest-games-info)}))]
+                                                :regular-season-end-date-str (:regular-season-end-date latest-games-info)}
+                                               latest-games-info))]
     (->> date-and-schedule-games
          (prune-cache-and-fetch-landings-info latest-games-info)
          (game-scores/parse-game-scores date-and-schedule-games standings-info)
@@ -136,7 +136,8 @@
                                  dates-and-schedule-games)
         standings-infos (fetch-standings-infos {:date-strs standings-date-strs
                                                 :regular-season-start-date-str (:regular-season-start-date games-info)
-                                                :regular-season-end-date-str (:regular-season-end-date games-info)})]
+                                                :regular-season-end-date-str (:regular-season-end-date games-info)}
+                                               games-info)]
     (->
      (doall (map-indexed (fn [index date-and-schedule-games]
                            (->> date-and-schedule-games

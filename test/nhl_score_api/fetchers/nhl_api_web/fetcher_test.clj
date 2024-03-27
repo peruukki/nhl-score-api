@@ -79,7 +79,8 @@
     (is (= [nil]
            (fetch-standings-infos {:date-strs [nil]
                                    :regular-season-start-date-str nil
-                                   :regular-season-end-date-str nil}))
+                                   :regular-season-end-date-str nil}
+                                  []))
         "No team records")))
 
 (deftest get-landing-game-ids-test
