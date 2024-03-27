@@ -20,11 +20,10 @@
                                        (time/hours 6))]
     (apply time/date-time (map #(% adjusted-date-time) [time/year time/month time/day]))))
 
-(defn get-schedule-start-date-for-latest-scores []
-  (-> (time/now)
-      get-current-schedule-date
-      (time/minus (time/days 1))
-      format-date))
+(defn get-schedule-date-range-str-for-latest-scores []
+  (let [current-date (get-current-schedule-date (time/now))]
+    {:start (format-date (time/minus current-date (time/days 1)))
+     :end (format-date current-date)}))
 
 (defn get-current-standings-request-date [{:keys [requested-date-str
                                                   current-date-str
@@ -61,11 +60,9 @@
       (cache/archive (api/cache-key api-request) response)
       response)))
 
-(defn- fetch-games-info [start-date end-date]
-  (let [start-date-str (or (format-date start-date) (get-schedule-start-date-for-latest-scores))
-        end-date-str (format-date end-date)]
-    (fetch-cached (api/->ScheduleApiRequest start-date-str (when (< (compare start-date-str end-date-str) 0)
-                                                             end-date-str)))))
+(defn- fetch-games-info [date-range-str]
+  (let [{:keys [start end]} (or date-range-str (get-schedule-date-range-str-for-latest-scores))]
+    (fetch-cached (api/->ScheduleApiRequest start (when (< (compare start end) 0) end)))))
 
 (defn- get-standings-date-strs [{:keys [current-date-str date-strs regular-season-start-date-str regular-season-end-date-str]}]
   (map #(let [standings-date-str
@@ -116,7 +113,7 @@
   (fetch-landings-info (:games date-and-schedule-games)))
 
 (defn fetch-latest-scores []
-  (let [latest-games-info (fetch-games-info nil nil)
+  (let [latest-games-info (fetch-games-info nil)
         date-and-schedule-games (get-latest-games latest-games-info)
         standings-date-str (if (= (count (:games date-and-schedule-games)) 0)
                              nil
@@ -131,7 +128,7 @@
          cache/log-cache-sizes!)))
 
 (defn fetch-scores-in-date-range [start-date end-date]
-  (let [games-info (fetch-games-info start-date end-date)
+  (let [games-info (fetch-games-info {:start (format-date start-date) :end (format-date end-date)})
         dates-and-schedule-games (get-games-in-date-range games-info start-date end-date)
         standings-date-strs (map #(if (= (count (:games %)) 0)
                                     nil

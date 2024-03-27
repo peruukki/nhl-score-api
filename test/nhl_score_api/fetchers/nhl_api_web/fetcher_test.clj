@@ -6,16 +6,16 @@
                                                                 get-current-standings-request-date
                                                                 get-landing-game-ids
                                                                 get-pre-game-standings-request-date
-                                                                get-schedule-start-date-for-latest-scores]]
+                                                                get-schedule-date-range-str-for-latest-scores]]
             [nhl-score-api.utils :refer [format-date]]))
 
-(deftest get-schedule-start-date-for-latest-scores-test
+(deftest get-schedule-date-range-str-for-latest-scores-test
 
-  (testing "Scores are requested starting from yesterday"
+  (testing "Scores are requested from yesterday and today"
     (let [current-date (get-current-schedule-date (time/now))
-          yesterday (format-date (time/minus current-date (time/days 1)))]
-      (is (= yesterday
-             (get-schedule-start-date-for-latest-scores)) "Start date"))))
+          the-day-before (time/minus current-date (time/days 1))]
+      (is (= {:start (format-date the-day-before) :end (format-date current-date)}
+             (get-schedule-date-range-str-for-latest-scores)) "Date range"))))
 
 (deftest get-current-standings-request-date-test
 
