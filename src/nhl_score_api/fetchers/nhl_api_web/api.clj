@@ -2,6 +2,17 @@
 
 (def base-url "https://api-web.nhle.com/v1")
 
+(defn- all-games-in-official-state? [schedule-response start-date-str end-date-str]
+  (->> schedule-response
+       :game-week
+       (filter (if end-date-str
+                 #(and (<= (compare start-date-str (:date %)) 0)
+                       (<= (compare (:date %) end-date-str) 0))
+                 #(= 0 (compare start-date-str (:date %)))))
+       (map :games)
+       flatten
+       (every? #(= "OFF" (:game-state %)))))
+
 (defprotocol ApiRequest
   (archive? [_ response])
   (cache-key [_])
@@ -17,27 +28,14 @@
 
 (defrecord ScheduleApiRequest [start-date-str end-date-str]
   ApiRequest
-  (archive? [_ response] (->> response
-                              :game-week
-                              (filter (if end-date-str
-                                        #(and (<= (compare start-date-str (:date %)) 0)
-                                              (<= (compare (:date %) end-date-str) 0))
-                                        #(= 0 (compare start-date-str (:date %)))))
-                              (map :games)
-                              flatten
-                              (every? #(= "OFF" (:game-state %)))))
+  (archive? [_ response] (all-games-in-official-state? response start-date-str end-date-str))
   (cache-key [_] (str "schedule-" start-date-str (when end-date-str (str "-" end-date-str))))
   (description [_] (str "schedule " {:date start-date-str}))
   (url [_] (str base-url "/schedule/" start-date-str)))
 
 (defrecord StandingsApiRequest [date-str schedule-response]
   ApiRequest
-  (archive? [_ _] (->> schedule-response
-                       :game-week
-                       (filter #(= 0 (compare date-str (:date %))))
-                       (map :games)
-                       flatten
-                       (every? #(= "OFF" (:game-state %)))))
+  (archive? [_ _] (all-games-in-official-state? schedule-response date-str nil))
   (cache-key [_] (str "standings-" date-str))
   (description [_] (str "standings " {:date date-str}))
   (url [_] (str base-url "/standings/" date-str)))
