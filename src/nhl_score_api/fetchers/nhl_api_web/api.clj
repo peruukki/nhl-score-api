@@ -33,7 +33,7 @@
   (description [_] (str "schedule " {:date start-date-str}))
   (url [_] (str base-url "/schedule/" start-date-str)))
 
-(defrecord StandingsApiRequest [date-str schedule-response]
+(defrecord StandingsApiRequest [date-str schedule-response pre-game-standings-response]
   ApiRequest
   (archive? [_ _] (all-games-in-official-state? schedule-response date-str nil))
   (cache-key [_] (str "standings-" date-str))

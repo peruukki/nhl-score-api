@@ -85,22 +85,22 @@
     (testing "archive?"
       (testing "Archives standings from date where all games are in OFF state"
         (is (= true
-               (api/archive? (api/->StandingsApiRequest "2023-11-09" schedule-response)
+               (api/archive? (api/->StandingsApiRequest "2023-11-09" schedule-response nil)
                              resources/current-standings))))
 
       (testing "Does not archive standings from date where not all games are in OFF state"
         (is (= false
-               (api/archive? (api/->StandingsApiRequest "2023-11-10" schedule-response)
+               (api/archive? (api/->StandingsApiRequest "2023-11-10" schedule-response nil)
                              resources/current-standings)))))
 
     (testing "cache-key"
       (is (= "standings-2023-11-09"
-             (api/cache-key (api/->StandingsApiRequest "2023-11-09" schedule-response)))))
+             (api/cache-key (api/->StandingsApiRequest "2023-11-09" schedule-response nil)))))
 
     (testing "description"
       (is (= "standings {:date \"2023-11-09\"}"
-             (api/description (api/->StandingsApiRequest "2023-11-09" schedule-response)))))
+             (api/description (api/->StandingsApiRequest "2023-11-09" schedule-response nil)))))
 
     (testing "url"
       (is (= (str base-url "/standings/2023-11-09")
-             (api/url (api/->StandingsApiRequest "2023-11-09" schedule-response)))))))
+             (api/url (api/->StandingsApiRequest "2023-11-09" schedule-response nil)))))))

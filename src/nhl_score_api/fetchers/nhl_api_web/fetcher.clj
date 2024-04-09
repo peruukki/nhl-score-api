@@ -82,10 +82,20 @@
         unique-date-strs (->> standings-date-strs
                               (map vals)
                               flatten
-                              set)
-        standings-per-unique-date-str (map #(when %
-                                              (:standings (fetch-cached (api/->StandingsApiRequest % games-info))))
-                                           unique-date-strs)
+                              set
+                              sort)
+        date-str-pairs (map-indexed (fn [index date-str] {:pre-game-date-str (if (= index 0) nil (nth unique-date-strs (dec index)))
+                                                          :current-date-str date-str})
+                                    unique-date-strs)
+        standings-per-unique-date-str (map (fn [{:keys [pre-game-date-str current-date-str]}]
+                                             (when current-date-str
+                                               (->> (if pre-game-date-str
+                                                      (fetch-cached (api/->StandingsApiRequest pre-game-date-str games-info nil))
+                                                      nil)
+                                                    (api/->StandingsApiRequest current-date-str games-info)
+                                                    fetch-cached
+                                                    (:standings))))
+                                           date-str-pairs)
         standings-by-date-str (zipmap unique-date-strs standings-per-unique-date-str)]
     (map #(if (nil? (:current %))
             nil
