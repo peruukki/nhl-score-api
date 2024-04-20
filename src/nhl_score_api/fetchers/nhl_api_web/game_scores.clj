@@ -288,7 +288,7 @@
       (= (:top-seed-team-abbrev status) team-abbreviation)
       (:top-seed-wins status)
       :else
-      (throw (AssertionError. (str "No match for team abbreviation '" team-abbreviation "'"))))))
+      (throw (IllegalArgumentException. (str "No match for team abbreviation '" team-abbreviation "'"))))))
 
 (defn- parse-current-playoff-series-wins [schedule-game teams]
   {(:abbreviation (:away teams))
