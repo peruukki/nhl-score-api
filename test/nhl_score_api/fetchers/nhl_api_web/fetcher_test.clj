@@ -93,11 +93,11 @@
 
 (deftest get-current-schedule-date-test
 
-  (testing "Previous date is returned before 6 AM US/Pacific (-07:00 on tested date)"
-    (is (= "2024-03-20" (format-date (get-current-schedule-date (time/date-time 2024 3 21 12 59 59))))))
+  (testing "Previous date is returned before midnight US/Pacific (-07:00 on tested date)"
+    (is (= "2024-03-20" (format-date (get-current-schedule-date (time/date-time 2024 3 21 6 59 59))))))
 
-  (testing "Current date is returned at 6 AM US/Pacific (-07:00 on tested date)"
-    (is (= "2024-03-21" (format-date (get-current-schedule-date (time/date-time 2024 3 21 13 00 00))))))
+  (testing "Current date is returned at midnight US/Pacific (-07:00 on tested date)"
+    (is (= "2024-03-21" (format-date (get-current-schedule-date (time/date-time 2024 3 21 7 00 00))))))
 
-  (testing "Current date is returned after 6 AM US/Pacific (-07:00 on tested date)"
-    (is (= "2024-03-21" (format-date (get-current-schedule-date (time/date-time 2024 3 21 13 00 01)))))))
+  (testing "Current date is returned after midnight US/Pacific (-07:00 on tested date)"
+    (is (= "2024-03-21" (format-date (get-current-schedule-date (time/date-time 2024 3 21 7 00 01)))))))

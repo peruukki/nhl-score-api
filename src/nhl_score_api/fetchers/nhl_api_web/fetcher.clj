@@ -13,11 +13,11 @@
 
 (defn get-current-schedule-date
   "Returns what is considered the current schedule date in UTC, which can be different from
-   current actual date: the schedule date changes at 6 AM US/Pacific time (the earliest timezone
-   in the NHL). By that time we consider the previous schedule date's data finalised."
+   current actual date: the schedule date changes at midnight US/Pacific time (the earliest timezone
+   in the NHL). By that time we consider the previous schedule date's games as at least started."
   [current-time]
   (let [adjusted-date-time (time/minus (time/to-time-zone current-time (time/time-zone-for-id "US/Pacific"))
-                                       (time/hours 6))]
+                                       (time/hours 0))]
     (apply time/date-time (map #(% adjusted-date-time) [time/year time/month time/day]))))
 
 (defn get-schedule-date-range-str-for-latest-scores []
