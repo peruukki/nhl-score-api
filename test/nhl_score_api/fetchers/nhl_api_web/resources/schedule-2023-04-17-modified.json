@@ -22,7 +22,7 @@
           "tvBroadcasts": [],
           "awayTeam": {
             "id": 2,
-            "placeName": { "default": "New York" },
+            "placeName": { "default": "Islanders" },
             "abbrev": "NYI",
             "logo": "https://assets.nhle.com/logos/nhl/svg/NYI_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NYI_dark.svg",
@@ -52,19 +52,16 @@
           },
           "seriesStatus": {
             "round": 1,
-            "gameNumberOfSeries": 1,
-            "roundAbbrev": "R1",
-            "roundCode": "1st_round",
+            "seriesAbbrev": "R1",
             "seriesLetter": "C",
             "neededToWin": 4,
-            "length": 7,
-            "topSeedTeamId": 12,
+            "topSeedTeamAbbrev": "CAR",
             "topSeedWins": 1,
-            "bottomSeedTeamId": 2,
+            "bottomSeedTeamAbbrev": "NYI",
             "bottomSeedWins": 0,
-            "awayTeamWins": 0,
-            "homeTeamWins": 1
+            "gameNumberOfSeries": 1
           },
+          "seriesUrl": "/schedule/playoff-series/2023/series-c/hurricanes-vs-islanders",
           "threeMinRecap": "/video/recap-car-2-nyi-1-343628614",
           "gameCenterLink": "/gamecenter/nyi-vs-car/2023/04/17/2022030131"
         },
@@ -113,19 +110,16 @@
           },
           "seriesStatus": {
             "round": 1,
-            "gameNumberOfSeries": 1,
-            "roundAbbrev": "R1",
-            "roundCode": "1st_round",
+            "seriesAbbrev": "R1",
             "seriesLetter": "A",
             "neededToWin": 4,
-            "length": 7,
-            "topSeedTeamId": 6,
-            "topSeedWins": 0,
-            "bottomSeedTeamId": 13,
+            "topSeedTeamAbbrev": "BOS",
+            "topSeedWins": 1,
+            "bottomSeedTeamAbbrev": "FLA",
             "bottomSeedWins": 0,
-            "awayTeamWins": 0,
-            "homeTeamWins": 0
+            "gameNumberOfSeries": 1
           },
+          "seriesUrl": "/schedule/playoff-series/2023/series-a/bruins-vs-panthers",
           "threeMinRecap": "/video/recap-bos-3-fla-1-343629570",
           "gameCenterLink": "/gamecenter/fla-vs-bos/2023/04/17/2022030111"
         },
@@ -178,19 +172,16 @@
           },
           "seriesStatus": {
             "round": 1,
-            "gameNumberOfSeries": 1,
-            "roundAbbrev": "R1",
-            "roundCode": "1st_round",
+            "seriesAbbrev": "R1",
             "seriesLetter": "F",
             "neededToWin": 4,
-            "length": 7,
-            "topSeedTeamId": 25,
+            "topSeedTeamAbbrev": "DAL",
             "topSeedWins": 0,
-            "bottomSeedTeamId": 30,
-            "bottomSeedWins": 0,
-            "awayTeamWins": 0,
-            "homeTeamWins": 0
+            "bottomSeedTeamAbbrev": "MIN",
+            "bottomSeedWins": 1,
+            "gameNumberOfSeries": 1
           },
+          "seriesUrl": "/schedule/playoff-series/2023/series-f/stars-vs-wild",
           "threeMinRecap": "/video/recap-min-3-dal-2-f-2ot-343639990",
           "gameCenterLink": "/gamecenter/min-vs-dal/2023/04/17/2022030161"
         },
@@ -239,19 +230,16 @@
           },
           "seriesStatus": {
             "round": 1,
-            "gameNumberOfSeries": 1,
-            "roundAbbrev": "R1",
-            "roundCode": "1st_round",
+            "seriesAbbrev": "R1",
             "seriesLetter": "H",
             "neededToWin": 4,
-            "length": 7,
-            "topSeedTeamId": 22,
+            "topSeedTeamAbbrev": "EDM",
             "topSeedWins": 0,
-            "bottomSeedTeamId": 26,
+            "bottomSeedTeamAbbrev": "LAK",
             "bottomSeedWins": 1,
-            "awayTeamWins": 1,
-            "homeTeamWins": 0
+            "gameNumberOfSeries": 1
           },
+          "seriesUrl": "/schedule/playoff-series/2023/series-h/oilers-vs-kings",
           "threeMinRecap": "/video/recap-lak-4-edm-3-f-ot-343638230",
           "gameCenterLink": "/gamecenter/lak-vs-edm/2023/04/17/2022030181"
         }

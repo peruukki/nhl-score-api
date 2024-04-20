@@ -280,9 +280,21 @@
      (:abbreviation home-details)
      (derive-standings standings home-details)}))
 
+(defn- parse-team-playoff-series-wins [schedule-game team-abbreviation]
+  (let [status (:series-status schedule-game)]
+    (cond
+      (= (:bottom-seed-team-abbrev status) team-abbreviation)
+      (:bottom-seed-wins status)
+      (= (:top-seed-team-abbrev status) team-abbreviation)
+      (:top-seed-wins status)
+      :else
+      (throw (AssertionError. (str "No match for team abbreviation '" team-abbreviation "'"))))))
+
 (defn- parse-current-playoff-series-wins [schedule-game teams]
-  {(:abbreviation (:away teams)) (:away-team-wins (:series-status schedule-game))
-   (:abbreviation (:home teams)) (:home-team-wins (:series-status schedule-game))})
+  {(:abbreviation (:away teams))
+   (parse-team-playoff-series-wins schedule-game (:abbreviation (:away teams)))
+   (:abbreviation (:home teams))
+   (parse-team-playoff-series-wins schedule-game (:abbreviation (:home teams)))})
 
 (defn- parse-playoff-round [schedule-game]
   (:round (:series-status schedule-game)))
