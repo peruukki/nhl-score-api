@@ -65,6 +65,7 @@ The `games` array contains details of the games, each game item containing these
 - `scores` *(object)*
 - `teams` *(object)*
 - `gameStats` *(object)*
+- `preGameStats` *(object)*
 - `currentStats` *(object)*
 - `errors` *(array)* (only present if data validity errors were detected)
 
