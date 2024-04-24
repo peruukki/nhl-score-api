@@ -40,6 +40,7 @@ The `games` array contains details of the games, each game item containing these
 - `gameStats` *(object)*
 - `preGameStats` *(object)*
 - `currentStats` *(object)*
+- `links` *(object)*
 - `errors` *(array)* (only present if data validity errors were detected)
 
 The fields are described in more detail in [Response fields](#response-fields).
@@ -67,6 +68,7 @@ The `games` array contains details of the games, each game item containing these
 - `gameStats` *(object)*
 - `preGameStats` *(object)*
 - `currentStats` *(object)*
+- `links` *(object)*
 - `errors` *(array)* (only present if data validity errors were detected)
 
 **If a date has no scheduled games**, you will either get:
@@ -256,6 +258,10 @@ The fields are described in more detail in [Response fields](#response-fields).
             "pointsFromPlayoffSpot": "-4"
           }
         }
+      },
+      "links": {
+        "gameCenter": "https://www.nhl.com/gamecenter/bos-vs-chi/2023/10/24/2023020092",
+        "videoRecap": "https://www.nhl.com/video/recap-bruins-at-blackhawks-10-24-23-6339814966112"
       }
     },
     {
@@ -427,6 +433,9 @@ The fields are described in more detail in [Response fields](#response-fields).
             "pointsFromPlayoffSpot": "0"
           }
         }
+      },
+      "links": {
+        "gameCenter": "https://www.nhl.com/gamecenter/ott-vs-det/2023/12/09/2023020412"
       }
     }
   ]
@@ -509,7 +518,8 @@ The fields are described in more detail in [Response fields](#response-fields).
             "PIT": 1
           }
         }
-      }
+      },
+      "links": {}
     }
   ]
 }
@@ -632,6 +642,10 @@ The fields are described in more detail in [Response fields](#response-fields).
   - `playoffSeries` object: current playoff series related information (only present in playoff games), with the fields:
     - `round` *(number)*: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series (in 2020 due to COVID-19), actual playoffs start from `1`
     - `wins` *(object)*: each team’s win count in the series
+- `links` object: links to related pages on the official NHL site, with the optional fields:
+  - `gameCenter`: game summary with lots of related info
+  - `playoffSeries`: playoff series specific info (only present in playoff games)
+  - `videoRecap`: 5-minute video recap (once available)
 - `errors` array: list of data validation errors, only present if any were detected. Sometimes the NHL Stats API temporarily contains
   invalid or missing data. Currently we check if the goal data from the NHL Stats API (read from its `scoringPlays` field) contains the
   same number of goals than the score data (read from its `teams` field). If it doesn't, two different errors can be reported:

@@ -453,6 +453,16 @@
       :else
       nil)))
 
+(defn- add-link-if-exists [map key link]
+  (cond-> map
+    link (assoc key (str "https://www.nhl.com" link))))
+
+(defn- parse-links [schedule-game]
+  (-> {}
+      (add-link-if-exists :game-center (:game-center-link schedule-game))
+      (add-link-if-exists :playoff-series (:series-url schedule-game))
+      (add-link-if-exists :video-recap (:three-min-recap schedule-game))))
+
 (defn- add-validation-errors [game-details]
   (let [errors (keep identity [(validate-score-and-goal-counts game-details)])]
     (if (empty? errors)
@@ -471,6 +481,7 @@
     (-> {:status (parse-game-status schedule-game landing)
          :start-time (parse-game-start-time schedule-game)
          :goals (parse-goals landing)
+         :links (parse-links schedule-game)
          :scores scores
          :teams teams
          pre-game-stats-key {}
@@ -481,7 +492,7 @@
         (add-team-standings team-details current-and-pre-game-standings)
         (add-playoff-series-information schedule-game)
         (add-validation-errors)
-        (reject-empty-vals-except-for-keys #{:goals}))))
+        (reject-empty-vals-except-for-keys #{:goals :links}))))
 
 (defn parse-game-scores
   ([date-and-schedule-games current-and-pre-game-standings]

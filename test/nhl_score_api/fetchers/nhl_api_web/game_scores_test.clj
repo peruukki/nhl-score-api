@@ -538,6 +538,25 @@
       (is (= [1 1 1 1]
              current-stats-rounds) "Parsed current stats playoff rounds"))))
 
+(deftest game-scores-links
+
+  (testing "Including empty links when none available"
+    (let [game (first (:games
+                       (parse-game-scores
+                        (get-latest-games resources/games-for-validation-testing)
+                        default-standings)))]
+      (is (= {} (:links game)) "Empty links")))
+
+  (testing "Including all links when available"
+    (let [game (first (:games
+                       (parse-game-scores
+                        (get-latest-games resources/playoff-games-finished-with-2nd-games)
+                        (:standings resources/standings-for-playoffs))))]
+      (is (= {:game-center    "https://www.nhl.com/gamecenter/nyi-vs-car/2023/04/19/2022030132"
+              :playoff-series "https://www.nhl.com/schedule/playoff-series/2023/series-c/hurricanes-vs-islanders"
+              :video-recap    "https://www.nhl.com/video/recap-car-4-nyi-3-f-ot-343701784"}
+             (:links game)) "All links included"))))
+
 (deftest game-scores-validation
 
   (testing "Validating valid game with goals"
