@@ -164,7 +164,7 @@
                :scorer  {:player "Anze Kopitar" :player-id 8471685 :season-total 1}
                :assists [{:player "Phillip Danault" :player-id 8476479 :season-total 1}
                          {:player "Viktor Arvidsson" :player-id 8478042 :season-total 1}]}
-              {:team    "LAK" :min 9 :sec 19 :period "OT"
+              {:team    "LAK" :min 9 :sec 19 :period "4"
                :scorer  {:player "Alex Iafallo" :player-id 8480113 :season-total 1}
                :assists [{:player "Viktor Arvidsson" :player-id 8478042 :season-total 2}
                          {:player "Anze Kopitar" :player-id 8471685 :season-total 3}]}]

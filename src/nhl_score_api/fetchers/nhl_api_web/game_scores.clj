@@ -5,6 +5,7 @@
                                                                     get-game-state
                                                                     live-game?
                                                                     non-playoff-game?
+                                                                    playoff-game?
                                                                     regular-season-game?]])
   (:import (java.text DecimalFormat DecimalFormatSymbols)
            (java.util Locale)))
@@ -102,14 +103,14 @@
         (add-empty-net-flag empty-net?)
         (add-goal-strength strength))))
 
-(defn- parse-period [period-descriptor]
+(defn- parse-period [period-descriptor only-numeric-periods?]
   (let [period-type (:period-type period-descriptor)]
-    (if (= period-type "REG")
+    (if (or only-numeric-periods? (= period-type "REG"))
       (:number period-descriptor)
       period-type)))
 
-(defn- parse-period-ordinal [period-descriptor]
-  (let [period (parse-period period-descriptor)]
+(defn- parse-period-ordinal [period-descriptor only-numeric-periods?]
+  (let [period (parse-period period-descriptor only-numeric-periods?)]
     (if (not (number? period))
       period
       (case period
@@ -119,13 +120,14 @@
         4 "OT"
         (str (- period 3) "OT")))))
 
-(defn- parse-period-goals [period-scoring]
-  (let [period (str (parse-period (:period-descriptor period-scoring)))]
+(defn- parse-period-goals [period-scoring only-numeric-periods?]
+  (let [period (str (parse-period (:period-descriptor period-scoring) only-numeric-periods?))]
     (map #(assoc % :period period) (:goals period-scoring))))
 
 (defn- parse-goals [landing]
   (let [period-scorings (:scoring (:summary landing))
-        period-goals (flatten (map parse-period-goals period-scorings))]
+        only-numeric-periods? (playoff-game? landing)
+        period-goals (flatten (map #(parse-period-goals % only-numeric-periods?) period-scorings))]
     (map parse-goal-details period-goals)))
 
 (defn- game-finished? [game-details]
@@ -171,7 +173,7 @@
                                   (:time-remaining clock))
           time-remaining-structured (parse-time-str time-remaining-pretty 0)]
       {:current-period (:number (:period-descriptor schedule-game))
-       :current-period-ordinal (parse-period-ordinal (:period-descriptor schedule-game))
+       :current-period-ordinal (parse-period-ordinal (:period-descriptor schedule-game) (playoff-game? schedule-game))
        :current-period-time-remaining (assoc time-remaining-structured :pretty time-remaining-pretty)})))
 
 (defn- parse-team-record-from-standings [standings team-abbreviation]
