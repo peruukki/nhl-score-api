@@ -7,6 +7,7 @@
   (api-response-to-json (slurp (str resource-path filename))))
 
 (def games-finished-in-regulation-overtime-and-shootout (read-resource "schedule-2023-11-08-modified.json"))
+(def games-finished-missing-video-recap (read-resource "schedule-2023-11-08-modified-missing-video-recap.json"))
 (def games-in-preview-state (read-resource "schedule-2023-11-11.json"))
 (def playoff-games-live-finished-in-regulation-and-overtime (read-resource "schedule-2023-04-17-modified.json"))
 (def playoff-games-live-finished-with-1st-games playoff-games-live-finished-in-regulation-and-overtime)

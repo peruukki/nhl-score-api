@@ -34,7 +34,8 @@
   ApiRequest
   (archive? [_ response] (->> response
                               (get-games-in-date-range start-date-str end-date-str)
-                              (every? #(= "OFF" (:game-state %)))))
+                              (every? #(and (= "OFF" (:game-state %))
+                                            (:three-min-recap %)))))
   (cache-key [_] (str "schedule-" start-date-str (when end-date-str (str "-" end-date-str))))
   (description [_] (str "schedule " {:date start-date-str}))
   (url [_] (str base-url "/schedule/" start-date-str)))

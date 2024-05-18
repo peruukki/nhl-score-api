@@ -43,7 +43,7 @@
                              resources/games-finished-in-regulation-overtime-and-shootout)))))
 
     (testing "with date range"
-      (testing "Archives when all games are in OFF state"
+      (testing "Archives when all games are in OFF state and have a video recap"
         (is (= true
                (api/archive? (api/->ScheduleApiRequest "2023-11-08" "2023-11-09")
                              resources/games-finished-in-regulation-overtime-and-shootout))))
@@ -51,7 +51,12 @@
       (testing "Does not archive when not all games are in OFF state"
         (is (= false
                (api/archive? (api/->ScheduleApiRequest "2023-11-08" "2023-11-10")
-                             resources/games-finished-in-regulation-overtime-and-shootout))))))
+                             resources/games-finished-in-regulation-overtime-and-shootout))))
+
+      (testing "Does not archive when not all games have a video recap"
+        (is (= false
+               (api/archive? (api/->ScheduleApiRequest "2023-11-08" "2023-11-09")
+                             resources/games-finished-missing-video-recap))))))
 
   (testing "cache-key"
     (testing "with single date"
