@@ -4,7 +4,7 @@
   {"ANA" {:short-name "Anaheim"
           :team-name  "Ducks"}
    "ARI" {:short-name "Arizona"
-          :team-name  "Coyotes"}
+          :team-name  "Coyotes"} ; Replaced by Utah starting from 2024–2025 season
    "BOS" {:short-name "Boston"
           :team-name  "Bruins"}
    "BUF" {:short-name "Buffalo"
@@ -57,6 +57,8 @@
           :team-name  "Lightning"}
    "TOR" {:short-name "Toronto"
           :team-name  "Maple Leafs"}
+   "UTA" {:short-name "Utah"
+          :team-name  "Hockey Club"}
    "VAN" {:short-name "Vancouver"
           :team-name  "Canucks"}
    "VGK" {:short-name "Vegas"
