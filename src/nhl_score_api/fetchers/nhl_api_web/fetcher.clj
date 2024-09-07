@@ -25,10 +25,11 @@
     {:start (format-date (time/minus current-date (time/days 1)))
      :end (format-date current-date)}))
 
-(defn get-current-standings-request-date [{:keys [requested-date-str
-                                                  current-schedule-date-str
-                                                  regular-season-end-date-str]}]
-  (first (sort [requested-date-str current-schedule-date-str regular-season-end-date-str])))
+(defn get-current-standings-request-date
+  "Returns the current standings date for games on the requested date."
+  [{:keys [requested-date-str current-schedule-date-str regular-season-start-date-str regular-season-end-date-str]}]
+  (let [current-regular-season-date-str (last (sort [current-schedule-date-str regular-season-start-date-str]))]
+    (first (sort [requested-date-str current-regular-season-date-str regular-season-end-date-str]))))
 
 (defn get-pre-game-standings-request-date [{:keys [current-standings-date-str
                                                    regular-season-start-date-str]}]
@@ -68,6 +69,7 @@
   (map #(let [standings-date-str
               (get-current-standings-request-date {:requested-date-str %
                                                    :current-schedule-date-str current-schedule-date-str
+                                                   :regular-season-start-date-str regular-season-start-date-str
                                                    :regular-season-end-date-str regular-season-end-date-str})
               pre-game-standings-date-str
               (get-pre-game-standings-request-date {:current-standings-date-str standings-date-str
