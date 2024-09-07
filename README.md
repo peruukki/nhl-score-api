@@ -1,6 +1,6 @@
 # nhl-score-api
 
-> [!IMPORTANT]
+> [!NOTE]
 > The [NHL Stats API](https://statsapi.web.nhl.com) that this project used until recently as its source is no longer
 > available due to the NHL site switching to another API. See the related
 > [discussion on the unofficial documentation site](https://gitlab.com/dword4/nhlapi/-/issues/110) if you're interested.
