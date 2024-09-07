@@ -22,32 +22,32 @@
   (testing "Standings are requested for appropriate date"
     (is (= "2023-11-18"
            (get-current-standings-request-date {:requested-date-str "2023-11-18"
-                                                :current-date-str "2023-11-18"
+                                                :current-schedule-date-str "2023-11-18"
                                                 :regular-season-end-date-str "2024-04-14"}))
         "Date during regular season")
     (is (= "2023-08-31"
            (get-current-standings-request-date {:requested-date-str "2023-08-31"
-                                                :current-date-str "2023-11-18"
+                                                :current-schedule-date-str "2023-11-18"
                                                 :regular-season-end-date-str "2024-04-14"}))
         "Date in the past between regular seasons")
     (is (= "2023-11-18"
            (get-current-standings-request-date {:requested-date-str "2024-08-31"
-                                                :current-date-str "2023-11-18"
+                                                :current-schedule-date-str "2023-11-18"
                                                 :regular-season-end-date-str "2024-04-14"}))
         "Date in the future after current regular season")
     (is (= "2023-11-18"
            (get-current-standings-request-date {:requested-date-str "2023-11-19"
-                                                :current-date-str "2023-11-18"
+                                                :current-schedule-date-str "2023-11-18"
                                                 :regular-season-end-date-str "2024-04-14"}))
         "Date in the future during current regular season")
     (is (= nil
            (get-current-standings-request-date {:requested-date-str "1900-11-19"
-                                                :current-date-str "2023-11-18"
+                                                :current-schedule-date-str "2023-11-18"
                                                 :regular-season-end-date-str nil}))
         "Date before any season in NHL history")
     (is (= nil
            (get-current-standings-request-date {:requested-date-str nil
-                                                :current-date-str "2023-11-18"
+                                                :current-schedule-date-str "2023-11-18"
                                                 :regular-season-end-date-str "2024-04-14"}))
         "No requested date")))
 

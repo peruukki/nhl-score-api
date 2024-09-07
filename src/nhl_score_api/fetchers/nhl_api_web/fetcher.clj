@@ -26,9 +26,9 @@
      :end (format-date current-date)}))
 
 (defn get-current-standings-request-date [{:keys [requested-date-str
-                                                  current-date-str
+                                                  current-schedule-date-str
                                                   regular-season-end-date-str]}]
-  (first (sort [requested-date-str current-date-str regular-season-end-date-str])))
+  (first (sort [requested-date-str current-schedule-date-str regular-season-end-date-str])))
 
 (defn get-pre-game-standings-request-date [{:keys [current-standings-date-str
                                                    regular-season-start-date-str]}]
@@ -64,10 +64,10 @@
   (let [{:keys [start end]} (or date-range-str (get-schedule-date-range-str-for-latest-scores))]
     (fetch-cached (api/->ScheduleApiRequest start (when (< (compare start end) 0) end)))))
 
-(defn- get-standings-date-strs [{:keys [current-date-str date-strs regular-season-start-date-str regular-season-end-date-str]}]
+(defn- get-standings-date-strs [{:keys [current-schedule-date-str date-strs regular-season-start-date-str regular-season-end-date-str]}]
   (map #(let [standings-date-str
               (get-current-standings-request-date {:requested-date-str %
-                                                   :current-date-str current-date-str
+                                                   :current-schedule-date-str current-schedule-date-str
                                                    :regular-season-end-date-str regular-season-end-date-str})
               pre-game-standings-date-str
               (get-pre-game-standings-request-date {:current-standings-date-str standings-date-str
@@ -77,8 +77,8 @@
        date-strs))
 
 (defn fetch-standings-infos [date-str-params games-info]
-  (let [current-date-str (format-date (get-current-schedule-date (time/now)))
-        standings-date-strs (get-standings-date-strs (assoc date-str-params :current-date-str current-date-str))
+  (let [current-schedule-date-str (format-date (get-current-schedule-date (time/now)))
+        standings-date-strs (get-standings-date-strs (assoc date-str-params :current-schedule-date-str current-schedule-date-str))
         unique-date-strs (->> standings-date-strs
                               (map vals)
                               flatten
