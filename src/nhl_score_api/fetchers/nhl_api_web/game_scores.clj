@@ -154,11 +154,11 @@
 
 (defn- get-teams [team-details]
   {:away (merge
-           (select-keys (:away team-details) [:abbreviation :id :location-name])
-           (get team-names (:abbreviation (:away team-details))))
+          (select-keys (:away team-details) [:abbreviation :id :location-name])
+          (get team-names (:abbreviation (:away team-details))))
    :home (merge
-           (select-keys (:home team-details) [:abbreviation :id :location-name])
-           (get team-names (:abbreviation (:home team-details))))})
+          (select-keys (:home team-details) [:abbreviation :id :location-name])
+          (get team-names (:abbreviation (:home team-details))))})
 
 (defn- parse-game-state [schedule-game]
   (str/upper-case (get-game-state schedule-game)))
@@ -184,10 +184,10 @@
         home-team (:abbreviation (:home teams))
         away-details (parse-team-record-from-standings standings away-team)
         home-details (parse-team-record-from-standings standings home-team)]
-    {away-team (assoc(select-keys away-details [:wins :losses])
-                 :ot (:ot-losses away-details))
+    {away-team (assoc (select-keys away-details [:wins :losses])
+                      :ot (:ot-losses away-details))
      home-team (assoc (select-keys home-details [:wins :losses])
-                 :ot (:ot-losses home-details))}))
+                      :ot (:ot-losses home-details))}))
 
 (defn- parse-records [current-and-pre-game-standings teams]
   {current-stats-key (parse-current-records (:current current-and-pre-game-standings) teams)
@@ -228,8 +228,8 @@
   (let [points-for-last-wild-card-team-in-playoffs (:points (second wild-card-teams))
         points-for-last-direct-playoff-team-in-division (:points (get-last-team-record-in-direct-playoff-spot division-name standings))]
     (if (and
-          no-wild-card-playoff-teams-in-division
-          (< points-for-last-direct-playoff-team-in-division points-for-last-wild-card-team-in-playoffs))
+         no-wild-card-playoff-teams-in-division
+         (< points-for-last-direct-playoff-team-in-division points-for-last-wild-card-team-in-playoffs))
       points-for-last-direct-playoff-team-in-division
       points-for-last-wild-card-team-in-playoffs)))
 
@@ -386,19 +386,19 @@
   (if (nil? landing)
     game-details
     (assoc game-details
-      :game-stats
-      (let [away-abbreviation (get-in team-details [:away :abbreviation])
-            home-abbreviation (get-in team-details [:home :abbreviation])
-            parse-stat (partial parse-game-stat
-                                (:team-game-stats (:summary landing)) away-abbreviation home-abbreviation)]
-        {:blocked (parse-stat "blockedShots")
-         :face-off-win-percentage (parse-stat "faceoffWinningPctg" parse-float-percentage)
-         :giveaways (parse-stat "giveaways")
-         :hits (parse-stat "hits")
-         :pim (parse-stat "pim")
-         :power-play (parse-stat "powerPlay" parse-power-play-stat)
-         :shots (parse-stat "sog")
-         :takeaways (parse-stat "takeaways")}))))
+           :game-stats
+           (let [away-abbreviation (get-in team-details [:away :abbreviation])
+                 home-abbreviation (get-in team-details [:home :abbreviation])
+                 parse-stat (partial parse-game-stat
+                                     (:team-game-stats (:summary landing)) away-abbreviation home-abbreviation)]
+             {:blocked (parse-stat "blockedShots")
+              :face-off-win-percentage (parse-stat "faceoffWinningPctg" parse-float-percentage)
+              :giveaways (parse-stat "giveaways")
+              :hits (parse-stat "hits")
+              :pim (parse-stat "pim")
+              :power-play (parse-stat "powerPlay" parse-power-play-stat)
+              :shots (parse-stat "sog")
+              :takeaways (parse-stat "takeaways")}))))
 
 (defn- add-team-records [game-details current-and-pre-game-standings teams]
   (let [records (parse-records current-and-pre-game-standings teams)]

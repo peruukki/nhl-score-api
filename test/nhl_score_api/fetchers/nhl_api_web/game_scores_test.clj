@@ -14,10 +14,10 @@
 
   (testing "Parsing scores with games finished in OT and SO, some on-going and some not yet started"
     (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games default-games)
-                    default-standings
-                    default-landings))]
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings
+                  default-landings))]
       (is (= 8
              (count games)) "Parsed game count")
       (is (= 3
@@ -63,11 +63,11 @@
 
   (testing "Parsing game with goals in regulation and overtime"
     (let [game (first
-                 (:games
-                   (parse-game-scores
-                     (get-latest-games default-games)
-                     default-standings
-                     (resources/get-landings [2023020195]))))
+                (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings
+                  (resources/get-landings [2023020195]))))
           goals (map #(dissoc % :strength) (:goals game))]  ; 'strength' field has its own test
       (is (= [{:team    "MTL" :min 7 :sec 2 :period "1"
                :scorer  {:player "Mike Matheson" :player-id 8476875 :season-total 3}
@@ -91,12 +91,12 @@
 
   (testing "Parsing game with goals in regulation and shootout"
     (let [game (nth
-                 (:games
-                   (parse-game-scores
-                     (get-latest-games default-games)
-                     default-standings
-                     (resources/get-landings [2023020207])))
-                 1)
+                (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings
+                  (resources/get-landings [2023020207])))
+                1)
           goals (map #(dissoc % :strength) (:goals game))] ; 'strength' field has its own test
       (is (= [{:team    "TOR" :min 3 :sec 1 :period "1"
                :scorer  {:player "William Nylander" :player-id 8477939 :season-total 8}
@@ -134,11 +134,11 @@
 
   (testing "Parsing game with goal in playoff overtime"
     (let [game (last
-                 (:games
-                   (parse-game-scores
-                     (get-latest-games resources/playoff-games-live-finished-in-regulation-and-overtime)
-                     (:standings resources/standings-for-playoffs)
-                     (resources/get-landings [2022030181]))))
+                (:games
+                 (parse-game-scores
+                  (get-latest-games resources/playoff-games-live-finished-in-regulation-and-overtime)
+                  (:standings resources/standings-for-playoffs)
+                  (resources/get-landings [2022030181]))))
           goals (map #(dissoc % :strength) (:goals game))] ; 'strength' field has its own test
       (is (= {"LAK" 4 "EDM" 3 :overtime true}
              (:scores game)) "Parsed scores")
@@ -172,22 +172,22 @@
 
   (testing "Parsing game without goals"
     (let [game (last
-                 (:games
-                   (parse-game-scores
-                     (get-latest-games default-games)
-                     default-standings
-                     default-landings)))]
+                (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings
+                  default-landings)))]
       (is (= []
              (:goals game)) "Parsed goals")))
 
   (testing "Parsing empty net goal information"
     (let [game (nth
-                 (:games
-                   (parse-game-scores
-                     (get-latest-games default-games)
-                     default-standings
-                     (resources/get-landings [2023020208])))
-                 4)
+                (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings
+                  (resources/get-landings [2023020208])))
+                4)
           goals (:goals game)]
       (is (= [false]
              (distinct (map #(contains? % :empty-net) (drop-last goals))))
@@ -198,12 +198,12 @@
 
   (testing "Parsing goal strength (even / power play / short handed) information"
     (let [game (nth
-                 (:games
-                   (parse-game-scores
-                     (get-latest-games default-games)
-                     default-standings
-                     (resources/get-landings [2023020209])))
-                 2)
+                (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings
+                  (resources/get-landings [2023020209])))
+                2)
           goals (:goals game)]
       (is (= [nil nil "SHG" nil "PPG"]
              (map #(:strength %) goals))
@@ -216,10 +216,10 @@
 
   (testing "Parsing games' statuses"
     (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games default-games)
-                    default-standings
-                    default-landings))
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings
+                  default-landings))
           statuses (map #(:status %) games)]
       (is (= [{:state "FINAL"}
               {:state "FINAL"}
@@ -241,9 +241,9 @@
 
   (testing "Parsing games' start times"
     (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games default-games)
-                    default-standings))
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings))
           start-times (map #(:start-time %) games)]
       (is (= ["2023-11-10T00:00:00Z"
               "2023-11-11T00:00:00Z"
@@ -259,10 +259,10 @@
 
   (testing "Parsing game stats"
     (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games default-games)
-                    default-standings
-                    default-landings))
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings
+                  default-landings))
           game-stats (map #(:game-stats %) games)]
       (is (= 8
              (count game-stats)) "Parsed game stats count")
@@ -318,10 +318,10 @@
 
   (testing "Parsing teams' pre-game regular season records"
     (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games default-games)
-                    default-standings
-                    default-landings))
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings
+                  default-landings))
           records (map #(:records (:pre-game-stats %)) games)]
       (is (= 8
              (count records)) "Parsed pre-game regular season records count")
@@ -337,10 +337,10 @@
 
   (testing "Parsing teams' current regular season records"
     (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games default-games)
-                    default-standings
-                    default-landings))
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings
+                  default-landings))
           records (map #(:records (:current-stats %)) games)]
       (is (= 8
              (count records)) "Parsed current regular season records count")
@@ -376,9 +376,9 @@
 
   (testing "Parsing teams' current streaks"
     (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games default-games)
-                    default-standings))
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings))
           streaks (map #(:streaks (:current-stats %)) games)]
       (is (= 8
              (count streaks)) "Parsed streaks count")
@@ -396,9 +396,9 @@
 
   (testing "Parsing teams' division and league ranks for regular season games"
     (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games default-games)
-                    default-standings))
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings))
           pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
           current-stats-standings (map #(:standings (:current-stats %)) games)
           pre-game-ranks (map
@@ -428,15 +428,15 @@
 
   (testing "Parsing teams' division and league ranks for playoff games"
     (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games resources/playoff-games-live-finished-in-regulation-and-overtime)
-                    {:pre-game (:standings resources/standings-for-playoffs)
-                     :current (:standings resources/standings-for-playoffs)}))
+                 (parse-game-scores
+                  (get-latest-games resources/playoff-games-live-finished-in-regulation-and-overtime)
+                  {:pre-game (:standings resources/standings-for-playoffs)
+                   :current (:standings resources/standings-for-playoffs)}))
           pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
           current-stats-standings (map #(:standings (:current-stats %)) games)
           ranks (map
-                  #(fmap-vals (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
-                  current-stats-standings)]
+                 #(fmap-vals (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
+                 current-stats-standings)]
       (is (= pre-game-stats-standings current-stats-standings) "Parsed standings, pre-game vs. current stats")
       (is (= [{"NYI" {:division-rank "4" :league-rank "15"} "CAR" {:division-rank "1" :league-rank "2"}}
               {"FLA" {:division-rank "4" :league-rank "17"} "BOS" {:division-rank "1" :league-rank "1"}}
@@ -448,13 +448,13 @@
 
   (testing "Parsing teams' points from playoff spot"
     (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games default-games)
-                    default-standings))
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings))
           standings (map #(:standings (:current-stats %)) games)
           points-from-playoff-spot (map
-                                     #(fmap-vals (fn [team-stats] (select-keys team-stats [:points-from-playoff-spot])) %)
-                                     standings)]
+                                    #(fmap-vals (fn [team-stats] (select-keys team-stats [:points-from-playoff-spot])) %)
+                                    standings)]
       (is (= 8
              (count points-from-playoff-spot)) "Parsed points from playoff spot count")
       ; The test standings are:
@@ -496,9 +496,9 @@
 
   (testing "Parsing playoff series wins from playoff games"
     (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games resources/playoff-games-finished-with-2nd-games)
-                    (:standings resources/standings-for-playoffs)))
+                 (parse-game-scores
+                  (get-latest-games resources/playoff-games-finished-with-2nd-games)
+                  (:standings resources/standings-for-playoffs)))
           pre-game-stats-playoff-series (map #(:playoff-series (:pre-game-stats %)) games)
           current-stats-playoff-series (map #(:playoff-series (:current-stats %)) games)]
       (is (= [{"NYI" 0 "CAR" 1} {"FLA" 0 "BOS" 1} {"MIN" 1 "DAL" 0} {"LAK" 1 "EDM" 0}]
@@ -508,9 +508,9 @@
 
   (testing "Parsing playoff series wins from first playoff games"
     (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games resources/playoff-games-live-finished-with-1st-games)
-                    (:standings resources/standings-for-playoffs)))
+                 (parse-game-scores
+                  (get-latest-games resources/playoff-games-live-finished-with-1st-games)
+                  (:standings resources/standings-for-playoffs)))
           pre-game-stats-playoff-series (map #(:playoff-series (:pre-game-stats %)) games)
           current-stats-playoff-series (map #(:playoff-series (:current-stats %)) games)]
       (is (= [{"NYI" 0 "CAR" 0}  ; finished & up to date
@@ -526,9 +526,9 @@
 
   (testing "Parsing playoff rounds from playoff games"
     (let [games (:games
-                  (parse-game-scores
-                    (get-latest-games resources/playoff-games-live-finished-with-1st-games)
-                    (:standings resources/standings-for-playoffs)))
+                 (parse-game-scores
+                  (get-latest-games resources/playoff-games-live-finished-with-1st-games)
+                  (:standings resources/standings-for-playoffs)))
           pre-game-stats-playoff-series (map #(:playoff-series (:pre-game-stats %)) games)
           current-stats-playoff-series (map #(:playoff-series (:current-stats %)) games)
           pre-game-stats-rounds (map :round pre-game-stats-playoff-series)
@@ -561,48 +561,48 @@
 
   (testing "Validating valid game with goals"
     (let [game (first (:games
-                        (parse-game-scores
-                          (get-latest-games default-games)
-                          default-standings
-                          default-landings)))]
+                       (parse-game-scores
+                        (get-latest-games default-games)
+                        default-standings
+                        default-landings)))]
       (is (= false (empty? (:goals game))) "Game has some goals")
       (is (= false (contains? game :errors)) "No validation errors")))
 
   (testing "Validating valid game without goals"
     (let [game (last (:games
-                       (parse-game-scores
-                         (get-latest-games default-games)
-                         default-standings
-                         default-landings)))]
+                      (parse-game-scores
+                       (get-latest-games default-games)
+                       default-standings
+                       default-landings)))]
       (is (= true (empty? (:goals game))) "Game has no goals")
       (is (= false (contains? game :errors)) "No validation errors")))
 
   (testing "Validating game missing all goals"
     (let [game (last (:games
-                        (parse-game-scores
-                          (get-latest-games resources/games-for-validation-testing)
-                          default-standings
-                          (resources/get-landings ["2023020209-modified-for-validation"]))))]
+                      (parse-game-scores
+                       (get-latest-games resources/games-for-validation-testing)
+                       default-standings
+                       (resources/get-landings ["2023020209-modified-for-validation"]))))]
       (is (= true (contains? game :errors)) "Contains validation errors")
       (is (= [{:error :MISSING-ALL-GOALS}]
              (:errors game)) "Errors contain 'missing all goals' error")))
 
   (testing "Validating game missing one goal"
     (let [game (first (:games
-                        (parse-game-scores
-                          (get-latest-games resources/games-for-validation-testing)
-                          default-standings
-                          default-landings)))]
+                       (parse-game-scores
+                        (get-latest-games resources/games-for-validation-testing)
+                        default-standings
+                        default-landings)))]
       (is (= true (contains? game :errors)) "Contains validation errors")
       (is (= [{:error :SCORE-AND-GOAL-COUNT-MISMATCH :details {:goal-count 6 :score-count 7}}]
              (:errors game)) "Errors contain expected 'score and goal count mismatch' error")))
 
   (testing "Validating game having one goal too many"
     (let [game (second (:games
-                         (parse-game-scores
-                           (get-latest-games resources/games-for-validation-testing)
-                           default-standings
-                           default-landings)))]
+                        (parse-game-scores
+                         (get-latest-games resources/games-for-validation-testing)
+                         default-standings
+                         default-landings)))]
       (is (= true (contains? game :errors)) "Contains validation errors")
       (is (= [{:error :SCORE-AND-GOAL-COUNT-MISMATCH :details {:goal-count 9 :score-count 8}}]
              (:errors game)) "Errors contain expected 'score and goal count mismatch' error"))))
