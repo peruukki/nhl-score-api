@@ -706,6 +706,28 @@ Or with the regular test runner:
 lein test
 ```
 
+## Updating test data
+
+The NHL API responses change from time to time, so the [responses](test/nhl_score_api/fetchers/nhl_api_web/resources/)
+used in tests also need to be updated to remain accurate.
+
+Especially the game-specific landing responses need frequent updating, so there is a helper script to fetch the current
+responses with game IDs and save them. It's also useful for checking if the NHL API responses have changed in case of
+errors.
+
+The script is called `update-test-landings.sh` and it uses `curl` for fetching and [`jq`](https://jqlang.github.io/jq/)
+for formatting, so you'll need those installed.
+
+Example:
+
+```sh
+$ ./scripts/update-test-landings.sh 2023020205 2023020206
+Fetching landing for game ID 2023020205
+Landing response saved to test/nhl_score_api/fetchers/nhl_api_web/resources/landing-2023020205.json
+Fetching landing for game ID 2023020206
+Landing response saved to test/nhl_score_api/fetchers/nhl_api_web/resources/landing-2023020206.json
+```
+
 ## Deployment
 
 The API is deployed to [Heroku](http://heroku.com/) from a development machine, no CI/CD setup. 😬
