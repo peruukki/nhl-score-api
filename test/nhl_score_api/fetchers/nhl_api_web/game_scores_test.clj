@@ -312,6 +312,27 @@
                :shots                   {"PHI" 36 "ANA" 38}
                :takeaways               {"PHI" 7 "ANA" 3}}
               nil nil nil]
+             game-stats) "Parsed game stats")))
+
+  (testing "Missing game stats"
+    (let [games (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings
+                  {2023020195 (resources/get-landing "2023020195-updated")}))
+          game-stats (map #(:game-stats %) games)]
+      (is (= 8
+             (count game-stats)) "Parsed game stats count")
+      (is (= [{:blocked                 {"MTL" 0 "DET" 0}
+               :face-off-win-percentage {"MTL" "0.0" "DET" "0.0"}
+               :giveaways               {"MTL" 0 "DET" 0}
+               :hits                    {"MTL" 0 "DET" 0}
+               :pim                     {"MTL" 0 "DET" 0}
+               :power-play              {"MTL" {:goals 0 :opportunities 0 :percentage "0.0"}
+                                         "DET" {:goals 0 :opportunities 0 :percentage "0.0"}}
+               :shots                   {"MTL" 0 "DET" 0}
+               :takeaways               {"MTL" 0 "DET" 0}}
+              nil nil nil nil nil nil nil]
              game-stats) "Parsed game stats"))))
 
 (deftest game-scores-parsing-team-records

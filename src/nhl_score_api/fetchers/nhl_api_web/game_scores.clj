@@ -355,7 +355,7 @@
 (defn- parse-integer-game-stat [stat-value]
   (if (string? stat-value)
     (Integer/parseInt stat-value)
-    stat-value))
+    (or stat-value 0)))
 
 (defn- parse-game-stat
   ([game-stats away-abbreviation home-abbreviation stat-category]
@@ -366,7 +366,7 @@
       home-abbreviation (parse-fn (:home-value stat))})))
 
 (defn- parse-power-play-stat [stat-value]
-  (let [goals-and-opportunities (str/split stat-value #"/")
+  (let [goals-and-opportunities (if (nil? stat-value) ["0" "0"] (str/split stat-value #"/"))
         goals (Integer/parseInt (first goals-and-opportunities))
         opportunities (Integer/parseInt (last goals-and-opportunities))
         percentage (if (> opportunities 0)
@@ -379,7 +379,7 @@
 
 (defn- parse-float-percentage [stat-value]
   (if (nil? stat-value)
-    nil
+    "0.0"
     (format "%.1f" (* 100 stat-value))))
 
 (defn- add-game-stats [game-details team-details landing]
