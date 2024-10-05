@@ -9,6 +9,7 @@ same NHL Stats API at https://api-web.nhle.com that the NHL website uses. The NH
 [unofficial documentation](https://gitlab.com/dword4/nhlapi) exists.
 
 How we use the NHL Stats API:
+
 - [schedule](https://api-web.nhle.com/v1/schedule/2023-11-07) gives us a list of the week's games; we check the game
   statuses and get the game IDs to fetch the games' gamecenter landing page data
 - [landing](https://api-web.nhle.com/v1/gamecenter/2023020180/landing) gives us the details of an individual game
@@ -29,16 +30,16 @@ The `date` object contains the date in a raw format and a prettier, displayable 
 
 The `games` array contains details of the games, each game item containing these fields:
 
-- `status` *(object)*
-- `startTime` *(string)*
-- `goals` *(array)*
-- `scores` *(object)*
-- `teams` *(object)*
-- `gameStats` *(object)*
-- `preGameStats` *(object)*
-- `currentStats` *(object)*
-- `links` *(object)*
-- `errors` *(array)* (only present if data validity errors were detected)
+- `status` _(object)_
+- `startTime` _(string)_
+- `goals` _(array)_
+- `scores` _(object)_
+- `teams` _(object)_
+- `gameStats` _(object)_
+- `preGameStats` _(object)_
+- `currentStats` _(object)_
+- `links` _(object)_
+- `errors` _(array)_ (only present if data validity errors were detected)
 
 The fields are described in more detail in [Response fields](#response-fields).
 
@@ -57,18 +58,19 @@ Though see the "If a date has no scheduled games" part below for possible peculi
 
 The `games` array contains details of the games, each game item containing these fields:
 
-- `status` *(object)*
-- `startTime` *(string)*
-- `goals` *(array)*
-- `scores` *(object)*
-- `teams` *(object)*
-- `gameStats` *(object)*
-- `preGameStats` *(object)*
-- `currentStats` *(object)*
-- `links` *(object)*
-- `errors` *(array)* (only present if data validity errors were detected)
+- `status` _(object)_
+- `startTime` _(string)_
+- `goals` _(array)_
+- `scores` _(object)_
+- `teams` _(object)_
+- `gameStats` _(object)_
+- `preGameStats` _(object)_
+- `currentStats` _(object)_
+- `links` _(object)_
+- `errors` _(array)_ (only present if data validity errors were detected)
 
 **If a date has no scheduled games**, you will either get:
+
 - no entry for that date in the response, or
 - an entry with an empty `games` array
 
@@ -526,60 +528,60 @@ The fields are described in more detail in [Response fields](#response-fields).
 
 #### Date fields explained:
 
-- `raw` *(string)*: the raw date in "YYYY-MM-DD" format, usable for any kind of processing
-- `pretty` *(string)*: a prettified format, can be shown as-is in the client
+- `raw` _(string)_: the raw date in "YYYY-MM-DD" format, usable for any kind of processing
+- `pretty` _(string)_: a prettified format, can be shown as-is in the client
 
 #### Game fields explained:
 
 - `status` object: current game status, with the fields:
-  - `state` *(string)*:
+  - `state` _(string)_:
     - `"FINAL"` if the game has ended
     - `"LIVE"` if the game is still in progress
     - `"PREVIEW"` if the game has not started yet
     - `"POSTPONED"` if the game has been postponed
   - `progress` object: game progress, only present if `state` is `"LIVE"`, with the fields:
-    - `currentPeriod` *(number)*: current period as a number
-    - `currentPeriodOrdinal` *(string)*: current period as a display string (e.g. `"2nd"`)
-    - `currentPeriodTimeRemaining` *(object*): time remaining in current period:
-      - `pretty` (*string*): time remaining in prettified `mm:ss` format; `"END"` if the current period has ended
-      - `min` *(number)*: minutes remaining; `0` if the current period has ended
-      - `sec` *(number)*: seconds remaining; `0` if the current period has ended
+    - `currentPeriod` _(number)_: current period as a number
+    - `currentPeriodOrdinal` _(string)_: current period as a display string (e.g. `"2nd"`)
+    - `currentPeriodTimeRemaining` _(object_): time remaining in current period:
+      - `pretty` (_string_): time remaining in prettified `mm:ss` format; `"END"` if the current period has ended
+      - `min` _(number)_: minutes remaining; `0` if the current period has ended
+      - `sec` _(number)_: seconds remaining; `0` if the current period has ended
 - `startTime` string: the game start time in standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
   "YYYY-MM-DDThh:mm:ssZ"
 - `goals` array: list of goal details, in the order the goals were scored
   - gameplay goal:
-    - `assists` *(array)* of objects with the fields (an empty array for unassisted goals):
-      - `player` *(string)*: the name of the player credited with the assist
-      - `playerId` *(number)*: player ID in NHL APIs (can be used to fetch other resources from NHL APIs)
-      - `seasonTotal` *(number)*: the number of assists the player has had this season
-    - `emptyNet` *(boolean)*: set to `true` if the goal was scored in an empty net, absent if it wasn’t
-    - `min` *(number)*: the goal scoring time minutes, from the start of the period
-    - `period` *(string)*: in which period the goal was scored; `"OT"` means **regular season 5 minute overtime**
-    - `scorer` *(object)*:
-      - `player` *(string)*: the name of the goal scorer
-      - `playerId` *(number)*: player ID in NHL APIs (can be used to fetch other resources from NHL APIs)
-      - `seasonTotal` *(number)*: the number of goals the player has scored this season
-    - `sec` *(number)*: the goal scoring time seconds, from the start of the period
-    - `strength` *(string)*: can be set to `"PPG"` (power play goal) or `"SHG"` (short handed goal); absent
+    - `assists` _(array)_ of objects with the fields (an empty array for unassisted goals):
+      - `player` _(string)_: the name of the player credited with the assist
+      - `playerId` _(number)_: player ID in NHL APIs (can be used to fetch other resources from NHL APIs)
+      - `seasonTotal` _(number)_: the number of assists the player has had this season
+    - `emptyNet` _(boolean)_: set to `true` if the goal was scored in an empty net, absent if it wasn’t
+    - `min` _(number)_: the goal scoring time minutes, from the start of the period
+    - `period` _(string)_: in which period the goal was scored; `"OT"` means **regular season 5 minute overtime**
+    - `scorer` _(object)_:
+      - `player` _(string)_: the name of the goal scorer
+      - `playerId` _(number)_: player ID in NHL APIs (can be used to fetch other resources from NHL APIs)
+      - `seasonTotal` _(number)_: the number of goals the player has scored this season
+    - `sec` _(number)_: the goal scoring time seconds, from the start of the period
+    - `strength` _(string)_: can be set to `"PPG"` (power play goal) or `"SHG"` (short handed goal); absent
       if the goal was scored on even strength
-    - `team` *(string)*: the team that scored the goal
+    - `team` _(string)_: the team that scored the goal
   - shootout goal:
-    - `period` *(string)*: `"SO"`
-    - `scorer` *(object)*:
-      - `player` *(string)*: the name of the goal scorer
-      - `playerId` *(number)*: player ID in NHL APIs (can be used to fetch other resources from NHL APIs)
-    - `team` *(string)*: the team that scored the goal
+    - `period` _(string)_: `"SO"`
+    - `scorer` _(object)_:
+      - `player` _(string)_: the name of the goal scorer
+      - `playerId` _(number)_: player ID in NHL APIs (can be used to fetch other resources from NHL APIs)
+    - `team` _(string)_: the team that scored the goal
 - `scores` object: each team’s goal count, plus one of these possible fields:
   - `overtime`: set to `true` if the game ended in overtime, absent if it didn’t
   - `shootout`: set to `true` if the game ended in shootout, absent if it didn’t
 - `teams` object:
-  - `away` *(object)*: away team info:
+  - `away` _(object)_: away team info:
     - `abbreviation`: team name abbreviation
     - `id`: team ID in NHL APIs (can be used to fetch other resources from NHL APIs)
     - `locationName`: team location name, e.g. `"New York"`
     - `shortName`: team short name, e.g. `"NY Rangers"`
     - `teamName`: team name, e.g. `"Rangers"`
-  - `home` *(object)*: home team info:
+  - `home` _(object)_: home team info:
     - `abbreviation`: team name abbreviation
     - `id`: team ID in NHL APIs (can be used to fetch other resources from NHL APIs)
     - `locationName`: team location name, e.g. `"St. Louis"`
@@ -591,45 +593,45 @@ The fields are described in more detail in [Response fields](#response-fields).
   - `giveaways`: what it says
   - `hits`: what it says
   - `pim`: penalties in minutes
-  - `powerPlay` *(object)*:
+  - `powerPlay` _(object)_:
     - `goals`: number of power play goals
     - `opportunities`: number of power play opportunities
     - `percentage`: power play efficiency, e.g. `50.0`
   - `shots`: shots on goal
   - `takeaways`: what it says
-- `preGameStats` object: each teams’ season statistics *before the game*, with the fields:
+- `preGameStats` object: each teams’ season statistics _before the game_, with the fields:
   - `records` object: each teams’ record for this **regular season**, with the fields:
-    - `wins` *(number)*: win count (earning 2 pts)
-    - `losses` *(number)*: regulation loss count (0 pts)
-    - `ot` *(number)*: loss count for games that went to overtime (1 pt)
+    - `wins` _(number)_: win count (earning 2 pts)
+    - `losses` _(number)_: regulation loss count (0 pts)
+    - `ot` _(number)_: loss count for games that went to overtime (1 pt)
   - `playoffSeries` object: current playoff series related information (only present in playoff games), with the fields:
-    - `round` *(number)*: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series (in 2020 due to COVID-19), actual playoffs start from `1`
-    - `wins` *(object)*: each team’s win count in the series
+    - `round` _(number)_: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series (in 2020 due to COVID-19), actual playoffs start from `1`
+    - `wins` _(object)_: each team’s win count in the series
   - `streaks` object (**or `null` if querying coming season’s games**): each teams’ current form streak (only present in regular season games), with the fields:
-    - `type` *(string)*: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
-    - `count` *(number)*: streak’s length in consecutive games
+    - `type` _(string)_: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
+    - `count` _(number)_: streak’s length in consecutive games
   - `standings` object: each teams’ standings related information, with the fields:
-    - `divisionRank` *(string)*: the team's regular season ranking in their division (based on point percentage); this comes as a *string* value from the NHL Stats API
-    - `leagueRank` *(string)*: the team's regular season ranking in the league (based on point percentage); this comes as a *string* value from the NHL Stats API
-    - `pointsFromPlayoffSpot` *(string)*: point difference to the last playoff spot in the conference
+    - `divisionRank` _(string)_: the team's regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Stats API
+    - `leagueRank` _(string)_: the team's regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Stats API
+    - `pointsFromPlayoffSpot` _(string)_: point difference to the last playoff spot in the conference
       - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
         i.e. by how many points the team is safe
       - for teams currently outside the playoffs, this is the point difference to the team in the last playoff spot (2nd wildcard
         position); i.e. by how many points (at minimum) the team needs to catch up
       - Note: this value only indicates point differences and doesn’t consider which team is ranked higher if they have the same
         number of points
-- `currentStats` object: each teams’ current (ie. after the game if it has finished and NHL have updated their stats) season statistics *on the game date*, with the fields:
+- `currentStats` object: each teams’ current (ie. after the game if it has finished and NHL have updated their stats) season statistics _on the game date_, with the fields:
   - `records` object: each teams’ record for this **regular season**, with the fields:
-    - `wins` *(number)*: win count (earning 2 pts)
-    - `losses` *(number)*: regulation loss count (0 pts)
-    - `ot` *(number)*: loss count for games that went to overtime (1 pt)
+    - `wins` _(number)_: win count (earning 2 pts)
+    - `losses` _(number)_: regulation loss count (0 pts)
+    - `ot` _(number)_: loss count for games that went to overtime (1 pt)
   - `streaks` object (**or `null` if querying coming season’s games**): each teams’ current form streak (only present in regular season games), with the fields:
-    - `type` *(string)*: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
-    - `count` *(number)*: streak’s length in consecutive games
+    - `type` _(string)_: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
+    - `count` _(number)_: streak’s length in consecutive games
   - `standings` object (**or `null` if querying coming season’s games**): each teams’ standings related information, with the fields:
-    - `divisionRank` *(string)*: the team's regular season ranking in their division (based on point percentage); this comes as a *string* value from the NHL Stats API
-    - `leagueRank` *(string)*: the team's regular season ranking in the league (based on point percentage); this comes as a *string* value from the NHL Stats API
-    - `pointsFromPlayoffSpot` *(string)*: point difference to the last playoff spot in the conference
+    - `divisionRank` _(string)_: the team's regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Stats API
+    - `leagueRank` _(string)_: the team's regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Stats API
+    - `pointsFromPlayoffSpot` _(string)_: point difference to the last playoff spot in the conference
       - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
         i.e. by how many points the team is safe
       - for teams currently outside the playoffs, this is the point difference to the team in the last playoff spot (2nd wildcard
@@ -637,8 +639,8 @@ The fields are described in more detail in [Response fields](#response-fields).
       - Note: this value only indicates point differences and doesn’t consider which team is ranked higher if they have the same
         number of points
   - `playoffSeries` object: current playoff series related information (only present in playoff games), with the fields:
-    - `round` *(number)*: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series (in 2020 due to COVID-19), actual playoffs start from `1`
-    - `wins` *(object)*: each team’s win count in the series
+    - `round` _(number)_: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series (in 2020 due to COVID-19), actual playoffs start from `1`
+    - `wins` _(object)_: each team’s win count in the series
 - `links` object: links to related pages on the official NHL site, with the optional fields:
   - `gameCenter`: game summary with lots of related info
   - `playoffSeries`: playoff series specific info (only present in playoff games)
@@ -725,15 +727,18 @@ The API responses are cached in-memory for one minute.
 
 1. Create a Java web app in Heroku
 2. Add and set up the [New Relic APM](https://elements.heroku.com/addons/newrelic) Heroku add-on
-   * Copy the New Relic JAR files (`newrelic.jar` etc.) to the `newrelic` directory in this repository
+   - Copy the New Relic JAR files (`newrelic.jar` etc.) to the `newrelic` directory in this repository
 3. Install and set up the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 4. Install the [Heroku Java CLI plugin](https://github.com/heroku/plugin-java):
+
 ```sh
 heroku plugins:install java
 # alternative if the above doesn't work:
 heroku plugins:install @heroku-cli/plugin-java
 ```
+
 5. If you have multiple Heroku apps, set the default app for this repository:
+
 ```sh
 heroku git:remote -a <heroku-app-name>
 ```
