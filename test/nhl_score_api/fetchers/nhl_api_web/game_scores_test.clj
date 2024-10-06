@@ -6,7 +6,7 @@
             [nhl-score-api.utils :refer [fmap-vals]]))
 
 (def default-games resources/games-finished-in-regulation-overtime-and-shootout)
-(def default-landings (resources/get-landings [2023020195 2023020205 2023020206 2023020207 2023020208 2023020209]))
+(def default-gamecenters (resources/get-gamecenters [2023020195 2023020205 2023020206 2023020207 2023020208 2023020209]))
 (def default-standings {:pre-game (:standings resources/pre-game-standings)
                         :current (:standings resources/current-standings)})
 
@@ -17,7 +17,7 @@
                  (parse-game-scores
                   (get-latest-games default-games)
                   default-standings
-                  default-landings))]
+                  default-gamecenters))]
       (is (= 8
              (count games)) "Parsed game count")
       (is (= 3
@@ -67,7 +67,7 @@
                  (parse-game-scores
                   (get-latest-games default-games)
                   default-standings
-                  (resources/get-landings [2023020195]))))
+                  (resources/get-gamecenters [2023020195]))))
           goals (map #(dissoc % :strength) (:goals game))]  ; 'strength' field has its own test
       (is (= [{:team    "MTL" :min 7 :sec 2 :period "1"
                :scorer  {:player "Mike Matheson" :player-id 8476875 :season-total 3}
@@ -95,7 +95,7 @@
                  (parse-game-scores
                   (get-latest-games default-games)
                   default-standings
-                  (resources/get-landings [2023020207])))
+                  (resources/get-gamecenters [2023020207])))
                 1)
           goals (map #(dissoc % :strength) (:goals game))] ; 'strength' field has its own test
       (is (= [{:team    "TOR" :min 3 :sec 1 :period "1"
@@ -138,7 +138,7 @@
                  (parse-game-scores
                   (get-latest-games resources/playoff-games-live-finished-in-regulation-and-overtime)
                   (:standings resources/standings-for-playoffs)
-                  (resources/get-landings [2022030181]))))
+                  (resources/get-gamecenters [2022030181]))))
           goals (map #(dissoc % :strength) (:goals game))] ; 'strength' field has its own test
       (is (= {"LAK" 4 "EDM" 3 :overtime true}
              (:scores game)) "Parsed scores")
@@ -176,7 +176,7 @@
                  (parse-game-scores
                   (get-latest-games default-games)
                   default-standings
-                  default-landings)))]
+                  default-gamecenters)))]
       (is (= []
              (:goals game)) "Parsed goals")))
 
@@ -186,7 +186,7 @@
                  (parse-game-scores
                   (get-latest-games default-games)
                   default-standings
-                  (resources/get-landings [2023020208])))
+                  (resources/get-gamecenters [2023020208])))
                 4)
           goals (:goals game)]
       (is (= [false]
@@ -202,7 +202,7 @@
                  (parse-game-scores
                   (get-latest-games default-games)
                   default-standings
-                  (resources/get-landings [2023020209])))
+                  (resources/get-gamecenters [2023020209])))
                 2)
           goals (:goals game)]
       (is (= [nil nil "SHG" nil "PPG"]
@@ -219,7 +219,7 @@
                  (parse-game-scores
                   (get-latest-games default-games)
                   default-standings
-                  default-landings))
+                  default-gamecenters))
           statuses (map #(:status %) games)]
       (is (= [{:state "FINAL"}
               {:state "FINAL"}
@@ -262,7 +262,7 @@
                  (parse-game-scores
                   (get-latest-games default-games)
                   default-standings
-                  default-landings))
+                  default-gamecenters))
           game-stats (map #(:game-stats %) games)]
       (is (= 8
              (count game-stats)) "Parsed game stats count")
@@ -319,7 +319,7 @@
                  (parse-game-scores
                   (get-latest-games default-games)
                   default-standings
-                  {2023020195 (resources/get-landing "2023020195-updated")}))
+                  {2023020195 (resources/get-landing "2023020195")}))
           game-stats (map #(:game-stats %) games)]
       (is (= 8
              (count game-stats)) "Parsed game stats count")
@@ -342,7 +342,7 @@
                  (parse-game-scores
                   (get-latest-games default-games)
                   default-standings
-                  default-landings))
+                  default-gamecenters))
           records (map #(:records (:pre-game-stats %)) games)]
       (is (= 8
              (count records)) "Parsed pre-game regular season records count")
@@ -361,7 +361,7 @@
                  (parse-game-scores
                   (get-latest-games default-games)
                   default-standings
-                  default-landings))
+                  default-gamecenters))
           records (map #(:records (:current-stats %)) games)]
       (is (= 8
              (count records)) "Parsed current regular season records count")
@@ -585,7 +585,7 @@
                        (parse-game-scores
                         (get-latest-games default-games)
                         default-standings
-                        default-landings)))]
+                        default-gamecenters)))]
       (is (= false (empty? (:goals game))) "Game has some goals")
       (is (= false (contains? game :errors)) "No validation errors")))
 
@@ -594,7 +594,7 @@
                       (parse-game-scores
                        (get-latest-games default-games)
                        default-standings
-                       default-landings)))]
+                       default-gamecenters)))]
       (is (= true (empty? (:goals game))) "Game has no goals")
       (is (= false (contains? game :errors)) "No validation errors")))
 
@@ -603,7 +603,7 @@
                       (parse-game-scores
                        (get-latest-games resources/games-for-validation-testing)
                        default-standings
-                       (resources/get-landings ["2023020209-modified-for-validation"]))))]
+                       (resources/get-gamecenters ["2023020209-modified-for-validation"]))))]
       (is (= true (contains? game :errors)) "Contains validation errors")
       (is (= [{:error :MISSING-ALL-GOALS}]
              (:errors game)) "Errors contain 'missing all goals' error")))
@@ -613,7 +613,7 @@
                        (parse-game-scores
                         (get-latest-games resources/games-for-validation-testing)
                         default-standings
-                        default-landings)))]
+                        default-gamecenters)))]
       (is (= true (contains? game :errors)) "Contains validation errors")
       (is (= [{:error :SCORE-AND-GOAL-COUNT-MISMATCH :details {:goal-count 6 :score-count 7}}]
              (:errors game)) "Errors contain expected 'score and goal count mismatch' error")))
@@ -623,7 +623,7 @@
                         (parse-game-scores
                          (get-latest-games resources/games-for-validation-testing)
                          default-standings
-                         default-landings)))]
+                         default-gamecenters)))]
       (is (= true (contains? game :errors)) "Contains validation errors")
       (is (= [{:error :SCORE-AND-GOAL-COUNT-MISMATCH :details {:goal-count 9 :score-count 8}}]
              (:errors game)) "Errors contain expected 'score and goal count mismatch' error"))))

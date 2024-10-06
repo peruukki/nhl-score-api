@@ -1,0 +1,308 @@
+{
+  "seasonSeries": [
+    {
+      "id": 2023020207,
+      "season": 20232024,
+      "gameType": 2,
+      "gameDate": "2023-11-10",
+      "startTimeUTC": "2023-11-11T00:00:00Z",
+      "easternUTCOffset": "-05:00",
+      "venueUTCOffset": "-05:00",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "awayTeam": {
+        "id": 20,
+        "abbrev": "CGY",
+        "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg",
+        "score": 4
+      },
+      "homeTeam": {
+        "id": 10,
+        "abbrev": "TOR",
+        "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
+        "score": 5
+      },
+      "gameCenterLink": "/gamecenter/tor-vs-cgy/2023/11/10/2023020207"
+    },
+    {
+      "id": 2023020697,
+      "season": 20232024,
+      "gameType": 2,
+      "gameDate": "2024-01-18",
+      "startTimeUTC": "2024-01-19T02:00:00Z",
+      "easternUTCOffset": "-05:00",
+      "venueUTCOffset": "-07:00",
+      "gameState": "OFF",
+      "gameScheduleState": "OK",
+      "awayTeam": {
+        "id": 10,
+        "abbrev": "TOR",
+        "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
+        "score": 4
+      },
+      "homeTeam": {
+        "id": 20,
+        "abbrev": "CGY",
+        "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg",
+        "score": 3
+      },
+      "gameCenterLink": "/gamecenter/cgy-vs-tor/2024/01/18/2023020697"
+    }
+  ],
+  "seasonSeriesWins": {
+    "awayTeamWins": 0,
+    "homeTeamWins": 2
+  },
+  "gameInfo": {
+    "referees": [
+      {
+        "default": "Chris Lee"
+      },
+      {
+        "default": "Kevin Pollock"
+      }
+    ],
+    "linesmen": [
+      {
+        "default": "Brandon Gawryletz"
+      },
+      {
+        "default": "Ryan Galloway"
+      }
+    ],
+    "awayTeam": {
+      "headCoach": {
+        "default": "Ryan Huska"
+      },
+      "scratches": [
+        {
+          "id": 8474593,
+          "firstName": {
+            "default": "Jacob"
+          },
+          "lastName": {
+            "default": "Markstrom",
+            "cs": "Markström",
+            "fi": "Markström",
+            "sk": "Markström"
+          }
+        },
+        {
+          "id": 8478502,
+          "firstName": {
+            "default": "Dennis"
+          },
+          "lastName": {
+            "default": "Gilbert"
+          }
+        },
+        {
+          "id": 8482652,
+          "firstName": {
+            "default": "Walker"
+          },
+          "lastName": {
+            "default": "Duehr"
+          }
+        }
+      ]
+    },
+    "homeTeam": {
+      "headCoach": {
+        "default": "Sheldon Keefe"
+      },
+      "scratches": [
+        {
+          "id": 8475906,
+          "firstName": {
+            "default": "John"
+          },
+          "lastName": {
+            "default": "Klingberg"
+          }
+        },
+        {
+          "id": 8480995,
+          "firstName": {
+            "default": "Pontus"
+          },
+          "lastName": {
+            "default": "Holmberg"
+          }
+        }
+      ]
+    }
+  },
+  "gameVideo": {
+    "threeMinRecap": 6340914450112,
+    "threeMinRecapFr": 6340913659112
+  },
+  "linescore": {
+    "byPeriod": [
+      {
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
+        },
+        "away": 1,
+        "home": 2
+      },
+      {
+        "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
+        },
+        "away": 2,
+        "home": 2
+      },
+      {
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
+        },
+        "away": 1,
+        "home": 0
+      },
+      {
+        "periodDescriptor": {
+          "number": 4,
+          "periodType": "OT",
+          "maxRegulationPeriods": 3
+        },
+        "away": 0,
+        "home": 0
+      },
+      {
+        "periodDescriptor": {
+          "number": 5,
+          "periodType": "SO",
+          "maxRegulationPeriods": 3
+        },
+        "away": 0,
+        "home": 1
+      }
+    ],
+    "shootout": {
+      "awayDecidingGoal": 0,
+      "awayConversions": 1,
+      "awayAttempts": 5,
+      "homeDecidingGoal": 1,
+      "homeConversions": 2,
+      "homeAttempts": 5
+    },
+    "totals": {
+      "away": 4,
+      "home": 5
+    }
+  },
+  "shotsByPeriod": [
+    {
+      "periodDescriptor": {
+        "number": 1,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "away": 11,
+      "home": 8
+    },
+    {
+      "periodDescriptor": {
+        "number": 2,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "away": 8,
+      "home": 14
+    },
+    {
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "away": 3,
+      "home": 11
+    },
+    {
+      "periodDescriptor": {
+        "number": 4,
+        "periodType": "OT",
+        "maxRegulationPeriods": 3
+      },
+      "away": 6,
+      "home": 3
+    },
+    {
+      "periodDescriptor": {
+        "number": 5,
+        "periodType": "SO",
+        "maxRegulationPeriods": 3
+      },
+      "away": 0,
+      "home": 0
+    }
+  ],
+  "teamGameStats": [
+    {
+      "category": "sog",
+      "awayValue": 28,
+      "homeValue": 36
+    },
+    {
+      "category": "faceoffWinningPctg",
+      "awayValue": 0.407407,
+      "homeValue": 0.592593
+    },
+    {
+      "category": "powerPlay",
+      "awayValue": "0/2",
+      "homeValue": "1/1"
+    },
+    {
+      "category": "powerPlayPctg",
+      "awayValue": 0.000000,
+      "homeValue": 1.000000
+    },
+    {
+      "category": "pim",
+      "awayValue": 4,
+      "homeValue": 6
+    },
+    {
+      "category": "hits",
+      "awayValue": 25,
+      "homeValue": 29
+    },
+    {
+      "category": "blockedShots",
+      "awayValue": 19,
+      "homeValue": 15
+    },
+    {
+      "category": "giveaways",
+      "awayValue": 7,
+      "homeValue": 11
+    },
+    {
+      "category": "takeaways",
+      "awayValue": 13,
+      "homeValue": 10
+    }
+  ],
+  "gameReports": {
+    "gameSummary": "https://www.nhl.com/scores/htmlreports/20232024/GS020207.HTM",
+    "eventSummary": "https://www.nhl.com/scores/htmlreports/20232024/ES020207.HTM",
+    "playByPlay": "https://www.nhl.com/scores/htmlreports/20232024/PL020207.HTM",
+    "faceoffSummary": "https://www.nhl.com/scores/htmlreports/20232024/FS020207.HTM",
+    "faceoffComparison": "https://www.nhl.com/scores/htmlreports/20232024/FC020207.HTM",
+    "rosters": "https://www.nhl.com/scores/htmlreports/20232024/RO020207.HTM",
+    "shotSummary": "https://www.nhl.com/scores/htmlreports/20232024/SS020207.HTM",
+    "shootoutSummary": "https://www.nhl.com/scores/htmlreports/20232024/SO020207.HTM",
+    "shiftChart": "https://www.nhl.com/stats/shiftcharts?id=2023020207",
+    "toiAway": "https://www.nhl.com/scores/htmlreports/20232024/TV020207.HTM",
+    "toiHome": "https://www.nhl.com/scores/htmlreports/20232024/TH020207.HTM"
+  }
+}

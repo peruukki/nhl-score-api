@@ -4,7 +4,7 @@
             [nhl-score-api.fetchers.nhl-api-web.fetcher :refer [fetch-standings-infos
                                                                 get-current-schedule-date
                                                                 get-current-standings-request-date
-                                                                get-landing-game-ids
+                                                                get-gamecenter-game-ids
                                                                 get-pre-game-standings-request-date
                                                                 get-schedule-date-range-str-for-latest-scores]]
             [nhl-score-api.utils :refer [format-date]]))
@@ -99,9 +99,9 @@
 
   (testing "Landing URL is returned for live and finished games"
     (is (= [1 2]
-           (get-landing-game-ids [{:id 1 :game-state "LIVE"}
-                                  {:id 2 :game-state "OFF"}
-                                  {:id 3 :game-state "FUT"}])))))
+           (get-gamecenter-game-ids [{:id 1 :game-state "LIVE"}
+                                     {:id 2 :game-state "OFF"}
+                                     {:id 3 :game-state "FUT"}])))))
 
 (deftest get-current-schedule-date-test
 

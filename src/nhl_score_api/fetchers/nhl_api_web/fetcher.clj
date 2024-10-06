@@ -105,22 +105,28 @@
                       :current (get standings-by-date-str (:current %))))
          standings-date-strs)))
 
-(defn get-landing-game-ids [schedule-games]
+(defn get-gamecenter-game-ids [schedule-games]
   (->> schedule-games
        (filter started-game?)
        (map #(:id %))))
 
-(defn fetch-landings-info [schedule-games]
+(defn get-gamecenter [landing right-rail]
+  (merge landing right-rail))
+
+(defn- fetch-landings-info [schedule-games]
   (->> schedule-games
-       (get-landing-game-ids)
-       (map #(vector % (fetch-cached (api/->LandingApiRequest %))))
+       (get-gamecenter-game-ids)
+       (map #(vector % (get-gamecenter (fetch-cached (api/->LandingApiRequest %))
+                                       (fetch-cached (api/->RightRailApiRequest %)))))
        (into {})))
 
 (defn- prune-cache-and-fetch-landings-info [games-info date-and-schedule-games]
   (when-not (:from-cache? (meta games-info))
-    (println "Evicting" (:raw (:date date-and-schedule-games)) "landings from :short-lived")
-    (cache/evict-from-short-lived! (map #(api/cache-key (api/->LandingApiRequest (:id %)))
-                                        (:games date-and-schedule-games))))
+    (println "Evicting" (:raw (:date date-and-schedule-games)) "landings and right-rails from :short-lived")
+    (cache/evict-from-short-lived! (->> (:games date-and-schedule-games)
+                                        (map (fn [game] [(api/cache-key (api/->LandingApiRequest (:id game)))
+                                                         (api/cache-key (api/->RightRailApiRequest (:id game)))]))
+                                        flatten)))
   (fetch-landings-info (:games date-and-schedule-games)))
 
 (defn fetch-latest-scores []

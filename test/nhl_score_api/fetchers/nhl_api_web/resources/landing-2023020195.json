@@ -16,29 +16,30 @@
   "venueTimezone": "America/Detroit",
   "periodDescriptor": {
     "number": 4,
-    "periodType": "OT"
+    "periodType": "OT",
+    "maxRegulationPeriods": 3
   },
   "tvBroadcasts": [
-    {
-      "id": 33,
-      "market": "A",
-      "countryCode": "CA",
-      "network": "RDS",
-      "sequenceNumber": 66
-    },
-    {
-      "id": 131,
-      "market": "A",
-      "countryCode": "CA",
-      "network": "TSN2",
-      "sequenceNumber": 50
-    },
     {
       "id": 351,
       "market": "H",
       "countryCode": "US",
       "network": "BSDET",
       "sequenceNumber": 51
+    },
+    {
+      "id": 131,
+      "market": "A",
+      "countryCode": "CA",
+      "network": "TSN2",
+      "sequenceNumber": 112
+    },
+    {
+      "id": 33,
+      "market": "A",
+      "countryCode": "CA",
+      "network": "RDS",
+      "sequenceNumber": 132
     }
   ],
   "gameState": "OFF",
@@ -51,6 +52,10 @@
     "abbrev": "MTL",
     "placeName": {
       "default": "Montréal"
+    },
+    "placeNameWithPreposition": {
+      "default": "Montréal",
+      "fr": "de Montréal"
     },
     "score": 3,
     "sog": 27,
@@ -65,6 +70,10 @@
     "placeName": {
       "default": "Detroit"
     },
+    "placeNameWithPreposition": {
+      "default": "Detroit",
+      "fr": "de Detroit"
+    },
     "score": 2,
     "sog": 29,
     "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
@@ -75,51 +84,12 @@
   "otInUse": true,
   "tiesInUse": false,
   "summary": {
-    "linescore": {
-      "byPeriod": [
-        {
-          "periodDescriptor": {
-            "number": 1,
-            "periodType": "REG"
-          },
-          "away": 1,
-          "home": 0
-        },
-        {
-          "periodDescriptor": {
-            "number": 2,
-            "periodType": "REG"
-          },
-          "away": 0,
-          "home": 1
-        },
-        {
-          "periodDescriptor": {
-            "number": 3,
-            "periodType": "REG"
-          },
-          "away": 1,
-          "home": 1
-        },
-        {
-          "periodDescriptor": {
-            "number": 4,
-            "periodType": "OT"
-          },
-          "away": 1,
-          "home": 0
-        }
-      ],
-      "totals": {
-        "away": 3,
-        "home": 2
-      }
-    },
     "scoring": [
       {
         "periodDescriptor": {
           "number": 1,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "goals": [
           {
@@ -139,6 +109,8 @@
               "default": "MTL"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/MTL/8476875.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/mtl-det-matheson-scores-goal-against-red-wings-6340832394112",
+            "highlightClipSharingUrlFr": "https://nhl.com/fr/video/mtl-det-matheson-scores-goal-against-red-wings-6340832395112",
             "highlightClip": 6340832394112,
             "highlightClipFr": 6340832395112,
             "goalsToDate": 3,
@@ -164,14 +136,16 @@
                 },
                 "assistsToDate": 4
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "right"
           }
         ]
       },
       {
         "periodDescriptor": {
           "number": 2,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "goals": [
           {
@@ -191,6 +165,8 @@
               "default": "DET"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/DET/8478432.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/mtl-det-fischer-scores-goal-against-canadiens-6340837690112",
+            "highlightClipSharingUrlFr": "https://nhl.com/fr/video/mtl-det-fischer-scores-goal-against-canadiens-6340837592112",
             "highlightClip": 6340837690112,
             "highlightClipFr": 6340837592112,
             "goalsToDate": 1,
@@ -226,14 +202,16 @@
                 },
                 "assistsToDate": 4
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "left"
           }
         ]
       },
       {
         "periodDescriptor": {
           "number": 3,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "goals": [
           {
@@ -253,6 +231,8 @@
               "default": "MTL"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/MTL/8480018.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/mtl-det-suzuki-scores-goal-against-red-wings-6340836357112",
+            "highlightClipSharingUrlFr": "https://nhl.com/fr/video/mtl-det-suzuki-scores-goal-against-red-wings-6340837130112",
             "highlightClip": 6340836357112,
             "highlightClipFr": 6340837130112,
             "goalsToDate": 5,
@@ -291,7 +271,8 @@
                 },
                 "assistsToDate": 6
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "right"
           },
           {
             "situationCode": "1551",
@@ -310,6 +291,8 @@
               "default": "DET"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/DET/8477456.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/mtl-det-compher-scores-goal-against-canadiens-6340837530112",
+            "highlightClipSharingUrlFr": "https://nhl.com/fr/video/mtl-det-compher-scores-goal-against-canadiens-6340838427112",
             "highlightClip": 6340837530112,
             "highlightClipFr": 6340838427112,
             "goalsToDate": 3,
@@ -318,14 +301,16 @@
             "timeInPeriod": "06:06",
             "shotType": "wrist",
             "goalModifier": "none",
-            "assists": []
+            "assists": [],
+            "homeTeamDefendingSide": "right"
           }
         ]
       },
       {
         "periodDescriptor": {
           "number": 4,
-          "periodType": "OT"
+          "periodType": "OT",
+          "maxRegulationPeriods": 3
         },
         "goals": [
           {
@@ -345,6 +330,8 @@
               "default": "MTL"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/MTL/8481540.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/mtl-det-caufield-scores-goal-against-red-wings-6340840617112",
+            "highlightClipSharingUrlFr": "https://nhl.com/fr/video/cole-caufield-with-a-spectacular-powerplay-goal-from-detroit-red-w-6340841109112",
             "highlightClip": 6340840617112,
             "highlightClipFr": 6340841109112,
             "goalsToDate": 5,
@@ -383,7 +370,8 @@
                 },
                 "assistsToDate": 7
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "left"
           }
         ]
       }
@@ -395,7 +383,9 @@
         "playerId": 8481540,
         "teamAbbrev": "MTL",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/MTL/8481540.png",
-        "name": "C. Caufield",
+        "name": {
+          "default": "C. Caufield"
+        },
         "sweaterNo": 22,
         "position": "R",
         "goals": 1,
@@ -407,7 +397,9 @@
         "playerId": 8477456,
         "teamAbbrev": "DET",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/DET/8477456.png",
-        "name": "J. Compher",
+        "name": {
+          "default": "J. Compher"
+        },
         "sweaterNo": 37,
         "position": "L",
         "goals": 1,
@@ -419,7 +411,9 @@
         "playerId": 8480018,
         "teamAbbrev": "MTL",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/MTL/8480018.png",
-        "name": "N. Suzuki",
+        "name": {
+          "default": "N. Suzuki"
+        },
         "sweaterNo": 14,
         "position": "C",
         "goals": 1,
@@ -427,92 +421,12 @@
         "points": 2
       }
     ],
-    "teamGameStats": [
-      {
-        "category": "sog",
-        "awayValue": 27,
-        "homeValue": 29
-      },
-      {
-        "category": "faceoffWinningPctg",
-        "awayValue": 0.534483,
-        "homeValue": 0.465517
-      },
-      {
-        "category": "powerPlay",
-        "awayValue": "2/5",
-        "homeValue": "0/4"
-      },
-      {
-        "category": "powerPlayPctg",
-        "awayValue": 0.4,
-        "homeValue": 0.0
-      },
-      {
-        "category": "pim",
-        "awayValue": 10,
-        "homeValue": 22
-      },
-      {
-        "category": "hits",
-        "awayValue": 21,
-        "homeValue": 19
-      },
-      {
-        "category": "blockedShots",
-        "awayValue": 14,
-        "homeValue": 12
-      },
-      {
-        "category": "giveaways",
-        "awayValue": 1,
-        "homeValue": 10
-      },
-      {
-        "category": "takeaways",
-        "awayValue": 4,
-        "homeValue": 2
-      }
-    ],
-    "shotsByPeriod": [
-      {
-        "periodDescriptor": {
-          "number": 1,
-          "periodType": "REG"
-        },
-        "away": 10,
-        "home": 8
-      },
-      {
-        "periodDescriptor": {
-          "number": 2,
-          "periodType": "REG"
-        },
-        "away": 6,
-        "home": 14
-      },
-      {
-        "periodDescriptor": {
-          "number": 3,
-          "periodType": "REG"
-        },
-        "away": 6,
-        "home": 4
-      },
-      {
-        "periodDescriptor": {
-          "number": 4,
-          "periodType": "OT"
-        },
-        "away": 5,
-        "home": 3
-      }
-    ],
     "penalties": [
       {
         "periodDescriptor": {
           "number": 1,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "penalties": [
           {
@@ -520,7 +434,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Jordan Harris",
-            "teamAbbrev": "MTL",
+            "teamAbbrev": {
+              "default": "MTL"
+            },
             "drawnBy": "Klim Kostin",
             "descKey": "holding"
           },
@@ -529,7 +445,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Jeff Petry",
-            "teamAbbrev": "DET",
+            "teamAbbrev": {
+              "default": "DET"
+            },
             "descKey": "delaying-game-puck-over-glass"
           },
           {
@@ -537,7 +455,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Michael Pezzetta",
-            "teamAbbrev": "MTL",
+            "teamAbbrev": {
+              "default": "MTL"
+            },
             "drawnBy": "Joe Veleno",
             "descKey": "holding"
           },
@@ -546,7 +466,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Lucas Raymond",
-            "teamAbbrev": "DET",
+            "teamAbbrev": {
+              "default": "DET"
+            },
             "drawnBy": "Joel Armia",
             "descKey": "slashing"
           }
@@ -555,7 +477,8 @@
       {
         "periodDescriptor": {
           "number": 2,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "penalties": [
           {
@@ -563,7 +486,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Josh Anderson",
-            "teamAbbrev": "MTL",
+            "teamAbbrev": {
+              "default": "MTL"
+            },
             "drawnBy": "Joe Veleno",
             "descKey": "tripping"
           },
@@ -572,7 +497,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Kaiden Guhle",
-            "teamAbbrev": "MTL",
+            "teamAbbrev": {
+              "default": "MTL"
+            },
             "drawnBy": "Christian Fischer",
             "descKey": "holding"
           },
@@ -581,7 +508,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Jake Walman",
-            "teamAbbrev": "DET",
+            "teamAbbrev": {
+              "default": "DET"
+            },
             "drawnBy": "Josh Anderson",
             "descKey": "holding"
           },
@@ -590,7 +519,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Dylan Larkin",
-            "teamAbbrev": "DET",
+            "teamAbbrev": {
+              "default": "DET"
+            },
             "drawnBy": "Kaiden Guhle",
             "descKey": "tripping"
           }
@@ -599,7 +530,8 @@
       {
         "periodDescriptor": {
           "number": 3,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "penalties": [
           {
@@ -607,7 +539,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Brendan Gallagher",
-            "teamAbbrev": "MTL",
+            "teamAbbrev": {
+              "default": "MTL"
+            },
             "drawnBy": "Moritz Seider",
             "descKey": "roughing"
           },
@@ -616,7 +550,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Moritz Seider",
-            "teamAbbrev": "DET",
+            "teamAbbrev": {
+              "default": "DET"
+            },
             "drawnBy": "Brendan Gallagher",
             "descKey": "roughing"
           }
@@ -625,7 +561,8 @@
       {
         "periodDescriptor": {
           "number": 4,
-          "periodType": "OT"
+          "periodType": "OT",
+          "maxRegulationPeriods": 3
         },
         "penalties": [
           {
@@ -633,7 +570,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "James Reimer",
-            "teamAbbrev": "DET",
+            "teamAbbrev": {
+              "default": "DET"
+            },
             "drawnBy": "Cole Caufield",
             "descKey": "holding-the-stick",
             "servedBy": "Alex DeBrincat"
@@ -643,246 +582,19 @@
             "type": "MIS",
             "duration": 10,
             "committedByPlayer": "J.T. Compher",
-            "teamAbbrev": "DET",
+            "teamAbbrev": {
+              "default": "DET"
+            },
             "descKey": "misconduct"
           }
         ]
       }
-    ],
-    "seasonSeries": [
-      {
-        "id": 2023020195,
-        "season": 20232024,
-        "gameType": 2,
-        "gameDate": "2023-11-09",
-        "startTimeUTC": "2023-11-10T00:00:00Z",
-        "easternUTCOffset": "-05:00",
-        "venueUTCOffset": "-05:00",
-        "gameState": "OFF",
-        "gameScheduleState": "OK",
-        "awayTeam": {
-          "id": 8,
-          "abbrev": "MTL",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
-          "score": 3
-        },
-        "homeTeam": {
-          "id": 17,
-          "abbrev": "DET",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
-          "score": 2
-        },
-        "clock": {
-          "timeRemaining": "00:44",
-          "secondsRemaining": 44,
-          "running": false,
-          "inIntermission": false
-        },
-        "gameCenterLink": "/gamecenter/mtl-vs-det/2023/11/09/2023020195",
-        "periodDescriptor": {
-          "number": 4,
-          "periodType": "OT"
-        },
-        "gameOutcome": {
-          "lastPeriodType": "OT",
-          "otPeriods": 1
-        }
-      },
-      {
-        "id": 2023020361,
-        "season": 20232024,
-        "gameType": 2,
-        "gameDate": "2023-12-02",
-        "startTimeUTC": "2023-12-03T00:00:00Z",
-        "easternUTCOffset": "-05:00",
-        "venueUTCOffset": "-05:00",
-        "gameState": "OFF",
-        "gameScheduleState": "OK",
-        "awayTeam": {
-          "id": 17,
-          "abbrev": "DET",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
-          "score": 5
-        },
-        "homeTeam": {
-          "id": 8,
-          "abbrev": "MTL",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
-          "score": 4
-        },
-        "clock": {
-          "timeRemaining": "04:06",
-          "secondsRemaining": 246,
-          "running": false,
-          "inIntermission": false
-        },
-        "gameCenterLink": "/gamecenter/det-vs-mtl/2023/12/02/2023020361",
-        "periodDescriptor": {
-          "number": 4,
-          "periodType": "OT"
-        },
-        "gameOutcome": {
-          "lastPeriodType": "OT",
-          "otPeriods": 1
-        }
-      },
-      {
-        "id": 2023021287,
-        "season": 20232024,
-        "gameType": 2,
-        "gameDate": "2024-04-15",
-        "startTimeUTC": "2024-04-15T23:00:00Z",
-        "easternUTCOffset": "-04:00",
-        "venueUTCOffset": "-04:00",
-        "gameState": "FUT",
-        "gameScheduleState": "OK",
-        "awayTeam": {
-          "id": 8,
-          "abbrev": "MTL",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg"
-        },
-        "homeTeam": {
-          "id": 17,
-          "abbrev": "DET",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
-        },
-        "gameCenterLink": "/gamecenter/mtl-vs-det/2024/04/15/2023021287"
-      },
-      {
-        "id": 2023021298,
-        "season": 20232024,
-        "gameType": 2,
-        "gameDate": "2024-04-16",
-        "startTimeUTC": "2024-04-16T23:00:00Z",
-        "easternUTCOffset": "-04:00",
-        "venueUTCOffset": "-04:00",
-        "gameState": "FUT",
-        "gameScheduleState": "OK",
-        "awayTeam": {
-          "id": 17,
-          "abbrev": "DET",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
-        },
-        "homeTeam": {
-          "id": 8,
-          "abbrev": "MTL",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg"
-        },
-        "gameCenterLink": "/gamecenter/det-vs-mtl/2024/04/16/2023021298"
-      }
-    ],
-    "gameInfo": {
-      "referees": [
-        {
-          "default": "Brian Pochmara"
-        },
-        {
-          "default": "Brandon Blandina"
-        }
-      ],
-      "linesmen": [
-        {
-          "default": "Tommy Hughes"
-        },
-        {
-          "default": "Brad Kovachik"
-        }
-      ],
-      "awayTeam": {
-        "headCoach": {
-          "default": "Martin St. Louis"
-        },
-        "scratches": [
-          {
-            "id": 8478470,
-            "firstName": {
-              "default": "Sam"
-            },
-            "lastName": {
-              "default": "Montembeault"
-            }
-          },
-          {
-            "id": 8481058,
-            "firstName": {
-              "default": "Jesse"
-            },
-            "lastName": {
-              "default": "Ylönen"
-            }
-          },
-          {
-            "id": 8481093,
-            "firstName": {
-              "default": "Rafael"
-            },
-            "lastName": {
-              "default": "Harvey-Pinard"
-            }
-          }
-        ]
-      },
-      "homeTeam": {
-        "headCoach": {
-          "default": "Derek Lalonde"
-        },
-        "scratches": [
-          {
-            "id": 8476906,
-            "firstName": {
-              "default": "Shayne"
-            },
-            "lastName": {
-              "default": "Gostisbehere"
-            }
-          },
-          {
-            "id": 8477952,
-            "firstName": {
-              "default": "Robby"
-            },
-            "lastName": {
-              "default": "Fabbri"
-            }
-          },
-          {
-            "id": 8478024,
-            "firstName": {
-              "default": "Ville"
-            },
-            "lastName": {
-              "default": "Husso"
-            }
-          }
-        ]
-      }
-    },
-    "gameReports": {
-      "gameSummary": "https://www.nhl.com/scores/htmlreports/20232024/GS020195.HTM",
-      "eventSummary": "https://www.nhl.com/scores/htmlreports/20232024/ES020195.HTM",
-      "playByPlay": "https://www.nhl.com/scores/htmlreports/20232024/PL020195.HTM",
-      "faceoffSummary": "https://www.nhl.com/scores/htmlreports/20232024/FS020195.HTM",
-      "faceoffComparison": "https://www.nhl.com/scores/htmlreports/20232024/FC020195.HTM",
-      "rosters": "https://www.nhl.com/scores/htmlreports/20232024/RO020195.HTM",
-      "shotSummary": "https://www.nhl.com/scores/htmlreports/20232024/SS020195.HTM",
-      "shiftChart": "https://www.nhl.com/stats/shiftcharts?id=2023020195",
-      "toiAway": "https://www.nhl.com/scores/htmlreports/20232024/TV020195.HTM",
-      "toiHome": "https://www.nhl.com/scores/htmlreports/20232024/TH020195.HTM"
-    },
-    "seasonSeriesWins": {
-      "awayTeamWins": 2,
-      "homeTeamWins": 2
-    }
+    ]
   },
   "clock": {
     "timeRemaining": "00:44",
     "secondsRemaining": 44,
     "running": false,
     "inIntermission": false
-  },
-  "gameVideo": {
-    "threeMinRecap": 6340839267112,
-    "threeMinRecapFr": 6340840337112,
-    "condensedGame": 6340840444112
   }
 }

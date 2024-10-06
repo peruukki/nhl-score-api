@@ -124,9 +124,9 @@
   (let [period (str (parse-period (:period-descriptor period-scoring) only-numeric-periods?))]
     (map #(assoc % :period period) (:goals period-scoring))))
 
-(defn- parse-goals [landing]
-  (let [period-scorings (:scoring (:summary landing))
-        only-numeric-periods? (playoff-game? landing)
+(defn- parse-goals [gamecenter]
+  (let [period-scorings (:scoring (:summary gamecenter))
+        only-numeric-periods? (playoff-game? gamecenter)
         period-goals (flatten (map #(parse-period-goals % only-numeric-periods?) period-scorings))]
     (map parse-goal-details period-goals)))
 
@@ -163,10 +163,10 @@
 (defn- parse-game-state [schedule-game]
   (str/upper-case (get-game-state schedule-game)))
 
-(defn- parse-game-progress [schedule-game landing]
-  (if (nil? landing)
+(defn- parse-game-progress [schedule-game gamecenter]
+  (if (nil? gamecenter)
     nil
-    (let [clock (:clock landing)
+    (let [clock (:clock gamecenter)
           time-remaining-pretty (if (or (:in-intermission clock)
                                         (= (:seconds-remaining clock) 0))
                                   "END"
@@ -343,10 +343,10 @@
     {current-stats-key {:round round :wins current-wins}
      pre-game-stats-key {:round round :wins wins-before-game}}))
 
-(defn- parse-game-status [schedule-game landing]
+(defn- parse-game-status [schedule-game gamecenter]
   (let [state (parse-game-state schedule-game)]
     (if (= state "LIVE")
-      {:state state :progress (parse-game-progress schedule-game landing)}
+      {:state state :progress (parse-game-progress schedule-game gamecenter)}
       {:state state})))
 
 (defn- parse-game-start-time [schedule-game]
@@ -382,15 +382,15 @@
     "0.0"
     (format "%.1f" (* 100 stat-value))))
 
-(defn- add-game-stats [game-details team-details landing]
-  (if (nil? landing)
+(defn- add-game-stats [game-details team-details gamecenter]
+  (if (nil? gamecenter)
     game-details
     (assoc game-details
            :game-stats
            (let [away-abbreviation (get-in team-details [:away :abbreviation])
                  home-abbreviation (get-in team-details [:home :abbreviation])
                  parse-stat (partial parse-game-stat
-                                     (:team-game-stats (:summary landing)) away-abbreviation home-abbreviation)]
+                                     (:team-game-stats gamecenter) away-abbreviation home-abbreviation)]
              {:blocked (parse-stat "blockedShots")
               :face-off-win-percentage (parse-stat "faceoffWinningPctg" parse-float-percentage)
               :giveaways (parse-stat "giveaways")
@@ -476,19 +476,19 @@
                         (seq (val %)))
                    game-details)))
 
-(defn- parse-game-details [current-and-pre-game-standings landing schedule-game]
+(defn- parse-game-details [current-and-pre-game-standings gamecenter schedule-game]
   (let [team-details (parse-game-team-details schedule-game)
         scores (parse-scores schedule-game team-details)
         teams (get-teams team-details)]
-    (-> {:status (parse-game-status schedule-game landing)
+    (-> {:status (parse-game-status schedule-game gamecenter)
          :start-time (parse-game-start-time schedule-game)
-         :goals (parse-goals landing)
+         :goals (parse-goals gamecenter)
          :links (parse-links schedule-game)
          :scores scores
          :teams teams
          pre-game-stats-key {}
          current-stats-key {}}
-        (add-game-stats team-details landing)
+        (add-game-stats team-details gamecenter)
         (add-team-records current-and-pre-game-standings teams)
         (add-team-streaks schedule-game team-details current-and-pre-game-standings)
         (add-team-standings team-details current-and-pre-game-standings)
@@ -499,7 +499,7 @@
 (defn parse-game-scores
   ([date-and-schedule-games current-and-pre-game-standings]
    (parse-game-scores date-and-schedule-games current-and-pre-game-standings nil))
-  ([date-and-schedule-games current-and-pre-game-standings landings]
+  ([date-and-schedule-games current-and-pre-game-standings gamecenters]
    {:date (:date date-and-schedule-games)
-    :games (map #(parse-game-details current-and-pre-game-standings (get landings (:id %)) %)
+    :games (map #(parse-game-details current-and-pre-game-standings (get gamecenters (:id %)) %)
                 (:games date-and-schedule-games))}))

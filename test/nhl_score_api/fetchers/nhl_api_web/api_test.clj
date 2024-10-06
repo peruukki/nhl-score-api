@@ -29,6 +29,30 @@
     (is (= (str base-url "/gamecenter/2023020209/landing")
            (api/url (api/->LandingApiRequest "2023020209"))))))
 
+(deftest right-rail-api-request-test
+  (testing "archive?"
+    (testing "Archives game with recap video"
+      (is (= true
+             (api/archive? (api/->RightRailApiRequest "2023020209")
+                           (resources/get-right-rail "2023020209")))))
+
+    (testing "Does not archive game without recap video"
+      (is (= false
+             (api/archive? (api/->RightRailApiRequest "2023020206")
+                           (resources/get-right-rail "2023020206"))))))
+
+  (testing "cache-key"
+    (is (= "right-rail-2023020209"
+           (api/cache-key (api/->RightRailApiRequest "2023020209")))))
+
+  (testing "description"
+    (is (= "right-rail {:game-id \"2023020209\"}"
+           (api/description (api/->RightRailApiRequest "2023020209")))))
+
+  (testing "url"
+    (is (= (str base-url "/gamecenter/2023020209/right-rail")
+           (api/url (api/->RightRailApiRequest "2023020209"))))))
+
 (deftest schedule-api-request-test
   (testing "archive?"
     (testing "with single date"

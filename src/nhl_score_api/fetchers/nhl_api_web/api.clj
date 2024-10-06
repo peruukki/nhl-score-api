@@ -30,6 +30,13 @@
   (description [_] (str "landing " {:game-id game-id}))
   (url [_] (str base-url "/gamecenter/" game-id "/landing")))
 
+(defrecord RightRailApiRequest [game-id]
+  ApiRequest
+  (archive? [_ response] (boolean (:three-min-recap (:game-video response))))
+  (cache-key [_] (str "right-rail-" game-id))
+  (description [_] (str "right-rail " {:game-id game-id}))
+  (url [_] (str base-url "/gamecenter/" game-id "/right-rail")))
+
 (defrecord ScheduleApiRequest [start-date-str end-date-str]
   ApiRequest
   (archive? [_ response] (->> response

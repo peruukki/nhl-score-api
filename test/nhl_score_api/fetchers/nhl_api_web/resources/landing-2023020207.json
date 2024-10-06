@@ -16,29 +16,30 @@
   "venueTimezone": "America/Toronto",
   "periodDescriptor": {
     "number": 5,
-    "periodType": "SO"
+    "periodType": "SO",
+    "maxRegulationPeriods": 3
   },
   "tvBroadcasts": [
-    {
-      "id": 281,
-      "market": "N",
-      "countryCode": "CA",
-      "network": "TVAS",
-      "sequenceNumber": 32
-    },
     {
       "id": 289,
       "market": "A",
       "countryCode": "CA",
       "network": "SNW",
-      "sequenceNumber": 31
+      "sequenceNumber": 34
+    },
+    {
+      "id": 281,
+      "market": "N",
+      "countryCode": "CA",
+      "network": "TVAS",
+      "sequenceNumber": 109
     },
     {
       "id": 293,
       "market": "H",
       "countryCode": "CA",
       "network": "TSN4",
-      "sequenceNumber": 89
+      "sequenceNumber": 137
     }
   ],
   "gameState": "OFF",
@@ -51,6 +52,10 @@
     "abbrev": "CGY",
     "placeName": {
       "default": "Calgary"
+    },
+    "placeNameWithPreposition": {
+      "default": "Calgary",
+      "fr": "de Calgary"
     },
     "score": 4,
     "sog": 28,
@@ -65,6 +70,10 @@
     "placeName": {
       "default": "Toronto"
     },
+    "placeNameWithPreposition": {
+      "default": "Toronto",
+      "fr": "de Toronto"
+    },
     "score": 5,
     "sog": 36,
     "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg"
@@ -75,67 +84,12 @@
   "otInUse": true,
   "tiesInUse": false,
   "summary": {
-    "linescore": {
-      "byPeriod": [
-        {
-          "periodDescriptor": {
-            "number": 1,
-            "periodType": "REG"
-          },
-          "away": 1,
-          "home": 2
-        },
-        {
-          "periodDescriptor": {
-            "number": 2,
-            "periodType": "REG"
-          },
-          "away": 2,
-          "home": 2
-        },
-        {
-          "periodDescriptor": {
-            "number": 3,
-            "periodType": "REG"
-          },
-          "away": 1,
-          "home": 0
-        },
-        {
-          "periodDescriptor": {
-            "number": 4,
-            "periodType": "OT"
-          },
-          "away": 0,
-          "home": 0
-        },
-        {
-          "periodDescriptor": {
-            "number": 5,
-            "periodType": "SO"
-          },
-          "away": 0,
-          "home": 1
-        }
-      ],
-      "shootout": {
-        "awayDecidingGoal": 0,
-        "awayConversions": 1,
-        "awayAttempts": 5,
-        "homeDecidingGoal": 0,
-        "homeConversions": 2,
-        "homeAttempts": 5
-      },
-      "totals": {
-        "away": 4,
-        "home": 5
-      }
-    },
     "scoring": [
       {
         "periodDescriptor": {
           "number": 1,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "goals": [
           {
@@ -155,6 +109,8 @@
               "default": "TOR"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477939.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/cgy-tor-nylander-scores-goal-against-flames-6340906526112",
+            "highlightClipSharingUrlFr": "https://nhl.com/fr/video/cgy-tor-nylander-scores-goal-against-flames-6340909082112",
             "highlightClip": 6340906526112,
             "highlightClipFr": 6340909082112,
             "goalsToDate": 8,
@@ -166,7 +122,8 @@
             "timeInPeriod": "03:01",
             "shotType": "wrist",
             "goalModifier": "none",
-            "assists": []
+            "assists": [],
+            "homeTeamDefendingSide": "right"
           },
           {
             "situationCode": "1551",
@@ -185,6 +142,8 @@
               "default": "CGY"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8482074.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/cgy-tor-zary-scores-goal-against-maple-leafs-6340906940112",
+            "highlightClipSharingUrlFr": "https://nhl.com/fr/video/cgy-tor-zary-scores-goal-against-maple-leafs-6340908490112",
             "highlightClip": 6340906940112,
             "highlightClipFr": 6340908490112,
             "goalsToDate": 2,
@@ -207,7 +166,8 @@
                 },
                 "assistsToDate": 6
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "right"
           },
           {
             "situationCode": "1551",
@@ -232,6 +192,8 @@
               "default": "TOR"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8475714.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/cgy-tor-jarnkrok-scores-goal-against-flames-6340906547112",
+            "highlightClipSharingUrlFr": "https://nhl.com/fr/video/cgy-tor-jarnkrok-scores-goal-against-flames-6340907997112",
             "highlightClip": 6340906547112,
             "highlightClipFr": 6340907997112,
             "goalsToDate": 4,
@@ -270,14 +232,16 @@
                 },
                 "assistsToDate": 2
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "right"
           }
         ]
       },
       {
         "periodDescriptor": {
           "number": 2,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "goals": [
           {
@@ -297,6 +261,8 @@
               "default": "TOR"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477939.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/cgy-tor-nylander-scores-goal-against-flames-6340910211112",
+            "highlightClipSharingUrlFr": "https://nhl.com/fr/video/cgy-tor-nylander-scores-goal-against-flames-6340909143112",
             "highlightClip": 6340910211112,
             "highlightClipFr": 6340909143112,
             "goalsToDate": 9,
@@ -308,7 +274,8 @@
             "timeInPeriod": "01:06",
             "shotType": "wrist",
             "goalModifier": "none",
-            "assists": []
+            "assists": [],
+            "homeTeamDefendingSide": "left"
           },
           {
             "situationCode": "1551",
@@ -327,6 +294,8 @@
               "default": "TOR"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8475166.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/cgy-tor-tavares-scores-goal-against-flames-6340910508112",
+            "highlightClipSharingUrlFr": "https://nhl.com/fr/video/cgy-tor-tavares-scores-goal-against-flames-6340911311112",
             "highlightClip": 6340910508112,
             "highlightClipFr": 6340911311112,
             "goalsToDate": 6,
@@ -365,7 +334,8 @@
                 },
                 "assistsToDate": 9
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "left"
           },
           {
             "situationCode": "1551",
@@ -384,8 +354,8 @@
               "default": "CGY"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8477507.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/cgy-tor-zadorov-scores-goal-against-maple-leafs-6340910311112",
             "highlightClip": 6340910311112,
-            "highlightClipFr": 6340910311112,
             "goalsToDate": 1,
             "awayScore": 2,
             "homeScore": 4,
@@ -422,7 +392,8 @@
                 },
                 "assistsToDate": 5
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "left"
           },
           {
             "situationCode": "1551",
@@ -441,8 +412,8 @@
               "default": "CGY"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8478421.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/cgy-tor-greer-scores-goal-against-maple-leafs-6340910925112",
             "highlightClip": 6340910925112,
-            "highlightClipFr": 6340910925112,
             "goalsToDate": 2,
             "awayScore": 3,
             "homeScore": 4,
@@ -479,14 +450,16 @@
                 },
                 "assistsToDate": 3
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "left"
           }
         ]
       },
       {
         "periodDescriptor": {
           "number": 3,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "goals": [
           {
@@ -510,6 +483,8 @@
               "default": "CGY"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8481028.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/cgy-tor-pospisil-scores-goal-against-maple-leafs-6340911568112",
+            "highlightClipSharingUrlFr": "https://nhl.com/fr/video/cgy-tor-pospisil-scores-goal-against-maple-leafs-6340912725112",
             "highlightClip": 6340911568112,
             "highlightClipFr": 6340912725112,
             "goalsToDate": 2,
@@ -545,21 +520,24 @@
                 },
                 "assistsToDate": 2
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "right"
           }
         ]
       },
       {
         "periodDescriptor": {
           "number": 4,
-          "periodType": "OT"
+          "periodType": "OT",
+          "maxRegulationPeriods": 3
         },
         "goals": []
       },
       {
         "periodDescriptor": {
           "number": 5,
-          "periodType": "SO"
+          "periodType": "SO",
+          "maxRegulationPeriods": 3
         },
         "goals": [
           {
@@ -588,7 +566,8 @@
             "timeInPeriod": "00:00",
             "shotType": "wrist",
             "goalModifier": "none",
-            "assists": []
+            "assists": [],
+            "homeTeamDefendingSide": "right"
           }
         ]
       }
@@ -711,7 +690,9 @@
         "playerId": 8477939,
         "teamAbbrev": "TOR",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477939.png",
-        "name": "W. Nylander",
+        "name": {
+          "default": "W. Nylander"
+        },
         "sweaterNo": 88,
         "position": "R",
         "goals": 2,
@@ -723,7 +704,9 @@
         "playerId": 8477503,
         "teamAbbrev": "TOR",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477503.png",
-        "name": "M. Domi",
+        "name": {
+          "default": "M. Domi"
+        },
         "sweaterNo": 11,
         "position": "C",
         "goals": 0,
@@ -735,7 +718,9 @@
         "playerId": 8476853,
         "teamAbbrev": "TOR",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8476853.png",
-        "name": "M. Rielly",
+        "name": {
+          "default": "M. Rielly"
+        },
         "sweaterNo": 44,
         "position": "D",
         "goals": 0,
@@ -743,100 +728,12 @@
         "points": 1
       }
     ],
-    "teamGameStats": [
-      {
-        "category": "sog",
-        "awayValue": 28,
-        "homeValue": 36
-      },
-      {
-        "category": "faceoffWinningPctg",
-        "awayValue": 0.407407,
-        "homeValue": 0.592593
-      },
-      {
-        "category": "powerPlay",
-        "awayValue": "0/2",
-        "homeValue": "1/1"
-      },
-      {
-        "category": "powerPlayPctg",
-        "awayValue": 0.0,
-        "homeValue": 1.0
-      },
-      {
-        "category": "pim",
-        "awayValue": 4,
-        "homeValue": 6
-      },
-      {
-        "category": "hits",
-        "awayValue": 25,
-        "homeValue": 29
-      },
-      {
-        "category": "blockedShots",
-        "awayValue": 19,
-        "homeValue": 15
-      },
-      {
-        "category": "giveaways",
-        "awayValue": 7,
-        "homeValue": 11
-      },
-      {
-        "category": "takeaways",
-        "awayValue": 13,
-        "homeValue": 10
-      }
-    ],
-    "shotsByPeriod": [
-      {
-        "periodDescriptor": {
-          "number": 1,
-          "periodType": "REG"
-        },
-        "away": 11,
-        "home": 8
-      },
-      {
-        "periodDescriptor": {
-          "number": 2,
-          "periodType": "REG"
-        },
-        "away": 8,
-        "home": 14
-      },
-      {
-        "periodDescriptor": {
-          "number": 3,
-          "periodType": "REG"
-        },
-        "away": 3,
-        "home": 11
-      },
-      {
-        "periodDescriptor": {
-          "number": 4,
-          "periodType": "OT"
-        },
-        "away": 6,
-        "home": 3
-      },
-      {
-        "periodDescriptor": {
-          "number": 5,
-          "periodType": "SO"
-        },
-        "away": 0,
-        "home": 0
-      }
-    ],
     "penalties": [
       {
         "periodDescriptor": {
           "number": 1,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "penalties": [
           {
@@ -844,7 +741,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "A.J. Greer",
-            "teamAbbrev": "CGY",
+            "teamAbbrev": {
+              "default": "CGY"
+            },
             "drawnBy": "Nicholas Robertson",
             "descKey": "holding"
           },
@@ -853,7 +752,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "TJ Brodie",
-            "teamAbbrev": "TOR",
+            "teamAbbrev": {
+              "default": "TOR"
+            },
             "drawnBy": "Connor Zary",
             "descKey": "hooking"
           },
@@ -862,7 +763,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Nazem Kadri",
-            "teamAbbrev": "CGY",
+            "teamAbbrev": {
+              "default": "CGY"
+            },
             "drawnBy": "Joseph Woll",
             "descKey": "slashing"
           },
@@ -871,7 +774,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "William Lagesson",
-            "teamAbbrev": "TOR",
+            "teamAbbrev": {
+              "default": "TOR"
+            },
             "drawnBy": "Nazem Kadri",
             "descKey": "roughing"
           },
@@ -880,195 +785,44 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Jake McCabe",
-            "teamAbbrev": "TOR",
+            "teamAbbrev": {
+              "default": "TOR"
+            },
             "drawnBy": "Mikael Backlund",
             "descKey": "roughing"
           }
         ]
-      }
-    ],
-    "seasonSeries": [
-      {
-        "id": 2023020207,
-        "season": 20232024,
-        "gameType": 2,
-        "gameDate": "2023-11-10",
-        "startTimeUTC": "2023-11-11T00:00:00Z",
-        "easternUTCOffset": "-05:00",
-        "venueUTCOffset": "-05:00",
-        "gameState": "OFF",
-        "gameScheduleState": "OK",
-        "awayTeam": {
-          "id": 20,
-          "abbrev": "CGY",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg",
-          "score": 4
-        },
-        "homeTeam": {
-          "id": 10,
-          "abbrev": "TOR",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
-          "score": 5
-        },
-        "clock": {
-          "timeRemaining": "00:00",
-          "secondsRemaining": 0,
-          "running": false,
-          "inIntermission": false
-        },
-        "gameCenterLink": "/gamecenter/cgy-vs-tor/2023/11/10/2023020207",
-        "periodDescriptor": {
-          "number": 5,
-          "periodType": "SO"
-        },
-        "gameOutcome": {
-          "lastPeriodType": "SO"
-        }
       },
       {
-        "id": 2023020697,
-        "season": 20232024,
-        "gameType": 2,
-        "gameDate": "2024-01-18",
-        "startTimeUTC": "2024-01-19T02:00:00Z",
-        "easternUTCOffset": "-05:00",
-        "venueUTCOffset": "-07:00",
-        "gameState": "OFF",
-        "gameScheduleState": "OK",
-        "awayTeam": {
-          "id": 10,
-          "abbrev": "TOR",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
-          "score": 4
+        "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
-        "homeTeam": {
-          "id": 20,
-          "abbrev": "CGY",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg",
-          "score": 3
-        },
-        "clock": {
-          "timeRemaining": "00:00",
-          "secondsRemaining": 0,
-          "running": false,
-          "inIntermission": false
-        },
-        "gameCenterLink": "/gamecenter/tor-vs-cgy/2024/01/18/2023020697",
+        "penalties": []
+      },
+      {
         "periodDescriptor": {
           "number": 3,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
-        "gameOutcome": {
-          "lastPeriodType": "REG"
-        }
-      }
-    ],
-    "gameInfo": {
-      "referees": [
-        {
-          "default": "Chris Lee"
-        },
-        {
-          "default": "Kevin Pollock"
-        }
-      ],
-      "linesmen": [
-        {
-          "default": "Brandon Gawryletz"
-        },
-        {
-          "default": "Ryan Galloway"
-        }
-      ],
-      "awayTeam": {
-        "headCoach": {
-          "default": "Ryan Huska"
-        },
-        "scratches": [
-          {
-            "id": 8474593,
-            "firstName": {
-              "default": "Jacob"
-            },
-            "lastName": {
-              "default": "Markstrom",
-              "cs": "Markström",
-              "fi": "Markström",
-              "sk": "Markström"
-            }
-          },
-          {
-            "id": 8478502,
-            "firstName": {
-              "default": "Dennis"
-            },
-            "lastName": {
-              "default": "Gilbert"
-            }
-          },
-          {
-            "id": 8482652,
-            "firstName": {
-              "default": "Walker"
-            },
-            "lastName": {
-              "default": "Duehr"
-            }
-          }
-        ]
+        "penalties": []
       },
-      "homeTeam": {
-        "headCoach": {
-          "default": "Sheldon Keefe"
+      {
+        "periodDescriptor": {
+          "number": 4,
+          "periodType": "OT",
+          "maxRegulationPeriods": 3
         },
-        "scratches": [
-          {
-            "id": 8475906,
-            "firstName": {
-              "default": "John"
-            },
-            "lastName": {
-              "default": "Klingberg"
-            }
-          },
-          {
-            "id": 8480995,
-            "firstName": {
-              "default": "Pontus"
-            },
-            "lastName": {
-              "default": "Holmberg"
-            }
-          }
-        ]
+        "penalties": []
       }
-    },
-    "gameReports": {
-      "gameSummary": "https://www.nhl.com/scores/htmlreports/20232024/GS020207.HTM",
-      "eventSummary": "https://www.nhl.com/scores/htmlreports/20232024/ES020207.HTM",
-      "playByPlay": "https://www.nhl.com/scores/htmlreports/20232024/PL020207.HTM",
-      "faceoffSummary": "https://www.nhl.com/scores/htmlreports/20232024/FS020207.HTM",
-      "faceoffComparison": "https://www.nhl.com/scores/htmlreports/20232024/FC020207.HTM",
-      "rosters": "https://www.nhl.com/scores/htmlreports/20232024/RO020207.HTM",
-      "shotSummary": "https://www.nhl.com/scores/htmlreports/20232024/SS020207.HTM",
-      "shootoutSummary": "https://www.nhl.com/scores/htmlreports/20232024/SO020207.HTM",
-      "shiftChart": "https://www.nhl.com/stats/shiftcharts?id=2023020207",
-      "toiAway": "https://www.nhl.com/scores/htmlreports/20232024/TV020207.HTM",
-      "toiHome": "https://www.nhl.com/scores/htmlreports/20232024/TH020207.HTM"
-    },
-    "seasonSeriesWins": {
-      "awayTeamWins": 0,
-      "homeTeamWins": 2
-    }
+    ]
   },
   "clock": {
     "timeRemaining": "00:00",
     "secondsRemaining": 0,
     "running": false,
     "inIntermission": false
-  },
-  "gameVideo": {
-    "threeMinRecap": 6340914450112,
-    "threeMinRecapFr": 6340913659112
   }
 }

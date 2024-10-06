@@ -16,22 +16,23 @@
   "venueTimezone": "America/Los_Angeles",
   "periodDescriptor": {
     "number": 3,
-    "periodType": "REG"
+    "periodType": "REG",
+    "maxRegulationPeriods": 3
   },
   "tvBroadcasts": [
-    {
-      "id": 323,
-      "market": "A",
-      "countryCode": "US",
-      "network": "NBCSP+",
-      "sequenceNumber": 73
-    },
     {
       "id": 355,
       "market": "H",
       "countryCode": "US",
       "network": "BSW",
       "sequenceNumber": 57
+    },
+    {
+      "id": 323,
+      "market": "A",
+      "countryCode": "US",
+      "network": "NBCSP+",
+      "sequenceNumber": 73
     }
   ],
   "gameState": "OFF",
@@ -46,6 +47,10 @@
       "default": "Philadelphia",
       "fr": "Philadelphie"
     },
+    "placeNameWithPreposition": {
+      "default": "Philadelphia",
+      "fr": "de Philadelphie"
+    },
     "score": 6,
     "sog": 36,
     "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg"
@@ -59,9 +64,13 @@
     "placeName": {
       "default": "Anaheim"
     },
+    "placeNameWithPreposition": {
+      "default": "Anaheim",
+      "fr": "d'Anaheim"
+    },
     "score": 3,
     "sog": 38,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_20132014-20232024_light.svg"
   },
   "shootoutInUse": true,
   "maxPeriods": 5,
@@ -69,43 +78,12 @@
   "otInUse": true,
   "tiesInUse": false,
   "summary": {
-    "linescore": {
-      "byPeriod": [
-        {
-          "periodDescriptor": {
-            "number": 1,
-            "periodType": "REG"
-          },
-          "away": 2,
-          "home": 0
-        },
-        {
-          "periodDescriptor": {
-            "number": 2,
-            "periodType": "REG"
-          },
-          "away": 1,
-          "home": 1
-        },
-        {
-          "periodDescriptor": {
-            "number": 3,
-            "periodType": "REG"
-          },
-          "away": 3,
-          "home": 2
-        }
-      ],
-      "totals": {
-        "away": 6,
-        "home": 3
-      }
-    },
     "scoring": [
       {
         "periodDescriptor": {
           "number": 1,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "goals": [
           {
@@ -125,8 +103,8 @@
               "default": "PHI"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8476461.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/phi-ana-couturier-scores-goal-against-ducks-6340912104112",
             "highlightClip": 6340912104112,
-            "highlightClipFr": 6340912104112,
             "goalsToDate": 3,
             "awayScore": 1,
             "homeScore": 0,
@@ -140,7 +118,13 @@
               {
                 "playerId": 8474715,
                 "firstName": {
-                  "default": "Cam"
+                  "default": "Cameron",
+                  "cs": "Cam",
+                  "de": "Cam",
+                  "es": "Cam",
+                  "fi": "Cam",
+                  "sk": "Cam",
+                  "sv": "Cam"
                 },
                 "lastName": {
                   "default": "Atkinson"
@@ -175,14 +159,21 @@
                 },
                 "assistsToDate": 3
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "left"
           },
           {
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8474715,
             "firstName": {
-              "default": "Cam"
+              "default": "Cameron",
+              "cs": "Cam",
+              "de": "Cam",
+              "es": "Cam",
+              "fi": "Cam",
+              "sk": "Cam",
+              "sv": "Cam"
             },
             "lastName": {
               "default": "Atkinson"
@@ -194,8 +185,8 @@
               "default": "PHI"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8474715.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/phi-ana-atkinson-scores-goal-against-ducks-6340913988112",
             "highlightClip": 6340913988112,
-            "highlightClipFr": 6340913988112,
             "goalsToDate": 7,
             "awayScore": 2,
             "homeScore": 0,
@@ -232,14 +223,16 @@
                 },
                 "assistsToDate": 3
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "left"
           }
         ]
       },
       {
         "periodDescriptor": {
           "number": 2,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "goals": [
           {
@@ -259,8 +252,8 @@
               "default": "PHI"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8478011.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/phi-ana-belpedio-scores-goal-against-ducks-6340916152112",
             "highlightClip": 6340916152112,
-            "highlightClipFr": 6340916152112,
             "goalsToDate": 2,
             "awayScore": 3,
             "homeScore": 0,
@@ -284,7 +277,8 @@
                 },
                 "assistsToDate": 5
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "right"
           },
           {
             "situationCode": "1451",
@@ -303,8 +297,8 @@
               "default": "ANA"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/ANA/8484153.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/leo-carlsson-with-a-hat-trick-vs-philadelphia-flyers-6340930128112",
             "highlightClip": 6340930128112,
-            "highlightClipFr": 6340930128112,
             "goalsToDate": 4,
             "awayScore": 3,
             "homeScore": 1,
@@ -341,14 +335,16 @@
                 },
                 "assistsToDate": 8
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "right"
           }
         ]
       },
       {
         "periodDescriptor": {
           "number": 3,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "goals": [
           {
@@ -368,8 +364,8 @@
               "default": "PHI"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8477948.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/phi-ana-sanheim-scores-goal-against-ducks-6340920468112",
             "highlightClip": 6340920468112,
-            "highlightClipFr": 6340920468112,
             "goalsToDate": 2,
             "awayScore": 4,
             "homeScore": 1,
@@ -406,7 +402,8 @@
                 },
                 "assistsToDate": 3
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "left"
           },
           {
             "situationCode": "1551",
@@ -425,8 +422,8 @@
               "default": "ANA"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/ANA/8484153.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/phi-ana-carlsson-scores-goal-against-flyers-6340927986112",
             "highlightClip": 6340927986112,
-            "highlightClipFr": 6340927986112,
             "goalsToDate": 5,
             "awayScore": 4,
             "homeScore": 2,
@@ -463,7 +460,8 @@
                 },
                 "assistsToDate": 8
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "left"
           },
           {
             "situationCode": "1551",
@@ -482,8 +480,8 @@
               "default": "PHI"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8480015.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/phi-ana-tippett-scores-goal-against-ducks-6340926035112",
             "highlightClip": 6340926035112,
-            "highlightClipFr": 6340926035112,
             "goalsToDate": 3,
             "awayScore": 5,
             "homeScore": 2,
@@ -507,7 +505,8 @@
                 },
                 "assistsToDate": 1
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "left"
           },
           {
             "situationCode": "1460",
@@ -562,7 +561,8 @@
                 },
                 "assistsToDate": 10
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "left"
           },
           {
             "situationCode": "1560",
@@ -581,8 +581,8 @@
               "default": "PHI"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8480015.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/phi-ana-tippett-scores-goal-against-ducks-6340930803112",
             "highlightClip": 6340930803112,
-            "highlightClipFr": 6340930803112,
             "goalsToDate": 4,
             "awayScore": 6,
             "homeScore": 3,
@@ -619,7 +619,8 @@
                 },
                 "assistsToDate": 8
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "left"
           }
         ]
       }
@@ -631,7 +632,9 @@
         "playerId": 8481035,
         "teamAbbrev": "PHI",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8481035.png",
-        "name": "S. Ersson",
+        "name": {
+          "default": "S. Ersson"
+        },
         "sweaterNo": 33,
         "position": "G",
         "goalsAgainstAverage": 3.0,
@@ -642,7 +645,9 @@
         "playerId": 8484153,
         "teamAbbrev": "ANA",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/ANA/8484153.png",
-        "name": "L. Carlsson",
+        "name": {
+          "default": "L. Carlsson"
+        },
         "sweaterNo": 91,
         "position": "C",
         "goals": 3,
@@ -654,7 +659,9 @@
         "playerId": 8477948,
         "teamAbbrev": "PHI",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/PHI/8477948.png",
-        "name": "T. Sanheim",
+        "name": {
+          "default": "T. Sanheim"
+        },
         "sweaterNo": 6,
         "position": "D",
         "goals": 1,
@@ -662,84 +669,12 @@
         "points": 3
       }
     ],
-    "teamGameStats": [
-      {
-        "category": "sog",
-        "awayValue": 36,
-        "homeValue": 38
-      },
-      {
-        "category": "faceoffWinningPctg",
-        "awayValue": 0.492063,
-        "homeValue": 0.507937
-      },
-      {
-        "category": "powerPlay",
-        "awayValue": "0/3",
-        "homeValue": "2/6"
-      },
-      {
-        "category": "powerPlayPctg",
-        "awayValue": 0.0,
-        "homeValue": 0.333333
-      },
-      {
-        "category": "pim",
-        "awayValue": 12,
-        "homeValue": 6
-      },
-      {
-        "category": "hits",
-        "awayValue": 13,
-        "homeValue": 18
-      },
-      {
-        "category": "blockedShots",
-        "awayValue": 21,
-        "homeValue": 9
-      },
-      {
-        "category": "giveaways",
-        "awayValue": 7,
-        "homeValue": 12
-      },
-      {
-        "category": "takeaways",
-        "awayValue": 7,
-        "homeValue": 3
-      }
-    ],
-    "shotsByPeriod": [
-      {
-        "periodDescriptor": {
-          "number": 1,
-          "periodType": "REG"
-        },
-        "away": 17,
-        "home": 15
-      },
-      {
-        "periodDescriptor": {
-          "number": 2,
-          "periodType": "REG"
-        },
-        "away": 7,
-        "home": 15
-      },
-      {
-        "periodDescriptor": {
-          "number": 3,
-          "periodType": "REG"
-        },
-        "away": 12,
-        "home": 8
-      }
-    ],
     "penalties": [
       {
         "periodDescriptor": {
           "number": 1,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "penalties": [
           {
@@ -747,7 +682,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Ilya Lyubushkin",
-            "teamAbbrev": "ANA",
+            "teamAbbrev": {
+              "default": "ANA"
+            },
             "drawnBy": "Garnet Hathaway",
             "descKey": "tripping"
           },
@@ -756,7 +693,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Sean Couturier",
-            "teamAbbrev": "PHI",
+            "teamAbbrev": {
+              "default": "PHI"
+            },
             "drawnBy": "Mason McTavish",
             "descKey": "tripping"
           }
@@ -765,7 +704,8 @@
       {
         "periodDescriptor": {
           "number": 2,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "penalties": [
           {
@@ -773,7 +713,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Radko Gudas",
-            "teamAbbrev": "ANA",
+            "teamAbbrev": {
+              "default": "ANA"
+            },
             "drawnBy": "Nick Seeler",
             "descKey": "cross-checking"
           },
@@ -782,7 +724,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Cam Atkinson",
-            "teamAbbrev": "PHI",
+            "teamAbbrev": {
+              "default": "PHI"
+            },
             "drawnBy": "Adam Henrique",
             "descKey": "hooking"
           },
@@ -791,7 +735,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Morgan Frost",
-            "teamAbbrev": "PHI",
+            "teamAbbrev": {
+              "default": "PHI"
+            },
             "drawnBy": "Max Jones",
             "descKey": "cross-checking"
           },
@@ -800,7 +746,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Cam York",
-            "teamAbbrev": "PHI",
+            "teamAbbrev": {
+              "default": "PHI"
+            },
             "drawnBy": "Troy Terry",
             "descKey": "slashing"
           }
@@ -809,7 +757,8 @@
       {
         "periodDescriptor": {
           "number": 3,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "penalties": [
           {
@@ -817,7 +766,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Egor Zamula",
-            "teamAbbrev": "PHI",
+            "teamAbbrev": {
+              "default": "PHI"
+            },
             "descKey": "delaying-game-puck-over-glass"
           },
           {
@@ -825,7 +776,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Lukas Dostal",
-            "teamAbbrev": "ANA",
+            "teamAbbrev": {
+              "default": "ANA"
+            },
             "drawnBy": "Joel Farabee",
             "descKey": "roughing",
             "servedBy": "Ross Johnston"
@@ -835,206 +788,20 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Scott Laughton",
-            "teamAbbrev": "PHI",
+            "teamAbbrev": {
+              "default": "PHI"
+            },
             "drawnBy": "Jackson LaCombe",
             "descKey": "hooking"
           }
         ]
       }
-    ],
-    "seasonSeries": [
-      {
-        "id": 2023020117,
-        "season": 20232024,
-        "gameType": 2,
-        "gameDate": "2023-10-28",
-        "startTimeUTC": "2023-10-28T17:00:00Z",
-        "easternUTCOffset": "-04:00",
-        "venueUTCOffset": "-04:00",
-        "gameState": "OFF",
-        "gameScheduleState": "OK",
-        "awayTeam": {
-          "id": 24,
-          "abbrev": "ANA",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
-          "score": 7
-        },
-        "homeTeam": {
-          "id": 4,
-          "abbrev": "PHI",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg",
-          "score": 4
-        },
-        "clock": {
-          "timeRemaining": "00:00",
-          "secondsRemaining": 0,
-          "running": false,
-          "inIntermission": false
-        },
-        "gameCenterLink": "/gamecenter/ana-vs-phi/2023/10/28/2023020117",
-        "periodDescriptor": {
-          "number": 3,
-          "periodType": "REG"
-        },
-        "gameOutcome": {
-          "lastPeriodType": "REG"
-        }
-      },
-      {
-        "id": 2023020208,
-        "season": 20232024,
-        "gameType": 2,
-        "gameDate": "2023-11-10",
-        "startTimeUTC": "2023-11-11T03:00:00Z",
-        "easternUTCOffset": "-05:00",
-        "venueUTCOffset": "-08:00",
-        "gameState": "OFF",
-        "gameScheduleState": "OK",
-        "awayTeam": {
-          "id": 4,
-          "abbrev": "PHI",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg",
-          "score": 6
-        },
-        "homeTeam": {
-          "id": 24,
-          "abbrev": "ANA",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
-          "score": 3
-        },
-        "clock": {
-          "timeRemaining": "00:00",
-          "secondsRemaining": 0,
-          "running": false,
-          "inIntermission": false
-        },
-        "gameCenterLink": "/gamecenter/phi-vs-ana/2023/11/10/2023020208",
-        "periodDescriptor": {
-          "number": 3,
-          "periodType": "REG"
-        },
-        "gameOutcome": {
-          "lastPeriodType": "REG"
-        }
-      }
-    ],
-    "gameInfo": {
-      "referees": [
-        {
-          "default": "Frederick L'Ecuyer"
-        },
-        {
-          "default": "Graham Skilliter"
-        }
-      ],
-      "linesmen": [
-        {
-          "default": "Bevan Mills"
-        },
-        {
-          "default": "Ryan Gibbons"
-        }
-      ],
-      "awayTeam": {
-        "headCoach": {
-          "default": "John Tortorella"
-        },
-        "scratches": [
-          {
-            "id": 8479376,
-            "firstName": {
-              "default": "Victor"
-            },
-            "lastName": {
-              "default": "Mete"
-            }
-          },
-          {
-            "id": 8479394,
-            "firstName": {
-              "default": "Carter"
-            },
-            "lastName": {
-              "default": "Hart"
-            }
-          },
-          {
-            "id": 8480068,
-            "firstName": {
-              "default": "Ryan"
-            },
-            "lastName": {
-              "default": "Poehling"
-            }
-          }
-        ]
-      },
-      "homeTeam": {
-        "headCoach": {
-          "default": "Greg Cronin"
-        },
-        "scratches": [
-          {
-            "id": 8480870,
-            "firstName": {
-              "default": "Bo",
-              "cs": "Benoit-Olivier",
-              "de": "Benoit-Olivier",
-              "es": "Benoit-Olivier",
-              "fi": "Benoit-Olivier",
-              "sk": "Benoit-Olivier",
-              "sv": "Benoit-Olivier"
-            },
-            "lastName": {
-              "default": "Groulx"
-            }
-          },
-          {
-            "id": 8481533,
-            "firstName": {
-              "default": "Trevor"
-            },
-            "lastName": {
-              "default": "Zegras"
-            }
-          },
-          {
-            "id": 8483482,
-            "firstName": {
-              "default": "Tristan"
-            },
-            "lastName": {
-              "default": "Luneau"
-            }
-          }
-        ]
-      }
-    },
-    "gameReports": {
-      "gameSummary": "https://www.nhl.com/scores/htmlreports/20232024/GS020208.HTM",
-      "eventSummary": "https://www.nhl.com/scores/htmlreports/20232024/ES020208.HTM",
-      "playByPlay": "https://www.nhl.com/scores/htmlreports/20232024/PL020208.HTM",
-      "faceoffSummary": "https://www.nhl.com/scores/htmlreports/20232024/FS020208.HTM",
-      "faceoffComparison": "https://www.nhl.com/scores/htmlreports/20232024/FC020208.HTM",
-      "rosters": "https://www.nhl.com/scores/htmlreports/20232024/RO020208.HTM",
-      "shotSummary": "https://www.nhl.com/scores/htmlreports/20232024/SS020208.HTM",
-      "shiftChart": "https://www.nhl.com/stats/shiftcharts?id=2023020208",
-      "toiAway": "https://www.nhl.com/scores/htmlreports/20232024/TV020208.HTM",
-      "toiHome": "https://www.nhl.com/scores/htmlreports/20232024/TH020208.HTM"
-    },
-    "seasonSeriesWins": {
-      "awayTeamWins": 1,
-      "homeTeamWins": 1
-    }
+    ]
   },
   "clock": {
     "timeRemaining": "00:00",
     "secondsRemaining": 0,
     "running": false,
     "inIntermission": false
-  },
-  "gameVideo": {
-    "threeMinRecap": 6340931107112,
-    "condensedGame": 6340929648112
   }
 }

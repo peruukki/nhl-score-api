@@ -1,9 +1,5 @@
 # nhl-score-api
 
-> [!IMPORTANT]
-> Game stats are currently unavailable because they have moved to another endpoint in the NHL API. It will take some
-> time to make the changes to get them, and in the meantime nhl-score-api returns zero values in the game stats.
-
 A JSON API that returns the scores and goals from the latest finished or on-going NHL games. The data is sourced from the
 same NHL Stats API at https://api-web.nhle.com that the NHL website uses. The NHL Stats API is undocumented but
 [unofficial documentation](https://gitlab.com/dword4/nhlapi) exists.
@@ -11,8 +7,10 @@ same NHL Stats API at https://api-web.nhle.com that the NHL website uses. The NH
 How we use the NHL Stats API:
 
 - [schedule](https://api-web.nhle.com/v1/schedule/2023-11-07) gives us a list of the week's games; we check the game
-  statuses and get the game IDs to fetch the games' gamecenter landing page data
-- [landing](https://api-web.nhle.com/v1/gamecenter/2023020180/landing) gives us the details of an individual game
+  statuses and get the game IDs to fetch the games' gamecenter landing page and right-rail data
+- [landing](https://api-web.nhle.com/v1/gamecenter/2023020180/landing) gives us basic details of an individual game
+- [right-rail](https://api-web.nhle.com/v1/gamecenter/2023020180/right-rail) gives us more details of an individual game,
+  like game stats and recap video links
 - [standings](https://api-web.nhle.com/v1/standings/2023-11-07) gives us team stats
 
 This API is available at https://nhl-score-api.herokuapp.com/, and it serves as the backend for [nhl-recap](https://github.com/peruukki/nhl-recap).
@@ -712,21 +710,26 @@ lein test
 The NHL API responses change from time to time, so the [responses](test/nhl_score_api/fetchers/nhl_api_web/resources/)
 used in tests also need to be updated to remain accurate.
 
-Especially the game-specific landing responses need frequent updating, so there is a helper script to fetch the current
+Especially the game-specific API responses need frequent updating, so there is a helper script to fetch the current
 responses with game IDs and save them. It's also useful for checking if the NHL API responses have changed in case of
-errors.
+errors. Though note that not all data should be updated; at least game progress data changes should be discarded so that
+the tests that rely on that still work.
 
-The script is called `update-test-landings.sh` and it uses `curl` for fetching and [`jq`](https://jqlang.github.io/jq/)
+The script is called `update-game-test-data.sh` and it uses `curl` for fetching and [`jq`](https://jqlang.github.io/jq/)
 for formatting, so you'll need those installed.
 
 Example:
 
 ```sh
-$ ./scripts/update-test-landings.sh 2023020205 2023020206
+$ ./scripts/update-game-test-data.sh 2023020205 2023020206
 Fetching landing for game ID 2023020205
 Landing response saved to test/nhl_score_api/fetchers/nhl_api_web/resources/landing-2023020205.json
+Fetching right-rail for game ID 2023020205
+Right-rail response saved to test/nhl_score_api/fetchers/nhl_api_web/resources/right-rail-2023020205.json
 Fetching landing for game ID 2023020206
 Landing response saved to test/nhl_score_api/fetchers/nhl_api_web/resources/landing-2023020206.json
+Fetching right-rail for game ID 2023020206
+Right-rail response saved to test/nhl_score_api/fetchers/nhl_api_web/resources/right-rail-2023020206.json
 ```
 
 ## Deployment

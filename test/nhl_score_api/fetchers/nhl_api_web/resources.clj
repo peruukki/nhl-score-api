@@ -1,5 +1,5 @@
 (ns nhl-score-api.fetchers.nhl-api-web.resources
-  (:require [nhl-score-api.fetchers.nhl-api-web.fetcher :refer [api-response-to-json]]))
+  (:require [nhl-score-api.fetchers.nhl-api-web.fetcher :refer [api-response-to-json get-gamecenter]]))
 
 (def resource-path "test/nhl_score_api/fetchers/nhl_api_web/resources/")
 
@@ -22,5 +22,10 @@
 
 (defn get-landing [game-id]
   (read-resource (str "landing-" game-id ".json")))
-(defn get-landings [game-ids]
-  (into {} (for [game-id game-ids] [game-id (get-landing game-id)])))
+(defn get-right-rail [game-id]
+  (read-resource (str "right-rail-" game-id ".json")))
+
+(defn get-gamecenters [game-ids]
+  (into {} (for [game-id game-ids]
+             [game-id
+              (get-gamecenter (get-landing game-id) (get-right-rail game-id))])))

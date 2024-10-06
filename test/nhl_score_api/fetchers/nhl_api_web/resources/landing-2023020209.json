@@ -16,23 +16,10 @@
   "venueTimezone": "US/Pacific",
   "periodDescriptor": {
     "number": 3,
-    "periodType": "REG"
+    "periodType": "REG",
+    "maxRegulationPeriods": 3
   },
   "tvBroadcasts": [
-    {
-      "id": 281,
-      "market": "N",
-      "countryCode": "CA",
-      "network": "TVAS",
-      "sequenceNumber": 32
-    },
-    {
-      "id": 282,
-      "market": "N",
-      "countryCode": "CA",
-      "network": "SN",
-      "sequenceNumber": 21
-    },
     {
       "id": 314,
       "market": "A",
@@ -46,6 +33,20 @@
       "countryCode": "US",
       "network": "SCRIPPS",
       "sequenceNumber": 87
+    },
+    {
+      "id": 282,
+      "market": "N",
+      "countryCode": "CA",
+      "network": "SN",
+      "sequenceNumber": 101
+    },
+    {
+      "id": 281,
+      "market": "N",
+      "countryCode": "CA",
+      "network": "TVAS",
+      "sequenceNumber": 109
     }
   ],
   "gameState": "OFF",
@@ -59,9 +60,13 @@
     "placeName": {
       "default": "San Jose"
     },
+    "placeNameWithPreposition": {
+      "default": "San Jose",
+      "fr": "de San Jose"
+    },
     "score": 0,
     "sog": 20,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_20082009-20232024_light.svg"
   },
   "homeTeam": {
     "id": 54,
@@ -71,6 +76,10 @@
     "abbrev": "VGK",
     "placeName": {
       "default": "Vegas"
+    },
+    "placeNameWithPreposition": {
+      "default": "Vegas",
+      "fr": "de Vegas"
     },
     "score": 5,
     "sog": 39,
@@ -82,43 +91,12 @@
   "otInUse": true,
   "tiesInUse": false,
   "summary": {
-    "linescore": {
-      "byPeriod": [
-        {
-          "periodDescriptor": {
-            "number": 1,
-            "periodType": "REG"
-          },
-          "away": 0,
-          "home": 2
-        },
-        {
-          "periodDescriptor": {
-            "number": 2,
-            "periodType": "REG"
-          },
-          "away": 0,
-          "home": 0
-        },
-        {
-          "periodDescriptor": {
-            "number": 3,
-            "periodType": "REG"
-          },
-          "away": 0,
-          "home": 3
-        }
-      ],
-      "totals": {
-        "away": 0,
-        "home": 5
-      }
-    },
     "scoring": [
       {
         "periodDescriptor": {
           "number": 1,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "goals": [
           {
@@ -138,6 +116,8 @@
               "default": "VGK"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8474565.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/sjs-vgk-pietrangelo-scores-goal-against-sharks-6340912874112",
+            "highlightClipSharingUrlFr": "https://nhl.com/fr/video/sjs-vgk-pietrangelo-scores-goal-against-sharks-6340912697112",
             "highlightClip": 6340912874112,
             "highlightClipFr": 6340912697112,
             "goalsToDate": 1,
@@ -176,7 +156,8 @@
                 },
                 "assistsToDate": 10
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "right"
           },
           {
             "situationCode": "1551",
@@ -195,6 +176,8 @@
               "default": "VGK"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8474166.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/sjs-vgk-martinez-scores-goal-against-sharks-6340914076112",
+            "highlightClipSharingUrlFr": "https://nhl.com/fr/video/sjs-vgk-martinez-scores-goal-against-sharks-6340914365112",
             "highlightClip": 6340914076112,
             "highlightClipFr": 6340914365112,
             "goalsToDate": 2,
@@ -233,21 +216,24 @@
                 },
                 "assistsToDate": 1
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "right"
           }
         ]
       },
       {
         "periodDescriptor": {
           "number": 2,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "goals": []
       },
       {
         "periodDescriptor": {
           "number": 3,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "goals": [
           {
@@ -267,6 +253,8 @@
               "default": "VGK"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8476448.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/sjs-vgk-karlsson-scores-goal-against-sharks-6340919639112",
+            "highlightClipSharingUrlFr": "https://nhl.com/fr/video/sjs-vgk-karlsson-scores-goal-against-sharks-6340920545112",
             "highlightClip": 6340919639112,
             "highlightClipFr": 6340920545112,
             "goalsToDate": 8,
@@ -305,7 +293,8 @@
                 },
                 "assistsToDate": 7
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "right"
           },
           {
             "situationCode": "1551",
@@ -324,6 +313,8 @@
               "default": "VGK"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8474166.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/sjs-vgk-martinez-scores-goal-against-sharks-6340920148112",
+            "highlightClipSharingUrlFr": "https://nhl.com/fr/video/sjs-vgk-martinez-scores-goal-against-sharks-6340921612112",
             "highlightClip": 6340920148112,
             "highlightClipFr": 6340921612112,
             "goalsToDate": 3,
@@ -362,7 +353,8 @@
                 },
                 "assistsToDate": 10
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "right"
           },
           {
             "situationCode": "1551",
@@ -381,6 +373,8 @@
               "default": "VGK"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8479353.png",
+            "highlightClipSharingUrl": "https://nhl.com/video/sjs-vgk-howden-scores-goal-against-sharks-6340923731112",
+            "highlightClipSharingUrlFr": "https://nhl.com/fr/video/sjs-vgk-howden-scores-goal-against-sharks-6340928171112",
             "highlightClip": 6340923731112,
             "highlightClipFr": 6340928171112,
             "goalsToDate": 2,
@@ -410,7 +404,8 @@
                 },
                 "assistsToDate": 2
               }
-            ]
+            ],
+            "homeTeamDefendingSide": "right"
           }
         ]
       }
@@ -422,7 +417,9 @@
         "playerId": 8474166,
         "teamAbbrev": "VGK",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8474166.png",
-        "name": "A. Martinez",
+        "name": {
+          "default": "A. Martinez"
+        },
         "sweaterNo": 23,
         "position": "D",
         "goals": 2,
@@ -434,7 +431,9 @@
         "playerId": 8478499,
         "teamAbbrev": "VGK",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8478499.png",
-        "name": "A. Hill",
+        "name": {
+          "default": "A. Hill"
+        },
         "sweaterNo": 33,
         "position": "G",
         "goalsAgainstAverage": 0.0,
@@ -445,7 +444,9 @@
         "playerId": 8474565,
         "teamAbbrev": "VGK",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8474565.png",
-        "name": "A. Pietrangelo",
+        "name": {
+          "default": "A. Pietrangelo"
+        },
         "sweaterNo": 7,
         "position": "D",
         "goals": 1,
@@ -453,84 +454,12 @@
         "points": 3
       }
     ],
-    "teamGameStats": [
-      {
-        "category": "sog",
-        "awayValue": 20,
-        "homeValue": 39
-      },
-      {
-        "category": "faceoffWinningPctg",
-        "awayValue": 0.559322,
-        "homeValue": 0.440678
-      },
-      {
-        "category": "powerPlay",
-        "awayValue": "0/4",
-        "homeValue": "0/0"
-      },
-      {
-        "category": "powerPlayPctg",
-        "awayValue": 0.0,
-        "homeValue": 0.0
-      },
-      {
-        "category": "pim",
-        "awayValue": 2,
-        "homeValue": 10
-      },
-      {
-        "category": "hits",
-        "awayValue": 29,
-        "homeValue": 17
-      },
-      {
-        "category": "blockedShots",
-        "awayValue": 16,
-        "homeValue": 15
-      },
-      {
-        "category": "giveaways",
-        "awayValue": 4,
-        "homeValue": 8
-      },
-      {
-        "category": "takeaways",
-        "awayValue": 4,
-        "homeValue": 7
-      }
-    ],
-    "shotsByPeriod": [
-      {
-        "periodDescriptor": {
-          "number": 1,
-          "periodType": "REG"
-        },
-        "away": 6,
-        "home": 15
-      },
-      {
-        "periodDescriptor": {
-          "number": 2,
-          "periodType": "REG"
-        },
-        "away": 6,
-        "home": 13
-      },
-      {
-        "periodDescriptor": {
-          "number": 3,
-          "periodType": "REG"
-        },
-        "away": 8,
-        "home": 11
-      }
-    ],
     "penalties": [
       {
         "periodDescriptor": {
           "number": 1,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "penalties": [
           {
@@ -538,7 +467,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Brett Howden",
-            "teamAbbrev": "VGK",
+            "teamAbbrev": {
+              "default": "VGK"
+            },
             "drawnBy": "Calen Addison",
             "descKey": "high-sticking"
           }
@@ -546,8 +477,17 @@
       },
       {
         "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
+        },
+        "penalties": []
+      },
+      {
+        "periodDescriptor": {
           "number": 3,
-          "periodType": "REG"
+          "periodType": "REG",
+          "maxRegulationPeriods": 3
         },
         "penalties": [
           {
@@ -555,7 +495,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Brayden McNabb",
-            "teamAbbrev": "VGK",
+            "teamAbbrev": {
+              "default": "VGK"
+            },
             "drawnBy": "Mikael Granlund",
             "descKey": "tripping"
           },
@@ -564,7 +506,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Ben Hutton",
-            "teamAbbrev": "VGK",
+            "teamAbbrev": {
+              "default": "VGK"
+            },
             "drawnBy": "Mike Hoffman",
             "descKey": "hooking"
           },
@@ -573,7 +517,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Jonathan Marchessault",
-            "teamAbbrev": "VGK",
+            "teamAbbrev": {
+              "default": "VGK"
+            },
             "drawnBy": "William Eklund",
             "descKey": "roughing",
             "servedBy": "Paul Cotter"
@@ -583,7 +529,9 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "Jonathan Marchessault",
-            "teamAbbrev": "VGK",
+            "teamAbbrev": {
+              "default": "VGK"
+            },
             "drawnBy": "Fabian Zetterlund",
             "descKey": "cross-checking"
           },
@@ -592,279 +540,20 @@
             "type": "MIN",
             "duration": 2,
             "committedByPlayer": "William Eklund",
-            "teamAbbrev": "SJS",
+            "teamAbbrev": {
+              "default": "SJS"
+            },
             "drawnBy": "Jonathan Marchessault",
             "descKey": "roughing"
           }
         ]
       }
-    ],
-    "seasonSeries": [
-      {
-        "id": 2023020016,
-        "season": 20232024,
-        "gameType": 2,
-        "gameDate": "2023-10-12",
-        "startTimeUTC": "2023-10-13T02:30:00Z",
-        "easternUTCOffset": "-04:00",
-        "venueUTCOffset": "-07:00",
-        "gameState": "OFF",
-        "gameScheduleState": "OK",
-        "awayTeam": {
-          "id": 54,
-          "abbrev": "VGK",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
-          "score": 4
-        },
-        "homeTeam": {
-          "id": 28,
-          "abbrev": "SJS",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
-          "score": 1
-        },
-        "clock": {
-          "timeRemaining": "00:00",
-          "secondsRemaining": 0,
-          "running": false,
-          "inIntermission": false
-        },
-        "gameCenterLink": "/gamecenter/vgk-vs-sjs/2023/10/12/2023020016",
-        "periodDescriptor": {
-          "number": 3,
-          "periodType": "REG"
-        },
-        "gameOutcome": {
-          "lastPeriodType": "REG"
-        }
-      },
-      {
-        "id": 2023020209,
-        "season": 20232024,
-        "gameType": 2,
-        "gameDate": "2023-11-10",
-        "startTimeUTC": "2023-11-11T03:00:00Z",
-        "easternUTCOffset": "-05:00",
-        "venueUTCOffset": "-08:00",
-        "gameState": "OFF",
-        "gameScheduleState": "OK",
-        "awayTeam": {
-          "id": 28,
-          "abbrev": "SJS",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
-          "score": 0
-        },
-        "homeTeam": {
-          "id": 54,
-          "abbrev": "VGK",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
-          "score": 5
-        },
-        "clock": {
-          "timeRemaining": "00:00",
-          "secondsRemaining": 0,
-          "running": false,
-          "inIntermission": false
-        },
-        "gameCenterLink": "/gamecenter/sjs-vs-vgk/2023/11/10/2023020209",
-        "periodDescriptor": {
-          "number": 3,
-          "periodType": "REG"
-        },
-        "gameOutcome": {
-          "lastPeriodType": "REG"
-        }
-      },
-      {
-        "id": 2023020427,
-        "season": 20232024,
-        "gameType": 2,
-        "gameDate": "2023-12-10",
-        "startTimeUTC": "2023-12-11T03:00:00Z",
-        "easternUTCOffset": "-05:00",
-        "venueUTCOffset": "-08:00",
-        "gameState": "OFF",
-        "gameScheduleState": "OK",
-        "awayTeam": {
-          "id": 28,
-          "abbrev": "SJS",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
-          "score": 4
-        },
-        "homeTeam": {
-          "id": 54,
-          "abbrev": "VGK",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
-          "score": 5
-        },
-        "clock": {
-          "timeRemaining": "00:00",
-          "secondsRemaining": 0,
-          "running": false,
-          "inIntermission": false
-        },
-        "gameCenterLink": "/gamecenter/sjs-vs-vgk/2023/12/10/2023020427",
-        "periodDescriptor": {
-          "number": 5,
-          "periodType": "SO"
-        },
-        "gameOutcome": {
-          "lastPeriodType": "SO"
-        }
-      },
-      {
-        "id": 2023020873,
-        "season": 20232024,
-        "gameType": 2,
-        "gameDate": "2024-02-19",
-        "startTimeUTC": "2024-02-19T21:00:00Z",
-        "easternUTCOffset": "-05:00",
-        "venueUTCOffset": "-08:00",
-        "gameState": "OFF",
-        "gameScheduleState": "OK",
-        "awayTeam": {
-          "id": 54,
-          "abbrev": "VGK",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
-          "score": 4
-        },
-        "homeTeam": {
-          "id": 28,
-          "abbrev": "SJS",
-          "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
-          "score": 0
-        },
-        "clock": {
-          "timeRemaining": "00:00",
-          "secondsRemaining": 0,
-          "running": false,
-          "inIntermission": false
-        },
-        "gameCenterLink": "/gamecenter/vgk-vs-sjs/2024/02/19/2023020873",
-        "periodDescriptor": {
-          "number": 3,
-          "periodType": "REG"
-        },
-        "gameOutcome": {
-          "lastPeriodType": "REG"
-        }
-      }
-    ],
-    "gameInfo": {
-      "referees": [
-        {
-          "default": "Thomas John Luxmore"
-        },
-        {
-          "default": "Ghislain Hebert"
-        }
-      ],
-      "linesmen": [
-        {
-          "default": "Kyle Flemington"
-        },
-        {
-          "default": "Mitch Hunt"
-        }
-      ],
-      "awayTeam": {
-        "headCoach": {
-          "default": "David Quinn"
-        },
-        "scratches": [
-          {
-            "id": 8477407,
-            "firstName": {
-              "default": "Anthony"
-            },
-            "lastName": {
-              "default": "Duclair"
-            }
-          },
-          {
-            "id": 8480834,
-            "firstName": {
-              "default": "Ty"
-            },
-            "lastName": {
-              "default": "Emberson"
-            }
-          },
-          {
-            "id": 8481812,
-            "firstName": {
-              "default": "Nikolai",
-              "cs": "Nikolaj",
-              "sk": "Nikolaj"
-            },
-            "lastName": {
-              "default": "Knyzhov",
-              "cs": "Knyžov",
-              "sk": "Knyžov"
-            }
-          }
-        ]
-      },
-      "homeTeam": {
-        "headCoach": {
-          "default": "Bruce Cassidy"
-        },
-        "scratches": [
-          {
-            "id": 8476905,
-            "firstName": {
-              "default": "Chandler"
-            },
-            "lastName": {
-              "default": "Stephenson"
-            }
-          },
-          {
-            "id": 8479980,
-            "firstName": {
-              "default": "Nicolas"
-            },
-            "lastName": {
-              "default": "Hague"
-            }
-          },
-          {
-            "id": 8481167,
-            "firstName": {
-              "default": "Brayden"
-            },
-            "lastName": {
-              "default": "Pachal"
-            }
-          }
-        ]
-      }
-    },
-    "gameReports": {
-      "gameSummary": "https://www.nhl.com/scores/htmlreports/20232024/GS020209.HTM",
-      "eventSummary": "https://www.nhl.com/scores/htmlreports/20232024/ES020209.HTM",
-      "playByPlay": "https://www.nhl.com/scores/htmlreports/20232024/PL020209.HTM",
-      "faceoffSummary": "https://www.nhl.com/scores/htmlreports/20232024/FS020209.HTM",
-      "faceoffComparison": "https://www.nhl.com/scores/htmlreports/20232024/FC020209.HTM",
-      "rosters": "https://www.nhl.com/scores/htmlreports/20232024/RO020209.HTM",
-      "shotSummary": "https://www.nhl.com/scores/htmlreports/20232024/SS020209.HTM",
-      "shiftChart": "https://www.nhl.com/stats/shiftcharts?id=2023020209",
-      "toiAway": "https://www.nhl.com/scores/htmlreports/20232024/TV020209.HTM",
-      "toiHome": "https://www.nhl.com/scores/htmlreports/20232024/TH020209.HTM"
-    },
-    "seasonSeriesWins": {
-      "awayTeamWins": 0,
-      "homeTeamWins": 4
-    }
+    ]
   },
   "clock": {
     "timeRemaining": "00:00",
     "secondsRemaining": 0,
     "running": false,
     "inIntermission": false
-  },
-  "gameVideo": {
-    "threeMinRecap": 6340930323112,
-    "threeMinRecapFr": 6340930514112,
-    "condensedGame": 6340930030112
   }
 }
