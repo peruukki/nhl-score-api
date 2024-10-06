@@ -607,7 +607,8 @@ The fields are described in more detail in [Response fields](#response-fields).
   - `playoffSeries` object: current playoff series related information (only present in playoff games), with the fields:
     - `round` _(number)_: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series (in 2020 due to COVID-19), actual playoffs start from `1`
     - `wins` _(object)_: each team’s win count in the series
-  - `streaks` object (**or `null` if querying coming season’s games**): each teams’ current form streak (only present in regular season games), with the fields:
+  - `streaks` object: each teams’ current form streak (only present in regular season games), with the fields (**or `null` if the
+    team hasn’t played during the season yet**):
     - `type` _(string)_: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
     - `count` _(number)_: streak’s length in consecutive games
   - `standings` object: each teams’ standings related information, with the fields:
