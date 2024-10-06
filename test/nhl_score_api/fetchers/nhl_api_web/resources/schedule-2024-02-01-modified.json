@@ -11,7 +11,9 @@
           "id": 2023120001,
           "season": 20232024,
           "gameType": 12,
-          "venue": { "default": "Scotiabank Arena" },
+          "venue": {
+            "default": "Scotiabank Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2024-02-02T01:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -44,7 +46,9 @@
           ],
           "awayTeam": {
             "id": 7805,
-            "placeName": { "default": "Team King" },
+            "placeName": {
+              "default": "Team King"
+            },
             "abbrev": "KNG",
             "logo": "https://assets.nhle.com/logos/asw/svg/KNG_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/asw/svg/KNG_dark.svg",
@@ -53,24 +57,39 @@
           },
           "homeTeam": {
             "id": 7806,
-            "placeName": { "default": "Team Kloss" },
+            "placeName": {
+              "default": "Team Kloss"
+            },
             "abbrev": "KLS",
             "logo": "https://assets.nhle.com/logos/asw/svg/KLS_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/asw/svg/KLS_dark.svg",
             "homeSplitSquad": false,
             "score": 3
           },
-          "periodDescriptor": { "number": 2, "periodType": "REG" },
-          "gameOutcome": { "lastPeriodType": "REG" },
+          "periodDescriptor": {
+            "number": 2,
+            "periodType": "REG"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "REG"
+          },
           "winningGoalie": {
             "playerId": 8484725,
-            "firstInitial": { "default": "A." },
-            "lastName": { "default": "Frankel" }
+            "firstInitial": {
+              "default": "A."
+            },
+            "lastName": {
+              "default": "Frankel"
+            }
           },
           "winningGoalScorer": {
             "playerId": 8484720,
-            "firstInitial": { "default": "S." },
-            "lastName": { "default": "Harmon" }
+            "firstInitial": {
+              "default": "S."
+            },
+            "lastName": {
+              "default": "Harmon"
+            }
           },
           "gameCenterLink": "/gamecenter/kng-vs-kls/2024/02/01/2023120001"
         }

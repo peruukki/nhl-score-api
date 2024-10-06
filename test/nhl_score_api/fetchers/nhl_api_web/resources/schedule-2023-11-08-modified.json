@@ -11,7 +11,9 @@
           "id": 2023020190,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Scotiabank Arena" },
+          "venue": {
+            "default": "Scotiabank Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-09T00:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -37,7 +39,9 @@
           ],
           "awayTeam": {
             "id": 9,
-            "placeName": { "default": "Ottawa" },
+            "placeName": {
+              "default": "Ottawa"
+            },
             "abbrev": "OTT",
             "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/OTT_dark.svg",
@@ -46,23 +50,36 @@
           },
           "homeTeam": {
             "id": 10,
-            "placeName": { "default": "Toronto" },
+            "placeName": {
+              "default": "Toronto"
+            },
             "abbrev": "TOR",
             "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TOR_dark.svg",
             "homeSplitSquad": false,
             "score": 3
           },
-          "periodDescriptor": { "number": 3, "periodType": "REG" },
-          "gameOutcome": { "lastPeriodType": "REG" },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "REG"
+          },
           "winningGoalie": {
             "playerId": 8476914,
-            "firstInitial": { "default": "J." },
-            "lastName": { "default": "Korpisalo" }
+            "firstInitial": {
+              "default": "J."
+            },
+            "lastName": {
+              "default": "Korpisalo"
+            }
           },
           "winningGoalScorer": {
             "playerId": 8477330,
-            "firstInitial": { "default": "D." },
+            "firstInitial": {
+              "default": "D."
+            },
             "lastName": {
               "default": "Kubalik",
               "cs": "Kubalík",
@@ -77,7 +94,9 @@
           "id": 2023020191,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Capital One Arena" },
+          "venue": {
+            "default": "Capital One Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-09T00:30:00Z",
           "easternUTCOffset": "-05:00",
@@ -103,7 +122,10 @@
           ],
           "awayTeam": {
             "id": 13,
-            "placeName": { "default": "Florida", "fr": "Floride" },
+            "placeName": {
+              "default": "Florida",
+              "fr": "Floride"
+            },
             "abbrev": "FLA",
             "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg",
@@ -112,18 +134,27 @@
           },
           "homeTeam": {
             "id": 15,
-            "placeName": { "default": "Washington" },
+            "placeName": {
+              "default": "Washington"
+            },
             "abbrev": "WSH",
             "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WSH_dark.svg",
             "homeSplitSquad": false,
             "score": 3
           },
-          "periodDescriptor": { "number": 4, "periodType": "OT" },
-          "gameOutcome": { "lastPeriodType": "OT" },
+          "periodDescriptor": {
+            "number": 4,
+            "periodType": "OT"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "OT"
+          },
           "winningGoalie": {
             "playerId": 8475683,
-            "firstInitial": { "default": "S." },
+            "firstInitial": {
+              "default": "S."
+            },
             "lastName": {
               "default": "Bobrovsky",
               "cs": "Bobrovskij",
@@ -132,8 +163,12 @@
           },
           "winningGoalScorer": {
             "playerId": 8477933,
-            "firstInitial": { "default": "S." },
-            "lastName": { "default": "Reinhart" }
+            "firstInitial": {
+              "default": "S."
+            },
+            "lastName": {
+              "default": "Reinhart"
+            }
           },
           "threeMinRecap": "/video/recap-panthers-at-capitals-11-8-23-6340772851112",
           "gameCenterLink": "/gamecenter/fla-vs-wsh/2023/11/08/2023020191"
@@ -142,7 +177,9 @@
           "id": 2023020192,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "T-Mobile Arena" },
+          "venue": {
+            "default": "T-Mobile Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-09T03:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -182,7 +219,9 @@
           ],
           "awayTeam": {
             "id": 26,
-            "placeName": { "default": "Los Angeles" },
+            "placeName": {
+              "default": "Los Angeles"
+            },
             "abbrev": "LAK",
             "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/LAK_dark.svg",
@@ -191,24 +230,39 @@
           },
           "homeTeam": {
             "id": 54,
-            "placeName": { "default": "Vegas" },
+            "placeName": {
+              "default": "Vegas"
+            },
             "abbrev": "VGK",
             "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg",
             "homeSplitSquad": false,
             "score": 1
           },
-          "periodDescriptor": { "number": 3, "periodType": "REG" },
-          "gameOutcome": { "lastPeriodType": "REG" },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "REG"
+          },
           "winningGoalie": {
             "playerId": 8475660,
-            "firstInitial": { "default": "C." },
-            "lastName": { "default": "Talbot" }
+            "firstInitial": {
+              "default": "C."
+            },
+            "lastName": {
+              "default": "Talbot"
+            }
           },
           "winningGoalScorer": {
             "playerId": 8479675,
-            "firstInitial": { "default": "T." },
-            "lastName": { "default": "Moore" }
+            "firstInitial": {
+              "default": "T."
+            },
+            "lastName": {
+              "default": "Moore"
+            }
           },
           "threeMinRecap": "/video/recap-kings-at-golden-knights-11-8-23-6340783105112",
           "threeMinRecapFr": "/fr/video/recap-kings-at-golden-knights-11-8-23-6340784374112",
@@ -225,7 +279,9 @@
           "id": 2023020193,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "TD Garden" },
+          "venue": {
+            "default": "TD Garden"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-10T00:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -234,10 +290,30 @@
           "gameState": "OFF",
           "gameScheduleState": "OK",
           "tvBroadcasts": [
-            { "id": 31, "market": "H", "countryCode": "US", "network": "NESN" },
-            { "id": 287, "market": "N", "countryCode": "CA", "network": "SNE" },
-            { "id": 288, "market": "N", "countryCode": "CA", "network": "SNO" },
-            { "id": 289, "market": "N", "countryCode": "CA", "network": "SNW" },
+            {
+              "id": 31,
+              "market": "H",
+              "countryCode": "US",
+              "network": "NESN"
+            },
+            {
+              "id": 287,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "SNE"
+            },
+            {
+              "id": 288,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "SNO"
+            },
+            {
+              "id": 289,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "SNW"
+            },
             {
               "id": 409,
               "market": "A",
@@ -247,7 +323,9 @@
           ],
           "awayTeam": {
             "id": 2,
-            "placeName": { "default": "New York" },
+            "placeName": {
+              "default": "New York"
+            },
             "abbrev": "NYI",
             "logo": "https://assets.nhle.com/logos/nhl/svg/NYI_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NYI_dark.svg",
@@ -256,23 +334,36 @@
           },
           "homeTeam": {
             "id": 6,
-            "placeName": { "default": "Boston" },
+            "placeName": {
+              "default": "Boston"
+            },
             "abbrev": "BOS",
             "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BOS_dark.svg",
             "homeSplitSquad": false,
             "score": 5
           },
-          "periodDescriptor": { "number": 3, "periodType": "REG" },
-          "gameOutcome": { "lastPeriodType": "REG" },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "REG"
+          },
           "winningGoalie": {
             "playerId": 8476999,
-            "firstInitial": { "default": "L." },
-            "lastName": { "default": "Ullmark" }
+            "firstInitial": {
+              "default": "L."
+            },
+            "lastName": {
+              "default": "Ullmark"
+            }
           },
           "winningGoalScorer": {
             "playerId": 8477956,
-            "firstInitial": { "default": "D." },
+            "firstInitial": {
+              "default": "D."
+            },
             "lastName": {
               "default": "Pastrnak",
               "cs": "Pastrňák",
@@ -286,7 +377,9 @@
           "id": 2023020196,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Madison Square Garden" },
+          "venue": {
+            "default": "Madison Square Garden"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-10T00:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -295,8 +388,18 @@
           "gameState": "OFF",
           "gameScheduleState": "OK",
           "tvBroadcasts": [
-            { "id": 27, "market": "H", "countryCode": "US", "network": "MSG" },
-            { "id": 361, "market": "A", "countryCode": "US", "network": "BSN" },
+            {
+              "id": 27,
+              "market": "H",
+              "countryCode": "US",
+              "network": "MSG"
+            },
+            {
+              "id": 361,
+              "market": "A",
+              "countryCode": "US",
+              "network": "BSN"
+            },
             {
               "id": 396,
               "market": "A",
@@ -306,7 +409,9 @@
           ],
           "awayTeam": {
             "id": 30,
-            "placeName": { "default": "Minnesota" },
+            "placeName": {
+              "default": "Minnesota"
+            },
             "abbrev": "MIN",
             "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MIN_dark.svg",
@@ -315,24 +420,39 @@
           },
           "homeTeam": {
             "id": 3,
-            "placeName": { "default": "New York" },
+            "placeName": {
+              "default": "New York"
+            },
             "abbrev": "NYR",
             "logo": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NYR_dark.svg",
             "homeSplitSquad": false,
             "score": 4
           },
-          "periodDescriptor": { "number": 3, "periodType": "REG" },
-          "gameOutcome": { "lastPeriodType": "REG" },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "REG"
+          },
           "winningGoalie": {
             "playerId": 8475839,
-            "firstInitial": { "default": "L." },
-            "lastName": { "default": "Domingue" }
+            "firstInitial": {
+              "default": "L."
+            },
+            "lastName": {
+              "default": "Domingue"
+            }
           },
           "winningGoalScorer": {
             "playerId": 8482109,
-            "firstInitial": { "default": "A." },
-            "lastName": { "default": "Lafrenière" }
+            "firstInitial": {
+              "default": "A."
+            },
+            "lastName": {
+              "default": "Lafrenière"
+            }
           },
           "threeMinRecap": "/video/recap-wild-at-rangers-11-9-23-6340840308112",
           "gameCenterLink": "/gamecenter/min-vs-nyr/2023/11/09/2023020196"
@@ -341,7 +461,9 @@
           "id": 2023020197,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Canadian Tire Centre" },
+          "venue": {
+            "default": "Canadian Tire Centre"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-10T00:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -356,12 +478,24 @@
               "countryCode": "CA",
               "network": "RDS2"
             },
-            { "id": 290, "market": "A", "countryCode": "CA", "network": "SNP" },
-            { "id": 294, "market": "H", "countryCode": "CA", "network": "TSN5" }
+            {
+              "id": 290,
+              "market": "A",
+              "countryCode": "CA",
+              "network": "SNP"
+            },
+            {
+              "id": 294,
+              "market": "H",
+              "countryCode": "CA",
+              "network": "TSN5"
+            }
           ],
           "awayTeam": {
             "id": 23,
-            "placeName": { "default": "Vancouver" },
+            "placeName": {
+              "default": "Vancouver"
+            },
             "abbrev": "VAN",
             "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VAN_dark.svg",
@@ -370,24 +504,39 @@
           },
           "homeTeam": {
             "id": 9,
-            "placeName": { "default": "Ottawa" },
+            "placeName": {
+              "default": "Ottawa"
+            },
             "abbrev": "OTT",
             "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/OTT_dark.svg",
             "homeSplitSquad": false,
             "score": 2
           },
-          "periodDescriptor": { "number": 3, "periodType": "REG" },
-          "gameOutcome": { "lastPeriodType": "REG" },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "REG"
+          },
           "winningGoalie": {
             "playerId": 8479193,
-            "firstInitial": { "default": "C." },
-            "lastName": { "default": "DeSmith" }
+            "firstInitial": {
+              "default": "C."
+            },
+            "lastName": {
+              "default": "DeSmith"
+            }
           },
           "winningGoalScorer": {
             "playerId": 8476468,
-            "firstInitial": { "default": "J." },
-            "lastName": { "default": "Miller" }
+            "firstInitial": {
+              "default": "J."
+            },
+            "lastName": {
+              "default": "Miller"
+            }
           },
           "threeMinRecap": "/video/recap-canucks-at-senators-11-9-23-6340839535112",
           "threeMinRecapFr": "/fr/video/recap-canucks-at-senators-11-9-23-6340839715112",
@@ -397,7 +546,9 @@
           "id": 2023020198,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Amalie Arena" },
+          "venue": {
+            "default": "Amalie Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-10T00:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -427,7 +578,9 @@
           ],
           "awayTeam": {
             "id": 16,
-            "placeName": { "default": "Chicago" },
+            "placeName": {
+              "default": "Chicago"
+            },
             "abbrev": "CHI",
             "logo": "https://assets.nhle.com/logos/nhl/svg/CHI_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CHI_dark.svg",
@@ -436,24 +589,41 @@
           },
           "homeTeam": {
             "id": 14,
-            "placeName": { "default": "Tampa Bay" },
+            "placeName": {
+              "default": "Tampa Bay"
+            },
             "abbrev": "TBL",
             "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TBL_dark.svg",
             "homeSplitSquad": false,
             "score": 3
           },
-          "periodDescriptor": { "number": 3, "periodType": "REG" },
-          "gameOutcome": { "lastPeriodType": "REG" },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "REG"
+          },
           "winningGoalie": {
             "playerId": 8475852,
-            "firstInitial": { "default": "P." },
-            "lastName": { "default": "Mrazek", "cs": "Mrázek", "sk": "Mrázek" }
+            "firstInitial": {
+              "default": "P."
+            },
+            "lastName": {
+              "default": "Mrazek",
+              "cs": "Mrázek",
+              "sk": "Mrázek"
+            }
           },
           "winningGoalScorer": {
             "playerId": 8484144,
-            "firstInitial": { "default": "C." },
-            "lastName": { "default": "Bedard" }
+            "firstInitial": {
+              "default": "C."
+            },
+            "lastName": {
+              "default": "Bedard"
+            }
           },
           "threeMinRecap": "/video/recap-blackhawks-at-lightning-11-9-23-6340840123112",
           "gameCenterLink": "/gamecenter/chi-vs-tbl/2023/11/09/2023020198"
@@ -462,7 +632,9 @@
           "id": 2023020194,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Nationwide Arena" },
+          "venue": {
+            "default": "Nationwide Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-10T00:30:00Z",
           "easternUTCOffset": "-05:00",
@@ -477,11 +649,18 @@
               "countryCode": "US",
               "network": "ESPN+"
             },
-            { "id": 391, "market": "N", "countryCode": "US", "network": "HULU" }
+            {
+              "id": 391,
+              "market": "N",
+              "countryCode": "US",
+              "network": "HULU"
+            }
           ],
           "awayTeam": {
             "id": 25,
-            "placeName": { "default": "Dallas" },
+            "placeName": {
+              "default": "Dallas"
+            },
             "abbrev": "DAL",
             "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_dark.svg",
@@ -490,24 +669,39 @@
           },
           "homeTeam": {
             "id": 29,
-            "placeName": { "default": "Columbus" },
+            "placeName": {
+              "default": "Columbus"
+            },
             "abbrev": "CBJ",
             "logo": "https://assets.nhle.com/logos/nhl/svg/CBJ_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CBJ_dark.svg",
             "homeSplitSquad": false,
             "score": 2
           },
-          "periodDescriptor": { "number": 3, "periodType": "REG" },
-          "gameOutcome": { "lastPeriodType": "REG" },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "REG"
+          },
           "winningGoalie": {
             "playerId": 8479979,
-            "firstInitial": { "default": "J." },
-            "lastName": { "default": "Oettinger" }
+            "firstInitial": {
+              "default": "J."
+            },
+            "lastName": {
+              "default": "Oettinger"
+            }
           },
           "winningGoalScorer": {
             "playerId": 8475168,
-            "firstInitial": { "default": "M." },
-            "lastName": { "default": "Duchene" }
+            "firstInitial": {
+              "default": "M."
+            },
+            "lastName": {
+              "default": "Duchene"
+            }
           },
           "threeMinRecap": "/video/recap-stars-at-blue-jackets-11-9-23-6340840551112",
           "gameCenterLink": "/gamecenter/dal-vs-cbj/2023/11/09/2023020194"
@@ -516,7 +710,9 @@
           "id": 2023020199,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Enterprise Center" },
+          "venue": {
+            "default": "Enterprise Center"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-10T01:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -540,7 +736,9 @@
           ],
           "awayTeam": {
             "id": 53,
-            "placeName": { "default": "Arizona" },
+            "placeName": {
+              "default": "Arizona"
+            },
             "abbrev": "ARI",
             "logo": "https://assets.nhle.com/logos/nhl/svg/ARI_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/ARI_dark.svg",
@@ -549,24 +747,39 @@
           },
           "homeTeam": {
             "id": 19,
-            "placeName": { "default": "St. Louis" },
+            "placeName": {
+              "default": "St. Louis"
+            },
             "abbrev": "STL",
             "logo": "https://assets.nhle.com/logos/nhl/svg/STL_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/STL_dark.svg",
             "homeSplitSquad": false,
             "score": 2
           },
-          "periodDescriptor": { "number": 3, "periodType": "REG" },
-          "gameOutcome": { "lastPeriodType": "REG" },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "REG"
+          },
           "winningGoalie": {
             "playerId": 8480981,
-            "firstInitial": { "default": "J." },
-            "lastName": { "default": "Hofer" }
+            "firstInitial": {
+              "default": "J."
+            },
+            "lastName": {
+              "default": "Hofer"
+            }
           },
           "winningGoalScorer": {
             "playerId": 8480023,
-            "firstInitial": { "default": "R." },
-            "lastName": { "default": "Thomas" }
+            "firstInitial": {
+              "default": "R."
+            },
+            "lastName": {
+              "default": "Thomas"
+            }
           },
           "threeMinRecap": "/video/recap-coyotes-at-blues-11-9-23-6340843040112",
           "gameCenterLink": "/gamecenter/ari-vs-stl/2023/11/09/2023020199"
@@ -575,7 +788,9 @@
           "id": 2023020200,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Canada Life Centre" },
+          "venue": {
+            "default": "Canada Life Centre"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-10T01:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -590,11 +805,18 @@
               "countryCode": "CA",
               "network": "TSN3"
             },
-            { "id": 375, "market": "A", "countryCode": "US", "network": "BSSO" }
+            {
+              "id": 375,
+              "market": "A",
+              "countryCode": "US",
+              "network": "BSSO"
+            }
           ],
           "awayTeam": {
             "id": 18,
-            "placeName": { "default": "Nashville" },
+            "placeName": {
+              "default": "Nashville"
+            },
             "abbrev": "NSH",
             "logo": "https://assets.nhle.com/logos/nhl/svg/NSH_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NSH_dark.svg",
@@ -603,24 +825,39 @@
           },
           "homeTeam": {
             "id": 52,
-            "placeName": { "default": "Winnipeg" },
+            "placeName": {
+              "default": "Winnipeg"
+            },
             "abbrev": "WPG",
             "logo": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WPG_dark.svg",
             "homeSplitSquad": false,
             "score": 6
           },
-          "periodDescriptor": { "number": 3, "periodType": "REG" },
-          "gameOutcome": { "lastPeriodType": "REG" },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "REG"
+          },
           "winningGoalie": {
             "playerId": 8476316,
-            "firstInitial": { "default": "L." },
-            "lastName": { "default": "Brossoit" }
+            "firstInitial": {
+              "default": "L."
+            },
+            "lastName": {
+              "default": "Brossoit"
+            }
           },
           "winningGoalScorer": {
             "playerId": 8482149,
-            "firstInitial": { "default": "C." },
-            "lastName": { "default": "Perfetti" }
+            "firstInitial": {
+              "default": "C."
+            },
+            "lastName": {
+              "default": "Perfetti"
+            }
           },
           "threeMinRecap": "/video/recap-predators-at-jets-11-9-23-6340842459112",
           "gameCenterLink": "/gamecenter/nsh-vs-wpg/2023/11/09/2023020200"
@@ -629,7 +866,9 @@
           "id": 2023020201,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Ball Arena" },
+          "venue": {
+            "default": "Ball Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-10T02:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -638,7 +877,12 @@
           "gameState": "OFF",
           "gameScheduleState": "OK",
           "tvBroadcasts": [
-            { "id": 2, "market": "H", "countryCode": "US", "network": "ALT" },
+            {
+              "id": 2,
+              "market": "H",
+              "countryCode": "US",
+              "network": "ALT"
+            },
             {
               "id": 281,
               "market": "N",
@@ -654,7 +898,9 @@
           ],
           "awayTeam": {
             "id": 55,
-            "placeName": { "default": "Seattle" },
+            "placeName": {
+              "default": "Seattle"
+            },
             "abbrev": "SEA",
             "logo": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/SEA_dark.svg",
@@ -663,24 +909,39 @@
           },
           "homeTeam": {
             "id": 21,
-            "placeName": { "default": "Colorado" },
+            "placeName": {
+              "default": "Colorado"
+            },
             "abbrev": "COL",
             "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_dark.svg",
             "homeSplitSquad": false,
             "score": 3
           },
-          "periodDescriptor": { "number": 3, "periodType": "REG" },
-          "gameOutcome": { "lastPeriodType": "REG" },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "REG"
+          },
           "winningGoalie": {
             "playerId": 8475831,
-            "firstInitial": { "default": "P." },
-            "lastName": { "default": "Grubauer" }
+            "firstInitial": {
+              "default": "P."
+            },
+            "lastName": {
+              "default": "Grubauer"
+            }
           },
           "winningGoalScorer": {
             "playerId": 8477416,
-            "firstInitial": { "default": "O." },
-            "lastName": { "default": "Bjorkstrand" }
+            "firstInitial": {
+              "default": "O."
+            },
+            "lastName": {
+              "default": "Bjorkstrand"
+            }
           },
           "threeMinRecap": "/video/recap-kraken-at-avalanche-11-9-23-6340844399112",
           "threeMinRecapFr": "/fr/video/recap-kraken-at-avalanche-11-9-23-6340845860112",
@@ -690,7 +951,9 @@
           "id": 2023020202,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Crypto.com Arena" },
+          "venue": {
+            "default": "Crypto.com Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-10T03:30:00Z",
           "easternUTCOffset": "-05:00",
@@ -699,11 +962,36 @@
           "gameState": "OFF",
           "gameScheduleState": "OK",
           "tvBroadcasts": [
-            { "id": 284, "market": "N", "countryCode": "CA", "network": "SN1" },
-            { "id": 287, "market": "N", "countryCode": "CA", "network": "SNE" },
-            { "id": 288, "market": "N", "countryCode": "CA", "network": "SNO" },
-            { "id": 290, "market": "N", "countryCode": "CA", "network": "SNP" },
-            { "id": 355, "market": "H", "countryCode": "US", "network": "BSW" },
+            {
+              "id": 284,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "SN1"
+            },
+            {
+              "id": 287,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "SNE"
+            },
+            {
+              "id": 288,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "SNO"
+            },
+            {
+              "id": 290,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "SNP"
+            },
+            {
+              "id": 355,
+              "market": "H",
+              "countryCode": "US",
+              "network": "BSW"
+            },
             {
               "id": 528,
               "market": "A",
@@ -713,7 +1001,9 @@
           ],
           "awayTeam": {
             "id": 5,
-            "placeName": { "default": "Pittsburgh" },
+            "placeName": {
+              "default": "Pittsburgh"
+            },
             "abbrev": "PIT",
             "logo": "https://assets.nhle.com/logos/nhl/svg/PIT_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PIT_dark.svg",
@@ -722,24 +1012,39 @@
           },
           "homeTeam": {
             "id": 26,
-            "placeName": { "default": "Los Angeles" },
+            "placeName": {
+              "default": "Los Angeles"
+            },
             "abbrev": "LAK",
             "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/LAK_dark.svg",
             "homeSplitSquad": false,
             "score": 3
           },
-          "periodDescriptor": { "number": 4, "periodType": "OT" },
-          "gameOutcome": { "lastPeriodType": "OT" },
+          "periodDescriptor": {
+            "number": 4,
+            "periodType": "OT"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "OT"
+          },
           "winningGoalie": {
             "playerId": 8476433,
-            "firstInitial": { "default": "M." },
-            "lastName": { "default": "Hellberg" }
+            "firstInitial": {
+              "default": "M."
+            },
+            "lastName": {
+              "default": "Hellberg"
+            }
           },
           "winningGoalScorer": {
             "playerId": 8475810,
-            "firstInitial": { "default": "B." },
-            "lastName": { "default": "Rust" }
+            "firstInitial": {
+              "default": "B."
+            },
+            "lastName": {
+              "default": "Rust"
+            }
           },
           "threeMinRecap": "/video/recap-penguins-at-kings-11-9-23-6340852042112",
           "gameCenterLink": "/gamecenter/pit-vs-lak/2023/11/09/2023020202"
@@ -748,7 +1053,9 @@
           "id": 2023020203,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "SAP Center at San Jose" },
+          "venue": {
+            "default": "SAP Center at San Jose"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-10T03:30:00Z",
           "easternUTCOffset": "-05:00",
@@ -757,18 +1064,30 @@
           "gameState": "OFF",
           "gameScheduleState": "OK",
           "tvBroadcasts": [
-            { "id": 289, "market": "A", "countryCode": "CA", "network": "SNW" },
+            {
+              "id": 289,
+              "market": "A",
+              "countryCode": "CA",
+              "network": "SNW"
+            },
             {
               "id": 329,
               "market": "N",
               "countryCode": "US",
               "network": "ESPN+"
             },
-            { "id": 391, "market": "N", "countryCode": "US", "network": "HULU" }
+            {
+              "id": 391,
+              "market": "N",
+              "countryCode": "US",
+              "network": "HULU"
+            }
           ],
           "awayTeam": {
             "id": 22,
-            "placeName": { "default": "Edmonton" },
+            "placeName": {
+              "default": "Edmonton"
+            },
             "abbrev": "EDM",
             "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg",
@@ -777,24 +1096,39 @@
           },
           "homeTeam": {
             "id": 28,
-            "placeName": { "default": "San Jose" },
+            "placeName": {
+              "default": "San Jose"
+            },
             "abbrev": "SJS",
             "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/SJS_dark.svg",
             "homeSplitSquad": false,
             "score": 3
           },
-          "periodDescriptor": { "number": 3, "periodType": "REG" },
-          "gameOutcome": { "lastPeriodType": "REG" },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "REG"
+          },
           "winningGoalie": {
             "playerId": 8478406,
-            "firstInitial": { "default": "M." },
-            "lastName": { "default": "Blackwood" }
+            "firstInitial": {
+              "default": "M."
+            },
+            "lastName": {
+              "default": "Blackwood"
+            }
           },
           "winningGoalScorer": {
             "playerId": 8480821,
-            "firstInitial": { "default": "F." },
-            "lastName": { "default": "Zadina" }
+            "firstInitial": {
+              "default": "F."
+            },
+            "lastName": {
+              "default": "Zadina"
+            }
           },
           "threeMinRecap": "/video/recap-oilers-at-sharks-11-9-23-6340848840112",
           "gameCenterLink": "/gamecenter/edm-vs-sjs/2023/11/09/2023020203"
@@ -810,7 +1144,9 @@
           "id": 2023020195,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Little Caesars Arena" },
+          "venue": {
+            "default": "Little Caesars Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-10T00:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -819,7 +1155,12 @@
           "gameState": "OFF",
           "gameScheduleState": "OK",
           "tvBroadcasts": [
-            { "id": 33, "market": "A", "countryCode": "CA", "network": "RDS" },
+            {
+              "id": 33,
+              "market": "A",
+              "countryCode": "CA",
+              "network": "RDS"
+            },
             {
               "id": 131,
               "market": "A",
@@ -835,7 +1176,9 @@
           ],
           "awayTeam": {
             "id": 8,
-            "placeName": { "default": "Montréal" },
+            "placeName": {
+              "default": "Montréal"
+            },
             "abbrev": "MTL",
             "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MTL_dark.svg",
@@ -844,24 +1187,39 @@
           },
           "homeTeam": {
             "id": 17,
-            "placeName": { "default": "Detroit" },
+            "placeName": {
+              "default": "Detroit"
+            },
             "abbrev": "DET",
             "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DET_dark.svg",
             "homeSplitSquad": false,
             "score": 2
           },
-          "periodDescriptor": { "number": 4, "periodType": "OT" },
-          "gameOutcome": { "lastPeriodType": "OT" },
+          "periodDescriptor": {
+            "number": 4,
+            "periodType": "OT"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "OT"
+          },
           "winningGoalie": {
             "playerId": 8480051,
-            "firstInitial": { "default": "C." },
-            "lastName": { "default": "Primeau" }
+            "firstInitial": {
+              "default": "C."
+            },
+            "lastName": {
+              "default": "Primeau"
+            }
           },
           "winningGoalScorer": {
             "playerId": 8481540,
-            "firstInitial": { "default": "C." },
-            "lastName": { "default": "Caufield" }
+            "firstInitial": {
+              "default": "C."
+            },
+            "lastName": {
+              "default": "Caufield"
+            }
           },
           "threeMinRecap": "/video/recap-canadiens-at-red-wings-11-9-23-6340839267112",
           "threeMinRecapFr": "/fr/video/recap-canadiens-at-red-wings-11-9-23-6340840629112",
@@ -871,7 +1229,9 @@
           "id": 2023020207,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Scotiabank Arena" },
+          "venue": {
+            "default": "Scotiabank Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-11T00:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -886,12 +1246,24 @@
               "countryCode": "CA",
               "network": "TVAS"
             },
-            { "id": 289, "market": "A", "countryCode": "CA", "network": "SNW" },
-            { "id": 293, "market": "H", "countryCode": "CA", "network": "TSN4" }
+            {
+              "id": 289,
+              "market": "A",
+              "countryCode": "CA",
+              "network": "SNW"
+            },
+            {
+              "id": 293,
+              "market": "H",
+              "countryCode": "CA",
+              "network": "TSN4"
+            }
           ],
           "awayTeam": {
             "id": 20,
-            "placeName": { "default": "Calgary" },
+            "placeName": {
+              "default": "Calgary"
+            },
             "abbrev": "CGY",
             "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CGY_dark.svg",
@@ -900,19 +1272,30 @@
           },
           "homeTeam": {
             "id": 10,
-            "placeName": { "default": "Toronto" },
+            "placeName": {
+              "default": "Toronto"
+            },
             "abbrev": "TOR",
             "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TOR_dark.svg",
             "homeSplitSquad": false,
             "score": 5
           },
-          "periodDescriptor": { "number": 5, "periodType": "SO" },
-          "gameOutcome": { "lastPeriodType": "SO" },
+          "periodDescriptor": {
+            "number": 5,
+            "periodType": "SO"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "SO"
+          },
           "winningGoalie": {
             "playerId": 8479361,
-            "firstInitial": { "default": "J." },
-            "lastName": { "default": "Woll" }
+            "firstInitial": {
+              "default": "J."
+            },
+            "lastName": {
+              "default": "Woll"
+            }
           },
           "threeMinRecap": "/video/recap-flames-at-maple-leafs-11-10-23-6340914651112",
           "threeMinRecapFr": "/fr/video/recap-flames-at-maple-leafs-11-10-23-6340913659112",
@@ -922,7 +1305,9 @@
           "id": 2023020206,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Prudential Center" },
+          "venue": {
+            "default": "Prudential Center"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-11T00:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -946,7 +1331,9 @@
           ],
           "awayTeam": {
             "id": 15,
-            "placeName": { "default": "Washington" },
+            "placeName": {
+              "default": "Washington"
+            },
             "abbrev": "WSH",
             "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WSH_dark.svg",
@@ -955,23 +1342,36 @@
           },
           "homeTeam": {
             "id": 1,
-            "placeName": { "default": "New Jersey" },
+            "placeName": {
+              "default": "New Jersey"
+            },
             "abbrev": "NJD",
             "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg",
             "homeSplitSquad": false,
             "score": 2
           },
-          "periodDescriptor": { "number": 3, "periodType": "REG" },
-          "gameOutcome": { "lastPeriodType": "REG" },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "REG"
+          },
           "winningGoalie": {
             "playerId": 8479292,
-            "firstInitial": { "default": "C." },
-            "lastName": { "default": "Lindgren" }
+            "firstInitial": {
+              "default": "C."
+            },
+            "lastName": {
+              "default": "Lindgren"
+            }
           },
           "winningGoalScorer": {
             "playerId": 8475744,
-            "firstInitial": { "default": "E." },
+            "firstInitial": {
+              "default": "E."
+            },
             "lastName": {
               "default": "Kuznetsov",
               "cs": "Kuzněcov",
@@ -985,7 +1385,9 @@
           "id": 2023020208,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Honda Center" },
+          "venue": {
+            "default": "Honda Center"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-11T03:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -1000,11 +1402,19 @@
               "countryCode": "US",
               "network": "NBCSP+"
             },
-            { "id": 355, "market": "H", "countryCode": "US", "network": "BSW" }
+            {
+              "id": 355,
+              "market": "H",
+              "countryCode": "US",
+              "network": "BSW"
+            }
           ],
           "awayTeam": {
             "id": 4,
-            "placeName": { "default": "Philadelphia", "fr": "Philadelphie" },
+            "placeName": {
+              "default": "Philadelphia",
+              "fr": "Philadelphie"
+            },
             "abbrev": "PHI",
             "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PHI_dark.svg",
@@ -1013,24 +1423,39 @@
           },
           "homeTeam": {
             "id": 24,
-            "placeName": { "default": "Anaheim" },
+            "placeName": {
+              "default": "Anaheim"
+            },
             "abbrev": "ANA",
             "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/ANA_dark.svg",
             "homeSplitSquad": false,
             "score": 3
           },
-          "periodDescriptor": { "number": 3, "periodType": "REG" },
-          "gameOutcome": { "lastPeriodType": "REG" },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "REG"
+          },
           "winningGoalie": {
             "playerId": 8481035,
-            "firstInitial": { "default": "S." },
-            "lastName": { "default": "Ersson" }
+            "firstInitial": {
+              "default": "S."
+            },
+            "lastName": {
+              "default": "Ersson"
+            }
           },
           "winningGoalScorer": {
             "playerId": 8477948,
-            "firstInitial": { "default": "T." },
-            "lastName": { "default": "Sanheim" }
+            "firstInitial": {
+              "default": "T."
+            },
+            "lastName": {
+              "default": "Sanheim"
+            }
           },
           "threeMinRecap": "/video/recap-flyers-at-ducks-11-10-23-6340929941112",
           "gameCenterLink": "/gamecenter/phi-vs-ana/2023/11/10/2023020208"
@@ -1039,7 +1464,9 @@
           "id": 2023020209,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "T-Mobile Arena" },
+          "venue": {
+            "default": "T-Mobile Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-11T03:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -1054,7 +1481,12 @@
               "countryCode": "CA",
               "network": "TVAS"
             },
-            { "id": 282, "market": "N", "countryCode": "CA", "network": "SN" },
+            {
+              "id": 282,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "SN"
+            },
             {
               "id": 314,
               "market": "A",
@@ -1070,7 +1502,9 @@
           ],
           "awayTeam": {
             "id": 28,
-            "placeName": { "default": "San Jose" },
+            "placeName": {
+              "default": "San Jose"
+            },
             "abbrev": "SJS",
             "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/SJS_dark.svg",
@@ -1079,24 +1513,39 @@
           },
           "homeTeam": {
             "id": 54,
-            "placeName": { "default": "Vegas" },
+            "placeName": {
+              "default": "Vegas"
+            },
             "abbrev": "VGK",
             "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg",
             "homeSplitSquad": false,
             "score": 5
           },
-          "periodDescriptor": { "number": 3, "periodType": "REG" },
-          "gameOutcome": { "lastPeriodType": "REG" },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
+          "gameOutcome": {
+            "lastPeriodType": "REG"
+          },
           "winningGoalie": {
             "playerId": 8478499,
-            "firstInitial": { "default": "A." },
-            "lastName": { "default": "Hill" }
+            "firstInitial": {
+              "default": "A."
+            },
+            "lastName": {
+              "default": "Hill"
+            }
           },
           "winningGoalScorer": {
             "playerId": 8474565,
-            "firstInitial": { "default": "A." },
-            "lastName": { "default": "Pietrangelo" }
+            "firstInitial": {
+              "default": "A."
+            },
+            "lastName": {
+              "default": "Pietrangelo"
+            }
           },
           "threeMinRecap": "/video/recap-sharks-at-golden-knights-11-10-23-6340930024112",
           "threeMinRecapFr": "/fr/video/recap-sharks-at-golden-knights-11-10-23-6340930514112",
@@ -1106,7 +1555,9 @@
           "id": 2023020211,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Canada Life Centre" },
+          "venue": {
+            "default": "Canada Life Centre"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-11T20:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -1121,38 +1572,77 @@
               "countryCode": "CA",
               "network": "TSN3"
             },
-            { "id": 349, "market": "A", "countryCode": "US", "network": "BSSW" }
+            {
+              "id": 349,
+              "market": "A",
+              "countryCode": "US",
+              "network": "BSSW"
+            }
           ],
           "awayTeam": {
             "id": 25,
-            "placeName": { "default": "Dallas" },
+            "placeName": {
+              "default": "Dallas"
+            },
             "abbrev": "DAL",
             "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DAL_dark.svg",
             "awaySplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/DAL/20232024/DAL-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "1.8000" },
-              { "providerId": 2, "value": "133.0000" },
-              { "providerId": 6, "value": "2.3400" },
-              { "providerId": 9, "value": "-120.0000" },
-              { "providerId": 8, "value": "-121.0000" }
+              {
+                "providerId": 4,
+                "value": "1.8000"
+              },
+              {
+                "providerId": 2,
+                "value": "133.0000"
+              },
+              {
+                "providerId": 6,
+                "value": "2.3400"
+              },
+              {
+                "providerId": 9,
+                "value": "-120.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "-121.0000"
+              }
             ]
           },
           "homeTeam": {
             "id": 52,
-            "placeName": { "default": "Winnipeg" },
+            "placeName": {
+              "default": "Winnipeg"
+            },
             "abbrev": "WPG",
             "logo": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WPG_dark.svg",
             "homeSplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/WPG/20232024/WPG-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "2.0000" },
-              { "providerId": 2, "value": "160.0000" },
-              { "providerId": 6, "value": "2.5000" },
-              { "providerId": 9, "value": "100.0000" },
-              { "providerId": 8, "value": "-101.0000" }
+              {
+                "providerId": 4,
+                "value": "2.0000"
+              },
+              {
+                "providerId": 2,
+                "value": "160.0000"
+              },
+              {
+                "providerId": 6,
+                "value": "2.5000"
+              },
+              {
+                "providerId": 9,
+                "value": "100.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "-101.0000"
+              }
             ]
           },
           "periodDescriptor": {},
@@ -1163,7 +1653,9 @@
           "id": 2023020217,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "PPG Paints Arena" },
+          "venue": {
+            "default": "PPG Paints Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-12T00:30:00Z",
           "easternUTCOffset": "-05:00",
@@ -1187,34 +1679,68 @@
           ],
           "awayTeam": {
             "id": 7,
-            "placeName": { "default": "Buffalo" },
+            "placeName": {
+              "default": "Buffalo"
+            },
             "abbrev": "BUF",
             "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BUF_dark.svg",
             "awaySplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/BUF/20232024/BUF-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "2.2500" },
-              { "providerId": 3, "value": "4.3000" },
-              { "providerId": 2, "value": "225.0000" },
-              { "providerId": 9, "value": "140.0000" },
-              { "providerId": 8, "value": "138.0000" }
+              {
+                "providerId": 4,
+                "value": "2.2500"
+              },
+              {
+                "providerId": 3,
+                "value": "4.3000"
+              },
+              {
+                "providerId": 2,
+                "value": "225.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "140.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "138.0000"
+              }
             ]
           },
           "homeTeam": {
             "id": 5,
-            "placeName": { "default": "Pittsburgh" },
+            "placeName": {
+              "default": "Pittsburgh"
+            },
             "abbrev": "PIT",
             "logo": "https://assets.nhle.com/logos/nhl/svg/PIT_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PIT_dark.svg",
             "homeSplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/PIT/20232024/PIT-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "1.6300" },
-              { "providerId": 3, "value": "4.3000" },
-              { "providerId": 2, "value": "-105.0000" },
-              { "providerId": 9, "value": "-166.0000" },
-              { "providerId": 8, "value": "-164.0000" }
+              {
+                "providerId": 4,
+                "value": "1.6300"
+              },
+              {
+                "providerId": 3,
+                "value": "4.3000"
+              },
+              {
+                "providerId": 2,
+                "value": "-105.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "-166.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "-164.0000"
+              }
             ]
           },
           "periodDescriptor": {},
@@ -1225,7 +1751,9 @@
           "id": 2023020214,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Amalie Arena" },
+          "venue": {
+            "default": "Amalie Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-12T00:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -1240,11 +1768,19 @@
               "countryCode": "US",
               "network": "BSSUN"
             },
-            { "id": 375, "market": "A", "countryCode": "US", "network": "BSSO" }
+            {
+              "id": 375,
+              "market": "A",
+              "countryCode": "US",
+              "network": "BSSO"
+            }
           ],
           "awayTeam": {
             "id": 12,
-            "placeName": { "default": "Carolina", "fr": "Caroline" },
+            "placeName": {
+              "default": "Carolina",
+              "fr": "Caroline"
+            },
             "abbrev": "CAR",
             "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg",
@@ -1253,7 +1789,9 @@
           },
           "homeTeam": {
             "id": 14,
-            "placeName": { "default": "Tampa Bay" },
+            "placeName": {
+              "default": "Tampa Bay"
+            },
             "abbrev": "TBL",
             "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TBL_dark.svg",
@@ -1274,7 +1812,9 @@
           "id": 2023020212,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Centre Bell" },
+          "venue": {
+            "default": "Centre Bell"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-12T00:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -1283,8 +1823,18 @@
           "gameState": "FUT",
           "gameScheduleState": "OK",
           "tvBroadcasts": [
-            { "id": 4, "market": "N", "countryCode": "CA", "network": "CBC" },
-            { "id": 31, "market": "A", "countryCode": "US", "network": "NESN" },
+            {
+              "id": 4,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "CBC"
+            },
+            {
+              "id": 31,
+              "market": "A",
+              "countryCode": "US",
+              "network": "NESN"
+            },
             {
               "id": 281,
               "market": "N",
@@ -1297,38 +1847,77 @@
               "countryCode": "CA",
               "network": "CITY"
             },
-            { "id": 324, "market": "N", "countryCode": "US", "network": "NHLN" }
+            {
+              "id": 324,
+              "market": "N",
+              "countryCode": "US",
+              "network": "NHLN"
+            }
           ],
           "awayTeam": {
             "id": 6,
-            "placeName": { "default": "Boston" },
+            "placeName": {
+              "default": "Boston"
+            },
             "abbrev": "BOS",
             "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/BOS_dark.svg",
             "awaySplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/BOS/20232024/BOS-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "1.4500" },
-              { "providerId": 3, "value": "4.3100" },
-              { "providerId": 2, "value": "-127.0000" },
-              { "providerId": 9, "value": "-218.0000" },
-              { "providerId": 8, "value": "-217.0000" }
+              {
+                "providerId": 4,
+                "value": "1.4500"
+              },
+              {
+                "providerId": 3,
+                "value": "4.3100"
+              },
+              {
+                "providerId": 2,
+                "value": "-127.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "-218.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "-217.0000"
+              }
             ]
           },
           "homeTeam": {
             "id": 8,
-            "placeName": { "default": "Montréal" },
+            "placeName": {
+              "default": "Montréal"
+            },
             "abbrev": "MTL",
             "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MTL_dark.svg",
             "homeSplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/MTL/20232024/MTL-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "2.7000" },
-              { "providerId": 3, "value": "4.3100" },
-              { "providerId": 2, "value": "275.0000" },
-              { "providerId": 9, "value": "180.0000" },
-              { "providerId": 8, "value": "174.0000" }
+              {
+                "providerId": 4,
+                "value": "2.7000"
+              },
+              {
+                "providerId": 3,
+                "value": "4.3100"
+              },
+              {
+                "providerId": 2,
+                "value": "275.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "180.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "174.0000"
+              }
             ]
           },
           "periodDescriptor": {},
@@ -1339,7 +1928,9 @@
           "id": 2023020213,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Canadian Tire Centre" },
+          "venue": {
+            "default": "Canadian Tire Centre"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-12T00:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -1348,38 +1939,77 @@
           "gameState": "FUT",
           "gameScheduleState": "OK",
           "tvBroadcasts": [
-            { "id": 284, "market": "N", "countryCode": "CA", "network": "SN1" }
+            {
+              "id": 284,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "SN1"
+            }
           ],
           "awayTeam": {
             "id": 20,
-            "placeName": { "default": "Calgary" },
+            "placeName": {
+              "default": "Calgary"
+            },
             "abbrev": "CGY",
             "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CGY_dark.svg",
             "awaySplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/CGY/20232024/CGY-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "2.1000" },
-              { "providerId": 3, "value": "4.0900" },
-              { "providerId": 2, "value": "188.0000" },
-              { "providerId": 9, "value": "120.0000" },
-              { "providerId": 8, "value": "118.0000" }
+              {
+                "providerId": 4,
+                "value": "2.1000"
+              },
+              {
+                "providerId": 3,
+                "value": "4.0900"
+              },
+              {
+                "providerId": 2,
+                "value": "188.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "120.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "118.0000"
+              }
             ]
           },
           "homeTeam": {
             "id": 9,
-            "placeName": { "default": "Ottawa" },
+            "placeName": {
+              "default": "Ottawa"
+            },
             "abbrev": "OTT",
             "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/OTT_dark.svg",
             "homeSplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/OTT/20232024/OTT-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "1.7500" },
-              { "providerId": 3, "value": "4.0900" },
-              { "providerId": 2, "value": "116.0000" },
-              { "providerId": 9, "value": "-142.0000" },
-              { "providerId": 8, "value": "-142.0000" }
+              {
+                "providerId": 4,
+                "value": "1.7500"
+              },
+              {
+                "providerId": 3,
+                "value": "4.0900"
+              },
+              {
+                "providerId": 2,
+                "value": "116.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "-142.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "-142.0000"
+              }
             ]
           },
           "periodDescriptor": {},
@@ -1390,7 +2020,9 @@
           "id": 2023020214,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Amalie Arena" },
+          "venue": {
+            "default": "Amalie Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-12T00:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -1405,38 +2037,78 @@
               "countryCode": "US",
               "network": "BSSUN"
             },
-            { "id": 375, "market": "A", "countryCode": "US", "network": "BSSO" }
+            {
+              "id": 375,
+              "market": "A",
+              "countryCode": "US",
+              "network": "BSSO"
+            }
           ],
           "awayTeam": {
             "id": 12,
-            "placeName": { "default": "Carolina", "fr": "Caroline" },
+            "placeName": {
+              "default": "Carolina",
+              "fr": "Caroline"
+            },
             "abbrev": "CAR",
             "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg",
             "awaySplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/CAR/20232024/CAR-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "1.9000" },
-              { "providerId": 3, "value": "3.9400" },
-              { "providerId": 2, "value": "150.0000" },
-              { "providerId": 9, "value": "-115.0000" },
-              { "providerId": 8, "value": "-112.0000" }
+              {
+                "providerId": 4,
+                "value": "1.9000"
+              },
+              {
+                "providerId": 3,
+                "value": "3.9400"
+              },
+              {
+                "providerId": 2,
+                "value": "150.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "-115.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "-112.0000"
+              }
             ]
           },
           "homeTeam": {
             "id": 14,
-            "placeName": { "default": "Tampa Bay" },
+            "placeName": {
+              "default": "Tampa Bay"
+            },
             "abbrev": "TBL",
             "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TBL_dark.svg",
             "homeSplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/TBL/20232024/TBL-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "1.9000" },
-              { "providerId": 3, "value": "3.9400" },
-              { "providerId": 2, "value": "148.0000" },
-              { "providerId": 9, "value": "-105.0000" },
-              { "providerId": 8, "value": "-110.0000" }
+              {
+                "providerId": 4,
+                "value": "1.9000"
+              },
+              {
+                "providerId": 3,
+                "value": "3.9400"
+              },
+              {
+                "providerId": 2,
+                "value": "148.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "-105.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "-110.0000"
+              }
             ]
           },
           "periodDescriptor": {},
@@ -1447,7 +2119,9 @@
           "id": 2023020215,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Scotiabank Arena" },
+          "venue": {
+            "default": "Scotiabank Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-12T00:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -1456,38 +2130,77 @@
           "gameState": "FUT",
           "gameScheduleState": "OK",
           "tvBroadcasts": [
-            { "id": 282, "market": "N", "countryCode": "CA", "network": "SN" }
+            {
+              "id": 282,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "SN"
+            }
           ],
           "awayTeam": {
             "id": 23,
-            "placeName": { "default": "Vancouver" },
+            "placeName": {
+              "default": "Vancouver"
+            },
             "abbrev": "VAN",
             "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VAN_dark.svg",
             "awaySplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/VAN/20232024/VAN-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "2.1000" },
-              { "providerId": 3, "value": "4.4100" },
-              { "providerId": 2, "value": "175.0000" },
-              { "providerId": 9, "value": "114.0000" },
-              { "providerId": 8, "value": "112.0000" }
+              {
+                "providerId": 4,
+                "value": "2.1000"
+              },
+              {
+                "providerId": 3,
+                "value": "4.4100"
+              },
+              {
+                "providerId": 2,
+                "value": "175.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "114.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "112.0000"
+              }
             ]
           },
           "homeTeam": {
             "id": 10,
-            "placeName": { "default": "Toronto" },
+            "placeName": {
+              "default": "Toronto"
+            },
             "abbrev": "TOR",
             "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TOR_dark.svg",
             "homeSplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/TOR/20232024/TOR-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "1.7500" },
-              { "providerId": 3, "value": "4.4100" },
-              { "providerId": 2, "value": "120.0000" },
-              { "providerId": 9, "value": "-135.0000" },
-              { "providerId": 8, "value": "-135.0000" }
+              {
+                "providerId": 4,
+                "value": "1.7500"
+              },
+              {
+                "providerId": 3,
+                "value": "4.4100"
+              },
+              {
+                "providerId": 2,
+                "value": "120.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "-135.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "-135.0000"
+              }
             ]
           },
           "periodDescriptor": {},
@@ -1498,7 +2211,9 @@
           "id": 2023020216,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "UBS Arena" },
+          "venue": {
+            "default": "UBS Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-12T00:30:00Z",
           "easternUTCOffset": "-05:00",
@@ -1513,38 +2228,77 @@
               "countryCode": "US",
               "network": "MSGSN"
             },
-            { "id": 517, "market": "A", "countryCode": "US", "network": "MNMT" }
+            {
+              "id": 517,
+              "market": "A",
+              "countryCode": "US",
+              "network": "MNMT"
+            }
           ],
           "awayTeam": {
             "id": 15,
-            "placeName": { "default": "Washington" },
+            "placeName": {
+              "default": "Washington"
+            },
             "abbrev": "WSH",
             "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WSH_dark.svg",
             "awaySplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/WSH/20232024/WSH-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "2.5000" },
-              { "providerId": 3, "value": "4.3000" },
-              { "providerId": 2, "value": "250.0000" },
-              { "providerId": 9, "value": "154.0000" },
-              { "providerId": 8, "value": "155.0000" }
+              {
+                "providerId": 4,
+                "value": "2.5000"
+              },
+              {
+                "providerId": 3,
+                "value": "4.3000"
+              },
+              {
+                "providerId": 2,
+                "value": "250.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "154.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "155.0000"
+              }
             ]
           },
           "homeTeam": {
             "id": 2,
-            "placeName": { "default": "New York" },
+            "placeName": {
+              "default": "New York"
+            },
             "abbrev": "NYI",
             "logo": "https://assets.nhle.com/logos/nhl/svg/NYI_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NYI_dark.svg",
             "homeSplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/NYI/20232024/NYI-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "1.5300" },
-              { "providerId": 3, "value": "4.3000" },
-              { "providerId": 2, "value": "-114.0000" },
-              { "providerId": 9, "value": "-185.0000" },
-              { "providerId": 8, "value": "-188.0000" }
+              {
+                "providerId": 4,
+                "value": "1.5300"
+              },
+              {
+                "providerId": 3,
+                "value": "4.3000"
+              },
+              {
+                "providerId": 2,
+                "value": "-114.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "-185.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "-188.0000"
+              }
             ]
           },
           "periodDescriptor": {},
@@ -1555,7 +2309,9 @@
           "id": 2023020218,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Bridgestone Arena" },
+          "venue": {
+            "default": "Bridgestone Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-12T01:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -1579,34 +2335,68 @@
           ],
           "awayTeam": {
             "id": 53,
-            "placeName": { "default": "Arizona" },
+            "placeName": {
+              "default": "Arizona"
+            },
             "abbrev": "ARI",
             "logo": "https://assets.nhle.com/logos/nhl/svg/ARI_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/ARI_dark.svg",
             "awaySplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/ARI/20232024/ARI-radio.m3u8",
             "odds": [
-              { "providerId": 3, "value": "4.1200" },
-              { "providerId": 2, "value": "200.0000" },
-              { "providerId": 9, "value": "130.0000" },
-              { "providerId": 4, "value": "2.2000" },
-              { "providerId": 8, "value": "125.0000" }
+              {
+                "providerId": 3,
+                "value": "4.1200"
+              },
+              {
+                "providerId": 2,
+                "value": "200.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "130.0000"
+              },
+              {
+                "providerId": 4,
+                "value": "2.2000"
+              },
+              {
+                "providerId": 8,
+                "value": "125.0000"
+              }
             ]
           },
           "homeTeam": {
             "id": 18,
-            "placeName": { "default": "Nashville" },
+            "placeName": {
+              "default": "Nashville"
+            },
             "abbrev": "NSH",
             "logo": "https://assets.nhle.com/logos/nhl/svg/NSH_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NSH_dark.svg",
             "homeSplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/NSH/20232024/NSH-radio.m3u8",
             "odds": [
-              { "providerId": 3, "value": "4.1200" },
-              { "providerId": 2, "value": "106.0000" },
-              { "providerId": 9, "value": "-155.0000" },
-              { "providerId": 4, "value": "1.6500" },
-              { "providerId": 8, "value": "-150.0000" }
+              {
+                "providerId": 3,
+                "value": "4.1200"
+              },
+              {
+                "providerId": 2,
+                "value": "106.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "-155.0000"
+              },
+              {
+                "providerId": 4,
+                "value": "1.6500"
+              },
+              {
+                "providerId": 8,
+                "value": "-150.0000"
+              }
             ]
           },
           "periodDescriptor": {},
@@ -1617,7 +2407,9 @@
           "id": 2023020219,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Ball Arena" },
+          "venue": {
+            "default": "Ball Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-12T02:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -1626,37 +2418,75 @@
           "gameState": "FUT",
           "gameScheduleState": "OK",
           "tvBroadcasts": [
-            { "id": 2, "market": "H", "countryCode": "US", "network": "ALT" },
-            { "id": 357, "market": "A", "countryCode": "US", "network": "BSMW" }
+            {
+              "id": 2,
+              "market": "H",
+              "countryCode": "US",
+              "network": "ALT"
+            },
+            {
+              "id": 357,
+              "market": "A",
+              "countryCode": "US",
+              "network": "BSMW"
+            }
           ],
           "awayTeam": {
             "id": 19,
-            "placeName": { "default": "St. Louis" },
+            "placeName": {
+              "default": "St. Louis"
+            },
             "abbrev": "STL",
             "logo": "https://assets.nhle.com/logos/nhl/svg/STL_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/STL_dark.svg",
             "awaySplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/STL/20232024/STL-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "2.9000" },
-              { "providerId": 3, "value": "4.3100" },
-              { "providerId": 9, "value": "205.0000" },
-              { "providerId": 8, "value": "202.0000" }
+              {
+                "providerId": 4,
+                "value": "2.9000"
+              },
+              {
+                "providerId": 3,
+                "value": "4.3100"
+              },
+              {
+                "providerId": 9,
+                "value": "205.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "202.0000"
+              }
             ]
           },
           "homeTeam": {
             "id": 21,
-            "placeName": { "default": "Colorado" },
+            "placeName": {
+              "default": "Colorado"
+            },
             "abbrev": "COL",
             "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/COL_dark.svg",
             "homeSplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/COL/20232024/COL-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "1.4000" },
-              { "providerId": 3, "value": "4.3100" },
-              { "providerId": 9, "value": "-250.0000" },
-              { "providerId": 8, "value": "-250.0000" }
+              {
+                "providerId": 4,
+                "value": "1.4000"
+              },
+              {
+                "providerId": 3,
+                "value": "4.3100"
+              },
+              {
+                "providerId": 9,
+                "value": "-250.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "-250.0000"
+              }
             ]
           },
           "periodDescriptor": {},
@@ -1667,7 +2497,9 @@
           "id": 2023020220,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Climate Pledge Arena" },
+          "venue": {
+            "default": "Climate Pledge Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-12T03:00:00Z",
           "easternUTCOffset": "-05:00",
@@ -1676,8 +2508,18 @@
           "gameState": "FUT",
           "gameScheduleState": "OK",
           "tvBroadcasts": [
-            { "id": 4, "market": "N", "countryCode": "CA", "network": "CBC" },
-            { "id": 282, "market": "N", "countryCode": "CA", "network": "SN" },
+            {
+              "id": 4,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "CBC"
+            },
+            {
+              "id": 282,
+              "market": "N",
+              "countryCode": "CA",
+              "network": "SN"
+            },
             {
               "id": 286,
               "market": "N",
@@ -1699,34 +2541,68 @@
           ],
           "awayTeam": {
             "id": 22,
-            "placeName": { "default": "Edmonton" },
+            "placeName": {
+              "default": "Edmonton"
+            },
             "abbrev": "EDM",
             "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg",
             "awaySplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/EDM/20232024/EDM-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "1.8500" },
-              { "providerId": 3, "value": "4.1900" },
-              { "providerId": 2, "value": "133.0000" },
-              { "providerId": 9, "value": "-118.0000" },
-              { "providerId": 8, "value": "-121.0000" }
+              {
+                "providerId": 4,
+                "value": "1.8500"
+              },
+              {
+                "providerId": 3,
+                "value": "4.1900"
+              },
+              {
+                "providerId": 2,
+                "value": "133.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "-118.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "-121.0000"
+              }
             ]
           },
           "homeTeam": {
             "id": 55,
-            "placeName": { "default": "Seattle" },
+            "placeName": {
+              "default": "Seattle"
+            },
             "abbrev": "SEA",
             "logo": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/SEA_dark.svg",
             "homeSplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/SEA/20232024/SEA-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "1.9500" },
-              { "providerId": 3, "value": "4.1900" },
-              { "providerId": 2, "value": "160.0000" },
-              { "providerId": 9, "value": "-102.0000" },
-              { "providerId": 8, "value": "-101.0000" }
+              {
+                "providerId": 4,
+                "value": "1.9500"
+              },
+              {
+                "providerId": 3,
+                "value": "4.1900"
+              },
+              {
+                "providerId": 2,
+                "value": "160.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "-102.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "-101.0000"
+              }
             ]
           },
           "periodDescriptor": {},
@@ -1737,7 +2613,9 @@
           "id": 2023020221,
           "season": 20232024,
           "gameType": 2,
-          "venue": { "default": "Crypto.com Arena" },
+          "venue": {
+            "default": "Crypto.com Arena"
+          },
           "neutralSite": false,
           "startTimeUTC": "2023-11-12T03:30:00Z",
           "easternUTCOffset": "-05:00",
@@ -1752,38 +2630,78 @@
               "countryCode": "US",
               "network": "NBCSP"
             },
-            { "id": 355, "market": "H", "countryCode": "US", "network": "BSW" }
+            {
+              "id": 355,
+              "market": "H",
+              "countryCode": "US",
+              "network": "BSW"
+            }
           ],
           "awayTeam": {
             "id": 4,
-            "placeName": { "default": "Philadelphia", "fr": "Philadelphie" },
+            "placeName": {
+              "default": "Philadelphia",
+              "fr": "Philadelphie"
+            },
             "abbrev": "PHI",
             "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PHI_dark.svg",
             "awaySplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/PHI/20232024/PHI-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "2.9000" },
-              { "providerId": 3, "value": "4.6500" },
-              { "providerId": 2, "value": "350.0000" },
-              { "providerId": 9, "value": "195.0000" },
-              { "providerId": 8, "value": "196.0000" }
+              {
+                "providerId": 4,
+                "value": "2.9000"
+              },
+              {
+                "providerId": 3,
+                "value": "4.6500"
+              },
+              {
+                "providerId": 2,
+                "value": "350.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "195.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "196.0000"
+              }
             ]
           },
           "homeTeam": {
             "id": 26,
-            "placeName": { "default": "Los Angeles" },
+            "placeName": {
+              "default": "Los Angeles"
+            },
             "abbrev": "LAK",
             "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg",
             "darkLogo": "https://assets.nhle.com/logos/nhl/svg/LAK_dark.svg",
             "homeSplitSquad": false,
             "radioLink": "https://d2igy0yla8zi0u.cloudfront.net/LAK/20232024/LAK-radio.m3u8",
             "odds": [
-              { "providerId": 4, "value": "1.4000" },
-              { "providerId": 3, "value": "4.6500" },
-              { "providerId": 2, "value": "-155.0000" },
-              { "providerId": 9, "value": "-238.0000" },
-              { "providerId": 8, "value": "-243.0000" }
+              {
+                "providerId": 4,
+                "value": "1.4000"
+              },
+              {
+                "providerId": 3,
+                "value": "4.6500"
+              },
+              {
+                "providerId": 2,
+                "value": "-155.0000"
+              },
+              {
+                "providerId": 9,
+                "value": "-238.0000"
+              },
+              {
+                "providerId": 8,
+                "value": "-243.0000"
+              }
             ]
           },
           "periodDescriptor": {},

@@ -4,13 +4,20 @@
   "gameType": 2,
   "limitedScoring": false,
   "gameDate": "2023-11-10",
-  "venue": { "default": "T-Mobile Arena" },
-  "venueLocation": { "default": "Paradise" },
+  "venue": {
+    "default": "T-Mobile Arena"
+  },
+  "venueLocation": {
+    "default": "Paradise"
+  },
   "startTimeUTC": "2023-11-11T03:00:00Z",
   "easternUTCOffset": "-05:00",
   "venueUTCOffset": "-08:00",
   "venueTimezone": "US/Pacific",
-  "periodDescriptor": { "number": 3, "periodType": "REG" },
+  "periodDescriptor": {
+    "number": 3,
+    "periodType": "REG"
+  },
   "tvBroadcasts": [
     {
       "id": 281,
@@ -45,18 +52,26 @@
   "gameScheduleState": "OK",
   "awayTeam": {
     "id": 28,
-    "name": { "default": "Sharks" },
+    "name": {
+      "default": "Sharks"
+    },
     "abbrev": "SJS",
-    "placeName": { "default": "San Jose" },
+    "placeName": {
+      "default": "San Jose"
+    },
     "score": 0,
     "sog": 20,
     "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg"
   },
   "homeTeam": {
     "id": 54,
-    "name": { "default": "Golden Knights" },
+    "name": {
+      "default": "Golden Knights"
+    },
     "abbrev": "VGK",
-    "placeName": { "default": "Vegas" },
+    "placeName": {
+      "default": "Vegas"
+    },
     "score": 5,
     "sog": 39,
     "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg"
@@ -70,58 +85,95 @@
     "linescore": {
       "byPeriod": [
         {
-          "periodDescriptor": { "number": 1, "periodType": "REG" },
+          "periodDescriptor": {
+            "number": 1,
+            "periodType": "REG"
+          },
           "away": 0,
           "home": 2
         },
         {
-          "periodDescriptor": { "number": 2, "periodType": "REG" },
+          "periodDescriptor": {
+            "number": 2,
+            "periodType": "REG"
+          },
           "away": 0,
           "home": 0
         },
         {
-          "periodDescriptor": { "number": 3, "periodType": "REG" },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          },
           "away": 0,
           "home": 3
         }
       ],
-      "totals": { "away": 0, "home": 5 }
+      "totals": {
+        "away": 0,
+        "home": 5
+      }
     },
     "scoring": [
       {
-        "periodDescriptor": { "number": 1, "periodType": "REG" },
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
         "goals": [
           {
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8474565,
-            "firstName": { "default": "Alex" },
-            "lastName": { "default": "Pietrangelo" },
-            "name": { "default": "A. Pietrangelo" },
-            "teamAbbrev": { "default": "VGK" },
+            "firstName": {
+              "default": "Alex"
+            },
+            "lastName": {
+              "default": "Pietrangelo"
+            },
+            "name": {
+              "default": "A. Pietrangelo"
+            },
+            "teamAbbrev": {
+              "default": "VGK"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8474565.png",
             "highlightClip": 6340912874112,
             "highlightClipFr": 6340912697112,
             "goalsToDate": 1,
             "awayScore": 0,
             "homeScore": 1,
-            "leadingTeamAbbrev": { "default": "VGK" },
+            "leadingTeamAbbrev": {
+              "default": "VGK"
+            },
             "timeInPeriod": "01:00",
             "shotType": "wrap-around",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8478020,
-                "firstName": { "default": "Michael" },
-                "lastName": { "default": "Amadio" },
-                "name": { "default": "M. Amadio" },
+                "firstName": {
+                  "default": "Michael"
+                },
+                "lastName": {
+                  "default": "Amadio"
+                },
+                "name": {
+                  "default": "M. Amadio"
+                },
                 "assistsToDate": 5
               },
               {
                 "playerId": 8475913,
-                "firstName": { "default": "Mark" },
-                "lastName": { "default": "Stone" },
-                "name": { "default": "M. Stone" },
+                "firstName": {
+                  "default": "Mark"
+                },
+                "lastName": {
+                  "default": "Stone"
+                },
+                "name": {
+                  "default": "M. Stone"
+                },
                 "assistsToDate": 10
               }
             ]
@@ -130,74 +182,127 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8474166,
-            "firstName": { "default": "Alec" },
-            "lastName": { "default": "Martinez" },
-            "name": { "default": "A. Martinez" },
-            "teamAbbrev": { "default": "VGK" },
+            "firstName": {
+              "default": "Alec"
+            },
+            "lastName": {
+              "default": "Martinez"
+            },
+            "name": {
+              "default": "A. Martinez"
+            },
+            "teamAbbrev": {
+              "default": "VGK"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8474166.png",
             "highlightClip": 6340914076112,
             "highlightClipFr": 6340914365112,
             "goalsToDate": 2,
             "awayScore": 0,
             "homeScore": 2,
-            "leadingTeamAbbrev": { "default": "VGK" },
+            "leadingTeamAbbrev": {
+              "default": "VGK"
+            },
             "timeInPeriod": "11:19",
             "shotType": "slap",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8478020,
-                "firstName": { "default": "Michael" },
-                "lastName": { "default": "Amadio" },
-                "name": { "default": "M. Amadio" },
+                "firstName": {
+                  "default": "Michael"
+                },
+                "lastName": {
+                  "default": "Amadio"
+                },
+                "name": {
+                  "default": "M. Amadio"
+                },
                 "assistsToDate": 6
               },
               {
                 "playerId": 8477478,
-                "firstName": { "default": "William" },
-                "lastName": { "default": "Carrier" },
-                "name": { "default": "W. Carrier" },
+                "firstName": {
+                  "default": "William"
+                },
+                "lastName": {
+                  "default": "Carrier"
+                },
+                "name": {
+                  "default": "W. Carrier"
+                },
                 "assistsToDate": 1
               }
             ]
           }
         ]
       },
-      { "periodDescriptor": { "number": 2, "periodType": "REG" }, "goals": [] },
       {
-        "periodDescriptor": { "number": 3, "periodType": "REG" },
+        "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG"
+        },
+        "goals": []
+      },
+      {
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
         "goals": [
           {
             "situationCode": "1541",
             "strength": "sh",
             "playerId": 8476448,
-            "firstName": { "default": "William" },
-            "lastName": { "default": "Karlsson" },
-            "name": { "default": "W. Karlsson" },
-            "teamAbbrev": { "default": "VGK" },
+            "firstName": {
+              "default": "William"
+            },
+            "lastName": {
+              "default": "Karlsson"
+            },
+            "name": {
+              "default": "W. Karlsson"
+            },
+            "teamAbbrev": {
+              "default": "VGK"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8476448.png",
             "highlightClip": 6340919639112,
             "highlightClipFr": 6340920545112,
             "goalsToDate": 8,
             "awayScore": 0,
             "homeScore": 3,
-            "leadingTeamAbbrev": { "default": "VGK" },
+            "leadingTeamAbbrev": {
+              "default": "VGK"
+            },
             "timeInPeriod": "02:24",
             "shotType": "snap",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8478403,
-                "firstName": { "default": "Jack" },
-                "lastName": { "default": "Eichel" },
-                "name": { "default": "J. Eichel" },
+                "firstName": {
+                  "default": "Jack"
+                },
+                "lastName": {
+                  "default": "Eichel"
+                },
+                "name": {
+                  "default": "J. Eichel"
+                },
                 "assistsToDate": 9
               },
               {
                 "playerId": 8474565,
-                "firstName": { "default": "Alex" },
-                "lastName": { "default": "Pietrangelo" },
-                "name": { "default": "A. Pietrangelo" },
+                "firstName": {
+                  "default": "Alex"
+                },
+                "lastName": {
+                  "default": "Pietrangelo"
+                },
+                "name": {
+                  "default": "A. Pietrangelo"
+                },
                 "assistsToDate": 7
               }
             ]
@@ -206,33 +311,55 @@
             "situationCode": "1551",
             "strength": "ev",
             "playerId": 8474166,
-            "firstName": { "default": "Alec" },
-            "lastName": { "default": "Martinez" },
-            "name": { "default": "A. Martinez" },
-            "teamAbbrev": { "default": "VGK" },
+            "firstName": {
+              "default": "Alec"
+            },
+            "lastName": {
+              "default": "Martinez"
+            },
+            "name": {
+              "default": "A. Martinez"
+            },
+            "teamAbbrev": {
+              "default": "VGK"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8474166.png",
             "highlightClip": 6340920148112,
             "highlightClipFr": 6340921612112,
             "goalsToDate": 3,
             "awayScore": 0,
             "homeScore": 4,
-            "leadingTeamAbbrev": { "default": "VGK" },
+            "leadingTeamAbbrev": {
+              "default": "VGK"
+            },
             "timeInPeriod": "04:40",
             "shotType": "wrist",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8474565,
-                "firstName": { "default": "Alex" },
-                "lastName": { "default": "Pietrangelo" },
-                "name": { "default": "A. Pietrangelo" },
+                "firstName": {
+                  "default": "Alex"
+                },
+                "lastName": {
+                  "default": "Pietrangelo"
+                },
+                "name": {
+                  "default": "A. Pietrangelo"
+                },
                 "assistsToDate": 8
               },
               {
                 "playerId": 8476448,
-                "firstName": { "default": "William" },
-                "lastName": { "default": "Karlsson" },
-                "name": { "default": "W. Karlsson" },
+                "firstName": {
+                  "default": "William"
+                },
+                "lastName": {
+                  "default": "Karlsson"
+                },
+                "name": {
+                  "default": "W. Karlsson"
+                },
                 "assistsToDate": 10
               }
             ]
@@ -241,24 +368,36 @@
             "situationCode": "1551",
             "strength": "pp",
             "playerId": 8479353,
-            "firstName": { "default": "Brett" },
-            "lastName": { "default": "Howden" },
-            "name": { "default": "B. Howden" },
-            "teamAbbrev": { "default": "VGK" },
+            "firstName": {
+              "default": "Brett"
+            },
+            "lastName": {
+              "default": "Howden"
+            },
+            "name": {
+              "default": "B. Howden"
+            },
+            "teamAbbrev": {
+              "default": "VGK"
+            },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/VGK/8479353.png",
             "highlightClip": 6340923731112,
             "highlightClipFr": 6340928171112,
             "goalsToDate": 2,
             "awayScore": 0,
             "homeScore": 5,
-            "leadingTeamAbbrev": { "default": "VGK" },
+            "leadingTeamAbbrev": {
+              "default": "VGK"
+            },
             "timeInPeriod": "09:34",
             "shotType": "wrist",
             "goalModifier": "none",
             "assists": [
               {
                 "playerId": 8480007,
-                "firstName": { "default": "Jonas" },
+                "firstName": {
+                  "default": "Jonas"
+                },
                 "lastName": {
                   "default": "Rondbjerg",
                   "cs": "Röndbjerg",
@@ -315,40 +454,84 @@
       }
     ],
     "teamGameStats": [
-      { "category": "sog", "awayValue": 20, "homeValue": 39 },
+      {
+        "category": "sog",
+        "awayValue": 20,
+        "homeValue": 39
+      },
       {
         "category": "faceoffWinningPctg",
         "awayValue": 0.559322,
         "homeValue": 0.440678
       },
-      { "category": "powerPlay", "awayValue": "0/4", "homeValue": "0/0" },
-      { "category": "powerPlayPctg", "awayValue": 0.0, "homeValue": 0.0 },
-      { "category": "pim", "awayValue": 2, "homeValue": 10 },
-      { "category": "hits", "awayValue": 29, "homeValue": 17 },
-      { "category": "blockedShots", "awayValue": 16, "homeValue": 15 },
-      { "category": "giveaways", "awayValue": 4, "homeValue": 8 },
-      { "category": "takeaways", "awayValue": 4, "homeValue": 7 }
+      {
+        "category": "powerPlay",
+        "awayValue": "0/4",
+        "homeValue": "0/0"
+      },
+      {
+        "category": "powerPlayPctg",
+        "awayValue": 0.0,
+        "homeValue": 0.0
+      },
+      {
+        "category": "pim",
+        "awayValue": 2,
+        "homeValue": 10
+      },
+      {
+        "category": "hits",
+        "awayValue": 29,
+        "homeValue": 17
+      },
+      {
+        "category": "blockedShots",
+        "awayValue": 16,
+        "homeValue": 15
+      },
+      {
+        "category": "giveaways",
+        "awayValue": 4,
+        "homeValue": 8
+      },
+      {
+        "category": "takeaways",
+        "awayValue": 4,
+        "homeValue": 7
+      }
     ],
     "shotsByPeriod": [
       {
-        "periodDescriptor": { "number": 1, "periodType": "REG" },
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
         "away": 6,
         "home": 15
       },
       {
-        "periodDescriptor": { "number": 2, "periodType": "REG" },
+        "periodDescriptor": {
+          "number": 2,
+          "periodType": "REG"
+        },
         "away": 6,
         "home": 13
       },
       {
-        "periodDescriptor": { "number": 3, "periodType": "REG" },
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
         "away": 8,
         "home": 11
       }
     ],
     "penalties": [
       {
-        "periodDescriptor": { "number": 1, "periodType": "REG" },
+        "periodDescriptor": {
+          "number": 1,
+          "periodType": "REG"
+        },
         "penalties": [
           {
             "timeInPeriod": "07:06",
@@ -362,7 +545,10 @@
         ]
       },
       {
-        "periodDescriptor": { "number": 3, "periodType": "REG" },
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
         "penalties": [
           {
             "timeInPeriod": "01:07",
@@ -443,8 +629,13 @@
           "inIntermission": false
         },
         "gameCenterLink": "/gamecenter/vgk-vs-sjs/2023/10/12/2023020016",
-        "periodDescriptor": { "number": 3, "periodType": "REG" },
-        "gameOutcome": { "lastPeriodType": "REG" }
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "gameOutcome": {
+          "lastPeriodType": "REG"
+        }
       },
       {
         "id": 2023020209,
@@ -475,8 +666,13 @@
           "inIntermission": false
         },
         "gameCenterLink": "/gamecenter/sjs-vs-vgk/2023/11/10/2023020209",
-        "periodDescriptor": { "number": 3, "periodType": "REG" },
-        "gameOutcome": { "lastPeriodType": "REG" }
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "gameOutcome": {
+          "lastPeriodType": "REG"
+        }
       },
       {
         "id": 2023020427,
@@ -507,8 +703,13 @@
           "inIntermission": false
         },
         "gameCenterLink": "/gamecenter/sjs-vs-vgk/2023/12/10/2023020427",
-        "periodDescriptor": { "number": 5, "periodType": "SO" },
-        "gameOutcome": { "lastPeriodType": "SO" }
+        "periodDescriptor": {
+          "number": 5,
+          "periodType": "SO"
+        },
+        "gameOutcome": {
+          "lastPeriodType": "SO"
+        }
       },
       {
         "id": 2023020873,
@@ -539,31 +740,54 @@
           "inIntermission": false
         },
         "gameCenterLink": "/gamecenter/vgk-vs-sjs/2024/02/19/2023020873",
-        "periodDescriptor": { "number": 3, "periodType": "REG" },
-        "gameOutcome": { "lastPeriodType": "REG" }
+        "periodDescriptor": {
+          "number": 3,
+          "periodType": "REG"
+        },
+        "gameOutcome": {
+          "lastPeriodType": "REG"
+        }
       }
     ],
     "gameInfo": {
       "referees": [
-        { "default": "Thomas John Luxmore" },
-        { "default": "Ghislain Hebert" }
+        {
+          "default": "Thomas John Luxmore"
+        },
+        {
+          "default": "Ghislain Hebert"
+        }
       ],
       "linesmen": [
-        { "default": "Kyle Flemington" },
-        { "default": "Mitch Hunt" }
+        {
+          "default": "Kyle Flemington"
+        },
+        {
+          "default": "Mitch Hunt"
+        }
       ],
       "awayTeam": {
-        "headCoach": { "default": "David Quinn" },
+        "headCoach": {
+          "default": "David Quinn"
+        },
         "scratches": [
           {
             "id": 8477407,
-            "firstName": { "default": "Anthony" },
-            "lastName": { "default": "Duclair" }
+            "firstName": {
+              "default": "Anthony"
+            },
+            "lastName": {
+              "default": "Duclair"
+            }
           },
           {
             "id": 8480834,
-            "firstName": { "default": "Ty" },
-            "lastName": { "default": "Emberson" }
+            "firstName": {
+              "default": "Ty"
+            },
+            "lastName": {
+              "default": "Emberson"
+            }
           },
           {
             "id": 8481812,
@@ -572,27 +796,45 @@
               "cs": "Nikolaj",
               "sk": "Nikolaj"
             },
-            "lastName": { "default": "Knyzhov", "cs": "Knyžov", "sk": "Knyžov" }
+            "lastName": {
+              "default": "Knyzhov",
+              "cs": "Knyžov",
+              "sk": "Knyžov"
+            }
           }
         ]
       },
       "homeTeam": {
-        "headCoach": { "default": "Bruce Cassidy" },
+        "headCoach": {
+          "default": "Bruce Cassidy"
+        },
         "scratches": [
           {
             "id": 8476905,
-            "firstName": { "default": "Chandler" },
-            "lastName": { "default": "Stephenson" }
+            "firstName": {
+              "default": "Chandler"
+            },
+            "lastName": {
+              "default": "Stephenson"
+            }
           },
           {
             "id": 8479980,
-            "firstName": { "default": "Nicolas" },
-            "lastName": { "default": "Hague" }
+            "firstName": {
+              "default": "Nicolas"
+            },
+            "lastName": {
+              "default": "Hague"
+            }
           },
           {
             "id": 8481167,
-            "firstName": { "default": "Brayden" },
-            "lastName": { "default": "Pachal" }
+            "firstName": {
+              "default": "Brayden"
+            },
+            "lastName": {
+              "default": "Pachal"
+            }
           }
         ]
       }
@@ -609,7 +851,10 @@
       "toiAway": "https://www.nhl.com/scores/htmlreports/20232024/TV020209.HTM",
       "toiHome": "https://www.nhl.com/scores/htmlreports/20232024/TH020209.HTM"
     },
-    "seasonSeriesWins": { "awayTeamWins": 0, "homeTeamWins": 4 }
+    "seasonSeriesWins": {
+      "awayTeamWins": 0,
+      "homeTeamWins": 4
+    }
   },
   "clock": {
     "timeRemaining": "00:00",
