@@ -2,7 +2,11 @@
 
 A JSON API that returns the scores and goals from the latest finished or on-going NHL games. The data is sourced from the
 same NHL Stats API at https://api-web.nhle.com that the NHL website uses. The NHL Stats API is undocumented but
-[unofficial documentation](https://gitlab.com/dword4/nhlapi) exists.
+unofficial documentation exists:
+
+- https://github.com/Zmalski/NHL-API-Reference: fairly recent, seems very comprehensive and updated lately
+- https://gitlab.com/dword4/nhlapi: older, plenty of discussion in its [issues](https://gitlab.com/dword4/nhlapi/-/issues)
+  (thoughly mainly on the previous NHL Stats API version)
 
 How we use the NHL Stats API:
 
