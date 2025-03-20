@@ -5,6 +5,7 @@ pom.xml
 pom.xml.asc
 *.jar
 *.class
+/newrelic/
 /.lein-*
 /.nrepl-port
 .calva/output-window/

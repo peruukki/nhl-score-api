@@ -772,7 +772,9 @@ git push origin master --tags
 
 1. Create a Java web app in Heroku
 2. Add and set up the [New Relic APM](https://elements.heroku.com/addons/newrelic) Heroku add-on
-   - Copy the New Relic JAR files (`newrelic.jar` etc.) to the `newrelic` directory in this repository
+   - The add-on will automatically add the necessary Heroku environment variables
+   - Ensure the Java agent is set too: `heroku config:set JAVA_OPTS='-javaagent:newrelic/newrelic.jar'`
+   - No need to copy New Relic JAR files locally, they are downloaded in [`deploy.sh`](./deploy.sh)
 3. Install and set up the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 4. Install the [Heroku Java CLI plugin](https://github.com/heroku/plugin-java):
 

@@ -30,7 +30,7 @@ jobs:
           java-version: '8'
 
       - name: Set up Leiningen
-        uses: DeLaGuardo/setup-clojure@13
+        uses: DeLaGuardo/setup-clojure@ada62bb3282a01a296659d48378b812b8e097360 # 13.2
         with:
           lein: '2.9.1'
 
@@ -48,9 +48,7 @@ jobs:
       - name: Configure Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: |
-          heroku login
-          heroku git:remote --app ${{ vars.HEROKU_APP_NAME }}
+        run: heroku git:remote --app ${{ vars.HEROKU_APP_NAME }}
 
       - name: Bump version
         if: ${{ github.event.inputs.version-bump != 'none' }}
