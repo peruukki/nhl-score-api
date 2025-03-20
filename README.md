@@ -19,6 +19,9 @@ How we use the NHL Stats API:
 
 This API is available at https://nhl-score-api.herokuapp.com/, and it serves as the backend for [nhl-recap](https://github.com/peruukki/nhl-recap).
 
+The NHL Stats API responses are cached in-memory for one minute, and then refreshed upon the next request. So there can be
+quite a bit of variance in response times.
+
 ## API
 
 ### Scores from latest finished NHL games
@@ -746,7 +749,13 @@ Right-rail response saved to test/nhl_score_api/fetchers/nhl_api_web/resources/r
 
 ## Deployment
 
-The API is deployed to [Heroku](http://heroku.com/) from a development machine, no CI/CD setup. 😬
+The API is deployed to [Heroku](http://heroku.com/) by running the [Deployment workflow](https://github.com/peruukki/nhl-score-api/actions/workflows/deployment.yml).
+The workflow requires these set in _Actions secrets and variables_ in the repository's settings:
+
+- `HEROKU_API_KEY` repository secret: you can find this from the _API Key_ section in your Heroku account settings
+- `HEROKU_APP_NAME` repository variable: your app name in Heroku
+
+### Alternative deployment from development machine
 
 Usual deployment process:
 
@@ -759,9 +768,7 @@ lein release <:minor|:patch>
 git push origin master --tags
 ```
 
-The API responses are cached in-memory for one minute.
-
-### Deployment setup
+### Heroku deployment setup
 
 1. Create a Java web app in Heroku
 2. Add and set up the [New Relic APM](https://elements.heroku.com/addons/newrelic) Heroku add-on

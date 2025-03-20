@@ -1,0 +1,66 @@
+name: Deployment to Heroku
+
+on:
+  workflow_dispatch:
+    inputs:
+      version-bump:
+        description: 'Version bump type (select none to skip version bump)'
+        type: choice
+        options:
+          - none
+          - patch
+          - minor
+          - major
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Fetch full history for version bumping with `lein release` that creates Git tags and commits
+          fetch-depth: 0
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '8'
+
+      - name: Set up Leiningen
+        uses: DeLaGuardo/setup-clojure@13
+        with:
+          lein: '2.9.1'
+
+      - name: Set up Heroku CLI
+        run: |
+          curl https://cli-assets.heroku.com/install.sh | sh
+          heroku plugins:install java
+
+      - name: Configure Git
+        if: ${{ github.event.inputs.version-bump != 'none' }}
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions"
+
+      - name: Configure Heroku
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: |
+          heroku login
+          heroku git:remote --app ${{ vars.HEROKU_APP_NAME }}
+
+      - name: Bump version
+        if: ${{ github.event.inputs.version-bump != 'none' }}
+        run: lein release :${{ github.event.inputs.version-bump }}
+
+      - name: Deploy to Heroku
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: ./deploy.sh
+
+      - name: Push to Git
+        if: ${{ github.event.inputs.version-bump != 'none' }}
+        run: git push origin master --tags
