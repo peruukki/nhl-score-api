@@ -84,7 +84,10 @@ The fields are described in more detail in [Response fields](#response-fields).
 
 ### Response examples
 
-#### Example of a single regular season date in the API response:
+<details>
+<summary>
+Example of a single regular season date in the API response
+</summary>
 
 ```json
 {
@@ -442,8 +445,12 @@ The fields are described in more detail in [Response fields](#response-fields).
   ]
 }
 ```
+</details>
 
-#### Example of a single playoff date in the API response:
+<details>
+<summary>
+Example of a single playoff date in the API response
+</summary>
 
 ```json
 {
@@ -525,6 +532,7 @@ The fields are described in more detail in [Response fields](#response-fields).
   ]
 }
 ```
+</details>
 
 ### Response fields
 
