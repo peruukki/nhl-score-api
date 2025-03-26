@@ -13,23 +13,32 @@ on:
           - major
 
 jobs:
+  ci:
+    uses: ./.github/workflows/ci.yml
+    with:
+      upload-artifact: true
+
   deploy:
+    needs: ci
     runs-on: ubuntu-latest
     environment: production
 
     steps:
       - uses: actions/checkout@v4
+        if: ${{ inputs.version-bump != 'none' }}
         with:
           # Fetch full history for version bumping with `lein release` that creates Git tags and commits
           fetch-depth: 0
 
       - name: Set up JDK 8
+        if: ${{ inputs.version-bump != 'none' }}
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '8'
 
       - name: Set up Leiningen
+        if: ${{ inputs.version-bump != 'none' }}
         uses: DeLaGuardo/setup-clojure@ada62bb3282a01a296659d48378b812b8e097360 # 13.2
         with:
           lein: '2.9.1'
@@ -40,7 +49,7 @@ jobs:
           heroku plugins:install java
 
       - name: Configure Git
-        if: ${{ github.event.inputs.version-bump != 'none' }}
+        if: ${{ inputs.version-bump != 'none' }}
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "GitHub Actions"
@@ -50,9 +59,14 @@ jobs:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: heroku git:remote --app ${{ vars.HEROKU_APP_NAME }}
 
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+
       - name: Bump version
-        if: ${{ github.event.inputs.version-bump != 'none' }}
-        run: lein release :${{ github.event.inputs.version-bump }}
+        if: ${{ inputs.version-bump != 'none' }}
+        run: lein release :${{ inputs.version-bump }}
 
       - name: Deploy to Heroku
         env:
@@ -60,5 +74,5 @@ jobs:
         run: ./deploy.sh
 
       - name: Push to Git
-        if: ${{ github.event.inputs.version-bump != 'none' }}
+        if: ${{ inputs.version-bump != 'none' }}
         run: git push origin master --tags

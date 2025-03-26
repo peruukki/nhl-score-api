@@ -15,6 +15,6 @@ if [ ! -f newrelic/newrelic.jar ]; then
   exit 1
 fi
 
-# Build and deploy
-echo "Building and deploying..."
-lein uberjar && heroku deploy:jar --includes newrelic target/server.jar
+# Deploy
+echo "Deploying..."
+heroku deploy:jar --includes newrelic target/server.jar

@@ -762,6 +762,8 @@ Usual deployment process:
 ```sh
 # Bump version
 lein release <:minor|:patch>
+# Build
+lein uberjar
 # Deploy to Heroku
 ./deploy.sh
 # Push to Git

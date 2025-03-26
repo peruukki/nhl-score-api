@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_call:
+    inputs:
+      upload-artifact:
+        description: Whether to upload the build artifact (to use in a subsequent workflow)
+        type: boolean
+        default: false
+  workflow_dispatch:
+    inputs:
+      upload-artifact:
+        description: Whether to upload the build artifact (to use in a subsequent workflow)
+        type: boolean
+        default: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '8'
+
+      - name: Set up Leiningen
+        uses: DeLaGuardo/setup-clojure@ada62bb3282a01a296659d48378b812b8e097360 # 13.2
+        with:
+          lein: '2.9.1'
+
+      - name: Run tests
+        run: lein kaocha
+
+      - name: Build
+        run: lein uberjar
+
+      - name: Upload build artifact
+        if: ${{ (github.event_name == 'workflow_call' || github.event_name == 'workflow_dispatch') && inputs.upload-artifact }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: target/server.jar
+          if-no-files-found: error
+          retention-days: 1
