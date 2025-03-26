@@ -25,7 +25,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        if: ${{ inputs.version-bump != 'none' }}
         with:
           # Fetch full history for version bumping with `lein release` that creates Git tags and commits
           fetch-depth: 0
