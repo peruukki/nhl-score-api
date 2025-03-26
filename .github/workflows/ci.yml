@@ -7,13 +7,13 @@ on:
   workflow_call:
     inputs:
       upload-artifact:
-        description: Whether to upload the build artifact (to use in a subsequent workflow)
+        description: Upload build artifact (to use in a subsequent workflow)
         type: boolean
         default: false
   workflow_dispatch:
     inputs:
       upload-artifact:
-        description: Whether to upload the build artifact (to use in a subsequent workflow)
+        description: Upload build artifact (to use in a subsequent workflow)
         type: boolean
         default: false
 
