@@ -21,7 +21,7 @@ jobs:
   deploy:
     needs: ci
     runs-on: ubuntu-latest
-    environment: production
+    environment: nhl-score-api
 
     steps:
       - uses: actions/checkout@v4
