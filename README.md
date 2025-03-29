@@ -720,6 +720,14 @@ Or with the regular test runner:
 lein test
 ```
 
+## Linting
+
+Lint the code with the [clj-kondo Leiningen plugin](https://github.com/clj-kondo/lein-clj-kondo):
+
+```sh
+lein lint
+```
+
 ## Updating test data
 
 The NHL API responses change from time to time, so the [responses](test/nhl_score_api/fetchers/nhl_api_web/resources/)
