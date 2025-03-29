@@ -7,7 +7,7 @@
     nil
 
     (time/before? end-date start-date)
-    (str "End date is before start date")
+    "End date is before start date"
 
     (> (time/in-days (time/interval start-date end-date)) (- max-days 1))
     (str "Date range exceeds maximum limit of " max-days " days")
