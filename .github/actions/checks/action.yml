@@ -1,0 +1,14 @@
+name: Checks
+
+description: Runs the CI checks.
+
+runs:
+  using: composite
+  steps:
+    - name: Lint
+      run: lein lint
+      shell: bash
+
+    - name: Test
+      run: lein kaocha
+      shell: bash

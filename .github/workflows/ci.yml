@@ -4,18 +4,7 @@ on:
   push:
     branches: [master]
   pull_request:
-  workflow_call:
-    inputs:
-      upload-artifact:
-        description: Upload build artifact (to use in a subsequent workflow)
-        type: boolean
-        default: false
   workflow_dispatch:
-    inputs:
-      upload-artifact:
-        description: Upload build artifact (to use in a subsequent workflow)
-        type: boolean
-        default: false
 
 jobs:
   checks-and-build:
@@ -34,20 +23,8 @@ jobs:
         with:
           lein: '2.9.1'
 
-      - name: Lint
-        run: lein lint
-
-      - name: Run tests
-        run: lein kaocha
+      - name: Checks
+        uses: ./.github/actions/checks
 
       - name: Build
-        run: lein uberjar
-
-      - name: Upload build artifact
-        if: ${{ (github.event_name == 'workflow_call' || github.event_name == 'workflow_dispatch') && inputs.upload-artifact }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          path: target/server.jar
-          if-no-files-found: error
-          retention-days: 1
+        uses: ./.github/actions/build

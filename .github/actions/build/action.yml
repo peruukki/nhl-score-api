@@ -1,0 +1,10 @@
+name: Build
+
+description: Builds the deployment package.
+
+runs:
+  using: composite
+  steps:
+    - name: Build
+      run: lein uberjar
+      shell: bash

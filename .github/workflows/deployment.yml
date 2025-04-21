@@ -13,16 +13,9 @@ on:
           - major
 
 jobs:
-  ci:
-    uses: ./.github/workflows/ci.yml
-    with:
-      upload-artifact: true
-
   deploy:
-    needs: ci
     runs-on: ubuntu-latest
     environment: nhl-score-api
-
     steps:
       - uses: actions/checkout@v4
         with:
@@ -58,15 +51,15 @@ jobs:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: heroku git:remote --app ${{ vars.HEROKU_APP_NAME }}
 
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: build
-          path: target
+      - name: Checks
+        uses: ./.github/actions/checks
 
       - name: Bump version
         if: ${{ inputs.version-bump != 'none' }}
         run: lein release :${{ inputs.version-bump }}
+
+      - name: Build
+        uses: ./.github/actions/build
 
       - name: Deploy to Heroku
         env:
