@@ -268,8 +268,9 @@
         division-name (:division-name team-record)
         point-difference-to-playoff-spot
         (get-point-difference-to-playoff-spot conference-id division-name team-record standings)
-        basic-standings {:division-rank (str (:division-sequence team-record))
-                         :league-rank   (str (:league-sequence team-record))}]
+        basic-standings {:division-rank   (str (:division-sequence team-record))
+                         :conference-rank (str (:conference-sequence team-record))
+                         :league-rank     (str (:league-sequence team-record))}]
     (if (nil? point-difference-to-playoff-spot)
       basic-standings
       (assoc basic-standings :points-from-playoff-spot point-difference-to-playoff-spot))))

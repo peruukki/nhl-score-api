@@ -447,6 +447,38 @@
               {"CAR" {:division-rank "2"} "TBL" {:division-rank "3"}}]
              current-ranks) "Parsed current stats division ranks")))
 
+  (testing "Parsing teams' conference ranks for regular season games"
+    (let [games (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings))
+          pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
+          current-stats-standings (map #(:standings (:current-stats %)) games)
+          pre-game-ranks (map
+                          #(fmap-vals (fn [team-stats] (select-keys team-stats [:conference-rank])) %)
+                          pre-game-stats-standings)
+          current-ranks (map
+                         #(fmap-vals (fn [team-stats] (select-keys team-stats [:conference-rank])) %)
+                         current-stats-standings)]
+      (is (= [{"DET" {:conference-rank "7"} "MTL" {:conference-rank "12"}}
+              {"CGY" {:conference-rank "13"} "TOR" {:conference-rank "8"}}
+              {"SJS" {:conference-rank "16"} "VGK" {:conference-rank "1"}}
+              {"WSH" {:conference-rank "11"} "NJD" {:conference-rank "5"}}
+              {"ANA" {:conference-rank "7"} "PHI" {:conference-rank "14"}}
+              {"DAL" {:conference-rank "5"} "WPG" {:conference-rank "6"}}
+              {"BUF" {:conference-rank "10"} "PIT" {:conference-rank "15"}}
+              {"CAR" {:conference-rank "4"} "TBL" {:conference-rank "3"}}]
+             pre-game-ranks) "Parsed pre-game stats conference ranks")
+      (is (= [{"DET" {:conference-rank "4"} "MTL" {:conference-rank "9"}}
+              {"CGY" {:conference-rank "14"} "TOR" {:conference-rank "8"}}
+              {"SJS" {:conference-rank "16"} "VGK" {:conference-rank "1"}}
+              {"WSH" {:conference-rank "12"} "NJD" {:conference-rank "6"}}
+              {"ANA" {:conference-rank "7"} "PHI" {:conference-rank "14"}}
+              {"DAL" {:conference-rank "4"} "WPG" {:conference-rank "6"}}
+              {"BUF" {:conference-rank "11"} "PIT" {:conference-rank "13"}}
+              {"CAR" {:conference-rank "3"} "TBL" {:conference-rank "5"}}]
+             current-ranks) "Parsed current stats conference ranks")))
+
   (testing "Parsing teams' league ranks for regular season games"
     (let [games (:games
                  (parse-game-scores
@@ -496,6 +528,24 @@
               {"MIN" {:division-rank "3"} "DAL" {:division-rank "2"}}
               {"LAK" {:division-rank "3"} "EDM" {:division-rank "2"}}]
              ranks) "Parsed current stats division ranks")))
+
+  (testing "Parsing teams' conference ranks for playoff games"
+    (let [games (:games
+                 (parse-game-scores
+                  (get-latest-games resources/playoff-games-live-finished-in-regulation-and-overtime)
+                  {:pre-game (:standings resources/standings-for-playoffs)
+                   :current (:standings resources/standings-for-playoffs)}))
+          pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
+          current-stats-standings (map #(:standings (:current-stats %)) games)
+          ranks (map
+                 #(fmap-vals (fn [team-stats] (select-keys team-stats [:conference-rank])) %)
+                 current-stats-standings)]
+      (is (= pre-game-stats-standings current-stats-standings) "Parsed standings, pre-game vs. current stats")
+      (is (= [{"NYI" {:conference-rank "7"} "CAR" {:conference-rank "2"}}
+              {"FLA" {:conference-rank "8"} "BOS" {:conference-rank "1"}}
+              {"MIN" {:conference-rank "6"} "DAL" {:conference-rank "4"}}
+              {"LAK" {:conference-rank "5"} "EDM" {:conference-rank "2"}}]
+             ranks) "Parsed current stats conference ranks")))
 
   (testing "Parsing teams' league ranks for playoff games"
     (let [games (:games

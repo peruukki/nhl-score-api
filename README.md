@@ -219,11 +219,13 @@ Example of a single regular season date in the API response
         },
         "standings": {
           "BOS": {
+            "conferenceRank": "5",
             "divisionRank": "3",
             "leagueRank": "9",
             "pointsFromPlayoffSpot": "+15"
           },
           "CHI": {
+            "conferenceRank": "11",
             "divisionRank": "6",
             "leagueRank": "25",
             "pointsFromPlayoffSpot": "-3"
@@ -255,11 +257,13 @@ Example of a single regular season date in the API response
         },
         "standings": {
           "BOS": {
+            "conferenceRank": "5",
             "divisionRank": "2",
             "leagueRank": "8",
             "pointsFromPlayoffSpot": "+17"
           },
           "CHI": {
+            "conferenceRank": "11",
             "divisionRank": "6",
             "leagueRank": "25",
             "pointsFromPlayoffSpot": "-4"
@@ -394,11 +398,13 @@ Example of a single regular season date in the API response
         },
         "standings": {
           "OTT": {
+            "conferenceRank": "15",
             "divisionRank": "8",
             "leagueRank": "29",
             "pointsFromPlayoffSpot": "0"
           },
           "DET": {
+            "conferenceRank": "12",
             "divisionRank": "7",
             "leagueRank": "23",
             "pointsFromPlayoffSpot": "+2"
@@ -430,11 +436,13 @@ Example of a single regular season date in the API response
         },
         "standings": {
           "OTT": {
+            "conferenceRank": "15",
             "divisionRank": "8",
             "leagueRank": "29",
             "pointsFromPlayoffSpot": "+2"
           },
           "DET": {
+            "conferenceRank": "12",
             "divisionRank": "7",
             "leagueRank": "23",
             "pointsFromPlayoffSpot": "0"
@@ -626,6 +634,8 @@ Example of a single playoff date in the API response
     - `count` _(number)_: streak’s length in consecutive games
   - `standings` object: each teams’ standings related information, with the fields:
     - `divisionRank` _(string)_: the team's regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Stats API
+    - `conferenceRank` _(string)_: the team's regular season ranking in their conference (based on point percentage, not considering wildcard seedings);
+      this comes as a _string_ value from the NHL Stats API
     - `leagueRank` _(string)_: the team's regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Stats API
     - `pointsFromPlayoffSpot` _(string)_: point difference to the last playoff spot in the conference
       - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
@@ -644,6 +654,8 @@ Example of a single playoff date in the API response
     - `count` _(number)_: streak’s length in consecutive games
   - `standings` object (**or `null` if querying coming season’s games**): each teams’ standings related information, with the fields:
     - `divisionRank` _(string)_: the team's regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Stats API
+    - `conferenceRank` _(string)_: the team's regular season ranking in their conference (based on point percentage, not considering wildcard seedings);
+      this comes as a _string_ value from the NHL Stats API
     - `leagueRank` _(string)_: the team's regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Stats API
     - `pointsFromPlayoffSpot` _(string)_: point difference to the last playoff spot in the conference
       - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
