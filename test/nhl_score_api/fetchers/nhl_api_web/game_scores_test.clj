@@ -415,7 +415,7 @@
 
 (deftest game-scores-parsing-team-ranks
 
-  (testing "Parsing teams' division and league ranks for regular season games"
+  (testing "Parsing teams' division ranks for regular season games"
     (let [games (:games
                  (parse-game-scores
                   (get-latest-games default-games)
@@ -423,31 +423,63 @@
           pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
           current-stats-standings (map #(:standings (:current-stats %)) games)
           pre-game-ranks (map
-                          #(fmap-vals (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
+                          #(fmap-vals (fn [team-stats] (select-keys team-stats [:division-rank])) %)
                           pre-game-stats-standings)
           current-ranks (map
-                         #(fmap-vals (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
+                         #(fmap-vals (fn [team-stats] (select-keys team-stats [:division-rank])) %)
                          current-stats-standings)]
-      (is (= [{"DET" {:division-rank "4" :league-rank "12"} "MTL" {:division-rank "7" :league-rank "21"}}
-              {"CGY" {:division-rank "6" :league-rank "29"} "TOR" {:division-rank "5" :league-rank "15"}}
-              {"SJS" {:division-rank "8" :league-rank "32"} "VGK" {:division-rank "1" :league-rank "1"}}
-              {"WSH" {:division-rank "5" :league-rank "19"} "NJD" {:division-rank "3" :league-rank "10"}}
-              {"ANA" {:division-rank "4" :league-rank "14"} "PHI" {:division-rank "7" :league-rank "24"}}
-              {"DAL" {:division-rank "2" :league-rank "9"} "WPG" {:division-rank "3" :league-rank "13"}}
-              {"BUF" {:division-rank "6" :league-rank "18"} "PIT" {:division-rank "8" :league-rank "26"}}
-              {"CAR" {:division-rank "2" :league-rank "8"} "TBL" {:division-rank "2" :league-rank "7"}}]
-             pre-game-ranks) "Parsed pre-game stats division and league ranks")
-      (is (= [{"DET" {:division-rank "2" :league-rank "10"} "MTL" {:division-rank "6" :league-rank "16"}}
-              {"CGY" {:division-rank "6" :league-rank "30"} "TOR" {:division-rank "5" :league-rank "15"}}
-              {"SJS" {:division-rank "8" :league-rank "32"} "VGK" {:division-rank "1" :league-rank "2"}}
-              {"WSH" {:division-rank "5" :league-rank "22"} "NJD" {:division-rank "3" :league-rank "12"}}
-              {"ANA" {:division-rank "4" :league-rank "14"} "PHI" {:division-rank "7" :league-rank "25"}}
-              {"DAL" {:division-rank "1" :league-rank "6"} "WPG" {:division-rank "3" :league-rank "8"}}
-              {"BUF" {:division-rank "7" :league-rank "19"} "PIT" {:division-rank "6" :league-rank "23"}}
-              {"CAR" {:division-rank "2" :league-rank "9"} "TBL" {:division-rank "3" :league-rank "11"}}]
-             current-ranks) "Parsed current stats division and league ranks")))
+      (is (= [{"DET" {:division-rank "4"} "MTL" {:division-rank "7"}}
+              {"CGY" {:division-rank "6"} "TOR" {:division-rank "5"}}
+              {"SJS" {:division-rank "8"} "VGK" {:division-rank "1"}}
+              {"WSH" {:division-rank "5"} "NJD" {:division-rank "3"}}
+              {"ANA" {:division-rank "4"} "PHI" {:division-rank "7"}}
+              {"DAL" {:division-rank "2"} "WPG" {:division-rank "3"}}
+              {"BUF" {:division-rank "6"} "PIT" {:division-rank "8"}}
+              {"CAR" {:division-rank "2"} "TBL" {:division-rank "2"}}]
+             pre-game-ranks) "Parsed pre-game stats division ranks")
+      (is (= [{"DET" {:division-rank "2"} "MTL" {:division-rank "6"}}
+              {"CGY" {:division-rank "6"} "TOR" {:division-rank "5"}}
+              {"SJS" {:division-rank "8"} "VGK" {:division-rank "1"}}
+              {"WSH" {:division-rank "5"} "NJD" {:division-rank "3"}}
+              {"ANA" {:division-rank "4"} "PHI" {:division-rank "7"}}
+              {"DAL" {:division-rank "1"} "WPG" {:division-rank "3"}}
+              {"BUF" {:division-rank "7"} "PIT" {:division-rank "6"}}
+              {"CAR" {:division-rank "2"} "TBL" {:division-rank "3"}}]
+             current-ranks) "Parsed current stats division ranks")))
 
-  (testing "Parsing teams' division and league ranks for playoff games"
+  (testing "Parsing teams' league ranks for regular season games"
+    (let [games (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings))
+          pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
+          current-stats-standings (map #(:standings (:current-stats %)) games)
+          pre-game-ranks (map
+                          #(fmap-vals (fn [team-stats] (select-keys team-stats [:league-rank])) %)
+                          pre-game-stats-standings)
+          current-ranks (map
+                         #(fmap-vals (fn [team-stats] (select-keys team-stats [:league-rank])) %)
+                         current-stats-standings)]
+      (is (= [{"DET" {:league-rank "12"} "MTL" {:league-rank "21"}}
+              {"CGY" {:league-rank "29"} "TOR" {:league-rank "15"}}
+              {"SJS" {:league-rank "32"} "VGK" {:league-rank "1"}}
+              {"WSH" {:league-rank "19"} "NJD" {:league-rank "10"}}
+              {"ANA" {:league-rank "14"} "PHI" {:league-rank "24"}}
+              {"DAL" {:league-rank "9"} "WPG" {:league-rank "13"}}
+              {"BUF" {:league-rank "18"} "PIT" {:league-rank "26"}}
+              {"CAR" {:league-rank "8"} "TBL" {:league-rank "7"}}]
+             pre-game-ranks) "Parsed pre-game stats league ranks")
+      (is (= [{"DET" {:league-rank "10"} "MTL" {:league-rank "16"}}
+              {"CGY" {:league-rank "30"} "TOR" {:league-rank "15"}}
+              {"SJS" {:league-rank "32"} "VGK" {:league-rank "2"}}
+              {"WSH" {:league-rank "22"} "NJD" {:league-rank "12"}}
+              {"ANA" {:league-rank "14"} "PHI" {:league-rank "25"}}
+              {"DAL" {:league-rank "6"} "WPG" {:league-rank "8"}}
+              {"BUF" {:league-rank "19"} "PIT" {:league-rank "23"}}
+              {"CAR" {:league-rank "9"} "TBL" {:league-rank "11"}}]
+             current-ranks) "Parsed current stats league ranks")))
+
+  (testing "Parsing teams' division ranks for playoff games"
     (let [games (:games
                  (parse-game-scores
                   (get-latest-games resources/playoff-games-live-finished-in-regulation-and-overtime)
@@ -456,14 +488,32 @@
           pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
           current-stats-standings (map #(:standings (:current-stats %)) games)
           ranks (map
-                 #(fmap-vals (fn [team-stats] (select-keys team-stats [:division-rank :league-rank])) %)
+                 #(fmap-vals (fn [team-stats] (select-keys team-stats [:division-rank])) %)
                  current-stats-standings)]
       (is (= pre-game-stats-standings current-stats-standings) "Parsed standings, pre-game vs. current stats")
-      (is (= [{"NYI" {:division-rank "4" :league-rank "15"} "CAR" {:division-rank "1" :league-rank "2"}}
-              {"FLA" {:division-rank "4" :league-rank "17"} "BOS" {:division-rank "1" :league-rank "1"}}
-              {"MIN" {:division-rank "3" :league-rank "11"} "DAL" {:division-rank "2" :league-rank "8"}}
-              {"LAK" {:division-rank "3" :league-rank "10"} "EDM" {:division-rank "2" :league-rank "6"}}]
-             ranks) "Parsed current stats division and league ranks"))))
+      (is (= [{"NYI" {:division-rank "4"} "CAR" {:division-rank "1"}}
+              {"FLA" {:division-rank "4"} "BOS" {:division-rank "1"}}
+              {"MIN" {:division-rank "3"} "DAL" {:division-rank "2"}}
+              {"LAK" {:division-rank "3"} "EDM" {:division-rank "2"}}]
+             ranks) "Parsed current stats division ranks")))
+
+  (testing "Parsing teams' league ranks for playoff games"
+    (let [games (:games
+                 (parse-game-scores
+                  (get-latest-games resources/playoff-games-live-finished-in-regulation-and-overtime)
+                  {:pre-game (:standings resources/standings-for-playoffs)
+                   :current (:standings resources/standings-for-playoffs)}))
+          pre-game-stats-standings (map #(:standings (:pre-game-stats %)) games)
+          current-stats-standings (map #(:standings (:current-stats %)) games)
+          ranks (map
+                 #(fmap-vals (fn [team-stats] (select-keys team-stats [:league-rank])) %)
+                 current-stats-standings)]
+      (is (= pre-game-stats-standings current-stats-standings) "Parsed standings, pre-game vs. current stats")
+      (is (= [{"NYI" {:league-rank "15"} "CAR" {:league-rank "2"}}
+              {"FLA" {:league-rank "17"} "BOS" {:league-rank "1"}}
+              {"MIN" {:league-rank "11"} "DAL" {:league-rank "8"}}
+              {"LAK" {:league-rank "10"} "EDM" {:league-rank "6"}}]
+             ranks) "Parsed current stats league ranks"))))
 
 (deftest game-scores-parsing-team-points-from-playoff-spot
 
