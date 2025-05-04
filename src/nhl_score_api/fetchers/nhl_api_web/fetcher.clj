@@ -9,6 +9,7 @@
             [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-games-in-date-range
                                                                     get-latest-games
                                                                     started-game?]]
+            [nhl-score-api.logging :as log]
             [nhl-score-api.utils :refer [format-date parse-date]]))
 
 (defn get-current-schedule-date
@@ -46,12 +47,12 @@
   (json/read-str api-response :key-fn ->kebab-case-keyword))
 
 (defn- fetch [api-request]
-  (println "Fetching" (api/description api-request))
+  (log/log (str "Fetching " (api/description api-request)))
   (let [start-time (System/currentTimeMillis)
         response (-> (http/get (api/url api-request) {:debug false})
                      :body
                      api-response-to-json)]
-    (println "Fetched " (api/description api-request) "(took" (- (System/currentTimeMillis) start-time) "ms)")
+    (log/log (str "Fetched " (api/description api-request) " (took " (- (System/currentTimeMillis) start-time) " ms)"))
     response))
 
 (defn- fetch-cached [api-request]
@@ -122,7 +123,7 @@
 
 (defn- prune-cache-and-fetch-landings-info [games-info date-and-schedule-games]
   (when-not (:from-cache? (meta games-info))
-    (println "Evicting" (:raw (:date date-and-schedule-games)) "landings and right-rails from :short-lived")
+    (log/log (str "Evicting " (:raw (:date date-and-schedule-games)) " landings and right-rails from :short-lived"))
     (cache/evict-from-short-lived! (->> (:games date-and-schedule-games)
                                         (map (fn [game] [(api/cache-key (api/->LandingApiRequest (:id game)))
                                                          (api/cache-key (api/->RightRailApiRequest (:id game)))]))

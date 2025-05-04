@@ -8,6 +8,7 @@
             [nhl-score-api.param-parser :as params]
             [nhl-score-api.param-validator :as validate]
             [nhl-score-api.utils :refer [fmap-keys]]
+            [nhl-score-api.logging :as log]
             [org.httpkit.server :as server]
             [ring.middleware.params :refer [wrap-params]])
   (:import (java.util Properties))
@@ -78,20 +79,22 @@
    :body (json/write-str body :key-fn json-key-transformer)})
 
 (defn request-handler [request]
-  (println "Received request" (select-keys request [:uri :params :remote-addr :headers]))
-  (try
-    (let [request-params
-          (fmap-keys ->kebab-case-keyword (:params request))
-          response
-          (get-response
-            (:uri request)
-            request-params
-            fetcher/fetch-latest-scores
-            fetcher/fetch-scores-in-date-range)]
-      (format-response (:status response) (:body response)))
-    (catch Exception e
-      (println "Caught exception" e)
-      (format-response 500 {:error "Server error"}))))
+  (let [request-id (get-in request [:headers "x-request-id"])]
+    (log/with-request-id request-id
+      (log/log (str "Received request " (select-keys request [:uri :params :remote-addr :headers])))
+      (try
+        (let [request-params
+              (fmap-keys ->kebab-case-keyword (:params request))
+              response
+              (get-response
+               (:uri request)
+               request-params
+               fetcher/fetch-latest-scores
+               fetcher/fetch-scores-in-date-range)]
+          (format-response (:status response) (:body response)))
+        (catch Exception e
+          (log/log-error (str "Caught exception " e))
+          (format-response 500 {:error "Server error"}))))))
 
 ; Send New Relic transaction for each request
 (def app (wrap-newrelic-transaction (wrap-params request-handler)))
