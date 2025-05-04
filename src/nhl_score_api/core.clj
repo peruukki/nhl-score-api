@@ -91,6 +91,7 @@
                request-params
                fetcher/fetch-latest-scores
                fetcher/fetch-scores-in-date-range)]
+          (log/log (str "Sending response with status " (:status response)))
           (format-response (:status response) (:body response)))
         (catch Exception e
           (log/log-error (str "Caught exception " e))
