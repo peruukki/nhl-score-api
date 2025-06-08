@@ -8,7 +8,7 @@
             [nhl-score-api.param-parser :as params]
             [nhl-score-api.param-validator :as validate]
             [nhl-score-api.utils :refer [fmap-keys]]
-            [nhl-score-api.logging :as log]
+            [nhl-score-api.logging :as logger]
             [org.httpkit.server :as server]
             [ring.middleware.params :refer [wrap-params]])
   (:import (java.util Properties))
@@ -80,8 +80,8 @@
 
 (defn request-handler [request]
   (let [request-id (get-in request [:headers "x-request-id"])]
-    (log/with-request-id request-id
-      (log/log (str "Received request " (select-keys request [:uri :params :remote-addr :headers])))
+    (logger/with-request-id request-id
+      (logger/info (str "Received request " (select-keys request [:uri :params :remote-addr :headers])))
       (try
         (let [request-params
               (fmap-keys ->kebab-case-keyword (:params request))
@@ -91,10 +91,10 @@
                request-params
                fetcher/fetch-latest-scores
                fetcher/fetch-scores-in-date-range)]
-          (log/log (str "Sending response with status " (:status response)))
+          (logger/info (str "Sending response with status " (:status response)))
           (format-response (:status response) (:body response)))
         (catch Exception e
-          (log/log-error (str "Caught exception " e))
+          (logger/error (str "Caught exception " e))
           (format-response 500 {:error "Server error"}))))))
 
 ; Send New Relic transaction for each request

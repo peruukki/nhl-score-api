@@ -2,7 +2,7 @@
   (:require [clojure.core.cache :as cache]
             [clojure.core.cache.wrapped :as cache.wrapped]
             [clojure.string :as str]
-            [nhl-score-api.logging :as log]))
+            [nhl-score-api.logging :as logger]))
 
 (def caches
   {:archive (atom (-> {}
@@ -27,7 +27,7 @@
                 cache-key
                 (fn [_]
                   (let [value (value-fn)]
-                    (log/log (str "Caching " cache-key " value in " :short-lived))
+                    (logger/info (str "Caching " cache-key " value in " :short-lived))
                     (swap! from-cache? not)
                     value))))]
     (with-meta value {:from-cache? @from-cache?})))
@@ -35,7 +35,7 @@
 (defn archive
   "Stores value in archive cache and returns the value."
   [cache-key value]
-  (log/log (str "Caching " cache-key " value in " :archive))
+  (logger/info (str "Caching " cache-key " value in " :archive))
   (cache.wrapped/miss (:archive caches) cache-key value)
   value)
 
@@ -47,6 +47,6 @@
 (defn log-cache-sizes!
   "Logs all cache sizes and returns passed value."
   [value]
-  (log/log (str "Cache sizes: " (str/join ", "
-                                          (map (fn [[id cache]] (str id " " (count @cache))) caches))))
+  (logger/info (str "Cache sizes: " (str/join ", "
+                                              (map (fn [[id cache]] (str id " " (count @cache))) caches))))
   value)

@@ -8,7 +8,7 @@
     (str "[request-id=" *request-id* "] " message)
     message))
 
-(defn log
+(defn info
   "Logs a message to stdout. If *request-id* is set, prepends the request ID to the message.
 
    Example:
@@ -18,7 +18,7 @@
   [message]
   (println (format-message message)))
 
-(defn log-error
+(defn error
   "Logs an error message to stderr. If *request-id* is set, prepends the request ID to the message.
    Similar to log but writes to stderr instead of stdout.
 
