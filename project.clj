@@ -15,7 +15,7 @@
                  [org.glassfish.jaxb/jaxb-runtime "2.3.7"]
                  [ring/ring-core "1.9.6"]
                  [yleisradio/new-reliquary "1.1.0"]]
-  :plugins [[com.github.clj-kondo/lein-clj-kondo "2025.02.20"]]
+  :plugins [[com.github.clj-kondo/lein-clj-kondo "2025.06.05-2"]]
   :main nhl-score-api.core
   :release-tasks [["vcs" "assert-committed"]
                   ["change" "version" "leiningen.release/bump-version"]
