@@ -4,7 +4,11 @@
             [clj-time.core :as time]
             [clojure.data.json :as json]
             [nhl-score-api.cache :as cache]
-            [nhl-score-api.fetchers.nhl-api-web.api :as api]
+            [nhl-score-api.fetchers.nhl-api-web.api.index :as api]
+            [nhl-score-api.fetchers.nhl-api-web.api.landing :as landing]
+            [nhl-score-api.fetchers.nhl-api-web.api.right-rail :as right-rail]
+            [nhl-score-api.fetchers.nhl-api-web.api.schedule :as schedule]
+            [nhl-score-api.fetchers.nhl-api-web.api.standings :as standings]
             [nhl-score-api.fetchers.nhl-api-web.game-scores :as game-scores]
             [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-games-in-date-range
                                                                     get-latest-games
@@ -64,7 +68,7 @@
 
 (defn- fetch-games-info [date-range-str]
   (let [{:keys [start end]} (or date-range-str (get-schedule-date-range-str-for-latest-scores))]
-    (fetch-cached (api/->ScheduleApiRequest start (when (< (compare start end) 0) end)))))
+    (fetch-cached (schedule/->ScheduleApiRequest start (when (< (compare start end) 0) end)))))
 
 (defn- get-standings-date-strs [{:keys [current-schedule-date-str date-strs regular-season-start-date-str regular-season-end-date-str]}]
   (map #(let [standings-date-str
@@ -93,9 +97,9 @@
         standings-per-unique-date-str (map (fn [{:keys [pre-game-date-str current-date-str]}]
                                              (when current-date-str
                                                (->> (if pre-game-date-str
-                                                      (fetch-cached (api/->StandingsApiRequest pre-game-date-str games-info nil))
+                                                      (fetch-cached (standings/->StandingsApiRequest pre-game-date-str games-info nil))
                                                       nil)
-                                                    (api/->StandingsApiRequest current-date-str games-info)
+                                                    (standings/->StandingsApiRequest current-date-str games-info)
                                                     fetch-cached
                                                     (:standings))))
                                            date-str-pairs)
@@ -117,16 +121,16 @@
 (defn- fetch-landings-info [schedule-games]
   (->> schedule-games
        (get-gamecenter-game-ids)
-       (map #(vector % (get-gamecenter (fetch-cached (api/->LandingApiRequest %))
-                                       (fetch-cached (api/->RightRailApiRequest %)))))
+       (map #(vector % (get-gamecenter (fetch-cached (landing/->LandingApiRequest %))
+                                       (fetch-cached (right-rail/->RightRailApiRequest %)))))
        (into {})))
 
 (defn- prune-cache-and-fetch-landings-info [games-info date-and-schedule-games]
   (when-not (:from-cache? (meta games-info))
     (logger/info (str "Evicting " (:raw (:date date-and-schedule-games)) " landings and right-rails from :short-lived"))
     (cache/evict-from-short-lived! (->> (:games date-and-schedule-games)
-                                        (map (fn [game] [(api/cache-key (api/->LandingApiRequest (:id game)))
-                                                         (api/cache-key (api/->RightRailApiRequest (:id game)))]))
+                                        (map (fn [game] [(api/cache-key (landing/->LandingApiRequest (:id game)))
+                                                         (api/cache-key (right-rail/->RightRailApiRequest (:id game)))]))
                                         flatten)))
   (fetch-landings-info (:games date-and-schedule-games)))
 
