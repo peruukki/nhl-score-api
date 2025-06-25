@@ -12,6 +12,7 @@
                  [enlive "1.1.6"]
                  [http-kit "2.1.19"]
                  [jakarta.xml.bind/jakarta.xml.bind-api "2.3.3"]
+                 [metosin/malli "0.19.1"]
                  [org.glassfish.jaxb/jaxb-runtime "2.3.7"]
                  [ring/ring-core "1.9.6"]
                  [yleisradio/new-reliquary "1.1.0"]]

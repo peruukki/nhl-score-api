@@ -16,4 +16,5 @@
   (archive? [_ response])
   (cache-key [_])
   (description [_])
+  (response-schema [_])
   (url [_]))

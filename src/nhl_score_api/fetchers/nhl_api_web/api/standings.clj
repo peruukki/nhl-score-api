@@ -1,5 +1,26 @@
 (ns nhl-score-api.fetchers.nhl-api-web.api.standings
-  (:require [nhl-score-api.fetchers.nhl-api-web.api.index :as api]))
+  (:require [malli.core :as malli]
+            [nhl-score-api.fetchers.nhl-api-web.api.index :as api]
+            [nhl-score-api.fetchers.nhl-api-web.api.schema :as schema]))
+
+(def TeamStandingSchema
+  (malli/schema
+   [:map
+    [:games-played :int]
+    [:losses :int]
+    [:ot-losses :int]
+    [:place-name #'schema/Localized]
+    [:points :int]
+    [:streak-code :string]
+    [:streak-count :int]
+    [:team-abbrev #'schema/Localized]
+    [:wildcard-sequence :int]
+    [:wins :int]]))
+
+(def ResponseSchema
+  (malli/schema
+   [:map
+    [:standings [:vector TeamStandingSchema]]]))
 
 (defn- get-team-standings [team standings-response]
   (->> standings-response
@@ -25,4 +46,5 @@
         all-games-in-official-state?)))
   (cache-key [_] (str "standings-" date-str))
   (description [_] (str "standings " {:date date-str}))
+  (response-schema [_] ResponseSchema)
   (url [_] (str api/base-url "/standings/" date-str)))

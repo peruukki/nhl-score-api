@@ -3,6 +3,8 @@
             [clj-http.client :as http]
             [clj-time.core :as time]
             [clojure.data.json :as json]
+            [malli.core :as malli]
+            [malli.error :as malli-error]
             [nhl-score-api.cache :as cache]
             [nhl-score-api.fetchers.nhl-api-web.api.index :as api]
             [nhl-score-api.fetchers.nhl-api-web.api.landing :as landing]
@@ -55,8 +57,12 @@
   (let [start-time (System/currentTimeMillis)
         response (-> (http/get (api/url api-request) {:debug false})
                      :body
-                     api-response-to-json)]
+                     api-response-to-json)
+        response-schema (api/response-schema api-request)]
     (logger/info (str "Fetched " (api/description api-request) " (took " (- (System/currentTimeMillis) start-time) " ms)"))
+    (when-not (malli/validate response-schema response)
+      (logger/warn (str "Response validation failed for " (api/description api-request) ": "
+                        (malli-error/humanize (malli/explain response-schema response)))))
     response))
 
 (defn- fetch-cached [api-request]

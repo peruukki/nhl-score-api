@@ -1,5 +1,7 @@
 (ns nhl-score-api.fetchers.nhl-api-web.api.standings-test
   (:require [clojure.test :refer [deftest is testing]]
+            [malli.core :as malli]
+            [malli.error :as malli-error]
             [nhl-score-api.fetchers.nhl-api-web.api.index :as api]
             [nhl-score-api.fetchers.nhl-api-web.api.standings :as standings]
             [nhl-score-api.fetchers.nhl-api-web.resources :as resources]))
@@ -45,6 +47,30 @@
     (testing "description"
       (is (= "standings {:date \"2023-11-09\"}"
              (api/description (standings/->StandingsApiRequest "2023-11-09" schedule-response nil)))))
+
+    (testing "response-schema"
+      (testing "Matches valid response"
+        (let [schema (api/response-schema (standings/->StandingsApiRequest "2023-11-09" schedule-response nil))
+              response resources/current-standings]
+          (is (= true
+                 (malli/validate schema response)))
+          (is (= nil
+                 (malli-error/humanize (malli/explain schema response))))))
+
+      (testing "Detects invalid response"
+        (let [schema (api/response-schema (standings/->StandingsApiRequest "2023-11-09" schedule-response nil))
+              response (merge resources/current-standings
+                              {:standings (conj (:standings resources/current-standings)
+                                                (-> (last (:standings resources/current-standings))
+                                                    (assoc :losses "1")
+                                                    (dissoc :points)))})]
+          (is (= false
+                 (malli/validate schema response)))
+          (is (= {:standings (conj
+                              (vec (take 32 (repeat nil)))
+                              {:losses ["should be an integer"]
+                               :points ["missing required key"]})}
+                 (malli-error/humanize (malli/explain schema response)))))))
 
     (testing "url"
       (is (= (str base-url "/standings/2023-11-09")

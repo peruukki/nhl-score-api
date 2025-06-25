@@ -1,5 +1,7 @@
 (ns nhl-score-api.fetchers.nhl-api-web.api.schedule-test
   (:require [clojure.test :refer [deftest is testing]]
+            [malli.core :as malli]
+            [malli.error :as malli-error]
             [nhl-score-api.fetchers.nhl-api-web.api.index :as api]
             [nhl-score-api.fetchers.nhl-api-web.api.schedule :as schedule]
             [nhl-score-api.fetchers.nhl-api-web.resources :as resources]))
@@ -52,6 +54,26 @@
     (testing "with date range"
       (is (= "schedule {:date \"2023-02-02\"}"
              (api/description (schedule/->ScheduleApiRequest "2023-02-02" "2023-02-03"))))))
+
+  (testing "response-schema"
+    (testing "Matches valid response"
+      (let [schema (api/response-schema (schedule/->ScheduleApiRequest "2023-11-09" nil))
+            response resources/games-finished-in-regulation-overtime-and-shootout]
+        (is (= true
+               (malli/validate schema response)))
+        (is (= nil
+               (malli-error/humanize (malli/explain schema response))))))
+
+    (testing "Detects invalid response"
+      (let [schema (api/response-schema (schedule/->ScheduleApiRequest "2023-11-09" nil))
+            response (-> resources/games-finished-in-regulation-overtime-and-shootout
+                         (assoc :regular-season-start-date 1)
+                         (dissoc :regular-season-end-date))]
+        (is (= false
+               (malli/validate schema response)))
+        (is (= {:regular-season-end-date ["missing required key"]
+                :regular-season-start-date ["should be a string"]}
+               (malli-error/humanize (malli/explain schema response)))))))
 
   (testing "url"
     (testing "with single date"
