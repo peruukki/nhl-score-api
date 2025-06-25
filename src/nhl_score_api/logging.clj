@@ -3,31 +3,32 @@
 ; Thread-local dynamic variable
 (def ^:dynamic *request-id* nil)
 
-(defn- format-message [message]
-  (if *request-id*
-    (str "[request-id=" *request-id* "] " message)
-    message))
+(defn- format-message [level message]
+  (str (if *request-id*
+         (str "[request-id=" *request-id* "] ")
+         "")
+       level " " message))
 
 (defn info
   "Logs a message to stdout. If *request-id* is set, prepends the request ID to the message.
 
    Example:
-   (log \"Starting request\")  ;=> Starting request
+   (info \"Starting request\")  ;=> INFO Starting request
    (with-request-id \"abc123\"
-     (log \"Starting request\"))  ;=> [request-id=abc123] Starting request"
+     (info \"Starting request\"))  ;=> [request-id=abc123] INFO Starting request"
   [message]
-  (println (format-message message)))
+  (println (format-message "INFO" message)))
 
 (defn error
   "Logs an error message to stderr. If *request-id* is set, prepends the request ID to the message.
    Similar to log but writes to stderr instead of stdout.
 
    Example:
-   (log-error \"Database connection failed\")  ;=> [request-id=abc123] Database connection failed (to stderr)"
+   (error \"Database connection failed\")  ;=> [request-id=abc123] ERROR Database connection failed (to stderr)"
   [message]
   ; Temporarily redirect output to stderr
   (binding [*out* *err*]
-    (println (format-message message))))
+    (println (format-message "ERROR" message))))
 
 (defmacro with-request-id
   "Establishes a dynamic scope where *request-id* is bound to the given value.
