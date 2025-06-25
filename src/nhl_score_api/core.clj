@@ -33,8 +33,8 @@
 (defn -main []
   (let [ip "0.0.0.0"
         port (Integer/parseInt (get (System/getenv) "PORT" "8080"))]
-    (println "Starting server version" version)
-    (println "Listening on" (str ip ":" port))
+    (logger/info (str "Starting server version " version))
+    (logger/info (str "Listening on " ip ":" port))
     (server/run-server app {:ip ip :port port})))
 
 (defn get-response
