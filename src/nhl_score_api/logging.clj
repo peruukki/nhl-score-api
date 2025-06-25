@@ -19,6 +19,16 @@
   [message]
   (println (format-message "INFO" message)))
 
+(defn warn
+  "Logs a warning message to stdout. If *request-id* is set, prepends the request ID to the message.
+
+   Example:
+   (warn \"Potential issue detected\")  ;=> WARN Potential issue detected
+   (with-request-id \"abc123\"
+     (warn \"Potential issue detected\"))  ;=> [request-id=abc123] WARN Potential issue detected"
+  [message]
+  (println (format-message "WARN" message)))
+
 (defn error
   "Logs an error message to stderr. If *request-id* is set, prepends the request ID to the message.
    Similar to log but writes to stderr instead of stdout.
