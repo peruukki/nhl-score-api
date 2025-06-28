@@ -3,11 +3,29 @@
 ; Thread-local dynamic variable
 (def ^:dynamic *request-id* nil)
 
+; ANSI color codes
+(def ^:private colors
+  {:green "\u001b[32m"
+   :red "\u001b[31m"
+   :reset "\u001b[0m"
+   :yellow "\u001b[33m"})
+
+(def ^:private level-colors
+  {"ERROR" :red
+   "INFO" :green
+   "WARN" :yellow})
+
+(defn- colorize [color text]
+  (str (get colors color) text (get colors :reset)))
+
 (defn- format-message [level message]
-  (str (if *request-id*
-         (str "[request-id=" *request-id* "] ")
-         "")
-       level " " message))
+  (let [colored-level (if-let [color (get level-colors level)]
+                        (colorize color level)
+                        level)]
+    (str (if *request-id*
+           (str "[request-id=" *request-id* "] ")
+           "")
+         colored-level " " message)))
 
 (defn info
   "Logs a message to stdout. If *request-id* is set, prepends the request ID to the message.
