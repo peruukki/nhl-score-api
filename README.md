@@ -717,19 +717,13 @@ You can also run the application locally with `lein run`.
 Run tests with the [Kaocha test runner](https://github.com/lambdaisland/kaocha) for improved test failure reporting:
 
 ```sh
-lein kaocha [--watch]
+lein test [--watch]
 ```
 
 Run single tests or test groups with [Kaocha's `--focus` argument](https://cljdoc.org/d/lambdaisland/kaocha/0.0-590/doc/focusing-on-specific-tests), e.g.:
 
 ```sh
-lein kaocha --focus nhl-score-api.fetchers.nhlstats.game-scores-test/game-scores-parsing-scores
-```
-
-Or with the regular test runner:
-
-```sh
-lein test
+lein test --focus nhl-score-api.fetchers.nhlstats.game-scores-test/game-scores-parsing-scores
 ```
 
 ## Formatting

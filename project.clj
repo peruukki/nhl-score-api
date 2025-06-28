@@ -31,5 +31,6 @@
             "kaocha" ["with-profile" "+kaocha" "run" "-m" "kaocha.runner" "--reporter" "kaocha.report/documentation" "--skip-meta" "skip"]
             "format" ["cljfmt" "fix"]
             "format-check" ["cljfmt" "check"]
-            "lint" "clj-kondo-lint"}
+            "lint" "clj-kondo-lint"
+            "test" "kaocha"}
   :uberjar-name "server.jar")
