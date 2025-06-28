@@ -732,6 +732,22 @@ Or with the regular test runner:
 lein test
 ```
 
+## Formatting
+
+Formatting is done with [cljfmt](https://github.com/weavejester/cljfmt).
+
+Format the code automatically:
+
+```sh
+lein format
+```
+
+Only check the formatting without making changes:
+
+```sh
+lein format-check
+```
+
 ## Linting
 
 Lint the code with the [clj-kondo Leiningen plugin](https://github.com/clj-kondo/lein-clj-kondo):

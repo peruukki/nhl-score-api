@@ -5,6 +5,10 @@ description: Runs the CI checks.
 runs:
   using: composite
   steps:
+    - name: Check formatting
+      run: lein format-check
+      shell: bash
+
     - name: Lint
       run: lein lint
       shell: bash

@@ -82,7 +82,7 @@
 (defn get-latest-games [api-response]
   (let [dates-and-games (get-games api-response)]
     (last
-      (filter has-started-games? dates-and-games))))
+     (filter has-started-games? dates-and-games))))
 
 (defn- within-date-range? [date-str start-date end-date]
   (let [range (time/interval start-date (time/plus end-date (time/seconds 1)))

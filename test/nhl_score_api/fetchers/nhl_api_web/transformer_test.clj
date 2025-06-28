@@ -10,7 +10,7 @@
 
   (testing "All games from latest day that has started games are returned"
     (let [latest-games (:games
-                         (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout))]
+                        (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout))]
       (is (= 8
              (count latest-games)) "Latest started games count")
       (is (= ["OFF" "FINAL" "OVER" "CRIT" "LIVE" "FUT" "PRE"]
@@ -18,25 +18,25 @@
 
   (testing "Games are returned in order: finished -> in progress -> not started -> postponed"
     (let [latest-games (:games
-                         (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout))]
+                        (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout))]
       (is (= ["Final" "Final" "Final" "Live" "Live" "Preview" "Preview" "Postponed"]
              (map get-game-state latest-games)) "Game states")))
 
   (testing "No started games is handled gracefully"
     (let [latest-games (:games
-                         (get-latest-games resources/games-in-preview-state))]
+                        (get-latest-games resources/games-in-preview-state))]
       (is (= 0
              (count latest-games)) "Latest started games count")))
 
   (testing "Non-league games are not returned"
     (let [latest-games (:games
-                         (get-latest-games resources/non-league-games))]
+                        (get-latest-games resources/non-league-games))]
       (is (= 0
              (count latest-games)) "Latest started games count")))
 
   (testing "Date of latest started games is included"
     (let [date (:date
-                 (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout))]
+                (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout))]
       (is (= "2023-11-10"
              (:raw date)))
       (is (= "Fri Nov 10"

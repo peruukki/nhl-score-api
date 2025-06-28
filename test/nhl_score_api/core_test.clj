@@ -68,9 +68,9 @@
            (json-key-transformer "goal-count")) "Key is not transformed")))
 
 (deftest browser-caching
-  (testing "Browser caching is controlled by response headers")
+  (testing "Browser caching is controlled by response headers"
     (let [response (app {:uri "/"})]
-      (assert-cache-control-set response)))
+      (assert-cache-control-set response))))
 
 (defn- assert-status [response expected-status]
   (is (= expected-status

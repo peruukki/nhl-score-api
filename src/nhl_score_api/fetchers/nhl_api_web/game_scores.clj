@@ -210,7 +210,6 @@
     {away-team (parse-streak-from-standings standings away-team)
      home-team (parse-streak-from-standings standings home-team)}))
 
-
 (defn- parse-wild-card-teams [conference-name standings]
   (let [conference-records (filter #(= (:conference-name %) conference-name) standings)
         wild-card-teams (filter #(not= (:wildcard-sequence %) 0) conference-records)]
