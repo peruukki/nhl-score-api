@@ -124,21 +124,21 @@
 (defn get-gamecenter [landing right-rail]
   (merge landing right-rail))
 
-(defn- fetch-landings-info [schedule-games]
+(defn- fetch-gamecenters [schedule-games]
   (->> schedule-games
        (get-gamecenter-game-ids)
        (map #(vector % (get-gamecenter (fetch-cached (landing/->LandingApiRequest %))
                                        (fetch-cached (right-rail/->RightRailApiRequest %)))))
        (into {})))
 
-(defn- prune-cache-and-fetch-landings-info [games-info date-and-schedule-games]
+(defn- prune-cache-and-fetch-gamecenters [games-info date-and-schedule-games]
   (when-not (:from-cache? (meta games-info))
     (logger/info (str "Evicting " (:raw (:date date-and-schedule-games)) " landings and right-rails from :short-lived"))
     (cache/evict-from-short-lived! (->> (:games date-and-schedule-games)
                                         (map (fn [game] [(api/cache-key (landing/->LandingApiRequest (:id game)))
                                                          (api/cache-key (right-rail/->RightRailApiRequest (:id game)))]))
                                         flatten)))
-  (fetch-landings-info (:games date-and-schedule-games)))
+  (fetch-gamecenters (:games date-and-schedule-games)))
 
 (defn fetch-latest-scores []
   (let [latest-games-info (fetch-games-info nil)
@@ -152,7 +152,7 @@
                                                 :regular-season-end-date-str (:regular-season-end-date latest-games-info)}
                                                latest-games-info))]
     (->> date-and-schedule-games
-         (prune-cache-and-fetch-landings-info latest-games-info)
+         (prune-cache-and-fetch-gamecenters latest-games-info)
          (game-scores/parse-game-scores date-and-schedule-games standings-info)
          cache/log-cache-sizes!)))
 
@@ -170,7 +170,7 @@
     (->
      (doall (map-indexed (fn [index date-and-schedule-games]
                            (->> date-and-schedule-games
-                                (prune-cache-and-fetch-landings-info games-info)
+                                (prune-cache-and-fetch-gamecenters games-info)
                                 (game-scores/parse-game-scores date-and-schedule-games (nth standings-infos index))))
                          dates-and-schedule-games))
      cache/log-cache-sizes!)))
