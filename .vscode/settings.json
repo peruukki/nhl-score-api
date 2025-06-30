@@ -1,0 +1,13 @@
+{
+  "calva.replConnectSequences": [
+    {
+      "autoSelectForJackIn": true,
+      "menuSelections": {
+        "leinAlias": "kaocha",
+        "leinProfiles": [":kaocha"]
+      },
+      "name": "NHL Score API",
+      "projectType": "Leiningen"
+    }
+  ]
+}
