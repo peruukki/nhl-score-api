@@ -81,7 +81,10 @@
 (defn request-handler [request]
   (let [request-id (get-in request [:headers "x-request-id"])]
     (logger/with-request-id request-id
-      (logger/info (str "Received request " (select-keys request [:uri :params :remote-addr :headers])))
+      (logger/info (str "Received request "
+                        (-> request
+                            (select-keys [:uri :params :remote-addr])
+                            (merge (select-keys (:headers request) ["user-agent"])))))
       (try
         (let [request-params
               (fmap-keys ->kebab-case-keyword (:params request))

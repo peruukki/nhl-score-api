@@ -23,7 +23,7 @@
                         (colorize color level)
                         level)]
     (str (if *request-id*
-           (str "[request-id=" *request-id* "] ")
+           (str "[" *request-id* "] ")
            "")
          colored-level " " message)))
 
