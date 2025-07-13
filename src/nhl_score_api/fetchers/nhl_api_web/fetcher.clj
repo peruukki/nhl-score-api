@@ -133,7 +133,9 @@
 
 (defn- prune-cache-and-fetch-gamecenters [games-info date-and-schedule-games]
   (when-not (:from-cache? (meta games-info))
-    (logger/info (str "Evicting " (:raw (:date date-and-schedule-games)) " landings and right-rails from :short-lived"))
+    (logger/info (str "Evicting "
+                      (get-in date-and-schedule-games [:date :raw] "<no date>")
+                      " landings and right-rails from :short-lived"))
     (cache/evict-from-short-lived! (->> (:games date-and-schedule-games)
                                         (map (fn [game] [(api/cache-key (landing/->LandingApiRequest (:id game)))
                                                          (api/cache-key (right-rail/->RightRailApiRequest (:id game)))]))
