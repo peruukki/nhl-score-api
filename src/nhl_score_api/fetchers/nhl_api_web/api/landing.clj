@@ -32,7 +32,7 @@
     [:map
      [:assists [:vector AssistSchema]]
      [:goal-modifier [:enum "empty-net" "none" "penalty-shot"]]
-     [:goals-to-date :int]
+     [:goals-to-date {:optional true} :int]
      [:strength [:enum "ev" "pp" "sh"]]]]
    {:registry schema/registry}))
 
