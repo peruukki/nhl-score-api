@@ -2,7 +2,8 @@
   (:require [clojure.core.cache :as cache]
             [clojure.core.cache.wrapped :as cache.wrapped]
             [clojure.string :as str]
-            [nhl-score-api.logging :as logger]))
+            [nhl-score-api.logging :as logger]
+            [nhl-score-api.utils :as utils]))
 
 (def caches
   {:archive (atom (-> {}
@@ -11,6 +12,8 @@
    :short-lived (atom (-> {}
                           (cache/lru-cache-factory :threshold 32)
                           (cache/ttl-cache-factory :ttl (* 60 1000))))})
+
+(def cache-sizes (atom {:archive 0 :short-lived 0}))
 
 (defn get-cached
   "Returns the value with cache-key from archive cache or short-lived cache if it exists.
@@ -45,8 +48,14 @@
   (doseq [cache-key cache-keys] (cache.wrapped/evict (:short-lived caches) cache-key)))
 
 (defn log-cache-sizes!
-  "Logs all cache sizes and returns passed value."
+  "Logs all cache sizes if they have changed since the last call and returns the passed value."
   [value]
-  (logger/info (str "Cache sizes: " (str/join ", "
-                                              (map (fn [[id cache]] (str id " " (count @cache))) caches))))
+  (swap! cache-sizes
+         (fn [last-cache-sizes]
+           (let [current-cache-sizes (utils/fmap-vals #(count @%) caches)]
+             (when (not= last-cache-sizes current-cache-sizes)
+               (logger/info (str "Cache sizes: "
+                                 (str/join ", "
+                                           (map (fn [[id size]] (str id " " size)) current-cache-sizes)))))
+             current-cache-sizes)))
   value)
