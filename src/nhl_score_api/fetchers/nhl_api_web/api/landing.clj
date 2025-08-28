@@ -31,7 +31,7 @@
     PlayerSchema
     [:map
      [:assists [:vector AssistSchema]]
-     [:goal-modifier [:enum "empty-net" "none" "penalty-shot"]]
+     [:goal-modifier [:enum "awarded-empty-net" "empty-net" "none" "own-goal" "penalty-shot"]]
      [:goals-to-date {:optional true} :int]
      [:strength [:enum "ev" "pp" "sh"]]]]
    {:registry schema/registry}))
