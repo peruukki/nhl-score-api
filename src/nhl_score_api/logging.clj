@@ -5,13 +5,15 @@
 
 ; ANSI color codes
 (def ^:private colors
-  {:green "\u001b[32m"
+  {:blue "\u001b[34m"
+   :green "\u001b[32m"
    :red "\u001b[31m"
    :reset "\u001b[0m"
    :yellow "\u001b[33m"})
 
 (def ^:private level-colors
-  {"ERROR" :red
+  {"DEBUG" :blue
+   "ERROR" :red
    "INFO" :green
    "WARN" :yellow})
 
@@ -57,6 +59,16 @@
   ; Temporarily redirect output to stderr
   (binding [*out* *err*]
     (println (format-message "ERROR" message))))
+
+(defn debug
+  "Logs a debug message to stdout. If *request-id* is set, prepends the request ID to the message.
+
+   Example:
+   (debug \"Processing user input\")  ;=> DEBUG Processing user input
+   (with-request-id \"abc123\"
+     (debug \"Processing user input\"))  ;=> [request-id=abc123] DEBUG Processing user input"
+  [message]
+  (println (format-message "DEBUG" message)))
 
 (defmacro with-request-id
   "Establishes a dynamic scope where *request-id* is bound to the given value.

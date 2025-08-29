@@ -30,7 +30,7 @@
                 cache-key
                 (fn [_]
                   (let [value (value-fn)]
-                    (logger/info (str "Caching " cache-key " value in " :short-lived))
+                    (logger/debug (str "Caching " cache-key " value in " :short-lived))
                     (swap! from-cache? not)
                     value))))]
     (with-meta value {:from-cache? @from-cache?})))
@@ -38,7 +38,7 @@
 (defn archive
   "Stores value in archive cache and returns the value."
   [cache-key value]
-  (logger/info (str "Caching " cache-key " value in " :archive))
+  (logger/debug (str "Caching " cache-key " value in " :archive))
   (cache.wrapped/miss (:archive caches) cache-key value)
   value)
 
@@ -54,8 +54,8 @@
          (fn [last-cache-sizes]
            (let [current-cache-sizes (utils/fmap-vals #(count @%) caches)]
              (when (not= last-cache-sizes current-cache-sizes)
-               (logger/info (str "Cache sizes: "
-                                 (str/join ", "
-                                           (map (fn [[id size]] (str id " " size)) current-cache-sizes)))))
+               (logger/debug (str "Cache sizes: "
+                                  (str/join ", "
+                                            (map (fn [[id size]] (str id " " size)) current-cache-sizes)))))
              current-cache-sizes)))
   value)
