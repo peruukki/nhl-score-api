@@ -1,14 +1,14 @@
 # nhl-score-api
 
 A JSON API that returns the scores and goals from the latest finished or on-going NHL games. The data is sourced from the
-same NHL Stats API at https://api-web.nhle.com that the NHL website uses. The NHL Stats API is undocumented but
+same NHL Web API at https://api-web.nhle.com that the NHL website uses. The NHL Web API is undocumented but
 unofficial documentation exists:
 
 - https://github.com/Zmalski/NHL-API-Reference: fairly recent, seems very comprehensive and updated lately
 - https://gitlab.com/dword4/nhlapi: older, plenty of discussion in its [issues](https://gitlab.com/dword4/nhlapi/-/issues)
-  (thoughly mainly on the previous NHL Stats API version)
+  (thoughly mainly on the previous NHL Web API version)
 
-How we use the NHL Stats API:
+How we use the NHL Web API:
 
 - [schedule](https://api-web.nhle.com/v1/schedule/2023-11-07) gives us a list of the week's games; we check the game
   statuses and get the game IDs to fetch the games' gamecenter landing page and right-rail data
@@ -19,7 +19,7 @@ How we use the NHL Stats API:
 
 This API is available at https://nhl-score-api.herokuapp.com/, and it serves as the backend for [nhl-recap](https://github.com/peruukki/nhl-recap).
 
-The NHL Stats API responses are cached in-memory for one minute, and then refreshed upon the next request. So there can be
+The NHL Web API responses are cached in-memory for one minute, and then refreshed upon the next request. So there can be
 quite a bit of variance in response times.
 
 ## API
@@ -55,7 +55,7 @@ The fields are described in more detail in [Response fields](#response-fields).
 Returns an array of objects with the date and the scores from given date range’s games.
 Both `startDate` and `endDate` are inclusive, and `endDate` is optional. **The range is
 limited to a maximum of 7 days** to set some reasonable limit for the (cached) response;
-this also matches the NHL Stats API that returns one week's schedule at a time.
+this also matches the NHL Web API that returns one week's schedule at a time.
 
 The `date` object contains the date in a raw format and a prettier, displayable format. Contrary to the
 `/api/scores/latest` endpoint, the `date` is included even if that date has no scheduled games.
@@ -79,7 +79,7 @@ The `games` array contains details of the games, each game item containing these
 - no entry for that date in the response, or
 - an entry with an empty `games` array
 
-This variety comes directly from the NHL Stats API response, I don’t know why it
+This variety comes directly from the NHL Web API response, I don’t know why it
 behaves differently for some date ranges than others. Check the entries’ `date` > `raw`
 field to see what dates are actually included.
 
@@ -456,6 +456,7 @@ Example of a single regular season date in the API response
   ]
 }
 ```
+
 </details>
 
 <details>
@@ -543,6 +544,7 @@ Example of a single playoff date in the API response
   ]
 }
 ```
+
 </details>
 
 ### Response fields
@@ -633,10 +635,10 @@ Example of a single playoff date in the API response
     - `type` _(string)_: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
     - `count` _(number)_: streak’s length in consecutive games
   - `standings` object: each teams’ standings related information, with the fields:
-    - `divisionRank` _(string)_: the team's regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Stats API (**can be an empty string before the season has started**)
+    - `divisionRank` _(string)_: the team's regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Web API (**can be an empty string before the season has started**)
     - `conferenceRank` _(string)_: the team's regular season ranking in their conference (based on point percentage, not considering wildcard seedings);
-      this comes as a _string_ value from the NHL Stats API (**can be an empty string before the season has started**)
-    - `leagueRank` _(string)_: the team's regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Stats API (**can be an empty string before the season has started**)
+      this comes as a _string_ value from the NHL Web API (**can be an empty string before the season has started**)
+    - `leagueRank` _(string)_: the team's regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Web API (**can be an empty string before the season has started**)
     - `pointsFromPlayoffSpot` _(string)_: point difference to the last playoff spot in the conference
       - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
         i.e. by how many points the team is safe
@@ -653,10 +655,10 @@ Example of a single playoff date in the API response
     - `type` _(string)_: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
     - `count` _(number)_: streak’s length in consecutive games
   - `standings` object (**or `null` if querying coming season’s games**): each teams’ standings related information, with the fields:
-    - `divisionRank` _(string)_: the team's regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Stats API
+    - `divisionRank` _(string)_: the team's regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Web API
     - `conferenceRank` _(string)_: the team's regular season ranking in their conference (based on point percentage, not considering wildcard seedings);
-      this comes as a _string_ value from the NHL Stats API
-    - `leagueRank` _(string)_: the team's regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Stats API
+      this comes as a _string_ value from the NHL Web API
+    - `leagueRank` _(string)_: the team's regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Web API
     - `pointsFromPlayoffSpot` _(string)_: point difference to the last playoff spot in the conference
       - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
         i.e. by how many points the team is safe
@@ -671,8 +673,8 @@ Example of a single playoff date in the API response
   - `gameCenter`: game summary with lots of related info
   - `playoffSeries`: playoff series specific info (only present in playoff games)
   - `videoRecap`: 5-minute video recap (once available)
-- `errors` array: list of data validation errors, only present if any were detected. Sometimes the NHL Stats API temporarily contains
-  invalid or missing data. Currently we check if the goal data from the NHL Stats API (read from its `scoringPlays` field) contains the
+- `errors` array: list of data validation errors, only present if any were detected. Sometimes the NHL Web API temporarily contains
+  invalid or missing data. Currently we check if the goal data from the NHL Web API (read from its `scoringPlays` field) contains the
   same number of goals than the score data (read from its `teams` field). If it doesn't, two different errors can be reported:
   - `{ "error": "MISSING-ALL-GOALS" }`: all goal data is missing; this has happened occasionally
   - `{ "error": "SCORE-AND-GOAL-COUNT-MISMATCH", "details": { "goalCount": 3, "scoreCount": 4 } }`: goal data exists but doesn't contain
