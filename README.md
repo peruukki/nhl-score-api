@@ -633,10 +633,10 @@ Example of a single playoff date in the API response
     - `type` _(string)_: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
     - `count` _(number)_: streak’s length in consecutive games
   - `standings` object: each teams’ standings related information, with the fields:
-    - `divisionRank` _(string)_: the team's regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Stats API
+    - `divisionRank` _(string)_: the team's regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Stats API (**can be an empty string before the season has started**)
     - `conferenceRank` _(string)_: the team's regular season ranking in their conference (based on point percentage, not considering wildcard seedings);
-      this comes as a _string_ value from the NHL Stats API
-    - `leagueRank` _(string)_: the team's regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Stats API
+      this comes as a _string_ value from the NHL Stats API (**can be an empty string before the season has started**)
+    - `leagueRank` _(string)_: the team's regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Stats API (**can be an empty string before the season has started**)
     - `pointsFromPlayoffSpot` _(string)_: point difference to the last playoff spot in the conference
       - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
         i.e. by how many points the team is safe
