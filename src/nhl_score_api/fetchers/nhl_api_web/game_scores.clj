@@ -177,7 +177,8 @@
        :current-period-time-remaining (assoc time-remaining-structured :pretty time-remaining-pretty)})))
 
 (defn- parse-team-record-from-standings [standings team-abbreviation]
-  (some #(when (= (:default (:team-abbrev %)) team-abbreviation) %) standings))
+  (or (some #(when (= (:default (:team-abbrev %)) team-abbreviation) %) standings)
+      {:wins 0 :losses 0 :ot-losses 0}))
 
 (defn- parse-current-records [standings teams]
   (let [away-team (:abbreviation (:away teams))

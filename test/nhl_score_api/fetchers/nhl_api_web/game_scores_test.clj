@@ -9,6 +9,8 @@
 (def default-gamecenters (resources/get-gamecenters [2023020195 2023020205 2023020206 2023020207 2023020208 2023020209]))
 (def default-standings {:pre-game (:standings resources/pre-game-standings)
                         :current (:standings resources/current-standings)})
+(def empty-standings {:pre-game (:standings resources/standings-empty)
+                      :current (:standings resources/standings-empty)})
 
 (deftest game-scores-parsing-scores
 
@@ -373,6 +375,44 @@
               {"DAL" {:wins 8 :losses 3 :ot 1} "WPG" {:wins 7 :losses 4 :ot 2}}
               {"BUF" {:wins 6 :losses 6 :ot 1} "PIT" {:wins 6 :losses 6 :ot 0}}
               {"CAR" {:wins 8 :losses 5 :ot 0} "TBL" {:wins 6 :losses 4 :ot 4}}]
+             records) "Parsed current regular season records")))
+
+  (testing "Parsing teams' pre-game regular season records when no standings available"
+    (let [games (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  empty-standings
+                  default-gamecenters))
+          records (map #(:records (:pre-game-stats %)) games)]
+      (is (= 8
+             (count records)) "Parsed pre-game regular season records count")
+      (is (= [{"DET" {:wins 0 :losses 0 :ot 0} "MTL" {:wins 0 :losses 0 :ot 0}}
+              {"CGY" {:wins 0 :losses 0 :ot 0} "TOR" {:wins 0 :losses 0 :ot 0}}
+              {"SJS" {:wins 0 :losses 0 :ot 0} "VGK" {:wins 0 :losses 0 :ot 0}}
+              {"WSH" {:wins 0 :losses 0 :ot 0} "NJD" {:wins 0 :losses 0 :ot 0}}
+              {"ANA" {:wins 0 :losses 0 :ot 0} "PHI" {:wins 0 :losses 0 :ot 0}}
+              {"DAL" {:wins 0 :losses 0 :ot 0} "WPG" {:wins 0 :losses 0 :ot 0}}
+              {"BUF" {:wins 0 :losses 0 :ot 0} "PIT" {:wins 0 :losses 0 :ot 0}}
+              {"CAR" {:wins 0 :losses 0 :ot 0} "TBL" {:wins 0 :losses 0 :ot 0}}]
+             records) "Parsed pre-game regular season records")))
+
+  (testing "Parsing teams' current regular season records when no standings available"
+    (let [games (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  empty-standings
+                  default-gamecenters))
+          records (map #(:records (:current-stats %)) games)]
+      (is (= 8
+             (count records)) "Parsed current regular season records count")
+      (is (= [{"DET" {:wins 0 :losses 0 :ot 0} "MTL" {:wins 0 :losses 0 :ot 0}}
+              {"CGY" {:wins 0 :losses 0 :ot 0} "TOR" {:wins 0 :losses 0 :ot 0}}
+              {"SJS" {:wins 0 :losses 0 :ot 0} "VGK" {:wins 0 :losses 0 :ot 0}}
+              {"WSH" {:wins 0 :losses 0 :ot 0} "NJD" {:wins 0 :losses 0 :ot 0}}
+              {"ANA" {:wins 0 :losses 0 :ot 0} "PHI" {:wins 0 :losses 0 :ot 0}}
+              {"DAL" {:wins 0 :losses 0 :ot 0} "WPG" {:wins 0 :losses 0 :ot 0}}
+              {"BUF" {:wins 0 :losses 0 :ot 0} "PIT" {:wins 0 :losses 0 :ot 0}}
+              {"CAR" {:wins 0 :losses 0 :ot 0} "TBL" {:wins 0 :losses 0 :ot 0}}]
              records) "Parsed current regular season records"))))
 
 (deftest game-scores-parsing-team-streaks
