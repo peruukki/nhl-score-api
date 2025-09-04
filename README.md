@@ -639,7 +639,7 @@ Example of a single playoff date in the API response
     - `conferenceRank` _(string)_: the team's regular season ranking in their conference (based on point percentage, not considering wildcard seedings);
       this comes as a _string_ value from the NHL Web API (**can be an empty string before the season has started**)
     - `leagueRank` _(string)_: the team's regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Web API (**can be an empty string before the season has started**)
-    - `pointsFromPlayoffSpot` _(string)_: point difference to the last playoff spot in the conference
+    - `pointsFromPlayoffSpot` _(string)_: point difference to the last playoff spot in the conference (**can be an empty string before the season has started**)
       - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
         i.e. by how many points the team is safe
       - for teams currently outside the playoffs, this is the point difference to the team in the last playoff spot (2nd wildcard

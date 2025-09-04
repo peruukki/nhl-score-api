@@ -651,6 +651,27 @@
               {"DAL" {:points-from-playoff-spot "+4"} "WPG" {:points-from-playoff-spot "+3"}}
               {"BUF" {:points-from-playoff-spot "-1"} "PIT" {:points-from-playoff-spot "-2"}}
               {"CAR" {:points-from-playoff-spot "+3"} "TBL" {:points-from-playoff-spot "+2"}}]
+             points-from-playoff-spot) "Parsed points from playoff spot")))
+
+  (testing "Parsing teams' points from playoff spot when no standings available"
+    (let [games (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  empty-standings))
+          standings (map #(:standings (:current-stats %)) games)
+          points-from-playoff-spot (map
+                                    #(fmap-vals (fn [team-stats] (select-keys team-stats [:points-from-playoff-spot])) %)
+                                    standings)]
+      (is (= 8
+             (count points-from-playoff-spot)) "Parsed points from playoff spot count")
+      (is (= [{"DET" {:points-from-playoff-spot ""} "MTL" {:points-from-playoff-spot ""}}
+              {"CGY" {:points-from-playoff-spot ""} "TOR" {:points-from-playoff-spot ""}}
+              {"SJS" {:points-from-playoff-spot ""} "VGK" {:points-from-playoff-spot ""}}
+              {"WSH" {:points-from-playoff-spot ""} "NJD" {:points-from-playoff-spot ""}}
+              {"ANA" {:points-from-playoff-spot ""} "PHI" {:points-from-playoff-spot ""}}
+              {"DAL" {:points-from-playoff-spot ""} "WPG" {:points-from-playoff-spot ""}}
+              {"BUF" {:points-from-playoff-spot ""} "PIT" {:points-from-playoff-spot ""}}
+              {"CAR" {:points-from-playoff-spot ""} "TBL" {:points-from-playoff-spot ""}}]
              points-from-playoff-spot) "Parsed points from playoff spot"))))
 
 (deftest game-scores-parsing-playoff-series

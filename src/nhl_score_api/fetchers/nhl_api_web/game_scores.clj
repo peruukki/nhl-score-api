@@ -245,7 +245,7 @@
 (defn- get-point-difference-to-playoff-spot [conference-name division-name team-record standings]
   (let [wild-card-teams (parse-wild-card-teams conference-name standings)]
     (if (empty? wild-card-teams)
-      nil
+      ""
       (let [is-team-out-of-playoffs (> (:wildcard-sequence team-record) 2)
             no-wild-card-playoff-teams-in-division (not (some #(= (:division-name %) division-name)
                                                               (take 2 wild-card-teams)))
@@ -267,13 +267,11 @@
         conference-id (:conference-name team-record)
         division-name (:division-name team-record)
         point-difference-to-playoff-spot
-        (get-point-difference-to-playoff-spot conference-id division-name team-record standings)
-        basic-standings {:division-rank   (str (:division-sequence team-record))
-                         :conference-rank (str (:conference-sequence team-record))
-                         :league-rank     (str (:league-sequence team-record))}]
-    (if (nil? point-difference-to-playoff-spot)
-      basic-standings
-      (assoc basic-standings :points-from-playoff-spot point-difference-to-playoff-spot))))
+        (get-point-difference-to-playoff-spot conference-id division-name team-record standings)]
+    {:division-rank            (str (:division-sequence team-record))
+     :conference-rank          (str (:conference-sequence team-record))
+     :league-rank              (str (:league-sequence team-record))
+     :points-from-playoff-spot point-difference-to-playoff-spot}))
 
 (defn- parse-standings [team-details standings]
   (let [away-details (:away team-details)
