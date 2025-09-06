@@ -1,6 +1,6 @@
 (ns nhl-score-api.fetchers.nhl-api-web.game-scores
   (:require [clojure.string :as str]
-            [nhl-score-api.fetchers.nhl-api-web.data :refer [team-names]]
+            [nhl-score-api.fetchers.nhl-api-web.data :as data]
             [nhl-score-api.fetchers.nhl-api-web.transformer :refer [finished-game?
                                                                     get-game-state
                                                                     live-game?
@@ -152,13 +152,13 @@
   {:away (parse-team-details (:away-team schedule-game))
    :home (parse-team-details (:home-team schedule-game))})
 
-(defn- get-teams [team-details]
+(defn- get-teams [team-details season]
   {:away (merge
           (select-keys (:away team-details) [:abbreviation :id :location-name])
-          (get team-names (:abbreviation (:away team-details))))
+          (data/get-team-names (:abbreviation (:away team-details)) season))
    :home (merge
           (select-keys (:home team-details) [:abbreviation :id :location-name])
-          (get team-names (:abbreviation (:home team-details))))})
+          (data/get-team-names (:abbreviation (:home team-details)) season))})
 
 (defn- parse-game-state [schedule-game]
   (str/upper-case (get-game-state schedule-game)))
@@ -478,7 +478,7 @@
 (defn- parse-game-details [current-and-pre-game-standings gamecenter schedule-game]
   (let [team-details (parse-game-team-details schedule-game)
         scores (parse-scores schedule-game team-details)
-        teams (get-teams team-details)]
+        teams (get-teams team-details (:season schedule-game))]
     (-> {:status (parse-game-status schedule-game gamecenter)
          :start-time (parse-game-start-time schedule-game)
          :goals (parse-goals gamecenter)

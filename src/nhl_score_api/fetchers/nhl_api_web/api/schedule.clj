@@ -32,6 +32,7 @@
      [:map
       [:number {:optional true} :int]
       [:period-type {:optional true} #'PeriodTypeSchema]]]
+    [:season :int]
     [:series-url {:optional true} :string]
     [:series-status {:optional true}
      [:map

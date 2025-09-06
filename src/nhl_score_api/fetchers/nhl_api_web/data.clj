@@ -1,6 +1,6 @@
 (ns nhl-score-api.fetchers.nhl-api-web.data)
 
-(def team-names
+(def ^:private team-names
   {"ANA" {:short-name "Anaheim"
           :team-name  "Ducks"}
    "ARI" {:short-name "Arizona"
@@ -58,7 +58,8 @@
    "TOR" {:short-name "Toronto"
           :team-name  "Maple Leafs"}
    "UTA" {:short-name "Utah"
-          :team-name  "Hockey Club"}
+          :team-name  "Mammoth"
+          :previous-team-name {:until-season 20252026 :team-name "Hockey Club"}}
    "VAN" {:short-name "Vancouver"
           :team-name  "Canucks"}
    "VGK" {:short-name "Vegas"
@@ -67,3 +68,12 @@
           :team-name  "Capitals"}
    "WPG" {:short-name "Winnipeg"
           :team-name  "Jets"}})
+
+(defn get-team-names [team-abbreviation season]
+  (let [team (get team-names team-abbreviation {:short-name "" :team-name ""})
+        effective-team-name (or (when-let [previous (:previous-team-name team)]
+                                  (when (< season (:until-season previous))
+                                    (:team-name previous)))
+                                (:team-name team))]
+    {:short-name (:short-name team)
+     :team-name effective-team-name}))
