@@ -2,7 +2,7 @@
   (:require [clojure.test :refer [deftest is testing]]
             [nhl-score-api.fetchers.nhl-api-web.data :refer [get-team-names]]))
 
-(deftest get-team-name-test
+(deftest get-team-names-test
 
   (testing "Returns team data for team without previous names"
     (is (= {:short-name "Boston" :team-name "Bruins"}
