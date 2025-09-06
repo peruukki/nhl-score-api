@@ -22,7 +22,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
         "score": 4
       },
-      "gameCenterLink": "/gamecenter/njd-vs-wsh/2023/10/25/2023020099"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/njd-vs-wsh/2023/10/25/2023020099",
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2023020206,
@@ -46,7 +54,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
         "score": 2
       },
-      "gameCenterLink": "/gamecenter/njd-vs-wsh/2023/11/10/2023020206"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/njd-vs-wsh/2023/11/10/2023020206",
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2023020587,
@@ -70,7 +86,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg",
         "score": 3
       },
-      "gameCenterLink": "/gamecenter/wsh-vs-njd/2024/01/03/2023020587"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/wsh-vs-njd/2024/01/03/2023020587",
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2023020879,
@@ -94,7 +118,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg",
         "score": 6
       },
-      "gameCenterLink": "/gamecenter/wsh-vs-njd/2024/02/20/2023020879"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/wsh-vs-njd/2024/02/20/2023020879",
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     }
   ],
   "seasonSeriesWins": {
@@ -137,11 +169,13 @@
           "firstName": {
             "default": "Alexander",
             "cs": "Alexandr",
+            "fi": "Aleksandr",
             "sk": "Alexandr"
           },
           "lastName": {
             "default": "Alexeyev",
             "cs": "Alexejev",
+            "fi": "Aleksejev",
             "sk": "Alexejev"
           }
         },

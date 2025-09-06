@@ -22,7 +22,16 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
         "score": 2
       },
-      "gameCenterLink": "/gamecenter/det-vs-mtl/2023/11/09/2023020195"
+      "periodDescriptor": {
+        "number": 4,
+        "periodType": "OT",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/det-vs-mtl/2023/11/09/2023020195",
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
+      }
     },
     {
       "id": 2023020361,
@@ -46,7 +55,16 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
         "score": 4
       },
-      "gameCenterLink": "/gamecenter/mtl-vs-det/2023/12/02/2023020361"
+      "periodDescriptor": {
+        "number": 4,
+        "periodType": "OT",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/mtl-vs-det/2023/12/02/2023020361",
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
+      }
     },
     {
       "id": 2023021287,
@@ -70,7 +88,16 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
         "score": 5
       },
-      "gameCenterLink": "/gamecenter/det-vs-mtl/2024/04/15/2023021287"
+      "periodDescriptor": {
+        "number": 4,
+        "periodType": "OT",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/det-vs-mtl/2024/04/15/2023021287",
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
+      }
     },
     {
       "id": 2023021298,
@@ -94,7 +121,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
         "score": 4
       },
-      "gameCenterLink": "/gamecenter/mtl-vs-det/2024/04/16/2023021298"
+      "periodDescriptor": {
+        "number": 5,
+        "periodType": "SO",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/mtl-vs-det/2024/04/16/2023021298",
+      "gameOutcome": {
+        "lastPeriodType": "SO"
+      }
     }
   ],
   "seasonSeriesWins": {

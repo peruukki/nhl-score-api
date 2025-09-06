@@ -22,7 +22,16 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg",
         "score": 3
       },
-      "gameCenterLink": "/gamecenter/edm-vs-lak/2023/04/17/2022030181"
+      "periodDescriptor": {
+        "number": 4,
+        "periodType": "OT",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/edm-vs-lak/2023/04/17/2022030181",
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
+      }
     },
     {
       "id": 2022030182,
@@ -46,7 +55,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg",
         "score": 4
       },
-      "gameCenterLink": "/gamecenter/edm-vs-lak/2023/04/19/2022030182"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/edm-vs-lak/2023/04/19/2022030182",
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2022030183,
@@ -70,7 +87,16 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_20192020-20232024_light.svg",
         "score": 3
       },
-      "gameCenterLink": "/gamecenter/lak-vs-edm/2023/04/21/2022030183"
+      "periodDescriptor": {
+        "number": 4,
+        "periodType": "OT",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/lak-vs-edm/2023/04/21/2022030183",
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
+      }
     },
     {
       "id": 2022030184,
@@ -94,7 +120,16 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_20192020-20232024_light.svg",
         "score": 4
       },
-      "gameCenterLink": "/gamecenter/lak-vs-edm/2023/04/23/2022030184"
+      "periodDescriptor": {
+        "number": 4,
+        "periodType": "OT",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/lak-vs-edm/2023/04/23/2022030184",
+      "gameOutcome": {
+        "lastPeriodType": "OT",
+        "otPeriods": 1
+      }
     },
     {
       "id": 2022030185,
@@ -118,7 +153,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg",
         "score": 6
       },
-      "gameCenterLink": "/gamecenter/edm-vs-lak/2023/04/25/2022030185"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/edm-vs-lak/2023/04/25/2022030185",
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2022030186,
@@ -142,7 +185,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_20192020-20232024_light.svg",
         "score": 4
       },
-      "gameCenterLink": "/gamecenter/lak-vs-edm/2023/04/29/2022030186"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/lak-vs-edm/2023/04/29/2022030186",
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     }
   ],
   "seasonSeriesWins": {

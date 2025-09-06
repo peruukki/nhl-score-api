@@ -25,21 +25,21 @@
       "market": "H",
       "countryCode": "US",
       "network": "BSW",
-      "sequenceNumber": 57
+      "sequenceNumber": 379
     },
     {
       "id": 323,
       "market": "A",
       "countryCode": "US",
       "network": "NBCSP+",
-      "sequenceNumber": 73
+      "sequenceNumber": 392
     }
   ],
   "gameState": "OFF",
   "gameScheduleState": "OK",
   "awayTeam": {
     "id": 4,
-    "name": {
+    "commonName": {
       "default": "Flyers"
     },
     "abbrev": "PHI",
@@ -53,11 +53,12 @@
     },
     "score": 6,
     "sog": 36,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/PHI_dark.svg"
   },
   "homeTeam": {
     "id": 24,
-    "name": {
+    "commonName": {
       "default": "Ducks"
     },
     "abbrev": "ANA",
@@ -70,7 +71,8 @@
     },
     "score": 3,
     "sog": 38,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_20132014-20232024_light.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_20132014-20232024_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/ANA_20132014-20232024_dark.svg"
   },
   "shootoutInUse": true,
   "maxPeriods": 5,
@@ -88,6 +90,7 @@
         "goals": [
           {
             "situationCode": "1551",
+            "eventId": 253,
             "strength": "ev",
             "playerId": 8476461,
             "firstName": {
@@ -118,13 +121,7 @@
               {
                 "playerId": 8474715,
                 "firstName": {
-                  "default": "Cameron",
-                  "cs": "Cam",
-                  "de": "Cam",
-                  "es": "Cam",
-                  "fi": "Cam",
-                  "sk": "Cam",
-                  "sv": "Cam"
+                  "default": "Cam"
                 },
                 "lastName": {
                   "default": "Atkinson"
@@ -132,7 +129,8 @@
                 "name": {
                   "default": "C. Atkinson"
                 },
-                "assistsToDate": 4
+                "assistsToDate": 4,
+                "sweaterNumber": 89
               },
               {
                 "playerId": 8481178,
@@ -141,7 +139,7 @@
                   "cs": "Jegor",
                   "de": "Yegor",
                   "es": "Yegor",
-                  "fi": "Yegor",
+                  "fi": "Jegor",
                   "sk": "Jegor",
                   "sv": "Yegor"
                 },
@@ -153,27 +151,25 @@
                   "cs": "J. Zamula",
                   "de": "Y. Zamula",
                   "es": "Y. Zamula",
-                  "fi": "Y. Zamula",
+                  "fi": "J. Zamula",
                   "sk": "J. Zamula",
                   "sv": "Y. Zamula"
                 },
-                "assistsToDate": 3
+                "assistsToDate": 3,
+                "sweaterNumber": 5
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020208/ev253.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": false
           },
           {
             "situationCode": "1551",
+            "eventId": 265,
             "strength": "ev",
             "playerId": 8474715,
             "firstName": {
-              "default": "Cameron",
-              "cs": "Cam",
-              "de": "Cam",
-              "es": "Cam",
-              "fi": "Cam",
-              "sk": "Cam",
-              "sv": "Cam"
+              "default": "Cam"
             },
             "lastName": {
               "default": "Atkinson"
@@ -208,7 +204,8 @@
                 "name": {
                   "default": "T. Sanheim"
                 },
-                "assistsToDate": 11
+                "assistsToDate": 11,
+                "sweaterNumber": 6
               },
               {
                 "playerId": 8482159,
@@ -221,10 +218,13 @@
                 "name": {
                   "default": "T. Foerster"
                 },
-                "assistsToDate": 3
+                "assistsToDate": 3,
+                "sweaterNumber": 71
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020208/ev265.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": false
           }
         ]
       },
@@ -237,6 +237,7 @@
         "goals": [
           {
             "situationCode": "1551",
+            "eventId": 277,
             "strength": "ev",
             "playerId": 8478011,
             "firstName": {
@@ -275,13 +276,17 @@
                 "name": {
                   "default": "J. Farabee"
                 },
-                "assistsToDate": 5
+                "assistsToDate": 5,
+                "sweaterNumber": 86
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020208/ev277.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": false
           },
           {
             "situationCode": "1451",
+            "eventId": 763,
             "strength": "pp",
             "playerId": 8484153,
             "firstName": {
@@ -320,7 +325,8 @@
                 "name": {
                   "default": "A. Killorn"
                 },
-                "assistsToDate": 1
+                "assistsToDate": 1,
+                "sweaterNumber": 17
               },
               {
                 "playerId": 8482745,
@@ -333,10 +339,13 @@
                 "name": {
                   "default": "M. McTavish"
                 },
-                "assistsToDate": 8
+                "assistsToDate": 8,
+                "sweaterNumber": 23
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020208/ev763.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": true
           }
         ]
       },
@@ -349,6 +358,7 @@
         "goals": [
           {
             "situationCode": "1551",
+            "eventId": 905,
             "strength": "ev",
             "playerId": 8477948,
             "firstName": {
@@ -387,7 +397,8 @@
                 "name": {
                   "default": "J. Farabee"
                 },
-                "assistsToDate": 6
+                "assistsToDate": 6,
+                "sweaterNumber": 86
               },
               {
                 "playerId": 8481546,
@@ -400,13 +411,17 @@
                 "name": {
                   "default": "C. York"
                 },
-                "assistsToDate": 3
+                "assistsToDate": 3,
+                "sweaterNumber": 8
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020208/ev905.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": false
           },
           {
             "situationCode": "1551",
+            "eventId": 933,
             "strength": "ev",
             "playerId": 8484153,
             "firstName": {
@@ -445,7 +460,8 @@
                 "name": {
                   "default": "A. Killorn"
                 },
-                "assistsToDate": 2
+                "assistsToDate": 2,
+                "sweaterNumber": 17
               },
               {
                 "playerId": 8483490,
@@ -453,18 +469,28 @@
                   "default": "Pavel"
                 },
                 "lastName": {
-                  "default": "Mintyukov"
+                  "default": "Mintyukov",
+                  "cs": "Mintjukov",
+                  "fi": "Mintjukov",
+                  "sk": "Mintjukov"
                 },
                 "name": {
-                  "default": "P. Mintyukov"
+                  "default": "P. Mintyukov",
+                  "cs": "P. Mintjukov",
+                  "fi": "P. Mintjukov",
+                  "sk": "P. Mintjukov"
                 },
-                "assistsToDate": 8
+                "assistsToDate": 8,
+                "sweaterNumber": 34
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020208/ev933.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": true
           },
           {
             "situationCode": "1551",
+            "eventId": 1006,
             "strength": "ev",
             "playerId": 8480015,
             "firstName": {
@@ -503,13 +529,17 @@
                 "name": {
                   "default": "M. Frost"
                 },
-                "assistsToDate": 1
+                "assistsToDate": 1,
+                "sweaterNumber": 48
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020208/ev1006.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": false
           },
           {
             "situationCode": "1460",
+            "eventId": 1106,
             "strength": "pp",
             "playerId": 8484153,
             "firstName": {
@@ -546,7 +576,8 @@
                 "name": {
                   "default": "T. Terry"
                 },
-                "assistsToDate": 6
+                "assistsToDate": 6,
+                "sweaterNumber": 19
               },
               {
                 "playerId": 8476458,
@@ -559,13 +590,17 @@
                 "name": {
                   "default": "R. Strome"
                 },
-                "assistsToDate": 10
+                "assistsToDate": 10,
+                "sweaterNumber": 16
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020208/ev1106.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": true
           },
           {
             "situationCode": "1560",
+            "eventId": 616,
             "strength": "ev",
             "playerId": 8480015,
             "firstName": {
@@ -604,7 +639,8 @@
                 "name": {
                   "default": "T. Sanheim"
                 },
-                "assistsToDate": 12
+                "assistsToDate": 12,
+                "sweaterNumber": 6
               },
               {
                 "playerId": 8476872,
@@ -617,10 +653,13 @@
                 "name": {
                   "default": "S. Laughton"
                 },
-                "assistsToDate": 8
+                "assistsToDate": 8,
+                "sweaterNumber": 21
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020208/ev616.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": false
           }
         ]
       }
@@ -681,22 +720,33 @@
             "timeInPeriod": "07:11",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Ilya Lyubushkin",
+            "committedByPlayer": {
+              "default": "I. Lyubushkin",
+              "cs": "I. Ljubuškin",
+              "fi": "I. Ljubushkin",
+              "sk": "I. Ljubuškin"
+            },
             "teamAbbrev": {
               "default": "ANA"
             },
-            "drawnBy": "Garnet Hathaway",
+            "drawnBy": {
+              "default": "G. Hathaway"
+            },
             "descKey": "tripping"
           },
           {
             "timeInPeriod": "18:02",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Sean Couturier",
+            "committedByPlayer": {
+              "default": "S. Couturier"
+            },
             "teamAbbrev": {
               "default": "PHI"
             },
-            "drawnBy": "Mason McTavish",
+            "drawnBy": {
+              "default": "M. McTavish"
+            },
             "descKey": "tripping"
           }
         ]
@@ -712,44 +762,60 @@
             "timeInPeriod": "10:33",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Radko Gudas",
+            "committedByPlayer": {
+              "default": "R. Gudas"
+            },
             "teamAbbrev": {
               "default": "ANA"
             },
-            "drawnBy": "Nick Seeler",
+            "drawnBy": {
+              "default": "N. Seeler"
+            },
             "descKey": "cross-checking"
           },
           {
             "timeInPeriod": "11:34",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Cam Atkinson",
+            "committedByPlayer": {
+              "default": "C. Atkinson"
+            },
             "teamAbbrev": {
               "default": "PHI"
             },
-            "drawnBy": "Adam Henrique",
+            "drawnBy": {
+              "default": "A. Henrique"
+            },
             "descKey": "hooking"
           },
           {
             "timeInPeriod": "13:48",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Morgan Frost",
+            "committedByPlayer": {
+              "default": "M. Frost"
+            },
             "teamAbbrev": {
               "default": "PHI"
             },
-            "drawnBy": "Max Jones",
+            "drawnBy": {
+              "default": "M. Jones"
+            },
             "descKey": "cross-checking"
           },
           {
             "timeInPeriod": "16:46",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Cam York",
+            "committedByPlayer": {
+              "default": "C. York"
+            },
             "teamAbbrev": {
               "default": "PHI"
             },
-            "drawnBy": "Troy Terry",
+            "drawnBy": {
+              "default": "T. Terry"
+            },
             "descKey": "slashing"
           }
         ]
@@ -765,7 +831,15 @@
             "timeInPeriod": "01:39",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Egor Zamula",
+            "committedByPlayer": {
+              "default": "E. Zamula",
+              "cs": "J. Zamula",
+              "de": "Y. Zamula",
+              "es": "Y. Zamula",
+              "fi": "J. Zamula",
+              "sk": "J. Zamula",
+              "sv": "Y. Zamula"
+            },
             "teamAbbrev": {
               "default": "PHI"
             },
@@ -775,23 +849,35 @@
             "timeInPeriod": "03:56",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Lukas Dostal",
+            "committedByPlayer": {
+              "default": "L. Dostal",
+              "cs": "L. Dostál",
+              "sk": "L. Dostál"
+            },
             "teamAbbrev": {
               "default": "ANA"
             },
-            "drawnBy": "Joel Farabee",
+            "drawnBy": {
+              "default": "J. Farabee"
+            },
             "descKey": "roughing",
-            "servedBy": "Ross Johnston"
+            "servedBy": {
+              "default": "R. Johnston"
+            }
           },
           {
             "timeInPeriod": "16:37",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Scott Laughton",
+            "committedByPlayer": {
+              "default": "S. Laughton"
+            },
             "teamAbbrev": {
               "default": "PHI"
             },
-            "drawnBy": "Jackson LaCombe",
+            "drawnBy": {
+              "default": "Jackson LaCombe"
+            },
             "descKey": "hooking"
           }
         ]

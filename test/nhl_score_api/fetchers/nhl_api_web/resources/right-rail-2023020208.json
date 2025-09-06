@@ -22,7 +22,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg",
         "score": 4
       },
-      "gameCenterLink": "/gamecenter/phi-vs-ana/2023/10/28/2023020117"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/phi-vs-ana/2023/10/28/2023020117",
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2023020208,
@@ -46,7 +54,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_20132014-20232024_light.svg",
         "score": 3
       },
-      "gameCenterLink": "/gamecenter/ana-vs-phi/2023/11/10/2023020208"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/ana-vs-phi/2023/11/10/2023020208",
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     }
   ],
   "seasonSeriesWins": {

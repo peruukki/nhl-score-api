@@ -22,7 +22,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
         "score": 5
       },
-      "gameCenterLink": "/gamecenter/tor-vs-cgy/2023/11/10/2023020207"
+      "periodDescriptor": {
+        "number": 5,
+        "periodType": "SO",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/tor-vs-cgy/2023/11/10/2023020207",
+      "gameOutcome": {
+        "lastPeriodType": "SO"
+      }
     },
     {
       "id": 2023020697,
@@ -46,7 +54,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg",
         "score": 3
       },
-      "gameCenterLink": "/gamecenter/cgy-vs-tor/2024/01/18/2023020697"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/cgy-vs-tor/2024/01/18/2023020697",
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     }
   ],
   "seasonSeriesWins": {
@@ -84,7 +100,8 @@
             "default": "Markstrom",
             "cs": "Markström",
             "fi": "Markström",
-            "sk": "Markström"
+            "sk": "Markström",
+            "sv": "Markström"
           }
         },
         {

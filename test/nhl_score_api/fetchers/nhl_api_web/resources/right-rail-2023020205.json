@@ -22,7 +22,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
         "score": 5
       },
-      "gameCenterLink": "/gamecenter/fla-vs-car/2023/11/10/2023020205"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/fla-vs-car/2023/11/10/2023020205",
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2023020889,
@@ -46,7 +54,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
         "score": 1
       },
-      "gameCenterLink": "/gamecenter/car-vs-fla/2024/02/22/2023020889"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/car-vs-fla/2024/02/22/2023020889",
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2023021046,
@@ -70,7 +86,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
         "score": 4
       },
-      "gameCenterLink": "/gamecenter/car-vs-fla/2024/03/14/2023021046"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/car-vs-fla/2024/03/14/2023021046",
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     }
   ],
   "seasonSeriesWins": {

@@ -46,7 +46,7 @@
   "gameScheduleState": "OK",
   "awayTeam": {
     "id": 20,
-    "name": {
+    "commonName": {
       "default": "Flames"
     },
     "abbrev": "CGY",
@@ -59,11 +59,12 @@
     },
     "score": 4,
     "sog": 28,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CGY_dark.svg"
   },
   "homeTeam": {
     "id": 10,
-    "name": {
+    "commonName": {
       "default": "Maple Leafs"
     },
     "abbrev": "TOR",
@@ -76,7 +77,8 @@
     },
     "score": 5,
     "sog": 36,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/TOR_dark.svg"
   },
   "shootoutInUse": true,
   "maxPeriods": 5,
@@ -94,6 +96,7 @@
         "goals": [
           {
             "situationCode": "1451",
+            "eventId": 133,
             "strength": "pp",
             "playerId": 8477939,
             "firstName": {
@@ -123,10 +126,13 @@
             "shotType": "wrist",
             "goalModifier": "none",
             "assists": [],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020207/ev133.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": true
           },
           {
             "situationCode": "1551",
+            "eventId": 236,
             "strength": "ev",
             "playerId": 8482074,
             "firstName": {
@@ -164,13 +170,17 @@
                 "name": {
                   "default": "N. Kadri"
                 },
-                "assistsToDate": 6
+                "assistsToDate": 6,
+                "sweaterNumber": 91
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020207/ev236.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": false
           },
           {
             "situationCode": "1551",
+            "eventId": 251,
             "strength": "ev",
             "playerId": 8475714,
             "firstName": {
@@ -217,7 +227,8 @@
                 "name": {
                   "default": "M. Domi"
                 },
-                "assistsToDate": 7
+                "assistsToDate": 7,
+                "sweaterNumber": 11
               },
               {
                 "playerId": 8481582,
@@ -230,10 +241,13 @@
                 "name": {
                   "default": "N. Robertson"
                 },
-                "assistsToDate": 2
+                "assistsToDate": 2,
+                "sweaterNumber": 89
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020207/ev251.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": true
           }
         ]
       },
@@ -246,6 +260,7 @@
         "goals": [
           {
             "situationCode": "1541",
+            "eventId": 523,
             "strength": "sh",
             "playerId": 8477939,
             "firstName": {
@@ -275,10 +290,13 @@
             "shotType": "wrist",
             "goalModifier": "none",
             "assists": [],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020207/ev523.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": true
           },
           {
             "situationCode": "1551",
+            "eventId": 561,
             "strength": "ev",
             "playerId": 8475166,
             "firstName": {
@@ -319,7 +337,8 @@
                 "name": {
                   "default": "W. Nylander"
                 },
-                "assistsToDate": 12
+                "assistsToDate": 12,
+                "sweaterNumber": 88
               },
               {
                 "playerId": 8476853,
@@ -332,13 +351,17 @@
                 "name": {
                   "default": "M. Rielly"
                 },
-                "assistsToDate": 9
+                "assistsToDate": 9,
+                "sweaterNumber": 44
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020207/ev561.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": true
           },
           {
             "situationCode": "1551",
+            "eventId": 571,
             "strength": "ev",
             "playerId": 8477507,
             "firstName": {
@@ -377,7 +400,8 @@
                 "name": {
                   "default": "A. Mangiapane"
                 },
-                "assistsToDate": 4
+                "assistsToDate": 4,
+                "sweaterNumber": 88
               },
               {
                 "playerId": 8476456,
@@ -390,13 +414,17 @@
                 "name": {
                   "default": "J. Huberdeau"
                 },
-                "assistsToDate": 5
+                "assistsToDate": 5,
+                "sweaterNumber": 10
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020207/ev571.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": false
           },
           {
             "situationCode": "1551",
+            "eventId": 644,
             "strength": "ev",
             "playerId": 8478421,
             "firstName": {
@@ -435,7 +463,8 @@
                 "name": {
                   "default": "M. Weegar"
                 },
-                "assistsToDate": 4
+                "assistsToDate": 4,
+                "sweaterNumber": 52
               },
               {
                 "playerId": 8478397,
@@ -448,10 +477,13 @@
                 "name": {
                   "default": "R. Andersson"
                 },
-                "assistsToDate": 3
+                "assistsToDate": 3,
+                "sweaterNumber": 4
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020207/ev644.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": false
           }
         ]
       },
@@ -464,6 +496,7 @@
         "goals": [
           {
             "situationCode": "1551",
+            "eventId": 171,
             "strength": "ev",
             "playerId": 8481028,
             "firstName": {
@@ -505,7 +538,8 @@
                 "name": {
                   "default": "M. Backlund"
                 },
-                "assistsToDate": 4
+                "assistsToDate": 4,
+                "sweaterNumber": 11
               },
               {
                 "playerId": 8476399,
@@ -518,10 +552,13 @@
                 "name": {
                   "default": "B. Coleman"
                 },
-                "assistsToDate": 2
+                "assistsToDate": 2,
+                "sweaterNumber": 20
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020207/ev171.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": false
           }
         ]
       },
@@ -542,6 +579,7 @@
         "goals": [
           {
             "situationCode": "1010",
+            "eventId": 185,
             "strength": "ev",
             "playerId": 8477503,
             "firstName": {
@@ -557,7 +595,6 @@
               "default": "TOR"
             },
             "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477503.png",
-            "goalsToDate": 0,
             "awayScore": 4,
             "homeScore": 5,
             "leadingTeamAbbrev": {
@@ -567,7 +604,9 @@
             "shotType": "wrist",
             "goalModifier": "none",
             "assists": [],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020207/ev185.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": true
           }
         ]
       }
@@ -576,9 +615,15 @@
       {
         "sequence": 1,
         "playerId": 8477939,
-        "teamAbbrev": "TOR",
-        "firstName": "William",
-        "lastName": "Nylander",
+        "teamAbbrev": {
+          "default": "TOR"
+        },
+        "firstName": {
+          "default": "William"
+        },
+        "lastName": {
+          "default": "Nylander"
+        },
         "shotType": "wrist",
         "result": "save",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477939.png",
@@ -587,9 +632,15 @@
       {
         "sequence": 2,
         "playerId": 8476456,
-        "teamAbbrev": "CGY",
-        "firstName": "Jonathan",
-        "lastName": "Huberdeau",
+        "teamAbbrev": {
+          "default": "CGY"
+        },
+        "firstName": {
+          "default": "Jonathan"
+        },
+        "lastName": {
+          "default": "Huberdeau"
+        },
         "shotType": "wrist",
         "result": "save",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8476456.png",
@@ -598,9 +649,15 @@
       {
         "sequence": 3,
         "playerId": 8479318,
-        "teamAbbrev": "TOR",
-        "firstName": "Auston",
-        "lastName": "Matthews",
+        "teamAbbrev": {
+          "default": "TOR"
+        },
+        "firstName": {
+          "default": "Auston"
+        },
+        "lastName": {
+          "default": "Matthews"
+        },
         "shotType": "wrist",
         "result": "save",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8479318.png",
@@ -609,9 +666,21 @@
       {
         "sequence": 4,
         "playerId": 8481068,
-        "teamAbbrev": "CGY",
-        "firstName": "Yegor",
-        "lastName": "Sharangovich",
+        "teamAbbrev": {
+          "default": "CGY"
+        },
+        "firstName": {
+          "default": "Yegor",
+          "cs": "Jegor",
+          "fi": "Jahor",
+          "sk": "Jegor"
+        },
+        "lastName": {
+          "default": "Sharangovich",
+          "cs": "Šarangovič",
+          "fi": "Sharanhovitsh",
+          "sk": "Šarangovič"
+        },
         "shotType": "wrist",
         "result": "goal",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8481068.png",
@@ -620,9 +689,21 @@
       {
         "sequence": 5,
         "playerId": 8478483,
-        "teamAbbrev": "TOR",
-        "firstName": "Mitchell",
-        "lastName": "Marner",
+        "teamAbbrev": {
+          "default": "TOR"
+        },
+        "firstName": {
+          "default": "Mitch",
+          "cs": "Mitchell",
+          "de": "Mitchell",
+          "es": "Mitchell",
+          "fi": "Mitchell",
+          "sk": "Mitchell",
+          "sv": "Mitchell"
+        },
+        "lastName": {
+          "default": "Marner"
+        },
         "shotType": "backhand",
         "result": "goal",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8478483.png",
@@ -631,9 +712,15 @@
       {
         "sequence": 6,
         "playerId": 8482074,
-        "teamAbbrev": "CGY",
-        "firstName": "Connor",
-        "lastName": "Zary",
+        "teamAbbrev": {
+          "default": "CGY"
+        },
+        "firstName": {
+          "default": "Connor"
+        },
+        "lastName": {
+          "default": "Zary"
+        },
         "shotType": "wrist",
         "result": "save",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8482074.png",
@@ -642,9 +729,15 @@
       {
         "sequence": 7,
         "playerId": 8481582,
-        "teamAbbrev": "TOR",
-        "firstName": "Nicholas",
-        "lastName": "Robertson",
+        "teamAbbrev": {
+          "default": "TOR"
+        },
+        "firstName": {
+          "default": "Nicholas"
+        },
+        "lastName": {
+          "default": "Robertson"
+        },
         "shotType": "wrist",
         "result": "save",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8481582.png",
@@ -653,9 +746,15 @@
       {
         "sequence": 8,
         "playerId": 8475172,
-        "teamAbbrev": "CGY",
-        "firstName": "Nazem",
-        "lastName": "Kadri",
+        "teamAbbrev": {
+          "default": "CGY"
+        },
+        "firstName": {
+          "default": "Nazem"
+        },
+        "lastName": {
+          "default": "Kadri"
+        },
         "shotType": "wrist",
         "result": "save",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8475172.png",
@@ -664,9 +763,15 @@
       {
         "sequence": 9,
         "playerId": 8477503,
-        "teamAbbrev": "TOR",
-        "firstName": "Max",
-        "lastName": "Domi",
+        "teamAbbrev": {
+          "default": "TOR"
+        },
+        "firstName": {
+          "default": "Max"
+        },
+        "lastName": {
+          "default": "Domi"
+        },
         "shotType": "wrist",
         "result": "goal",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/TOR/8477503.png",
@@ -675,9 +780,15 @@
       {
         "sequence": 10,
         "playerId": 8479346,
-        "teamAbbrev": "CGY",
-        "firstName": "Dillon",
-        "lastName": "Dube",
+        "teamAbbrev": {
+          "default": "CGY"
+        },
+        "firstName": {
+          "default": "Dillon"
+        },
+        "lastName": {
+          "default": "Dube"
+        },
         "shotType": "backhand",
         "result": "save",
         "headshot": "https://assets.nhle.com/mugs/nhl/20232024/CGY/8479346.png",
@@ -740,55 +851,75 @@
             "timeInPeriod": "02:13",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "A.J. Greer",
+            "committedByPlayer": {
+              "default": "A. Greer"
+            },
             "teamAbbrev": {
               "default": "CGY"
             },
-            "drawnBy": "Nicholas Robertson",
+            "drawnBy": {
+              "default": "N. Robertson"
+            },
             "descKey": "holding"
           },
           {
             "timeInPeriod": "16:11",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "TJ Brodie",
+            "committedByPlayer": {
+              "default": "T. Brodie"
+            },
             "teamAbbrev": {
               "default": "TOR"
             },
-            "drawnBy": "Connor Zary",
+            "drawnBy": {
+              "default": "C. Zary"
+            },
             "descKey": "hooking"
           },
           {
             "timeInPeriod": "17:14",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Nazem Kadri",
+            "committedByPlayer": {
+              "default": "N. Kadri"
+            },
             "teamAbbrev": {
               "default": "CGY"
             },
-            "drawnBy": "Joseph Woll",
+            "drawnBy": {
+              "default": "J. Woll"
+            },
             "descKey": "slashing"
           },
           {
             "timeInPeriod": "17:14",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "William Lagesson",
+            "committedByPlayer": {
+              "default": "W. Lagesson"
+            },
             "teamAbbrev": {
               "default": "TOR"
             },
-            "drawnBy": "Nazem Kadri",
+            "drawnBy": {
+              "default": "N. Kadri"
+            },
             "descKey": "roughing"
           },
           {
             "timeInPeriod": "19:33",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Jake McCabe",
+            "committedByPlayer": {
+              "default": "J. McCabe"
+            },
             "teamAbbrev": {
               "default": "TOR"
             },
-            "drawnBy": "Mikael Backlund",
+            "drawnBy": {
+              "default": "M. Backlund"
+            },
             "descKey": "roughing"
           }
         ]

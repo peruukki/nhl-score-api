@@ -22,7 +22,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_20082009-20232024_light.svg",
         "score": 1
       },
-      "gameCenterLink": "/gamecenter/sjs-vs-vgk/2023/10/12/2023020016"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/sjs-vs-vgk/2023/10/12/2023020016",
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2023020209,
@@ -46,7 +54,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
         "score": 5
       },
-      "gameCenterLink": "/gamecenter/vgk-vs-sjs/2023/11/10/2023020209"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-sjs/2023/11/10/2023020209",
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     },
     {
       "id": 2023020427,
@@ -70,7 +86,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
         "score": 5
       },
-      "gameCenterLink": "/gamecenter/vgk-vs-sjs/2023/12/10/2023020427"
+      "periodDescriptor": {
+        "number": 5,
+        "periodType": "SO",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/vgk-vs-sjs/2023/12/10/2023020427",
+      "gameOutcome": {
+        "lastPeriodType": "SO"
+      }
     },
     {
       "id": 2023020873,
@@ -94,7 +118,15 @@
         "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_20082009-20232024_light.svg",
         "score": 0
       },
-      "gameCenterLink": "/gamecenter/sjs-vs-vgk/2024/02/19/2023020873"
+      "periodDescriptor": {
+        "number": 3,
+        "periodType": "REG",
+        "maxRegulationPeriods": 3
+      },
+      "gameCenterLink": "/gamecenter/sjs-vs-vgk/2024/02/19/2023020873",
+      "gameOutcome": {
+        "lastPeriodType": "REG"
+      }
     }
   ],
   "seasonSeriesWins": {

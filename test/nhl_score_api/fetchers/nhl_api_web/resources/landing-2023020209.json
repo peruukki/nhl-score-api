@@ -21,20 +21,6 @@
   },
   "tvBroadcasts": [
     {
-      "id": 314,
-      "market": "A",
-      "countryCode": "US",
-      "network": "NBCSCA",
-      "sequenceNumber": 63
-    },
-    {
-      "id": 521,
-      "market": "H",
-      "countryCode": "US",
-      "network": "SCRIPPS",
-      "sequenceNumber": 87
-    },
-    {
       "id": 282,
       "market": "N",
       "countryCode": "CA",
@@ -47,13 +33,27 @@
       "countryCode": "CA",
       "network": "TVAS",
       "sequenceNumber": 109
+    },
+    {
+      "id": 314,
+      "market": "A",
+      "countryCode": "US",
+      "network": "NBCSCA",
+      "sequenceNumber": 384
+    },
+    {
+      "id": 521,
+      "market": "H",
+      "countryCode": "US",
+      "network": "SCRIPPS",
+      "sequenceNumber": 657
     }
   ],
   "gameState": "OFF",
   "gameScheduleState": "OK",
   "awayTeam": {
     "id": 28,
-    "name": {
+    "commonName": {
       "default": "Sharks"
     },
     "abbrev": "SJS",
@@ -66,11 +66,12 @@
     },
     "score": 0,
     "sog": 20,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_20082009-20232024_light.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_20082009-20232024_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/SJS_20082009-20232024_dark.svg"
   },
   "homeTeam": {
     "id": 54,
-    "name": {
+    "commonName": {
       "default": "Golden Knights"
     },
     "abbrev": "VGK",
@@ -83,7 +84,8 @@
     },
     "score": 5,
     "sog": 39,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/VGK_dark.svg"
   },
   "shootoutInUse": true,
   "maxPeriods": 5,
@@ -101,6 +103,7 @@
         "goals": [
           {
             "situationCode": "1551",
+            "eventId": 151,
             "strength": "ev",
             "playerId": 8474565,
             "firstName": {
@@ -141,7 +144,8 @@
                 "name": {
                   "default": "M. Amadio"
                 },
-                "assistsToDate": 5
+                "assistsToDate": 5,
+                "sweaterNumber": 22
               },
               {
                 "playerId": 8475913,
@@ -154,13 +158,17 @@
                 "name": {
                   "default": "M. Stone"
                 },
-                "assistsToDate": 10
+                "assistsToDate": 10,
+                "sweaterNumber": 61
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020209/ev151.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": true
           },
           {
             "situationCode": "1551",
+            "eventId": 261,
             "strength": "ev",
             "playerId": 8474166,
             "firstName": {
@@ -201,7 +209,8 @@
                 "name": {
                   "default": "M. Amadio"
                 },
-                "assistsToDate": 6
+                "assistsToDate": 6,
+                "sweaterNumber": 22
               },
               {
                 "playerId": 8477478,
@@ -214,10 +223,13 @@
                 "name": {
                   "default": "W. Carrier"
                 },
-                "assistsToDate": 1
+                "assistsToDate": 1,
+                "sweaterNumber": 28
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020209/ev261.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": true
           }
         ]
       },
@@ -238,6 +250,7 @@
         "goals": [
           {
             "situationCode": "1541",
+            "eventId": 713,
             "strength": "sh",
             "playerId": 8476448,
             "firstName": {
@@ -278,7 +291,8 @@
                 "name": {
                   "default": "J. Eichel"
                 },
-                "assistsToDate": 9
+                "assistsToDate": 9,
+                "sweaterNumber": 9
               },
               {
                 "playerId": 8474565,
@@ -291,13 +305,17 @@
                 "name": {
                   "default": "A. Pietrangelo"
                 },
-                "assistsToDate": 7
+                "assistsToDate": 7,
+                "sweaterNumber": 7
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020209/ev713.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": true
           },
           {
             "situationCode": "1551",
+            "eventId": 731,
             "strength": "ev",
             "playerId": 8474166,
             "firstName": {
@@ -338,7 +356,8 @@
                 "name": {
                   "default": "A. Pietrangelo"
                 },
-                "assistsToDate": 8
+                "assistsToDate": 8,
+                "sweaterNumber": 7
               },
               {
                 "playerId": 8476448,
@@ -351,14 +370,18 @@
                 "name": {
                   "default": "W. Karlsson"
                 },
-                "assistsToDate": 10
+                "assistsToDate": 10,
+                "sweaterNumber": 71
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020209/ev731.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": true
           },
           {
             "situationCode": "1551",
             "strength": "pp",
+            "eventId": 936,
             "playerId": 8479353,
             "firstName": {
               "default": "Brett"
@@ -395,17 +418,24 @@
                 "lastName": {
                   "default": "Rondbjerg",
                   "cs": "Röndbjerg",
-                  "sk": "Röndbjerg"
+                  "fi": "Røndbjerg",
+                  "sk": "Röndbjerg",
+                  "sv": "Røndbjerg"
                 },
                 "name": {
                   "default": "J. Rondbjerg",
                   "cs": "J. Röndbjerg",
-                  "sk": "J. Röndbjerg"
+                  "fi": "J. Røndbjerg",
+                  "sk": "J. Röndbjerg",
+                  "sv": "J. Røndbjerg"
                 },
-                "assistsToDate": 2
+                "assistsToDate": 2,
+                "sweaterNumber": 46
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020209/ev936.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": true
           }
         ]
       }
@@ -466,11 +496,15 @@
             "timeInPeriod": "07:06",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Brett Howden",
+            "committedByPlayer": {
+              "default": "B. Howden"
+            },
             "teamAbbrev": {
               "default": "VGK"
             },
-            "drawnBy": "Calen Addison",
+            "drawnBy": {
+              "default": "C. Addison"
+            },
             "descKey": "high-sticking"
           }
         ]
@@ -494,56 +528,78 @@
             "timeInPeriod": "01:07",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Brayden McNabb",
+            "committedByPlayer": {
+              "default": "B. McNabb"
+            },
             "teamAbbrev": {
               "default": "VGK"
             },
-            "drawnBy": "Mikael Granlund",
+            "drawnBy": {
+              "default": "M. Granlund"
+            },
             "descKey": "tripping"
           },
           {
             "timeInPeriod": "05:01",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Ben Hutton",
+            "committedByPlayer": {
+              "default": "B. Hutton"
+            },
             "teamAbbrev": {
               "default": "VGK"
             },
-            "drawnBy": "Mike Hoffman",
+            "drawnBy": {
+              "default": "M. Hoffman"
+            },
             "descKey": "hooking"
           },
           {
             "timeInPeriod": "15:35",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Jonathan Marchessault",
+            "committedByPlayer": {
+              "default": "J. Marchessault"
+            },
             "teamAbbrev": {
               "default": "VGK"
             },
-            "drawnBy": "William Eklund",
+            "drawnBy": {
+              "default": "W. Eklund"
+            },
             "descKey": "roughing",
-            "servedBy": "Paul Cotter"
+            "servedBy": {
+              "default": "P. Cotter"
+            }
           },
           {
             "timeInPeriod": "15:35",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Jonathan Marchessault",
+            "committedByPlayer": {
+              "default": "J. Marchessault"
+            },
             "teamAbbrev": {
               "default": "VGK"
             },
-            "drawnBy": "Fabian Zetterlund",
+            "drawnBy": {
+              "default": "F. Zetterlund"
+            },
             "descKey": "cross-checking"
           },
           {
             "timeInPeriod": "15:35",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "William Eklund",
+            "committedByPlayer": {
+              "default": "W. Eklund"
+            },
             "teamAbbrev": {
               "default": "SJS"
             },
-            "drawnBy": "Jonathan Marchessault",
+            "drawnBy": {
+              "default": "J. Marchessault"
+            },
             "descKey": "roughing"
           }
         ]

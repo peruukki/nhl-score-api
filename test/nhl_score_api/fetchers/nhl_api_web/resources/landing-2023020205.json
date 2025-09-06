@@ -25,21 +25,21 @@
       "market": "A",
       "countryCode": "US",
       "network": "BSSO",
-      "sequenceNumber": 70
+      "sequenceNumber": 390
     },
     {
       "id": 353,
       "market": "H",
       "countryCode": "US",
       "network": "BSFL",
-      "sequenceNumber": 92
+      "sequenceNumber": 404
     }
   ],
   "gameState": "OFF",
   "gameScheduleState": "OK",
   "awayTeam": {
     "id": 12,
-    "name": {
+    "commonName": {
       "default": "Hurricanes"
     },
     "abbrev": "CAR",
@@ -53,11 +53,12 @@
     },
     "score": 2,
     "sog": 30,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/CAR_dark.svg"
   },
   "homeTeam": {
     "id": 13,
-    "name": {
+    "commonName": {
       "default": "Panthers"
     },
     "abbrev": "FLA",
@@ -71,7 +72,8 @@
     },
     "score": 5,
     "sog": 35,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/FLA_dark.svg"
   },
   "shootoutInUse": true,
   "maxPeriods": 5,
@@ -89,6 +91,7 @@
         "goals": [
           {
             "situationCode": "1551",
+            "eventId": 70,
             "strength": "ev",
             "playerId": 8480829,
             "firstName": {
@@ -137,7 +140,8 @@
                   "sk": "J. Fasth",
                   "sv": "J. Fasth"
                 },
-                "assistsToDate": 2
+                "assistsToDate": 2,
+                "sweaterNumber": 71
               },
               {
                 "playerId": 8476921,
@@ -150,13 +154,17 @@
                 "name": {
                   "default": "J. Martinook"
                 },
-                "assistsToDate": 3
+                "assistsToDate": 3,
+                "sweaterNumber": 48
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020205/ev70.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": false
           },
           {
             "situationCode": "1551",
+            "eventId": 88,
             "strength": "ev",
             "playerId": 8479314,
             "firstName": {
@@ -192,7 +200,8 @@
                 "name": {
                   "default": "C. Verhaeghe"
                 },
-                "assistsToDate": 4
+                "assistsToDate": 4,
+                "sweaterNumber": 23
               },
               {
                 "playerId": 8482113,
@@ -205,13 +214,17 @@
                 "name": {
                   "default": "A. Lundell"
                 },
-                "assistsToDate": 5
+                "assistsToDate": 5,
+                "sweaterNumber": 15
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020205/ev88.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": true
           },
           {
             "situationCode": "1551",
+            "eventId": 484,
             "strength": "ev",
             "playerId": 8484304,
             "firstName": {
@@ -250,7 +263,8 @@
                 "name": {
                   "default": "M. Tkachuk"
                 },
-                "assistsToDate": 10
+                "assistsToDate": 10,
+                "sweaterNumber": 19
               },
               {
                 "playerId": 8480185,
@@ -263,10 +277,13 @@
                 "name": {
                   "default": "E. Luostarinen"
                 },
-                "assistsToDate": 2
+                "assistsToDate": 2,
+                "sweaterNumber": 27
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020205/ev484.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": true
           }
         ]
       },
@@ -279,6 +296,7 @@
         "goals": [
           {
             "situationCode": "1551",
+            "eventId": 573,
             "strength": "ev",
             "playerId": 8477493,
             "firstName": {
@@ -317,7 +335,8 @@
                 "name": {
                   "default": "E. Rodrigues"
                 },
-                "assistsToDate": 8
+                "assistsToDate": 8,
+                "sweaterNumber": 17
               },
               {
                 "playerId": 8477933,
@@ -330,13 +349,17 @@
                 "name": {
                   "default": "S. Reinhart"
                 },
-                "assistsToDate": 7
+                "assistsToDate": 7,
+                "sweaterNumber": 13
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020205/ev573.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": true
           },
           {
             "situationCode": "1551",
+            "eventId": 774,
             "strength": "ev",
             "playerId": 8478427,
             "firstName": {
@@ -375,7 +398,8 @@
                 "name": {
                   "default": "J. Martinook"
                 },
-                "assistsToDate": 4
+                "assistsToDate": 4,
+                "sweaterNumber": 48
               },
               {
                 "playerId": 8476869,
@@ -388,10 +412,13 @@
                 "name": {
                   "default": "B. Skjei"
                 },
-                "assistsToDate": 9
+                "assistsToDate": 9,
+                "sweaterNumber": 76
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020205/ev774.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": false
           }
         ]
       },
@@ -404,6 +431,7 @@
         "goals": [
           {
             "situationCode": "1551",
+            "eventId": 962,
             "strength": "ev",
             "playerId": 8477409,
             "firstName": {
@@ -440,13 +468,17 @@
                 "name": {
                   "default": "G. Forsling"
                 },
-                "assistsToDate": 2
+                "assistsToDate": 2,
+                "sweaterNumber": 42
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020205/ev962.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": true
           },
           {
             "situationCode": "0651",
+            "eventId": 363,
             "strength": "ev",
             "playerId": 8478831,
             "firstName": {
@@ -485,7 +517,8 @@
                 "name": {
                   "default": "S. Reinhart"
                 },
-                "assistsToDate": 8
+                "assistsToDate": 8,
+                "sweaterNumber": 13
               },
               {
                 "playerId": 8477493,
@@ -498,10 +531,13 @@
                 "name": {
                   "default": "A. Barkov"
                 },
-                "assistsToDate": 9
+                "assistsToDate": 9,
+                "sweaterNumber": 16
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020205/ev363.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": true
           }
         ]
       }
@@ -563,11 +599,15 @@
             "timeInPeriod": "03:37",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Gustav Forsling",
+            "committedByPlayer": {
+              "default": "G. Forsling"
+            },
             "teamAbbrev": {
               "default": "FLA"
             },
-            "drawnBy": "Seth Jarvis",
+            "drawnBy": {
+              "default": "S. Jarvis"
+            },
             "descKey": "interference"
           }
         ]
@@ -583,22 +623,33 @@
             "timeInPeriod": "12:45",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Steven Lorentz",
+            "committedByPlayer": {
+              "default": "S. Lorentz"
+            },
             "teamAbbrev": {
               "default": "FLA"
             },
-            "drawnBy": "Michael Bunting",
+            "drawnBy": {
+              "default": "M. Bunting"
+            },
             "descKey": "hooking"
           },
           {
             "timeInPeriod": "16:56",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Andrei Svechnikov",
+            "committedByPlayer": {
+              "default": "A. Svechnikov",
+              "cs": "A. Svečnikov",
+              "fi": "A. Svetshnikov",
+              "sk": "A. Svečnikov"
+            },
             "teamAbbrev": {
               "default": "CAR"
             },
-            "drawnBy": "Oliver Ekman-Larsson",
+            "drawnBy": {
+              "default": "O. Ekman-Larsson"
+            },
             "descKey": "roughing"
           }
         ]
@@ -614,22 +665,30 @@
             "timeInPeriod": "04:45",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Evan Rodrigues",
+            "committedByPlayer": {
+              "default": "E. Rodrigues"
+            },
             "teamAbbrev": {
               "default": "FLA"
             },
-            "drawnBy": "Jesperi Kotkaniemi",
+            "drawnBy": {
+              "default": "J. Kotkaniemi"
+            },
             "descKey": "roughing"
           },
           {
             "timeInPeriod": "05:33",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Sebastian Aho",
+            "committedByPlayer": {
+              "default": "S. Aho"
+            },
             "teamAbbrev": {
               "default": "CAR"
             },
-            "drawnBy": "Dmitry Kulikov",
+            "drawnBy": {
+              "default": "D. Kulikov"
+            },
             "descKey": "tripping"
           }
         ]

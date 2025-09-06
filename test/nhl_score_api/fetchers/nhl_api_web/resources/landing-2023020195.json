@@ -21,13 +21,6 @@
   },
   "tvBroadcasts": [
     {
-      "id": 351,
-      "market": "H",
-      "countryCode": "US",
-      "network": "BSDET",
-      "sequenceNumber": 51
-    },
-    {
       "id": 131,
       "market": "A",
       "countryCode": "CA",
@@ -40,13 +33,20 @@
       "countryCode": "CA",
       "network": "RDS",
       "sequenceNumber": 132
+    },
+    {
+      "id": 351,
+      "market": "H",
+      "countryCode": "US",
+      "network": "BSDET",
+      "sequenceNumber": 374
     }
   ],
   "gameState": "OFF",
   "gameScheduleState": "OK",
   "awayTeam": {
     "id": 8,
-    "name": {
+    "commonName": {
       "default": "Canadiens"
     },
     "abbrev": "MTL",
@@ -59,11 +59,12 @@
     },
     "score": 3,
     "sog": 27,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/MTL_dark.svg"
   },
   "homeTeam": {
     "id": 17,
-    "name": {
+    "commonName": {
       "default": "Red Wings"
     },
     "abbrev": "DET",
@@ -76,7 +77,8 @@
     },
     "score": 2,
     "sog": 29,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/DET_dark.svg"
   },
   "shootoutInUse": true,
   "maxPeriods": 5,
@@ -94,6 +96,7 @@
         "goals": [
           {
             "situationCode": "1551",
+            "eventId": 223,
             "strength": "ev",
             "playerId": 8476875,
             "firstName": {
@@ -134,10 +137,13 @@
                 "name": {
                   "default": "A. Newhook"
                 },
-                "assistsToDate": 4
+                "assistsToDate": 4,
+                "sweaterNumber": 15
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020195/ev223.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": false
           }
         ]
       },
@@ -150,6 +156,7 @@
         "goals": [
           {
             "situationCode": "1551",
+            "eventId": 172,
             "strength": "ev",
             "playerId": 8478432,
             "firstName": {
@@ -187,7 +194,8 @@
                 "name": {
                   "default": "M. Rasmussen"
                 },
-                "assistsToDate": 3
+                "assistsToDate": 3,
+                "sweaterNumber": 27
               },
               {
                 "playerId": 8475279,
@@ -200,10 +208,13 @@
                 "name": {
                   "default": "B. Chiarot"
                 },
-                "assistsToDate": 4
+                "assistsToDate": 4,
+                "sweaterNumber": 8
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020195/ev172.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": true
           }
         ]
       },
@@ -216,6 +227,7 @@
         "goals": [
           {
             "situationCode": "1541",
+            "eventId": 761,
             "strength": "pp",
             "playerId": 8480018,
             "firstName": {
@@ -256,7 +268,8 @@
                 "name": {
                   "default": "M. Matheson"
                 },
-                "assistsToDate": 6
+                "assistsToDate": 6,
+                "sweaterNumber": 8
               },
               {
                 "playerId": 8477497,
@@ -269,13 +282,17 @@
                 "name": {
                   "default": "S. Monahan"
                 },
-                "assistsToDate": 6
+                "assistsToDate": 6,
+                "sweaterNumber": 91
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020195/ev761.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": false
           },
           {
             "situationCode": "1551",
+            "eventId": 823,
             "strength": "ev",
             "playerId": 8477456,
             "firstName": {
@@ -302,7 +319,9 @@
             "shotType": "wrist",
             "goalModifier": "none",
             "assists": [],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020195/ev823.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": true
           }
         ]
       },
@@ -315,6 +334,7 @@
         "goals": [
           {
             "situationCode": "1431",
+            "eventId": 1165,
             "strength": "pp",
             "playerId": 8481540,
             "firstName": {
@@ -355,7 +375,8 @@
                 "name": {
                   "default": "M. Matheson"
                 },
-                "assistsToDate": 7
+                "assistsToDate": 7,
+                "sweaterNumber": 8
               },
               {
                 "playerId": 8480018,
@@ -368,10 +389,13 @@
                 "name": {
                   "default": "N. Suzuki"
                 },
-                "assistsToDate": 7
+                "assistsToDate": 7,
+                "sweaterNumber": 14
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020195/ev1165.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": false
           }
         ]
       }
@@ -433,18 +457,24 @@
             "timeInPeriod": "02:58",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Jordan Harris",
+            "committedByPlayer": {
+              "default": "J. Harris"
+            },
             "teamAbbrev": {
               "default": "MTL"
             },
-            "drawnBy": "Klim Kostin",
+            "drawnBy": {
+              "default": "K. Kostin"
+            },
             "descKey": "holding"
           },
           {
             "timeInPeriod": "07:12",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Jeff Petry",
+            "committedByPlayer": {
+              "default": "J. Petry"
+            },
             "teamAbbrev": {
               "default": "DET"
             },
@@ -454,22 +484,30 @@
             "timeInPeriod": "14:15",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Michael Pezzetta",
+            "committedByPlayer": {
+              "default": "M. Pezzetta"
+            },
             "teamAbbrev": {
               "default": "MTL"
             },
-            "drawnBy": "Joe Veleno",
+            "drawnBy": {
+              "default": "J. Veleno"
+            },
             "descKey": "holding"
           },
           {
             "timeInPeriod": "15:05",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Lucas Raymond",
+            "committedByPlayer": {
+              "default": "L. Raymond"
+            },
             "teamAbbrev": {
               "default": "DET"
             },
-            "drawnBy": "Joel Armia",
+            "drawnBy": {
+              "default": "J. Armia"
+            },
             "descKey": "slashing"
           }
         ]
@@ -485,44 +523,60 @@
             "timeInPeriod": "03:02",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Josh Anderson",
+            "committedByPlayer": {
+              "default": "J. Anderson"
+            },
             "teamAbbrev": {
               "default": "MTL"
             },
-            "drawnBy": "Joe Veleno",
+            "drawnBy": {
+              "default": "J. Veleno"
+            },
             "descKey": "tripping"
           },
           {
             "timeInPeriod": "05:58",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Kaiden Guhle",
+            "committedByPlayer": {
+              "default": "K. Guhle"
+            },
             "teamAbbrev": {
               "default": "MTL"
             },
-            "drawnBy": "Christian Fischer",
+            "drawnBy": {
+              "default": "C. Fischer"
+            },
             "descKey": "holding"
           },
           {
             "timeInPeriod": "10:53",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Jake Walman",
+            "committedByPlayer": {
+              "default": "J. Walman"
+            },
             "teamAbbrev": {
               "default": "DET"
             },
-            "drawnBy": "Josh Anderson",
+            "drawnBy": {
+              "default": "J. Anderson"
+            },
             "descKey": "holding"
           },
           {
             "timeInPeriod": "18:29",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Dylan Larkin",
+            "committedByPlayer": {
+              "default": "D. Larkin"
+            },
             "teamAbbrev": {
               "default": "DET"
             },
-            "drawnBy": "Kaiden Guhle",
+            "drawnBy": {
+              "default": "K. Guhle"
+            },
             "descKey": "tripping"
           }
         ]
@@ -538,22 +592,30 @@
             "timeInPeriod": "08:58",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Brendan Gallagher",
+            "committedByPlayer": {
+              "default": "B. Gallagher"
+            },
             "teamAbbrev": {
               "default": "MTL"
             },
-            "drawnBy": "Moritz Seider",
+            "drawnBy": {
+              "default": "M. Seider"
+            },
             "descKey": "roughing"
           },
           {
             "timeInPeriod": "08:58",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Moritz Seider",
+            "committedByPlayer": {
+              "default": "M. Seider"
+            },
             "teamAbbrev": {
               "default": "DET"
             },
-            "drawnBy": "Brendan Gallagher",
+            "drawnBy": {
+              "default": "B. Gallagher"
+            },
             "descKey": "roughing"
           }
         ]
@@ -569,19 +631,27 @@
             "timeInPeriod": "03:27",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "James Reimer",
+            "committedByPlayer": {
+              "default": "J. Reimer"
+            },
             "teamAbbrev": {
               "default": "DET"
             },
-            "drawnBy": "Cole Caufield",
+            "drawnBy": {
+              "default": "C. Caufield"
+            },
             "descKey": "holding-the-stick",
-            "servedBy": "Alex DeBrincat"
+            "servedBy": {
+              "default": "A. DeBrincat"
+            }
           },
           {
             "timeInPeriod": "04:16",
             "type": "MIS",
             "duration": 10,
-            "committedByPlayer": "J.T. Compher",
+            "committedByPlayer": {
+              "default": "J. Compher"
+            },
             "teamAbbrev": {
               "default": "DET"
             },

@@ -25,21 +25,21 @@
       "market": "H",
       "countryCode": "US",
       "network": "MSGSN",
-      "sequenceNumber": 88
+      "sequenceNumber": 402
     },
     {
       "id": 520,
       "market": "A",
       "countryCode": "US",
       "network": "MNMT2",
-      "sequenceNumber": 98
+      "sequenceNumber": 409
     }
   ],
   "gameState": "CRIT",
   "gameScheduleState": "OK",
   "awayTeam": {
     "id": 15,
-    "name": {
+    "commonName": {
       "default": "Capitals"
     },
     "abbrev": "WSH",
@@ -52,11 +52,12 @@
     },
     "score": 4,
     "sog": 27,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_dark.svg"
   },
   "homeTeam": {
     "id": 1,
-    "name": {
+    "commonName": {
       "default": "Devils"
     },
     "abbrev": "NJD",
@@ -69,7 +70,8 @@
     },
     "score": 2,
     "sog": 26,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/NJD_dark.svg"
   },
   "shootoutInUse": true,
   "maxPeriods": 5,
@@ -87,6 +89,7 @@
         "goals": [
           {
             "situationCode": "1551",
+            "eventId": 155,
             "strength": "ev",
             "playerId": 8477979,
             "firstName": {
@@ -125,7 +128,8 @@
                 "name": {
                   "default": "R. Sandin"
                 },
-                "assistsToDate": 2
+                "assistsToDate": 2,
+                "sweaterNumber": 38
               },
               {
                 "playerId": 8477947,
@@ -138,13 +142,17 @@
                 "name": {
                   "default": "S. Milano"
                 },
-                "assistsToDate": 2
+                "assistsToDate": 2,
+                "sweaterNumber": 15
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020206/ev155.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": false
           },
           {
             "situationCode": "1551",
+            "eventId": 156,
             "strength": "ev",
             "playerId": 8479359,
             "firstName": {
@@ -183,7 +191,8 @@
                 "name": {
                   "default": "N. Aube-Kubel"
                 },
-                "assistsToDate": 1
+                "assistsToDate": 1,
+                "sweaterNumber": 96
               },
               {
                 "playerId": 8480796,
@@ -191,19 +200,18 @@
                   "default": "Martin"
                 },
                 "lastName": {
-                  "default": "Fehervary",
-                  "cs": "Fehérváry",
-                  "sk": "Fehérváry"
+                  "default": "Fehérváry"
                 },
                 "name": {
-                  "default": "M. Fehervary",
-                  "cs": "M. Fehérváry",
-                  "sk": "M. Fehérváry"
+                  "default": "M. Fehérváry"
                 },
-                "assistsToDate": 2
+                "assistsToDate": 2,
+                "sweaterNumber": 42
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020206/ev156.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": false
           }
         ]
       },
@@ -216,6 +224,7 @@
         "goals": [
           {
             "situationCode": "1551",
+            "eventId": 162,
             "strength": "ev",
             "playerId": 8475744,
             "firstName": {
@@ -262,7 +271,8 @@
                 "name": {
                   "default": "T. Wilson"
                 },
-                "assistsToDate": 4
+                "assistsToDate": 4,
+                "sweaterNumber": 43
               },
               {
                 "playerId": 8471214,
@@ -284,10 +294,13 @@
                   "fi": "A. Ovetshkin",
                   "sk": "A. Ovečkin"
                 },
-                "assistsToDate": 7
+                "assistsToDate": 7,
+                "sweaterNumber": 8
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020206/ev162.json",
+            "homeTeamDefendingSide": "right",
+            "isHome": false
           }
         ]
       },
@@ -300,6 +313,7 @@
         "goals": [
           {
             "situationCode": "1551",
+            "eventId": 169,
             "strength": "ev",
             "playerId": 8478414,
             "firstName": {
@@ -338,7 +352,8 @@
                 "name": {
                   "default": "M. McLeod"
                 },
-                "assistsToDate": 3
+                "assistsToDate": 3,
+                "sweaterNumber": 20
               },
               {
                 "playerId": 8478507,
@@ -351,13 +366,17 @@
                 "name": {
                   "default": "J. Marino"
                 },
-                "assistsToDate": 9
+                "assistsToDate": 9,
+                "sweaterNumber": 6
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020206/ev169.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": true
           },
           {
             "situationCode": "1551",
+            "eventId": 170,
             "strength": "ev",
             "playerId": 8482110,
             "firstName": {
@@ -396,7 +415,8 @@
                 "name": {
                   "default": "T. Toffoli"
                 },
-                "assistsToDate": 6
+                "assistsToDate": 6,
+                "sweaterNumber": 73
               },
               {
                 "playerId": 8481033,
@@ -409,13 +429,17 @@
                 "name": {
                   "default": "A. Schmid"
                 },
-                "assistsToDate": 2
+                "assistsToDate": 2,
+                "sweaterNumber": 40
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020206/ev170.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": true
           },
           {
             "situationCode": "1560",
+            "eventId": 176,
             "strength": "ev",
             "playerId": 8475744,
             "firstName": {
@@ -462,7 +486,8 @@
                 "name": {
                   "default": "L. Johansen"
                 },
-                "assistsToDate": 1
+                "assistsToDate": 1,
+                "sweaterNumber": 46
               },
               {
                 "playerId": 8476880,
@@ -475,10 +500,13 @@
                 "name": {
                   "default": "T. Wilson"
                 },
-                "assistsToDate": 5
+                "assistsToDate": 5,
+                "sweaterNumber": 43
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "pptReplayUrl": "https://wsr.nhle.com/sprites/20232024/2023020206/ev176.json",
+            "homeTeamDefendingSide": "left",
+            "isHome": false
           }
         ]
       }
@@ -539,44 +567,63 @@
             "timeInPeriod": "04:18",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "John Marino",
+            "committedByPlayer": {
+              "default": "J. Marino"
+            },
             "teamAbbrev": {
               "default": "NJD"
             },
-            "drawnBy": "Tom Wilson",
+            "drawnBy": {
+              "default": "T. Wilson"
+            },
             "descKey": "interference"
           },
           {
             "timeInPeriod": "14:24",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Brendan Smith",
+            "committedByPlayer": {
+              "default": "B. Smith"
+            },
             "teamAbbrev": {
               "default": "NJD"
             },
-            "drawnBy": "Nicolas Aube-Kubel",
+            "drawnBy": {
+              "default": "N. Aube-Kubel"
+            },
             "descKey": "interference"
           },
           {
             "timeInPeriod": "14:37",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Evgeny Kuznetsov",
+            "committedByPlayer": {
+              "default": "E. Kuznetsov",
+              "cs": "J. Kuzněcov",
+              "fi": "J. Kuznetsov",
+              "sk": "J. Kuznecov"
+            },
             "teamAbbrev": {
               "default": "WSH"
             },
-            "drawnBy": "Tomas Nosek",
+            "drawnBy": {
+              "default": "T. Nosek"
+            },
             "descKey": "hooking"
           },
           {
             "timeInPeriod": "18:37",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Dougie Hamilton",
+            "committedByPlayer": {
+              "default": "D. Hamilton"
+            },
             "teamAbbrev": {
               "default": "NJD"
             },
-            "drawnBy": "Beck Malenstyn",
+            "drawnBy": {
+              "default": "B. Malenstyn"
+            },
             "descKey": "interference"
           }
         ]
@@ -592,11 +639,15 @@
             "timeInPeriod": "19:35",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "T.J. Oshie",
+            "committedByPlayer": {
+              "default": "T. Oshie"
+            },
             "teamAbbrev": {
               "default": "WSH"
             },
-            "drawnBy": "Brendan Smith",
+            "drawnBy": {
+              "default": "B. Smith"
+            },
             "descKey": "tripping"
           }
         ]
@@ -612,33 +663,45 @@
             "timeInPeriod": "03:55",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Lucas Johansen",
+            "committedByPlayer": {
+              "default": "L. Johansen"
+            },
             "teamAbbrev": {
               "default": "WSH"
             },
-            "drawnBy": "Erik Haula",
+            "drawnBy": {
+              "default": "E. Haula"
+            },
             "descKey": "holding"
           },
           {
             "timeInPeriod": "11:49",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Timo Meier",
+            "committedByPlayer": {
+              "default": "T. Meier"
+            },
             "teamAbbrev": {
               "default": "NJD"
             },
-            "drawnBy": "Beck Malenstyn",
+            "drawnBy": {
+              "default": "B. Malenstyn"
+            },
             "descKey": "high-sticking"
           },
           {
             "timeInPeriod": "18:09",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Tom Wilson",
+            "committedByPlayer": {
+              "default": "T. Wilson"
+            },
             "teamAbbrev": {
               "default": "WSH"
             },
-            "drawnBy": "Timo Meier",
+            "drawnBy": {
+              "default": "T. Meier"
+            },
             "descKey": "roughing"
           }
         ]

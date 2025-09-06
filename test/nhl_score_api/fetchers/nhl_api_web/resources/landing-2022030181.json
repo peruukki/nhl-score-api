@@ -24,7 +24,7 @@
   "gameScheduleState": "OK",
   "awayTeam": {
     "id": 26,
-    "name": {
+    "commonName": {
       "default": "Kings"
     },
     "abbrev": "LAK",
@@ -37,11 +37,12 @@
     },
     "score": 4,
     "sog": 35,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_20192020-20232024_light.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_20192020-20232024_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/LAK_20192020-20232024_dark.svg"
   },
   "homeTeam": {
     "id": 22,
-    "name": {
+    "commonName": {
       "default": "Oilers"
     },
     "abbrev": "EDM",
@@ -54,7 +55,8 @@
     },
     "score": 3,
     "sog": 40,
-    "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg"
+    "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg",
+    "darkLogo": "https://assets.nhle.com/logos/nhl/svg/EDM_dark.svg"
   },
   "shootoutInUse": false,
   "regPeriods": 3,
@@ -71,6 +73,7 @@
         "goals": [
           {
             "situationCode": "1551",
+            "eventId": 161,
             "strength": "ev",
             "playerId": 8477934,
             "firstName": {
@@ -103,20 +106,21 @@
                   "default": "Mattias"
                 },
                 "lastName": {
-                  "default": "Janmark",
-                  "sv": "Janmark-Nylén"
+                  "default": "Janmark"
                 },
                 "name": {
-                  "default": "M. Janmark",
-                  "sv": "M. Janmark-Nylén"
+                  "default": "M. Janmark"
                 },
-                "assistsToDate": 1
+                "assistsToDate": 1,
+                "sweaterNumber": 26
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "homeTeamDefendingSide": "left",
+            "isHome": true
           },
           {
             "situationCode": "1351",
+            "eventId": 172,
             "strength": "pp",
             "playerId": 8480803,
             "firstName": {
@@ -154,7 +158,8 @@
                 "name": {
                   "default": "R. Nugent-Hopkins"
                 },
-                "assistsToDate": 1
+                "assistsToDate": 1,
+                "sweaterNumber": 93
               },
               {
                 "playerId": 8475786,
@@ -167,10 +172,12 @@
                 "name": {
                   "default": "Z. Hyman"
                 },
-                "assistsToDate": 1
+                "assistsToDate": 1,
+                "sweaterNumber": 18
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "homeTeamDefendingSide": "left",
+            "isHome": true
           }
         ]
       },
@@ -191,6 +198,7 @@
         "goals": [
           {
             "situationCode": "1441",
+            "eventId": 488,
             "strength": "ev",
             "playerId": 8477960,
             "firstName": {
@@ -228,7 +236,8 @@
                 "name": {
                   "default": "M. Roy"
                 },
-                "assistsToDate": 1
+                "assistsToDate": 1,
+                "sweaterNumber": 3
               },
               {
                 "playerId": 8471685,
@@ -243,13 +252,16 @@
                 "name": {
                   "default": "A. Kopitar"
                 },
-                "assistsToDate": 1
+                "assistsToDate": 1,
+                "sweaterNumber": 11
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "homeTeamDefendingSide": "left",
+            "isHome": false
           },
           {
             "situationCode": "1551",
+            "eventId": 852,
             "strength": "ev",
             "playerId": 8477934,
             "firstName": {
@@ -287,13 +299,16 @@
                 "name": {
                   "default": "E. Kane"
                 },
-                "assistsToDate": 1
+                "assistsToDate": 1,
+                "sweaterNumber": 91
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "homeTeamDefendingSide": "left",
+            "isHome": true
           },
           {
             "situationCode": "1551",
+            "eventId": 857,
             "strength": "ev",
             "playerId": 8477960,
             "firstName": {
@@ -331,7 +346,8 @@
                 "name": {
                   "default": "Q. Byfield"
                 },
-                "assistsToDate": 1
+                "assistsToDate": 1,
+                "sweaterNumber": 55
               },
               {
                 "playerId": 8471685,
@@ -346,13 +362,16 @@
                 "name": {
                   "default": "A. Kopitar"
                 },
-                "assistsToDate": 2
+                "assistsToDate": 2,
+                "sweaterNumber": 11
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "homeTeamDefendingSide": "left",
+            "isHome": false
           },
           {
             "situationCode": "0641",
+            "eventId": 870,
             "strength": "pp",
             "playerId": 8471685,
             "firstName": {
@@ -389,7 +408,8 @@
                 "name": {
                   "default": "P. Danault"
                 },
-                "assistsToDate": 1
+                "assistsToDate": 1,
+                "sweaterNumber": 24
               },
               {
                 "playerId": 8478042,
@@ -402,10 +422,12 @@
                 "name": {
                   "default": "V. Arvidsson"
                 },
-                "assistsToDate": 1
+                "assistsToDate": 1,
+                "sweaterNumber": 33
               }
             ],
-            "homeTeamDefendingSide": "left"
+            "homeTeamDefendingSide": "left",
+            "isHome": false
           }
         ]
       },
@@ -418,6 +440,7 @@
         "goals": [
           {
             "situationCode": "1541",
+            "eventId": 894,
             "strength": "pp",
             "playerId": 8480113,
             "firstName": {
@@ -455,7 +478,8 @@
                 "name": {
                   "default": "V. Arvidsson"
                 },
-                "assistsToDate": 2
+                "assistsToDate": 2,
+                "sweaterNumber": 33
               },
               {
                 "playerId": 8471685,
@@ -470,10 +494,12 @@
                 "name": {
                   "default": "A. Kopitar"
                 },
-                "assistsToDate": 3
+                "assistsToDate": 3,
+                "sweaterNumber": 11
               }
             ],
-            "homeTeamDefendingSide": "right"
+            "homeTeamDefendingSide": "right",
+            "isHome": false
           }
         ]
       }
@@ -535,55 +561,75 @@
             "timeInPeriod": "07:53",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Blake Lizotte",
+            "committedByPlayer": {
+              "default": "B. Lizotte"
+            },
             "teamAbbrev": {
               "default": "LAK"
             },
-            "drawnBy": "Klim Kostin",
+            "drawnBy": {
+              "default": "K. Kostin"
+            },
             "descKey": "roughing"
           },
           {
             "timeInPeriod": "07:53",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Klim Kostin",
+            "committedByPlayer": {
+              "default": "K. Kostin"
+            },
             "teamAbbrev": {
               "default": "EDM"
             },
-            "drawnBy": "Blake Lizotte",
+            "drawnBy": {
+              "default": "B. Lizotte"
+            },
             "descKey": "roughing"
           },
           {
             "timeInPeriod": "11:25",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Drew Doughty",
+            "committedByPlayer": {
+              "default": "D. Doughty"
+            },
             "teamAbbrev": {
               "default": "LAK"
             },
-            "drawnBy": "Connor McDavid",
+            "drawnBy": {
+              "default": "C. McDavid"
+            },
             "descKey": "hooking"
           },
           {
             "timeInPeriod": "11:55",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Mikey Anderson",
+            "committedByPlayer": {
+              "default": "M. Anderson"
+            },
             "teamAbbrev": {
               "default": "LAK"
             },
-            "drawnBy": "Connor McDavid",
+            "drawnBy": {
+              "default": "C. McDavid"
+            },
             "descKey": "holding"
           },
           {
             "timeInPeriod": "15:53",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Evan Bouchard",
+            "committedByPlayer": {
+              "default": "E. Bouchard"
+            },
             "teamAbbrev": {
               "default": "EDM"
             },
-            "drawnBy": "Trevor Moore",
+            "drawnBy": {
+              "default": "T. Moore"
+            },
             "descKey": "interference"
           }
         ]
@@ -599,44 +645,60 @@
             "timeInPeriod": "00:58",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Evander Kane",
+            "committedByPlayer": {
+              "default": "E. Kane"
+            },
             "teamAbbrev": {
               "default": "EDM"
             },
-            "drawnBy": "Quinton Byfield",
+            "drawnBy": {
+              "default": "Q. Byfield"
+            },
             "descKey": "tripping"
           },
           {
             "timeInPeriod": "04:39",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Zach Hyman",
+            "committedByPlayer": {
+              "default": "Z. Hyman"
+            },
             "teamAbbrev": {
               "default": "EDM"
             },
-            "drawnBy": "Quinton Byfield",
+            "drawnBy": {
+              "default": "Q. Byfield"
+            },
             "descKey": "slashing"
           },
           {
             "timeInPeriod": "18:57",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Evander Kane",
+            "committedByPlayer": {
+              "default": "E. Kane"
+            },
             "teamAbbrev": {
               "default": "EDM"
             },
-            "drawnBy": "Adrian Kempe",
+            "drawnBy": {
+              "default": "A. Kempe"
+            },
             "descKey": "high-sticking"
           },
           {
             "timeInPeriod": "19:30",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Alex Iafallo",
+            "committedByPlayer": {
+              "default": "A. Iafallo"
+            },
             "teamAbbrev": {
               "default": "LAK"
             },
-            "drawnBy": "Ryan Nugent-Hopkins",
+            "drawnBy": {
+              "default": "R. Nugent-Hopkins"
+            },
             "descKey": "high-sticking"
           }
         ]
@@ -652,11 +714,15 @@
             "timeInPeriod": "18:10",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Evan Bouchard",
+            "committedByPlayer": {
+              "default": "E. Bouchard"
+            },
             "teamAbbrev": {
               "default": "EDM"
             },
-            "drawnBy": "Trevor Moore",
+            "drawnBy": {
+              "default": "T. Moore"
+            },
             "descKey": "high-sticking"
           }
         ]
@@ -672,11 +738,15 @@
             "timeInPeriod": "09:03",
             "type": "MIN",
             "duration": 2,
-            "committedByPlayer": "Vincent Desharnais",
+            "committedByPlayer": {
+              "default": "V. Desharnais"
+            },
             "teamAbbrev": {
               "default": "EDM"
             },
-            "drawnBy": "Blake Lizotte",
+            "drawnBy": {
+              "default": "B. Lizotte"
+            },
             "descKey": "tripping"
           }
         ]
