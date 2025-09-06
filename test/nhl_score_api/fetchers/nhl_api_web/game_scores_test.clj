@@ -764,7 +764,7 @@
                       (parse-game-scores
                        (get-latest-games resources/games-for-validation-testing)
                        default-standings
-                       (resources/get-gamecenters ["2023020209-modified-for-validation"]))))]
+                       (resources/get-gamecenters ["2023020209-missing-goals-for-validation"]))))]
       (is (= true (contains? game :errors)) "Contains validation errors")
       (is (= [{:error :MISSING-ALL-GOALS}]
              (:errors game)) "Errors contain 'missing all goals' error")))
