@@ -1,5 +1,5 @@
 {
-  "wildCardIndicator": false,
+  "wildCardIndicator": true,
   "standings": [
     {
       "conferenceAbbrev": "E",
@@ -79,10 +79,13 @@
         "default": "Boston Bruins",
         "fr": "Bruins de Boston"
       },
+      "teamCommonName": {
+        "default": "Bruins"
+      },
       "teamAbbrev": {
         "default": "BOS"
       },
-      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/BOS_light.svg",
+      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/BOS_20232024_light.svg",
       "ties": 0,
       "waiversSequence": 32,
       "wildcardSequence": 0,
@@ -106,7 +109,7 @@
       "gameTypeId": 2,
       "gamesPlayed": 14,
       "goalDifferential": 21,
-      "goalDifferentialPctg": 1.5,
+      "goalDifferentialPctg": 1.500000,
       "goalAgainst": 32,
       "goalFor": 53,
       "goalsForPctg": 3.785714,
@@ -166,6 +169,9 @@
       "teamName": {
         "default": "Vegas Golden Knights",
         "fr": "Golden Knights de Vegas"
+      },
+      "teamCommonName": {
+        "default": "Golden Knights"
       },
       "teamAbbrev": {
         "default": "VGK"
@@ -255,6 +261,9 @@
         "default": "Vancouver Canucks",
         "fr": "Canucks de Vancouver"
       },
+      "teamCommonName": {
+        "default": "Canucks"
+      },
       "teamAbbrev": {
         "default": "VAN"
       },
@@ -315,7 +324,7 @@
       "losses": 2,
       "otLosses": 1,
       "placeName": {
-        "default": "New York"
+        "default": "NY Rangers"
       },
       "pointPctg": 0.807692,
       "points": 21,
@@ -342,6 +351,9 @@
       "teamName": {
         "default": "New York Rangers",
         "fr": "Rangers de New York"
+      },
+      "teamCommonName": {
+        "default": "Rangers"
       },
       "teamAbbrev": {
         "default": "NYR"
@@ -431,10 +443,13 @@
         "default": "Los Angeles Kings",
         "fr": "Kings de Los Angeles"
       },
+      "teamCommonName": {
+        "default": "Kings"
+      },
       "teamAbbrev": {
         "default": "LAK"
       },
-      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg",
+      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/LAK_20192020-20232024_light.svg",
       "ties": 0,
       "waiversSequence": 28,
       "wildcardSequence": 0,
@@ -458,7 +473,7 @@
       "gameTypeId": 2,
       "gamesPlayed": 12,
       "goalDifferential": 6,
-      "goalDifferentialPctg": 0.5,
+      "goalDifferentialPctg": 0.500000,
       "goalAgainst": 31,
       "goalFor": 37,
       "goalsForPctg": 3.083333,
@@ -497,7 +512,7 @@
       "points": 17,
       "regulationPlusOtWinPctg": 0.583333,
       "regulationPlusOtWins": 7,
-      "regulationWinPctg": 0.5,
+      "regulationWinPctg": 0.500000,
       "regulationWins": 6,
       "roadGamesPlayed": 7,
       "roadGoalDifferential": 6,
@@ -518,6 +533,9 @@
       "teamName": {
         "default": "Dallas Stars",
         "fr": "Stars de Dallas"
+      },
+      "teamCommonName": {
+        "default": "Stars"
       },
       "teamAbbrev": {
         "default": "DAL"
@@ -546,7 +564,7 @@
       "gameTypeId": 2,
       "gamesPlayed": 12,
       "goalDifferential": 6,
-      "goalDifferentialPctg": 0.5,
+      "goalDifferentialPctg": 0.500000,
       "goalAgainst": 35,
       "goalFor": 41,
       "goalsForPctg": 3.416667,
@@ -606,6 +624,9 @@
       "teamName": {
         "default": "Colorado Avalanche",
         "fr": "Avalanche du Colorado"
+      },
+      "teamCommonName": {
+        "default": "Avalanche"
       },
       "teamAbbrev": {
         "default": "COL"
@@ -694,6 +715,9 @@
       "teamName": {
         "default": "Winnipeg Jets",
         "fr": "Jets de Winnipeg"
+      },
+      "teamCommonName": {
+        "default": "Jets"
       },
       "teamAbbrev": {
         "default": "WPG"
@@ -784,6 +808,9 @@
         "default": "Carolina Hurricanes",
         "fr": "Hurricanes de la Caroline"
       },
+      "teamCommonName": {
+        "default": "Hurricanes"
+      },
       "teamAbbrev": {
         "default": "CAR"
       },
@@ -848,7 +875,7 @@
       },
       "pointPctg": 0.571429,
       "points": 16,
-      "regulationPlusOtWinPctg": 0.5,
+      "regulationPlusOtWinPctg": 0.500000,
       "regulationPlusOtWins": 7,
       "regulationWinPctg": 0.428571,
       "regulationWins": 6,
@@ -872,6 +899,9 @@
         "default": "Detroit Red Wings",
         "fr": "Red Wings de Detroit"
       },
+      "teamCommonName": {
+        "default": "Red Wings"
+      },
       "teamAbbrev": {
         "default": "DET"
       },
@@ -879,7 +909,7 @@
       "ties": 0,
       "waiversSequence": 20,
       "wildcardSequence": 0,
-      "winPctg": 0.5,
+      "winPctg": 0.500000,
       "wins": 7
     },
     {
@@ -960,6 +990,9 @@
         "default": "Tampa Bay Lightning",
         "fr": "Lightning de Tampa Bay"
       },
+      "teamCommonName": {
+        "default": "Lightning"
+      },
       "teamAbbrev": {
         "default": "TBL"
       },
@@ -1022,11 +1055,11 @@
       "placeName": {
         "default": "New Jersey"
       },
-      "pointPctg": 0.625,
+      "pointPctg": 0.625000,
       "points": 15,
       "regulationPlusOtWinPctg": 0.583333,
       "regulationPlusOtWins": 7,
-      "regulationWinPctg": 0.5,
+      "regulationWinPctg": 0.500000,
       "regulationWins": 6,
       "roadGamesPlayed": 6,
       "roadGoalDifferential": 2,
@@ -1047,6 +1080,9 @@
       "teamName": {
         "default": "New Jersey Devils",
         "fr": "Devils du New Jersey"
+      },
+      "teamCommonName": {
+        "default": "Devils"
       },
       "teamAbbrev": {
         "default": "NJD"
@@ -1075,7 +1111,7 @@
       "gameTypeId": 2,
       "gamesPlayed": 12,
       "goalDifferential": 0,
-      "goalDifferentialPctg": 0.0,
+      "goalDifferentialPctg": 0.000000,
       "goalAgainst": 35,
       "goalFor": 35,
       "goalsForPctg": 2.916667,
@@ -1111,7 +1147,7 @@
         "default": "Florida",
         "fr": "Floride"
       },
-      "pointPctg": 0.625,
+      "pointPctg": 0.625000,
       "points": 15,
       "regulationPlusOtWinPctg": 0.583333,
       "regulationPlusOtWins": 7,
@@ -1136,6 +1172,9 @@
       "teamName": {
         "default": "Florida Panthers",
         "fr": "Panthers de la Floride"
+      },
+      "teamCommonName": {
+        "default": "Panthers"
       },
       "teamAbbrev": {
         "default": "FLA"
@@ -1164,7 +1203,7 @@
       "gameTypeId": 2,
       "gamesPlayed": 12,
       "goalDifferential": 3,
-      "goalDifferentialPctg": 0.25,
+      "goalDifferentialPctg": 0.250000,
       "goalAgainst": 34,
       "goalFor": 37,
       "goalsForPctg": 3.083333,
@@ -1225,10 +1264,13 @@
         "default": "Anaheim Ducks",
         "fr": "Ducks d'Anaheim"
       },
+      "teamCommonName": {
+        "default": "Ducks"
+      },
       "teamAbbrev": {
         "default": "ANA"
       },
-      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
+      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/ANA_20132014-20232024_light.svg",
       "ties": 0,
       "waiversSequence": 21,
       "wildcardSequence": 1,
@@ -1313,6 +1355,9 @@
         "default": "Toronto Maple Leafs",
         "fr": "Maple Leafs de Toronto"
       },
+      "teamCommonName": {
+        "default": "Maple Leafs"
+      },
       "teamAbbrev": {
         "default": "TOR"
       },
@@ -1343,7 +1388,7 @@
       "goalDifferentialPctg": -0.538462,
       "goalAgainst": 46,
       "goalFor": 39,
-      "goalsForPctg": 3.0,
+      "goalsForPctg": 3.000000,
       "homeGamesPlayed": 7,
       "homeGoalDifferential": -4,
       "homeGoalsAgainst": 25,
@@ -1400,6 +1445,9 @@
       "teamName": {
         "default": "Montréal Canadiens",
         "fr": "Canadiens de Montréal"
+      },
+      "teamCommonName": {
+        "default": "Canadiens"
       },
       "teamAbbrev": {
         "default": "MTL"
@@ -1489,14 +1537,17 @@
         "default": "St. Louis Blues",
         "fr": "Blues de St. Louis"
       },
+      "teamCommonName": {
+        "default": "Blues"
+      },
       "teamAbbrev": {
         "default": "STL"
       },
-      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/STL_light.svg",
+      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/STL_20082009-20242025_light.svg",
       "ties": 0,
       "waiversSequence": 17,
       "wildcardSequence": 2,
-      "winPctg": 0.5,
+      "winPctg": 0.500000,
       "wins": 6
     },
     {
@@ -1549,7 +1600,7 @@
       "losses": 4,
       "otLosses": 3,
       "placeName": {
-        "default": "New York"
+        "default": "NY Islanders"
       },
       "pointPctg": 0.541667,
       "points": 13,
@@ -1576,6 +1627,9 @@
       "teamName": {
         "default": "New York Islanders",
         "fr": "Islanders de New York"
+      },
+      "teamCommonName": {
+        "default": "Islanders"
       },
       "teamAbbrev": {
         "default": "NYI"
@@ -1604,7 +1658,7 @@
       "gameTypeId": 2,
       "gamesPlayed": 13,
       "goalDifferential": 0,
-      "goalDifferentialPctg": 0.0,
+      "goalDifferentialPctg": 0.000000,
       "goalAgainst": 41,
       "goalFor": 41,
       "goalsForPctg": 3.153846,
@@ -1639,7 +1693,7 @@
       "placeName": {
         "default": "Buffalo"
       },
-      "pointPctg": 0.5,
+      "pointPctg": 0.500000,
       "points": 13,
       "regulationPlusOtWinPctg": 0.461538,
       "regulationPlusOtWins": 6,
@@ -1664,6 +1718,9 @@
       "teamName": {
         "default": "Buffalo Sabres",
         "fr": "Sabres de Buffalo"
+      },
+      "teamCommonName": {
+        "default": "Sabres"
       },
       "teamAbbrev": {
         "default": "BUF"
@@ -1727,7 +1784,7 @@
       "placeName": {
         "default": "Arizona"
       },
-      "pointPctg": 0.5,
+      "pointPctg": 0.500000,
       "points": 13,
       "regulationPlusOtWinPctg": 0.307692,
       "regulationPlusOtWins": 4,
@@ -1753,10 +1810,13 @@
         "default": "Arizona Coyotes",
         "fr": "Coyotes de l'Arizona"
       },
+      "teamCommonName": {
+        "default": "Coyotes"
+      },
       "teamAbbrev": {
         "default": "ARI"
       },
-      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/ARI_light.svg",
+      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/ARI_20202021-20232024_light.svg",
       "ties": 0,
       "waiversSequence": 11,
       "wildcardSequence": 3,
@@ -1840,6 +1900,9 @@
       "teamName": {
         "default": "Seattle Kraken",
         "fr": "Kraken de Seattle"
+      },
+      "teamCommonName": {
+        "default": "Kraken"
       },
       "teamAbbrev": {
         "default": "SEA"
@@ -1929,10 +1992,13 @@
         "default": "Washington Capitals",
         "fr": "Capitals de Washington"
       },
+      "teamCommonName": {
+        "default": "Capitals"
+      },
       "teamAbbrev": {
         "default": "WSH"
       },
-      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg",
+      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg",
       "ties": 0,
       "waiversSequence": 18,
       "wildcardSequence": 6,
@@ -1959,7 +2025,7 @@
       "goalDifferentialPctg": 0.666667,
       "goalAgainst": 34,
       "goalFor": 42,
-      "goalsForPctg": 3.5,
+      "goalsForPctg": 3.500000,
       "homeGamesPlayed": 6,
       "homeGoalDifferential": -2,
       "homeGoalsAgainst": 19,
@@ -1991,9 +2057,9 @@
       "placeName": {
         "default": "Pittsburgh"
       },
-      "pointPctg": 0.5,
+      "pointPctg": 0.500000,
       "points": 12,
-      "regulationPlusOtWinPctg": 0.5,
+      "regulationPlusOtWinPctg": 0.500000,
       "regulationPlusOtWins": 6,
       "regulationWinPctg": 0.416667,
       "regulationWins": 5,
@@ -2017,6 +2083,9 @@
         "default": "Pittsburgh Penguins",
         "fr": "Penguins de Pittsburgh"
       },
+      "teamCommonName": {
+        "default": "Penguins"
+      },
       "teamAbbrev": {
         "default": "PIT"
       },
@@ -2024,7 +2093,7 @@
       "ties": 0,
       "waiversSequence": 13,
       "wildcardSequence": 7,
-      "winPctg": 0.5,
+      "winPctg": 0.500000,
       "wins": 6
     },
     {
@@ -2104,6 +2173,9 @@
       "teamName": {
         "default": "Minnesota Wild",
         "fr": "Wild du Minnesota"
+      },
+      "teamCommonName": {
+        "default": "Wild"
       },
       "teamAbbrev": {
         "default": "MIN"
@@ -2194,6 +2266,9 @@
         "default": "Philadelphia Flyers",
         "fr": "Flyers de Philadelphie"
       },
+      "teamCommonName": {
+        "default": "Flyers"
+      },
       "teamAbbrev": {
         "default": "PHI"
       },
@@ -2282,6 +2357,9 @@
         "default": "Columbus Blue Jackets",
         "fr": "Blue Jackets de Columbus"
       },
+      "teamCommonName": {
+        "default": "Blue Jackets"
+      },
       "teamAbbrev": {
         "default": "CBJ"
       },
@@ -2309,7 +2387,7 @@
       "gameTypeId": 2,
       "gamesPlayed": 12,
       "goalDifferential": 3,
-      "goalDifferentialPctg": 0.25,
+      "goalDifferentialPctg": 0.250000,
       "goalAgainst": 43,
       "goalFor": 46,
       "goalsForPctg": 3.833333,
@@ -2369,6 +2447,10 @@
       "teamName": {
         "default": "Ottawa Senators",
         "fr": "Sénateurs d'Ottawa"
+      },
+      "teamCommonName": {
+        "default": "Senators",
+        "fr": "Sénateurs"
       },
       "teamAbbrev": {
         "default": "OTT"
@@ -2458,10 +2540,13 @@
         "default": "Chicago Blackhawks",
         "fr": "Blackhawks de Chicago"
       },
+      "teamCommonName": {
+        "default": "Blackhawks"
+      },
       "teamAbbrev": {
         "default": "CHI"
       },
-      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/CHI_light.svg",
+      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/CHI_19981999-20242025_light.svg",
       "ties": 0,
       "waiversSequence": 5,
       "wildcardSequence": 6,
@@ -2546,6 +2631,9 @@
         "default": "Nashville Predators",
         "fr": "Predators de Nashville"
       },
+      "teamCommonName": {
+        "default": "Predators"
+      },
       "teamAbbrev": {
         "default": "NSH"
       },
@@ -2608,7 +2696,7 @@
       "placeName": {
         "default": "Calgary"
       },
-      "pointPctg": 0.375,
+      "pointPctg": 0.375000,
       "points": 9,
       "regulationPlusOtWinPctg": 0.333333,
       "regulationPlusOtWins": 4,
@@ -2633,6 +2721,9 @@
       "teamName": {
         "default": "Calgary Flames",
         "fr": "Flames de Calgary"
+      },
+      "teamCommonName": {
+        "default": "Flames"
       },
       "teamAbbrev": {
         "default": "CGY"
@@ -2722,6 +2813,9 @@
         "default": "Edmonton Oilers",
         "fr": "Oilers d'Edmonton"
       },
+      "teamCommonName": {
+        "default": "Oilers"
+      },
       "teamAbbrev": {
         "default": "EDM"
       },
@@ -2810,10 +2904,13 @@
         "default": "San Jose Sharks",
         "fr": "Sharks de San Jose"
       },
+      "teamCommonName": {
+        "default": "Sharks"
+      },
       "teamAbbrev": {
         "default": "SJS"
       },
-      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
+      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/SJS_20082009-20232024_light.svg",
       "ties": 0,
       "waiversSequence": 1,
       "wildcardSequence": 10,

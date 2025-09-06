@@ -779,6 +779,8 @@ Fetching right-rail for game ID 2023020206
 Right-rail response saved to test/nhl_score_api/fetchers/nhl_api_web/resources/right-rail-2023020206.json
 ```
 
+There is also a similar script `update-standings-test-data.sh` for updating standings test data.
+
 ## Deployment
 
 The API is deployed to [Heroku](http://heroku.com/) by running the [Deployment workflow](https://github.com/peruukki/nhl-score-api/actions/workflows/deployment.yml).

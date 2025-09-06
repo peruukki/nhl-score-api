@@ -1,5 +1,5 @@
 {
-  "wildCardIndicator": false,
+  "wildCardIndicator": true,
   "standings": [
     {
       "conferenceAbbrev": "W",
@@ -18,7 +18,7 @@
       "gameTypeId": 2,
       "gamesPlayed": 14,
       "goalDifferential": 21,
-      "goalDifferentialPctg": 1.5,
+      "goalDifferentialPctg": 1.500000,
       "goalAgainst": 32,
       "goalFor": 53,
       "goalsForPctg": 3.785714,
@@ -112,7 +112,7 @@
       "goalDifferentialPctg": 1.333333,
       "goalAgainst": 23,
       "goalFor": 39,
-      "goalsForPctg": 3.25,
+      "goalsForPctg": 3.250000,
       "homeGamesPlayed": 6,
       "homeGoalDifferential": 7,
       "homeGoalsAgainst": 12,
@@ -144,9 +144,9 @@
       "placeName": {
         "default": "Boston"
       },
-      "pointPctg": 0.875,
+      "pointPctg": 0.875000,
       "points": 21,
-      "regulationPlusOtWinPctg": 0.75,
+      "regulationPlusOtWinPctg": 0.750000,
       "regulationPlusOtWins": 9,
       "regulationWinPctg": 0.666667,
       "regulationWins": 8,
@@ -176,7 +176,7 @@
       "teamAbbrev": {
         "default": "BOS"
       },
-      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/BOS_light.svg",
+      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/BOS_20232024_light.svg",
       "ties": 0,
       "waiversSequence": 32,
       "wildcardSequence": 0,
@@ -200,10 +200,10 @@
       "gameTypeId": 2,
       "gamesPlayed": 12,
       "goalDifferential": 30,
-      "goalDifferentialPctg": 2.5,
+      "goalDifferentialPctg": 2.500000,
       "goalAgainst": 24,
       "goalFor": 54,
-      "goalsForPctg": 4.5,
+      "goalsForPctg": 4.500000,
       "homeGamesPlayed": 6,
       "homeGoalDifferential": 20,
       "homeGoalsAgainst": 9,
@@ -237,9 +237,9 @@
       },
       "pointPctg": 0.791667,
       "points": 19,
-      "regulationPlusOtWinPctg": 0.75,
+      "regulationPlusOtWinPctg": 0.750000,
       "regulationPlusOtWins": 9,
-      "regulationWinPctg": 0.75,
+      "regulationWinPctg": 0.750000,
       "regulationWins": 9,
       "roadGamesPlayed": 6,
       "roadGoalDifferential": 10,
@@ -271,7 +271,7 @@
       "ties": 0,
       "waiversSequence": 30,
       "wildcardSequence": 0,
-      "winPctg": 0.75,
+      "winPctg": 0.750000,
       "wins": 9
     },
     {
@@ -291,10 +291,10 @@
       "gameTypeId": 2,
       "gamesPlayed": 12,
       "goalDifferential": 12,
-      "goalDifferentialPctg": 1.0,
+      "goalDifferentialPctg": 1.000000,
       "goalAgainst": 27,
       "goalFor": 39,
-      "goalsForPctg": 3.25,
+      "goalsForPctg": 3.250000,
       "homeGamesPlayed": 4,
       "homeGoalDifferential": 1,
       "homeGoalsAgainst": 9,
@@ -328,7 +328,7 @@
       },
       "pointPctg": 0.791667,
       "points": 19,
-      "regulationPlusOtWinPctg": 0.75,
+      "regulationPlusOtWinPctg": 0.750000,
       "regulationPlusOtWins": 9,
       "regulationWinPctg": 0.583333,
       "regulationWins": 7,
@@ -362,7 +362,7 @@
       "ties": 0,
       "waiversSequence": 29,
       "wildcardSequence": 0,
-      "winPctg": 0.75,
+      "winPctg": 0.750000,
       "wins": 9
     },
     {
@@ -385,7 +385,7 @@
       "goalDifferentialPctg": 1.416667,
       "goalAgainst": 34,
       "goalFor": 51,
-      "goalsForPctg": 4.25,
+      "goalsForPctg": 4.250000,
       "homeGamesPlayed": 5,
       "homeGoalDifferential": -4,
       "homeGoalsAgainst": 22,
@@ -417,7 +417,7 @@
       "placeName": {
         "default": "Los Angeles"
       },
-      "pointPctg": 0.75,
+      "pointPctg": 0.750000,
       "points": 18,
       "regulationPlusOtWinPctg": 0.666667,
       "regulationPlusOtWins": 8,
@@ -449,7 +449,7 @@
       "teamAbbrev": {
         "default": "LAK"
       },
-      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg",
+      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/LAK_20192020-20232024_light.svg",
       "ties": 0,
       "waiversSequence": 28,
       "wildcardSequence": 0,
@@ -873,11 +873,11 @@
       "placeName": {
         "default": "New Jersey"
       },
-      "pointPctg": 0.625,
+      "pointPctg": 0.625000,
       "points": 15,
       "regulationPlusOtWinPctg": 0.583333,
       "regulationPlusOtWins": 7,
-      "regulationWinPctg": 0.5,
+      "regulationWinPctg": 0.500000,
       "regulationWins": 6,
       "roadGamesPlayed": 6,
       "roadGoalDifferential": 2,
@@ -929,7 +929,7 @@
       "gameTypeId": 2,
       "gamesPlayed": 12,
       "goalDifferential": 0,
-      "goalDifferentialPctg": 0.0,
+      "goalDifferentialPctg": 0.000000,
       "goalAgainst": 35,
       "goalFor": 35,
       "goalsForPctg": 2.916667,
@@ -965,7 +965,7 @@
         "default": "Florida",
         "fr": "Floride"
       },
-      "pointPctg": 0.625,
+      "pointPctg": 0.625000,
       "points": 15,
       "regulationPlusOtWinPctg": 0.583333,
       "regulationPlusOtWins": 7,
@@ -1112,7 +1112,7 @@
       "gameTypeId": 2,
       "gamesPlayed": 12,
       "goalDifferential": 0,
-      "goalDifferentialPctg": 0.0,
+      "goalDifferentialPctg": 0.000000,
       "goalAgainst": 41,
       "goalFor": 41,
       "goalsForPctg": 3.416667,
@@ -1149,7 +1149,7 @@
       },
       "pointPctg": 0.583333,
       "points": 14,
-      "regulationPlusOtWinPctg": 0.5,
+      "regulationPlusOtWinPctg": 0.500000,
       "regulationPlusOtWins": 6,
       "regulationWinPctg": 0.416667,
       "regulationWins": 5,
@@ -1183,7 +1183,7 @@
       "ties": 0,
       "waiversSequence": 20,
       "wildcardSequence": 0,
-      "winPctg": 0.5,
+      "winPctg": 0.500000,
       "wins": 6
     },
     {
@@ -1203,7 +1203,7 @@
       "gameTypeId": 2,
       "gamesPlayed": 12,
       "goalDifferential": 3,
-      "goalDifferentialPctg": 0.25,
+      "goalDifferentialPctg": 0.250000,
       "goalAgainst": 34,
       "goalFor": 37,
       "goalsForPctg": 3.083333,
@@ -1270,7 +1270,7 @@
       "teamAbbrev": {
         "default": "ANA"
       },
-      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg",
+      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/ANA_20132014-20232024_light.svg",
       "ties": 0,
       "waiversSequence": 19,
       "wildcardSequence": 1,
@@ -1476,7 +1476,7 @@
       "gameTypeId": 2,
       "gamesPlayed": 12,
       "goalDifferential": 6,
-      "goalDifferentialPctg": 0.5,
+      "goalDifferentialPctg": 0.500000,
       "goalAgainst": 35,
       "goalFor": 41,
       "goalsForPctg": 3.416667,
@@ -1543,11 +1543,11 @@
       "teamAbbrev": {
         "default": "ARI"
       },
-      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/ARI_light.svg",
+      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/ARI_20202021-20232024_light.svg",
       "ties": 0,
       "waiversSequence": 16,
       "wildcardSequence": 2,
-      "winPctg": 0.5,
+      "winPctg": 0.500000,
       "wins": 6
     },
     {
@@ -1567,7 +1567,7 @@
       "gameTypeId": 2,
       "gamesPlayed": 13,
       "goalDifferential": 0,
-      "goalDifferentialPctg": 0.0,
+      "goalDifferentialPctg": 0.000000,
       "goalAgainst": 41,
       "goalFor": 41,
       "goalsForPctg": 3.153846,
@@ -1602,7 +1602,7 @@
       "placeName": {
         "default": "Buffalo"
       },
-      "pointPctg": 0.5,
+      "pointPctg": 0.500000,
       "points": 13,
       "regulationPlusOtWinPctg": 0.461538,
       "regulationPlusOtWins": 6,
@@ -1725,7 +1725,7 @@
       "teamAbbrev": {
         "default": "WSH"
       },
-      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/WSH_light.svg",
+      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg",
       "ties": 0,
       "waiversSequence": 17,
       "wildcardSequence": 5,
@@ -1784,7 +1784,7 @@
       "placeName": {
         "default": "Minnesota"
       },
-      "pointPctg": 0.5,
+      "pointPctg": 0.500000,
       "points": 12,
       "regulationPlusOtWinPctg": 0.333333,
       "regulationPlusOtWins": 4,
@@ -1843,7 +1843,7 @@
       "goalDifferentialPctg": -0.666667,
       "goalAgainst": 44,
       "goalFor": 36,
-      "goalsForPctg": 3.0,
+      "goalsForPctg": 3.000000,
       "homeGamesPlayed": 7,
       "homeGoalDifferential": -4,
       "homeGoalsAgainst": 25,
@@ -1875,7 +1875,7 @@
       "placeName": {
         "default": "Montréal"
       },
-      "pointPctg": 0.5,
+      "pointPctg": 0.500000,
       "points": 12,
       "regulationPlusOtWinPctg": 0.333333,
       "regulationPlusOtWins": 4,
@@ -1964,9 +1964,9 @@
       "losses": 5,
       "otLosses": 1,
       "placeName": {
-        "default": "St Louis"
+        "default": "St. Louis"
       },
-      "pointPctg": 0.5,
+      "pointPctg": 0.500000,
       "points": 11,
       "regulationPlusOtWinPctg": 0.363636,
       "regulationPlusOtWins": 4,
@@ -1998,7 +1998,7 @@
       "teamAbbrev": {
         "default": "STL"
       },
-      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/STL_light.svg",
+      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/STL_20082009-20242025_light.svg",
       "ties": 0,
       "waiversSequence": 13,
       "wildcardSequence": 4,
@@ -2061,7 +2061,7 @@
       "points": 11,
       "regulationPlusOtWinPctg": 0.333333,
       "regulationPlusOtWins": 4,
-      "regulationWinPctg": 0.25,
+      "regulationWinPctg": 0.250000,
       "regulationWins": 3,
       "roadGamesPlayed": 5,
       "roadGoalDifferential": -4,
@@ -2390,7 +2390,7 @@
       "goalDifferentialPctg": 0.545455,
       "goalAgainst": 38,
       "goalFor": 44,
-      "goalsForPctg": 4.0,
+      "goalsForPctg": 4.000000,
       "homeGamesPlayed": 7,
       "homeGoalDifferential": 3,
       "homeGoalsAgainst": 25,
@@ -2605,7 +2605,7 @@
       "placeName": {
         "default": "Calgary"
       },
-      "pointPctg": 0.375,
+      "pointPctg": 0.375000,
       "points": 9,
       "regulationPlusOtWinPctg": 0.333333,
       "regulationPlusOtWins": 4,
@@ -2728,7 +2728,7 @@
       "teamAbbrev": {
         "default": "CHI"
       },
-      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/CHI_light.svg",
+      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/CHI_19981999-20242025_light.svg",
       "ties": 0,
       "waiversSequence": 3,
       "wildcardSequence": 8,
@@ -2843,7 +2843,7 @@
       "gameTypeId": 2,
       "gamesPlayed": 12,
       "goalDifferential": -42,
-      "goalDifferentialPctg": -3.5,
+      "goalDifferentialPctg": -3.500000,
       "goalAgainst": 56,
       "goalFor": 14,
       "goalsForPctg": 1.166667,
@@ -2878,7 +2878,7 @@
       "placeName": {
         "default": "San Jose"
       },
-      "pointPctg": 0.125,
+      "pointPctg": 0.125000,
       "points": 3,
       "regulationPlusOtWinPctg": 0.083333,
       "regulationPlusOtWins": 1,
@@ -2910,7 +2910,7 @@
       "teamAbbrev": {
         "default": "SJS"
       },
-      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg",
+      "teamLogo": "https://assets.nhle.com/logos/nhl/svg/SJS_20082009-20232024_light.svg",
       "ties": 0,
       "waiversSequence": 1,
       "wildcardSequence": 10,
