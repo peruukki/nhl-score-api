@@ -24,7 +24,7 @@
     [:game-outcome {:optional true}
      [:map
       [:last-period-type #'PeriodTypeSchema]]]
-    [:game-schedule-state [:enum "OK" "PPD"]]
+    [:game-schedule-state [:enum "CNCL" "OK" "PPD"]]
     [:game-state [:enum "CRIT" "FINAL" "FUT" "LIVE" "OFF" "OVER" "PRE"]]
     [:game-type :int]
     [:home-team #'TeamSchema]

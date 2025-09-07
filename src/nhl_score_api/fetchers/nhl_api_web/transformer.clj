@@ -12,8 +12,9 @@
 
 (defn get-game-state [game]
   (let [game-schedule-state (:game-schedule-state game)]
-    (if (= game-schedule-state "PPD")
-      "Postponed"
+    (case game-schedule-state
+      "CNCL" "Canceled"
+      "PPD" "Postponed"
       (case (:game-state game)
         "OFF" "Final"
         "FINAL" "Final"
@@ -53,7 +54,8 @@
     "Final" 0
     "Live" 1
     "Preview" 2
-    "Postponed" 3))
+    "Postponed" 3
+    "Canceled" 4))
 
 (defn- sort-games-by-state [games]
   (assoc games :games (sort-by game-comparator (:games games))))
