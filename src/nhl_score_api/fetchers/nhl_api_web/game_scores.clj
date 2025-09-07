@@ -41,7 +41,7 @@
     (:goals-to-date player-details)))
 
 (defn- scored-in-empty-net? [goal-details]
-  (contains? #{"awarded-empty-net" "empty-net"} (:goal-modifier goal-details)))
+  (contains? #{"awarded-empty-net" "empty-net" "own-goal-empty-net"} (:goal-modifier goal-details)))
 
 (defn- parse-goal-strength [goal-details]
   (case (:strength goal-details)
