@@ -11,8 +11,8 @@
     [:ot-losses :int]
     [:place-name #'schema/Localized]
     [:points :int]
-    [:streak-code :string]
-    [:streak-count :int]
+    [:streak-code {:optional true} :string]
+    [:streak-count {:optional true} :int]
     [:team-abbrev #'schema/Localized]
     [:wildcard-sequence :int]
     [:wins :int]]))
