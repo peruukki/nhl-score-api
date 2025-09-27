@@ -47,7 +47,7 @@
         (is (= {:team-game-stats
                 [{:category ["should be either \"blockedShots\", \"giveaways\", \"hits\", \"pim\", \"sog\" or \"takeaways\""
                              "should be either \"faceoffWinningPctg\" or \"powerPlayPctg\""
-                             "should be \"powerPlay\""]}]}
+                             "should be either \"faceoffWins\" or \"powerPlay\""]}]}
                (malli-error/humanize (malli/explain schema response)))))))
 
   (testing "url"

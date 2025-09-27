@@ -16,7 +16,7 @@
      [:home-value :double]]
     [:map
      [:away-value :string]
-     [:category [:enum "powerPlay"]]
+     [:category [:enum "faceoffWins" "powerPlay"]]
      [:home-value :string]]]
    {:registry schema/registry}))
 
