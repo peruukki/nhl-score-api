@@ -70,7 +70,7 @@
            (get-pre-game-standings-request-date {:current-standings-date-str "2023-11-18"
                                                  :regular-season-start-date-str "2023-10-10"}))
         "Current standings date during regular season")
-    (is (= "2023-10-10"
+    (is (= nil
            (get-pre-game-standings-request-date {:current-standings-date-str "2023-10-10"
                                                  :regular-season-start-date-str "2023-10-10"}))
         "Current standings date on first day of regular season")

@@ -40,7 +40,8 @@
 
 (defn get-pre-game-standings-request-date [{:keys [current-standings-date-str
                                                    regular-season-start-date-str]}]
-  (if (nil? current-standings-date-str)
+  (if (or (nil? current-standings-date-str)
+          (= current-standings-date-str regular-season-start-date-str))
     nil
     (do (assert (<= (compare regular-season-start-date-str current-standings-date-str) 0)
                 (str "Regular season start date " regular-season-start-date-str
