@@ -6,6 +6,7 @@
 (defn- read-resource [filename]
   (api-response-to-json (slurp (str resource-path filename))))
 
+(def first-day-of-regular-season (read-resource "schedule-2025-10-07.json"))
 (def games-finished-in-regulation-overtime-and-shootout (read-resource "schedule-2023-11-08-modified.json"))
 (def games-finished-missing-video-recap (read-resource "schedule-2023-11-08-modified-missing-video-recap.json"))
 (def games-in-preview-state (read-resource "schedule-2023-11-11.json"))
@@ -17,6 +18,8 @@
 
 (def current-standings (read-resource "standings-2023-11-09.json"))
 (def current-standings-not-fully-updated (read-resource "standings-2023-11-09-not-fully-updated.json"))
+(def first-day-of-regular-season-standings (read-resource "standings-2025-10-07.json"))
+(def first-day-of-regular-season-standings-not-fully-updated (read-resource "standings-2025-10-07-not-fully-updated.json"))
 (def pre-game-standings (read-resource "standings-2023-11-08.json"))
 (def standings-empty (read-resource "standings-empty.json"))
 (def standings-for-playoffs (read-resource "standings-2023-04-14.json"))

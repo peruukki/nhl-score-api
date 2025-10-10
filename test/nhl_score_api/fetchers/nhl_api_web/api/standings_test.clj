@@ -13,10 +13,19 @@
     (testing "archive?"
       (testing "without pre-game standings"
         (let [pre-game-standings nil]
-          (testing "Archives standings from date where all games are in OFF state"
+          (testing "Archives standings from date where all games are in OFF state and all standings have updated"
             (is (= true
-                   (api/archive? (standings/->StandingsApiRequest "2023-11-09" schedule-response pre-game-standings)
-                                 resources/current-standings))))
+                   (api/archive? (standings/->StandingsApiRequest "2025-10-07"
+                                                                  resources/first-day-of-regular-season
+                                                                  pre-game-standings)
+                                 resources/first-day-of-regular-season-standings))))
+
+          (testing "Does not archive standings from date where all games are in OFF state but not all standings have updated"
+            (is (= false
+                   (api/archive? (standings/->StandingsApiRequest "2025-10-07"
+                                                                  resources/first-day-of-regular-season
+                                                                  pre-game-standings)
+                                 resources/first-day-of-regular-season-standings-not-fully-updated))))
 
           (testing "Does not archive standings from date where not all games are in OFF state"
             (is (= false
