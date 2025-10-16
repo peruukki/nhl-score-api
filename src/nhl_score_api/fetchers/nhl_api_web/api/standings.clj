@@ -37,8 +37,8 @@
                 (map #(seq [(get-in % [:away-team :abbrev])
                             (get-in % [:home-team :abbrev])]))
                 flatten
-                (every? #(> (or (:games-played (get-team-standings % response)) 0)
-                            (or (:games-played (get-team-standings % pre-game-standings-response)) 0)))))))
+                (every? #(> (:games-played (get-team-standings % response) 0)
+                            (:games-played (get-team-standings % pre-game-standings-response) 0)))))))
   (cache-key [_] (str "standings-" date-str))
   (description [_] (str "standings " {:date date-str}))
   (response-schema [_] ResponseSchema)
