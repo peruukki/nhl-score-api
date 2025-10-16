@@ -28,8 +28,13 @@
        (some #(when (= (get-in % [:team-abbrev :default]) team) %))))
 
 (defn- team-standings-updated? [pre-game-standings current-standings]
-  (> (:games-played current-standings 0)
-     (:games-played pre-game-standings 0)))
+  ; In theory, it would be enough to check only one field, e.g. games played, but
+  ; there have been data inconsistencies in the past, so let's check all reasonable fields
+  (and (> (:games-played current-standings 0)
+          (:games-played pre-game-standings 0))
+       (boolean (some #(> (% current-standings 0)
+                          (% pre-game-standings 0))
+                      [:losses :ot-losses :wins]))))
 
 (defrecord StandingsApiRequest [date-str schedule-response pre-game-standings-response]
   api/ApiRequest
