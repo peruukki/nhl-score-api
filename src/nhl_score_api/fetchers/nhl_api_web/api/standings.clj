@@ -27,6 +27,10 @@
        :standings
        (some #(when (= (get-in % [:team-abbrev :default]) team) %))))
 
+(defn- team-standings-updated? [pre-game-standings current-standings]
+  (> (:games-played current-standings 0)
+     (:games-played pre-game-standings 0)))
+
 (defrecord StandingsApiRequest [date-str schedule-response pre-game-standings-response]
   api/ApiRequest
   (archive? [_ response]
@@ -37,8 +41,8 @@
                 (map #(seq [(get-in % [:away-team :abbrev])
                             (get-in % [:home-team :abbrev])]))
                 flatten
-                (every? #(> (:games-played (get-team-standings % response) 0)
-                            (:games-played (get-team-standings % pre-game-standings-response) 0)))))))
+                (every? #(team-standings-updated? (get-team-standings % pre-game-standings-response)
+                                                  (get-team-standings % response)))))))
   (cache-key [_] (str "standings-" date-str))
   (description [_] (str "standings " {:date date-str}))
   (response-schema [_] ResponseSchema)
