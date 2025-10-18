@@ -105,13 +105,13 @@
                                              (when current-date-str
                                                (->> (if pre-game-date-str
                                                       (fetch-cached
-                                                       (standings/->StandingsApiRequest current-schedule-date-str
-                                                                                        pre-game-date-str
+                                                       (standings/->StandingsApiRequest {:current-schedule-date-str current-schedule-date-str
+                                                                                         :standings-date-str pre-game-date-str}
                                                                                         games-info
                                                                                         nil))
                                                       nil)
-                                                    (standings/->StandingsApiRequest current-schedule-date-str
-                                                                                     current-date-str
+                                                    (standings/->StandingsApiRequest {:current-schedule-date-str current-schedule-date-str
+                                                                                      :standings-date-str current-date-str}
                                                                                      games-info)
                                                     fetch-cached
                                                     (:standings))))

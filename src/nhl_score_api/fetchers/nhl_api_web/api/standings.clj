@@ -36,14 +36,14 @@
                           (% pre-game-standings 0))
                       [:losses :ot-losses :wins]))))
 
-(defrecord StandingsApiRequest [current-schedule-date-str standings-date-str schedule-response pre-game-standings-response]
+(defrecord StandingsApiRequest [date-strs schedule-response pre-game-standings-response]
   api/ApiRequest
   (archive? [_ response]
-    (let [games (api/get-games-in-date-range standings-date-str nil schedule-response)
+    (let [games (api/get-games-in-date-range (:standings-date-str date-strs) nil schedule-response)
           all-games-in-official-state? (and
                                         (> (count games) 0)
                                         (every? #(= "OFF" (:game-state %)) games))]
-      (or (< (compare standings-date-str current-schedule-date-str) 0)
+      (or (< (compare (:standings-date-str date-strs) (:current-schedule-date-str date-strs)) 0)
           (and all-games-in-official-state?
                (->> games
                     (map #(seq [(get-in % [:away-team :abbrev])
@@ -51,7 +51,7 @@
                     flatten
                     (every? #(team-standings-updated? (get-team-standings % pre-game-standings-response)
                                                       (get-team-standings % response))))))))
-  (cache-key [_] (str "standings-" standings-date-str))
-  (description [_] (str "standings " {:date standings-date-str}))
+  (cache-key [_] (str "standings-" (:standings-date-str date-strs)))
+  (description [_] (str "standings " {:date (:standings-date-str date-strs)}))
   (response-schema [_] ResponseSchema)
-  (url [_] (str api/base-url "/standings/" standings-date-str)))
+  (url [_] (str api/base-url "/standings/" (:standings-date-str date-strs))))
