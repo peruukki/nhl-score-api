@@ -16,55 +16,91 @@
           (testing "Archives standings from date where all games are in OFF state and all standings have updated"
             (is (= true
                    (api/archive? (standings/->StandingsApiRequest "2025-10-07"
+                                                                  "2025-10-07"
                                                                   resources/first-day-of-regular-season
                                                                   pre-game-standings)
                                  resources/first-day-of-regular-season-standings))))
 
+          (testing "Archives standings from ealier date than current schedule date"
+            (is (= true
+                   (api/archive? (standings/->StandingsApiRequest "2025-10-07"
+                                                                  "2025-10-06"
+                                                                  resources/first-day-of-regular-season
+                                                                  pre-game-standings)
+                                 resources/current-standings))))
+
           (testing "Does not archive standings from date where all games are in OFF state but not all standings have updated"
             (is (= false
                    (api/archive? (standings/->StandingsApiRequest "2025-10-07"
+                                                                  "2025-10-07"
                                                                   resources/first-day-of-regular-season
                                                                   pre-game-standings)
                                  resources/first-day-of-regular-season-standings-not-fully-updated))))
 
           (testing "Does not archive standings from date where not all games are in OFF state"
             (is (= false
-                   (api/archive? (standings/->StandingsApiRequest "2023-11-10" schedule-response pre-game-standings)
+                   (api/archive? (standings/->StandingsApiRequest "2023-11-10"
+                                                                  "2023-11-10"
+                                                                  schedule-response
+                                                                  pre-game-standings)
                                  resources/current-standings))))))
 
       (testing "with pre-game standings"
         (let [pre-game-standings resources/pre-game-standings]
           (testing "Archives standings from date where all games are in OFF state and all standings have updated"
             (is (= true
-                   (api/archive? (standings/->StandingsApiRequest "2023-11-09" schedule-response pre-game-standings)
+                   (api/archive? (standings/->StandingsApiRequest "2023-11-09"
+                                                                  "2023-11-09"
+                                                                  schedule-response
+                                                                  pre-game-standings)
+                                 resources/current-standings))))
+
+          (testing "Archives standings from ealier date than current schedule date"
+            (is (= true
+                   (api/archive? (standings/->StandingsApiRequest "2023-11-08"
+                                                                  "2023-11-07"
+                                                                  schedule-response
+                                                                  pre-game-standings)
                                  resources/current-standings))))
 
           (testing "Does not archive standings from date where all games are in OFF state but not all standings have updated"
             (is (= false
-                   (api/archive? (standings/->StandingsApiRequest "2023-11-09" schedule-response pre-game-standings)
+                   (api/archive? (standings/->StandingsApiRequest "2023-11-09"
+                                                                  "2023-11-09"
+                                                                  schedule-response
+                                                                  pre-game-standings)
                                  resources/current-standings-not-fully-updated))))
 
           (testing "Does not archive standings from date where not all games are in OFF state"
             (is (= false
-                   (api/archive? (standings/->StandingsApiRequest "2023-11-10" schedule-response pre-game-standings)
+                   (api/archive? (standings/->StandingsApiRequest "2023-11-10"
+                                                                  "2023-11-10"
+                                                                  schedule-response
+                                                                  pre-game-standings)
                                  resources/current-standings))))
 
           (testing "Does not archive standings from date where there are no games available"
             (is (= false
-                   (api/archive? (standings/->StandingsApiRequest "2023-11-12" schedule-response pre-game-standings)
+                   (api/archive? (standings/->StandingsApiRequest "2023-11-12"
+                                                                  "2023-11-12"
+                                                                  schedule-response
+                                                                  pre-game-standings)
                                  resources/current-standings)))))))
 
     (testing "cache-key"
       (is (= "standings-2023-11-09"
-             (api/cache-key (standings/->StandingsApiRequest "2023-11-09" schedule-response nil)))))
+             (api/cache-key (standings/->StandingsApiRequest "2023-11-09" "2023-11-09" schedule-response nil)))))
 
     (testing "description"
       (is (= "standings {:date \"2023-11-09\"}"
-             (api/description (standings/->StandingsApiRequest "2023-11-09" schedule-response nil)))))
+             (api/description (standings/->StandingsApiRequest "2023-11-09" "2023-11-09" schedule-response nil)))))
 
     (testing "response-schema"
       (testing "Matches valid response"
-        (let [schema (api/response-schema (standings/->StandingsApiRequest "2023-11-09" schedule-response nil))
+        (let [schema (api/response-schema (standings/->StandingsApiRequest "2023-11-09"
+                                                                           "2023-11-09"
+                                                                           schedule-response
+                                                                           nil))
               response resources/current-standings]
           (is (= true
                  (malli/validate schema response)))
@@ -72,7 +108,10 @@
                  (malli-error/humanize (malli/explain schema response))))))
 
       (testing "Detects invalid response"
-        (let [schema (api/response-schema (standings/->StandingsApiRequest "2023-11-09" schedule-response nil))
+        (let [schema (api/response-schema (standings/->StandingsApiRequest "2023-11-09"
+                                                                           "2023-11-09"
+                                                                           schedule-response
+                                                                           nil))
               response (merge resources/current-standings
                               {:standings (conj (:standings resources/current-standings)
                                                 (-> (last (:standings resources/current-standings))
@@ -88,4 +127,4 @@
 
     (testing "url"
       (is (= (str base-url "/standings/2023-11-09")
-             (api/url (standings/->StandingsApiRequest "2023-11-09" schedule-response nil)))))))
+             (api/url (standings/->StandingsApiRequest "2023-11-09" "2023-11-09" schedule-response nil)))))))

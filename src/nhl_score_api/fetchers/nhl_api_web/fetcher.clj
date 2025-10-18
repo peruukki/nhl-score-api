@@ -104,9 +104,15 @@
         standings-per-unique-date-str (map (fn [{:keys [pre-game-date-str current-date-str]}]
                                              (when current-date-str
                                                (->> (if pre-game-date-str
-                                                      (fetch-cached (standings/->StandingsApiRequest pre-game-date-str games-info nil))
+                                                      (fetch-cached
+                                                       (standings/->StandingsApiRequest current-schedule-date-str
+                                                                                        pre-game-date-str
+                                                                                        games-info
+                                                                                        nil))
                                                       nil)
-                                                    (standings/->StandingsApiRequest current-date-str games-info)
+                                                    (standings/->StandingsApiRequest current-schedule-date-str
+                                                                                     current-date-str
+                                                                                     games-info)
                                                     fetch-cached
                                                     (:standings))))
                                            date-str-pairs)
