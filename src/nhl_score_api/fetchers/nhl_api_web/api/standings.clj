@@ -40,7 +40,9 @@
   api/ApiRequest
   (archive? [_ response]
     (let [games (api/get-games-in-date-range date-str nil schedule-response)
-          all-games-in-official-state? (every? #(= "OFF" (:game-state %)) games)]
+          all-games-in-official-state? (and
+                                        (> (count games) 0)
+                                        (every? #(= "OFF" (:game-state %)) games))]
       (and all-games-in-official-state?
            (->> games
                 (map #(seq [(get-in % [:away-team :abbrev])

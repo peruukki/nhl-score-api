@@ -47,6 +47,11 @@
           (testing "Does not archive standings from date where not all games are in OFF state"
             (is (= false
                    (api/archive? (standings/->StandingsApiRequest "2023-11-10" schedule-response pre-game-standings)
+                                 resources/current-standings))))
+
+          (testing "Does not archive standings from date where there are no games available"
+            (is (= false
+                   (api/archive? (standings/->StandingsApiRequest "2023-11-12" schedule-response pre-game-standings)
                                  resources/current-standings)))))))
 
     (testing "cache-key"
