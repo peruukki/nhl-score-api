@@ -39,8 +39,7 @@
 
     (testing "Matches minimal response"
       (let [schema (api/response-schema (landing/->LandingApiRequest "2023020209"))
-            response (select-keys (resources/get-landing "2023020209")
-                                  [:game-state :game-type])]
+            response (resources/get-landing "2023020209-modified-minimal")]
         (is (= true
                (malli/validate schema response)))
         (is (= nil

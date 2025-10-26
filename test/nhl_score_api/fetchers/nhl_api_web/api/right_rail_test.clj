@@ -39,7 +39,7 @@
 
     (testing "Matches minimal response"
       (let [schema (api/response-schema (right-rail/->RightRailApiRequest "2023020209"))
-            response {}]
+            response (resources/get-right-rail "2023020209-modified-minimal")]
         (is (= true
                (malli/validate schema response)))
         (is (= nil
