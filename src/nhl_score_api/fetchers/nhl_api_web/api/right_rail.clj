@@ -23,7 +23,7 @@
 (def ResponseSchema
   (malli/schema
    [:map
-    [:team-game-stats [:vector TeamGameStatSchema]]]))
+    [:team-game-stats {:optional true} [:vector TeamGameStatSchema]]]))
 
 (defrecord RightRailApiRequest [game-id]
   api/ApiRequest

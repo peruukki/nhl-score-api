@@ -29,9 +29,18 @@
            (api/description (landing/->LandingApiRequest "2023020209")))))
 
   (testing "response-schema"
-    (testing "Matches valid response"
+    (testing "Matches complete response"
       (let [schema (api/response-schema (landing/->LandingApiRequest "2023020209"))
             response (resources/get-landing "2023020209")]
+        (is (= true
+               (malli/validate schema response)))
+        (is (= nil
+               (malli-error/humanize (malli/explain schema response))))))
+
+    (testing "Matches minimal response"
+      (let [schema (api/response-schema (landing/->LandingApiRequest "2023020209"))
+            response (select-keys (resources/get-landing "2023020209")
+                                  [:game-state :game-type])]
         (is (= true
                (malli/validate schema response)))
         (is (= nil

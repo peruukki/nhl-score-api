@@ -40,15 +40,15 @@
 (def ResponseSchema
   (malli/schema
    [:map
-    [:clock
+    [:clock {:optional true}
      [:map
       [:in-intermission :boolean]
       [:seconds-remaining :int]
       [:time-remaining :string]]]
     [:game-state #'schema/GameState]
     [:game-type :int]
-    [:period-descriptor #'PeriodDescriptorSchema]
-    [:summary
+    [:period-descriptor {:optional true} #'PeriodDescriptorSchema]
+    [:summary {:optional true}
      [:map
       [:scoring
        [:vector

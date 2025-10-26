@@ -29,9 +29,17 @@
            (api/description (right-rail/->RightRailApiRequest "2023020209")))))
 
   (testing "response-schema"
-    (testing "Matches valid response"
+    (testing "Matches complete response"
       (let [schema (api/response-schema (right-rail/->RightRailApiRequest "2023020209"))
             response (resources/get-right-rail "2023020209")]
+        (is (= true
+               (malli/validate schema response)))
+        (is (= nil
+               (malli-error/humanize (malli/explain schema response))))))
+
+    (testing "Matches minimal response"
+      (let [schema (api/response-schema (right-rail/->RightRailApiRequest "2023020209"))
+            response {}]
         (is (= true
                (malli/validate schema response)))
         (is (= nil
