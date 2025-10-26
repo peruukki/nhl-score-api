@@ -56,9 +56,17 @@
              (api/description (schedule/->ScheduleApiRequest "2023-02-02" "2023-02-03"))))))
 
   (testing "response-schema"
-    (testing "Matches valid response"
+    (testing "Matches complete response"
       (let [schema (api/response-schema (schedule/->ScheduleApiRequest "2023-11-09" nil))
             response resources/games-finished-in-regulation-overtime-and-shootout]
+        (is (= true
+               (malli/validate schema response)))
+        (is (= nil
+               (malli-error/humanize (malli/explain schema response))))))
+
+    (testing "Matches minimal response"
+      (let [schema (api/response-schema (schedule/->ScheduleApiRequest "2023-11-09" nil))
+            response resources/games-finished-in-regulation-overtime-and-shootout-minimal]
         (is (= true
                (malli/validate schema response)))
         (is (= nil

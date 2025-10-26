@@ -1,0 +1,766 @@
+{
+  "gameWeek": [
+    {
+      "date": "2023-11-08",
+      "games": [
+        {
+          "id": 2023020190,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-09T00:00:00Z",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 9,
+            "placeName": {
+              "default": "Ottawa"
+            },
+            "abbrev": "OTT"
+          },
+          "homeTeam": {
+            "id": 10,
+            "placeName": {
+              "default": "Toronto"
+            },
+            "abbrev": "TOR"
+          },
+          "periodDescriptor": {}
+        },
+        {
+          "id": 2023020191,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-09T00:30:00Z",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 13,
+            "placeName": {
+              "default": "Florida",
+              "fr": "Floride"
+            },
+            "abbrev": "FLA"
+          },
+          "homeTeam": {
+            "id": 15,
+            "placeName": {
+              "default": "Washington"
+            },
+            "abbrev": "WSH"
+          },
+          "periodDescriptor": {}
+        },
+        {
+          "id": 2023020192,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-09T03:00:00Z",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 26,
+            "placeName": {
+              "default": "Los Angeles"
+            },
+            "abbrev": "LAK"
+          },
+          "homeTeam": {
+            "id": 54,
+            "placeName": {
+              "default": "Vegas"
+            },
+            "abbrev": "VGK"
+          },
+          "periodDescriptor": {}
+        }
+      ]
+    },
+    {
+      "date": "2023-11-09",
+      "games": [
+        {
+          "id": 2023020193,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-10T00:00:00Z",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 2,
+            "placeName": {
+              "default": "New York"
+            },
+            "abbrev": "NYI"
+          },
+          "homeTeam": {
+            "id": 6,
+            "placeName": {
+              "default": "Boston"
+            },
+            "abbrev": "BOS"
+          },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          }
+        },
+        {
+          "id": 2023020196,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-10T00:00:00Z",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 30,
+            "placeName": {
+              "default": "Minnesota"
+            },
+            "abbrev": "MIN"
+          },
+          "homeTeam": {
+            "id": 3,
+            "placeName": {
+              "default": "New York"
+            },
+            "abbrev": "NYR"
+          },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          }
+        },
+        {
+          "id": 2023020197,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-10T00:00:00Z",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 23,
+            "placeName": {
+              "default": "Vancouver"
+            },
+            "abbrev": "VAN"
+          },
+          "homeTeam": {
+            "id": 9,
+            "placeName": {
+              "default": "Ottawa"
+            },
+            "abbrev": "OTT"
+          },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          }
+        },
+        {
+          "id": 2023020198,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-10T00:00:00Z",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 16,
+            "placeName": {
+              "default": "Chicago"
+            },
+            "abbrev": "CHI"
+          },
+          "homeTeam": {
+            "id": 14,
+            "placeName": {
+              "default": "Tampa Bay"
+            },
+            "abbrev": "TBL"
+          },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          }
+        },
+        {
+          "id": 2023020194,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-10T00:30:00Z",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 25,
+            "placeName": {
+              "default": "Dallas"
+            },
+            "abbrev": "DAL"
+          },
+          "homeTeam": {
+            "id": 29,
+            "placeName": {
+              "default": "Columbus"
+            },
+            "abbrev": "CBJ"
+          },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          }
+        },
+        {
+          "id": 2023020199,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-10T01:00:00Z",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 53,
+            "placeName": {
+              "default": "Arizona"
+            },
+            "abbrev": "ARI"
+          },
+          "homeTeam": {
+            "id": 19,
+            "placeName": {
+              "default": "St. Louis"
+            },
+            "abbrev": "STL"
+          },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          }
+        },
+        {
+          "id": 2023020200,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-10T01:00:00Z",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 18,
+            "placeName": {
+              "default": "Nashville"
+            },
+            "abbrev": "NSH"
+          },
+          "homeTeam": {
+            "id": 52,
+            "placeName": {
+              "default": "Winnipeg"
+            },
+            "abbrev": "WPG"
+          },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          }
+        },
+        {
+          "id": 2023020201,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-10T02:00:00Z",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 55,
+            "placeName": {
+              "default": "Seattle"
+            },
+            "abbrev": "SEA"
+          },
+          "homeTeam": {
+            "id": 21,
+            "placeName": {
+              "default": "Colorado"
+            },
+            "abbrev": "COL"
+          },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          }
+        },
+        {
+          "id": 2023020202,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-10T03:30:00Z",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 5,
+            "placeName": {
+              "default": "Pittsburgh"
+            },
+            "abbrev": "PIT"
+          },
+          "homeTeam": {
+            "id": 26,
+            "placeName": {
+              "default": "Los Angeles"
+            },
+            "abbrev": "LAK"
+          },
+          "periodDescriptor": {
+            "number": 4,
+            "periodType": "OT"
+          }
+        },
+        {
+          "id": 2023020203,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-10T03:30:00Z",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 22,
+            "placeName": {
+              "default": "Edmonton"
+            },
+            "abbrev": "EDM"
+          },
+          "homeTeam": {
+            "id": 28,
+            "placeName": {
+              "default": "San Jose"
+            },
+            "abbrev": "SJS"
+          },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          }
+        }
+      ]
+    },
+    {
+      "date": "2023-11-10",
+      "games": [
+        {
+          "id": 2023020195,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-10T00:00:00Z",
+          "gameState": "OFF",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 8,
+            "placeName": {
+              "default": "Montréal"
+            },
+            "abbrev": "MTL"
+          },
+          "homeTeam": {
+            "id": 17,
+            "placeName": {
+              "default": "Detroit"
+            },
+            "abbrev": "DET"
+          },
+          "periodDescriptor": {
+            "number": 4,
+            "periodType": "OT"
+          }
+        },
+        {
+          "id": 2023020207,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-11T00:00:00Z",
+          "gameState": "FINAL",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 20,
+            "placeName": {
+              "default": "Calgary"
+            },
+            "abbrev": "CGY"
+          },
+          "homeTeam": {
+            "id": 10,
+            "placeName": {
+              "default": "Toronto"
+            },
+            "abbrev": "TOR"
+          },
+          "periodDescriptor": {
+            "number": 5,
+            "periodType": "SO"
+          }
+        },
+        {
+          "id": 2023020206,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-11T00:00:00Z",
+          "gameState": "CRIT",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 15,
+            "placeName": {
+              "default": "Washington"
+            },
+            "abbrev": "WSH"
+          },
+          "homeTeam": {
+            "id": 1,
+            "placeName": {
+              "default": "New Jersey"
+            },
+            "abbrev": "NJD"
+          },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          }
+        },
+        {
+          "id": 2023020208,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-11T03:00:00Z",
+          "gameState": "LIVE",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 4,
+            "placeName": {
+              "default": "Philadelphia",
+              "fr": "Philadelphie"
+            },
+            "abbrev": "PHI"
+          },
+          "homeTeam": {
+            "id": 24,
+            "placeName": {
+              "default": "Anaheim"
+            },
+            "abbrev": "ANA"
+          },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          }
+        },
+        {
+          "id": 2023020209,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-11T03:00:00Z",
+          "gameState": "OVER",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 28,
+            "placeName": {
+              "default": "San Jose"
+            },
+            "abbrev": "SJS"
+          },
+          "homeTeam": {
+            "id": 54,
+            "placeName": {
+              "default": "Vegas"
+            },
+            "abbrev": "VGK"
+          },
+          "periodDescriptor": {
+            "number": 3,
+            "periodType": "REG"
+          }
+        },
+        {
+          "id": 2023020211,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-11T20:00:00Z",
+          "gameState": "FUT",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 25,
+            "placeName": {
+              "default": "Dallas"
+            },
+            "abbrev": "DAL"
+          },
+          "homeTeam": {
+            "id": 52,
+            "placeName": {
+              "default": "Winnipeg"
+            },
+            "abbrev": "WPG"
+          },
+          "periodDescriptor": {}
+        },
+        {
+          "id": 2023020217,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-12T00:30:00Z",
+          "gameState": "PRE",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 7,
+            "placeName": {
+              "default": "Buffalo"
+            },
+            "abbrev": "BUF"
+          },
+          "homeTeam": {
+            "id": 5,
+            "placeName": {
+              "default": "Pittsburgh"
+            },
+            "abbrev": "PIT"
+          },
+          "periodDescriptor": {}
+        },
+        {
+          "id": 2023020214,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-12T00:00:00Z",
+          "gameState": "FUT",
+          "gameScheduleState": "PPD",
+          "awayTeam": {
+            "id": 12,
+            "placeName": {
+              "default": "Carolina",
+              "fr": "Caroline"
+            },
+            "abbrev": "CAR"
+          },
+          "homeTeam": {
+            "id": 14,
+            "placeName": {
+              "default": "Tampa Bay"
+            },
+            "abbrev": "TBL"
+          },
+          "periodDescriptor": {}
+        }
+      ]
+    },
+    {
+      "date": "2023-11-11",
+      "games": [
+        {
+          "id": 2023020212,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-12T00:00:00Z",
+          "gameState": "FUT",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 6,
+            "placeName": {
+              "default": "Boston"
+            },
+            "abbrev": "BOS"
+          },
+          "homeTeam": {
+            "id": 8,
+            "placeName": {
+              "default": "Montréal"
+            },
+            "abbrev": "MTL"
+          },
+          "periodDescriptor": {}
+        },
+        {
+          "id": 2023020213,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-12T00:00:00Z",
+          "gameState": "FUT",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 20,
+            "placeName": {
+              "default": "Calgary"
+            },
+            "abbrev": "CGY"
+          },
+          "homeTeam": {
+            "id": 9,
+            "placeName": {
+              "default": "Ottawa"
+            },
+            "abbrev": "OTT"
+          },
+          "periodDescriptor": {}
+        },
+        {
+          "id": 2023020214,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-12T00:00:00Z",
+          "gameState": "FUT",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 12,
+            "placeName": {
+              "default": "Carolina",
+              "fr": "Caroline"
+            },
+            "abbrev": "CAR"
+          },
+          "homeTeam": {
+            "id": 14,
+            "placeName": {
+              "default": "Tampa Bay"
+            },
+            "abbrev": "TBL"
+          },
+          "periodDescriptor": {}
+        },
+        {
+          "id": 2023020215,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-12T00:00:00Z",
+          "gameState": "FUT",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 23,
+            "placeName": {
+              "default": "Vancouver"
+            },
+            "abbrev": "VAN"
+          },
+          "homeTeam": {
+            "id": 10,
+            "placeName": {
+              "default": "Toronto"
+            },
+            "abbrev": "TOR"
+          },
+          "periodDescriptor": {}
+        },
+        {
+          "id": 2023020216,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-12T00:30:00Z",
+          "gameState": "FUT",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 15,
+            "placeName": {
+              "default": "Washington"
+            },
+            "abbrev": "WSH"
+          },
+          "homeTeam": {
+            "id": 2,
+            "placeName": {
+              "default": "New York"
+            },
+            "abbrev": "NYI"
+          },
+          "periodDescriptor": {}
+        },
+        {
+          "id": 2023020218,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-12T01:00:00Z",
+          "gameState": "FUT",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 53,
+            "placeName": {
+              "default": "Arizona"
+            },
+            "abbrev": "ARI"
+          },
+          "homeTeam": {
+            "id": 18,
+            "placeName": {
+              "default": "Nashville"
+            },
+            "abbrev": "NSH"
+          },
+          "periodDescriptor": {}
+        },
+        {
+          "id": 2023020219,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-12T02:00:00Z",
+          "gameState": "FUT",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 19,
+            "placeName": {
+              "default": "St. Louis"
+            },
+            "abbrev": "STL"
+          },
+          "homeTeam": {
+            "id": 21,
+            "placeName": {
+              "default": "Colorado"
+            },
+            "abbrev": "COL"
+          },
+          "periodDescriptor": {}
+        },
+        {
+          "id": 2023020220,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-12T03:00:00Z",
+          "gameState": "FUT",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 22,
+            "placeName": {
+              "default": "Edmonton"
+            },
+            "abbrev": "EDM"
+          },
+          "homeTeam": {
+            "id": 55,
+            "placeName": {
+              "default": "Seattle"
+            },
+            "abbrev": "SEA"
+          },
+          "periodDescriptor": {}
+        },
+        {
+          "id": 2023020221,
+          "season": 20232024,
+          "gameType": 2,
+          "startTimeUTC": "2023-11-12T03:30:00Z",
+          "gameState": "FUT",
+          "gameScheduleState": "OK",
+          "awayTeam": {
+            "id": 4,
+            "placeName": {
+              "default": "Philadelphia",
+              "fr": "Philadelphie"
+            },
+            "abbrev": "PHI"
+          },
+          "homeTeam": {
+            "id": 26,
+            "placeName": {
+              "default": "Los Angeles"
+            },
+            "abbrev": "LAK"
+          },
+          "periodDescriptor": {}
+        }
+      ]
+    }
+  ],
+  "regularSeasonStartDate": "2023-10-10",
+  "regularSeasonEndDate": "2024-04-18"
+}

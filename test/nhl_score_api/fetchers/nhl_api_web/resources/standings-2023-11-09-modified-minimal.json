@@ -1,0 +1,456 @@
+{
+  "wildCardIndicator": true,
+  "standings": [
+    {
+      "wins": 11,
+      "points": 23,
+      "wildcardSequence": 0,
+      "otLosses": 1,
+      "losses": 1,
+      "gamesPlayed": 13,
+      "teamAbbrev": {
+        "default": "BOS"
+      },
+      "placeName": {
+        "default": "Boston"
+      }
+    },
+    {
+      "wins": 11,
+      "points": 23,
+      "wildcardSequence": 0,
+      "otLosses": 1,
+      "losses": 2,
+      "gamesPlayed": 14,
+      "teamAbbrev": {
+        "default": "VGK"
+      },
+      "placeName": {
+        "default": "Vegas"
+      }
+    },
+    {
+      "wins": 10,
+      "points": 21,
+      "wildcardSequence": 0,
+      "otLosses": 1,
+      "losses": 2,
+      "gamesPlayed": 13,
+      "teamAbbrev": {
+        "default": "VAN"
+      },
+      "placeName": {
+        "default": "Vancouver"
+      }
+    },
+    {
+      "wins": 10,
+      "points": 21,
+      "wildcardSequence": 0,
+      "otLosses": 1,
+      "losses": 2,
+      "gamesPlayed": 13,
+      "teamAbbrev": {
+        "default": "NYR"
+      },
+      "placeName": {
+        "default": "NY Rangers"
+      }
+    },
+    {
+      "wins": 8,
+      "points": 19,
+      "wildcardSequence": 0,
+      "otLosses": 3,
+      "losses": 2,
+      "gamesPlayed": 13,
+      "teamAbbrev": {
+        "default": "LAK"
+      },
+      "placeName": {
+        "default": "Los Angeles"
+      }
+    },
+    {
+      "wins": 8,
+      "points": 17,
+      "wildcardSequence": 0,
+      "otLosses": 1,
+      "losses": 3,
+      "gamesPlayed": 12,
+      "teamAbbrev": {
+        "default": "DAL"
+      },
+      "placeName": {
+        "default": "Dallas"
+      }
+    },
+    {
+      "wins": 8,
+      "points": 16,
+      "wildcardSequence": 0,
+      "otLosses": 0,
+      "losses": 4,
+      "gamesPlayed": 12,
+      "teamAbbrev": {
+        "default": "COL"
+      },
+      "placeName": {
+        "default": "Colorado"
+      }
+    },
+    {
+      "wins": 7,
+      "points": 16,
+      "wildcardSequence": 0,
+      "otLosses": 2,
+      "losses": 4,
+      "gamesPlayed": 13,
+      "teamAbbrev": {
+        "default": "WPG"
+      },
+      "placeName": {
+        "default": "Winnipeg"
+      }
+    },
+    {
+      "wins": 8,
+      "points": 16,
+      "wildcardSequence": 0,
+      "otLosses": 0,
+      "losses": 5,
+      "gamesPlayed": 13,
+      "teamAbbrev": {
+        "default": "CAR"
+      },
+      "placeName": {
+        "default": "Carolina",
+        "fr": "Caroline"
+      }
+    },
+    {
+      "wins": 7,
+      "points": 16,
+      "wildcardSequence": 0,
+      "otLosses": 2,
+      "losses": 5,
+      "gamesPlayed": 14,
+      "teamAbbrev": {
+        "default": "DET"
+      },
+      "placeName": {
+        "default": "Detroit"
+      }
+    },
+    {
+      "wins": 6,
+      "points": 16,
+      "wildcardSequence": 0,
+      "otLosses": 4,
+      "losses": 4,
+      "gamesPlayed": 14,
+      "teamAbbrev": {
+        "default": "TBL"
+      },
+      "placeName": {
+        "default": "Tampa Bay"
+      }
+    },
+    {
+      "wins": 7,
+      "points": 15,
+      "wildcardSequence": 0,
+      "otLosses": 1,
+      "losses": 4,
+      "gamesPlayed": 12,
+      "teamAbbrev": {
+        "default": "NJD"
+      },
+      "placeName": {
+        "default": "New Jersey"
+      }
+    },
+    {
+      "wins": 7,
+      "points": 15,
+      "wildcardSequence": 1,
+      "otLosses": 1,
+      "losses": 4,
+      "gamesPlayed": 12,
+      "teamAbbrev": {
+        "default": "FLA"
+      },
+      "placeName": {
+        "default": "Florida",
+        "fr": "Floride"
+      }
+    },
+    {
+      "wins": 7,
+      "points": 14,
+      "wildcardSequence": 1,
+      "otLosses": 0,
+      "losses": 5,
+      "gamesPlayed": 12,
+      "teamAbbrev": {
+        "default": "ANA"
+      },
+      "placeName": {
+        "default": "Anaheim"
+      }
+    },
+    {
+      "wins": 6,
+      "points": 14,
+      "wildcardSequence": 2,
+      "otLosses": 2,
+      "losses": 5,
+      "gamesPlayed": 13,
+      "teamAbbrev": {
+        "default": "TOR"
+      },
+      "placeName": {
+        "default": "Toronto"
+      }
+    },
+    {
+      "wins": 6,
+      "points": 14,
+      "wildcardSequence": 3,
+      "otLosses": 2,
+      "losses": 5,
+      "gamesPlayed": 13,
+      "teamAbbrev": {
+        "default": "MTL"
+      },
+      "placeName": {
+        "default": "Montr\u00e9al"
+      }
+    },
+    {
+      "wins": 6,
+      "points": 13,
+      "wildcardSequence": 2,
+      "otLosses": 1,
+      "losses": 5,
+      "gamesPlayed": 12,
+      "teamAbbrev": {
+        "default": "STL"
+      },
+      "placeName": {
+        "default": "St. Louis"
+      }
+    },
+    {
+      "wins": 5,
+      "points": 13,
+      "wildcardSequence": 4,
+      "otLosses": 3,
+      "losses": 4,
+      "gamesPlayed": 12,
+      "teamAbbrev": {
+        "default": "NYI"
+      },
+      "placeName": {
+        "default": "NY Islanders"
+      }
+    },
+    {
+      "wins": 6,
+      "points": 13,
+      "wildcardSequence": 5,
+      "otLosses": 1,
+      "losses": 6,
+      "gamesPlayed": 13,
+      "teamAbbrev": {
+        "default": "BUF"
+      },
+      "placeName": {
+        "default": "Buffalo"
+      }
+    },
+    {
+      "wins": 6,
+      "points": 13,
+      "wildcardSequence": 3,
+      "otLosses": 1,
+      "losses": 6,
+      "gamesPlayed": 13,
+      "teamAbbrev": {
+        "default": "ARI"
+      },
+      "placeName": {
+        "default": "Arizona"
+      }
+    },
+    {
+      "wins": 5,
+      "points": 13,
+      "wildcardSequence": 4,
+      "otLosses": 3,
+      "losses": 6,
+      "gamesPlayed": 14,
+      "teamAbbrev": {
+        "default": "SEA"
+      },
+      "placeName": {
+        "default": "Seattle"
+      }
+    },
+    {
+      "wins": 5,
+      "points": 12,
+      "wildcardSequence": 6,
+      "otLosses": 2,
+      "losses": 4,
+      "gamesPlayed": 11,
+      "teamAbbrev": {
+        "default": "WSH"
+      },
+      "placeName": {
+        "default": "Washington"
+      }
+    },
+    {
+      "wins": 6,
+      "points": 12,
+      "wildcardSequence": 7,
+      "otLosses": 0,
+      "losses": 6,
+      "gamesPlayed": 12,
+      "teamAbbrev": {
+        "default": "PIT"
+      },
+      "placeName": {
+        "default": "Pittsburgh"
+      }
+    },
+    {
+      "wins": 5,
+      "points": 12,
+      "wildcardSequence": 5,
+      "otLosses": 2,
+      "losses": 6,
+      "gamesPlayed": 13,
+      "teamAbbrev": {
+        "default": "MIN"
+      },
+      "placeName": {
+        "default": "Minnesota"
+      }
+    },
+    {
+      "wins": 5,
+      "points": 11,
+      "wildcardSequence": 8,
+      "otLosses": 1,
+      "losses": 7,
+      "gamesPlayed": 13,
+      "teamAbbrev": {
+        "default": "PHI"
+      },
+      "placeName": {
+        "default": "Philadelphia",
+        "fr": "Philadelphie"
+      }
+    },
+    {
+      "wins": 4,
+      "points": 11,
+      "wildcardSequence": 9,
+      "otLosses": 3,
+      "losses": 6,
+      "gamesPlayed": 13,
+      "teamAbbrev": {
+        "default": "CBJ"
+      },
+      "placeName": {
+        "default": "Columbus"
+      }
+    },
+    {
+      "wins": 5,
+      "points": 10,
+      "wildcardSequence": 10,
+      "otLosses": 0,
+      "losses": 7,
+      "gamesPlayed": 12,
+      "teamAbbrev": {
+        "default": "OTT"
+      },
+      "placeName": {
+        "default": "Ottawa"
+      }
+    },
+    {
+      "wins": 5,
+      "points": 10,
+      "wildcardSequence": 6,
+      "otLosses": 0,
+      "losses": 7,
+      "gamesPlayed": 12,
+      "teamAbbrev": {
+        "default": "CHI"
+      },
+      "placeName": {
+        "default": "Chicago"
+      }
+    },
+    {
+      "wins": 5,
+      "points": 10,
+      "wildcardSequence": 7,
+      "otLosses": 0,
+      "losses": 8,
+      "gamesPlayed": 13,
+      "teamAbbrev": {
+        "default": "NSH"
+      },
+      "placeName": {
+        "default": "Nashville"
+      }
+    },
+    {
+      "wins": 4,
+      "points": 9,
+      "wildcardSequence": 8,
+      "otLosses": 1,
+      "losses": 7,
+      "gamesPlayed": 12,
+      "teamAbbrev": {
+        "default": "CGY"
+      },
+      "placeName": {
+        "default": "Calgary"
+      }
+    },
+    {
+      "wins": 2,
+      "points": 5,
+      "wildcardSequence": 9,
+      "otLosses": 1,
+      "losses": 9,
+      "gamesPlayed": 12,
+      "teamAbbrev": {
+        "default": "EDM"
+      },
+      "placeName": {
+        "default": "Edmonton"
+      }
+    },
+    {
+      "wins": 2,
+      "points": 5,
+      "wildcardSequence": 10,
+      "otLosses": 1,
+      "losses": 10,
+      "gamesPlayed": 13,
+      "teamAbbrev": {
+        "default": "SJS"
+      },
+      "placeName": {
+        "default": "San Jose"
+      }
+    }
+  ]
+}

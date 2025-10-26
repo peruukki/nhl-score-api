@@ -102,12 +102,23 @@
                                                                nil)))))
 
     (testing "response-schema"
-      (testing "Matches valid response"
+      (testing "Matches complete response"
         (let [schema (api/response-schema (standings/->StandingsApiRequest {:current-schedule-date-str "2023-11-09"
                                                                             :standings-date-str "2023-11-09"}
                                                                            schedule-response
                                                                            nil))
               response resources/current-standings]
+          (is (= true
+                 (malli/validate schema response)))
+          (is (= nil
+                 (malli-error/humanize (malli/explain schema response))))))
+
+      (testing "Matches minimal response"
+        (let [schema (api/response-schema (standings/->StandingsApiRequest {:current-schedule-date-str "2023-11-09"
+                                                                            :standings-date-str "2023-11-09"}
+                                                                           schedule-response
+                                                                           nil))
+              response resources/current-standings-minimal]
           (is (= true
                  (malli/validate schema response)))
           (is (= nil
