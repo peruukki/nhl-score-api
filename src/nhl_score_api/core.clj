@@ -97,7 +97,7 @@
           (logger/info (str "Sending response with status " (:status response)))
           (format-response (:status response) (:body response)))
         (catch Exception e
-          (logger/error (str "Caught exception " e))
+          (logger/error e)
           (format-response 500 {:error "Server error"}))))))
 
 ; Send New Relic transaction for each request

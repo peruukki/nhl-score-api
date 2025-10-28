@@ -1,4 +1,5 @@
-(ns nhl-score-api.logging)
+(ns nhl-score-api.logging
+  (:require [clojure.string :as str]))
 
 ; Thread-local dynamic variable
 (def ^:dynamic *request-id* nil)
@@ -49,16 +50,36 @@
   [message]
   (println (format-message "WARN" message)))
 
+(defn- format-stack-trace
+  "Converts an exception's stack trace to a formatted string."
+  [exception]
+  (let [sw (java.io.StringWriter.)
+        pw (java.io.PrintWriter. sw)]
+    (.printStackTrace exception pw)
+    (.toString sw)))
+
 (defn error
   "Logs an error message to stderr. If *request-id* is set, prepends the request ID to the message.
    Similar to log but writes to stderr instead of stdout.
+   If the message is an Exception, prints the full stack trace.
 
    Example:
-   (error \"Database connection failed\")  ;=> [request-id=abc123] ERROR Database connection failed (to stderr)"
+   (error \"Database connection failed\")  ;=> [request-id=abc123] ERROR Database connection failed (to stderr)
+   (error (Exception. \"Something went wrong\"))  ;=> [request-id=abc123] ERROR Exception: Something went wrong + stack trace"
   [message]
-  ; Temporarily redirect output to stderr
+  ; Write directly to stderr to ensure proper flushing
   (binding [*out* *err*]
-    (println (format-message "ERROR" message))))
+    (if (instance? Exception message)
+      (let [exception-msg (str "Caught exception " (.getClass message) ": " (.getMessage message))
+            stack-trace (format-stack-trace message)]
+        (println (format-message "ERROR" exception-msg))
+        ; Print stack trace line by line to ensure each line is flushed separately
+        (doseq [line (str/split-lines stack-trace)]
+          (println (format-message "ERROR" line)))
+        (flush))
+      (do
+        (println (format-message "ERROR" message))
+        (flush)))))
 
 (defn debug
   "Logs a debug message to stdout. If *request-id* is set, prepends the request ID to the message.
