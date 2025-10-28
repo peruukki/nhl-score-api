@@ -788,3 +788,12 @@
       (is (= true (contains? game :errors)) "Contains validation errors")
       (is (= [{:error :SCORE-AND-GOAL-COUNT-MISMATCH :details {:goal-count 9 :score-count 8}}]
              (:errors game)) "Errors contain expected 'score and goal count mismatch' error"))))
+
+(deftest game-scores-parsing-minimal-data
+
+  (testing "Parsing games with minimal data without errors"
+    (let [scores (parse-game-scores
+                  (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout-minimal)
+                  resources/current-standings-minimal
+                  (resources/get-gamecenters ["2023020209-modified-minimal"]))]
+      (is (= 8 (count (:games scores))) "Parsed game count"))))
