@@ -26,7 +26,7 @@
                         (colorize color level)
                         level)]
     (str (if *request-id*
-           (str "[" (subs *request-id* 0 8) "] ")
+           (str "[" (subs *request-id* 0 (min (count *request-id*) 8)) "] ")
            "")
          colored-level " " message)))
 
