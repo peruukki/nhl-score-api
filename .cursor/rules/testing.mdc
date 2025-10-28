@@ -1,0 +1,42 @@
+---
+description: How to run tests in this Clojure project
+---
+
+# Testing Guide
+
+This is a Clojure project using Leiningen for dependency management and testing.
+
+## Running Tests
+
+### Run all tests
+```bash
+lein test
+```
+
+### Run a specific test file
+```bash
+lein test --focus <namespace>
+```
+For example:
+```bash
+lein test --focus nhl-score-api.fetchers.nhl-api-web.fetcher-test
+```
+
+## Test Structure
+
+- Tests are located in the `test/` directory
+- Test files follow the pattern `*_test.clj`
+- Test namespaces end with `-test` suffix
+- Use `clojure.test` for testing framework
+
+## Common Test Commands
+
+- Use `--focus` to run specific test files instead of the full test suite
+- The project uses Kaocha as the test runner (visible in lein profiles)
+
+## Test Organization
+
+Tests are organized to match the source structure:
+- `test/nhl_score_api/fetchers/nhl_api_web/fetcher_test.clj` tests `src/nhl_score_api/fetchers/nhl_api_web/fetcher.clj`
+- Each test file contains multiple test functions using `deftest`
+- Test assertions use `is` from `clojure.test`
