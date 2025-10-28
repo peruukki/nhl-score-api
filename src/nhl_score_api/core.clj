@@ -93,11 +93,13 @@
                (:uri request)
                request-params
                fetcher/fetch-latest-scores
-               fetcher/fetch-scores-in-date-range)]
+               fetcher/fetch-scores-in-date-range)
+              formatted-response (format-response (:status response) (:body response))]
           (logger/info (str "Sending response with status " (:status response)))
-          (format-response (:status response) (:body response)))
+          formatted-response)
         (catch Exception e
           (logger/error e)
+          (logger/info "Sending response with status 500")
           (format-response 500 {:error "Server error"}))))))
 
 ; Send New Relic transaction for each request
