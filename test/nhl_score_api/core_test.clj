@@ -1,7 +1,7 @@
 (ns nhl-score-api.core-test
   (:require [clojure.data.json :as json]
             [clojure.test :refer [deftest is testing]]
-            [nhl-score-api.core :refer [app get-response json-key-transformer]]))
+            [nhl-score-api.core :refer [app get-error-response get-response json-key-transformer]]))
 
 (def latest-scores-fetched (atom false))
 (def scores-in-date-range-fetched (atom false))
@@ -71,6 +71,27 @@
   (testing "Browser caching is controlled by response headers"
     (let [response (app {:uri "/"})]
       (assert-cache-control-set response))))
+
+(deftest error-responses
+  (testing "Returns clj-http exception status and message"
+    (let [e (ex-info "clj-http: status 404" {:type :clj-http.client/unexceptional-status
+                                             :status 404
+                                             :reason-phrase "Not Found"})]
+      (is (= {:status 404 :body {:error "Not Found"}}
+             (get-error-response e))
+          "Response has clj-http status and message")))
+
+  (testing "Returns 500 for generic ExceptionInfo"
+    (let [e (ex-info "Some other error" {:type :some-other-type})]
+      (is (= {:status 500 :body {:error "Server error"}}
+             (get-error-response e))
+          "Response has server error message")))
+
+  (testing "Returns 500 for plain Exception"
+    (let [e (Exception. "Generic error")]
+      (is (= {:status 500 :body {:error "Server error"}}
+             (get-error-response e))
+          "Response has server error message"))))
 
 (defn- assert-status [response expected-status]
   (is (= expected-status

@@ -78,6 +78,19 @@
              "Content-Type" "application/json; charset=utf-8"}
    :body (json/write-str body :key-fn json-key-transformer)})
 
+(defn get-error-response
+  "Parses an exception and returns a map with the :status and :body keys.
+   If the exception is from clj-http with an HTTP error status,
+   returns that status and reason phrase. Otherwise returns 500."
+  [exception]
+  (let [ex-data (and (instance? clojure.lang.ExceptionInfo exception) (ex-data exception))
+        status (when (and ex-data (= :clj-http.client/unexceptional-status (:type ex-data)))
+                 (:status ex-data))
+        message (when status (:reason-phrase ex-data))
+        error-status (or status 500)
+        error-message (or message "Server error")]
+    {:status error-status :body {:error error-message}}))
+
 (defn request-handler [request]
   (let [request-id (get-in request [:headers "x-request-id"])]
     (logger/with-request-id request-id
@@ -99,8 +112,9 @@
           formatted-response)
         (catch Exception e
           (logger/error e)
-          (logger/info "Sending response with status 500")
-          (format-response 500 {:error "Server error"}))))))
+          (let [error-response (get-error-response e)]
+            (logger/info (str "Sending response with status " (:status error-response)))
+            (format-response (:status error-response) (:body error-response))))))))
 
 ; Send New Relic transaction for each request
 (def app (wrap-newrelic-transaction (wrap-params request-handler)))
