@@ -23,4 +23,12 @@
 
     (is (= "End date is before start date"
            (validate-date-range (time/date-time 2021 9 30) (time/date-time 2021 9 29) 3))
-        "End date before start date fails")))
+        "End date before start date fails")
+
+    (is (= nil
+           (validate-date-range (time/date-time 1917 1 1) nil 3))
+        "Earliest start date validates")
+
+    (is (= "Start date is too soon, earliest possible is 1917-01-01"
+           (validate-date-range (time/date-time 1916 12 31) nil 3))
+        "Start date before year 1917 fails")))
