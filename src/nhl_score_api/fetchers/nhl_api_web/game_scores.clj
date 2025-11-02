@@ -170,10 +170,12 @@
           time-remaining-pretty (if (or (:in-intermission clock)
                                         (= (:seconds-remaining clock) 0))
                                   "END"
-                                  (:time-remaining clock))
-          time-remaining-structured (parse-time-str time-remaining-pretty 0)]
-      {:current-period (:number (:period-descriptor schedule-game))
-       :current-period-ordinal (parse-period-ordinal (:period-descriptor schedule-game) (playoff-game? schedule-game))
+                                  (get clock :time-remaining "20:00"))
+          time-remaining-structured (parse-time-str time-remaining-pretty 0)
+          period-descriptor {:number (get-in schedule-game [:period-descriptor :number] 1)
+                             :period-type (get-in schedule-game [:period-descriptor :period-type] "REG")}]
+      {:current-period (:number period-descriptor)
+       :current-period-ordinal (parse-period-ordinal period-descriptor (playoff-game? schedule-game))
        :current-period-time-remaining (assoc time-remaining-structured :pretty time-remaining-pretty)})))
 
 (defn- parse-team-record-from-standings [standings team-abbreviation]

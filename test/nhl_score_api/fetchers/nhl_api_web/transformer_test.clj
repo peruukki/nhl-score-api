@@ -11,7 +11,7 @@
   (testing "All games from latest day that has started games are returned"
     (let [latest-games (:games
                         (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout))]
-      (is (= 8
+      (is (= 9
              (count latest-games)) "Latest started games count")
       (is (= ["OFF" "FINAL" "OVER" "CRIT" "LIVE" "FUT" "PRE"]
              (distinct (map :game-state latest-games))) "Distinct game states")))
@@ -19,7 +19,7 @@
   (testing "Games are returned in order: finished -> in progress -> not started -> postponed"
     (let [latest-games (:games
                         (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout))]
-      (is (= ["Final" "Final" "Final" "Live" "Live" "Preview" "Preview" "Postponed"]
+      (is (= ["Final" "Final" "Final" "Live" "Live" "Live" "Preview" "Preview" "Postponed"]
              (map get-game-state latest-games)) "Game states")))
 
   (testing "No started games is handled gracefully"
@@ -50,5 +50,5 @@
                                                    (time/date-time 2023 11 10))]
       (is (= ["2023-11-09" "2023-11-10"]
              (map #(:raw (:date %)) dates-and-games)) "Dates")
-      (is (= [10 8]
+      (is (= [10 9]
              (map #(count (:games %)) dates-and-games)) "Game counts"))))
