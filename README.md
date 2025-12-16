@@ -1,8 +1,17 @@
 # nhl-score-api
 
-A JSON API that returns the scores and goals from the latest finished or on-going NHL games. The data is sourced from the
-same NHL Web API at https://api-web.nhle.com that the NHL website uses. The NHL Web API is undocumented but
-unofficial documentation exists:
+A JSON API that returns the scores and goals from the latest finished or on-going NHL games. The API is available at
+https://nhl-score-api.herokuapp.com/, and it serves as the backend for [nhl-recap](https://github.com/peruukki/nhl-recap).
+
+The data source responses are cached in-memory for one minute, and then refreshed upon the next request. This means in practice:
+
+- the data for a particular request usually refreshes once a minute at best
+- there can be quite a bit of variance in response times
+
+## Data source
+
+The data is sourced from the same NHL Web API at https://api-web.nhle.com that the NHL website uses. The NHL Web API is
+undocumented but unofficial documentation exists:
 
 - https://github.com/Zmalski/NHL-API-Reference: fairly recent, seems very comprehensive and updated lately
 - https://gitlab.com/dword4/nhlapi: older, plenty of discussion in its [issues](https://gitlab.com/dword4/nhlapi/-/issues)
@@ -17,10 +26,34 @@ How we use the NHL Web API:
   like game stats and recap video links
 - [standings](https://api-web.nhle.com/v1/standings/2023-11-07) gives us team stats
 
-This API is available at https://nhl-score-api.herokuapp.com/, and it serves as the backend for [nhl-recap](https://github.com/peruukki/nhl-recap).
+<details>
+<summary>
+Data fetching sequence diagram
+</summary>
 
-The NHL Web API responses are cached in-memory for one minute, and then refreshed upon the next request. So there can be
-quite a bit of variance in response times.
+```mermaid
+sequenceDiagram
+  participant S as NHL Score API
+  participant W as NHL Web API
+
+  S->>W: GET /v1/schedule/:date
+  W-->>S: { "gameWeek": ... }
+
+  loop Each needed game
+    S->>W: GET /v1/gamecenter/:game-id/landing
+    W-->>S: { "summary": ... }
+    S->>W: GET /v1/gamecenter/:game-id/right-rail
+    W-->>S: { "teamGameStats": ... }
+  end
+
+  loop Each needed date
+    S->>W: GET /v1/standings/:date
+    W-->>S: { "standings": ... }
+  end
+
+```
+
+</details>
 
 ## API
 
