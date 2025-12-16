@@ -1,4 +1,4 @@
-# nhl-score-api
+# NHL Score API
 
 A JSON API that returns the scores and goals from the latest finished or on-going NHL games. The API is available at
 https://nhl-score-api.herokuapp.com/, and it serves as the backend for [nhl-recap](https://github.com/peruukki/nhl-recap).
