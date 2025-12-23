@@ -2,6 +2,7 @@
   (:require [camel-snake-kebab.core :refer [->kebab-case-keyword]]
             [clj-http.client :as http]
             [clj-time.core :as time]
+            [clojure.core.async :as async]
             [clojure.data.json :as json]
             [malli.core :as malli]
             [malli.error :as malli-error]
@@ -53,14 +54,46 @@
 (defn api-response-to-json [api-response]
   (json/read-str api-response :key-fn ->kebab-case-keyword))
 
+; Outgoing API request throttling: limit to max 3 concurrent requests
+(def ^:private max-concurrent-api-requests 3)
+(def ^:private api-request-queue (async/chan 100))
+
+(defn- api-request-worker [id]
+  (async/go-loop []
+    (when-let [[url options request-description result-promise] (async/<! api-request-queue)]
+      (try
+        (logger/info (str "[" id "] Fetching " request-description))
+        (let [start-time (System/currentTimeMillis)
+              response (http/get url options)]
+          (logger/info (str "[" id "] Fetched " request-description
+                            " (took " (- (System/currentTimeMillis) start-time) " ms)"))
+          (deliver result-promise response))
+        (catch Exception e
+          (deliver result-promise e)))
+      (recur))))
+
+; Start worker pool
+(doseq [id (range max-concurrent-api-requests)]
+  (api-request-worker (inc id)))
+
+(defn- throttled-fetch
+  "API request with throttling: limits to max 3 concurrent requests.
+   Requests are queued and processed by worker pool."
+  [url options request-description]
+  (let [result-promise (promise)]
+    ; Queue the request
+    (async/>!! api-request-queue [url options request-description result-promise])
+    ; Block until result is available
+    (let [result @result-promise]
+      (if (instance? Exception result)
+        (throw result)
+        result))))
+
 (defn- fetch [api-request]
-  (logger/info (str "Fetching " (api/description api-request)))
-  (let [start-time (System/currentTimeMillis)
-        response (-> (http/get (api/url api-request) {:debug false})
+  (let [response (-> (throttled-fetch (api/url api-request) {:debug false} (api/description api-request))
                      :body
                      api-response-to-json)
         response-schema (api/response-schema api-request)]
-    (logger/info (str "Fetched " (api/description api-request) " (took " (- (System/currentTimeMillis) start-time) " ms)"))
     (when-not (malli/validate response-schema response)
       (logger/warn (str "Response validation failed for " (api/description api-request) ": "
                         (malli-error/humanize (malli/explain response-schema response)))))
@@ -102,7 +135,7 @@
                               set
                               sort)
         ; Fetch needed standings first
-        response-per-unique-date-str (map
+        response-per-unique-date-str (pmap
                                       #(when %
                                          (fetch-cached (standings/->StandingsApiRequest {:current-schedule-date-str current-schedule-date-str
                                                                                          :standings-date-str %}
@@ -148,8 +181,8 @@
 (defn- fetch-gamecenters [schedule-games]
   (->> schedule-games
        (get-gamecenter-game-ids)
-       (map #(vector % (get-gamecenter (fetch-cached (landing/->LandingApiRequest %))
-                                       (fetch-cached (right-rail/->RightRailApiRequest %)))))
+       (pmap #(vector % (get-gamecenter (fetch-cached (landing/->LandingApiRequest %))
+                                        (fetch-cached (right-rail/->RightRailApiRequest %)))))
        (into {})))
 
 (defn- prune-cache-and-fetch-gamecenters [games-info date-and-schedule-games]
