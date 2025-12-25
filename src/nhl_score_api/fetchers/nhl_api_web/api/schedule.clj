@@ -58,11 +58,12 @@
 
 (defrecord ScheduleApiRequest [start-date-str end-date-str]
   api/ApiRequest
-  (archive? [_ response] (->> response
-                              (api/get-games-in-date-range start-date-str end-date-str)
-                              (every? #(and (= "OFF" (:game-state %))
-                                            (:three-min-recap %)))))
-  (archive-with-context? [this response _context] (api/archive? this response))
+  (archive? [this response] (api/archive-with-context? this response nil))
+  (archive-with-context? [_ response _context]
+    (->> response
+         (api/get-games-in-date-range start-date-str end-date-str)
+         (every? #(and (= "OFF" (:game-state %))
+                       (:three-min-recap %)))))
   (cache-key [_] (str "schedule-" start-date-str (when end-date-str (str "-" end-date-str))))
   (description [_] (str "schedule " {:date start-date-str}))
   (response-schema [_] ResponseSchema)
