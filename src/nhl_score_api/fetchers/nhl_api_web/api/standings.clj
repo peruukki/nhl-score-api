@@ -36,9 +36,10 @@
                           (% pre-game-standings 0))
                       [:losses :ot-losses :wins]))))
 
-(defrecord StandingsApiRequest [date-strs schedule-response pre-game-standings-response]
+(defrecord StandingsApiRequest [date-strs schedule-response]
   api/ApiRequest
-  (archive? [_ response]
+  (archive? [this response] (api/archive-with-context? this response nil))
+  (archive-with-context? [_ response pre-game-standings-response]
     (let [games (api/get-games-in-date-range (:standings-date-str date-strs) nil schedule-response)
           all-games-in-official-state? (and
                                         (> (count games) 0)

@@ -14,6 +14,7 @@
 
 (defprotocol ApiRequest
   (archive? [_ response])
+  (archive-with-context? [_ response context])
   (cache-key [_])
   (description [_])
   (response-schema [_])

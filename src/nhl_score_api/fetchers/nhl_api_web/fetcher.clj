@@ -99,11 +99,14 @@
                         (malli-error/humanize (malli/explain response-schema response)))))
     response))
 
-(defn- archive [response api-request]
-  (let [from-cache? (:from-cache? (meta response))]
-    (if (and (not from-cache?) (api/archive? api-request response))
-      (cache/archive (api/cache-key api-request) response)
-      response)))
+(defn- archive
+  ([response api-request]
+   (archive response api-request nil))
+  ([response api-request context]
+   (let [from-cache? (:from-cache? (meta response))]
+     (if (and (not from-cache?) (api/archive-with-context? api-request response context))
+       (cache/archive (api/cache-key api-request) response)
+       response))))
 
 (defn- fetch-cached [api-request]
   (-> (cache/get-cached (api/cache-key api-request) #(fetch api-request))
@@ -139,8 +142,7 @@
                                       #(when %
                                          (fetch-cached (standings/->StandingsApiRequest {:current-schedule-date-str current-schedule-date-str
                                                                                          :standings-date-str %}
-                                                                                        games-info
-                                                                                        nil)))
+                                                                                        games-info)))
                                       unique-date-strs)
         standings-by-unique-date-str (zipmap unique-date-strs response-per-unique-date-str)
         date-str-pairs (map-indexed (fn [index date-str] {:pre-game-date-str (if (= index 0) nil (nth unique-date-strs (dec index)))
@@ -154,13 +156,13 @@
                                                        (get standings-by-unique-date-str pre-game-date-str)
                                                        (standings/->StandingsApiRequest {:current-schedule-date-str current-schedule-date-str
                                                                                          :standings-date-str pre-game-date-str}
-                                                                                        games-info
-                                                                                        nil))
+                                                                                        games-info))
                                                       nil)
-                                                    (standings/->StandingsApiRequest {:current-schedule-date-str current-schedule-date-str
-                                                                                      :standings-date-str current-date-str}
-                                                                                     games-info)
-                                                    (archive (get standings-by-unique-date-str current-date-str))
+                                                    (archive
+                                                     (get standings-by-unique-date-str current-date-str)
+                                                     (standings/->StandingsApiRequest {:current-schedule-date-str current-schedule-date-str
+                                                                                       :standings-date-str current-date-str}
+                                                                                      games-info))
                                                     (:standings))))
                                            date-str-pairs)
         standings-by-date-str (zipmap unique-date-strs standings-per-unique-date-str)]
