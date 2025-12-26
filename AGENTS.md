@@ -74,26 +74,6 @@ Tests are organized to match the source structure:
 - Each test file contains multiple test functions using `deftest`
 - Test assertions use `is` from `clojure.test`
 
-### Updating Test Data
-
-The NHL API responses change from time to time, so the test responses in `test/nhl_score_api/fetchers/nhl_api_web/resources/` need to be updated.
-
-There's a helper script to fetch current responses:
-
-```bash
-./scripts/update-game-test-data.sh 2023020205 2023020206
-```
-
-This script uses `curl` for fetching and `jq` for formatting.
-
-For standings test data:
-
-```bash
-./scripts/update-standings-test-data.sh
-```
-
-**Note**: Not all data should be updated; at least game progress data changes should be discarded so that tests that rely on that still work.
-
 ## Code Formatting
 
 Formatting is done with [cljfmt](https://github.com/weavejester/cljfmt).
@@ -149,46 +129,10 @@ The project uses these NHL Web API endpoints:
 
 API responses are cached in-memory for one minute, then refreshed upon the next request.
 
-## Common Workflows
-
-### Running a specific test
-
-```bash
-lein test --focus <namespace-or-test-name>
-```
-
-### Formatting code
-
-```bash
-lein format
-```
-
-### Checking code style
-
-```bash
-lein format-check
-lein lint
-```
-
-### Updating test data for a game
-
-```bash
-./scripts/update-game-test-data.sh <gameId1> <gameId2> ...
-```
-
-### Building for deployment
-
-```bash
-lein uberjar
-```
-
 ## Notes for AI Agents
 
 - Always run tests after making changes: `lein test`
 - Format code before committing: `lein format`
 - Check linting: `lein lint`
 - Test files use the `-test` suffix in namespace names
-- When updating test data, be careful not to update game progress data that tests depend on
 - The project uses Kaocha for improved test failure reporting
-- API responses are cached, so response times can vary
-
