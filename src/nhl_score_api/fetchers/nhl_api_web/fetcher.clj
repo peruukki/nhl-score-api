@@ -137,34 +137,36 @@
                               flatten
                               set
                               sort)
+        request-per-unique-date-str (map
+                                     #(when %
+                                        (standings/->StandingsApiRequest {:current-schedule-date-str current-schedule-date-str
+                                                                          :standings-date-str %}
+                                                                         games-info))
+                                     unique-date-strs)
+        request-by-unique-date-str (zipmap unique-date-strs request-per-unique-date-str)
         ; Fetch needed standings first
         response-per-unique-date-str (pmap
                                       #(when %
-                                         (fetch-cached (standings/->StandingsApiRequest {:current-schedule-date-str current-schedule-date-str
-                                                                                         :standings-date-str %}
-                                                                                        games-info)))
-                                      unique-date-strs)
-        standings-by-unique-date-str (zipmap unique-date-strs response-per-unique-date-str)
+                                         (fetch-cached %))
+                                      request-per-unique-date-str)
+        response-by-unique-date-str (zipmap unique-date-strs response-per-unique-date-str)
         date-str-pairs (map-indexed (fn [index date-str] {:pre-game-date-str (if (= index 0) nil (nth unique-date-strs (dec index)))
                                                           :current-date-str date-str})
                                     unique-date-strs)
         ; Group standings with a second pass at archiving them with pre-game-standings included
-        standings-per-unique-date-str (map (fn [{:keys [pre-game-date-str current-date-str]}]
-                                             (when current-date-str
-                                               (->> (if pre-game-date-str
-                                                      (archive
-                                                       (get standings-by-unique-date-str pre-game-date-str)
-                                                       (standings/->StandingsApiRequest {:current-schedule-date-str current-schedule-date-str
-                                                                                         :standings-date-str pre-game-date-str}
-                                                                                        games-info))
-                                                      nil)
-                                                    (archive
-                                                     (get standings-by-unique-date-str current-date-str)
-                                                     (standings/->StandingsApiRequest {:current-schedule-date-str current-schedule-date-str
-                                                                                       :standings-date-str current-date-str}
-                                                                                      games-info))
-                                                    (:standings))))
-                                           date-str-pairs)
+        standings-per-unique-date-str (map
+                                       (fn [{:keys [pre-game-date-str current-date-str]}]
+                                         (when current-date-str
+                                           (->> (if pre-game-date-str
+                                                  (archive
+                                                   (get response-by-unique-date-str pre-game-date-str)
+                                                   (get request-by-unique-date-str pre-game-date-str))
+                                                  nil)
+                                                (archive
+                                                 (get response-by-unique-date-str current-date-str)
+                                                 (get request-by-unique-date-str current-date-str))
+                                                (:standings))))
+                                       date-str-pairs)
         standings-by-date-str (zipmap unique-date-strs standings-per-unique-date-str)]
     (map #(if (nil? (:current %))
             nil
