@@ -133,45 +133,41 @@
   (let [current-schedule-date-str (format-date (get-current-schedule-date (time/now)))
         standings-date-strs (get-standings-date-strs (assoc date-str-params :current-schedule-date-str current-schedule-date-str))
         unique-date-strs (->> standings-date-strs
-                              (map vals)
-                              flatten
+                              (mapcat vals)
+                              (filter some?)
                               set
                               sort)
-        request-per-unique-date-str (map
-                                     #(when %
-                                        (standings/->StandingsApiRequest {:current-schedule-date-str current-schedule-date-str
-                                                                          :standings-date-str %}
-                                                                         games-info))
-                                     unique-date-strs)
-        request-by-unique-date-str (zipmap unique-date-strs request-per-unique-date-str)
-        ; Fetch needed standings first
-        response-per-unique-date-str (pmap
-                                      #(when %
-                                         (fetch-cached %))
-                                      request-per-unique-date-str)
-        response-by-unique-date-str (zipmap unique-date-strs response-per-unique-date-str)
-        date-str-pairs (map-indexed (fn [index date-str] {:pre-game-date-str (if (= index 0) nil (nth unique-date-strs (dec index)))
-                                                          :current-date-str date-str})
-                                    unique-date-strs)
-        ; Group standings with a second pass at archiving them with pre-game-standings included
-        standings-per-unique-date-str (map
-                                       (fn [{:keys [pre-game-date-str current-date-str]}]
-                                         (when current-date-str
-                                           (->> (if pre-game-date-str
-                                                  (archive
-                                                   (get response-by-unique-date-str pre-game-date-str)
-                                                   (get request-by-unique-date-str pre-game-date-str))
-                                                  nil)
-                                                (archive
-                                                 (get response-by-unique-date-str current-date-str)
-                                                 (get request-by-unique-date-str current-date-str))
-                                                (:standings))))
-                                       date-str-pairs)
-        standings-by-date-str (zipmap unique-date-strs standings-per-unique-date-str)]
-    (map #(if (nil? (:current %))
-            nil
-            (hash-map :pre-game (get standings-by-date-str (:pre-game %))
-                      :current (get standings-by-date-str (:current %))))
+
+        ; Prepare requests
+        requests (map #(standings/->StandingsApiRequest {:current-schedule-date-str current-schedule-date-str
+                                                         :standings-date-str %}
+                                                        games-info)
+                      unique-date-strs)
+        request-by-date (zipmap unique-date-strs requests)
+
+        ; Fetch needed standings
+        response-by-date (zipmap unique-date-strs (pmap #(fetch-cached %) requests))
+
+        ; Archive responses with pre-game standings as context
+        standings-by-date (zipmap unique-date-strs
+                                  (map-indexed
+                                   (fn [idx date-str]
+                                     (let [pre-game-date-str
+                                           (when (> idx 0)
+                                             (nth unique-date-strs (dec idx)))
+                                           pre-game-response
+                                           (when pre-game-date-str
+                                             (archive (get response-by-date pre-game-date-str)
+                                                      (get request-by-date pre-game-date-str)))]
+                                       (->> (archive (get response-by-date date-str)
+                                                     (get request-by-date date-str)
+                                                     pre-game-response)
+                                            (:standings))))
+                                   unique-date-strs))]
+    (map (fn [{:keys [current pre-game]}]
+           (when current
+             {:pre-game (get standings-by-date pre-game)
+              :current (get standings-by-date current)}))
          standings-date-strs)))
 
 (defn get-gamecenter-game-ids [schedule-games]
