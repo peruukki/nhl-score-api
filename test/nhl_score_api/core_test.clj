@@ -81,6 +81,18 @@
              (get-error-response e))
           "Response has clj-http status and message")))
 
+  (testing "Returns 504 for SocketTimeoutException"
+    (let [e (java.net.SocketTimeoutException. "Read timed out")]
+      (is (= {:status 504 :body {:error "NHL Web API timed out"}}
+             (get-error-response e))
+          "Response has upstream timed out error message")))
+
+  (testing "Returns 502 for ConnectException"
+    (let [e (java.net.ConnectException. "Network is unreachable (connect failed)")]
+      (is (= {:status 502 :body {:error "NHL Web API unreachable"}}
+             (get-error-response e))
+          "Response has upstream unreachable error message")))
+
   (testing "Returns 500 for generic ExceptionInfo"
     (let [e (ex-info "Some other error" {:type :some-other-type})]
       (is (= {:status 500 :body {:error "Server error"}}

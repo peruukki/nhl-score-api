@@ -83,13 +83,21 @@
    If the exception is from clj-http with an HTTP error status,
    returns that status and reason phrase. Otherwise returns 500."
   [exception]
-  (let [ex-data (and (instance? clojure.lang.ExceptionInfo exception) (ex-data exception))
-        status (when (and ex-data (= :clj-http.client/unexceptional-status (:type ex-data)))
-                 (:status ex-data))
-        message (when status (:reason-phrase ex-data))
-        error-status (or status 500)
-        error-message (or message "Server error")]
-    {:status error-status :body {:error error-message}}))
+  (cond
+    (instance? java.net.SocketTimeoutException exception)
+    {:status 504 :body {:error "NHL Web API timed out"}}
+
+    (instance? java.net.ConnectException exception)
+    {:status 502 :body {:error "NHL Web API unreachable"}}
+
+    :else
+    (let [ex-data (and (instance? clojure.lang.ExceptionInfo exception) (ex-data exception))
+          status (when (and ex-data (= :clj-http.client/unexceptional-status (:type ex-data)))
+                   (:status ex-data))
+          message (when status (:reason-phrase ex-data))
+          error-status (or status 500)
+          error-message (or message "Server error")]
+      {:status error-status :body {:error error-message}})))
 
 (defn request-handler [request]
   (let [request-id (get-in request [:headers "x-request-id"])]

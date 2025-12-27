@@ -92,7 +92,11 @@
         result))))
 
 (defn- fetch [api-request]
-  (let [response (-> (throttled-fetch (api/url api-request) {:debug false} (api/description api-request))
+  (let [response (-> (throttled-fetch (api/url api-request)
+                                      ; connection-timeout: waiting to establish a TCP connection
+                                      ; socket-timeout: waiting to read data from an established connection
+                                      {:connection-timeout 2000 :debug false :socket-timeout 10000}
+                                      (api/description api-request))
                      :body
                      api-response-to-json)
         response-schema (api/response-schema api-request)]
