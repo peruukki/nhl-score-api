@@ -81,7 +81,8 @@
 (defn get-error-response
   "Parses an exception and returns a map with the :status and :body keys.
    If the exception is from clj-http with an HTTP error status,
-   returns that status and reason phrase. Otherwise returns 500."
+   returns that status and reason phrase. Otherwise returns an appropriate
+   response based on the exception."
   [exception]
   (cond
     (instance? java.net.SocketTimeoutException exception)
