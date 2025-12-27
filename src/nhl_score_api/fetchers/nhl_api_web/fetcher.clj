@@ -60,14 +60,15 @@
 
 (defn- api-request-worker [id]
   (async/go-loop []
-    (when-let [[url options request-description result-promise] (async/<! api-request-queue)]
+    (when-let [[url options request-description result-promise request-id] (async/<! api-request-queue)]
       (try
-        (logger/info (str "[" id "] Fetching " request-description))
-        (let [start-time (System/currentTimeMillis)
-              response (http/get url options)]
-          (logger/info (str "[" id "] Fetched " request-description
-                            " (took " (- (System/currentTimeMillis) start-time) " ms)"))
-          (deliver result-promise response))
+        (logger/with-request-id request-id
+          (logger/info (str "[" id "] Fetching " request-description))
+          (let [start-time (System/currentTimeMillis)
+                response (http/get url options)]
+            (logger/info (str "[" id "] Fetched " request-description
+                              " (took " (- (System/currentTimeMillis) start-time) " ms)"))
+            (deliver result-promise response)))
         (catch Exception e
           (deliver result-promise e)))
       (recur))))
@@ -80,9 +81,10 @@
   "API request with throttling: limits to max 3 concurrent requests.
    Requests are queued and processed by worker pool."
   [url options request-description]
-  (let [result-promise (promise)]
-    ; Queue the request
-    (async/>!! api-request-queue [url options request-description result-promise])
+  (let [result-promise (promise)
+        request-id logger/*request-id*]
+    ; Queue the request with request-id to preserve it in worker thread
+    (async/>!! api-request-queue [url options request-description result-promise request-id])
     ; Block until result is available
     (let [result @result-promise]
       (if (instance? Exception result)
