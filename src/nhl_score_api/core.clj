@@ -4,6 +4,7 @@
             [clojure.data.json :as json]
             [clojure.java.io :as io]
             [new-reliquary.ring :refer [wrap-newrelic-transaction]]
+            [nhl-score-api.fetchers.nhl-api-web.api-request-queue :as api-request-queue]
             [nhl-score-api.fetchers.nhl-api-web.fetcher :as fetcher]
             [nhl-score-api.param-parser :as params]
             [nhl-score-api.param-validator :as validate]
@@ -34,6 +35,7 @@
   (let [ip "0.0.0.0"
         port (Integer/parseInt (get (System/getenv) "PORT" "8080"))]
     (logger/info (str "Starting server version " version))
+    (api-request-queue/init-queue!)
     (logger/info (str "Listening on " ip ":" port))
     (server/run-server app {:ip ip :port port})))
 
