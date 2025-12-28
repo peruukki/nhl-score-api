@@ -1,12 +1,11 @@
 (ns nhl-score-api.fetchers.nhl-api-web.fetcher
   (:require [camel-snake-kebab.core :refer [->kebab-case-keyword]]
-            [clj-http.client :as http]
             [clj-time.core :as time]
-            [clojure.core.async :as async]
             [clojure.data.json :as json]
             [malli.core :as malli]
             [malli.error :as malli-error]
             [nhl-score-api.cache :as cache]
+            [nhl-score-api.fetchers.nhl-api-web.api-request-queue :as api-request-queue]
             [nhl-score-api.fetchers.nhl-api-web.api.index :as api]
             [nhl-score-api.fetchers.nhl-api-web.api.landing :as landing]
             [nhl-score-api.fetchers.nhl-api-web.api.right-rail :as right-rail]
@@ -54,67 +53,13 @@
 (defn api-response-to-json [api-response]
   (json/read-str api-response :key-fn ->kebab-case-keyword))
 
-; Outgoing API request throttling: limit to max 3 concurrent requests
-(def ^:private max-concurrent-api-requests 3)
-(def ^:private api-request-queue (async/chan 100))
-(def ^:private pending-requests (atom {})) ; Map of URL -> promise for deduplication
-(def ^:private pending-requests-lock (Object.))
-
-(defn- api-request-worker [id]
-  (async/go-loop []
-    (when-let [[url options request-description result-promise request-id] (async/<! api-request-queue)]
-      (try
-        (logger/with-request-id request-id
-          (logger/info (str "[" id "] Fetching " request-description))
-          (let [start-time (System/currentTimeMillis)
-                response (http/get url options)]
-            (logger/info (str "[" id "] Fetched " request-description
-                              " (took " (- (System/currentTimeMillis) start-time) " ms)"))
-            (deliver result-promise response)))
-        (catch Exception e
-          (deliver result-promise e))
-        (finally
-          ; Remove from pending requests when done
-          (locking pending-requests-lock
-            (swap! pending-requests dissoc url))))
-      (recur))))
-
-; Start worker pool
-(doseq [id (range max-concurrent-api-requests)]
-  (api-request-worker (inc id)))
-
-(defn- throttled-fetch
-  "API request with throttling: limits to max 3 concurrent requests.
-   Requests are queued and processed by worker pool.
-   Duplicate requests for the same URL share the same pending request."
-  [url options request-description]
-  (let [result-promise
-        (locking pending-requests-lock
-          (if-let [existing-promise (get @pending-requests url)]
-            ; There's already a pending request for this URL, wait for it
-            (do
-              (logger/debug (str "Reusing pending request for " request-description))
-              existing-promise)
-            ; No pending request, create a new one
-            (let [new-promise (promise)
-                  request-id logger/*request-id*]
-              ; Track the pending request
-              (swap! pending-requests assoc url new-promise)
-              ; Queue the actual HTTP request
-              (async/>!! api-request-queue [url options request-description new-promise request-id])
-              new-promise)))
-        result @result-promise]
-    ; Block until result is available and handle exceptions
-    (if (instance? Exception result)
-      (throw result)
-      result)))
-
 (defn- fetch [api-request]
-  (let [response (-> (throttled-fetch (api/url api-request)
-                                      ; connection-timeout: waiting to establish a TCP connection
-                                      ; socket-timeout: waiting to read data from an established connection
-                                      {:connection-timeout 2000 :debug false :socket-timeout 10000}
-                                      (api/description api-request))
+  (let [response (-> (api-request-queue/fetch
+                      (api/url api-request)
+                      ; connection-timeout: waiting to establish a TCP connection
+                      ; socket-timeout: waiting to read data from an established connection
+                      {:connection-timeout 2000 :debug false :socket-timeout 10000}
+                      (api/description api-request))
                      :body
                      api-response-to-json)
         response-schema (api/response-schema api-request)]
