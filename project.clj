@@ -25,7 +25,8 @@
                   ["change" "version" "leiningen.release/bump-version" "release"]
                   ["vcs" "commit"]
                   ["vcs" "tag" "--no-sign"]]
-  :profiles {:kaocha  {:dependencies [[lambdaisland/kaocha "1.87.1366"]]}
+  :profiles {:kaocha  {:dependencies [[clj-http-fake "1.0.4"]
+                                      [lambdaisland/kaocha "1.87.1366"]]}
              :uberjar {:aot :all}}
   :aliases {"clj-kondo-deps" ["with-profile" "+test" "clj-kondo" "--copy-configs" "--dependencies" "--parallel" "--lint" "$classpath"]
             "clj-kondo-lint" ["do" ["clj-kondo-deps"] ["with-profile" "+test" "clj-kondo"]]

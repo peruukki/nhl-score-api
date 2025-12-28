@@ -47,6 +47,18 @@
      (reset! queue-initialized? true)
      nil)))
 
+(defn stop-queue!
+  "Stop all workers and reset state. Useful for tests to ensure clean isolation.
+   Allows re-initialization after stopping."
+  []
+  (when @queue-initialized?
+    (when-let [queue @request-queue]
+      (async/close! queue))
+    (reset! queue-initialized? false)
+    (reset! pending-requests {})
+    (reset! request-queue nil)
+    nil))
+
 (defn fetch
   "API request with throttling: limits to max 3 concurrent requests.
    Requests are queued and processed by worker pool.
