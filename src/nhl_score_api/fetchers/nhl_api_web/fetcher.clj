@@ -57,6 +57,8 @@
 ; Outgoing API request throttling: limit to max 3 concurrent requests
 (def ^:private max-concurrent-api-requests 3)
 (def ^:private api-request-queue (async/chan 100))
+(def ^:private pending-requests (atom {})) ; Map of URL -> promise for deduplication
+(def ^:private pending-requests-lock (Object.))
 
 (defn- api-request-worker [id]
   (async/go-loop []
@@ -70,7 +72,11 @@
                               " (took " (- (System/currentTimeMillis) start-time) " ms)"))
             (deliver result-promise response)))
         (catch Exception e
-          (deliver result-promise e)))
+          (deliver result-promise e))
+        (finally
+          ; Remove from pending requests when done
+          (locking pending-requests-lock
+            (swap! pending-requests dissoc url))))
       (recur))))
 
 ; Start worker pool
@@ -79,17 +85,29 @@
 
 (defn- throttled-fetch
   "API request with throttling: limits to max 3 concurrent requests.
-   Requests are queued and processed by worker pool."
+   Requests are queued and processed by worker pool.
+   Duplicate requests for the same URL share the same pending request."
   [url options request-description]
-  (let [result-promise (promise)
-        request-id logger/*request-id*]
-    ; Queue the request with request-id to preserve it in worker thread
-    (async/>!! api-request-queue [url options request-description result-promise request-id])
-    ; Block until result is available
-    (let [result @result-promise]
-      (if (instance? Exception result)
-        (throw result)
-        result))))
+  (let [result-promise
+        (locking pending-requests-lock
+          (if-let [existing-promise (get @pending-requests url)]
+            ; There's already a pending request for this URL, wait for it
+            (do
+              (logger/debug (str "Reusing pending request for " request-description))
+              existing-promise)
+            ; No pending request, create a new one
+            (let [new-promise (promise)
+                  request-id logger/*request-id*]
+              ; Track the pending request
+              (swap! pending-requests assoc url new-promise)
+              ; Queue the actual HTTP request
+              (async/>!! api-request-queue [url options request-description new-promise request-id])
+              new-promise)))
+        result @result-promise]
+    ; Block until result is available and handle exceptions
+    (if (instance? Exception result)
+      (throw result)
+      result)))
 
 (defn- fetch [api-request]
   (let [response (-> (throttled-fetch (api/url api-request)
