@@ -1,5 +1,6 @@
 (ns nhl-score-api.fetchers.nhl-api-web.api-request-queue
   (:require [clj-http.client :as http]
+            [clj-http.conn-mgr :as conn-mgr]
             [clojure.core.async :as async]
             [nhl-score-api.logging :as logger]))
 
@@ -9,6 +10,7 @@
 (def ^:private pending-requests (atom {}))
 (def ^:private pending-requests-lock (Object.)) ; Map of URL -> promise for deduplication
 (def ^:private request-queue (atom nil))
+(def ^:private connection-manager (atom nil))
 
 (defn- api-request-worker [id queue]
   (async/go-loop []
@@ -17,7 +19,12 @@
         (logger/with-request-id request-id
           (logger/info (str "[" id "] Fetching " request-description))
           (let [start-time (System/currentTimeMillis)
-                response (http/get url options)]
+                response (http/get
+                          url
+                          (merge {:connection-manager @connection-manager
+                                  :connection-timeout 2000 ; establish TCP connection
+                                  :socket-timeout 10000}   ; read data from established connection
+                                 options))]
             (logger/info (str "[" id "] Fetched " request-description
                               " (took " (- (System/currentTimeMillis) start-time) " ms)"))
             (deliver result-promise response)))
@@ -39,8 +46,11 @@
      (throw (IllegalStateException. "Queue already initialized")))
    (reset! max-concurrent-api-requests max-concurrent)
    (reset! pending-requests {})
-   (let [queue (async/chan 100)]
+   (let [queue (async/chan 100)
+         conn-mgr (conn-mgr/make-reusable-conn-manager {:threads max-concurrent
+                                                        :default-per-route max-concurrent})]
      (reset! request-queue queue)
+     (reset! connection-manager conn-mgr)
      ; Start worker pool
      (doseq [id (range max-concurrent)]
        (api-request-worker (inc id) queue))
@@ -54,9 +64,12 @@
   (when @queue-initialized?
     (when-let [queue @request-queue]
       (async/close! queue))
+    (when-let [conn-mgr @connection-manager]
+      (conn-mgr/shutdown-manager conn-mgr))
     (reset! queue-initialized? false)
     (reset! pending-requests {})
     (reset! request-queue nil)
+    (reset! connection-manager nil)
     nil))
 
 (defn fetch
