@@ -33,9 +33,11 @@
 
 (defn -main []
   (let [ip "0.0.0.0"
+        max-concurrent-api-requests (Integer/parseInt (get (System/getenv) "MAX_CONCURRENT_API_REQUESTS" "3"))
         port (Integer/parseInt (get (System/getenv) "PORT" "8080"))]
     (logger/info (str "Starting server version " version))
-    (api-request-queue/init-queue!)
+    (logger/info (str "Initializing API request queue with " max-concurrent-api-requests " concurrent requests"))
+    (api-request-queue/init-queue! max-concurrent-api-requests)
     (logger/info (str "Listening on " ip ":" port))
     (server/run-server app {:ip ip :port port})))
 
