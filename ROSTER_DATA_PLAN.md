@@ -70,14 +70,22 @@ The API currently returns game data with:
   - Skaters (other positions)
 
 **HTML Parsing Strategy**:
-- The roster HTML is likely a structured table
-- Need to identify the HTML structure (inspect actual roster HTML)
+- The roster HTML has been inspected (see `roster-2023020207.html` in test resources)
+- Structure:
+  - Two main sections: `<table id="Visitor">` (away team) and `<table id="Home">` (home team)
+  - Each section contains a table with columns: `#` (jersey number), `Pos` (position), `Name`
+  - Player rows: `<tr><td>#</td><td>Pos</td><td>Name</td></tr>`
+  - Positions: `G` (goalie), `D` (defense), `C` (center), `L` (left wing), `R` (right wing)
+  - Names are in UPPERCASE format (e.g., "DUSTIN WOLF", "JACOB MARKSTROM")
+  - Some rows have `class="bold"` indicating starting lineup
+  - Some names include `(C)` for captain or `(A)` for alternate captain
 - Extract:
-  - Player ID (if available in HTML)
-  - Player name (full name)
-  - Position
-  - Jersey number
-  - Team (away/home)
+  - **Jersey number** (from first `<td>`)
+  - **Position** (from second `<td>`)
+  - **Player name** (from third `<td>`, remove captain/alternate markers)
+  - **Team** (away/home based on table ID)
+- **Important**: Player IDs are NOT available in the HTML - only jersey numbers, positions, and names
+- Matching players by ID would require cross-referencing with other data sources (landing/right-rail)
 
 **Caching**: Cache parsed roster data similar to other API responses to avoid repeated HTML fetching/parsing.
 
@@ -111,9 +119,14 @@ The API currently returns game data with:
 - Structure roster data as:
   ```clojure
   {:rosters
-   {:away [{:player-id <id> :name "<full-name>" :position "G" :number 79} ...]
-    :home [{:player-id <id> :name "<full-name>" :position "C" :number 13} ...]}}
+   {:away [{:name "<full-name>" :position "G" :number 32} ...]
+    :home [{:name "<full-name>" :position "C" :number 13} ...]}}
   ```
+- **Note**: Player IDs are not available in roster HTML, so we include:
+  - `name`: Full player name (normalized from uppercase)
+  - `position`: Player position (G, D, C, L, R)
+  - `number`: Jersey number
+- Optionally, we could cross-reference with landing/right-rail data to add player IDs, but that adds complexity
 - Use `reject-empty-vals-except-for-keys` pattern to exclude roster field when not present
 
 **Location in Code Flow**:
@@ -138,8 +151,8 @@ The API currently returns game data with:
 - Test handling of network errors
 
 **Test Data**: 
-- Need to fetch/create sample roster HTML files
-- Or use actual roster HTML from test games
+- Sample roster HTML file saved: `roster-2023020207.html` (game ID 2023020207)
+- Can fetch additional roster HTML files for other test games if needed
 
 #### 6b. Param Parser Tests (`test/nhl_score_api/param_parser_test.clj`)
 
@@ -252,25 +265,30 @@ The API currently returns game data with:
   "rosters": {
     "away": [
       {
-        "playerId": 8479292,
-        "name": "Charlie Lindgren",
+        "name": "Dustin Wolf",
         "position": "G",
-        "number": 79
+        "number": 32
+      },
+      {
+        "name": "Jacob Markstrom",
+        "position": "G",
+        "number": 25
       },
       ...
     ],
     "home": [
       {
-        "playerId": 8480018,
-        "name": "Nick Suzuki",
-        "position": "C",
-        "number": 14
+        "name": "Ilya Samsonov",
+        "position": "G",
+        "number": 35
       },
       ...
     ]
   }
 }
 ```
+
+**Note**: Player IDs are not included because they're not available in the roster HTML. Only jersey numbers, positions, and names are available.
 
 **Note**: `rosters` field will only be present when `include=rosters` query parameter is provided. It will be omitted otherwise.
 
@@ -321,7 +339,8 @@ The API currently returns game data with:
 
 ## Next Steps
 
-1. Fetch a sample roster HTML file to understand the structure
-2. Determine the exact HTML structure and parsing strategy
-3. Implement roster parser based on actual HTML format
+1. ✅ Fetch a sample roster HTML file to understand the structure (`roster-2023020207.html` saved)
+2. ✅ Determine the exact HTML structure and parsing strategy (documented above)
+3. Implement roster parser based on actual HTML format using `enlive`
 4. Test with real roster data
+5. Consider: Should we normalize names (uppercase to title case)? Should we include player IDs by cross-referencing?
