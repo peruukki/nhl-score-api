@@ -8,7 +8,7 @@
     {:success {field (parse-date value)}}
     (catch Exception e {:error (str "Invalid parameter " name ": " (.getMessage e))})))
 
-(defn- parse-fn-string [name field value]
+(defn- parse-fn-string [_name field value]
   {:success {field value}})
 
 (def parse-fns {:date parse-fn-date
@@ -33,10 +33,11 @@
     {:values (apply merge parsed-values)
      :errors parsing-errors}))
 
-(defn parse-include-param [include-value]
+(defn parse-include-param
   "Parses the 'include' query parameter, splitting by comma and trimming whitespace.
    Returns a set of inclusion names (e.g., #{\"rosters\" \"otherThing\"}).
    Returns empty set if parameter is nil or empty (including whitespace-only strings)."
+  [include-value]
   (if (or (nil? include-value) (empty? (str/trim include-value)))
     #{}
     (->> (str/split include-value #",")
