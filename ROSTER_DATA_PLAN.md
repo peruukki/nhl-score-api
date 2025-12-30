@@ -31,27 +31,29 @@ The API currently returns game data with:
 
 ### 1. Add Query Parameter Parsing (`src/nhl_score_api/param_parser.clj`)
 
-**Action**: Add support for parsing a boolean query parameter `includeRosters`.
+**Action**: Add support for parsing a string query parameter `include` that can contain comma-separated values.
 
 **Details**:
-- Add a new parse function for boolean parameters: `parse-fn-boolean`
-- Add `:boolean` to `parse-fns` map
-- Handle values like `true`, `false`, `1`, `0`, etc.
-- Default to `false` if parameter not provided
+- Add a new parse function for string parameters: `parse-fn-string` (or use existing string handling)
+- Parse `include` parameter as a string
+- Split by comma to support multiple inclusions (e.g., `include=rosters,otherThing`)
+- Check if "rosters" is in the list of inclusions
+- Default to empty list if parameter not provided
 
-**Rationale**: Need to parse the query parameter to determine if rosters should be included.
+**Rationale**: Use flexible `include` parameter to support future additions (e.g., `include=rosters,stats`). For now, check if "rosters" is in the inclusion list.
 
 ### 2. Update Core Request Handler (`src/nhl_score_api/core.clj`)
 
-**Action**: Parse `includeRosters` query parameter and pass it to fetch functions.
+**Action**: Parse `include` query parameter and determine if rosters should be included.
 
 **Details**:
-- Add `:include-rosters` to expected parameters for both `/api/scores/latest` and `/api/scores` endpoints
-- Parse the boolean parameter
-- Pass `include-rosters` flag to `fetch-latest-scores` and `fetch-scores-in-date-range` functions
+- Add `:include` to expected parameters for both `/api/scores/latest` and `/api/scores` endpoints
+- Parse the string parameter (comma-separated list)
+- Check if "rosters" is in the inclusion list
+- Pass `include-rosters` boolean flag to `fetch-latest-scores` and `fetch-scores-in-date-range` functions
 - Update function signatures to accept the new parameter
 
-**Rationale**: Request handler needs to extract and pass the parameter to the fetch layer.
+**Rationale**: Request handler needs to extract the `include` parameter, check for "rosters", and pass a boolean flag to the fetch layer. This design supports future additions (e.g., `include=rosters,otherThing`).
 
 ### 3. Create Roster Parser Module (`src/nhl_score_api/fetchers/nhl_api_web/roster_parser.clj` - NEW FILE)
 
@@ -141,13 +143,14 @@ The API currently returns game data with:
 
 #### 6b. Param Parser Tests (`test/nhl_score_api/param_parser_test.clj`)
 
-**Action**: Add tests for boolean parameter parsing.
+**Action**: Add tests for `include` parameter parsing.
 
 **Details**:
-- Test parsing `true`/`false` values
-- Test parsing `1`/`0` values
+- Test parsing single value: `include=rosters`
+- Test parsing multiple values: `include=rosters,otherThing`
 - Test default behavior (missing parameter)
-- Test invalid boolean values
+- Test empty value handling
+- Test whitespace handling in comma-separated list
 
 #### 6c. Game Scores Tests (`test/nhl_score_api/fetchers/nhl_api_web/game_scores_test.clj`)
 
@@ -164,10 +167,11 @@ The API currently returns game data with:
 **Action**: Add tests for query parameter handling.
 
 **Details**:
-- Test `includeRosters=true` query parameter
-- Test `includeRosters=false` query parameter
-- Test missing parameter (defaults to false)
-- Test invalid parameter values
+- Test `include=rosters` query parameter
+- Test `include=rosters,otherThing` (should still include rosters)
+- Test missing parameter (no inclusions)
+- Test empty `include` parameter
+- Test case-insensitive parsing (e.g., `include=ROSTERS`)
 
 ## Implementation Order
 
@@ -218,9 +222,11 @@ The API currently returns game data with:
    - Similar pattern to how `goals` and `links` are handled
 
 6. **Query parameter values**:
-   - Handle various boolean representations: `true`, `false`, `1`, `0`, `yes`, `no`
-   - Case-insensitive parsing
-   - Invalid values should default to `false`
+   - Handle single value: `include=rosters`
+   - Handle multiple values: `include=rosters,otherThing` (for future use)
+   - Case-insensitive parsing for inclusion names
+   - Trim whitespace around comma-separated values
+   - Empty or missing parameter means no inclusions
 
 ## API Response Format
 
@@ -235,7 +241,7 @@ The API currently returns game data with:
 }
 ```
 
-### After (with `?includeRosters=true`)
+### After (with `?include=rosters`)
 ```json
 {
   "status": {...},
@@ -266,17 +272,19 @@ The API currently returns game data with:
 }
 ```
 
-**Note**: `rosters` field will only be present when `includeRosters=true` query parameter is provided. It will be omitted otherwise.
+**Note**: `rosters` field will only be present when `include=rosters` query parameter is provided. It will be omitted otherwise.
 
 ## API Endpoint Changes
 
 ### `/api/scores/latest`
-- **New Query Parameter**: `includeRosters` (boolean, optional, default: false)
-- **Example**: `/api/scores/latest?includeRosters=true`
+- **New Query Parameter**: `include` (string, optional, comma-separated list)
+- **Example**: `/api/scores/latest?include=rosters`
+- **Future Example**: `/api/scores/latest?include=rosters,otherThing`
 
 ### `/api/scores`
-- **New Query Parameter**: `includeRosters` (boolean, optional, default: false)
-- **Example**: `/api/scores?startDate=2023-11-08&endDate=2023-11-09&includeRosters=true`
+- **New Query Parameter**: `include` (string, optional, comma-separated list)
+- **Example**: `/api/scores?startDate=2023-11-08&endDate=2023-11-09&include=rosters`
+- **Future Example**: `/api/scores?startDate=2023-11-08&include=rosters,otherThing`
 
 ## Testing Strategy
 
@@ -286,9 +294,10 @@ The API currently returns game data with:
    - HTML parsing edge cases
 
 2. **Integration Tests**: 
-   - Full request flow with `includeRosters=true`
-   - Full request flow with `includeRosters=false`
+   - Full request flow with `include=rosters`
+   - Full request flow without `include` parameter
    - Multiple games with rosters
+   - Future: test with `include=rosters,otherThing` (when other inclusions are added)
 
 3. **Edge Case Tests**: 
    - Missing roster links
@@ -296,7 +305,8 @@ The API currently returns game data with:
    - Invalid query parameters
 
 4. **Performance Tests**:
-   - Verify rosters only fetched when requested
+   - Verify rosters only fetched when `include=rosters` is present
+   - Verify no extra requests when parameter is missing
    - Verify caching works correctly
 
 ## Notes
@@ -306,6 +316,7 @@ The API currently returns game data with:
 - Project already includes `enlive` HTML parsing library (no new dependency needed)
 - Roster data is cached to avoid repeated fetching/parsing
 - Query parameter is optional - existing API calls continue to work without changes
+- `include` parameter supports comma-separated values for future extensibility (e.g., `include=rosters,otherThing`)
 - Roster structure needs to be determined by inspecting actual HTML files
 
 ## Next Steps
