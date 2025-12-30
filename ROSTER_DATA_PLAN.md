@@ -3,6 +3,27 @@
 ## Overview
 The NHL Web API right-rail endpoint includes a link to an HTML roster report for finished or live games. This plan outlines adding optional roster information to API responses, controlled by a query parameter. Since fetching and parsing HTML requires an extra HTTP request, it will only be included when explicitly requested.
 
+## Implementation Strategy: Phased Approach
+
+This implementation is divided into **8 incremental phases** that can be fully implemented, tested, and released independently:
+
+1. **Phase 1**: Query Parameter Infrastructure (foundational, no external changes)
+2. **Phase 2**: Team Roster API Module (standalone module)
+3. **Phase 3**: Roster HTML Parser Module (standalone module)
+4. **Phase 4**: Player Matching & Enrichment Logic (uses phases 2 & 3)
+5. **Phase 5**: Fetcher Integration - Team Roster API (internal changes)
+6. **Phase 6**: Fetcher Integration - Roster HTML (internal changes)
+7. **Phase 7**: API Response Integration (**external API change**)
+8. **Phase 8**: End-to-End Testing & Documentation
+
+**Key Benefits**:
+- Phases 1-6 can be released without external API changes
+- Each phase is independently testable and releasable
+- Smaller, focused changes are easier to review and debug
+- Can stop at any phase if needed
+
+See [Implementation Phases](#implementation-phases) section for detailed breakdown.
+
 ## Current State
 
 ### Data Source
@@ -280,41 +301,170 @@ The API currently returns game data with:
 - Test empty `include` parameter
 - Test case-insensitive parsing (e.g., `include=ROSTERS`)
 
-## Implementation Order
+## Implementation Phases
 
-1. **Step 1**: Add string parameter parsing for `include` (param_parser.clj)
-2. **Step 2**: Update request handler to parse and pass parameter (core.clj)
-3. **Step 3**: Create team roster API module (api/roster.clj - NEW)
-   - ✅ Endpoint confirmed: `/v1/roster/{teamAbbrev}/{season}`
-   - ✅ Response structure understood (sample data available)
-   - Implement ApiRequest protocol
-   - Create response schema validation (forwards, defensemen, goalies arrays)
-   - Test endpoint URL and response structure with sample data
-4. **Step 4**: Create roster parser module (roster_parser.clj - NEW)
-   - Implement HTML parsing with enlive (structure already understood)
-   - Extract roster data from HTML (jersey number, position, name)
-   - Implement matching logic:
-     - Primary: `sweaterNumber` + `positionCode` (exact match)
-     - Fallback: name matching (normalize HTML UPPERCASE to title case)
-   - Implement enrichment with team roster API data (add player IDs)
-   - Combine API arrays (forwards, defensemen, goalies) for matching
-5. **Step 5**: Update fetcher to conditionally fetch rosters (fetcher.clj)
-   - Add include-rosters parameter to fetch functions
-   - Extract team abbreviations and season from game data
-   - Fetch team roster API data for both teams (2 requests per game)
-   - Conditionally fetch and parse roster HTML (1 request per game)
-   - Enrich roster HTML with API data
-   - Cache parsed roster data (both HTML and API)
-6. **Step 6**: Add roster to game details (game_scores.clj)
-   - Update parse-game-details to accept roster data
-   - Include enriched roster in response when present
-   - Format: `{:rosters {:away [...], :home [...]}}`
-7. **Step 7**: Add tests
-   - Team roster API tests (use sample data: `roster-api-CGY-20232024.json`)
-   - Roster parser tests (parsing + enrichment, use `roster-2023020207.html`)
-   - Param parser tests
-   - Game scores tests
-   - Core handler tests
+The implementation is divided into incremental phases that can be fully implemented, tested, and released independently. Each phase builds on previous phases.
+
+### Phase 1: Query Parameter Infrastructure
+**Goal**: Add support for parsing `include` query parameter (foundational, no external API changes)
+
+**Tasks**:
+- Add string parameter parsing to `param_parser.clj`
+- Support comma-separated values (e.g., `include=rosters,otherThing`)
+- Add tests for parameter parsing
+
+**Deliverables**:
+- ✅ Parameter parsing functionality
+- ✅ Tests passing
+- ✅ No external API changes (parameter not yet used)
+
+**Release**: Can be released immediately (backward compatible, unused feature)
+
+---
+
+### Phase 2: Team Roster API Module
+**Goal**: Create standalone module for fetching team roster data from NHL Web API
+
+**Tasks**:
+- Create `api/roster.clj` with `RosterApiRequest` record
+- Implement `ApiRequest` protocol (url, cache-key, description, response-schema, archive?)
+- Create schema validation for roster API response
+- Add tests using sample data (`roster-api-CGY-20232024.json`)
+
+**Deliverables**:
+- ✅ `RosterApiRequest` module
+- ✅ Schema validation
+- ✅ Tests passing
+- ✅ Can fetch and validate team roster data
+
+**Release**: Can be released immediately (new internal module, not yet integrated)
+
+---
+
+### Phase 3: Roster HTML Parser Module
+**Goal**: Create standalone module for parsing roster HTML files
+
+**Tasks**:
+- Create `roster_parser.clj` module
+- Implement HTML parsing with `enlive`
+- Extract roster data from HTML (jersey number, position, name)
+- Parse away and home team rosters
+- Normalize names (handle UPPERCASE, remove captain/alternate markers)
+- Add tests using sample HTML (`roster-2023020207.html`)
+
+**Deliverables**:
+- ✅ HTML parsing functionality
+- ✅ Extracted roster data structure
+- ✅ Tests passing
+- ✅ Can parse roster HTML independently
+
+**Release**: Can be released immediately (new internal module, not yet integrated)
+
+---
+
+### Phase 4: Player Matching and Enrichment Logic
+**Goal**: Create logic to match HTML roster players with API roster data
+
+**Tasks**:
+- Add matching functions to `roster_parser.clj`
+- Implement primary matching: `sweaterNumber` + `positionCode`
+- Implement fallback matching: name normalization and comparison
+- Combine API arrays (forwards, defensemen, goalies) for matching
+- Enrich HTML roster data with player IDs from API
+- Handle unmatched players gracefully
+- Add tests for matching logic
+
+**Deliverables**:
+- ✅ Matching logic
+- ✅ Enrichment functionality
+- ✅ Tests passing (use both HTML and API sample data)
+- ✅ Can match and enrich roster data
+
+**Release**: Can be released immediately (new functionality in existing module)
+
+---
+
+### Phase 5: Fetcher Integration - Team Roster API
+**Goal**: Integrate team roster API fetching into the fetcher (no HTML parsing yet)
+
+**Tasks**:
+- Update `fetcher.clj` to accept `include-rosters` parameter
+- Extract team abbreviations and season from game data
+- Fetch team roster API data for both teams when `include-rosters=true`
+- Cache team roster API responses
+- Pass team roster data to game parsing (not yet used in response)
+- Add tests for fetching logic
+
+**Deliverables**:
+- ✅ Team roster API fetching integrated
+- ✅ Caching working
+- ✅ Tests passing
+- ✅ No external API changes (data fetched but not yet in response)
+
+**Release**: Can be released immediately (internal changes, no external impact)
+
+---
+
+### Phase 6: Fetcher Integration - Roster HTML
+**Goal**: Integrate roster HTML fetching and parsing into the fetcher
+
+**Tasks**:
+- Fetch roster HTML when `include-rosters=true` (using roster URL from right-rail)
+- Parse roster HTML using Phase 3 module
+- Match and enrich HTML roster with API roster data using Phase 4 logic
+- Cache parsed roster data
+- Pass enriched roster data to game parsing
+- Add tests for HTML fetching and parsing integration
+
+**Deliverables**:
+- ✅ Roster HTML fetching integrated
+- ✅ Parsing integrated
+- ✅ Enrichment integrated
+- ✅ Tests passing
+- ✅ No external API changes (data processed but not yet in response)
+
+**Release**: Can be released immediately (internal changes, no external impact)
+
+---
+
+### Phase 7: API Response Integration
+**Goal**: Add roster data to API responses
+
+**Tasks**:
+- Update `game_scores.clj` to accept roster data parameter
+- Add `:rosters` field to game details when roster data present
+- Format roster data: `{:rosters {:away [...], :home [...]}}`
+- Use `reject-empty-vals-except-for-keys` to exclude when not present
+- Update `parse-game-scores` to pass roster data
+- Add tests for response format
+
+**Deliverables**:
+- ✅ Roster data in API responses
+- ✅ Format matches specification
+- ✅ Tests passing
+- ✅ External API change: `?include=rosters` now returns roster data
+
+**Release**: **External API change** - Feature complete and ready for use
+
+---
+
+### Phase 8: End-to-End Testing and Documentation
+**Goal**: Comprehensive testing and documentation
+
+**Tasks**:
+- End-to-end integration tests
+- Test with multiple games
+- Test edge cases (missing rosters, unmatched players, etc.)
+- Performance testing
+- Update API documentation
+- Update README if needed
+
+**Deliverables**:
+- ✅ Comprehensive test coverage
+- ✅ Documentation updated
+- ✅ Production ready
+
+**Release**: Final polish and documentation
 
 ## Edge Cases to Consider
 
@@ -480,22 +630,49 @@ The API currently returns game data with:
 - Player matching uses jersey number (`sweaterNumber`) + position code (`positionCode`) as primary key, with name as fallback
 - Position codes match exactly between HTML (G, D, C, L, R) and API (G, D, C, L, R)
 
-## Next Steps
+## Implementation Summary
 
-1. ✅ Fetch a sample roster HTML file to understand the structure (`roster-2023020207.html` saved)
-2. ✅ Determine the exact HTML structure and parsing strategy (documented above)
-3. ✅ **Determine team roster API endpoint** from NHL Web API
-   - ✅ Endpoint confirmed: `/v1/roster/{teamAbbrev}/{season}`
-   - ✅ Response structure understood (three arrays: forwards, defensemen, goalies)
-   - ✅ Sample responses saved: `roster-api-CGY-20232024.json`, `roster-api-TOR-20232024.json`
-4. Implement team roster API module (`api/roster.clj`)
-   - Create `RosterApiRequest` record
-   - Implement schema validation
-   - Test with sample data
-5. Implement roster parser module (`roster_parser.clj`)
-   - HTML parsing with `enlive`
-   - Matching logic (jersey number + position code, name fallback)
-   - Enrichment with API data
-   - Name normalization (UPPERCASE HTML → title case)
-6. Integrate into fetcher
-7. Test with real roster data
+### Completed Preparation Steps
+1. ✅ Fetch a sample roster HTML file (`roster-2023020207.html` saved)
+2. ✅ Determine the exact HTML structure and parsing strategy
+3. ✅ Determine team roster API endpoint (`/v1/roster/{teamAbbrev}/{season}`)
+4. ✅ Fetch sample API responses (`roster-api-CGY-20232024.json`, `roster-api-TOR-20232024.json`)
+
+### Next Steps: Phase-by-Phase Implementation
+
+**Start with Phase 1**: Query Parameter Infrastructure
+- Smallest, most isolated change
+- No external dependencies
+- Can be released immediately
+- Sets foundation for future phases
+
+**Then proceed sequentially** through phases 2-8, each building on the previous.
+
+### Phase Dependencies
+
+```
+Phase 1 (Query Parameter)
+    ↓
+Phase 2 (Team Roster API) ──┐
+    ↓                        │
+Phase 3 (HTML Parser) ───────┤
+    ↓                        │
+Phase 4 (Matching Logic) ←──┘
+    ↓
+Phase 5 (Fetcher - API)
+    ↓
+Phase 6 (Fetcher - HTML)
+    ↓
+Phase 7 (API Response) ← External API change
+    ↓
+Phase 8 (Testing & Docs)
+```
+
+### Benefits of Phased Approach
+
+1. **Incremental Progress**: Each phase is completable and testable independently
+2. **Early Releases**: Phases 1-6 can be released without external API changes
+3. **Risk Mitigation**: Issues can be caught and fixed in isolated phases
+4. **Code Review**: Smaller, focused changes are easier to review
+5. **Testing**: Each phase can be thoroughly tested before moving to next
+6. **Rollback**: If issues arise, can rollback specific phases
