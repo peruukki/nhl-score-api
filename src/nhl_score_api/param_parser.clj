@@ -1,5 +1,6 @@
 (ns nhl-score-api.param-parser
   (:require [camel-snake-kebab.core :refer [->camelCaseString]]
+            [clojure.string :as str]
             [nhl-score-api.utils :refer [parse-date]]))
 
 (defn- parse-fn-date [name field value]
@@ -7,7 +8,11 @@
     {:success {field (parse-date value)}}
     (catch Exception e {:error (str "Invalid parameter " name ": " (.getMessage e))})))
 
-(def parse-fns {:date parse-fn-date})
+(defn- parse-fn-string [name field value]
+  {:success {field value}})
+
+(def parse-fns {:date parse-fn-date
+                :string parse-fn-string})
 
 (defn- parse-param [field value type required?]
   (let [name (->camelCaseString field)
@@ -27,3 +32,14 @@
         parsing-errors (filter some? (map #(:error %) parse-results))]
     {:values (apply merge parsed-values)
      :errors parsing-errors}))
+
+(defn parse-include-param [include-value]
+  "Parses the 'include' query parameter, splitting by comma and trimming whitespace.
+   Returns a set of inclusion names (e.g., #{\"rosters\" \"otherThing\"}).
+   Returns empty set if parameter is nil or empty."
+  (if (or (nil? include-value) (empty? include-value))
+    #{}
+    (->> (str/split include-value #",")
+         (map str/trim)
+         (filter (complement empty?))
+         set)))
