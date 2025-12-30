@@ -49,5 +49,5 @@
   (testing "archive?"
     (is (= false
            (api/archive? (roster/->RosterApiRequest "CGY" "20232024")
-                        (resources/get-roster-api "CGY" "20232024")))
+                         (resources/get-roster-api "CGY" "20232024")))
         "Archive check returns false (simple implementation)")))
