@@ -33,9 +33,6 @@
   api/ApiRequest
   (archive? [this response] (api/archive-with-context? this response nil))
   (archive-with-context? [_ _response _context]
-    ; Roster data doesn't change frequently during a season, so we can archive it
-    ; once the season is over. For now, we'll archive based on season end date.
-    ; This is a simple implementation - could be enhanced later.
     false)
   (cache-key [_] (str "roster-" team-abbrev "-" season))
   (description [_] (str "roster " {:team team-abbrev :season season}))
