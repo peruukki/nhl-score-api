@@ -20,14 +20,15 @@
     [:birth-date {:optional true} :string]
     [:birth-city {:optional true} #'schema/Localized]
     [:birth-country {:optional true} :string]
-    [:birth-state-province {:optional true} #'schema/Localized]]))
+    [:birth-state-province {:optional true} #'schema/Localized]]
+   {:registry schema/registry}))
 
 (def ResponseSchema
   (malli/schema
    [:map
-    [:forwards {:optional true} [:vector #'PlayerSchema]]
-    [:defensemen {:optional true} [:vector #'PlayerSchema]]
-    [:goalies {:optional true} [:vector #'PlayerSchema]]]))
+    [:forwards {:optional true} [:vector PlayerSchema]]
+    [:defensemen {:optional true} [:vector PlayerSchema]]
+    [:goalies {:optional true} [:vector PlayerSchema]]]))
 
 (defrecord RosterApiRequest [team-abbrev season]
   api/ApiRequest
