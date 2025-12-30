@@ -61,19 +61,44 @@ The API currently returns game data with:
 
 **Details**:
 - Create `RosterApiRequest` record implementing `ApiRequest` protocol
-- Endpoint pattern: `/v1/roster/{teamAbbrev}/{season}` or `/v1/roster/{teamAbbrev}` (to be confirmed from NHL Web API Reference)
+- **Endpoint**: `/v1/roster/{teamAbbrev}/{season}` (confirmed)
+  - Example: `https://api-web.nhle.com/v1/roster/CGY/20232024`
 - Parameters needed:
   - Team abbreviation (e.g., "CGY", "TOR")
-  - Season (e.g., "20232024") - optional, may default to current season
+  - Season (e.g., "20232024") - required
 - Create schema validation for roster API response
-- Response likely contains:
-  - Player IDs
-  - Player names (full names)
-  - Jersey numbers
-  - Positions
-  - Other player details
 
-**Rationale**: Team roster API provides accurate player information (including player IDs) that can be matched with roster HTML data.
+**Response Structure** (confirmed from sample responses):
+```json
+{
+  "forwards": [
+    {
+      "id": 8474150,
+      "firstName": {"default": "Mikael"},
+      "lastName": {"default": "Backlund"},
+      "sweaterNumber": 11,
+      "positionCode": "C",
+      ...
+    }
+  ],
+  "defensemen": [...],
+  "goalies": [...]
+}
+```
+
+**Key Fields**:
+- `id`: Player ID (integer) - **critical for matching**
+- `firstName`: Localized object with `default` field
+- `lastName`: Localized object with `default` field
+- `sweaterNumber`: Jersey number (integer) - **critical for matching**
+- `positionCode`: Position code ("C", "D", "G", "L", "R") - **critical for matching**
+
+**Schema**:
+- Response contains three arrays: `forwards`, `defensemen`, `goalies`
+- Each player has: `id`, `firstName`, `lastName`, `sweaterNumber`, `positionCode`
+- Position codes match roster HTML: C, D, G, L, R
+
+**Rationale**: Team roster API provides accurate player information (including player IDs) that can be matched with roster HTML data using jersey number + position code.
 
 ### 4. Create Roster Parser Module (`src/nhl_score_api/fetchers/nhl_api_web/roster_parser.clj` - NEW FILE)
 
@@ -84,10 +109,20 @@ The API currently returns game data with:
 - Create `parse-roster-html` function to parse HTML and extract player information
 - Use `enlive` (already in project dependencies) for HTML parsing
 - Create `enrich-roster-with-api-data` function to match HTML roster data with API roster data
-- Matching strategy:
-  - Match by jersey number + position (most reliable)
-  - Fallback: match by name (normalize both: uppercase, handle special characters)
-  - Handle cases where HTML player not found in API data
+- **Matching Strategy**:
+  - **Primary**: Match by `sweaterNumber` (jersey number) + `positionCode` (position)
+    - Roster HTML: jersey number + position (G, D, C, L, R)
+    - API: `sweaterNumber` + `positionCode` (G, D, C, L, R)
+    - Position codes match exactly between HTML and API
+  - **Fallback**: Match by name (normalize both: uppercase HTML to title case, handle special characters)
+    - HTML names are UPPERCASE (e.g., "DUSTIN WOLF")
+    - API names are title case (e.g., "Dustin Wolf")
+    - Normalize HTML name to title case for comparison
+  - Handle cases where HTML player not found in API data (include with HTML data only)
+- **API Data Structure**:
+  - API has three arrays: `forwards`, `defensemen`, `goalies`
+  - Need to search across all three arrays for matching
+  - Combine all players into single list for matching
 - Extract roster data structure:
   - Away team roster (players with positions, numbers, names, player IDs)
   - Home team roster (players with positions, numbers, names, player IDs)
@@ -180,14 +215,16 @@ The API currently returns game data with:
 
 **Details**:
 - Test roster API request creation
-- Test URL generation
+- Test URL generation (e.g., `/v1/roster/CGY/20232024`)
 - Test cache key generation
 - Test schema validation
 - Test response parsing
+- Test with sample data: `roster-api-CGY-20232024.json`
 
 **Test Data**: 
-- May need to fetch sample team roster API responses
-- Or create mock responses based on API structure
+- ✅ Sample team roster API responses saved:
+  - `roster-api-CGY-20232024.json` (Calgary Flames)
+  - `roster-api-TOR-20232024.json` (Toronto Maple Leafs)
 
 #### 7b. Roster Parser Tests (`test/nhl_score_api/fetchers/nhl_api_web/roster_parser_test.clj` - NEW FILE)
 
@@ -205,8 +242,10 @@ The API currently returns game data with:
 - Test handling of network errors
 
 **Test Data**: 
-- Sample roster HTML file saved: `roster-2023020207.html` (game ID 2023020207)
-- Need sample team roster API responses for matching tests
+- ✅ Sample roster HTML file saved: `roster-2023020207.html` (game ID 2023020207)
+- ✅ Sample team roster API responses saved:
+  - `roster-api-CGY-20232024.json` (away team for game 2023020207)
+  - `roster-api-TOR-20232024.json` (home team for game 2023020207)
 - Can fetch additional roster HTML files for other test games if needed
 
 #### 7c. Param Parser Tests (`test/nhl_score_api/param_parser_test.clj`)
@@ -246,27 +285,33 @@ The API currently returns game data with:
 1. **Step 1**: Add string parameter parsing for `include` (param_parser.clj)
 2. **Step 2**: Update request handler to parse and pass parameter (core.clj)
 3. **Step 3**: Create team roster API module (api/roster.clj - NEW)
-   - Determine exact endpoint from NHL Web API Reference documentation
+   - ✅ Endpoint confirmed: `/v1/roster/{teamAbbrev}/{season}`
+   - ✅ Response structure understood (sample data available)
    - Implement ApiRequest protocol
-   - Create response schema validation
-   - Test endpoint URL and response structure
+   - Create response schema validation (forwards, defensemen, goalies arrays)
+   - Test endpoint URL and response structure with sample data
 4. **Step 4**: Create roster parser module (roster_parser.clj - NEW)
    - Implement HTML parsing with enlive (structure already understood)
-   - Extract roster data from HTML
-   - Implement matching logic (jersey number + position, name fallback)
-   - Implement enrichment with team roster API data
+   - Extract roster data from HTML (jersey number, position, name)
+   - Implement matching logic:
+     - Primary: `sweaterNumber` + `positionCode` (exact match)
+     - Fallback: name matching (normalize HTML UPPERCASE to title case)
+   - Implement enrichment with team roster API data (add player IDs)
+   - Combine API arrays (forwards, defensemen, goalies) for matching
 5. **Step 5**: Update fetcher to conditionally fetch rosters (fetcher.clj)
    - Add include-rosters parameter to fetch functions
-   - Fetch team roster API data for both teams
-   - Conditionally fetch and parse roster HTML
+   - Extract team abbreviations and season from game data
+   - Fetch team roster API data for both teams (2 requests per game)
+   - Conditionally fetch and parse roster HTML (1 request per game)
    - Enrich roster HTML with API data
    - Cache parsed roster data (both HTML and API)
 6. **Step 6**: Add roster to game details (game_scores.clj)
    - Update parse-game-details to accept roster data
    - Include enriched roster in response when present
+   - Format: `{:rosters {:away [...], :home [...]}}`
 7. **Step 7**: Add tests
-   - Team roster API tests
-   - Roster parser tests (parsing + enrichment)
+   - Team roster API tests (use sample data: `roster-api-CGY-20232024.json`)
+   - Roster parser tests (parsing + enrichment, use `roster-2023020207.html`)
    - Param parser tests
    - Game scores tests
    - Core handler tests
@@ -430,21 +475,27 @@ The API currently returns game data with:
 - Query parameter is optional - existing API calls continue to work without changes
 - `include` parameter supports comma-separated values for future extensibility (e.g., `include=rosters,otherThing`)
 - Roster HTML structure has been analyzed (see `roster-2023020207.html` in test resources)
-- Team roster API endpoint needs to be confirmed from NHL Web API Reference documentation
-- Player matching uses jersey number + position as primary key, with name as fallback
+- ✅ Team roster API endpoint confirmed: `/v1/roster/{teamAbbrev}/{season}`
+- ✅ Sample API responses saved for testing
+- Player matching uses jersey number (`sweaterNumber`) + position code (`positionCode`) as primary key, with name as fallback
+- Position codes match exactly between HTML (G, D, C, L, R) and API (G, D, C, L, R)
 
 ## Next Steps
 
 1. ✅ Fetch a sample roster HTML file to understand the structure (`roster-2023020207.html` saved)
 2. ✅ Determine the exact HTML structure and parsing strategy (documented above)
-3. **Determine team roster API endpoint** from NHL Web API Reference documentation
-   - Confirm endpoint URL pattern (e.g., `/v1/roster/{teamAbbrev}/{season}`)
-   - Understand response structure
-   - Fetch sample response to create schema
+3. ✅ **Determine team roster API endpoint** from NHL Web API
+   - ✅ Endpoint confirmed: `/v1/roster/{teamAbbrev}/{season}`
+   - ✅ Response structure understood (three arrays: forwards, defensemen, goalies)
+   - ✅ Sample responses saved: `roster-api-CGY-20232024.json`, `roster-api-TOR-20232024.json`
 4. Implement team roster API module (`api/roster.clj`)
+   - Create `RosterApiRequest` record
+   - Implement schema validation
+   - Test with sample data
 5. Implement roster parser module (`roster_parser.clj`)
    - HTML parsing with `enlive`
-   - Matching logic (jersey number + position, name fallback)
+   - Matching logic (jersey number + position code, name fallback)
    - Enrichment with API data
+   - Name normalization (UPPERCASE HTML → title case)
 6. Integrate into fetcher
 7. Test with real roster data
