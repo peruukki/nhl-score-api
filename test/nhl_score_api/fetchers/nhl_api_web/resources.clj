@@ -35,3 +35,6 @@
   (into {} (for [game-id game-ids]
              [game-id
               (get-gamecenter (get-landing game-id) (get-right-rail game-id))])))
+
+(defn get-roster-api [team-abbrev season]
+  (read-resource (str "roster-api-" team-abbrev "-" season ".json")))
