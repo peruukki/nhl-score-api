@@ -36,8 +36,8 @@
 (defn parse-include-param [include-value]
   "Parses the 'include' query parameter, splitting by comma and trimming whitespace.
    Returns a set of inclusion names (e.g., #{\"rosters\" \"otherThing\"}).
-   Returns empty set if parameter is nil or empty."
-  (if (or (nil? include-value) (empty? include-value))
+   Returns empty set if parameter is nil or empty (including whitespace-only strings)."
+  (if (or (nil? include-value) (empty? (str/trim include-value)))
     #{}
     (->> (str/split include-value #",")
          (map str/trim)
