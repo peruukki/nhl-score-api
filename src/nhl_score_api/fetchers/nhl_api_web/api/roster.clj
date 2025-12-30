@@ -7,20 +7,20 @@
   (malli/schema
    [:map
     [:id :int]
-    [:firstName #'schema/Localized]
-    [:lastName #'schema/Localized]
-    [:sweaterNumber :int]
-    [:positionCode [:enum "C" "D" "G" "L" "R"]]
+    [:first-name #'schema/Localized]
+    [:last-name #'schema/Localized]
+    [:sweater-number :int]
+    [:position-code [:enum "C" "D" "G" "L" "R"]]
     [:headshot {:optional true} :string]
-    [:shootsCatches {:optional true} [:enum "L" "R"]]
-    [:heightInInches {:optional true} :int]
-    [:weightInPounds {:optional true} :int]
-    [:heightInCentimeters {:optional true} :int]
-    [:weightInKilograms {:optional true} :int]
-    [:birthDate {:optional true} :string]
-    [:birthCity {:optional true} #'schema/Localized]
-    [:birthCountry {:optional true} :string]
-    [:birthStateProvince {:optional true} #'schema/Localized]]))
+    [:shoots-catches {:optional true} [:enum "L" "R"]]
+    [:height-in-inches {:optional true} :int]
+    [:weight-in-pounds {:optional true} :int]
+    [:height-in-centimeters {:optional true} :int]
+    [:weight-in-kilograms {:optional true} :int]
+    [:birth-date {:optional true} :string]
+    [:birth-city {:optional true} #'schema/Localized]
+    [:birth-country {:optional true} :string]
+    [:birth-state-province {:optional true} #'schema/Localized]]))
 
 (def ResponseSchema
   (malli/schema
