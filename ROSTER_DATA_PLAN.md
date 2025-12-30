@@ -213,8 +213,9 @@ The API currently returns game data with:
 - Structure roster data as:
   ```clojure
   {:rosters
-   {:away [{:player-id 8482074 :name "Connor Zary" :position "C" :number 47 :starting-lineup true} ...]
-    :home [{:player-id 8477939 :name "William Nylander" :position "R" :number 88 :starting-lineup false} ...]}}
+   {:away [{:player-id 8482074 :name "Connor Zary" :position "C" :number 47} ...  ; not in starting lineup
+            {:player-id 8478435 :name "Dan Vladar" :position "G" :number 80 :starting-lineup true} ...]  ; starting goalie
+    :home [{:player-id 8477939 :name "William Nylander" :position "R" :number 88} ...]}}
   ```
 - Include enriched data from team roster API:
   - `player-id`: Player ID from team roster API (when matched)
@@ -222,10 +223,12 @@ The API currently returns game data with:
   - `position`: Player position (G, D, C, L, R)
   - `number`: Jersey number
   - `starting-lineup`: Boolean indicating if player is in starting lineup (from HTML `class="bold"`)
+    - **Only include when `true`** (omit when `false`, similar to `empty-net` and `strength` fields)
 - **Starting Lineup**: Extracted from HTML where players have `class="bold"` on their row
-- **Goalies**: Starting goalie is especially important - will be marked with `starting-lineup: true`
+- **Goalies**: Starting goalie is especially important - will be marked with `starting-lineup: true` (only field present)
 - **Matching**: Players from roster HTML are matched with team roster API data by jersey number + position, with name fallback
 - If a player from HTML can't be matched with API data, include them with available HTML data only (no player-id)
+- Use conditional field inclusion pattern (similar to `add-goal-strength`, `add-empty-net-flag` functions)
 - Use `reject-empty-vals-except-for-keys` pattern to exclude roster field when not present
 
 **Location in Code Flow**:
@@ -264,7 +267,7 @@ The API currently returns game data with:
 - Test extracting home team roster
 - Test extracting player information (name, position, number)
 - **Test extracting starting lineup information** (from `class="bold"`)
-- **Test starting lineup for goalies** (verify starting goalie is marked correctly)
+- **Test starting lineup for goalies** (verify starting goalie has `startingLineup: true`, backup goalies omit field)
 - Test matching HTML roster data with API roster data
 - Test enrichment with player IDs (preserving starting lineup)
 - Test handling of unmatched players
@@ -297,8 +300,8 @@ The API currently returns game data with:
 - Test roster data included when provided
 - Test roster data excluded when not provided
 - Test roster structure matches expected format
-- **Test starting lineup field present for all players**
-- **Test starting goalies are correctly marked** (`startingLineup: true`)
+- **Test starting lineup field only present when true** (omitted when false)
+- **Test starting goalies are correctly marked** (`startingLineup: true` present, others omit field)
 - Test with multiple games
 
 #### 7e. Core Tests (`test/nhl_score_api/core_test.clj`)
@@ -449,16 +452,18 @@ The implementation is divided into incremental phases that can be fully implemen
 - Update `game_scores.clj` to accept roster data parameter
 - Add `:rosters` field to game details when roster data present
 - Format roster data: `{:rosters {:away [...], :home [...]}}`
-- Include `starting-lineup` field for each player (especially important for goalies)
+- Include `starting-lineup` field **only when `true`** (omit when `false`)
+  - Use conditional field inclusion pattern (similar to `add-goal-strength`, `add-empty-net-flag`)
+  - Create helper function: `add-starting-lineup-if-true` or similar
 - Use `reject-empty-vals-except-for-keys` to exclude when not present
 - Update `parse-game-scores` to pass roster data
-- Add tests for response format (including starting lineup field)
+- Add tests for response format (verify `startingLineup` only present when `true`)
 
 **Deliverables**:
-- ✅ Roster data in API responses (including starting lineup)
-- ✅ Format matches specification
+- ✅ Roster data in API responses (including starting lineup when true)
+- ✅ Format matches specification (`startingLineup` omitted when false)
 - ✅ Starting lineup information preserved (especially goalies)
-- ✅ Tests passing
+- ✅ Tests passing (verify field omission behavior)
 - ✅ External API change: `?include=rosters` now returns roster data with starting lineup
 
 **Release**: **External API change** - Feature complete and ready for use
@@ -505,7 +510,9 @@ The implementation is divided into incremental phases that can be fully implemen
    - Need to correctly identify `class="bold"` on `<td>` elements
    - Handle variations like `class="bold + italic"` (captain in starting lineup)
    - Ensure starting goalie is correctly identified (critical information)
-   - If starting lineup can't be determined, default to `false`
+   - If starting lineup can't be determined, default to `false` (field will be omitted)
+   - **Field inclusion**: Only include `starting-lineup` field when value is `true` (omit when `false`)
+   - Follow existing pattern: `add-goal-strength`, `add-empty-net-flag` functions conditionally add fields
 
 6. **Roster HTML parsing failures**:
    - Malformed HTML
@@ -563,15 +570,13 @@ The implementation is divided into incremental phases that can be fully implemen
         "playerId": 8482074,
         "name": "Connor Zary",
         "position": "C",
-        "number": 47,
-        "startingLineup": false
+        "number": 47
       },
       {
         "playerId": 8478397,
         "name": "Rasmus Andersson",
         "position": "D",
-        "number": 4,
-        "startingLineup": false
+        "number": 4
       },
       {
         "playerId": 8478435,
@@ -587,14 +592,13 @@ The implementation is divided into incremental phases that can be fully implemen
         "playerId": 8477939,
         "name": "William Nylander",
         "position": "R",
-        "number": 88,
-        "startingLineup": false
+        "number": 88
       },
       {
         "playerId": 8481540,
         "name": "Ilya Samsonov",
         "position": "G",
-        "number": 35,
+        "number": 60,
         "startingLineup": true
       },
       ...
@@ -605,7 +609,8 @@ The implementation is divided into incremental phases that can be fully implemen
 
 **Note**: 
 - Player IDs are included by matching roster HTML data with team roster API data. If a player can't be matched, they'll be included without a `playerId` field.
-- `startingLineup` indicates if the player is in the starting lineup (especially useful for identifying starting goalies).
+- `startingLineup` field is **only included when `true`** (omitted when `false`), similar to how `empty-net` and `strength` fields are handled in goal data.
+- This makes it easy to identify starting players (especially starting goalies) - they're the only ones with the `startingLineup` field present.
 
 **Note**: `rosters` field will only be present when `include=rosters` query parameter is provided. It will be omitted otherwise.
 
