@@ -20,8 +20,7 @@
     [:birth-date {:optional true} :string]
     [:birth-city {:optional true} #'schema/Localized]
     [:birth-country {:optional true} :string]
-    [:birth-state-province {:optional true} #'schema/Localized]]
-   {:registry schema/registry}))
+    [:birth-state-province {:optional true} #'schema/Localized]]))
 
 (def ResponseSchema
   (malli/schema
