@@ -6,17 +6,17 @@
 (def PlayerSchema
   (malli/schema
    [:map
-    [:id :int]
     [:first-name #'schema/Localized]
+    [:id :int]
     [:last-name #'schema/Localized]
-    [:sweater-number :int]
-    [:position-code [:enum "C" "D" "G" "L" "R"]]]))
+    [:position-code [:enum "C" "D" "G" "L" "R"]]
+    [:sweater-number :int]]))
 
 (def ResponseSchema
   (malli/schema
    [:map
-    [:forwards {:optional true} [:vector PlayerSchema]]
     [:defensemen {:optional true} [:vector PlayerSchema]]
+    [:forwards {:optional true} [:vector PlayerSchema]]
     [:goalies {:optional true} [:vector PlayerSchema]]]))
 
 (defrecord RosterApiRequest [team-abbrev season]
