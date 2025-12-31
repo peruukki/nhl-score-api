@@ -13,20 +13,6 @@ This is a Clojure project that provides a JSON API returning scores and goals fr
 
 ## Running the Application
 
-### Using Docker
-
-```bash
-./docker-up.sh
-```
-
-To stop and delete containers:
-
-```bash
-./docker-down.sh
-```
-
-### Without Docker
-
 ```bash
 lein run
 ```
@@ -136,3 +122,8 @@ API responses are cached in-memory for one minute, then refreshed upon the next 
 - Check linting: `lein lint`
 - Test files use the `-test` suffix in namespace names
 - The project uses Kaocha for improved test failure reporting
+- Sort items in alphabetical order whenever feasible, for example in:
+  - dependencies in project.clj
+  - fields in Malli schema definitions
+  - imports in :require clauses
+  - private variable definition order
