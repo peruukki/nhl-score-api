@@ -10,17 +10,7 @@
     [:first-name #'schema/Localized]
     [:last-name #'schema/Localized]
     [:sweater-number :int]
-    [:position-code [:enum "C" "D" "G" "L" "R"]]
-    [:headshot {:optional true} :string]
-    [:shoots-catches {:optional true} [:enum "L" "R"]]
-    [:height-in-inches {:optional true} :int]
-    [:weight-in-pounds {:optional true} :int]
-    [:height-in-centimeters {:optional true} :int]
-    [:weight-in-kilograms {:optional true} :int]
-    [:birth-date {:optional true} :string]
-    [:birth-city {:optional true} #'schema/Localized]
-    [:birth-country {:optional true} :string]
-    [:birth-state-province {:optional true} #'schema/Localized]]))
+    [:position-code [:enum "C" "D" "G" "L" "R"]]]))
 
 (def ResponseSchema
   (malli/schema
