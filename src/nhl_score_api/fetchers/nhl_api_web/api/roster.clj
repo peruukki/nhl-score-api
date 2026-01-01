@@ -15,9 +15,9 @@
 (def ResponseSchema
   (malli/schema
    [:map
-    [:defensemen {:optional true} [:vector PlayerSchema]]
-    [:forwards {:optional true} [:vector PlayerSchema]]
-    [:goalies {:optional true} [:vector PlayerSchema]]]))
+    [:defensemen [:vector PlayerSchema]]
+    [:forwards [:vector PlayerSchema]]
+    [:goalies [:vector PlayerSchema]]]))
 
 (defrecord RosterApiRequest [team-abbrev season]
   api/ApiRequest
