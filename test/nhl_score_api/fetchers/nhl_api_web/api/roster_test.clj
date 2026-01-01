@@ -39,13 +39,13 @@
     (testing "Detects invalid response"
       (let [schema (api/response-schema (roster/->RosterApiRequest "CGY" "20232024"))
             response (-> (resources/get-roster-api "CGY" "20232024")
-                        (update :forwards
-                                (fn [forwards]
-                                  (conj (vec (drop-last forwards))
-                                        (-> (last forwards)
-                                            (assoc :id "invalid"
-                                                   :position-code "INVALID")
-                                            (dissoc :sweater-number))))))]
+                         (update :forwards
+                                 (fn [forwards]
+                                   (conj (vec (drop-last forwards))
+                                         (-> (last forwards)
+                                             (assoc :id "invalid"
+                                                    :position-code "INVALID")
+                                             (dissoc :sweater-number))))))]
         (is (= false
                (malli/validate schema response))
             "Invalid response fails validation")
