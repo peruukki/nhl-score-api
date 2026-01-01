@@ -46,8 +46,8 @@
                   (malli-error/humanize (malli/explain schema response)))
             "Validation errors present"))))
 
-  (testing "archive?"
-    (is (= false
-           (api/archive? (roster/->RosterApiRequest "CGY" "20232024")
-                         (resources/get-roster-api "CGY" "20232024")))
-        "Archive check returns false (simple implementation)")))
+  (testing "get-cache"
+    (is (= :long-lived
+           (api/get-cache (roster/->RosterApiRequest "CGY" "20232024")
+                          (resources/get-roster-api "CGY" "20232024")))
+        "Roster API responses are stored in long-lived cache")))
