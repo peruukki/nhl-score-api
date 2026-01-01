@@ -9,16 +9,16 @@
 (def base-url "https://api-web.nhle.com/v1")
 
 (deftest right-rail-api-request-test
-  (testing "archive?"
-    (testing "Archives game with recap video"
-      (is (= true
-             (api/archive? (right-rail/->RightRailApiRequest "2023020209")
-                           (resources/get-right-rail "2023020209")))))
+  (testing "get-cache"
+    (testing "Returns :archive for game with recap video"
+      (is (= :archive
+             (api/get-cache (right-rail/->RightRailApiRequest "2023020209")
+                            (resources/get-right-rail "2023020209")))))
 
-    (testing "Does not archive game without recap video"
-      (is (= false
-             (api/archive? (right-rail/->RightRailApiRequest "2023020206")
-                           (resources/get-right-rail "2023020206"))))))
+    (testing "Returns nil for game without recap video"
+      (is (= nil
+             (api/get-cache (right-rail/->RightRailApiRequest "2023020206")
+                            (resources/get-right-rail "2023020206"))))))
 
   (testing "cache-key"
     (is (= "right-rail-2023020209"

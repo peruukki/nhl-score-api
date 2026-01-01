@@ -9,16 +9,16 @@
 (def base-url "https://api-web.nhle.com/v1")
 
 (deftest landing-api-request-test
-  (testing "archive?"
-    (testing "Archives game in OFF state"
-      (is (= true
-             (api/archive? (landing/->LandingApiRequest "2023020209")
-                           (resources/get-landing "2023020209")))))
+  (testing "get-cache"
+    (testing "Returns :archive for game in OFF state"
+      (is (= :archive
+             (api/get-cache (landing/->LandingApiRequest "2023020209")
+                            (resources/get-landing "2023020209")))))
 
-    (testing "Does not archive game in CRIT state"
-      (is (= false
-             (api/archive? (landing/->LandingApiRequest "2023020206")
-                           (resources/get-landing "2023020206"))))))
+    (testing "Returns nil for game in CRIT state"
+      (is (= nil
+             (api/get-cache (landing/->LandingApiRequest "2023020206")
+                            (resources/get-landing "2023020206"))))))
 
   (testing "cache-key"
     (is (= "landing-2023020209"

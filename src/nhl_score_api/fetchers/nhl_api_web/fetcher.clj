@@ -66,18 +66,19 @@
                         (malli-error/humanize (malli/explain response-schema response)))))
     response))
 
-(defn- archive
+(defn- store-in-cache
   ([response api-request]
-   (archive response api-request nil))
+   (store-in-cache response api-request nil))
   ([response api-request context]
-   (let [from-cache? (:from-cache? (meta response))]
-     (if (and (not from-cache?) (api/archive-with-context? api-request response context))
-       (cache/archive (api/cache-key api-request) response)
+   (let [from-cache? (:from-cache? (meta response))
+         cache-name (api/get-cache-with-context api-request response context)]
+     (if (and (not from-cache?) cache-name)
+       (cache/store cache-name (api/cache-key api-request) response)
        response))))
 
 (defn- fetch-cached [api-request]
   (-> (cache/get-cached (api/cache-key api-request) #(fetch api-request))
-      (archive api-request)))
+      (store-in-cache api-request)))
 
 (defn- fetch-games-info [date-range-str]
   (let [{:keys [start end]} (or date-range-str (get-schedule-date-range-str-for-latest-scores))]
@@ -115,7 +116,7 @@
         ; Fetch needed standings
         response-by-date (zipmap unique-date-strs (pmap #(fetch-cached %) requests))
 
-        ; Archive responses with pre-game standings as context
+        ; Store responses in cache with pre-game standings as context
         standings-by-date (zipmap unique-date-strs
                                   (map-indexed
                                    (fn [idx date-str]
@@ -124,11 +125,11 @@
                                              (nth unique-date-strs (dec idx)))
                                            pre-game-response
                                            (when pre-game-date-str
-                                             (archive (get response-by-date pre-game-date-str)
-                                                      (get request-by-date pre-game-date-str)))]
-                                       (->> (archive (get response-by-date date-str)
-                                                     (get request-by-date date-str)
-                                                     pre-game-response)
+                                             (store-in-cache (get response-by-date pre-game-date-str)
+                                                             (get request-by-date pre-game-date-str)))]
+                                       (->> (store-in-cache (get response-by-date date-str)
+                                                            (get request-by-date date-str)
+                                                            pre-game-response)
                                             (:standings))))
                                    unique-date-strs))]
     (map (fn [{:keys [current pre-game]}]

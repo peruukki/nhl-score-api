@@ -9,33 +9,33 @@
 (def base-url "https://api-web.nhle.com/v1")
 
 (deftest schedule-api-request-test
-  (testing "archive?"
+  (testing "get-cache"
     (testing "with single date"
-      (testing "Archives when all games are in OFF state"
-        (is (= true
-               (api/archive? (schedule/->ScheduleApiRequest "2023-11-09" nil)
-                             resources/games-finished-in-regulation-overtime-and-shootout))))
+      (testing "Returns :archive when all games are in OFF state"
+        (is (= :archive
+               (api/get-cache (schedule/->ScheduleApiRequest "2023-11-09" nil)
+                              resources/games-finished-in-regulation-overtime-and-shootout))))
 
-      (testing "Does not archive when not all games are in OFF state"
-        (is (= false
-               (api/archive? (schedule/->ScheduleApiRequest "2023-11-10" nil)
-                             resources/games-finished-in-regulation-overtime-and-shootout)))))
+      (testing "Returns nil when not all games are in OFF state"
+        (is (= nil
+               (api/get-cache (schedule/->ScheduleApiRequest "2023-11-10" nil)
+                              resources/games-finished-in-regulation-overtime-and-shootout)))))
 
     (testing "with date range"
-      (testing "Archives when all games are in OFF state and have a video recap"
-        (is (= true
-               (api/archive? (schedule/->ScheduleApiRequest "2023-11-08" "2023-11-09")
-                             resources/games-finished-in-regulation-overtime-and-shootout))))
+      (testing "Returns :archive when all games are in OFF state and have a video recap"
+        (is (= :archive
+               (api/get-cache (schedule/->ScheduleApiRequest "2023-11-08" "2023-11-09")
+                              resources/games-finished-in-regulation-overtime-and-shootout))))
 
-      (testing "Does not archive when not all games are in OFF state"
-        (is (= false
-               (api/archive? (schedule/->ScheduleApiRequest "2023-11-08" "2023-11-10")
-                             resources/games-finished-in-regulation-overtime-and-shootout))))
+      (testing "Returns nil when not all games are in OFF state"
+        (is (= nil
+               (api/get-cache (schedule/->ScheduleApiRequest "2023-11-08" "2023-11-10")
+                              resources/games-finished-in-regulation-overtime-and-shootout))))
 
-      (testing "Does not archive when not all games have a video recap"
-        (is (= false
-               (api/archive? (schedule/->ScheduleApiRequest "2023-11-08" "2023-11-09")
-                             resources/games-finished-missing-video-recap))))))
+      (testing "Returns nil when not all games have a video recap"
+        (is (= nil
+               (api/get-cache (schedule/->ScheduleApiRequest "2023-11-08" "2023-11-09")
+                              resources/games-finished-missing-video-recap))))))
 
   (testing "cache-key"
     (testing "with single date"

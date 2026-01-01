@@ -38,21 +38,22 @@
 
 (defrecord StandingsApiRequest [date-strs schedule-response]
   api/ApiRequest
-  (archive? [this response] (api/archive-with-context? this response nil))
-  (archive-with-context? [_ response pre-game-standings-response]
+  (cache-key [_] (str "standings-" (:standings-date-str date-strs)))
+  (description [_] (str "standings " {:date (:standings-date-str date-strs)}))
+  (get-cache [this response] (api/get-cache-with-context this response nil))
+  (get-cache-with-context [_ response pre-game-standings-response]
     (let [games (api/get-games-in-date-range (:standings-date-str date-strs) nil schedule-response)
           all-games-in-official-state? (and
                                         (> (count games) 0)
                                         (every? #(= "OFF" (:game-state %)) games))]
-      (or (< (compare (:standings-date-str date-strs) (:current-schedule-date-str date-strs)) 0)
-          (and all-games-in-official-state?
-               (->> games
-                    (map #(seq [(get-in % [:away-team :abbrev])
-                                (get-in % [:home-team :abbrev])]))
-                    flatten
-                    (every? #(team-standings-updated? (get-team-standings % pre-game-standings-response)
-                                                      (get-team-standings % response))))))))
-  (cache-key [_] (str "standings-" (:standings-date-str date-strs)))
-  (description [_] (str "standings " {:date (:standings-date-str date-strs)}))
+      (when (or (< (compare (:standings-date-str date-strs) (:current-schedule-date-str date-strs)) 0)
+                (and all-games-in-official-state?
+                     (->> games
+                          (map #(seq [(get-in % [:away-team :abbrev])
+                                      (get-in % [:home-team :abbrev])]))
+                          flatten
+                          (every? #(team-standings-updated? (get-team-standings % pre-game-standings-response)
+                                                            (get-team-standings % response))))))
+        :archive)))
   (response-schema [_] ResponseSchema)
   (url [_] (str api/base-url "/standings/" (:standings-date-str date-strs))))

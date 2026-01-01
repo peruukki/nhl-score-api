@@ -27,9 +27,9 @@
 
 (defrecord RightRailApiRequest [game-id]
   api/ApiRequest
-  (archive? [this response] (api/archive-with-context? this response nil))
-  (archive-with-context? [_ response _context] (boolean (:three-min-recap (:game-video response))))
   (cache-key [_] (str "right-rail-" game-id))
   (description [_] (str "right-rail " {:game-id game-id}))
+  (get-cache [this response] (api/get-cache-with-context this response nil))
+  (get-cache-with-context [_ response _context] (when (:three-min-recap (:game-video response)) :archive))
   (response-schema [_] ResponseSchema)
   (url [_] (str api/base-url "/gamecenter/" game-id "/right-rail")))

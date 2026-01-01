@@ -58,9 +58,9 @@
 
 (defrecord LandingApiRequest [game-id]
   api/ApiRequest
-  (archive? [this response] (api/archive-with-context? this response nil))
-  (archive-with-context? [_ response _context] (= "OFF" (:game-state response)))
   (cache-key [_] (str "landing-" game-id))
   (description [_] (str "landing " {:game-id game-id}))
+  (get-cache [this response] (api/get-cache-with-context this response nil))
+  (get-cache-with-context [_ response _context] (when (= "OFF" (:game-state response)) :archive))
   (response-schema [_] ResponseSchema)
   (url [_] (str api/base-url "/gamecenter/" game-id "/landing")))
