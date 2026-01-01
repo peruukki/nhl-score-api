@@ -122,8 +122,17 @@ API responses are cached in-memory for one minute, then refreshed upon the next 
 - Check linting: `lein lint`
 - Test files use the `-test` suffix in namespace names
 - The project uses Kaocha for improved test failure reporting
-- Sort items in alphabetical order whenever feasible, for example in:
-  - dependencies in project.clj
-  - fields in Malli schema definitions
-  - imports in :require clauses
-  - private variable definition order
+
+## Code Organization: Alphabetical Sorting
+
+**IMPORTANT: Always sort items alphabetically when possible.** This is a critical code organization principle for this project. Apply alphabetical sorting to:
+
+- **Dependencies** in `project.clj`
+- **Fields** in Malli schema definitions
+- **Imports** in `:require` clauses
+- **Protocol methods** in protocol definitions and implementations
+- **Record methods** in record definitions
+- **Private variable definitions**
+- **Any lists, maps, or collections** where order doesn't affect functionality
+
+Alphabetical sorting improves code readability, makes items easier to find, and reduces merge conflicts. When in doubt, sort alphabetically.
