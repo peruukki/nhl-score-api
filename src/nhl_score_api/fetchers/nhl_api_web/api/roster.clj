@@ -21,10 +21,9 @@
 
 (defrecord RosterApiRequest [team-abbrev season]
   api/ApiRequest
-  (archive? [this response] (api/archive-with-context? this response nil))
-  (archive-with-context? [_ _response _context]
-    false)
   (cache-key [_] (str "roster-" team-abbrev "-" season))
   (description [_] (str "roster " {:team team-abbrev :season season}))
+  (get-cache [this response] (api/get-cache-with-context this response nil))
+  (get-cache-with-context [_ _response _context] :long-lived)
   (response-schema [_] ResponseSchema)
   (url [_] (str api/base-url "/roster/" team-abbrev "/" season)))
