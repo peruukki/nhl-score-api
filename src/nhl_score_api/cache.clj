@@ -10,21 +10,22 @@
 ;; This module provides a three-tier caching system for API responses:
 ;;
 ;; 1. :archive (24-hour TTL, LRU threshold: 64)
-;;    - Used by existing API request types for long-term storage
+;;    - Used for data that is considered final and will only change if related
+;;      data models change and e.g. new fields are added
 ;;    - Values are stored explicitly via cache/store when API request types
 ;;      return :archive from get-cache-with-context
-;;    - Suitable for data that changes infrequently (e.g., finished games)
 ;;
 ;; 2. :long-lived (4-hour TTL, LRU threshold: 32)
-;;    - Used by new API request types for medium-term storage
+;;    - Used for data that changes infrequently and needs to be refreshed
+;;      periodically
+;;    - Provides a balance between freshness and cache efficiency
 ;;    - Values are stored explicitly via cache/store when API request types
 ;;      return :long-lived from get-cache-with-context
-;;    - Provides a balance between freshness and cache efficiency
 ;;
 ;; 3. :short-lived (1-minute TTL, LRU threshold: 32)
 ;;    - Used automatically for all API responses
-;;    - Values are stored automatically by get-cached when not found in other caches
 ;;    - Provides rapid access for recently fetched data
+;;    - Values are stored automatically by get-cached when not found in other caches
 ;;
 ;; Lookup order in get-cached: archive → long-lived → short-lived → fetch
 ;; This ensures the most durable cache is checked first, while short-lived cache
