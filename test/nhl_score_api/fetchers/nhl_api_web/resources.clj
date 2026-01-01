@@ -38,3 +38,6 @@
 
 (defn get-roster-api [team-abbrev season]
   (read-resource (str "roster-api-" team-abbrev "-" season ".json")))
+
+(defn get-roster-html [game-id]
+  (slurp (str resource-path "roster-" game-id ".html")))
