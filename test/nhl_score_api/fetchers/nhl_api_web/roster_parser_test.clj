@@ -71,6 +71,18 @@
           (is (not (re-find #"\([CA]\)" name))
               (str "Name should not contain captain markers: " name))))))
 
+  (testing "Normalizes abbreviations correctly"
+    (let [html-content (resources/get-roster-html "2023020207")
+          result (parser/parse-roster-html html-content)
+          away-players (:away result)
+          aj-greer (first (filter #(and (= 18 (:number %))
+                                        (= "L" (:position %)))
+                                  away-players))]
+      ;; A.J. Greer should have abbreviation preserved
+      (is (some? aj-greer))
+      (is (= "A.J. Greer" (:name aj-greer))
+          "Abbreviation 'A.J.' should be preserved in uppercase")))
+
   (testing "Handles specific players correctly"
     (let [html-content (resources/get-roster-html "2023020207")
           result (parser/parse-roster-html html-content)
