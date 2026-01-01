@@ -38,12 +38,24 @@
 
     (testing "Detects invalid response"
       (let [schema (api/response-schema (roster/->RosterApiRequest "CGY" "20232024"))
-            response {:forwards "invalid"}]
+            response (-> (resources/get-roster-api "CGY" "20232024")
+                        (update :forwards
+                                (fn [forwards]
+                                  (conj (vec (drop-last forwards))
+                                        (-> (last forwards)
+                                            (assoc :id "invalid"
+                                                   :position-code "INVALID")
+                                            (dissoc :sweater-number))))))]
         (is (= false
                (malli/validate schema response))
             "Invalid response fails validation")
-        (is (not= nil
-                  (malli-error/humanize (malli/explain schema response)))
+        (is (= {:forwards (conj
+                           (vec (take (dec (count (:forwards (resources/get-roster-api "CGY" "20232024"))))
+                                      (repeat nil)))
+                           {:id ["should be an integer"]
+                            :position-code ["should be either \"C\", \"D\", \"G\", \"L\" or \"R\""]
+                            :sweater-number ["missing required key"]})}
+               (malli-error/humanize (malli/explain schema response)))
             "Validation errors present"))))
 
   (testing "get-cache"
