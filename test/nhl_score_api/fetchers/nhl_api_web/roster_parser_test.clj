@@ -76,20 +76,19 @@
           result (parser/parse-roster-html html-content)
           away-players (:away result)
           home-players (:home result)
-          all-players (concat away-players home-players)]
+          dan-vladar (first (filter #(and (= 80 (:number %))
+                                          (= "G" (:position %)))
+                                    away-players))
+          joseph-woll (first (filter #(and (= 60 (:number %))
+                                           (= "G" (:position %)))
+                                     home-players))]
       ;; Check for specific known players
-      (let [dan-vladar (first (filter #(and (= 80 (:number %))
-                                            (= "G" (:position %)))
-                                      away-players))
-            joseph-woll (first (filter #(and (= 60 (:number %))
-                                             (= "G" (:position %)))
-                                       home-players))]
-        (is (some? dan-vladar))
-        (is (= "Dan Vladar" (:name dan-vladar)))
-        (is (:starting-lineup dan-vladar) "Dan Vladar should be in starting lineup")
-        (is (some? joseph-woll))
-        (is (= "Joseph Woll" (:name joseph-woll)))
-        (is (:starting-lineup joseph-woll) "Joseph Woll should be in starting lineup"))))
+      (is (some? dan-vladar))
+      (is (= "Dan Vladar" (:name dan-vladar)))
+      (is (:starting-lineup dan-vladar) "Dan Vladar should be in starting lineup")
+      (is (some? joseph-woll))
+      (is (= "Joseph Woll" (:name joseph-woll)))
+      (is (:starting-lineup joseph-woll) "Joseph Woll should be in starting lineup")))
 
   (testing "Handles empty or invalid HTML gracefully"
     (let [result (parser/parse-roster-html "")]
