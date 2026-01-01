@@ -105,3 +105,109 @@
   (testing "Handles empty or invalid HTML gracefully"
     (let [result (parser/parse-roster-html "")]
       (is (nil? result)))))
+
+(deftest enrich-roster-with-api-data-test
+  (testing "Enriches roster with player IDs from API data"
+    (let [html-content (resources/get-roster-html "2023020207")
+          html-roster (parser/parse-roster-html html-content)
+          api-roster-away (resources/get-roster-api "CGY" "20232024")
+          api-roster-home (resources/get-roster-api "TOR" "20232024")
+          enriched (parser/enrich-roster-with-api-data html-roster
+                                                       api-roster-away
+                                                       api-roster-home)]
+      (is (map? enriched))
+      (is (contains? enriched :away))
+      (is (contains? enriched :home))
+      (is (vector? (:away enriched)))
+      (is (vector? (:home enriched)))))
+
+  (testing "Matches players by jersey number and position"
+    (let [html-content (resources/get-roster-html "2023020207")
+          html-roster (parser/parse-roster-html html-content)
+          api-roster-away (resources/get-roster-api "CGY" "20232024")
+          api-roster-home (resources/get-roster-api "TOR" "20232024")
+          enriched (parser/enrich-roster-with-api-data html-roster
+                                                       api-roster-away
+                                                       api-roster-home)
+          dan-vladar (first (filter #(and (= 80 (:number %))
+                                          (= "G" (:position %)))
+                                    (:away enriched)))
+          joseph-woll (first (filter #(and (= 60 (:number %))
+                                           (= "G" (:position %)))
+                                     (:home enriched)))]
+      ;; Dan Vladar should be matched and have player ID
+      (is (some? dan-vladar))
+      (is (contains? dan-vladar :player-id))
+      (is (= 8478435 (:player-id dan-vladar)))
+      (is (= "Dan Vladar" (:name dan-vladar)))
+      (is (:starting-lineup dan-vladar) "Starting lineup should be preserved")
+      ;; Joseph Woll should be matched and have player ID
+      (is (some? joseph-woll))
+      (is (contains? joseph-woll :player-id))
+      (is (= 8479361 (:player-id joseph-woll)))
+      (is (= "Joseph Woll" (:name joseph-woll)))
+      (is (:starting-lineup joseph-woll) "Starting lineup should be preserved")))
+
+  (testing "Preserves starting lineup information when enriching"
+    (let [html-content (resources/get-roster-html "2023020207")
+          html-roster (parser/parse-roster-html html-content)
+          api-roster-away (resources/get-roster-api "CGY" "20232024")
+          api-roster-home (resources/get-roster-api "TOR" "20232024")
+          enriched (parser/enrich-roster-with-api-data html-roster
+                                                       api-roster-away
+                                                       api-roster-home)
+          all-players (concat (:away enriched) (:home enriched))]
+      ;; All players should have starting-lineup field preserved
+      (doseq [player all-players]
+        (is (contains? player :starting-lineup))
+        (is (boolean? (:starting-lineup player))))
+      ;; Starting players should still be marked
+      (let [starting-players (filter :starting-lineup all-players)]
+        (is (> (count starting-players) 0))
+        ;; Starting goalies should have player IDs and starting-lineup true
+        (let [starting-goalies (filter #(and (= "G" (:position %))
+                                             (:starting-lineup %))
+                                       all-players)]
+          (is (> (count starting-goalies) 0))
+          (doseq [goalie starting-goalies]
+            (is (contains? goalie :player-id) "Starting goalies should have player IDs"))))))
+
+  (testing "Handles unmatched players gracefully"
+    (let [html-content (resources/get-roster-html "2023020207")
+          html-roster (parser/parse-roster-html html-content)
+          ;; Use empty API rosters to simulate unmatched players
+          empty-api-roster {:forwards [] :defensemen [] :goalies []}
+          enriched (parser/enrich-roster-with-api-data html-roster
+                                                       empty-api-roster
+                                                       empty-api-roster)
+          all-players (concat (:away enriched) (:home enriched))]
+      ;; All players should still be present
+      (is (> (count all-players) 0))
+      ;; But none should have player IDs
+      (doseq [player all-players]
+        (is (not (contains? player :player-id))
+            "Unmatched players should not have player-id"))
+      ;; Original fields should still be present
+      (doseq [player all-players]
+        (is (contains? player :number))
+        (is (contains? player :position))
+        (is (contains? player :name))
+        (is (contains? player :starting-lineup)))))
+
+  (testing "Matches players by name when jersey number doesn't match"
+    (let [html-player {:number 99 :position "G" :name "Test Goalie" :starting-lineup true}
+          api-players [{:id 12345
+                        :sweater-number 1
+                        :position-code "G"
+                        :first-name {:default "Test"}
+                        :last-name {:default "Goalie"}}]
+          html-roster {:away [html-player] :home []}
+          enriched (parser/enrich-roster-with-api-data html-roster
+                                                       {:forwards [] :defensemen [] :goalies api-players}
+                                                       {:forwards [] :defensemen [] :goalies []})]
+      ;; Should match by name fallback
+      (let [matched-player (first (:away enriched))]
+        (is (some? matched-player))
+        (is (contains? matched-player :player-id))
+        (is (= 12345 (:player-id matched-player)))
+        (is (:starting-lineup matched-player) "Starting lineup should be preserved")))))
