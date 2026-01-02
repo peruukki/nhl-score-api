@@ -210,9 +210,9 @@
         html-roster {:away [html-player] :home []}
         enriched (parser/enrich-roster-with-api-data html-roster
                                                      {:forwards [] :defensemen [] :goalies api-players}
-                                                     {:forwards [] :defensemen [] :goalies []})]
-    (let [matched-player (first (:away enriched))]
-      (is (some? matched-player))
-      (is (contains? matched-player :player-id))
-      (is (= 12345 (:player-id matched-player)))
-      (is (:starting-lineup matched-player) "Starting lineup should be preserved"))))
+                                                     {:forwards [] :defensemen [] :goalies []})
+        matched-player (first (:away enriched))]
+    (is (some? matched-player))
+    (is (contains? matched-player :player-id))
+    (is (= 12345 (:player-id matched-player)))
+    (is (:starting-lineup matched-player) "Starting lineup should be preserved")))
