@@ -195,8 +195,6 @@
           "Unmatched player should not have player-id")
       (is (= "A.J. Greer" (:name aj-greer))
           "Unmatched player name should be normalized (title case, not all uppercase)")
-      (is (not (every? #(Character/isUpperCase %) (:name aj-greer)))
-          "Unmatched player name should not be all uppercase")
       (is (not (re-find #"\([CA]\)" (:name aj-greer)))
           "Unmatched player name should not contain captain markers"))))
 
