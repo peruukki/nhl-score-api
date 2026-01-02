@@ -20,7 +20,6 @@
           result (parser/parse-roster-html html-content)
           away-players (:away result)
           home-players (:home result)]
-      ;; Check that players have required fields
       (doseq [player (concat away-players home-players)]
         (is (contains? player :number))
         (is (contains? player :position))
@@ -39,14 +38,11 @@
           home-players (:home result)
           all-players (concat away-players home-players)
           starting-players (filter :starting-lineup all-players)]
-      ;; Should have some starting players
       (is (> (count starting-players) 0))
-      ;; Check that starting goalies are marked
       (let [starting-goalies (filter #(and (= "G" (:position %))
                                            (:starting-lineup %))
                                      all-players)]
         (is (> (count starting-goalies) 0))
-        ;; Each team should have exactly one starting goalie
         (let [away-starting-goalies (filter #(and (= "G" (:position %))
                                                   (:starting-lineup %))
                                             away-players)
@@ -62,12 +58,10 @@
           away-players (:away result)
           home-players (:home result)
           all-players (concat away-players home-players)]
-      ;; Check that names are normalized (not all uppercase)
       (doseq [player all-players]
         (let [name (:name player)]
           (is (not (every? #(Character/isUpperCase %) name))
               (str "Name should not be all uppercase: " name))
-          ;; Check that captain markers are removed
           (is (not (re-find #"\([CA]\)" name))
               (str "Name should not contain captain markers: " name))))))
 
@@ -78,7 +72,6 @@
           aj-greer (first (filter #(and (= 18 (:number %))
                                         (= "L" (:position %)))
                                   away-players))]
-      ;; A.J. Greer should have abbreviation preserved
       (is (some? aj-greer))
       (is (= "A.J. Greer" (:name aj-greer))
           "Abbreviation 'A.J.' should be preserved in uppercase")))
@@ -94,7 +87,6 @@
           joseph-woll (first (filter #(and (= 60 (:number %))
                                            (= "G" (:position %)))
                                      home-players))]
-      ;; Check for specific known players
       (is (some? dan-vladar))
       (is (= "Dan Vladar" (:name dan-vladar)))
       (is (:starting-lineup dan-vladar) "Dan Vladar should be in starting lineup")
@@ -135,13 +127,11 @@
           joseph-woll (first (filter #(and (= 60 (:number %))
                                            (= "G" (:position %)))
                                      (:home enriched)))]
-      ;; Dan Vladar should be matched and have player ID
       (is (some? dan-vladar))
       (is (contains? dan-vladar :player-id))
       (is (= 8478435 (:player-id dan-vladar)))
       (is (= "Dan Vladar" (:name dan-vladar)))
       (is (:starting-lineup dan-vladar) "Starting lineup should be preserved")
-      ;; Joseph Woll should be matched and have player ID
       (is (some? joseph-woll))
       (is (contains? joseph-woll :player-id))
       (is (= 8479361 (:player-id joseph-woll)))
@@ -157,14 +147,11 @@
                                                        api-roster-away
                                                        api-roster-home)
           all-players (concat (:away enriched) (:home enriched))]
-      ;; All players should have starting-lineup field preserved
       (doseq [player all-players]
         (is (contains? player :starting-lineup))
         (is (boolean? (:starting-lineup player))))
-      ;; Starting players should still be marked
       (let [starting-players (filter :starting-lineup all-players)]
         (is (> (count starting-players) 0))
-        ;; Starting goalies should have player IDs and starting-lineup true
         (let [starting-goalies (filter #(and (= "G" (:position %))
                                              (:starting-lineup %))
                                        all-players)]
@@ -181,13 +168,10 @@
                                                        empty-api-roster
                                                        empty-api-roster)
           all-players (concat (:away enriched) (:home enriched))]
-      ;; All players should still be present
       (is (> (count all-players) 0))
-      ;; But none should have player IDs
       (doseq [player all-players]
         (is (not (contains? player :player-id))
             "Unmatched players should not have player-id"))
-      ;; Original fields should still be present
       (doseq [player all-players]
         (is (contains? player :number))
         (is (contains? player :position))
@@ -206,17 +190,13 @@
           aj-greer (first (filter #(and (= 18 (:number %))
                                         (= "L" (:position %)))
                                   (:away enriched)))]
-      ;; Player should exist and not have player-id (unmatched)
       (is (some? aj-greer))
       (is (not (contains? aj-greer :player-id))
           "Unmatched player should not have player-id")
-      ;; Name should be normalized (not all uppercase)
       (is (= "A.J. Greer" (:name aj-greer))
           "Unmatched player name should be normalized (title case, not all uppercase)")
-      ;; Verify name is not all uppercase
       (is (not (every? #(Character/isUpperCase %) (:name aj-greer)))
           "Unmatched player name should not be all uppercase")
-      ;; Verify captain markers are removed
       (is (not (re-find #"\([CA]\)" (:name aj-greer)))
           "Unmatched player name should not contain captain markers"))))
 
@@ -231,7 +211,6 @@
         enriched (parser/enrich-roster-with-api-data html-roster
                                                      {:forwards [] :defensemen [] :goalies api-players}
                                                      {:forwards [] :defensemen [] :goalies []})]
-      ;; Should match by name fallback
     (let [matched-player (first (:away enriched))]
       (is (some? matched-player))
       (is (contains? matched-player :player-id))
