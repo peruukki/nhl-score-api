@@ -13,6 +13,7 @@
             [nhl-score-api.fetchers.nhl-api-web.api.schedule :as schedule]
             [nhl-score-api.fetchers.nhl-api-web.api.standings :as standings]
             [nhl-score-api.fetchers.nhl-api-web.game-scores :as game-scores]
+            [nhl-score-api.fetchers.nhl-api-web.roster-parser :as roster-parser]
             [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-games-in-date-range
                                                                     get-latest-games
                                                                     started-game?]]
@@ -80,6 +81,57 @@
 (defn- fetch-cached [api-request]
   (-> (cache/get-cached (api/cache-key api-request) #(fetch api-request))
       (store-in-cache api-request)))
+
+(defn- fetch-html-cached
+  "Fetches HTML content from URL and caches it.
+   Returns the HTML content as a string."
+  [cache-key url description]
+  (cache/get-cached cache-key
+                    (fn []
+                      (try
+                        (let [response (api-request-queue/fetch url {:debug false} description)]
+                          (:body response))
+                        (catch Exception e
+                          (logger/warn (str "Failed to fetch HTML from " url ": " (.getMessage e)))
+                          nil)))))
+
+(defn- fetch-and-enrich-roster-for-game
+  "Fetches roster HTML for a game, parses it, and enriches with API roster data.
+   Returns enriched roster data or nil if roster URL is missing or parsing fails.
+   
+   gamecenter should contain the right-rail data with :rosters URL.
+   team-rosters should be a map of {[team-abbrev season] roster-data}."
+  [game-id gamecenter team-rosters schedule-game]
+  (when-let [roster-url (:rosters gamecenter)]
+    (try
+      (let [roster-html (fetch-html-cached (str "roster-html-" game-id) roster-url (str "roster HTML " game-id))
+            html-roster (when roster-html (roster-parser/parse-roster-html roster-html))]
+        (when html-roster
+          (let [season (str (:season schedule-game))
+                away-abbrev (get-in schedule-game [:away-team :abbrev])
+                home-abbrev (get-in schedule-game [:home-team :abbrev])
+                api-roster-away (get team-rosters [away-abbrev season])
+                api-roster-home (get team-rosters [home-abbrev season])]
+            (roster-parser/enrich-roster-with-api-data html-roster
+                                                       (or api-roster-away {:forwards [] :defensemen [] :goalies []})
+                                                       (or api-roster-home {:forwards [] :defensemen [] :goalies []})))))
+      (catch Exception e
+        (logger/warn (str "Failed to parse roster HTML for game " game-id ": " (.getMessage e)))
+        nil))))
+
+(defn- fetch-and-enrich-rosters-for-games
+  "Fetches and enriches roster data for multiple games.
+   Returns a map of {game-id enriched-roster-data}."
+  [gamecenters team-rosters schedule-games]
+  (let [schedule-games-by-id (into {} (map (fn [game] [(:id game) game]) schedule-games))]
+    (->> gamecenters
+         (pmap (fn [[game-id gamecenter]]
+                 [game-id (fetch-and-enrich-roster-for-game game-id
+                                                            gamecenter
+                                                            team-rosters
+                                                            (get schedule-games-by-id game-id))]))
+         (filter (fn [[_game-id roster-data]] (some? roster-data)))
+         (into {}))))
 
 (defn- fetch-games-info [date-range-str]
   (let [{:keys [start end]} (or date-range-str (get-schedule-date-range-str-for-latest-scores))]
@@ -202,8 +254,10 @@
                                                 latest-games-info))
          team-rosters (when include-rosters
                         (fetch-team-rosters-for-games (:games date-and-schedule-games)))
-         gamecenters (prune-cache-and-fetch-gamecenters latest-games-info date-and-schedule-games)]
-     (->> (game-scores/parse-game-scores date-and-schedule-games standings-info gamecenters team-rosters)
+         gamecenters (prune-cache-and-fetch-gamecenters latest-games-info date-and-schedule-games)
+         enriched-rosters (when include-rosters
+                            (fetch-and-enrich-rosters-for-games gamecenters team-rosters (:games date-and-schedule-games)))]
+     (->> (game-scores/parse-game-scores date-and-schedule-games standings-info gamecenters team-rosters enriched-rosters)
           cache/log-cache-sizes!))))
 
 (defn fetch-scores-in-date-range
@@ -222,10 +276,16 @@
                                                 games-info)
          all-games (mapcat :games dates-and-schedule-games)
          team-rosters (when include-rosters
-                        (fetch-team-rosters-for-games all-games))]
+                        (fetch-team-rosters-for-games all-games))
+         enriched-rosters-by-date (when include-rosters
+                                    (map-indexed (fn [_index date-and-schedule-games]
+                                                   (let [gamecenters (prune-cache-and-fetch-gamecenters games-info date-and-schedule-games)]
+                                                     (fetch-and-enrich-rosters-for-games gamecenters team-rosters (:games date-and-schedule-games))))
+                                                 dates-and-schedule-games))]
      (->
       (doall (map-indexed (fn [index date-and-schedule-games]
-                            (let [gamecenters (prune-cache-and-fetch-gamecenters games-info date-and-schedule-games)]
-                              (game-scores/parse-game-scores date-and-schedule-games (nth standings-infos index) gamecenters team-rosters)))
+                            (let [gamecenters (prune-cache-and-fetch-gamecenters games-info date-and-schedule-games)
+                                  enriched-rosters (when include-rosters (nth enriched-rosters-by-date index))]
+                              (game-scores/parse-game-scores date-and-schedule-games (nth standings-infos index) gamecenters team-rosters enriched-rosters)))
                           dates-and-schedule-games))
       cache/log-cache-sizes!))))
