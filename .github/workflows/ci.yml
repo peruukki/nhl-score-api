@@ -23,6 +23,13 @@ jobs:
         with:
           lein: '2.9.1'
 
+      - name: Cache Clojure dependencies
+        uses: actions/cache@v4
+        with:
+          key: cljdeps-${{ hashFiles('project.clj') }}
+          path: ~/.m2/repository
+          restore-keys: cljdeps-
+
       - name: Checks
         uses: ./.github/actions/checks
 
