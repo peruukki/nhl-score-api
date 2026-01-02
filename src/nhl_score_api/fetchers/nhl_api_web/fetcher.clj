@@ -154,9 +154,10 @@
                                         (fetch-cached (right-rail/->RightRailApiRequest %)))))
        (into {})))
 
-(defn- fetch-team-rosters-for-games [schedule-games]
+(defn- fetch-team-rosters-for-games
   "Fetches team roster API data for all unique team/season combinations in the games.
    Returns a map of {[team-abbrev season] roster-data}."
+  [schedule-games]
   (let [team-seasons (->> schedule-games
                           (mapcat (fn [game]
                                     (let [season (str (:season game))
@@ -200,10 +201,9 @@
                                                  :regular-season-end-date-str (:regular-season-end-date latest-games-info)}
                                                 latest-games-info))
          team-rosters (when include-rosters
-                        (fetch-team-rosters-for-games (:games date-and-schedule-games)))]
-     (->> date-and-schedule-games
-          (prune-cache-and-fetch-gamecenters latest-games-info)
-          (game-scores/parse-game-scores date-and-schedule-games standings-info nil team-rosters)
+                        (fetch-team-rosters-for-games (:games date-and-schedule-games)))
+         gamecenters (prune-cache-and-fetch-gamecenters latest-games-info date-and-schedule-games)]
+     (->> (game-scores/parse-game-scores date-and-schedule-games standings-info gamecenters team-rosters)
           cache/log-cache-sizes!))))
 
 (defn fetch-scores-in-date-range
@@ -225,8 +225,7 @@
                         (fetch-team-rosters-for-games all-games))]
      (->
       (doall (map-indexed (fn [index date-and-schedule-games]
-                            (->> date-and-schedule-games
-                                 (prune-cache-and-fetch-gamecenters games-info)
-                                 (game-scores/parse-game-scores date-and-schedule-games (nth standings-infos index) nil team-rosters)))
+                            (let [gamecenters (prune-cache-and-fetch-gamecenters games-info date-and-schedule-games)]
+                              (game-scores/parse-game-scores date-and-schedule-games (nth standings-infos index) gamecenters team-rosters)))
                           dates-and-schedule-games))
       cache/log-cache-sizes!))))
