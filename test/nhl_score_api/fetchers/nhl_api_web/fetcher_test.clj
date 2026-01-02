@@ -1,7 +1,9 @@
 (ns nhl-score-api.fetchers.nhl-api-web.fetcher-test
   (:require [clj-time.core :as time]
             [clojure.test :refer [deftest is testing]]
-            [nhl-score-api.fetchers.nhl-api-web.fetcher :refer [fetch-standings-infos
+            [nhl-score-api.fetchers.nhl-api-web.fetcher :refer [fetch-latest-scores
+                                                                fetch-scores-in-date-range
+                                                                fetch-standings-infos
                                                                 get-current-schedule-date
                                                                 get-current-standings-request-date
                                                                 get-gamecenter-game-ids
@@ -113,3 +115,15 @@
 
   (testing "Current date is returned after midnight US/Pacific (-07:00 on tested date)"
     (is (= "2024-03-21" (format-date (get-current-schedule-date (time/date-time 2024 3 21 7 00 01)))))))
+
+(deftest fetch-latest-scores-test
+  (testing "Accepts include-rosters parameter"
+    (is (fn? (partial fetch-latest-scores false)))
+    (is (fn? (partial fetch-latest-scores true)))))
+
+(deftest fetch-scores-in-date-range-test
+  (testing "Accepts include-rosters parameter"
+    (let [start-date (time/date-time 2023 11 8)
+          end-date (time/date-time 2023 11 9)]
+      (is (fn? (partial fetch-scores-in-date-range start-date end-date false)))
+      (is (fn? (partial fetch-scores-in-date-range start-date end-date true))))))

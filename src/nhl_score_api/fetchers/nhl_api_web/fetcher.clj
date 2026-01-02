@@ -9,6 +9,7 @@
             [nhl-score-api.fetchers.nhl-api-web.api.index :as api]
             [nhl-score-api.fetchers.nhl-api-web.api.landing :as landing]
             [nhl-score-api.fetchers.nhl-api-web.api.right-rail :as right-rail]
+            [nhl-score-api.fetchers.nhl-api-web.api.roster :as roster]
             [nhl-score-api.fetchers.nhl-api-web.api.schedule :as schedule]
             [nhl-score-api.fetchers.nhl-api-web.api.standings :as standings]
             [nhl-score-api.fetchers.nhl-api-web.game-scores :as game-scores]
@@ -153,6 +154,26 @@
                                         (fetch-cached (right-rail/->RightRailApiRequest %)))))
        (into {})))
 
+(defn- fetch-team-rosters-for-games [schedule-games]
+  "Fetches team roster API data for all unique team/season combinations in the games.
+   Returns a map of {[team-abbrev season] roster-data}."
+  (let [team-seasons (->> schedule-games
+                          (mapcat (fn [game]
+                                    (let [season (str (:season game))
+                                          away-abbrev (get-in game [:away-team :abbrev])
+                                          home-abbrev (get-in game [:home-team :abbrev])]
+                                      [[away-abbrev season] [home-abbrev season]])))
+                          set)
+        requests (map (fn [[team-abbrev season]]
+                        [team-abbrev season (roster/->RosterApiRequest team-abbrev season)])
+                      team-seasons)
+        responses (pmap (fn [[team-abbrev season request]]
+                          [team-abbrev season (fetch-cached request)])
+                        requests)]
+    (into {} (map (fn [[team-abbrev season response]]
+                    [[team-abbrev season] response])
+                  responses))))
+
 (defn- prune-cache-and-fetch-gamecenters [games-info date-and-schedule-games]
   (when-not (:from-cache? (meta games-info))
     (logger/debug (str "Evicting "
@@ -164,37 +185,48 @@
                                         flatten)))
   (fetch-gamecenters (:games date-and-schedule-games)))
 
-(defn fetch-latest-scores []
-  (let [latest-games-info (fetch-games-info nil)
-        date-and-schedule-games (get-latest-games latest-games-info)
-        standings-date-str (if (= (count (:games date-and-schedule-games)) 0)
-                             nil
-                             (:raw (:date date-and-schedule-games)))
-        standings-info (first
-                        (fetch-standings-infos {:date-strs [standings-date-str]
-                                                :regular-season-start-date-str (:regular-season-start-date latest-games-info)
-                                                :regular-season-end-date-str (:regular-season-end-date latest-games-info)}
-                                               latest-games-info))]
-    (->> date-and-schedule-games
-         (prune-cache-and-fetch-gamecenters latest-games-info)
-         (game-scores/parse-game-scores date-and-schedule-games standings-info)
-         cache/log-cache-sizes!)))
+(defn fetch-latest-scores
+  ([]
+   (fetch-latest-scores false))
+  ([include-rosters]
+   (let [latest-games-info (fetch-games-info nil)
+         date-and-schedule-games (get-latest-games latest-games-info)
+         standings-date-str (if (= (count (:games date-and-schedule-games)) 0)
+                              nil
+                              (:raw (:date date-and-schedule-games)))
+         standings-info (first
+                         (fetch-standings-infos {:date-strs [standings-date-str]
+                                                 :regular-season-start-date-str (:regular-season-start-date latest-games-info)
+                                                 :regular-season-end-date-str (:regular-season-end-date latest-games-info)}
+                                                latest-games-info))
+         team-rosters (when include-rosters
+                        (fetch-team-rosters-for-games (:games date-and-schedule-games)))]
+     (->> date-and-schedule-games
+          (prune-cache-and-fetch-gamecenters latest-games-info)
+          (game-scores/parse-game-scores date-and-schedule-games standings-info nil team-rosters)
+          cache/log-cache-sizes!))))
 
-(defn fetch-scores-in-date-range [start-date end-date]
-  (let [games-info (fetch-games-info {:start (format-date start-date) :end (format-date end-date)})
-        dates-and-schedule-games (get-games-in-date-range games-info start-date end-date)
-        standings-date-strs (map #(if (= (count (:games %)) 0)
-                                    nil
-                                    (:raw (:date %)))
-                                 dates-and-schedule-games)
-        standings-infos (fetch-standings-infos {:date-strs standings-date-strs
-                                                :regular-season-start-date-str (:regular-season-start-date games-info)
-                                                :regular-season-end-date-str (:regular-season-end-date games-info)}
-                                               games-info)]
-    (->
-     (doall (map-indexed (fn [index date-and-schedule-games]
-                           (->> date-and-schedule-games
-                                (prune-cache-and-fetch-gamecenters games-info)
-                                (game-scores/parse-game-scores date-and-schedule-games (nth standings-infos index))))
-                         dates-and-schedule-games))
-     cache/log-cache-sizes!)))
+(defn fetch-scores-in-date-range
+  ([start-date end-date]
+   (fetch-scores-in-date-range start-date end-date false))
+  ([start-date end-date include-rosters]
+   (let [games-info (fetch-games-info {:start (format-date start-date) :end (format-date end-date)})
+         dates-and-schedule-games (get-games-in-date-range games-info start-date end-date)
+         standings-date-strs (map #(if (= (count (:games %)) 0)
+                                     nil
+                                     (:raw (:date %)))
+                                  dates-and-schedule-games)
+         standings-infos (fetch-standings-infos {:date-strs standings-date-strs
+                                                 :regular-season-start-date-str (:regular-season-start-date games-info)
+                                                 :regular-season-end-date-str (:regular-season-end-date games-info)}
+                                                games-info)
+         all-games (mapcat :games dates-and-schedule-games)
+         team-rosters (when include-rosters
+                        (fetch-team-rosters-for-games all-games))]
+     (->
+      (doall (map-indexed (fn [index date-and-schedule-games]
+                            (->> date-and-schedule-games
+                                 (prune-cache-and-fetch-gamecenters games-info)
+                                 (game-scores/parse-game-scores date-and-schedule-games (nth standings-infos index) nil team-rosters)))
+                          dates-and-schedule-games))
+      cache/log-cache-sizes!))))
