@@ -133,7 +133,7 @@
                                               (when (= url roster-url)
                                                 {:body roster-html}))
                     cache/get-cached (fn [_cache-key value-fn]
-                                      (value-fn))]
+                                       (value-fn))]
         (let [fetch-and-enrich-roster-for-game (get (ns-interns 'nhl-score-api.fetchers.nhl-api-web.fetcher)
                                                     'fetch-and-enrich-roster-for-game)]
           (when fetch-and-enrich-roster-for-game
