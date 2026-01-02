@@ -122,6 +122,7 @@ API responses are cached in-memory for one minute, then refreshed upon the next 
 - Check linting: `lein lint`
 - Test files use the `-test` suffix in namespace names
 - The project uses Kaocha for improved test failure reporting
+- **Avoid unnecessary comments in tests**: Comments that simply restate what the assertions already express should be removed. Keep comments that provide context about test setup or explain non-obvious behavior, but remove comments that duplicate assertion messages.
 
 ## Code Organization: Alphabetical Sorting
 
