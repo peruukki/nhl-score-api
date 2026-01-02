@@ -1,12 +1,15 @@
 (ns nhl-score-api.fetchers.nhl-api-web.fetcher-test
   (:require [clj-time.core :as time]
             [clojure.test :refer [deftest is testing]]
+            [nhl-score-api.cache :as cache]
+            [nhl-score-api.fetchers.nhl-api-web.api-request-queue :as api-request-queue]
             [nhl-score-api.fetchers.nhl-api-web.fetcher :refer [fetch-standings-infos
                                                                 get-current-schedule-date
                                                                 get-current-standings-request-date
                                                                 get-gamecenter-game-ids
                                                                 get-pre-game-standings-request-date
                                                                 get-schedule-date-range-str-for-latest-scores]]
+            [nhl-score-api.fetchers.nhl-api-web.resources :as resources]
             [nhl-score-api.utils :refer [format-date]]))
 
 (deftest get-schedule-date-range-str-for-latest-scores-test
@@ -113,3 +116,41 @@
 
   (testing "Current date is returned after midnight US/Pacific (-07:00 on tested date)"
     (is (= "2024-03-21" (format-date (get-current-schedule-date (time/date-time 2024 3 21 7 00 01)))))))
+
+(deftest roster-html-fetching-integration-test
+  (testing "Roster HTML is fetched and parsed when include-rosters is true"
+    (let [game-id 2023020207
+          roster-url "https://www.nhl.com/scores/htmlreports/20232024/RO020207.HTM"
+          roster-html (resources/get-roster-html (str game-id))
+          gamecenter {:rosters roster-url}
+          schedule-game {:id game-id
+                         :season 20232024
+                         :away-team {:abbrev "CGY"}
+                         :home-team {:abbrev "TOR"}}
+          team-rosters {["CGY" "20232024"] (resources/get-roster-api "CGY" "20232024")
+                        ["TOR" "20232024"] (resources/get-roster-api "TOR" "20232024")}]
+      (with-redefs [api-request-queue/fetch (fn [url _options _description]
+                                              (when (= url roster-url)
+                                                {:body roster-html}))
+                    cache/get-cached (fn [_cache-key value-fn]
+                                      (value-fn))]
+        (let [fetch-and-enrich-roster-for-game (get (ns-interns 'nhl-score-api.fetchers.nhl-api-web.fetcher)
+                                                    'fetch-and-enrich-roster-for-game)]
+          (when fetch-and-enrich-roster-for-game
+            (let [enriched-roster ((var-get fetch-and-enrich-roster-for-game) game-id gamecenter team-rosters schedule-game)]
+              (is (some? enriched-roster) "Enriched roster should be returned")
+              (is (contains? enriched-roster :away) "Enriched roster should contain :away")
+              (is (contains? enriched-roster :home) "Enriched roster should contain :home")
+              (when enriched-roster
+                (let [away-players (:away enriched-roster)
+                      home-players (:home enriched-roster)]
+                  (is (vector? away-players) ":away should be a vector")
+                  (is (vector? home-players) ":home should be a vector")
+                  (is (> (count away-players) 0) ":away should contain players")
+                  (is (> (count home-players) 0) ":home should contain players")
+                  (doseq [player (concat away-players home-players)]
+                    (is (contains? player :number) "Player should have :number")
+                    (is (contains? player :position) "Player should have :position")
+                    (is (contains? player :name) "Player should have :name")
+                    (when (:player-id player)
+                      (is (integer? (:player-id player)) ":player-id should be an integer"))))))))))))
