@@ -194,20 +194,46 @@
         (is (contains? player :name))
         (is (contains? player :starting-lineup)))))
 
-  (testing "Matches players by name when jersey number doesn't match"
-    (let [html-player {:number 99 :position "G" :name "Test Goalie" :starting-lineup true}
-          api-players [{:id 12345
-                        :sweater-number 1
-                        :position-code "G"
-                        :first-name {:default "Test"}
-                        :last-name {:default "Goalie"}}]
-          html-roster {:away [html-player] :home []}
+  (testing "Unmatched players have normalized names"
+    (let [html-content (resources/get-roster-html "2023020207")
+          html-roster (parser/parse-roster-html html-content)
+          ;; Use empty API rosters so no players match
+          empty-api-roster {:forwards [] :defensemen [] :goalies []}
           enriched (parser/enrich-roster-with-api-data html-roster
-                                                       {:forwards [] :defensemen [] :goalies api-players}
-                                                       {:forwards [] :defensemen [] :goalies []})]
+                                                       empty-api-roster
+                                                       empty-api-roster)
+          ;; Get a specific unmatched player (e.g., A.J. Greer from away team)
+          aj-greer (first (filter #(and (= 18 (:number %))
+                                        (= "L" (:position %)))
+                                  (:away enriched)))]
+      ;; Player should exist and not have player-id (unmatched)
+      (is (some? aj-greer))
+      (is (not (contains? aj-greer :player-id))
+          "Unmatched player should not have player-id")
+      ;; Name should be normalized (not all uppercase)
+      (is (= "A.J. Greer" (:name aj-greer))
+          "Unmatched player name should be normalized (title case, not all uppercase)")
+      ;; Verify name is not all uppercase
+      (is (not (every? #(Character/isUpperCase %) (:name aj-greer)))
+          "Unmatched player name should not be all uppercase")
+      ;; Verify captain markers are removed
+      (is (not (re-find #"\([CA]\)" (:name aj-greer)))
+          "Unmatched player name should not contain captain markers"))))
+
+(testing "Matches players by name when jersey number doesn't match"
+  (let [html-player {:number 99 :position "G" :name "Test Goalie" :starting-lineup true}
+        api-players [{:id 12345
+                      :sweater-number 1
+                      :position-code "G"
+                      :first-name {:default "Test"}
+                      :last-name {:default "Goalie"}}]
+        html-roster {:away [html-player] :home []}
+        enriched (parser/enrich-roster-with-api-data html-roster
+                                                     {:forwards [] :defensemen [] :goalies api-players}
+                                                     {:forwards [] :defensemen [] :goalies []})]
       ;; Should match by name fallback
-      (let [matched-player (first (:away enriched))]
-        (is (some? matched-player))
-        (is (contains? matched-player :player-id))
-        (is (= 12345 (:player-id matched-player)))
-        (is (:starting-lineup matched-player) "Starting lineup should be preserved")))))
+    (let [matched-player (first (:away enriched))]
+      (is (some? matched-player))
+      (is (contains? matched-player :player-id))
+      (is (= 12345 (:player-id matched-player)))
+      (is (:starting-lineup matched-player) "Starting lineup should be preserved"))))
