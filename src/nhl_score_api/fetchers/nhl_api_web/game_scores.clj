@@ -502,7 +502,7 @@
    (parse-game-scores date-and-schedule-games current-and-pre-game-standings nil nil))
   ([date-and-schedule-games current-and-pre-game-standings gamecenters]
    (parse-game-scores date-and-schedule-games current-and-pre-game-standings gamecenters nil))
-  ([date-and-schedule-games current-and-pre-game-standings gamecenters team-rosters]
+  ([date-and-schedule-games current-and-pre-game-standings gamecenters _team-rosters]
    {:date (:date date-and-schedule-games)
     :games (map #(parse-game-details current-and-pre-game-standings (get gamecenters (:id %)) %)
                 (:games date-and-schedule-games))}))
