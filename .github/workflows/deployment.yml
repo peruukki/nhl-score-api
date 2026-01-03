@@ -70,8 +70,8 @@ jobs:
       - name: Download uberjar
         uses: actions/download-artifact@v6
         with:
-          name: uberjar
-          path: target/server.jar
+          name: target-directory
+          path: target
 
       - name: Deploy to Heroku
         env:

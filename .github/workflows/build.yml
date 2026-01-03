@@ -19,6 +19,6 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           if-no-files-found: error
-          name: uberjar
-          path: target/server.jar
+          name: target-directory
+          path: target
           retention-days: 1
