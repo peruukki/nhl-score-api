@@ -13,7 +13,12 @@ on:
           - major
 
 jobs:
-  deploy:
+  checks:
+    uses: ./.github/workflows/checks.yml
+
+  bump-version:
+    if: ${{ inputs.version-bump != 'none' }}
+    needs: checks
     runs-on: ubuntu-latest
     environment: nhl-score-api
     steps:
@@ -22,50 +27,52 @@ jobs:
           # Fetch full history for version bumping with `lein release` that creates Git tags and commits
           fetch-depth: 0
 
-      - name: Set up JDK 8
-        if: ${{ inputs.version-bump != 'none' }}
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '8'
+      - name: Setup
+        uses: ./.github/actions/setup
 
-      - name: Set up Leiningen
-        if: ${{ inputs.version-bump != 'none' }}
-        uses: DeLaGuardo/setup-clojure@ada62bb3282a01a296659d48378b812b8e097360 # 13.2
-        with:
-          lein: '2.9.1'
+      - name: Configure Git
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions"
+
+      - name: Bump version
+        run: lein release :${{ inputs.version-bump }}
+
+      - name: Push to Git
+        run: git push origin master --tags
+
+  build:
+    if: always() && (needs.bump-version.result == 'success' || needs.bump-version.result == 'skipped')
+    needs: bump-version
+    uses: ./.github/workflows/build.yml
+    with:
+      upload: true
+
+  upload-to-heroku:
+    if: always() && needs.build.result == 'success'
+    needs: build
+    runs-on: ubuntu-latest
+    environment: nhl-score-api
+    steps:
+      - uses: actions/checkout@v4
 
       - name: Set up Heroku CLI
         run: |
           curl https://cli-assets.heroku.com/install.sh | sh
           heroku plugins:install java
 
-      - name: Configure Git
-        if: ${{ inputs.version-bump != 'none' }}
-        run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "GitHub Actions"
-
       - name: Configure Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: heroku git:remote --app ${{ vars.HEROKU_APP_NAME }}
 
-      - name: Checks
-        uses: ./.github/actions/checks
-
-      - name: Bump version
-        if: ${{ inputs.version-bump != 'none' }}
-        run: lein release :${{ inputs.version-bump }}
-
-      - name: Build
-        uses: ./.github/actions/build
+      - name: Download uberjar
+        uses: actions/download-artifact@v6
+        with:
+          name: uberjar
+          path: target/server.jar
 
       - name: Deploy to Heroku
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: ./deploy.sh
-
-      - name: Push to Git
-        if: ${{ inputs.version-bump != 'none' }}
-        run: git push origin master --tags

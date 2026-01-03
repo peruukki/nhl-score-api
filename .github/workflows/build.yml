@@ -2,6 +2,10 @@ name: Build
 
 on:
   workflow_call:
+    inputs:
+      upload:
+        description: Whether to upload the uberjar to be used in another workflow
+        type: boolean
   workflow_dispatch:
 
 jobs:
@@ -11,3 +15,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
       - run: lein uberjar
+      - if: ${{ inputs.upload }}
+        uses: actions/upload-artifact@v6
+        with:
+          if-no-files-found: error
+          name: uberjar
+          path: target/server.jar
+          retention-days: 1
