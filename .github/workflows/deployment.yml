@@ -26,6 +26,7 @@ jobs:
         with:
           # Fetch full history for version bumping with `lein release` that creates Git tags and commits
           fetch-depth: 0
+          token: ${{ secrets.BYPASS_REQUIRED_CHECKS }}
 
       - name: Setup
         uses: ./.github/actions/setup
