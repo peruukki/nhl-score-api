@@ -133,11 +133,17 @@
          (:body response))
       message))
 
-(defn- latest-scores-api-fn []
-  (reset! latest-scores-fetched true)
-  latest-scores)
+(defn- latest-scores-api-fn
+  ([]
+   (latest-scores-api-fn false))
+  ([_include-rosters]
+   (reset! latest-scores-fetched true)
+   latest-scores))
 
 #_{:clj-kondo/ignore [:unused-binding]}
-(defn- scores-in-date-range-api-fn [start-date end-date]
-  (reset! scores-in-date-range-fetched true)
-  scores-in-date-range)
+(defn- scores-in-date-range-api-fn
+  ([start-date end-date]
+   (scores-in-date-range-api-fn start-date end-date false))
+  ([_start-date _end-date _include-rosters]
+   (reset! scores-in-date-range-fetched true)
+   scores-in-date-range))
