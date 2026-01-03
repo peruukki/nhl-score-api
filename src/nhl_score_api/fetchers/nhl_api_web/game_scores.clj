@@ -89,6 +89,11 @@
     (assoc goal-details :strength strength)
     goal-details))
 
+(defn- add-starting-lineup-if-true [player-details starting-lineup?]
+  (if starting-lineup?
+    (assoc player-details :starting-lineup true)
+    player-details))
+
 (defn- parse-goal-details [goal-details]
   (let [team (:default (:team-abbrev goal-details))
         period (:period goal-details)
@@ -477,7 +482,30 @@
                         (seq (val %)))
                    game-details)))
 
-(defn- parse-game-details [current-and-pre-game-standings gamecenter schedule-game]
+(defn- format-roster-player
+  "Formats a player from enriched roster data to API response format.
+   Includes starting-lineup field only when true."
+  [player]
+  (let [base-player {:name (:name player)
+                     :position (:position player)
+                     :number (:number player)}
+        with-player-id (if (:player-id player)
+                         (assoc base-player :player-id (:player-id player))
+                         base-player)]
+    (add-starting-lineup-if-true with-player-id (:starting-lineup player))))
+
+(defn- format-roster-data
+  "Formats enriched roster data to API response format.
+   Returns {:rosters {:away [...], :home [...]}} or nil if roster is empty."
+  [enriched-roster]
+  (when enriched-roster
+    (let [away-players (map format-roster-player (:away enriched-roster))
+          home-players (map format-roster-player (:home enriched-roster))
+          rosters {:away away-players :home home-players}]
+      (when (or (seq away-players) (seq home-players))
+        {:rosters rosters}))))
+
+(defn- parse-game-details [current-and-pre-game-standings gamecenter schedule-game enriched-roster]
   (let [team-details (parse-game-team-details schedule-game)
         scores (parse-scores schedule-game team-details)
         teams (get-teams team-details (:season schedule-game))]
@@ -495,7 +523,8 @@
         (add-team-standings team-details current-and-pre-game-standings)
         (add-playoff-series-information schedule-game)
         (add-validation-errors)
-        (reject-empty-vals-except-for-keys #{:goals :links}))))
+        (merge (format-roster-data enriched-roster))
+        (reject-empty-vals-except-for-keys #{:goals :links :rosters}))))
 
 (defn parse-game-scores
   ([date-and-schedule-games current-and-pre-game-standings]
@@ -504,7 +533,10 @@
    (parse-game-scores date-and-schedule-games current-and-pre-game-standings gamecenters nil nil))
   ([date-and-schedule-games current-and-pre-game-standings gamecenters _team-rosters]
    (parse-game-scores date-and-schedule-games current-and-pre-game-standings gamecenters _team-rosters nil))
-  ([date-and-schedule-games current-and-pre-game-standings gamecenters _team-rosters _enriched-rosters]
+  ([date-and-schedule-games current-and-pre-game-standings gamecenters _team-rosters enriched-rosters]
    {:date (:date date-and-schedule-games)
-    :games (map #(parse-game-details current-and-pre-game-standings (get gamecenters (:id %)) %)
+    :games (map #(parse-game-details current-and-pre-game-standings
+                                     (get gamecenters (:id %))
+                                     %
+                                     (get enriched-rosters (:id %)))
                 (:games date-and-schedule-games))}))

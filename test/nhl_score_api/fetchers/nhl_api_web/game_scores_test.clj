@@ -2,6 +2,7 @@
   (:require [clojure.test :refer [deftest is testing]]
             [nhl-score-api.fetchers.nhl-api-web.game-scores :refer [parse-game-scores]]
             [nhl-score-api.fetchers.nhl-api-web.resources :as resources]
+            [nhl-score-api.fetchers.nhl-api-web.roster-parser :as roster-parser]
             [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-latest-games]]
             [nhl-score-api.utils :refer [fmap-vals]]))
 
@@ -828,3 +829,95 @@
                   resources/current-standings-minimal
                   (resources/get-gamecenters ["2023020209-modified-minimal"]))]
       (is (= 8 (count (:games scores))) "Parsed game count"))))
+
+(deftest game-scores-parsing-rosters
+  (testing "Roster data is included when enriched roster data is provided"
+    (let [html-content (resources/get-roster-html "2023020207")
+          html-roster (roster-parser/parse-roster-html html-content)
+          api-roster-away (resources/get-roster-api "CGY" "20232024")
+          api-roster-home (resources/get-roster-api "TOR" "20232024")
+          enriched-roster (roster-parser/enrich-roster-with-api-data html-roster
+                                                                     api-roster-away
+                                                                     api-roster-home)
+          game-id 2023020207
+          schedule-game (first (filter #(= (:id %) game-id) (:games (get-latest-games default-games))))
+          gamecenter (get default-gamecenters game-id)
+          game (parse-game-scores
+                {:date (:date (get-latest-games default-games))
+                 :games [schedule-game]}
+                default-standings
+                {game-id gamecenter}
+                nil
+                {game-id enriched-roster})]
+      (is (contains? (first (:games game)) :rosters) "Game contains rosters field")
+      (let [rosters (:rosters (first (:games game)))]
+        (is (contains? rosters :away) "Rosters contain away team")
+        (is (contains? rosters :home) "Rosters contain home team")
+        (is (> (count (:away rosters)) 0) "Away roster contains players")
+        (is (> (count (:home rosters)) 0) "Home roster contains players"))))
+
+  (testing "Starting lineup field is only present when true"
+    (let [html-content (resources/get-roster-html "2023020207")
+          html-roster (roster-parser/parse-roster-html html-content)
+          api-roster-away (resources/get-roster-api "CGY" "20232024")
+          api-roster-home (resources/get-roster-api "TOR" "20232024")
+          enriched-roster (roster-parser/enrich-roster-with-api-data html-roster
+                                                                     api-roster-away
+                                                                     api-roster-home)
+          game-id 2023020207
+          schedule-game (first (filter #(= (:id %) game-id) (:games (get-latest-games default-games))))
+          gamecenter (get default-gamecenters game-id)
+          game (parse-game-scores
+                {:date (:date (get-latest-games default-games))
+                 :games [schedule-game]}
+                default-standings
+                {game-id gamecenter}
+                nil
+                {game-id enriched-roster})
+          all-players (concat (:away (:rosters (first (:games game))))
+                              (:home (:rosters (first (:games game)))))]
+      (doseq [player all-players]
+        (if (:starting-lineup player)
+          (is (= true (:starting-lineup player)) "Starting lineup is true when present")
+          (is (not (contains? player :starting-lineup)) "Starting lineup field is omitted when false"))))
+
+    (testing "Roster data is omitted when not provided"
+      (let [game-id 2023020207
+            schedule-game (first (filter #(= (:id %) game-id) (:games (get-latest-games default-games))))
+            gamecenter (get default-gamecenters game-id)
+            game (parse-game-scores
+                  {:date (:date (get-latest-games default-games))
+                   :games [schedule-game]}
+                  default-standings
+                  {game-id gamecenter}
+                  nil
+                  nil)]
+        (is (not (contains? (first (:games game)) :rosters)) "Game does not contain rosters field when not provided")))
+
+    (testing "Player data includes player-id when matched"
+      (let [html-content (resources/get-roster-html "2023020207")
+            html-roster (roster-parser/parse-roster-html html-content)
+            api-roster-away (resources/get-roster-api "CGY" "20232024")
+            api-roster-home (resources/get-roster-api "TOR" "20232024")
+            enriched-roster (roster-parser/enrich-roster-with-api-data html-roster
+                                                                       api-roster-away
+                                                                       api-roster-home)
+            game-id 2023020207
+            schedule-game (first (filter #(= (:id %) game-id) (:games (get-latest-games default-games))))
+            gamecenter (get default-gamecenters game-id)
+            game (parse-game-scores
+                  {:date (:date (get-latest-games default-games))
+                   :games [schedule-game]}
+                  default-standings
+                  {game-id gamecenter}
+                  nil
+                  {game-id enriched-roster})
+            all-players (concat (:away (:rosters (first (:games game))))
+                                (:home (:rosters (first (:games game)))))
+            players-with-id (filter :player-id all-players)]
+        (is (> (count players-with-id) 0) "Some players have player-id")
+        (doseq [player players-with-id]
+          (is (integer? (:player-id player)) "Player-id is an integer")
+          (is (contains? player :name) "Player has name")
+          (is (contains? player :position) "Player has position")
+          (is (contains? player :number) "Player has number"))))))

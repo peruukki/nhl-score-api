@@ -43,31 +43,32 @@
 
 (defn get-response
   [request-path request-params fetch-latest-scores-api-fn fetch-scores-in-date-range-api-fn]
-  (case request-path
-    "/"
-    {:status 200
-     :body {:version version}}
+  (let [include-rosters (contains? (params/parse-include-param (:include request-params)) "rosters")]
+    (case request-path
+      "/"
+      {:status 200
+       :body {:version version}}
 
-    "/api/scores/latest"
-    {:status 200
-     :body (fetch-latest-scores-api-fn)}
+      "/api/scores/latest"
+      {:status 200
+       :body (fetch-latest-scores-api-fn include-rosters)}
 
-    "/api/scores"
-    (let [expected-params [{:field :start-date :type :date :required? true}
-                           {:field :end-date :type :date}]
-          parsed-params (params/parse-params expected-params request-params)]
-      (if (not-empty (:errors parsed-params))
-        {:status 400
-         :body {:errors (:errors parsed-params)}}
-        (let [start-date (:start-date (:values parsed-params))
-              end-date (:end-date (:values parsed-params))
-              validation-error (validate/validate-date-range start-date end-date 7)]
-          (if validation-error
-            {:status 400
-             :body {:errors [validation-error]}}
-            {:status 200
-             :body (fetch-scores-in-date-range-api-fn start-date (or end-date start-date))}))))
-    {:status 404 :body {}}))
+      "/api/scores"
+      (let [expected-params [{:field :start-date :type :date :required? true}
+                             {:field :end-date :type :date}]
+            parsed-params (params/parse-params expected-params request-params)]
+        (if (not-empty (:errors parsed-params))
+          {:status 400
+           :body {:errors (:errors parsed-params)}}
+          (let [start-date (:start-date (:values parsed-params))
+                end-date (:end-date (:values parsed-params))
+                validation-error (validate/validate-date-range start-date end-date 7)]
+            (if validation-error
+              {:status 400
+               :body {:errors [validation-error]}}
+              {:status 200
+               :body (fetch-scores-in-date-range-api-fn start-date (or end-date start-date) include-rosters)}))))
+      {:status 404 :body {}})))
 
 (defn json-key-transformer [key]
   (if (keyword? key)
