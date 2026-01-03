@@ -9,9 +9,14 @@ curl --location https://download.newrelic.com/newrelic/java-agent/newrelic-agent
 unzip -o newrelic.zip
 rm newrelic.zip
 
-# Ensure the required file exists
+# Ensure the required files exist
 if [ ! -f newrelic/newrelic.jar ]; then
   echo "newrelic/newrelic.jar is missing; set up New Relic and copy New Relic JAR files into the newrelic directory"
+  exit 1
+fi
+if [ ! -f target/server.jar ]; then
+  echo "target/server.jar is missing or is a directory; target directory contents:"
+  ls -la target
   exit 1
 fi
 
