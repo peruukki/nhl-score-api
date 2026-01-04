@@ -124,7 +124,7 @@ API responses are cached in-memory for one minute, then refreshed upon the next 
 - The project uses Kaocha for improved test failure reporting
 - **Avoid unnecessary comments in tests**: Comments that simply restate what the assertions already express should be removed. Keep comments that provide context about test setup or explain non-obvious behavior, but remove comments that duplicate assertion messages.
 - **Use fancy quotes in documentation**: When editing markdown documentation files (like `README.md`), use fancy/curly quotes (`'` and `'`) instead of plain quotes (`'` and `"`). This applies to apostrophes in contractions (e.g., `don't`, `it's`) and possessive forms (e.g., `team's`, `player's`).
-- **Trim trailing whitespace in documentation**: When editing markdown documentation files, ensure that empty lines contain no trailing whitespace. Remove any spaces or tabs from otherwise empty lines.
+- **Trim trailing whitespace**: When editing any file, ensure that empty lines contain no trailing whitespace. Remove any spaces or tabs from otherwise empty lines.
 
 ## Code Organization: Alphabetical Sorting
 
