@@ -52,6 +52,17 @@ sequenceDiagram
     W-->>S: { "standings": ... }
   end
 
+  opt When include=rosters is requested
+    loop Each game with roster data
+      S->>W: GET //www.nhl.com/scores/htmlreports/:season/RO:game-id.HTM
+      W-->>S: Roster report HTML content
+    end
+
+    loop Each needed team
+      S->>W: GET /v1/roster/:team/:season
+      W-->>S: { "defensemen": ... }
+    end
+  end
 ```
 
 </details>
