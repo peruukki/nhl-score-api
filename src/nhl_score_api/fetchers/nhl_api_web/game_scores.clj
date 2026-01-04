@@ -494,16 +494,18 @@
                          base-player)]
     (add-starting-lineup-if-true with-player-id (:starting-lineup player))))
 
-(defn- format-roster-data
-  "Formats enriched roster data to API response format.
-   Returns {:rosters {:away [...], :home [...]}} or nil if roster is empty."
-  [enriched-roster]
-  (when enriched-roster
+(defn- add-rosters
+  "Adds roster data to game details if enriched roster data is available.
+   Returns game-details with :rosters field added when roster data exists."
+  [game-details enriched-roster]
+  (if enriched-roster
     (let [away-players (map format-roster-player (:away enriched-roster))
           home-players (map format-roster-player (:home enriched-roster))
           rosters {:away away-players :home home-players}]
-      (when (or (seq away-players) (seq home-players))
-        {:rosters rosters}))))
+      (if (or (seq away-players) (seq home-players))
+        (assoc game-details :rosters rosters)
+        game-details))
+    game-details))
 
 (defn- parse-game-details [current-and-pre-game-standings gamecenter schedule-game enriched-roster]
   (let [team-details (parse-game-team-details schedule-game)
@@ -523,7 +525,7 @@
         (add-team-standings team-details current-and-pre-game-standings)
         (add-playoff-series-information schedule-game)
         (add-validation-errors)
-        (merge (format-roster-data enriched-roster))
+        (add-rosters enriched-roster)
         (reject-empty-vals-except-for-keys #{:goals :links :rosters}))))
 
 (defn parse-game-scores
