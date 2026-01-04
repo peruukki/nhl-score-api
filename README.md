@@ -19,12 +19,13 @@ undocumented but unofficial documentation exists:
 
 How we use the NHL Web API:
 
-- [schedule](https://api-web.nhle.com/v1/schedule/2023-11-07) gives us a list of the week's games; we check the game
+- [schedule](https://api-web.nhle.com/v1/schedule/2023-11-07) gives us a list of the week’s games; we check the game
   statuses and get the game IDs to fetch the games' gamecenter landing page and right-rail data
 - [landing](https://api-web.nhle.com/v1/gamecenter/2023020180/landing) gives us basic details of an individual game
 - [right-rail](https://api-web.nhle.com/v1/gamecenter/2023020180/right-rail) gives us more details of an individual game,
-  like game stats and recap video links
+  like game stats and recap video links, as well as links to HTML roster reports
 - [standings](https://api-web.nhle.com/v1/standings/2023-11-07) gives us team stats
+- [roster](https://api-web.nhle.com/v1/roster/CGY/20232024) gives us detailed team roster information with player IDs (when `include=rosters` is requested)
 
 <details>
 <summary>
@@ -63,6 +64,10 @@ sequenceDiagram
 
 Returns an object with the date and the scores from the latest round’s games.
 
+**Query Parameters:**
+- `include` _(string, optional)_: Comma-separated list of additional data to include. Currently supported values:
+  - `rosters`: Include roster information for each game (player names, numbers, positions, player IDs, and starting lineup status)
+
 The `date` object contains the date in a raw format and a prettier, displayable format, or
 `null` if there are no scores.
 
@@ -77,6 +82,7 @@ The `games` array contains details of the games, each game item containing these
 - `preGameStats` _(object)_
 - `currentStats` _(object)_
 - `links` _(object)_
+- `rosters` _(object)_ (only present when `include=rosters` is provided)
 - `errors` _(array)_ (only present if data validity errors were detected)
 
 The fields are described in more detail in [Response fields](#response-fields).
@@ -88,7 +94,13 @@ The fields are described in more detail in [Response fields](#response-fields).
 Returns an array of objects with the date and the scores from given date range’s games.
 Both `startDate` and `endDate` are inclusive, and `endDate` is optional. **The range is
 limited to a maximum of 7 days** to set some reasonable limit for the (cached) response;
-this also matches the NHL Web API that returns one week's schedule at a time.
+this also matches the NHL Web API that returns one week’s schedule at a time.
+
+**Query Parameters:**
+- `startDate` _(string, required)_: Start date in "YYYY-MM-DD" format
+- `endDate` _(string, optional)_: End date in "YYYY-MM-DD" format (defaults to `startDate` if not provided)
+- `include` _(string, optional)_: Comma-separated list of additional data to include. Currently supported values:
+  - `rosters`: Include roster information for each game (player names, numbers, positions, player IDs, and starting lineup status)
 
 The `date` object contains the date in a raw format and a prettier, displayable format. Contrary to the
 `/api/scores/latest` endpoint, the `date` is included even if that date has no scheduled games.
@@ -105,6 +117,7 @@ The `games` array contains details of the games, each game item containing these
 - `preGameStats` _(object)_
 - `currentStats` _(object)_
 - `links` _(object)_
+- `rosters` _(object)_ (only present when `include=rosters` is provided)
 - `errors` _(array)_ (only present if data validity errors were detected)
 
 **If a date has no scheduled games**, you will either get:
@@ -669,10 +682,10 @@ Example of a single playoff date in the API response
     - `type` _(string)_: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
     - `count` _(number)_: streak’s length in consecutive games
   - `standings` object: each teams’ standings related information, with the fields:
-    - `divisionRank` _(string)_: the team's regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Web API (**can be an empty string before the season has started**)
-    - `conferenceRank` _(string)_: the team's regular season ranking in their conference (based on point percentage, not considering wildcard seedings);
+    - `divisionRank` _(string)_: the team’s regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Web API (**can be an empty string before the season has started**)
+    - `conferenceRank` _(string)_: the team’s regular season ranking in their conference (based on point percentage, not considering wildcard seedings);
       this comes as a _string_ value from the NHL Web API (**can be an empty string before the season has started**)
-    - `leagueRank` _(string)_: the team's regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Web API (**can be an empty string before the season has started**)
+    - `leagueRank` _(string)_: the team’s regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Web API (**can be an empty string before the season has started**)
     - `pointsFromPlayoffSpot` _(string)_: point difference to the last playoff spot in the conference (**can be an empty string before the season has started**)
       - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
         i.e. by how many points the team is safe
@@ -689,10 +702,10 @@ Example of a single playoff date in the API response
     - `type` _(string)_: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
     - `count` _(number)_: streak’s length in consecutive games
   - `standings` object (**or `null` if querying coming season’s games**): each teams’ standings related information, with the fields:
-    - `divisionRank` _(string)_: the team's regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Web API
-    - `conferenceRank` _(string)_: the team's regular season ranking in their conference (based on point percentage, not considering wildcard seedings);
+    - `divisionRank` _(string)_: the team’s regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Web API
+    - `conferenceRank` _(string)_: the team’s regular season ranking in their conference (based on point percentage, not considering wildcard seedings);
       this comes as a _string_ value from the NHL Web API
-    - `leagueRank` _(string)_: the team's regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Web API
+    - `leagueRank` _(string)_: the team’s regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Web API
     - `pointsFromPlayoffSpot` _(string)_: point difference to the last playoff spot in the conference
       - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
         i.e. by how many points the team is safe
@@ -707,12 +720,22 @@ Example of a single playoff date in the API response
   - `gameCenter`: game summary with lots of related info
   - `playoffSeries`: playoff series specific info (only present in playoff games)
   - `videoRecap`: 5-minute video recap (once available)
+- `rosters` object: roster information for both teams (only present when `include=rosters` query parameter is provided), with the fields:
+  - `away` _(array)_: list of away team players, each player object containing:
+    - `playerId` _(number, optional)_: player ID in NHL APIs (only present if player was matched with team roster API data)
+    - `name` _(string)_: player’s full name
+    - `position` _(string)_: player’s position code (`"G"` for goalie, `"D"` for defenseman, `"C"`, `"L"`, or `"R"` for forwards)
+    - `number` _(number)_: player’s jersey number
+    - `startingLineup` _(boolean, optional)_: set to `true` if the player is in the starting lineup; this field is **only included when `true`** (omitted when `false`)
+  - `home` _(array)_: list of home team players, with the same structure as `away`
+
+  **Note**: Roster data is only available for finished or live games. If roster data cannot be fetched or parsed for a game, the `rosters` field will be omitted for that game. Players that cannot be matched with team roster API data will be included without a `playerId` field, but their name, position, number, and starting lineup status will still be included.
 - `errors` array: list of data validation errors, only present if any were detected. Sometimes the NHL Web API temporarily contains
   invalid or missing data. Currently we check if the goal data from the NHL Web API (read from its `scoringPlays` field) contains the
-  same number of goals than the score data (read from its `teams` field). If it doesn't, two different errors can be reported:
+  same number of goals than the score data (read from its `teams` field). If it doesn’t, two different errors can be reported:
   - `{ "error": "MISSING-ALL-GOALS" }`: all goal data is missing; this has happened occasionally
-  - `{ "error": "SCORE-AND-GOAL-COUNT-MISMATCH", "details": { "goalCount": 3, "scoreCount": 4 } }`: goal data exists but doesn't contain
-    the same number of goals than the teams' scores; haven't noticed this happen but good to check anyway
+  - `{ "error": "SCORE-AND-GOAL-COUNT-MISMATCH", "details": { "goalCount": 3, "scoreCount": 4 } }`: goal data exists but doesn’t contain
+    the same number of goals than the teams' scores; haven’t noticed this happen but good to check anyway
 
 **Note on overtimes:** Only regular season 5 minute overtimes are considered "overtime" in the
 `goals` array. Playoff overtime periods are returned as period 4, 5, and so on, since they are
@@ -763,7 +786,7 @@ Run tests with the [Kaocha test runner](https://github.com/lambdaisland/kaocha) 
 lein test [--watch]
 ```
 
-Run single tests or test groups with [Kaocha's `--focus` argument](https://cljdoc.org/d/lambdaisland/kaocha/0.0-590/doc/focusing-on-specific-tests), e.g.:
+Run single tests or test groups with [Kaocha’s `--focus` argument](https://cljdoc.org/d/lambdaisland/kaocha/0.0-590/doc/focusing-on-specific-tests), e.g.:
 
 ```sh
 lein test --focus nhl-score-api.fetchers.nhlstats.game-scores-test/game-scores-parsing-scores
@@ -799,7 +822,7 @@ The NHL API responses change from time to time, so the [responses](test/nhl_scor
 used in tests also need to be updated to remain accurate.
 
 Especially the game-specific API responses need frequent updating, so there is a helper script to fetch the current
-responses with game IDs and save them. It's also useful for checking if the NHL API responses have changed in case of
+responses with game IDs and save them. It’s also useful for checking if the NHL API responses have changed in case of
 errors. Though note that not all data should be updated; at least game progress data changes should be discarded so that
 the tests that rely on that still work.
 
@@ -825,7 +848,7 @@ There is also a similar script `update-standings-test-data.sh` for updating stan
 ## Deployment
 
 The API is deployed to [Heroku](http://heroku.com/) by running the [Deployment workflow](https://github.com/peruukki/nhl-score-api/actions/workflows/deployment.yml).
-The workflow requires these set in _Actions secrets and variables_ in the repository's settings:
+The workflow requires these set in _Actions secrets and variables_ in the repository’s settings:
 
 - `HEROKU_API_KEY` repository secret: you can find this from the _API Key_ section in your Heroku account settings
 - `HEROKU_APP_NAME` repository variable: your app name in Heroku
@@ -860,7 +883,7 @@ git push origin master --tags
 
 ```sh
 heroku plugins:install java
-# alternative if the above doesn't work:
+# alternative if the above doesn’t work:
 heroku plugins:install @heroku-cli/plugin-java
 ```
 
