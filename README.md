@@ -829,6 +829,9 @@ The workflow requires these set in _Actions secrets and variables_ in the reposi
 
 - `HEROKU_API_KEY` repository secret: you can find this from the _API Key_ section in your Heroku account settings
 - `HEROKU_APP_NAME` repository variable: your app name in Heroku
+- `TOKEN_BYPASS_REQUIRED_CHECKS` repository secret: generate a [personal access token (classic)](https://github.com/settings/tokens) with full `repo` rights
+  - The user who owns the access token needs to be on the bypass list for required GitHub status checks (configured in the repository rulesets)
+  - It's recommended to set an expirate date for the token, though this means it needs to be regenerated periodically
 
 ### Alternative deployment from development machine
 
