@@ -33,6 +33,16 @@
   (testing "Returns success response"
     (let [path "/api/scores/latest"
           response (get-response path {} latest-scores-api-fn scores-in-date-range-api-fn)]
+      (is (= 200 (:status response)) "Response status is 200")))
+
+  (testing "Returns success response with include=rosters parameter"
+    (let [path "/api/scores/latest"
+          response (get-response path {:include "rosters"} latest-scores-api-fn scores-in-date-range-api-fn)]
+      (is (= 200 (:status response)) "Response status is 200")))
+
+  (testing "Returns success response with include parameter containing multiple values"
+    (let [path "/api/scores/latest"
+          response (get-response path {:include "rosters,otherThing"} latest-scores-api-fn scores-in-date-range-api-fn)]
       (is (= 200 (:status response)) "Response status is 200"))))
 
 (deftest scores-in-date-range-route
@@ -44,6 +54,16 @@
   (testing "Returns success response with :start-date and :end-date parameters"
     (let [path "/api/scores"
           response (get-response path {:start-date "2021-10-03" :end-date "2021-10-04"} latest-scores-api-fn scores-in-date-range-api-fn)]
+      (is (= 200 (:status response)) "Response status is 200")))
+
+  (testing "Returns success response with include=rosters parameter"
+    (let [path "/api/scores"
+          response (get-response path {:start-date "2021-10-03" :include "rosters"} latest-scores-api-fn scores-in-date-range-api-fn)]
+      (is (= 200 (:status response)) "Response status is 200")))
+
+  (testing "Returns success response with include parameter containing multiple values"
+    (let [path "/api/scores"
+          response (get-response path {:start-date "2021-10-03" :include "rosters,otherThing"} latest-scores-api-fn scores-in-date-range-api-fn)]
       (is (= 200 (:status response)) "Response status is 200")))
 
   (testing "Returns failure response without parameters"
@@ -133,11 +153,16 @@
          (:body response))
       message))
 
-(defn- latest-scores-api-fn []
-  (reset! latest-scores-fetched true)
-  latest-scores)
+(defn- latest-scores-api-fn
+  ([]
+   (latest-scores-api-fn false))
+  ([_include-rosters]
+   (reset! latest-scores-fetched true)
+   latest-scores))
 
-#_{:clj-kondo/ignore [:unused-binding]}
-(defn- scores-in-date-range-api-fn [start-date end-date]
-  (reset! scores-in-date-range-fetched true)
-  scores-in-date-range)
+(defn- scores-in-date-range-api-fn
+  ([start-date end-date]
+   (scores-in-date-range-api-fn start-date end-date false))
+  ([_start-date _end-date _include-rosters]
+   (reset! scores-in-date-range-fetched true)
+   scores-in-date-range))
