@@ -122,7 +122,7 @@ API responses are cached in-memory for one minute, then refreshed upon the next 
 - Check linting: `lein lint`
 - Test files use the `-test` suffix in namespace names
 - **Avoid unnecessary comments**: Do not add comments that simply restate what the following lines do. Only add comments that provide more context or explain non-obvious behavior.
-- **Use fancy quotes in documentation**: When editing markdown documentation files (like `README.md`), use fancy/curly quotes (`'` and `'`) instead of plain quotes (`'` and `"`). This applies to apostrophes in contractions (e.g., `don't`, `it's`) and possessive forms (e.g., `team's`, `player's`).
+- **Use fancy quotes in documentation**: When editing documentation in markdown files (like `README.md`), use fancy/curly quotes (`'` and `'`) instead of plain quotes (`'` and `"`). This applies to apostrophes in contractions (e.g., `don't`, `it's`) and possessive forms (e.g., `team's`, `player's`). But use plain quotes `'` in places that require them, like command examples.
 - **Trim trailing whitespace**: When adding empty lines, ensure they contain no whitespace characters. Remove any spaces or tabs from otherwise empty lines.
 
 ## Code Organization: Alphabetical Sorting

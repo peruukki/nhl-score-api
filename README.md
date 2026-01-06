@@ -19,8 +19,8 @@ undocumented but unofficial documentation exists:
 
 How we use the NHL Web API:
 
-- [schedule](https://api-web.nhle.com/v1/schedule/2023-11-07) gives us a list of the week's games; we check the game
-  statuses and get the game IDs to fetch the games' gamecenter landing page and right-rail data
+- [schedule](https://api-web.nhle.com/v1/schedule/2023-11-07) gives us a list of the week’s games; we check the game
+  statuses and get the game IDs to fetch the games’ gamecenter landing page and right-rail data
 - [landing](https://api-web.nhle.com/v1/gamecenter/2023020180/landing) gives us basic details of an individual game
 - [right-rail](https://api-web.nhle.com/v1/gamecenter/2023020180/right-rail) gives us more details of an individual game,
   like game stats and recap video links
@@ -88,7 +88,7 @@ The fields are described in more detail in [Response fields](#response-fields).
 Returns an array of objects with the date and the scores from given date range’s games.
 Both `startDate` and `endDate` are inclusive, and `endDate` is optional. **The range is
 limited to a maximum of 7 days** to set some reasonable limit for the (cached) response;
-this also matches the NHL Web API that returns one week's schedule at a time.
+this also matches the NHL Web API that returns one week’s schedule at a time.
 
 The `date` object contains the date in a raw format and a prettier, displayable format. Contrary to the
 `/api/scores/latest` endpoint, the `date` is included even if that date has no scheduled games.
@@ -669,10 +669,10 @@ Example of a single playoff date in the API response
     - `type` _(string)_: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
     - `count` _(number)_: streak’s length in consecutive games
   - `standings` object: each teams’ standings related information, with the fields:
-    - `divisionRank` _(string)_: the team's regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Web API (**can be an empty string before the season has started**)
-    - `conferenceRank` _(string)_: the team's regular season ranking in their conference (based on point percentage, not considering wildcard seedings);
+    - `divisionRank` _(string)_: the team’s regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Web API (**can be an empty string before the season has started**)
+    - `conferenceRank` _(string)_: the team’s regular season ranking in their conference (based on point percentage, not considering wildcard seedings);
       this comes as a _string_ value from the NHL Web API (**can be an empty string before the season has started**)
-    - `leagueRank` _(string)_: the team's regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Web API (**can be an empty string before the season has started**)
+    - `leagueRank` _(string)_: the team’s regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Web API (**can be an empty string before the season has started**)
     - `pointsFromPlayoffSpot` _(string)_: point difference to the last playoff spot in the conference (**can be an empty string before the season has started**)
       - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
         i.e. by how many points the team is safe
@@ -689,10 +689,10 @@ Example of a single playoff date in the API response
     - `type` _(string)_: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
     - `count` _(number)_: streak’s length in consecutive games
   - `standings` object (**or `null` if querying coming season’s games**): each teams’ standings related information, with the fields:
-    - `divisionRank` _(string)_: the team's regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Web API
-    - `conferenceRank` _(string)_: the team's regular season ranking in their conference (based on point percentage, not considering wildcard seedings);
+    - `divisionRank` _(string)_: the team’s regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Web API
+    - `conferenceRank` _(string)_: the team’s regular season ranking in their conference (based on point percentage, not considering wildcard seedings);
       this comes as a _string_ value from the NHL Web API
-    - `leagueRank` _(string)_: the team's regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Web API
+    - `leagueRank` _(string)_: the team’s regular season ranking in the league (based on point percentage); this comes as a _string_ value from the NHL Web API
     - `pointsFromPlayoffSpot` _(string)_: point difference to the last playoff spot in the conference
       - for teams currently in the playoffs, this is the point difference to the first team out of the playoffs;
         i.e. by how many points the team is safe
@@ -709,10 +709,10 @@ Example of a single playoff date in the API response
   - `videoRecap`: 5-minute video recap (once available)
 - `errors` array: list of data validation errors, only present if any were detected. Sometimes the NHL Web API temporarily contains
   invalid or missing data. Currently we check if the goal data from the NHL Web API (read from its `scoringPlays` field) contains the
-  same number of goals than the score data (read from its `teams` field). If it doesn't, two different errors can be reported:
+  same number of goals than the score data (read from its `teams` field). If it doesn’t, two different errors can be reported:
   - `{ "error": "MISSING-ALL-GOALS" }`: all goal data is missing; this has happened occasionally
-  - `{ "error": "SCORE-AND-GOAL-COUNT-MISMATCH", "details": { "goalCount": 3, "scoreCount": 4 } }`: goal data exists but doesn't contain
-    the same number of goals than the teams' scores; haven't noticed this happen but good to check anyway
+  - `{ "error": "SCORE-AND-GOAL-COUNT-MISMATCH", "details": { "goalCount": 3, "scoreCount": 4 } }`: goal data exists but doesn’t contain
+    the same number of goals than the teams’ scores; haven’t noticed this happen but good to check anyway
 
 **Note on overtimes:** Only regular season 5 minute overtimes are considered "overtime" in the
 `goals` array. Playoff overtime periods are returned as period 4, 5, and so on, since they are
@@ -763,7 +763,7 @@ Run tests with the [Kaocha test runner](https://github.com/lambdaisland/kaocha) 
 lein test [--watch]
 ```
 
-Run single tests or test groups with [Kaocha's `--focus` argument](https://cljdoc.org/d/lambdaisland/kaocha/0.0-590/doc/focusing-on-specific-tests), e.g.:
+Run single tests or test groups with [Kaocha’s `--focus` argument](https://cljdoc.org/d/lambdaisland/kaocha/0.0-590/doc/focusing-on-specific-tests), e.g.:
 
 ```sh
 lein test --focus nhl-score-api.fetchers.nhlstats.game-scores-test/game-scores-parsing-scores
@@ -799,12 +799,12 @@ The NHL API responses change from time to time, so the [responses](test/nhl_scor
 used in tests also need to be updated to remain accurate.
 
 Especially the game-specific API responses need frequent updating, so there is a helper script to fetch the current
-responses with game IDs and save them. It's also useful for checking if the NHL API responses have changed in case of
+responses with game IDs and save them. It’s also useful for checking if the NHL API responses have changed in case of
 errors. Though note that not all data should be updated; at least game progress data changes should be discarded so that
 the tests that rely on that still work.
 
 The script is called `update-game-test-data.sh` and it uses `curl` for fetching and [`jq`](https://jqlang.github.io/jq/)
-for formatting, so you'll need those installed.
+for formatting, so you’ll need those installed.
 
 Example:
 
@@ -825,13 +825,13 @@ There is also a similar script `update-standings-test-data.sh` for updating stan
 ## Deployment
 
 The API is deployed to [Heroku](http://heroku.com/) by running the [Deployment workflow](https://github.com/peruukki/nhl-score-api/actions/workflows/deployment.yml).
-The workflow requires these set in _Actions secrets and variables_ in the repository's settings:
+The workflow requires these set in _Actions secrets and variables_ in the repository’s settings:
 
 - `HEROKU_API_KEY` repository secret: you can find this from the _API Key_ section in your Heroku account settings
 - `HEROKU_APP_NAME` repository variable: your app name in Heroku
 - `TOKEN_BYPASS_REQUIRED_CHECKS` repository secret: generate a [personal access token (classic)](https://github.com/settings/tokens) with full `repo` rights
   - The user who owns the access token needs to be on the bypass list for required GitHub status checks (configured in the repository rulesets)
-  - It's recommended to set an expirate date for the token, though this means it needs to be regenerated periodically
+  - It’s recommended to set an expirate date for the token, though this means it needs to be regenerated periodically
 
 ### Alternative deployment from development machine
 
@@ -860,7 +860,7 @@ git push origin master --tags
 
 ```sh
 heroku plugins:install java
-# alternative if the above doesn't work:
+# alternative if the above doesn’t work:
 heroku plugins:install @heroku-cli/plugin-java
 ```
 
