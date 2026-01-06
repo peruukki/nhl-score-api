@@ -98,11 +98,11 @@
 (defn- fetch-and-enrich-roster-for-game
   "Fetches roster HTML for a game, parses it, and enriches with API roster data.
    Returns enriched roster data or nil if roster URL is missing or parsing fails.
-   
+
    gamecenter should contain the right-rail data with :rosters URL.
    team-rosters should be a map of {[team-abbrev season] roster-data}."
   [game-id gamecenter team-rosters schedule-game]
-  (when-let [roster-url (:rosters gamecenter)]
+  (when-let [roster-url (get-in gamecenter [:game-reports :rosters])]
     (try
       (let [roster-html (fetch-html-cached (str "roster-html-" game-id) roster-url (str "roster HTML " game-id))
             html-roster (when roster-html (roster-parser/parse-roster-html roster-html))]

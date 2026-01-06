@@ -524,8 +524,8 @@
         (add-team-streaks schedule-game team-details current-and-pre-game-standings)
         (add-team-standings team-details current-and-pre-game-standings)
         (add-playoff-series-information schedule-game)
-        (add-validation-errors)
         (add-rosters enriched-roster)
+        (add-validation-errors)
         (reject-empty-vals-except-for-keys #{:goals :links :rosters}))))
 
 (defn parse-game-scores

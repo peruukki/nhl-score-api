@@ -93,23 +93,23 @@
 
 (defn parse-roster-html
   "Parses roster HTML and extracts player information for both teams.
-   
+
    Returns a map with:
    - :away - vector of player maps for away team
    - :home - vector of player maps for home team
-   
+
    Each player map contains:
    - :number - jersey number (integer)
    - :position - position code (G, D, C, L, R)
    - :name - normalized player name (string)
    - :starting-lineup - boolean indicating if player is in starting lineup
-   
+
    Example:
    {:away [{:number 80 :position \"G\" :name \"Dan Vladar\" :starting-lineup true}
            {:number 32 :position \"G\" :name \"Dustin Wolf\" :starting-lineup false}]
     :home [{:number 60 :position \"G\" :name \"Joseph Woll\" :starting-lineup true}]}"
   [html-content]
-  (let [html-doc (html/html-snippet html-content)
+  (let [html-doc (html/html-resource (java.io.StringReader. html-content))
         team-sections (html/select html-doc [:td.border :> :table])
         away-section (first team-sections)
         home-section (second team-sections)]
@@ -120,9 +120,9 @@
 (defn- combine-api-roster-arrays
   "Combines forwards, defensemen, and goalies arrays from API roster response
    into a single list of players.
-   
+
    api-roster-response should be a map with :forwards, :defensemen, and :goalies keys.
-   
+
    Returns a vector of player maps with keys transformed to kebab-case:
    - :id (player ID)
    - :first-name (localized object)
@@ -174,18 +174,18 @@
 
 (defn enrich-roster-with-api-data
   "Enriches HTML roster data with player IDs from API roster data.
-   
+
    html-roster should be a map with :away and :home keys, each containing
    vectors of player maps from parse-roster-html.
-   
+
    api-roster-away and api-roster-home should be API roster response maps
    (with :forwards, :defensemen, :goalies keys).
-   
+
    Returns enriched roster map with same structure as html-roster, but each
    player map includes:
    - :player-id (from API, when matched)
    - All original HTML fields (:number, :position, :name, :starting-lineup)
-   
+
    Players that can't be matched are included with HTML data only (no :player-id)."
   [html-roster api-roster-away api-roster-home]
   (let [api-players-away (combine-api-roster-arrays api-roster-away)
