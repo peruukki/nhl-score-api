@@ -9,7 +9,7 @@ This is a Clojure project that provides a JSON API returning scores and goals fr
 - **Dependency Management**: Leiningen
 - **Test Runner**: Kaocha (via Leiningen)
 - **Language**: Clojure
-- **Java Version**: 8
+- **Java Version**: 17
 
 ## Running the Application
 

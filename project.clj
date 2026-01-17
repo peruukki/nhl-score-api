@@ -2,7 +2,7 @@
   :description "A JSON API that returns the scores and goals from the latest finished or on-going NHL games."
   :license {:name "MIT"
             :url "https://opensource.org/licenses/MIT"}
-  :min-lein-version "2.0.0"
+  :min-lein-version "2.12.0"
   :dependencies [[org.clojure/clojure "1.11.1"]
                  [org.clojure/core.async "1.8.741"]
                  [org.clojure/core.cache "1.1.234"]

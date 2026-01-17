@@ -721,9 +721,20 @@ marked as having ended in overtime in the `scores` object.
 
 ## Requirements
 
-- Java version 8
-- [Leiningen](http://leiningen.org/) is used for all project management.
+- Java version 17
+- [Leiningen](https://leiningen.org/) is used for project management.
 - [Docker](https://www.docker.com/) can be used optionally for running the application locally.
+
+### Setting up the development environment
+
+This project uses [SDKMAN!](https://sdkman.io/) to manage Java and Leiningen versions. A [`.sdkmanrc`](.sdkmanrc)
+file in the project root specifies the required versions.
+
+To set up the correct versions:
+
+1. Install [SDKMAN!](https://sdkman.io/install) if you haven't already
+2. Navigate to the project directory
+3. Run `sdk env` activate the correct versions (you will be prompted to install them if needed)
 
 ## Running application
 
