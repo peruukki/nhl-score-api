@@ -22,4 +22,4 @@ fi
 
 # Deploy
 echo "Deploying..."
-heroku deploy:jar --includes newrelic target/server.jar
+heroku deploy:jar --includes newrelic:system.properties target/server.jar
