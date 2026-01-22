@@ -43,8 +43,8 @@
     [:clock {:optional true}
      [:map
       [:in-intermission :boolean]
-      [:seconds-remaining :int]
-      [:time-remaining :string]]]
+      [:seconds-remaining {:optional true} :int]
+      [:time-remaining {:optional true} :string]]]
     [:game-state #'schema/GameState]
     [:game-type :int]
     [:period-descriptor {:optional true} #'PeriodDescriptorSchema]
