@@ -9,7 +9,6 @@ This is a Clojure project that provides a JSON API returning scores and goals fr
 - **Dependency Management**: Leiningen
 - **Test Runner**: Kaocha (via Leiningen)
 - **Language**: Clojure
-- **Java Version**: 17
 
 ## Running the Application
 
@@ -103,17 +102,6 @@ The application provides these main endpoints:
 
 - `GET /api/scores/latest` - Returns scores from the latest finished or on-going NHL games
 - `GET /api/scores?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD` - Returns scores from a given date range (max 7 days)
-
-## NHL Web API Usage
-
-The project uses these NHL Web API endpoints:
-
-- `https://api-web.nhle.com/v1/schedule/{date}` - List of week's games
-- `https://api-web.nhle.com/v1/gamecenter/{gameId}/landing` - Basic game details
-- `https://api-web.nhle.com/v1/gamecenter/{gameId}/right-rail` - Game stats and recap video links
-- `https://api-web.nhle.com/v1/standings/{date}` - Team stats
-
-API responses are cached in-memory for one minute, then refreshed upon the next request.
 
 ## Notes for AI Agents
 
