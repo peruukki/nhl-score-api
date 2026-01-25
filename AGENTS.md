@@ -18,46 +18,7 @@ lein run
 
 ## Testing
 
-### Run all tests
-
-```bash
-lein test
-```
-
-### Run tests with watch mode
-
-```bash
-lein test --watch
-```
-
-### Run a specific test file or test group
-
-Use Kaocha's `--focus` argument:
-
-```bash
-lein test --focus nhl-score-api.fetchers.nhlstats.game-scores-test/game-scores-parsing-scores
-```
-
-Or focus on a namespace:
-
-```bash
-lein test --focus nhl-score-api.fetchers.nhl-api-web.fetcher-test
-```
-
-### Test Structure
-
-- Tests are located in the `test/` directory
-- Test files follow the pattern `*_test.clj`
-- Test namespaces end with `-test` suffix
-- Uses `clojure.test` for testing framework
-- Project uses Kaocha as the test runner
-
-### Test Organization
-
-Tests are organized to match the source structure:
-- `test/nhl_score_api/fetchers/nhl_api_web/fetcher_test.clj` tests `src/nhl_score_api/fetchers/nhl_api_web/fetcher.clj`
-- Each test file contains multiple test functions using `deftest`
-- Test assertions use `is` from `clojure.test`
+Run tests with `lein test`. For test-specific details (running specific tests, watch mode, test structure, test data), see [test/nhl_score_api/AGENTS.md](test/nhl_score_api/AGENTS.md).
 
 ## Code Formatting
 
@@ -85,16 +46,10 @@ lein lint
 
 ## Project Structure
 
-### Source Code
 - Source code is in `src/` directory
 - Main namespace structure: `nhl_score_api/`
 
-### Test Data
-- Test resources are in `test/nhl_score_api/fetchers/nhl_api_web/resources/`
-- Test data includes:
-  - Schedule responses (e.g., `schedule-*.json`)
-  - Landing page responses (e.g., `landing-*.json`)
-  - Right-rail responses (e.g., `right-rail-*.json`)
+For test structure and test data locations, see [test/nhl_score_api/AGENTS.md](test/nhl_score_api/AGENTS.md).
 
 ## Key API Endpoints
 
@@ -108,7 +63,6 @@ The application provides these main endpoints:
 - Always run tests after making changes: `lein test`
 - Format code before committing: `lein format`
 - Check linting: `lein lint`
-- Test files use the `-test` suffix in namespace names
 - **Avoid unnecessary comments**: Do not add comments that simply restate what the following lines do. Only add comments that provide more context or explain non-obvious behavior.
 - **Use fancy quotes in documentation**: When editing documentation in markdown files (like `README.md`), use fancy/curly quotes (`'` and `'`) instead of plain quotes (`'` and `"`). This applies to apostrophes in contractions (e.g., `don't`, `it's`) and possessive forms (e.g., `team's`, `player's`). But use plain quotes `'` in places that require them, like command examples.
 - **Trim trailing whitespace**: When adding empty lines, ensure they contain no whitespace characters. Remove any spaces or tabs from otherwise empty lines.
