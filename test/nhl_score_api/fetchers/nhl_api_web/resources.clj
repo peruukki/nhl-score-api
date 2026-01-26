@@ -38,3 +38,6 @@
   (into {} (for [game-id game-ids]
              [game-id
               (get-gamecenter (get-landing game-id) (get-right-rail game-id))])))
+
+(defn get-roster-html [game-id]
+  (read-resource (str "roster-" game-id ".html")))
