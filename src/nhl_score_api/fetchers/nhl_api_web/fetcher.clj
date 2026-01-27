@@ -7,9 +7,11 @@
             [nhl-score-api.fetchers.nhl-api-web.api.index :as api]
             [nhl-score-api.fetchers.nhl-api-web.api.landing :as landing]
             [nhl-score-api.fetchers.nhl-api-web.api.right-rail :as right-rail]
+            [nhl-score-api.fetchers.nhl-api-web.api.rosters :as rosters]
             [nhl-score-api.fetchers.nhl-api-web.api.schedule :as schedule]
             [nhl-score-api.fetchers.nhl-api-web.api.standings :as standings]
             [nhl-score-api.fetchers.nhl-api-web.game-scores :as game-scores]
+            [nhl-score-api.fetchers.nhl-api-web.roster-parser :as roster-parser]
             [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-games-in-date-range
                                                                     get-latest-games
                                                                     started-game?]]
@@ -66,14 +68,21 @@
    (store-in-cache response api-request nil))
   ([response api-request context]
    (let [from-cache? (:from-cache? (meta response))
-         cache-name (api/get-cache-with-context api-request response context)]
+         unwrapped-response (:value response)
+         cache-name (api/get-cache-with-context api-request unwrapped-response context)]
      (if (and (not from-cache?) cache-name)
-       (cache/store cache-name (api/cache-key api-request) response)
+       (do
+         (cache/store cache-name (api/cache-key api-request) unwrapped-response)
+         response)
        response))))
 
 (defn- fetch-cached [api-request]
-  (-> (cache/get-cached (api/cache-key api-request) #(fetch api-request))
-      (store-in-cache api-request)))
+  (let [wrapped-response (-> (cache/get-cached (api/cache-key api-request) #(fetch api-request))
+                             (store-in-cache api-request))
+        unwrapped-value (:value wrapped-response)]
+    (if (instance? clojure.lang.IObj unwrapped-value)
+      (with-meta unwrapped-value (meta wrapped-response))
+      unwrapped-value)))
 
 (defn- fetch-games-info [date-range-str]
   (let [{:keys [start end]} (or date-range-str (get-schedule-date-range-str-for-latest-scores))]
@@ -141,11 +150,27 @@
 (defn get-gamecenter [landing right-rail]
   (merge landing right-rail))
 
+(defn get-rosters-url [gamecenter]
+  (get-in gamecenter [:game-reports :rosters]))
+
+(defn- fetch-and-parse-rosters [rosters-url game-id]
+  (when rosters-url
+    (when-let [html (fetch-cached (rosters/->RostersApiRequest rosters-url game-id))]
+      (roster-parser/parse-roster-html html))))
+
+(defn- fetch-rosters [gamecenter game-id]
+  (when-let [rosters-url (get-rosters-url gamecenter)]
+    (fetch-and-parse-rosters rosters-url game-id)))
+
 (defn- fetch-gamecenters [schedule-games]
   (->> schedule-games
        (get-gamecenter-game-ids)
-       (pmap #(vector % (get-gamecenter (fetch-cached (landing/->LandingApiRequest %))
-                                        (fetch-cached (right-rail/->RightRailApiRequest %)))))
+       (pmap (fn [game-id]
+               (let [gamecenter (get-gamecenter (fetch-cached (landing/->LandingApiRequest game-id))
+                                                (fetch-cached (right-rail/->RightRailApiRequest game-id)))
+                     rosters (fetch-rosters gamecenter game-id)]
+                 [game-id {:gamecenter gamecenter
+                           :rosters rosters}])))
        (into {})))
 
 (defn- prune-cache-and-fetch-gamecenters [games-info date-and-schedule-games]
@@ -169,10 +194,11 @@
                         (fetch-standings-infos {:date-strs [standings-date-str]
                                                 :regular-season-start-date-str (:regular-season-start-date latest-games-info)
                                                 :regular-season-end-date-str (:regular-season-end-date latest-games-info)}
-                                               latest-games-info))]
-    (->> date-and-schedule-games
-         (prune-cache-and-fetch-gamecenters latest-games-info)
-         (game-scores/parse-game-scores date-and-schedule-games standings-info)
+                                               latest-games-info))
+        gamecenters-and-rosters (prune-cache-and-fetch-gamecenters latest-games-info date-and-schedule-games)
+        gamecenters (into {} (map (fn [[game-id data]] [game-id (:gamecenter data)]) gamecenters-and-rosters))
+        rosters (into {} (map (fn [[game-id data]] [game-id (:rosters data)]) gamecenters-and-rosters))]
+    (->> (game-scores/parse-game-scores date-and-schedule-games standings-info gamecenters rosters)
          cache/log-cache-sizes!)))
 
 (defn fetch-scores-in-date-range [start-date end-date]
@@ -188,8 +214,9 @@
                                                games-info)]
     (->
      (doall (map-indexed (fn [index date-and-schedule-games]
-                           (->> date-and-schedule-games
-                                (prune-cache-and-fetch-gamecenters games-info)
-                                (game-scores/parse-game-scores date-and-schedule-games (nth standings-infos index))))
+                           (let [gamecenters-and-rosters (prune-cache-and-fetch-gamecenters games-info date-and-schedule-games)
+                                 gamecenters (into {} (map (fn [[game-id data]] [game-id (:gamecenter data)]) gamecenters-and-rosters))
+                                 rosters (into {} (map (fn [[game-id data]] [game-id (:rosters data)]) gamecenters-and-rosters))]
+                             (game-scores/parse-game-scores date-and-schedule-games (nth standings-infos index) gamecenters rosters)))
                          dates-and-schedule-games))
      cache/log-cache-sizes!)))

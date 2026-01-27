@@ -6,6 +6,7 @@
                                                                 get-current-standings-request-date
                                                                 get-gamecenter-game-ids
                                                                 get-pre-game-standings-request-date
+                                                                get-rosters-url
                                                                 get-schedule-date-range-str-for-latest-scores]]
             [nhl-score-api.utils :refer [format-date]]))
 
@@ -113,3 +114,15 @@
 
   (testing "Current date is returned after midnight US/Pacific (-07:00 on tested date)"
     (is (= "2024-03-21" (format-date (get-current-schedule-date (time/date-time 2024 3 21 7 00 01)))))))
+
+(deftest get-rosters-url-test
+  (testing "Roster URL is extracted from gamecenter data"
+    (let [gamecenter {:game-reports {:rosters "https://www.nhl.com/scores/htmlreports/20232024/RO020207.HTM"}}]
+      (is (= "https://www.nhl.com/scores/htmlreports/20232024/RO020207.HTM"
+             (get-rosters-url gamecenter))
+          "Roster URL extracted correctly")))
+  (testing "Returns nil when rosters URL is not present"
+    (let [gamecenter {:game-reports {}}]
+      (is (= nil
+             (get-rosters-url gamecenter))
+          "Returns nil when rosters URL missing"))))

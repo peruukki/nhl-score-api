@@ -48,7 +48,7 @@
   "Returns the value with cache-key from archive cache, long-lived cache, or short-lived cache if it exists.
    Otherwise stores the value returned by value-fn in short-lived cache.
 
-   Returns the value with :from-cache? metadata indicating the value source."
+   Returns a map {:value actual-value} with :from-cache? metadata indicating the value source."
   [cache-key value-fn]
   (let [from-cache? (atom true)
         archive-value (cache.wrapped/lookup (:archive caches) cache-key)
@@ -64,7 +64,7 @@
                     (logger/debug (str "Caching " cache-key " value in " :short-lived))
                     (swap! from-cache? not)
                     value))))]
-    (with-meta value {:from-cache? @from-cache?})))
+    (with-meta {:value value} {:from-cache? @from-cache?})))
 
 (defn store
   "Stores value in the specified cache and returns the value.

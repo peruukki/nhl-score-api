@@ -32,43 +32,43 @@
 
 (deftest get-cached-value-found-from-archive-cache
   (let [result (cache/get-cached "archive-key" value-fn)]
-    (is (= {:value "archive-value"} result) "result is from archive cache")
+    (is (= {:value {:value "archive-value"}} result) "result is from archive cache")
     (is (= {:from-cache? true} (meta result)) "result is from cache")
     (is (= false @value-fn-called) "value-fn was not called")))
 
 (deftest get-cached-value-found-from-short-lived-cache
   (let [result (cache/get-cached "short-lived-key" value-fn)]
-    (is (= {:value "short-lived-value"} result) "result is from short-lived cache")
+    (is (= {:value {:value "short-lived-value"}} result) "result is from short-lived cache")
     (is (= {:from-cache? true} (meta result)) "result is from cache")
     (is (= false @value-fn-called) "value-fn was not called")))
 
 (deftest get-cached-value-found-from-both-caches
   (let [result (cache/get-cached "common-key" value-fn)]
-    (is (= {:value "common-value-from-archive"} result) "result is from archive cache")
+    (is (= {:value {:value "common-value-from-archive"}} result) "result is from archive cache")
     (is (= {:from-cache? true} (meta result)) "result is from cache")
     (is (= false @value-fn-called) "value-fn was not called")))
 
 (deftest get-cached-value-found-from-long-lived-cache
   (let [result (cache/get-cached "long-lived-key" value-fn)]
-    (is (= {:value "long-lived-value"} result) "result is from long-lived cache")
+    (is (= {:value {:value "long-lived-value"}} result) "result is from long-lived cache")
     (is (= {:from-cache? true} (meta result)) "result is from cache")
     (is (= false @value-fn-called) "value-fn was not called")))
 
 (deftest get-cached-value-found-from-long-lived-before-short-lived
   (let [result (cache/get-cached "common-key-long-lived" value-fn)]
-    (is (= {:value "common-value-from-long-lived"} result) "result is from long-lived cache")
+    (is (= {:value {:value "common-value-from-long-lived"}} result) "result is from long-lived cache")
     (is (= {:from-cache? true} (meta result)) "result is from cache")
     (is (= false @value-fn-called) "value-fn was not called")))
 
 (deftest get-cached-value-found-from-archive-before-long-lived
   (let [result (cache/get-cached "common-key" value-fn)]
-    (is (= {:value "common-value-from-archive"} result) "result is from archive cache, not long-lived")
+    (is (= {:value {:value "common-value-from-archive"}} result) "result is from archive cache, not long-lived")
     (is (= {:from-cache? true} (meta result)) "result is from cache")
     (is (= false @value-fn-called) "value-fn was not called")))
 
 (deftest get-cached-value-not-found-from-cache
   (let [result (cache/get-cached "not-found-key" value-fn)]
-    (is (= {:value "value-fn-value"} result) "result is from fetch-fn")
+    (is (= {:value {:value "value-fn-value"}} result) "result is from fetch-fn")
     (is (= {:from-cache? false} (meta result)) "result is not from cache")
     (is (= true @value-fn-called) "value-fn was called")))
 

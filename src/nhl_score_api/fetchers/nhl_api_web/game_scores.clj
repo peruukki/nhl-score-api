@@ -477,30 +477,35 @@
                         (seq (val %)))
                    game-details)))
 
-(defn- parse-game-details [current-and-pre-game-standings gamecenter schedule-game]
-  (let [team-details (parse-game-team-details schedule-game)
-        scores (parse-scores schedule-game team-details)
-        teams (get-teams team-details (:season schedule-game))]
-    (-> {:status (parse-game-status schedule-game gamecenter)
-         :start-time (parse-game-start-time schedule-game)
-         :goals (parse-goals gamecenter)
-         :links (parse-links schedule-game)
-         :scores scores
-         :teams teams
-         pre-game-stats-key {}
-         current-stats-key {}}
-        (add-game-stats team-details gamecenter)
-        (add-team-records current-and-pre-game-standings teams)
-        (add-team-streaks schedule-game team-details current-and-pre-game-standings)
-        (add-team-standings team-details current-and-pre-game-standings)
-        (add-playoff-series-information schedule-game)
-        (add-validation-errors)
-        (reject-empty-vals-except-for-keys #{:goals :links}))))
+(defn- parse-game-details
+  ([current-and-pre-game-standings gamecenter schedule-game]
+   (parse-game-details current-and-pre-game-standings gamecenter schedule-game nil))
+  ([current-and-pre-game-standings gamecenter schedule-game _rosters]
+   (let [team-details (parse-game-team-details schedule-game)
+         scores (parse-scores schedule-game team-details)
+         teams (get-teams team-details (:season schedule-game))]
+     (-> {:status (parse-game-status schedule-game gamecenter)
+          :start-time (parse-game-start-time schedule-game)
+          :goals (parse-goals gamecenter)
+          :links (parse-links schedule-game)
+          :scores scores
+          :teams teams
+          pre-game-stats-key {}
+          current-stats-key {}}
+         (add-game-stats team-details gamecenter)
+         (add-team-records current-and-pre-game-standings teams)
+         (add-team-streaks schedule-game team-details current-and-pre-game-standings)
+         (add-team-standings team-details current-and-pre-game-standings)
+         (add-playoff-series-information schedule-game)
+         (add-validation-errors)
+         (reject-empty-vals-except-for-keys #{:goals :links})))))
 
 (defn parse-game-scores
   ([date-and-schedule-games current-and-pre-game-standings]
-   (parse-game-scores date-and-schedule-games current-and-pre-game-standings nil))
+   (parse-game-scores date-and-schedule-games current-and-pre-game-standings nil nil))
   ([date-and-schedule-games current-and-pre-game-standings gamecenters]
+   (parse-game-scores date-and-schedule-games current-and-pre-game-standings gamecenters nil))
+  ([date-and-schedule-games current-and-pre-game-standings gamecenters rosters]
    {:date (:date date-and-schedule-games)
-    :games (map #(parse-game-details current-and-pre-game-standings (get gamecenters (:id %)) %)
+    :games (map #(parse-game-details current-and-pre-game-standings (get gamecenters (:id %)) % (get rosters (:id %)))
                 (:games date-and-schedule-games))}))
