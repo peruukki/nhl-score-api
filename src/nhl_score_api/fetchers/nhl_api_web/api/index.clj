@@ -1,6 +1,11 @@
-(ns nhl-score-api.fetchers.nhl-api-web.api.index)
+(ns nhl-score-api.fetchers.nhl-api-web.api.index
+  (:require [camel-snake-kebab.core :refer [->kebab-case-keyword]]
+            [clojure.data.json :as json]))
 
 (def base-url "https://api-web.nhle.com/v1")
+
+(defn api-response-to-json [api-response]
+  (json/read-str api-response :key-fn ->kebab-case-keyword))
 
 (defn get-games-in-date-range [start-date-str end-date-str schedule-response]
   (->> schedule-response
@@ -18,4 +23,5 @@
   (get-cache [_ response])
   (get-cache-with-context [_ response context])
   (response-schema [_])
+  (transform [_ response])
   (url [_]))

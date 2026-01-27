@@ -56,4 +56,5 @@
                                                             (get-team-standings % response))))))
         :archive)))
   (response-schema [_] ResponseSchema)
+  (transform [_ response] (api/api-response-to-json response))
   (url [_] (str api/base-url "/standings/" (:standings-date-str date-strs))))

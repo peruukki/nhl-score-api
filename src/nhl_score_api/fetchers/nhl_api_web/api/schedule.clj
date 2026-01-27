@@ -68,4 +68,5 @@
                              (:three-min-recap %))))
       :archive))
   (response-schema [_] ResponseSchema)
+  (transform [_ response] (api/api-response-to-json response))
   (url [_] (str api/base-url "/schedule/" start-date-str)))

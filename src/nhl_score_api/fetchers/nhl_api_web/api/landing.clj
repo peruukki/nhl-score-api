@@ -63,4 +63,5 @@
   (get-cache [this response] (api/get-cache-with-context this response nil))
   (get-cache-with-context [_ response _context] (when (= "OFF" (:game-state response)) :archive))
   (response-schema [_] ResponseSchema)
+  (transform [_ response] (api/api-response-to-json response))
   (url [_] (str api/base-url "/gamecenter/" game-id "/landing")))

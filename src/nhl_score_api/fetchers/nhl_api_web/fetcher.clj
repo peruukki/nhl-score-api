@@ -1,7 +1,5 @@
 (ns nhl-score-api.fetchers.nhl-api-web.fetcher
-  (:require [camel-snake-kebab.core :refer [->kebab-case-keyword]]
-            [clj-time.core :as time]
-            [clojure.data.json :as json]
+  (:require [clj-time.core :as time]
             [malli.core :as malli]
             [malli.error :as malli-error]
             [nhl-score-api.cache :as cache]
@@ -50,16 +48,13 @@
               previous-date-str (format-date (time/minus current-standings-date (time/days 1)))]
           (last (sort [previous-date-str regular-season-start-date-str]))))))
 
-(defn api-response-to-json [api-response]
-  (json/read-str api-response :key-fn ->kebab-case-keyword))
-
 (defn- fetch [api-request]
-  (let [response (-> (api-request-queue/fetch
-                      (api/url api-request)
-                      {:debug false}
-                      (api/description api-request))
-                     :body
-                     api-response-to-json)
+  (let [response (->> (api-request-queue/fetch
+                       (api/url api-request)
+                       {:debug false}
+                       (api/description api-request))
+                      :body
+                      (api/transform api-request))
         response-schema (api/response-schema api-request)]
     (when-not (malli/validate response-schema response)
       (logger/warn (str "Response validation failed for " (api/description api-request) ": "

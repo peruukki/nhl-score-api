@@ -1,5 +1,6 @@
 (ns nhl-score-api.fetchers.nhl-api-web.resources
-  (:require [nhl-score-api.fetchers.nhl-api-web.fetcher :refer [api-response-to-json get-gamecenter]]))
+  (:require [nhl-score-api.fetchers.nhl-api-web.api.index :as api]
+            [nhl-score-api.fetchers.nhl-api-web.fetcher :refer [get-gamecenter]]))
 
 (def resource-path "test/nhl_score_api/fetchers/nhl_api_web/resources/")
 
@@ -7,7 +8,7 @@
   (slurp (str resource-path filename)))
 
 (defn- read-json-resource [filename]
-  (api-response-to-json (read-resource filename)))
+  (api/api-response-to-json (read-resource filename)))
 
 (def first-day-of-regular-season (read-json-resource "schedule-2025-10-07.json"))
 (def games-finished-in-regulation-overtime-and-shootout (read-json-resource "schedule-2023-11-08-modified.json"))
