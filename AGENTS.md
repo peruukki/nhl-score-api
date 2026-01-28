@@ -63,6 +63,7 @@ The application provides these main endpoints:
 - Always run tests after making changes: `lein test`
 - Format code before committing: `lein format`
 - Check linting: `lein lint`
+- **Prefer concise code**: Do not add variables that are referenced only once, inline values instead.
 - **Avoid unnecessary comments**: Do not add comments that simply restate what the following lines do. Only add comments that provide more context or explain non-obvious behavior.
 - **Use fancy quotes in documentation**: When editing documentation in markdown files (like `README.md`), use fancy/curly quotes (`'` and `'`) instead of plain quotes (`'` and `"`). This applies to apostrophes in contractions (e.g., `don't`, `it's`) and possessive forms (e.g., `team's`, `player's`). But use plain quotes `'` in places that require them, like command examples.
 - **Trim trailing whitespace**: When adding empty lines, ensure they contain no whitespace characters. Remove any spaces or tabs from otherwise empty lines.
