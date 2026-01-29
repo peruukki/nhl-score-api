@@ -25,6 +25,17 @@ Avoid generic variable names in tests. Use descriptive names that clearly indica
 
 Descriptive variable names improve test readability and make it easier to understand what each test is verifying.
 
+## Expected Data in Assertions
+
+Use **static literal values** for expected data in assertions. Do not derive the expected value from code (e.g., do not call a parser or helper to compute it). Instead, spell out the known correct value inline, similar to `game-scores-parsing-game-statuses`, which compares against a literal vector of status maps, or `game-scores-parsing-rosters`, which compares against a literal roster map.
+
+Benefits:
+- The test documents the exact, intended output.
+- Changes to parsing or helper logic cannot silently invalidate the expectation.
+- Failures clearly show the diff between actual and the explicit expected value.
+
+When the expected structure is large, format it readably (e.g., multi-line maps or vectors) rather than compressing it into a single line.
+
 ## Test Data
 
 - Test resources are in `test/nhl_score_api/fetchers/nhl_api_web/resources/`
