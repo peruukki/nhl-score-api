@@ -644,7 +644,7 @@ Example of a single playoff date in the API response
     - `locationName`: team location name, e.g. `"St. Louis"`
     - `shortName`: team short name, e.g. `"St Louis"` (note: "St" without a period)
     - `teamName`: team name, e.g. `"Blues"`
-- `gameStats` object: each teams’ game statistics, with the fields (**only included in started games**):
+- `gameStats` object: each team’s game statistics, with the fields (**only included in started games**):
   - `blocked`: blocked shots
   - `faceOffWinPercentage`: what it says
   - `giveaways`: what it says
@@ -656,19 +656,19 @@ Example of a single playoff date in the API response
     - `percentage`: power play efficiency, e.g. `50.0`
   - `shots`: shots on goal
   - `takeaways`: what it says
-- `preGameStats` object: each teams’ season statistics _before the game_, with the fields:
-  - `records` object: each teams’ record for this **regular season**, with the fields:
+- `preGameStats` object: each team’s season statistics _before the game_, with the fields:
+  - `records` object: each team’s record for this **regular season**, with the fields:
     - `wins` _(number)_: win count (earning 2 pts)
     - `losses` _(number)_: regulation loss count (0 pts)
     - `ot` _(number)_: loss count for games that went to overtime (1 pt)
   - `playoffSeries` object: current playoff series related information (only present in playoff games), with the fields:
     - `round` _(number)_: the game’s playoff round; `0` for the Stanley Cup Qualifiers best-of-5 series (in 2020 due to COVID-19), actual playoffs start from `1`
     - `wins` _(object)_: each team’s win count in the series
-  - `streaks` object: each teams’ current form streak (only present in regular season games), with the fields (**or `null` if the
+  - `streaks` object: each team’s current form streak (only present in regular season games), with the fields (**or `null` if the
     team hasn’t played during the season yet**):
     - `type` _(string)_: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
     - `count` _(number)_: streak’s length in consecutive games
-  - `standings` object: each teams’ standings related information, with the fields:
+  - `standings` object: each team’s standings related information, with the fields:
     - `divisionRank` _(string)_: the team’s regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Web API (**can be an empty string before the season has started**)
     - `conferenceRank` _(string)_: the team’s regular season ranking in their conference (based on point percentage, not considering wildcard seedings);
       this comes as a _string_ value from the NHL Web API (**can be an empty string before the season has started**)
@@ -680,15 +680,15 @@ Example of a single playoff date in the API response
         position); i.e. by how many points (at minimum) the team needs to catch up
       - Note: this value only indicates point differences and doesn’t consider which team is ranked higher if they have the same
         number of points
-- `currentStats` object: each teams’ current (ie. after the game if it has finished and NHL have updated their stats) season statistics _on the game date_, with the fields:
-  - `records` object: each teams’ record for this **regular season**, with the fields:
+- `currentStats` object: each team’s current (ie. after the game if it has finished and NHL have updated their stats) season statistics _on the game date_, with the fields:
+  - `records` object: each team’s record for this **regular season**, with the fields:
     - `wins` _(number)_: win count (earning 2 pts)
     - `losses` _(number)_: regulation loss count (0 pts)
     - `ot` _(number)_: loss count for games that went to overtime (1 pt)
-  - `streaks` object (**or `null` if querying coming season’s games**): each teams’ current form streak (only present in regular season games), with the fields:
+  - `streaks` object (**or `null` if querying coming season’s games**): each team’s current form streak (only present in regular season games), with the fields:
     - `type` _(string)_: `"WINS"` (wins in regulation, OT or SO), `"LOSSES"` (losses in regulation) or `"OT"` (losses in OT or SO)
     - `count` _(number)_: streak’s length in consecutive games
-  - `standings` object (**or `null` if querying coming season’s games**): each teams’ standings related information, with the fields:
+  - `standings` object (**or `null` if querying coming season’s games**): each team’s standings related information, with the fields:
     - `divisionRank` _(string)_: the team’s regular season ranking in their division (based on point percentage); this comes as a _string_ value from the NHL Web API
     - `conferenceRank` _(string)_: the team’s regular season ranking in their conference (based on point percentage, not considering wildcard seedings);
       this comes as a _string_ value from the NHL Web API
