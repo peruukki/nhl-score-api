@@ -2,6 +2,7 @@
   (:require [clojure.test :refer [deftest is testing]]
             [nhl-score-api.fetchers.nhl-api-web.game-scores :refer [parse-game-scores]]
             [nhl-score-api.fetchers.nhl-api-web.resources :as resources]
+            [nhl-score-api.fetchers.nhl-api-web.roster-parser :refer [parse-roster-html]]
             [nhl-score-api.fetchers.nhl-api-web.transformer :refer [get-latest-games]]
             [nhl-score-api.utils :refer [fmap-vals]]))
 
@@ -828,3 +829,99 @@
                   resources/current-standings-minimal
                   (resources/get-gamecenters ["2023020209-modified-minimal"]))]
       (is (= 8 (count (:games scores))) "Parsed game count"))))
+
+(defn get-parsed-rosters [game-ids]
+  (into {} (for [game-id game-ids]
+             [game-id (parse-roster-html (resources/get-roster-html game-id))])))
+
+(deftest game-scores-parsing-rosters
+
+  (testing "Roster data excluded when not provided"
+    (let [games (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings
+                  default-gamecenters))]
+      (is (every? #(not (contains? % :rosters)) games) "No game has :rosters when rosters not passed")))
+
+  (testing "Roster data included when provided"
+    (let [rosters (get-parsed-rosters [2023020207])
+          games (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings
+                  default-gamecenters
+                  rosters))
+          game-with-roster (nth games 1)]
+      (is (contains? game-with-roster :rosters) "Game with roster data has :rosters")
+      (is (contains? (:rosters game-with-roster) :away) "Rosters has away team")
+      (is (contains? (:rosters game-with-roster) :home) "Rosters has home team")))
+
+  (testing "Rosters equal expected parsed roster HTML"
+    (let [expected
+          {:away {:dressed-players [{:name "Rasmus Andersson" :number 4 :position "D"}
+                                    {:name "Chris Tanev" :number 8 :position "D" :starting-lineup true}
+                                    {:name "Jonathan Huberdeau" :number 10 :position "C"}
+                                    {:name "Mikael Backlund" :number 11 :position "C" :starting-lineup true}
+                                    {:name "Nikita Zadorov" :number 16 :position "D"}
+                                    {:name "Yegor Sharangovich" :number 17 :position "C"}
+                                    {:name "A.j. Greer" :number 18 :position "L"}
+                                    {:name "Blake Coleman" :number 20 :position "C" :starting-lineup true}
+                                    {:name "Elias Lindholm" :number 28 :position "C"}
+                                    {:name "Dillon Dube" :number 29 :position "C"}
+                                    {:name "Connor Zary" :number 47 :position "C"}
+                                    {:name "Mackenzie Weegar" :number 52 :position "D"}
+                                    {:name "Noah Hanifin" :number 55 :position "D" :starting-lineup true}
+                                    {:name "Nick Desimone" :number 57 :position "D"}
+                                    {:name "Adam Ruzicka" :number 63 :position "C"}
+                                    {:name "Martin Pospisil" :number 76 :position "C" :starting-lineup true}
+                                    {:name "Andrew Mangiapane" :number 88 :position "L"}
+                                    {:name "Nazem Kadri" :number 91 :position "C"}
+                                    {:name "Dustin Wolf" :number 32 :position "G"}
+                                    {:name "Dan Vladar" :number 80 :position "G" :starting-lineup true}]
+                  :scratched-players [{:name "Dennis Gilbert" :number 48 :position "D"}
+                                      {:name "Walker Duehr" :number 71 :position "R"}
+                                      {:name "Jacob Markstrom" :number 25 :position "G"}]}
+           :home {:dressed-players [{:name "Simon Benoit" :number 2 :position "D"}
+                                    {:name "Max Domi" :number 11 :position "C"}
+                                    {:name "Mitchell Marner" :number 16 :position "R"}
+                                    {:name "Noah Gregor" :number 18 :position "C"}
+                                    {:name "Calle Jarnkrok" :number 19 :position "C"}
+                                    {:name "Jake Mccabe" :number 22 :position "D" :starting-lineup true}
+                                    {:name "Matthew Knies" :number 23 :position "L"}
+                                    {:name "Auston Matthews" :number 34 :position "C"}
+                                    {:name "Morgan Rielly" :number 44 :position "D"}
+                                    {:name "Mark Giordano" :number 55 :position "D" :starting-lineup true}
+                                    {:name "Tyler Bertuzzi" :number 59 :position "L" :starting-lineup true}
+                                    {:name "David Kampf" :number 64 :position "C"}
+                                    {:name "Ryan Reaves" :number 75 :position "R"}
+                                    {:name "Tj Brodie" :number 78 :position "D"}
+                                    {:name "William Lagesson" :number 85 :position "D"}
+                                    {:name "William Nylander" :number 88 :position "R" :starting-lineup true}
+                                    {:name "Nicholas Robertson" :number 89 :position "L"}
+                                    {:name "John Tavares" :number 91 :position "C" :starting-lineup true}
+                                    {:name "Ilya Samsonov" :number 35 :position "G"}
+                                    {:name "Joseph Woll" :number 60 :position "G" :starting-lineup true}]
+                  :scratched-players [{:name "John Klingberg" :number 3 :position "D"}
+                                      {:name "Pontus Holmberg" :number 29 :position "R"}]}}
+          rosters (get-parsed-rosters [2023020207])
+          games (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings
+                  default-gamecenters
+                  rosters))
+          game-with-roster (nth games 1)]
+      (is (= expected (:rosters game-with-roster)) "Rosters match expected parsed roster")))
+
+  (testing "Games without roster data do not have rosters key"
+    (let [rosters {2023020207 (parse-roster-html (resources/get-roster-html 2023020207))}
+          games (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings
+                  default-gamecenters
+                  rosters))]
+      (is (not (contains? (first games) :rosters)) "First game has no rosters")
+      (is (contains? (nth games 1) :rosters) "Second game has rosters")
+      (is (not (contains? (nth games 2) :rosters)) "Third game has no rosters"))))

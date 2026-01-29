@@ -77,6 +77,7 @@ The `games` array contains details of the games, each game item containing these
 - `preGameStats` _(object)_
 - `currentStats` _(object)_
 - `links` _(object)_
+- `rosters` _(object)_ (only present when roster data is available for the game)
 - `errors` _(array)_ (only present if data validity errors were detected)
 
 The fields are described in more detail in [Response fields](#response-fields).
@@ -105,6 +106,7 @@ The `games` array contains details of the games, each game item containing these
 - `preGameStats` _(object)_
 - `currentStats` _(object)_
 - `links` _(object)_
+- `rosters` _(object)_ (only present when roster data is available for the game)
 - `errors` _(array)_ (only present if data validity errors were detected)
 
 **If a date has no scheduled games**, you will either get:
@@ -707,6 +709,16 @@ Example of a single playoff date in the API response
   - `gameCenter`: game summary with lots of related info
   - `playoffSeries`: playoff series specific info (only present in playoff games)
   - `videoRecap`: 5-minute video recap (once available)
+- `rosters` object: each team’s dressed and scratched players (only present when roster data is available for finished or live games), with the fields:
+  - `dressedPlayers` _(array)_: players in the lineup, each item containing:
+    - `name` _(string)_
+    - `position` _(string)_
+    - `number` _(number)_
+    - `startingLineup` _(boolean)_: present and `true` only for players in the starting lineup (for example, the starting goalie)
+  - `scratchedPlayers` _(array)_: scratched players, each item containing:
+    - `name` _(string)_
+    - `position` _(string)_
+    - `number` _(number)
 - `errors` array: list of data validation errors, only present if any were detected. Sometimes the NHL Web API temporarily contains
   invalid or missing data. Currently we check if the goal data from the NHL Web API (read from its `scoringPlays` field) contains the
   same number of goals than the score data (read from its `teams` field). If it doesn’t, two different errors can be reported:

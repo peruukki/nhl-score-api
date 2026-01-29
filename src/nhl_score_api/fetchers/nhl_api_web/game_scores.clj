@@ -472,6 +472,13 @@
       game-details
       (assoc game-details :errors errors))))
 
+(defn- format-roster-for-response [rosters]
+  (when rosters
+    {:away {:dressed-players   (or (:dressed-players (:away rosters)) [])
+            :scratched-players (or (:scratched-players (:away rosters)) [])}
+     :home {:dressed-players   (or (:dressed-players (:home rosters)) [])
+            :scratched-players (or (:scratched-players (:home rosters)) [])}}))
+
 (defn- reject-empty-vals-except-for-keys [game-details keys-to-keep]
   (into {} (filter #(or (contains? keys-to-keep (key %))
                         (seq (val %)))
@@ -480,7 +487,7 @@
 (defn- parse-game-details
   ([current-and-pre-game-standings gamecenter schedule-game]
    (parse-game-details current-and-pre-game-standings gamecenter schedule-game nil))
-  ([current-and-pre-game-standings gamecenter schedule-game _rosters]
+  ([current-and-pre-game-standings gamecenter schedule-game rosters]
    (let [team-details (parse-game-team-details schedule-game)
          scores (parse-scores schedule-game team-details)
          teams (get-teams team-details (:season schedule-game))]
@@ -497,8 +504,9 @@
          (add-team-streaks schedule-game team-details current-and-pre-game-standings)
          (add-team-standings team-details current-and-pre-game-standings)
          (add-playoff-series-information schedule-game)
+         (cond-> rosters (assoc :rosters (format-roster-for-response rosters)))
          (add-validation-errors)
-         (reject-empty-vals-except-for-keys #{:goals :links})))))
+         (reject-empty-vals-except-for-keys #{:goals :links :rosters})))))
 
 (defn parse-game-scores
   ([date-and-schedule-games current-and-pre-game-standings]
