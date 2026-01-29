@@ -18,7 +18,24 @@ lein run
 
 ## Testing
 
-Run tests with `lein test`. For test-specific details (running specific tests, watch mode, test structure, test data), see [test/nhl_score_api/AGENTS.md](test/nhl_score_api/AGENTS.md).
+Running tests:
+
+```bash
+# Run all tests
+lein test
+
+# Run tests in watch mode
+lein test --watch
+
+# Run a specific test or test group using Kaocha's --focus
+# Example: single test function
+lein test --focus nhl-score-api.fetchers.nhl-api-web.game-scores-test/game-scores-parsing-scores
+
+# Focus on a namespace
+lein test --focus nhl-score-api.fetchers.nhl-api-web.fetcher-test
+```
+
+For test implementation details, see [test/nhl_score_api/AGENTS.md](test/nhl_score_api/AGENTS.md).
 
 ## Code Formatting
 

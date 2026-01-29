@@ -1,34 +1,6 @@
 # Test Guide for nhl-score-api
 
-This guide covers test-specific details for the nhl-score-api project. See the root [AGENTS.md](../../AGENTS.md) for general project information.
-
-## Running Tests
-
-### Run all tests
-
-```bash
-lein test
-```
-
-### Run tests with watch mode
-
-```bash
-lein test --watch
-```
-
-### Run a specific test file or test group
-
-Use Kaocha's `--focus` argument:
-
-```bash
-lein test --focus nhl-score-api.fetchers.nhlstats.game-scores-test/game-scores-parsing-scores
-```
-
-Or focus on a namespace:
-
-```bash
-lein test --focus nhl-score-api.fetchers.nhl-api-web.fetcher-test
-```
+This guide covers test implementation specific details for the nhl-score-api project. See the root [AGENTS.md](../../AGENTS.md) for general project information, including how to run the tests.
 
 ## Test Structure
 
