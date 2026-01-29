@@ -162,18 +162,18 @@
   (when-let [rosters-url (get-rosters-url gamecenter)]
     (fetch-and-parse-rosters rosters-url game-id)))
 
-(defn- fetch-gamecenters [schedule-games]
+(defn- fetch-gamecenters [schedule-games include-rosters?]
   (->> schedule-games
        (get-gamecenter-game-ids)
        (pmap (fn [game-id]
                (let [gamecenter (get-gamecenter (fetch-cached (landing/->LandingApiRequest game-id))
                                                 (fetch-cached (right-rail/->RightRailApiRequest game-id)))
-                     rosters (fetch-rosters gamecenter game-id)]
+                     rosters (when include-rosters? (fetch-rosters gamecenter game-id))]
                  [game-id {:gamecenter gamecenter
                            :rosters rosters}])))
        (into {})))
 
-(defn- prune-cache-and-fetch-gamecenters [games-info date-and-schedule-games]
+(defn- prune-cache-and-fetch-gamecenters [games-info date-and-schedule-games include-rosters?]
   (when-not (:from-cache? (meta games-info))
     (logger/debug (str "Evicting "
                        (get-in date-and-schedule-games [:date :raw] "<no date>")
@@ -182,9 +182,9 @@
                                         (map (fn [game] [(api/cache-key (landing/->LandingApiRequest (:id game)))
                                                          (api/cache-key (right-rail/->RightRailApiRequest (:id game)))]))
                                         flatten)))
-  (fetch-gamecenters (:games date-and-schedule-games)))
+  (fetch-gamecenters (:games date-and-schedule-games) include-rosters?))
 
-(defn fetch-latest-scores []
+(defn fetch-latest-scores [include-rosters?]
   (let [latest-games-info (fetch-games-info nil)
         date-and-schedule-games (get-latest-games latest-games-info)
         standings-date-str (if (= (count (:games date-and-schedule-games)) 0)
@@ -195,13 +195,13 @@
                                                 :regular-season-start-date-str (:regular-season-start-date latest-games-info)
                                                 :regular-season-end-date-str (:regular-season-end-date latest-games-info)}
                                                latest-games-info))
-        gamecenters-and-rosters (prune-cache-and-fetch-gamecenters latest-games-info date-and-schedule-games)
+        gamecenters-and-rosters (prune-cache-and-fetch-gamecenters latest-games-info date-and-schedule-games include-rosters?)
         gamecenters (into {} (map (fn [[game-id data]] [game-id (:gamecenter data)]) gamecenters-and-rosters))
         rosters (into {} (map (fn [[game-id data]] [game-id (:rosters data)]) gamecenters-and-rosters))]
     (->> (game-scores/parse-game-scores date-and-schedule-games standings-info gamecenters rosters)
          cache/log-cache-sizes!)))
 
-(defn fetch-scores-in-date-range [start-date end-date]
+(defn fetch-scores-in-date-range [start-date end-date include-rosters?]
   (let [games-info (fetch-games-info {:start (format-date start-date) :end (format-date end-date)})
         dates-and-schedule-games (get-games-in-date-range games-info start-date end-date)
         standings-date-strs (map #(if (= (count (:games %)) 0)
@@ -214,7 +214,7 @@
                                                games-info)]
     (->
      (doall (map-indexed (fn [index date-and-schedule-games]
-                           (let [gamecenters-and-rosters (prune-cache-and-fetch-gamecenters games-info date-and-schedule-games)
+                           (let [gamecenters-and-rosters (prune-cache-and-fetch-gamecenters games-info date-and-schedule-games include-rosters?)
                                  gamecenters (into {} (map (fn [[game-id data]] [game-id (:gamecenter data)]) gamecenters-and-rosters))
                                  rosters (into {} (map (fn [[game-id data]] [game-id (:rosters data)]) gamecenters-and-rosters))]
                              (game-scores/parse-game-scores date-and-schedule-games (nth standings-infos index) gamecenters rosters)))

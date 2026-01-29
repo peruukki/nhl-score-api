@@ -63,6 +63,8 @@ sequenceDiagram
 
 Returns an object with the date and the scores from the latest round’s games.
 
+**Optional query parameter:** Use `include=rosters` to include roster data (dressed and scratched players) for each started game when available.
+
 The `date` object contains the date in a raw format and a prettier, displayable format, or
 `null` if there are no scores.
 
@@ -77,7 +79,7 @@ The `games` array contains details of the games, each game item containing these
 - `preGameStats` _(object)_
 - `currentStats` _(object)_
 - `links` _(object)_
-- `rosters` _(object)_ (only present when roster data is available for the game)
+- `rosters` _(object)_ (only present when requested with `include=rosters` and roster data is available for the game)
 - `errors` _(array)_ (only present if data validity errors were detected)
 
 The fields are described in more detail in [Response fields](#response-fields).
@@ -90,6 +92,8 @@ Returns an array of objects with the date and the scores from given date range�
 Both `startDate` and `endDate` are inclusive, and `endDate` is optional. **The range is
 limited to a maximum of 7 days** to set some reasonable limit for the (cached) response;
 this also matches the NHL Web API that returns one week’s schedule at a time.
+
+**Optional query parameter:** Use `include=rosters` to include roster data (dressed and scratched players) for each started game when available.
 
 The `date` object contains the date in a raw format and a prettier, displayable format. Contrary to the
 `/api/scores/latest` endpoint, the `date` is included even if that date has no scheduled games.
@@ -106,7 +110,7 @@ The `games` array contains details of the games, each game item containing these
 - `preGameStats` _(object)_
 - `currentStats` _(object)_
 - `links` _(object)_
-- `rosters` _(object)_ (only present when roster data is available for the game)
+- `rosters` _(object)_ (only present when requested with `include=rosters` and roster data is available for the game)
 - `errors` _(array)_ (only present if data validity errors were detected)
 
 **If a date has no scheduled games**, you will either get:

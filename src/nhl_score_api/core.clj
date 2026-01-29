@@ -41,6 +41,11 @@
     (logger/info (str "Listening on " ip ":" port))
     (server/run-server app {:ip ip :port port})))
 
+(defn- include-rosters? [request-params]
+  (let [parsed (params/parse-params [{:field :include :type :string}] request-params)
+        include-list (or (get-in parsed [:values :include]) [])]
+    (contains? (set include-list) "rosters")))
+
 (defn get-response
   [request-path request-params fetch-latest-scores-api-fn fetch-scores-in-date-range-api-fn]
   (case request-path
@@ -50,23 +55,25 @@
 
     "/api/scores/latest"
     {:status 200
-     :body (fetch-latest-scores-api-fn)}
+     :body (fetch-latest-scores-api-fn (include-rosters? request-params))}
 
     "/api/scores"
-    (let [expected-params [{:field :start-date :type :date :required? true}
-                           {:field :end-date :type :date}]
+    (let [expected-params [{:field :end-date :type :date}
+                           {:field :include :type :string}
+                           {:field :start-date :type :date :required? true}]
           parsed-params (params/parse-params expected-params request-params)]
       (if (not-empty (:errors parsed-params))
         {:status 400
          :body {:errors (:errors parsed-params)}}
-        (let [start-date (:start-date (:values parsed-params))
-              end-date (:end-date (:values parsed-params))
+        (let [end-date (:end-date (:values parsed-params))
+              include-rosters (include-rosters? request-params)
+              start-date (:start-date (:values parsed-params))
               validation-error (validate/validate-date-range start-date end-date 7)]
           (if validation-error
             {:status 400
              :body {:errors [validation-error]}}
             {:status 200
-             :body (fetch-scores-in-date-range-api-fn start-date (or end-date start-date))}))))
+             :body (fetch-scores-in-date-range-api-fn start-date (or end-date start-date) include-rosters)}))))
     {:status 404 :body {}}))
 
 (defn json-key-transformer [key]

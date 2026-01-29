@@ -41,3 +41,34 @@
             :errors ["Missing required parameter date"]}
            (parse-params [{:field :date :required? true :type :date}] {}))
         "Missing value error")))
+
+(deftest parsing-include-param
+  (testing "Parsing single value"
+    (is (= {:values {:include ["rosters"]}
+            :errors []}
+           (parse-params [{:field :include :type :string}] {:include "rosters"}))
+        "Success result with single inclusion"))
+
+  (testing "Parsing multiple comma-separated values"
+    (is (= {:values {:include ["rosters" "otherthing"]}
+            :errors []}
+           (parse-params [{:field :include :type :string}] {:include "rosters,otherThing"}))
+        "Success result with multiple inclusions"))
+
+  (testing "Default behavior when parameter missing"
+    (is (= {:values {:include nil}
+            :errors []}
+           (parse-params [{:field :include :type :string}] {}))
+        "Success result with nil include"))
+
+  (testing "Empty value handling"
+    (is (= {:values {:include []}
+            :errors []}
+           (parse-params [{:field :include :type :string}] {:include ""}))
+        "Success result with empty list"))
+
+  (testing "Whitespace handling in comma-separated list"
+    (is (= {:values {:include ["rosters" "other"]}
+            :errors []}
+           (parse-params [{:field :include :type :string}] {:include " rosters , other "}))
+        "Whitespace trimmed around values")))

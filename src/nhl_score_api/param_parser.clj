@@ -1,5 +1,6 @@
 (ns nhl-score-api.param-parser
-  (:require [camel-snake-kebab.core :refer [->camelCaseString]]
+  (:require [clojure.string :as str]
+            [camel-snake-kebab.core :refer [->camelCaseString]]
             [nhl-score-api.utils :refer [parse-date]]))
 
 (defn- parse-fn-date [name field value]
@@ -7,7 +8,17 @@
     {:success {field (parse-date value)}}
     (catch Exception e {:error (str "Invalid parameter " name ": " (.getMessage e))})))
 
-(def parse-fns {:date parse-fn-date})
+(defn- parse-fn-string [_name field value]
+  (let [include-list (if (str/blank? value)
+                       []
+                       (->> (str/split value #",")
+                            (map str/trim)
+                            (filter not-empty)
+                            (map str/lower-case)
+                            vec))]
+    {:success {field include-list}}))
+
+(def parse-fns {:date parse-fn-date :string parse-fn-string})
 
 (defn- parse-param [field value type required?]
   (let [name (->camelCaseString field)

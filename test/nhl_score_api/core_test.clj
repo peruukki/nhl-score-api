@@ -3,6 +3,7 @@
             [clojure.test :refer [deftest is testing]]
             [nhl-score-api.core :refer [app get-error-response get-response json-key-transformer]]))
 
+(def include-rosters-passed (atom nil))
 (def latest-scores-fetched (atom false))
 (def scores-in-date-range-fetched (atom false))
 
@@ -34,6 +35,44 @@
     (let [path "/api/scores/latest"
           response (get-response path {} latest-scores-api-fn scores-in-date-range-api-fn)]
       (is (= 200 (:status response)) "Response status is 200"))))
+
+(deftest include-query-parameter
+  (testing "include=rosters query parameter is passed to latest scores API"
+    (let [path "/api/scores/latest"
+          response (get-response path {:include "rosters"} latest-scores-api-fn scores-in-date-range-api-fn)]
+      (is (= 200 (:status response)) "Response status is 200")
+      (is (= true @include-rosters-passed) "include-rosters true passed to API")))
+
+  (testing "include=rosters,otherThing still includes rosters"
+    (let [path "/api/scores/latest"
+          response (get-response path {:include "rosters,otherThing"} latest-scores-api-fn scores-in-date-range-api-fn)]
+      (is (= 200 (:status response)) "Response status is 200")
+      (is (= true @include-rosters-passed) "include-rosters true passed to API")))
+
+  (testing "Missing parameter passes include-rosters false"
+    (let [path "/api/scores/latest"
+          response (get-response path {} latest-scores-api-fn scores-in-date-range-api-fn)]
+      (is (= 200 (:status response)) "Response status is 200")
+      (is (= false @include-rosters-passed) "include-rosters false passed to API")))
+
+  (testing "Empty include parameter passes include-rosters false"
+    (let [path "/api/scores/latest"
+          response (get-response path {:include ""} latest-scores-api-fn scores-in-date-range-api-fn)]
+      (is (= 200 (:status response)) "Response status is 200")
+      (is (= false @include-rosters-passed) "include-rosters false passed to API")))
+
+  (testing "include=ROSTERS is case-insensitive"
+    (let [path "/api/scores/latest"
+          response (get-response path {:include "ROSTERS"} latest-scores-api-fn scores-in-date-range-api-fn)]
+      (is (= 200 (:status response)) "Response status is 200")
+      (is (= true @include-rosters-passed) "include-rosters true passed to API")))
+
+  (testing "include=rosters query parameter is passed to date range scores API"
+    (let [path "/api/scores"
+          response (get-response path {:include "rosters" :start-date "2021-10-03" :end-date "2021-10-04"}
+                                 latest-scores-api-fn scores-in-date-range-api-fn)]
+      (is (= 200 (:status response)) "Response status is 200")
+      (is (= true @include-rosters-passed) "include-rosters true passed to API"))))
 
 (deftest scores-in-date-range-route
   (testing "Returns success response with :start-date parameter"
@@ -133,11 +172,13 @@
          (:body response))
       message))
 
-(defn- latest-scores-api-fn []
+(defn- latest-scores-api-fn [include-rosters?]
+  (reset! include-rosters-passed include-rosters?)
   (reset! latest-scores-fetched true)
   latest-scores)
 
 #_{:clj-kondo/ignore [:unused-binding]}
-(defn- scores-in-date-range-api-fn [start-date end-date]
+(defn- scores-in-date-range-api-fn [start-date end-date include-rosters?]
+  (reset! include-rosters-passed include-rosters?)
   (reset! scores-in-date-range-fetched true)
   scores-in-date-range)
