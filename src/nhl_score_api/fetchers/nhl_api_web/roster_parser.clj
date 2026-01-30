@@ -2,16 +2,50 @@
   (:require [clojure.string :as str]
             [net.cgrand.enlive-html :as html]))
 
-(defn- normalize-name
+(def ^:private name-overrides
+  "Map of uppercase name (or word) to normalized form for names that do not follow title-case rules."
+  {"DEANGELO"  "DeAngelo"
+   "JJ"        "JJ"
+   "MACCELLI"  "Maccelli"
+   "MACKENZIE" "Mackenzie"
+   "MACKEY"    "Mackey"
+   "VAN"       "van"})
+
+(defn normalize-name
   "Normalizes player name from UPPERCASE HTML format to title case.
-   Removes captain/alternate markers like '(C)' or '(A)'."
+   Removes captain/alternate markers like '(C)' or '(A)'.
+   Handles hyphenated names (e.g. Ekman-Larsson), apostrophes (e.g. O'Reilly),
+   Mc/Mac prefixes (e.g. McDavid, MacTavish), initials (e.g. J.J.), and name overrides (e.g. DeAngelo)."
   [name-str]
-  (-> name-str
-      (str/replace #"\s*\([CA]\)\s*" "")
-      str/trim
-      (str/split #"\s+")
-      (->> (map str/capitalize)
-           (str/join " "))))
+  (let [apply-override (fn [word]
+                         (get name-overrides (str/upper-case word) word))
+        fix-initials (fn [s]
+                       (str/replace s #"\.([a-z])" (fn [[_ c]] (str "." (str/upper-case c)))))
+        fix-mac-mc (fn [base]
+                     (cond
+                       (and (> (count base) 3) (str/starts-with? base "Mac"))
+                       (str "Mac" (str/capitalize (subs base 3)))
+                       (and (> (count base) 2) (str/starts-with? base "Mc"))
+                       (str "Mc" (str/capitalize (subs base 2)))
+                       :else base))
+        capitalize-segment (fn [s]
+                             (let [base (->> (str/split s #"'")
+                                             (map str/capitalize)
+                                             (str/join "'"))]
+                               (-> base fix-mac-mc fix-initials)))
+        capitalize-word (fn [word]
+                          (->> (str/split word #"-")
+                               (map capitalize-segment)
+                               (str/join "-")
+                               apply-override))
+        strip-captaincy-indicators (fn [s]
+                                     (str/replace s #"\s*\([CA]\)\s*" ""))]
+    (-> name-str
+        strip-captaincy-indicators
+        str/trim
+        (str/split #"\s+")
+        (->> (map capitalize-word)
+             (str/join " ")))))
 
 (defn- has-bold-class?
   "Checks if any td element in the row has a class containing 'bold'."

@@ -2,7 +2,35 @@
   (:require [clojure.string :as str]
             [clojure.test :refer [deftest is testing]]
             [nhl-score-api.fetchers.nhl-api-web.resources :as resources]
-            [nhl-score-api.fetchers.nhl-api-web.roster-parser :refer [parse-roster-html]]))
+            [nhl-score-api.fetchers.nhl-api-web.roster-parser :refer [normalize-name parse-roster-html]]))
+
+(deftest normalize-name-test
+  (testing "Hyphenated names are title-cased per segment"
+    (is (= (normalize-name "OLIVER EKMAN-LARSSON") "Oliver Ekman-Larsson"))
+    (is (= (normalize-name "UKKO-PEKKA LUUKKONEN") "Ukko-Pekka Luukkonen")))
+  (testing "Names with apostrophes are normalized correctly"
+    (is (= (normalize-name "RYAN O'REILLY") "Ryan O'Reilly")))
+  (testing "Simple uppercase names are title-cased"
+    (is (= (normalize-name "CONNOR ZARY") "Connor Zary"))
+    (is (= (normalize-name "DAN VLADAR") "Dan Vladar")))
+  (testing "Captain and alternate markers are removed"
+    (is (= (normalize-name "JOHN TAVARES (C)") "John Tavares"))
+    (is (= (normalize-name "MITCH MARNER (A)") "Mitch Marner"))
+    (is (= (normalize-name "AUSTON MATTHEWS (A)") "Auston Matthews")))
+  (testing "Mc prefix is title-cased correctly"
+    (is (= (normalize-name "CONNOR MCDAVID") "Connor McDavid")))
+  (testing "Mac prefix is title-cased correctly"
+    (is (= (normalize-name "MASON MACTAVISH") "Mason MacTavish")))
+  (testing "Single letter followed by period stays uppercase (e.g. initials)"
+    (is (= (normalize-name "A.J. GREER") "A.J. Greer"))
+    (is (= (normalize-name "J.J. MOSER") "J.J. Moser")))
+  (testing "Name overrides apply for known names"
+    (is (= (normalize-name "CONNOR MACKEY") "Connor Mackey"))
+    (is (= (normalize-name "JAMES VAN RIEMSDYK") "James van Riemsdyk"))
+    (is (= (normalize-name "JJ PETERKA") "JJ Peterka"))
+    (is (= (normalize-name "MACKENZIE WEEGAR") "Mackenzie Weegar"))
+    (is (= (normalize-name "MATIAS MACCELLI") "Matias Maccelli"))
+    (is (= (normalize-name "TONY DEANGELO") "Tony DeAngelo"))))
 
 (deftest parse-roster-html-test
   (testing "Parsing roster HTML extracts dressed players for both teams"

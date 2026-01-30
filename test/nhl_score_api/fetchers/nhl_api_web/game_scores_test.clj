@@ -865,7 +865,7 @@
                                     {:name "Mikael Backlund" :number 11 :position "C" :starting-lineup true}
                                     {:name "Nikita Zadorov" :number 16 :position "D"}
                                     {:name "Yegor Sharangovich" :number 17 :position "C"}
-                                    {:name "A.j. Greer" :number 18 :position "L"}
+                                    {:name "A.J. Greer" :number 18 :position "L"}
                                     {:name "Blake Coleman" :number 20 :position "C" :starting-lineup true}
                                     {:name "Elias Lindholm" :number 28 :position "C"}
                                     {:name "Dillon Dube" :number 29 :position "C"}
@@ -887,7 +887,7 @@
                                     {:name "Mitchell Marner" :number 16 :position "R"}
                                     {:name "Noah Gregor" :number 18 :position "C"}
                                     {:name "Calle Jarnkrok" :number 19 :position "C"}
-                                    {:name "Jake Mccabe" :number 22 :position "D" :starting-lineup true}
+                                    {:name "Jake McCabe" :number 22 :position "D" :starting-lineup true}
                                     {:name "Matthew Knies" :number 23 :position "L"}
                                     {:name "Auston Matthews" :number 34 :position "C"}
                                     {:name "Morgan Rielly" :number 44 :position "D"}
