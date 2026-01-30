@@ -35,6 +35,7 @@ Data fetching sequence diagram
 sequenceDiagram
   participant S as NHL Score API
   participant W as NHL Web API
+  participant H as NHL website
 
   S->>W: GET /v1/schedule/:date
   W-->>S: { "gameWeek": ... }
@@ -44,6 +45,10 @@ sequenceDiagram
     W-->>S: { "summary": ... }
     S->>W: GET /v1/gamecenter/:game-id/right-rail
     W-->>S: { "teamGameStats": ... }
+    opt When include=rosters
+      S->>H: GET roster report page (URL from right-rail)
+      H-->>S: HTML
+    end
   end
 
   loop Each needed date
