@@ -721,23 +721,23 @@ Example of a single playoff date in the API response
 - `rosters` object: each team’s dressed and scratched players (only present when roster data is available for finished or live games), with the fields:
   - `dressedPlayers` _(array)_: players in the lineup, each item containing:
     - `name` _(string)_
+    - `number` _(number)_
     - `position` _(string)_:
       - `"C"` for center
       - `"D"` for defense
       - `"G"` for goalie
       - `"L"` for left wing
       - `"R"` for right wing
-    - `number` _(number)_
     - `startingLineup` _(boolean)_: present and `true` only for players in the starting lineup (for example, the starting goalie)
   - `scratchedPlayers` _(array)_: scratched players, each item containing:
     - `name` _(string)_
+    - `number` _(number)
     - `position` _(string)_:
       - `"C"` for center
       - `"D"` for defense
       - `"G"` for goalie
       - `"L"` for left wing
       - `"R"` for right wing
-    - `number` _(number)
 - `errors` array: list of data validation errors, only present if any were detected. Sometimes the NHL Web API temporarily contains
   invalid or missing data. Currently we check if the goal data from the NHL Web API (read from its `scoringPlays` field) contains the
   same number of goals than the score data (read from its `teams` field). If it doesn’t, two different errors can be reported:
