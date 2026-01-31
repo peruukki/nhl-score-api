@@ -731,7 +731,7 @@ Example of a single playoff date in the API response
     - `startingLineup` _(boolean)_: present and `true` only for players in the starting lineup (for example, the starting goalie)
   - `scratchedPlayers` _(array)_: scratched players, each item containing:
     - `name` _(string)_
-    - `number` _(number)
+    - `number` _(number)_
     - `position` _(string)_:
       - `"C"` for center
       - `"D"` for defense
