@@ -2,56 +2,20 @@ name: Deployment to Heroku
 
 on:
   workflow_dispatch:
-    inputs:
-      version-bump:
-        description: Version bump type (select none to skip version bump)
-        type: choice
-        options:
-          - none
-          - patch
-          - minor
-          - major
 
 jobs:
   checks:
     uses: ./.github/workflows/checks.yml
 
-  bump-version:
-    if: ${{ inputs.version-bump != 'none' }}
-    needs: checks
-    runs-on: ubuntu-latest
-    environment: nhl-score-api
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          # Fetch full history for version bumping with `lein release` that creates Git tags and commits
-          fetch-depth: 0
-          token: ${{ secrets.TOKEN_BYPASS_REQUIRED_CHECKS }}
-
-      - name: Setup
-        uses: ./.github/actions/setup
-
-      - name: Configure Git
-        run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "GitHub Actions"
-
-      - name: Bump version
-        run: lein release :${{ inputs.version-bump }}
-
-      - name: Push to Git
-        run: git push origin master --tags
-
   build:
-    if: always() && (needs.bump-version.result == 'success' || needs.bump-version.result == 'skipped')
-    needs: bump-version
     uses: ./.github/workflows/build.yml
     with:
       upload: true
 
   upload-to-heroku:
-    if: always() && needs.build.result == 'success'
-    needs: build
+    needs:
+      - build
+      - checks
     runs-on: ubuntu-latest
     environment: nhl-score-api
     steps:

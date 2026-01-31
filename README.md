@@ -866,29 +866,26 @@ There is also a similar script `update-standings-test-data.sh` for updating stan
 
 ## Deployment
 
-The API is deployed to [Heroku](http://heroku.com/) by running the [Deployment workflow](https://github.com/peruukki/nhl-score-api/actions/workflows/deployment.yml).
-The workflow requires these set in _Actions secrets and variables_ in the repository’s settings:
+Usual deployment process:
+
+1. Bump the version
+   ```sh
+   lein release <:minor|:patch>
+   git push origin master --tags
+   ```
+2. Deploy to [Heroku](http://heroku.com/) by running the [Deployment workflow](https://github.com/peruukki/nhl-score-api/actions/workflows/deployment.yml).
+   - Alternatively deploy from a development machine:
+     ```sh
+     lein uberjar
+     ./deploy.sh
+     ```
+
+### Deployment workflow setup
+
+The deployment workflow requires these set in _Actions secrets and variables_ in the repository’s settings:
 
 - `HEROKU_API_KEY` repository secret: you can find this from the _API Key_ section in your Heroku account settings
 - `HEROKU_APP_NAME` repository variable: your app name in Heroku
-- `TOKEN_BYPASS_REQUIRED_CHECKS` repository secret: generate a [personal access token (classic)](https://github.com/settings/tokens) with full `repo` rights
-  - The user who owns the access token needs to be on the bypass list for required GitHub status checks (configured in the repository rulesets)
-  - It’s recommended to set an expirate date for the token, though this means it needs to be regenerated periodically
-
-### Alternative deployment from development machine
-
-Usual deployment process:
-
-```sh
-# Bump version
-lein release <:minor|:patch>
-# Build
-lein uberjar
-# Deploy to Heroku
-./deploy.sh
-# Push to Git
-git push origin master --tags
-```
 
 ### Heroku deployment setup
 
