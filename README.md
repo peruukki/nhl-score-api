@@ -795,7 +795,7 @@ You can also run the application locally with `lein run`.
 The application can be configured using the following environment variables:
 
 - `MAX_CONCURRENT_API_REQUESTS` _(default: "3")_: The maximum number of concurrent API requests to the NHL Web API
-- `PORT` _(default: "8080")_: The port on which the HTTP server listens
+- `PORT` _(default: "8081")_: The port on which the HTTP server listens
 
 ## Running tests
 

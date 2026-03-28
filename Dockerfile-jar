@@ -12,5 +12,5 @@ COPY src /usr/src/app/src
 RUN lein uberjar
 
 # Run application
-EXPOSE 8080
+EXPOSE 8081
 CMD ["java", "-jar", "target/server.jar"]

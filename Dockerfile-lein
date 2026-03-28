@@ -11,5 +11,5 @@ RUN lein deps
 COPY src /usr/src/app/src
 
 # Run application
-EXPOSE 8080
+EXPOSE 8081
 CMD ["lein", "run"]
