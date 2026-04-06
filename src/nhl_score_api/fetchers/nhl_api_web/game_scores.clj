@@ -3,6 +3,7 @@
             [nhl-score-api.fetchers.nhl-api-web.data :as data]
             [nhl-score-api.fetchers.nhl-api-web.transformer :refer [finished-game?
                                                                     get-game-state
+                                                                    get-game-type
                                                                     live-game?
                                                                     non-playoff-game?
                                                                     playoff-game?
@@ -495,7 +496,9 @@
           :start-time (parse-game-start-time schedule-game)
           :goals (parse-goals gamecenter)
           :links (parse-links schedule-game)
-          :meta {:game-id (:id schedule-game) :season-id (:season schedule-game)}
+          :meta {:game-id (:id schedule-game)
+                 :game-type (get-game-type schedule-game)
+                 :season-id (:season schedule-game)}
           :scores scores
           :teams teams
           pre-game-stats-key {}

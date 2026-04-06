@@ -322,6 +322,7 @@ Example of a single regular season date in the API response
       },
       "meta": {
         "gameId": 2023020092,
+        "gameType": "REGULAR_SEASON",
         "seasonId": 20232024
       }
     },
@@ -504,6 +505,7 @@ Example of a single regular season date in the API response
       },
       "meta": {
         "gameId": 2023020412,
+        "gameType": "REGULAR_SEASON",
         "seasonId": 20232024
       }
     }
@@ -596,6 +598,7 @@ Example of a single playoff date in the API response
       "links": {},
       "meta": {
         "gameId": 2022030132,
+        "gameType": "PLAYOFF",
         "seasonId": 20222023
       }
     }
@@ -734,6 +737,7 @@ Example of a single playoff date in the API response
   - `videoRecap`: 5-minute video recap (once available)
 - `meta` object: metadata about the game, with the fields:
   - `gameId` _(number)_: game ID in NHL APIs (can be used to fetch other resources from NHL APIs)
+  - `gameType` _(string)_: `"REGULAR_SEASON"` or `"PLAYOFF"`
   - `seasonId` _(number)_: the season ID in "YYYYYYYY" format (e.g. `20232024`)
 - `rosters` object: each team’s dressed and scratched players (only present when roster data is available for finished or live games), with the fields:
   - `dressedPlayers` _(array)_: players in the lineup, each item containing:

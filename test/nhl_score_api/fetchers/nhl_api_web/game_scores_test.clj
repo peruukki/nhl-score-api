@@ -62,13 +62,6 @@
               {"BUF" 0 "PIT" 0}
               {"CAR" 0 "TBL" 0}]
              (map :scores games)) "Parsed scores")
-      (is (every? #(contains? % :meta) games) "Parsed game meta exists")
-      (is (= [2023020195 2023020207 2023020209 2023020206 2023020208 2023020205 2023020211 2023020217 2023020214]
-             (map #(get-in % [:meta :game-id]) games))
-          "Parsed game IDs from schedule data")
-      (is (= [20232024]
-             (distinct (map #(get-in % [:meta :season-id]) games)))
-          "Parsed season IDs from schedule data")
       (is (= [false]
              (distinct (map #(contains? % :playoff-series) games)))))))
 
@@ -224,6 +217,38 @@
       (is (= [false false true false true]
              (map #(contains? % :strength) goals))
           "Even strength goals don't contain :strength field"))))
+
+(deftest game-scores-parsing-game-meta
+  (testing "Parsing IDs"
+    (let [games (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings))]
+      (is (every? #(contains? % :meta) games) "Parsed game meta exists")
+      (is (= [2023020195 2023020207 2023020209 2023020206 2023020208 2023020205 2023020211 2023020217 2023020214]
+             (map #(get-in % [:meta :game-id]) games))
+          "Parsed game IDs")
+      (is (= [20232024]
+             (distinct (map #(get-in % [:meta :season-id]) games)))
+          "Parsed season IDs")))
+
+  (testing "Parsing regular season game types"
+    (let [games (:games
+                 (parse-game-scores
+                  (get-latest-games default-games)
+                  default-standings))]
+      (is (= ["REGULAR_SEASON"]
+             (distinct (map #(get-in % [:meta :game-type]) games)))
+          "Parsed regular season game types")))
+
+  (testing "Parsing playoff game types"
+    (let [games (:games
+                 (parse-game-scores
+                  (get-latest-games resources/playoff-games-live-finished-in-regulation-and-overtime)
+                  (:standings resources/standings-for-playoffs)))]
+      (is (= ["PLAYOFF"]
+             (distinct (map #(get-in % [:meta :game-type]) games)))
+          "Parsed playoff game types"))))
 
 (deftest game-scores-parsing-game-statuses
 

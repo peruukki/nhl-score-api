@@ -23,13 +23,19 @@
         "LIVE" "Live"
         "Preview"))))
 
+(defn get-game-type [schedule-game]
+  (case (:game-type schedule-game)
+    2 "REGULAR_SEASON"
+    3 "PLAYOFF"
+    nil))
+
 (declare started-game?)
 
 (defn regular-season-game? [schedule-game]
-  (= 2 (:game-type schedule-game)))
+  (= "REGULAR_SEASON" (get-game-type schedule-game)))
 
 (defn playoff-game? [schedule-game]
-  (= 3 (:game-type schedule-game)))
+  (= "PLAYOFF" (get-game-type schedule-game)))
 
 (defn non-playoff-game? [schedule-game]
   (not (playoff-game? schedule-game)))
