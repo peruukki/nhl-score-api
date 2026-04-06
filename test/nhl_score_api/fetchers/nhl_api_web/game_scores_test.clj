@@ -62,6 +62,13 @@
               {"BUF" 0 "PIT" 0}
               {"CAR" 0 "TBL" 0}]
              (map :scores games)) "Parsed scores")
+      (is (every? #(contains? % :meta) games) "Parsed game meta exists")
+      (is (= [2023020195 2023020207 2023020209 2023020206 2023020208 2023020205 2023020211 2023020217 2023020214]
+             (map #(get-in % [:meta :game-id]) games))
+          "Parsed game IDs from schedule data")
+      (is (= [20232024]
+             (distinct (map #(get-in % [:meta :season-id]) games)))
+          "Parsed season IDs from schedule data")
       (is (= [false]
              (distinct (map #(contains? % :playoff-series) games)))))))
 

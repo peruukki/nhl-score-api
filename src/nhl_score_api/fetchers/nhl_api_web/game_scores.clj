@@ -495,6 +495,7 @@
           :start-time (parse-game-start-time schedule-game)
           :goals (parse-goals gamecenter)
           :links (parse-links schedule-game)
+          :meta {:game-id (:id schedule-game) :season-id (:season schedule-game)}
           :scores scores
           :teams teams
           pre-game-stats-key {}

@@ -84,6 +84,7 @@ The `games` array contains details of the games, each game item containing these
 - `preGameStats` _(object)_
 - `currentStats` _(object)_
 - `links` _(object)_
+- `meta` _(object)_
 - `rosters` _(object)_ (only present when requested with `include=rosters` and roster data is available for the game)
 - `errors` _(array)_ (only present if data validity errors were detected)
 
@@ -115,6 +116,7 @@ The `games` array contains details of the games, each game item containing these
 - `preGameStats` _(object)_
 - `currentStats` _(object)_
 - `links` _(object)_
+- `meta` _(object)_
 - `rosters` _(object)_ (only present when requested with `include=rosters` and roster data is available for the game)
 - `errors` _(array)_ (only present if data validity errors were detected)
 
@@ -317,6 +319,10 @@ Example of a single regular season date in the API response
       "links": {
         "gameCenter": "https://www.nhl.com/gamecenter/bos-vs-chi/2023/10/24/2023020092",
         "videoRecap": "https://www.nhl.com/video/recap-bruins-at-blackhawks-10-24-23-6339814966112"
+      },
+      "meta": {
+        "gameId": 2023020092,
+        "seasonId": 20232024
       }
     },
     {
@@ -495,6 +501,10 @@ Example of a single regular season date in the API response
       },
       "links": {
         "gameCenter": "https://www.nhl.com/gamecenter/ott-vs-det/2023/12/09/2023020412"
+      },
+      "meta": {
+        "gameId": 2023020412,
+        "seasonId": 20232024
       }
     }
   ]
@@ -583,7 +593,11 @@ Example of a single playoff date in the API response
           }
         }
       },
-      "links": {}
+      "links": {},
+      "meta": {
+        "gameId": 2022030132,
+        "seasonId": 20222023
+      }
     }
   ]
 }
@@ -718,6 +732,9 @@ Example of a single playoff date in the API response
   - `gameCenter`: game summary with lots of related info
   - `playoffSeries`: playoff series specific info (only present in playoff games)
   - `videoRecap`: 5-minute video recap (once available)
+- `meta` object: metadata about the game, with the fields:
+  - `gameId` _(number)_: game ID in NHL APIs (can be used to fetch other resources from NHL APIs)
+  - `seasonId` _(number)_: the season ID in "YYYYYYYY" format (e.g. `20232024`)
 - `rosters` object: each team’s dressed and scratched players (only present when roster data is available for finished or live games), with the fields:
   - `dressedPlayers` _(array)_: players in the lineup, each item containing:
     - `name` _(string)_
