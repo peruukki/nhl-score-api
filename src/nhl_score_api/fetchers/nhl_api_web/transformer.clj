@@ -13,15 +13,15 @@
 (defn get-game-state [game]
   (let [game-schedule-state (:game-schedule-state game)]
     (case game-schedule-state
-      "CNCL" "Canceled"
-      "PPD" "Postponed"
+      "CNCL" "CANCELED"
+      "PPD" "POSTPONED"
       (case (:game-state game)
-        "OFF" "Final"
-        "FINAL" "Final"
-        "OVER" "Final"
-        "CRIT" "Live"
-        "LIVE" "Live"
-        "Preview"))))
+        "OFF" "FINAL"
+        "FINAL" "FINAL"
+        "OVER" "FINAL"
+        "CRIT" "LIVE"
+        "LIVE" "LIVE"
+        "PREVIEW"))))
 
 (defn get-game-type [schedule-game]
   (case (:game-type schedule-game)
@@ -57,20 +57,20 @@
 
 (defn- game-comparator [game]
   (case (get-game-state game)
-    "Final" 0
-    "Live" 1
-    "Preview" 2
-    "Postponed" 3
-    "Canceled" 4))
+    "FINAL" 0
+    "LIVE" 1
+    "PREVIEW" 2
+    "POSTPONED" 3
+    "CANCELED" 4))
 
 (defn- sort-games-by-state [games]
   (assoc games :games (sort-by game-comparator (:games games))))
 
 (defn finished-game? [game]
-  (= "Final" (get-game-state game)))
+  (= "FINAL" (get-game-state game)))
 
 (defn live-game? [game]
-  (= "Live" (get-game-state game)))
+  (= "LIVE" (get-game-state game)))
 
 (defn started-game? [game]
   (or (finished-game? game)

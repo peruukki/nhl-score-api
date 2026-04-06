@@ -161,9 +161,6 @@
           (select-keys (:home team-details) [:abbreviation :id :location-name])
           (data/get-team-names (:abbreviation (:home team-details)) season))})
 
-(defn- parse-game-state [schedule-game]
-  (str/upper-case (get-game-state schedule-game)))
-
 (defn- parse-game-progress [schedule-game gamecenter]
   (if (nil? gamecenter)
     nil
@@ -346,7 +343,7 @@
      pre-game-stats-key {:round round :wins wins-before-game}}))
 
 (defn- parse-game-status [schedule-game gamecenter]
-  (let [state (parse-game-state schedule-game)]
+  (let [state (get-game-state schedule-game)]
     (if (= state "LIVE")
       {:state state :progress (parse-game-progress schedule-game gamecenter)}
       {:state state})))

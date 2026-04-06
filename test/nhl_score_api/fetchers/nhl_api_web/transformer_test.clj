@@ -19,7 +19,7 @@
   (testing "Games are returned in order: finished -> in progress -> not started -> postponed"
     (let [latest-games (:games
                         (get-latest-games resources/games-finished-in-regulation-overtime-and-shootout))]
-      (is (= ["Final" "Final" "Final" "Live" "Live" "Live" "Preview" "Preview" "Postponed"]
+      (is (= ["FINAL" "FINAL" "FINAL" "LIVE" "LIVE" "LIVE" "PREVIEW" "PREVIEW" "POSTPONED"]
              (map get-game-state latest-games)) "Game states")))
 
   (testing "No started games is handled gracefully"
