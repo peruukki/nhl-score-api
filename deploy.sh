@@ -26,4 +26,9 @@ fi
 
 # Deploy
 echo "Deploying..."
-java -jar heroku-jvm-application-deployer.jar --include newrelic target/server.jar
+java -jar heroku-jvm-application-deployer.jar \
+  --disable-auto-includes \
+  --include newrelic \
+  --include Procfile \
+  --include system.properties \
+  target/server.jar
