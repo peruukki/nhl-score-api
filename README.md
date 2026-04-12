@@ -913,7 +913,6 @@ The deployment workflow requires these set in _Actions secrets and variables_ in
 1. Create a Java web app in Heroku
 2. Add and set up the [New Relic APM](https://elements.heroku.com/addons/newrelic) Heroku add-on
    - The add-on will automatically add the necessary Heroku environment variables
-   - Ensure the Java agent is set too: `heroku config:set JAVA_OPTS='-javaagent:newrelic/newrelic.jar'`
    - No need to copy New Relic JAR files locally, they are downloaded in [`deploy.sh`](./deploy.sh)
 3. Install and set up the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 4. If you have multiple Heroku apps, set the default app for this repository:
