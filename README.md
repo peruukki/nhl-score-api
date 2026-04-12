@@ -916,15 +916,7 @@ The deployment workflow requires these set in _Actions secrets and variables_ in
    - Ensure the Java agent is set too: `heroku config:set JAVA_OPTS='-javaagent:newrelic/newrelic.jar'`
    - No need to copy New Relic JAR files locally, they are downloaded in [`deploy.sh`](./deploy.sh)
 3. Install and set up the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
-4. Install the [Heroku Java CLI plugin](https://github.com/heroku/plugin-java):
-
-```sh
-heroku plugins:install java
-# alternative if the above doesn’t work:
-heroku plugins:install @heroku-cli/plugin-java
-```
-
-5. If you have multiple Heroku apps, set the default app for this repository:
+4. If you have multiple Heroku apps, set the default app for this repository:
 
 ```sh
 heroku git:remote -a <heroku-app-name>

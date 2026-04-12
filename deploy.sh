@@ -3,6 +3,10 @@
 # Exit on error
 set -e
 
+# Download Heroku
+echo "Downloading Heroku JVM Application Deployer..."
+curl --location https://github.com/heroku/heroku-jvm-application-deployer/releases/download/v4.0.12/heroku-jvm-application-deployer-4.0.12.jar --output heroku-jvm-application-deployer.jar
+
 # Download New Relic agent
 echo "Downloading New Relic agent..."
 curl --location https://download.newrelic.com/newrelic/java-agent/newrelic-agent/8.19.0/newrelic-java.zip --output newrelic.zip
@@ -22,4 +26,4 @@ fi
 
 # Deploy
 echo "Deploying..."
-heroku deploy:jar --includes newrelic:system.properties target/server.jar
+java -jar heroku-jvm-application-deployer.jar --include newrelic target/server.jar
