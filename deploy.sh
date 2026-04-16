@@ -3,7 +3,7 @@
 # Exit on error
 set -e
 
-# Download Heroku
+# Download Heroku deployer
 echo "Downloading Heroku JVM Application Deployer..."
 curl --location https://github.com/heroku/heroku-jvm-application-deployer/releases/download/v4.0.12/heroku-jvm-application-deployer-4.0.12.jar --output heroku-jvm-application-deployer.jar
 
