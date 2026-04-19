@@ -1,0 +1,24 @@
+name: Test GitHub Actions scripts
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/**'
+      - 'github-actions/scripts/**'
+  pull_request:
+    paths:
+      - '.github/workflows/**'
+      - 'github-actions/scripts/**'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v6
+
+      - name: Run checks status tests
+        run: ./github-actions/scripts/github-checks-status-test.sh

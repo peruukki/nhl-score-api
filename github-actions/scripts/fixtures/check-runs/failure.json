@@ -1,0 +1,5 @@
+{
+  "check_runs": [
+    { "name": "checks / test", "conclusion": "failure", "started_at": "2024-01-01T00:00:00Z" }
+  ]
+}
