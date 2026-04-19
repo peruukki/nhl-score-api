@@ -3,19 +3,37 @@ name: Deployment to Heroku
 on:
   workflow_dispatch:
 
+permissions:
+  checks: read
+  contents: read
+
 jobs:
   checks:
-    uses: ./.github/workflows/checks.yml
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure checks have passed
+        run: |
+          all_success=$(gh api \
+            repos/${{ github.repository }}/commits/${{ github.sha }}/check-runs \
+            --jq 'all(.check_runs[]; .conclusion == "success")')
+
+          echo "All checks successful: $all_success"
+
+          if [ "$all_success" != "true" ]; then
+            echo "Not all checks have passed, aborting deployment"
+            exit 1
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build:
+    needs: checks
     uses: ./.github/workflows/build.yml
     with:
       upload: true
 
   upload-to-heroku:
-    needs:
-      - build
-      - checks
+    needs: build
     runs-on: ubuntu-latest
     environment: nhl-score-api
     steps:
