@@ -29,31 +29,31 @@ jobs:
   build:
     needs: checks
     uses: ./.github/workflows/build.yml
-    with:
-      upload: true
+    # with:
+    #   upload: true
 
-  upload-to-heroku:
-    needs: build
-    runs-on: ubuntu-latest
-    environment: nhl-score-api
-    steps:
-      - uses: actions/checkout@v6
+  # upload-to-heroku:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   environment: nhl-score-api
+  #   steps:
+  #     - uses: actions/checkout@v6
 
-      - name: Set up Heroku CLI
-        run: curl https://cli-assets.heroku.com/install.sh | sh
+  #     - name: Set up Heroku CLI
+  #       run: curl https://cli-assets.heroku.com/install.sh | sh
 
-      - name: Configure Heroku
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku git:remote --app ${{ vars.HEROKU_APP_NAME }}
+  #     - name: Configure Heroku
+  #       env:
+  #         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+  #       run: heroku git:remote --app ${{ vars.HEROKU_APP_NAME }}
 
-      - name: Download uberjar
-        uses: actions/download-artifact@v6
-        with:
-          name: target-directory
-          path: target
+  #     - name: Download uberjar
+  #       uses: actions/download-artifact@v6
+  #       with:
+  #         name: target-directory
+  #         path: target
 
-      - name: Deploy to Heroku
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: ./deploy.sh
+  #     - name: Deploy to Heroku
+  #       env:
+  #         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+  #       run: ./deploy.sh
