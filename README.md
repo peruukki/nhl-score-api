@@ -633,6 +633,7 @@ Example of a single playoff date in the API response
       - `sec` _(number)_: seconds remaining; `0` if the current period has ended
 - `startTime` string: the game start time in standard [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format
   "YYYY-MM-DDThh:mm:ssZ"
+  - Note: this field can be absent in playoff games in the future if the start time is still to be decided
 - `goals` array: list of goal details, in the order the goals were scored
   - gameplay goal:
     - `assists` _(array)_ of objects with the fields (an empty array for unassisted goals):

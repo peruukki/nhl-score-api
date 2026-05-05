@@ -40,7 +40,7 @@
       [:game-number-of-series :int]
       [:round :int]
       [:top-seed-wins :int]]]
-    [:start-time-utc :string]
+    [:start-time-utc {:optional true} :string]
     [:three-min-recap {:optional true} :string]]))
 
 (def GameWeekSchema
