@@ -43,7 +43,7 @@ jobs:
         run: heroku git:remote --app ${{ vars.HEROKU_APP_NAME }}
 
       - name: Download uberjar
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v8
         with:
           name: target-directory
           path: target
