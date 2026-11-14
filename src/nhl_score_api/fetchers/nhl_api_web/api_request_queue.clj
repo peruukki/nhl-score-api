@@ -23,7 +23,7 @@
                           url
                           (merge {:connection-manager @connection-manager
                                   :connection-timeout 2000 ; establish TCP connection
-                                  :socket-timeout 10000}   ; read data from established connection
+                                  :socket-timeout 15000}   ; read data from established connection
                                  options))]
             (logger/info (str "[" id "] Fetched " request-description
                               " (took " (- (System/currentTimeMillis) start-time) " ms)"))
