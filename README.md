@@ -893,7 +893,7 @@ Usual deployment process:
 1. Bump the version
    ```sh
    lein release <:minor|:patch>
-   git push origin master --tags
+   git push origin main --tags
    ```
 2. Deploy to [Heroku](http://heroku.com/) by running the [Deployment workflow](https://github.com/peruukki/nhl-score-api/actions/workflows/deployment.yml).
    - Alternatively deploy from a development machine:

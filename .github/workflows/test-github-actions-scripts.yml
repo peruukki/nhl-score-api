@@ -2,7 +2,7 @@ name: Test GitHub Actions scripts
 
 on:
   push:
-    branches: [master]
+    branches: [main]
     paths:
       - '.github/workflows/**'
       - 'github-actions/scripts/**'
